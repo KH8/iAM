@@ -10,6 +10,6 @@
 
 @interface AMCollectionViewController : UICollectionViewController
 
-@property (strong, nonatomic) NSArray *dataArray;
+@property (strong, nonatomic) NSMutableArray *dataArray;
 
 @end

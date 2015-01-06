@@ -6,22 +6,22 @@
 //  Copyright (c) 2015 H@E. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "AMViewController.h"
 
-@interface ViewController ()
+@interface AMViewController ()
+
+@property (weak, nonatomic) IBOutlet AMCollectionView *Collection;
 
 @end
 
-@implementation ViewController
+@implementation AMViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 @end

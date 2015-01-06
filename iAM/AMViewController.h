@@ -7,9 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AMCollectionView.h"
 
-@interface ViewController : UIViewController
-
+@interface AMViewController : UIViewController
 
 @end
 

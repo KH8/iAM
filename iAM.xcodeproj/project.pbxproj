@@ -9,11 +9,13 @@
 /* Begin PBXBuildFile section */
 		A44C55A81A5C00A100DBE7CD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A44C55A71A5C00A100DBE7CD /* main.m */; };
 		A44C55AB1A5C00A100DBE7CD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A44C55AA1A5C00A100DBE7CD /* AppDelegate.m */; };
-		A44C55AE1A5C00A100DBE7CD /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A44C55AD1A5C00A100DBE7CD /* ViewController.m */; };
+		A44C55AE1A5C00A100DBE7CD /* AMViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A44C55AD1A5C00A100DBE7CD /* AMViewController.m */; };
 		A44C55B11A5C00A100DBE7CD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A44C55AF1A5C00A100DBE7CD /* Main.storyboard */; };
 		A44C55B31A5C00A100DBE7CD /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A44C55B21A5C00A100DBE7CD /* Images.xcassets */; };
 		A44C55B61A5C00A100DBE7CD /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = A44C55B41A5C00A100DBE7CD /* LaunchScreen.xib */; };
 		A44C55C21A5C00A100DBE7CD /* iAMTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A44C55C11A5C00A100DBE7CD /* iAMTests.m */; };
+		A44C55CD1A5C01C500DBE7CD /* AMCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A44C55CC1A5C01C500DBE7CD /* AMCollectionViewCell.m */; };
+		A44C55D31A5C07B100DBE7CD /* AMCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = A44C55D21A5C07B100DBE7CD /* AMCollectionView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,14 +34,18 @@
 		A44C55A71A5C00A100DBE7CD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A44C55A91A5C00A100DBE7CD /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		A44C55AA1A5C00A100DBE7CD /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		A44C55AC1A5C00A100DBE7CD /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		A44C55AD1A5C00A100DBE7CD /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		A44C55AC1A5C00A100DBE7CD /* AMViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AMViewController.h; sourceTree = "<group>"; };
+		A44C55AD1A5C00A100DBE7CD /* AMViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AMViewController.m; sourceTree = "<group>"; };
 		A44C55B01A5C00A100DBE7CD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A44C55B21A5C00A100DBE7CD /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		A44C55B51A5C00A100DBE7CD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		A44C55BB1A5C00A100DBE7CD /* iAMTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iAMTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A44C55C01A5C00A100DBE7CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A44C55C11A5C00A100DBE7CD /* iAMTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iAMTests.m; sourceTree = "<group>"; };
+		A44C55CB1A5C01C500DBE7CD /* AMCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMCollectionViewCell.h; sourceTree = "<group>"; };
+		A44C55CC1A5C01C500DBE7CD /* AMCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMCollectionViewCell.m; sourceTree = "<group>"; };
+		A44C55D11A5C07B100DBE7CD /* AMCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMCollectionView.h; sourceTree = "<group>"; };
+		A44C55D21A5C07B100DBE7CD /* AMCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMCollectionView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,12 +89,16 @@
 			children = (
 				A44C55A91A5C00A100DBE7CD /* AppDelegate.h */,
 				A44C55AA1A5C00A100DBE7CD /* AppDelegate.m */,
-				A44C55AC1A5C00A100DBE7CD /* ViewController.h */,
-				A44C55AD1A5C00A100DBE7CD /* ViewController.m */,
+				A44C55AC1A5C00A100DBE7CD /* AMViewController.h */,
+				A44C55AD1A5C00A100DBE7CD /* AMViewController.m */,
 				A44C55AF1A5C00A100DBE7CD /* Main.storyboard */,
 				A44C55B21A5C00A100DBE7CD /* Images.xcassets */,
 				A44C55B41A5C00A100DBE7CD /* LaunchScreen.xib */,
 				A44C55A51A5C00A100DBE7CD /* Supporting Files */,
+				A44C55CB1A5C01C500DBE7CD /* AMCollectionViewCell.h */,
+				A44C55CC1A5C01C500DBE7CD /* AMCollectionViewCell.m */,
+				A44C55D11A5C07B100DBE7CD /* AMCollectionView.h */,
+				A44C55D21A5C07B100DBE7CD /* AMCollectionView.m */,
 			);
 			path = iAM;
 			sourceTree = "<group>";
@@ -219,8 +229,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A44C55AE1A5C00A100DBE7CD /* ViewController.m in Sources */,
+				A44C55D31A5C07B100DBE7CD /* AMCollectionView.m in Sources */,
+				A44C55AE1A5C00A100DBE7CD /* AMViewController.m in Sources */,
 				A44C55AB1A5C00A100DBE7CD /* AppDelegate.m in Sources */,
+				A44C55CD1A5C01C500DBE7CD /* AMCollectionViewCell.m in Sources */,
 				A44C55A81A5C00A100DBE7CD /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -343,6 +355,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = iAM/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -353,6 +366,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = iAM/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";

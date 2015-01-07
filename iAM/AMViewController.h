@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AMCollectionViewController : UICollectionViewController
+@interface AMViewController : UIViewController
 
 @property (strong, nonatomic) NSMutableArray *dataArray;
 

@@ -6,21 +6,23 @@
 //  Copyright (c) 2015 H@E. All rights reserved.
 //
 
-#import "AMCollectionViewController.h"
+#import "AMViewController.h"
 #import "AMCollectionViewCell.h"
 
-@interface AMCollectionViewController ()
+@interface AMViewController ()
+
+@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 
 @end
 
-@implementation AMCollectionViewController
+@implementation AMViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     self.dataArray = [[NSMutableArray alloc] init];
     
-    for (int i = 1; i <= 8; i++) {
+    for (int i = 1; i <= 24; i++) {
         NSString *newObject = [NSString stringWithFormat:@"%d",i];
         [self.dataArray addObject:newObject];
     }
@@ -49,7 +51,7 @@
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     
     UICollectionViewCell  *cell = [collectionView cellForItemAtIndexPath:indexPath];
-    cell.backgroundColor = [UIColor grayColor];
+    cell.backgroundColor = [UIColor grayColor ];
 }
 
 @end

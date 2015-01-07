@@ -15,6 +15,7 @@
 		A45F0D641A5C6515008673FC /* iAMTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A45F0D631A5C6515008673FC /* iAMTests.m */; };
 		A45F0D6F1A5C6935008673FC /* AMViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A45F0D6E1A5C6935008673FC /* AMViewController.m */; };
 		A45F0D721A5C6A45008673FC /* AMCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A45F0D711A5C6A45008673FC /* AMCollectionViewCell.m */; };
+		A4BCF7C61A5DC0F900484159 /* AMPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = A4BCF7C51A5DC0F900484159 /* AMPoint.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +44,8 @@
 		A45F0D6E1A5C6935008673FC /* AMViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMViewController.m; sourceTree = "<group>"; };
 		A45F0D701A5C6A45008673FC /* AMCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMCollectionViewCell.h; sourceTree = "<group>"; };
 		A45F0D711A5C6A45008673FC /* AMCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMCollectionViewCell.m; sourceTree = "<group>"; };
+		A4BCF7C41A5DC0F900484159 /* AMPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMPoint.h; sourceTree = "<group>"; };
+		A4BCF7C51A5DC0F900484159 /* AMPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMPoint.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +97,8 @@
 				A45F0D6E1A5C6935008673FC /* AMViewController.m */,
 				A45F0D701A5C6A45008673FC /* AMCollectionViewCell.h */,
 				A45F0D711A5C6A45008673FC /* AMCollectionViewCell.m */,
+				A4BCF7C41A5DC0F900484159 /* AMPoint.h */,
+				A4BCF7C51A5DC0F900484159 /* AMPoint.m */,
 			);
 			path = iAM;
 			sourceTree = "<group>";
@@ -227,6 +232,7 @@
 				A45F0D4D1A5C6515008673FC /* AppDelegate.m in Sources */,
 				A45F0D4A1A5C6515008673FC /* main.m in Sources */,
 				A45F0D721A5C6A45008673FC /* AMCollectionViewCell.m in Sources */,
+				A4BCF7C61A5DC0F900484159 /* AMPoint.m in Sources */,
 				A45F0D6F1A5C6935008673FC /* AMViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -8,6 +8,7 @@
 
 #import "AMViewController.h"
 #import "AMCollectionViewCell.h"
+#import "AMPoint.h"
 
 @interface AMViewController ()
 
@@ -23,8 +24,9 @@
     self.dataArray = [[NSMutableArray alloc] init];
     
     for (int i = 1; i <= 24; i++) {
-        NSString *newObject = [NSString stringWithFormat:@"%d",i];
-        [self.dataArray addObject:newObject];
+        AMPoint *newPoint = [AMPoint alloc];
+        newPoint.name = [NSString stringWithFormat:@"%d", i];
+        [self.dataArray addObject:newPoint];
     }
 }
 
@@ -43,15 +45,21 @@
 - (UICollectionViewCell*) collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     
     AMCollectionViewCell * newCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"myCell" forIndexPath:indexPath];
-    newCell.myLabel.text = self.dataArray[indexPath.row];
+    newCell.myPoint = self.dataArray[indexPath.row];
+    newCell.myLabel.text = newCell.myPoint.name;
     
     return newCell;
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     
-    UICollectionViewCell  *cell = [collectionView cellForItemAtIndexPath:indexPath];
-    cell.backgroundColor = [UIColor grayColor ];
+    AMCollectionViewCell *cell = (AMCollectionViewCell*) [collectionView cellForItemAtIndexPath:indexPath];
+    AMPoint *point = cell.myPoint;
+    
+    [point select];
+    
+    cell.backgroundColor = [UIColor lightGrayColor ];
+    if(point.isSelected) cell.backgroundColor = [UIColor grayColor ];
 }
 
 @end

@@ -23,7 +23,7 @@
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="seQ-A1-cWb">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="556"/>
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="calibratedRGB"/>
-                                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="1" minimumInteritemSpacing="1" id="oGh-FE-cRo">
+                                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="1" minimumInteritemSpacing="0.0" id="oGh-FE-cRo">
                                             <size key="itemSize" width="50" height="50"/>
                                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -47,12 +47,14 @@
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 </view>
                                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                <rect key="contentStretch" x="0.0" y="0.0" width="0.0" height="0.0"/>
                                                 <constraints>
                                                     <constraint firstItem="VmU-Na-NRh" firstAttribute="centerX" secondItem="Hbc-vl-YS1" secondAttribute="centerX" id="Crt-1t-Bo2"/>
                                                     <constraint firstAttribute="bottomMargin" secondItem="VmU-Na-NRh" secondAttribute="bottom" constant="7" id="SOi-ZQ-AbL"/>
                                                     <constraint firstItem="VmU-Na-NRh" firstAttribute="top" secondItem="Hbc-vl-YS1" secondAttribute="topMargin" constant="6" id="fF3-I2-NGw"/>
                                                     <constraint firstItem="VmU-Na-NRh" firstAttribute="leading" secondItem="Hbc-vl-YS1" secondAttribute="leadingMargin" constant="-4" id="nhy-MG-Ahz"/>
                                                 </constraints>
+                                                <size key="customSize" width="50" height="50"/>
                                                 <connections>
                                                     <outlet property="myLabel" destination="VmU-Na-NRh" id="SnZ-jk-4Bl"/>
                                                 </connections>
@@ -88,7 +90,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lD3-VX-VHG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-139" y="296"/>
+            <point key="canvasLocation" x="-71" y="407"/>
         </scene>
     </scenes>
 </document>

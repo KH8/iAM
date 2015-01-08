@@ -23,10 +23,14 @@
     
     self.dataArray = [[NSMutableArray alloc] init];
     
-    for (int i = 1; i <= 24; i++) {
-        AMPoint *newPoint = [AMPoint alloc];
-        newPoint.name = [NSString stringWithFormat:@"%d", i];
-        [self.dataArray addObject:newPoint];
+    for (int i = 1; i <= 3; i++) {
+        NSMutableArray *sectionArray = [[NSMutableArray alloc] init];
+        [self.dataArray addObject: sectionArray];
+        for (int j = 1; j <= 3; j++) {
+            AMPoint *newPoint = [AMPoint alloc];
+            newPoint.name = [NSString stringWithFormat:@"%d", i*10+j];
+            [sectionArray addObject:newPoint];
+        }
     }
 }
 
@@ -35,17 +39,19 @@
 }
 
 - (NSInteger) numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
-    return 1;
+    return self.dataArray.count;
 }
 
 - (NSInteger) collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return self.dataArray.count;
+    NSMutableArray * sectionArray = self.dataArray[section];
+    return sectionArray.count;
 }
 
 - (UICollectionViewCell*) collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     
     AMCollectionViewCell * newCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"myCell" forIndexPath:indexPath];
-    newCell.myPoint = self.dataArray[indexPath.row];
+    NSMutableArray * sectionArray = self.dataArray[indexPath.section];
+    newCell.myPoint = sectionArray[indexPath.row];
     newCell.myLabel.text = newCell.myPoint.name;
     
     return newCell;

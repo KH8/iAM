@@ -23,13 +23,16 @@
     
     self.dataArray = [[NSMutableArray alloc] init];
     
-    for (int i = 1; i <= 3; i++) {
+    int k = 0;
+    
+    for (int i = 1; i <= 11; i++) {
         NSMutableArray *sectionArray = [[NSMutableArray alloc] init];
         [self.dataArray addObject: sectionArray];
         for (int j = 1; j <= 3; j++) {
             AMPoint *newPoint = [AMPoint alloc];
-            newPoint.name = [NSString stringWithFormat:@"%d", i*10+j];
+            newPoint.name = [NSString stringWithFormat:@"%d", k];
             [sectionArray addObject:newPoint];
+            k++;
         }
     }
 }
@@ -66,6 +69,18 @@
     
     cell.backgroundColor = [UIColor lightGrayColor ];
     if(point.isSelected) cell.backgroundColor = [UIColor grayColor ];
+}
+
+- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section{
+    return 0.0;
+}
+
+- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section{
+    return -3.0;
+}
+
+- (UIEdgeInsets)collectionView: (UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
+    return UIEdgeInsetsMake(0,0,0,0);  // top, left, bottom, right
 }
 
 @end

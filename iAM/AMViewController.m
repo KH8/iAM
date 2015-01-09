@@ -22,7 +22,7 @@
     [super viewDidLoad];
     
     self.mainStave = [[AMStave alloc] init];
-    [self.mainStave configureCustomWithNumberOfLines:[NSNumber numberWithInt:3] numberOfNotesPerLine:[NSNumber numberWithInt:10]];
+    [self.mainStave configureCustomWithNumberOfLines:[NSNumber numberWithInt:3] numberOfNotesPerLine:[NSNumber numberWithInt:30]];
 }
 
 - (void)didReceiveMemoryWarning {

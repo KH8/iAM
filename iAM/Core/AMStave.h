@@ -13,4 +13,6 @@
 - (void)configureDefault;
 - (void)configureCustomWithNumberOfLines: (NSNumber*)aNumberOfLines numberOfNotesPerLine: (NSNumber*)aNumberOfNotesPerLine;
 
+- (void)clear;
+
 @end

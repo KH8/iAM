@@ -43,6 +43,16 @@
     }
 }
 
+- (void)clear{
+    for (NSMutableArray *line in self.mainArray) {
+        for (AMNote *note in line) {
+            if(note.isSelected) {
+                [note select];
+            }
+        }
+    }
+}
+
 - (NSUInteger)count{
     return self.mainArray.count;
 }

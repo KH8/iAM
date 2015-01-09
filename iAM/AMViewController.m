@@ -11,6 +11,7 @@
 
 @interface AMViewController ()
 
+@property (weak, nonatomic) IBOutlet UIButton *clearButton;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 
 @end
@@ -21,7 +22,7 @@
     [super viewDidLoad];
     
     self.mainStave = [[AMStave alloc] init];
-    [self.mainStave configureDefault];
+    [self.mainStave configureCustomWithNumberOfLines:[NSNumber numberWithInt:3] numberOfNotesPerLine:[NSNumber numberWithInt:10]];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -44,6 +45,9 @@
     newCell.noteAssigned = lineOfNotes[indexPath.row];
     newCell.titleLabel.text = [NSString stringWithFormat:@"%@", newCell.noteAssigned.id];
     
+    newCell.backgroundColor = [UIColor lightGrayColor ];
+    if(newCell.noteAssigned.isSelected) newCell.backgroundColor = [UIColor grayColor ];
+    
     return newCell;
 }
 
@@ -53,9 +57,8 @@
     AMNote *note = cell.noteAssigned;
     
     [note select];
-    
-    cell.backgroundColor = [UIColor lightGrayColor ];
-    if(note.isSelected) cell.backgroundColor = [UIColor grayColor ];
+    NSArray *arrayOfPaths = @[indexPath];
+    [self.collectionView reloadItemsAtIndexPaths:arrayOfPaths];
 }
 
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section{
@@ -63,11 +66,16 @@
 }
 
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section{
-    return -3.0;
+    return 0.0;
 }
 
 - (UIEdgeInsets)collectionView: (UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
-    return UIEdgeInsetsMake(0,0,0,0);  // top, left, bottom, right
+    return UIEdgeInsetsMake(1,1,1,1);
+}
+
+- (IBAction)onTouchEvent:(id)sender {
+    [self.mainStave clear];
+    [self.collectionView reloadData];
 }
 
 @end

@@ -20,7 +20,7 @@
                             <collectionView autoresizesSubviews="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="seQ-A1-cWb">
                                 <rect key="frame" x="0.0" y="24" width="600" height="552"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="calibratedRGB"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="UKf-AX-cfb">
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="UKf-AX-cfb">
                                     <size key="itemSize" width="50" height="50"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -53,7 +53,7 @@
                                         </constraints>
                                         <size key="customSize" width="50" height="50"/>
                                         <connections>
-                                            <outlet property="myLabel" destination="VmU-Na-NRh" id="SnZ-jk-4Bl"/>
+                                            <outlet property="titleLabel" destination="VmU-Na-NRh" id="yvD-e2-Zlf"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>

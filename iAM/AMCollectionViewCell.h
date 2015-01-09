@@ -7,11 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "AMPoint.h"
+#import "AMNote.h"
 
 @interface AMCollectionViewCell : UICollectionViewCell
 
-@property (weak, nonatomic) IBOutlet UILabel *myLabel;
-@property (weak, nonatomic) AMPoint *myPoint;
+@property (weak, nonatomic) AMNote *noteAssigned;
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 
 @end

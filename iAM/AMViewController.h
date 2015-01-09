@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AMStave.h"
 
 @interface AMViewController : UIViewController
 
-@property (strong, nonatomic) NSMutableArray *dataArray;
+@property (strong, nonatomic) AMStave *mainStave;
 
 @end

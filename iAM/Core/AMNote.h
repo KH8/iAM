@@ -10,6 +10,8 @@
 
 @interface AMNote : NSObject
 
+@property NSNumber *id;
+
 - (void)select;
 - (BOOL)isSelected;
 

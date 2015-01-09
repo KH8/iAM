@@ -8,7 +8,6 @@
 
 #import "AMViewController.h"
 #import "AMCollectionViewCell.h"
-#import "AMPoint.h"
 
 @interface AMViewController ()
 
@@ -21,20 +20,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.dataArray = [[NSMutableArray alloc] init];
-    
-    int k = 0;
-    
-    for (int i = 1; i <= 11; i++) {
-        NSMutableArray *sectionArray = [[NSMutableArray alloc] init];
-        [self.dataArray addObject: sectionArray];
-        for (int j = 1; j <= 3; j++) {
-            AMPoint *newPoint = [AMPoint alloc];
-            newPoint.name = [NSString stringWithFormat:@"%d", k];
-            [sectionArray addObject:newPoint];
-            k++;
-        }
-    }
+    self.mainStave = [[AMStave alloc] init];
+    [self.mainStave configureDefault];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -42,20 +29,20 @@
 }
 
 - (NSInteger) numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
-    return self.dataArray.count;
+    return self.mainStave.count;
 }
 
 - (NSInteger) collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    NSMutableArray * sectionArray = self.dataArray[section];
-    return sectionArray.count;
+    NSMutableArray * lineOfNotes = self.mainStave[section];
+    return lineOfNotes.count;
 }
 
 - (UICollectionViewCell*) collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     
     AMCollectionViewCell * newCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"myCell" forIndexPath:indexPath];
-    NSMutableArray * sectionArray = self.dataArray[indexPath.section];
-    newCell.myPoint = sectionArray[indexPath.row];
-    newCell.myLabel.text = newCell.myPoint.name;
+    NSMutableArray * lineOfNotes = self.mainStave[indexPath.section];
+    newCell.noteAssigned = lineOfNotes[indexPath.row];
+    newCell.titleLabel.text = [NSString stringWithFormat:@"%@", newCell.noteAssigned.id];
     
     return newCell;
 }
@@ -63,12 +50,12 @@
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     
     AMCollectionViewCell *cell = (AMCollectionViewCell*) [collectionView cellForItemAtIndexPath:indexPath];
-    AMPoint *point = cell.myPoint;
+    AMNote *note = cell.noteAssigned;
     
-    [point select];
+    [note select];
     
     cell.backgroundColor = [UIColor lightGrayColor ];
-    if(point.isSelected) cell.backgroundColor = [UIColor grayColor ];
+    if(note.isSelected) cell.backgroundColor = [UIColor grayColor ];
 }
 
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section{

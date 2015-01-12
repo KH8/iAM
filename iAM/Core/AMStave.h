@@ -15,4 +15,6 @@
 
 - (void)clear;
 
+- (NSInteger)getLength;
+
 @end

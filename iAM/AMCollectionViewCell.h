@@ -9,9 +9,11 @@
 #import <UIKit/UIKit.h>
 #import "AMNote.h"
 
-@interface AMCollectionViewCell : UICollectionViewCell
+@interface AMCollectionViewCell : UICollectionViewCell <NoteDelegate>
 
 @property (weak, nonatomic) AMNote *noteAssigned;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+
+- (void) noteHasBeenTriggered;
 
 @end

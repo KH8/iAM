@@ -10,4 +10,10 @@
 
 @implementation AMCollectionViewCell
 
+- (void)noteHasBeenTriggered {
+    self.backgroundColor = [UIColor greenColor];
+    [NSThread sleepForTimeInterval:1.0f];
+    self.backgroundColor = [UIColor lightGrayColor];
+}
+
 @end

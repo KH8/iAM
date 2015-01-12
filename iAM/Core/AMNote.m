@@ -16,12 +16,16 @@
 
 @implementation AMNote
 
--(void)select{
-    self.selectionState = !self.selectionState;
+-(BOOL)isSelected{
+    return _selectionState;
 }
 
--(BOOL)isSelected{
-    return self.selectionState;
+-(void)select{
+    _selectionState = !_selectionState;
+}
+
+- (void)play {
+    [_delegate noteHasBeenTriggered];
 }
 
 @end

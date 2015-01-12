@@ -8,11 +8,26 @@
 
 #import <Foundation/Foundation.h>
 
-@interface AMNote : NSObject
+@protocol NoteDelegate <NSObject>
 
+@required
+
+- (void) noteHasBeenTriggered;
+
+@end
+
+@interface AMNote : NSObject
+{
+    // Delegate to respond back
+    id <NoteDelegate> _delegate;
+
+}
+@property (nonatomic,strong) id delegate;
 @property NSNumber *id;
 
-- (void)select;
 - (BOOL)isSelected;
+
+- (void)select;
+- (void)play;
 
 @end

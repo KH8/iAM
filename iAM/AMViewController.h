@@ -7,10 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "AMStave.h"
+#import "AMSequencer.h"
+#import "AMCollectionViewCell.h"
 
-@interface AMViewController : UIViewController
+@interface AMViewController : UIViewController <SequencerDelegate>
 
-@property (strong, nonatomic) AMStave *mainStave;
+@property (strong, nonatomic) AMSequencer *mainSequencer;
+
+- (void) sequencerHasStarted;
+- (void) sequencerHasStopped;
 
 @end

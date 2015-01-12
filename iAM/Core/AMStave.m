@@ -28,24 +28,24 @@ int defaultNumberOfNotesPerLine = 8;
 }
 
 - (void)configureCustomWithNumberOfLines: (NSNumber*)aNumberOfLines numberOfNotesPerLine: (NSNumber*)aNumberOfNotesPerLine{
-    self.numberOfLines = [aNumberOfLines intValue];
-    self.numberOfNotesPerLine = [aNumberOfNotesPerLine intValue];
-    
-    self.mainArray = [[NSMutableArray alloc] init];
-    
-    for (int i = 0; i < self.numberOfLines; i++) {
+    _numberOfLines = [aNumberOfLines intValue];
+    _numberOfNotesPerLine = [aNumberOfNotesPerLine intValue];
+
+    _mainArray = [[NSMutableArray alloc] init];
+
+    for (int i = 0; i < _numberOfLines; i++) {
         NSMutableArray *newLine = [[NSMutableArray alloc] init];
-        for (int j = 0; j < self.numberOfNotesPerLine; j++) {
+        for (int j = 0; j < _numberOfNotesPerLine; j++) {
             AMNote *newNote = [[AMNote alloc] init];
             newNote.id = @(i * 10 + j);
             [newLine addObject: newNote];
         }
-        [self.mainArray addObject: newLine];
+        [_mainArray addObject: newLine];
     }
 }
 
 - (void)clear{
-    for (NSMutableArray *line in self.mainArray) {
+    for (NSMutableArray *line in _mainArray) {
         for (AMNote *note in line) {
             if(note.isSelected) {
                 [note select];
@@ -54,16 +54,21 @@ int defaultNumberOfNotesPerLine = 8;
     }
 }
 
+- (NSInteger)getLength {
+    return defaultNumberOfNotesPerLine;
+}
+
+
 - (NSUInteger)count{
-    return self.mainArray.count;
+    return _mainArray.count;
 }
 
 - (void)insertObject:(id)anObject atIndex:(NSUInteger)index{
-    [self.mainArray insertObject:anObject atIndex:index];
+    [_mainArray insertObject:anObject atIndex:index];
 }
 
 - (id)objectAtIndex:(NSUInteger)index{
-    return self.mainArray[index];
+    return _mainArray[index];
 }
 
 @end

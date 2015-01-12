@@ -10,11 +10,13 @@
 #import "AMSequencer.h"
 #import "AMCollectionViewCell.h"
 
-@interface AMViewController : UIViewController <SequencerDelegate>
+@interface AMViewController : UIViewController <SequencerDelegate, NoteDelegate>
 
 @property (strong, nonatomic) AMSequencer *mainSequencer;
 
 - (void) sequencerHasStarted;
 - (void) sequencerHasStopped;
+
+- (void) noteHasBeenTriggered;
 
 @end

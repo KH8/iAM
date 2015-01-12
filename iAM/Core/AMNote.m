@@ -11,20 +11,27 @@
 @interface AMNote ()
 
 @property (atomic) BOOL selectionState;
+@property (atomic) BOOL playingState;
 
 @end
 
 @implementation AMNote
 
--(BOOL)isSelected{
+-(BOOL)isSelected {
     return _selectionState;
 }
 
--(void)select{
+- (BOOL)isPlaying {
+    return _playingState;
+}
+
+
+-(void)select {
     _selectionState = !_selectionState;
 }
 
 - (void)play {
+    _playingState = !_playingState;
     [_delegate noteHasBeenTriggered];
 }
 

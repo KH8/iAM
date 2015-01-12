@@ -35,25 +35,26 @@
     [super didReceiveMemoryWarning];
 }
 
-- (NSInteger) numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
     return _mainStave.count;
 }
 
-- (NSInteger) collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSUInteger)section {
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSUInteger)section {
     NSMutableArray * lineOfNotes = _mainStave[section];
     return lineOfNotes.count;
 }
 
-- (UICollectionViewCell*) collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+- (UICollectionViewCell*)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     
     AMCollectionViewCell * newCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"myCell" forIndexPath:indexPath];
     NSMutableArray * lineOfNotes = _mainStave[(NSUInteger) indexPath.section];
     newCell.noteAssigned = lineOfNotes[(NSUInteger) indexPath.row];
-    newCell.noteAssigned.delegate = newCell;
+    newCell.noteAssigned.delegate = self;
     newCell.titleLabel.text = [NSString stringWithFormat:@"%@", newCell.noteAssigned.id];
     
     newCell.backgroundColor = [UIColor lightGrayColor ];
     if(newCell.noteAssigned.isSelected) newCell.backgroundColor = [UIColor grayColor ];
+    if(newCell.noteAssigned.isPlaying) newCell.backgroundColor = [UIColor redColor];
     
     return newCell;
 }
@@ -96,5 +97,10 @@
 - (void)sequencerHasStopped {
     [_startButton setTitle:@"Start" forState:UIControlStateNormal];
 }
+
+- (void)noteHasBeenTriggered {
+    [_collectionView reloadData];
+}
+
 
 @end

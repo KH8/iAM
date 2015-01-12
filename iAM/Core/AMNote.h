@@ -26,6 +26,7 @@
 @property NSNumber *id;
 
 - (BOOL)isSelected;
+- (BOOL)isPlaying;
 
 - (void)select;
 - (void)play;

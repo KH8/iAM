@@ -8,6 +8,7 @@
 
 @interface AMSequencer ()
 
+@property bool kill;
 @property bool isRunning;
 @property AMStave *mainStave;
 
@@ -16,6 +17,7 @@
 @implementation AMSequencer
 
 - (void)initializeWithStave:(AMStave *)amStave {
+    _kill = false;
     _mainStave = amStave;
     [self performSelectorInBackground:@selector(runSequence) withObject:nil];
 }
@@ -27,7 +29,7 @@
 }
 
 - (void)runSequence{
-    while (true){
+    while (!_kill){
         if(_isRunning) {
             for (int i = 0; i < _mainStave.getLength; i++) {
                 for (NSMutableArray *line in _mainStave) {
@@ -37,7 +39,7 @@
                 [NSThread sleepForTimeInterval:2.0f];
             }
         }
-        [NSThread sleepForTimeInterval:2.0f];
+        [NSThread sleepForTimeInterval:0.1f];
     }
 }
 

@@ -22,7 +22,7 @@
     [super viewDidLoad];
     
     self.mainStave = [[AMStave alloc] init];
-    [self.mainStave configureCustomWithNumberOfLines:[NSNumber numberWithInt:3] numberOfNotesPerLine:[NSNumber numberWithInt:30]];
+    [self.mainStave configureDefault];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -33,7 +33,7 @@
     return self.mainStave.count;
 }
 
-- (NSInteger) collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+- (NSInteger) collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSUInteger)section {
     NSMutableArray * lineOfNotes = self.mainStave[section];
     return lineOfNotes.count;
 }
@@ -41,8 +41,8 @@
 - (UICollectionViewCell*) collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     
     AMCollectionViewCell * newCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"myCell" forIndexPath:indexPath];
-    NSMutableArray * lineOfNotes = self.mainStave[indexPath.section];
-    newCell.noteAssigned = lineOfNotes[indexPath.row];
+    NSMutableArray * lineOfNotes = self.mainStave[(NSUInteger) indexPath.section];
+    newCell.noteAssigned = lineOfNotes[(NSUInteger) indexPath.row];
     newCell.titleLabel.text = [NSString stringWithFormat:@"%@", newCell.noteAssigned.id];
     
     newCell.backgroundColor = [UIColor lightGrayColor ];

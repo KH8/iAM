@@ -13,17 +13,18 @@
 
 @property NSMutableArray *mainArray;
 
-@property NSInteger numberOfLines;
-@property NSInteger numberOfNotesPerLine;
-@property NSInteger defaultNumberOfLines;
-@property NSInteger defaultNumberOfNotesPerLine;
+@property int numberOfLines;
+@property int numberOfNotesPerLine;
 
 @end
 
 @implementation AMStave
 
+int defaultNumberOfLines = 3;
+int defaultNumberOfNotesPerLine = 8;
+
 - (void)configureDefault{
-    [self configureCustomWithNumberOfLines:[NSNumber numberWithInt:3] numberOfNotesPerLine:[NSNumber numberWithInt:8]];
+    [self configureCustomWithNumberOfLines:@(defaultNumberOfLines) numberOfNotesPerLine:@(defaultNumberOfNotesPerLine)];
 }
 
 - (void)configureCustomWithNumberOfLines: (NSNumber*)aNumberOfLines numberOfNotesPerLine: (NSNumber*)aNumberOfNotesPerLine{
@@ -36,7 +37,7 @@
         NSMutableArray *newLine = [[NSMutableArray alloc] init];
         for (int j = 0; j < self.numberOfNotesPerLine; j++) {
             AMNote *newNote = [[AMNote alloc] init];
-            newNote.id = [NSNumber numberWithInt:i*10 + j];
+            newNote.id = @(i * 10 + j);
             [newLine addObject: newNote];
         }
         [self.mainArray addObject: newLine];
@@ -62,7 +63,7 @@
 }
 
 - (id)objectAtIndex:(NSUInteger)index{
-    return [self.mainArray objectAtIndex:index];
+    return self.mainArray[index];
 }
 
 @end

@@ -99,7 +99,9 @@
 }
 
 - (void)noteHasBeenTriggered {
-    [_collectionView reloadData];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [_collectionView reloadData];
+    });
 }
 
 

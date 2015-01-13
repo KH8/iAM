@@ -28,7 +28,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="myCell" id="Hbc-vl-YS1" customClass="AMCollectionViewCell">
-                                        <rect key="frame" x="0" y="0" width="50" height="50"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
@@ -62,31 +62,32 @@
                                     <outlet property="delegate" destination="Cpc-Be-Cbd" id="FgL-ga-DuW"/>
                                 </connections>
                             </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9E2-pr-GCi">
+                                <rect key="frame" x="16" y="555" width="33" height="30"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                <state key="normal" title="Start">
+                                    <color key="titleShadowColor" red="0.502" green="0.502" blue="0.502" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="onStartEvent:" destination="Cpc-Be-Cbd" eventType="touchUpInside" id="9PI-wX-8Qo"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xK2-Oz-09u">
-                                <rect key="frame" x="538" y="555" width="46" height="30"/>
-                                <state key="normal" title="Button">
+                                <rect key="frame" x="547" y="555" width="37" height="30"/>
+                                <state key="normal" title="Clear">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="onTouchEvent:" destination="Cpc-Be-Cbd" eventType="touchUpInside" id="oEV-VF-UcJ"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="9E2-pr-GCi" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO">
-                                <rect key="frame" x="133" y="20" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Start">
-                                    <color key="titleShadowColor" colorSpace="calibratedRGB" red="0.502" green="0.502" blue="0.502" alpha="1"/>
-                                </state>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
-                                <connections>
-                                    <action selector="onStartEvent:" destination="Cpc-Be-Cbd" eventType="touchUpInside" id="9PI-wX-8Qo"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="9E2-pr-GCi" firstAttribute="leading" secondItem="1Er-fy-ePC" secondAttribute="leadingMargin" id="1g0-X9-Y7K"/>
                             <constraint firstItem="seQ-A1-cWb" firstAttribute="top" secondItem="6mO-t5-TNi" secondAttribute="bottom" constant="4" id="2kO-kB-ckF"/>
                             <constraint firstItem="sw7-6B-i6c" firstAttribute="top" secondItem="seQ-A1-cWb" secondAttribute="bottom" constant="53" id="ds5-DM-HDI"/>
+                            <constraint firstItem="sw7-6B-i6c" firstAttribute="top" secondItem="9E2-pr-GCi" secondAttribute="bottom" constant="15" id="e2T-25-guy"/>
                             <constraint firstItem="sw7-6B-i6c" firstAttribute="top" secondItem="xK2-Oz-09u" secondAttribute="bottom" constant="15" id="i5B-Bo-SZU"/>
                             <constraint firstItem="xK2-Oz-09u" firstAttribute="trailing" secondItem="1Er-fy-ePC" secondAttribute="trailingMargin" id="t3g-aa-pSu"/>
                             <constraint firstAttribute="trailing" secondItem="seQ-A1-cWb" secondAttribute="trailing" id="xAa-SB-Alj"/>

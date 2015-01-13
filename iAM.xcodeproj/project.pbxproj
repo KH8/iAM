@@ -7,9 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8F04FBE0580CA198436BDD5E /* AMPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F0AE1AC2BDFCA960D899F80 /* AMPlayer.m */; };
 		8F0B34AA1C650F6EBD78FA56 /* AMSequencer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F0763D2246B340EEC482E45 /* AMSequencer.m */; };
+		A41641911A65DC5C00E3E228 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A41641901A65DC5C00E3E228 /* AVFoundation.framework */; };
 		A44910791A5F396E00E8C6DB /* AMStave.m in Sources */ = {isa = PBXBuildFile; fileRef = A44910781A5F396E00E8C6DB /* AMStave.m */; };
 		A449107C1A5F3A1200E8C6DB /* AMNote.m in Sources */ = {isa = PBXBuildFile; fileRef = A449107B1A5F3A1200E8C6DB /* AMNote.m */; };
+		A45A57311A65D9D100422614 /* tickSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A45A57301A65D9D100422614 /* tickSound.mp3 */; };
 		A45F0D4A1A5C6515008673FC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A45F0D491A5C6515008673FC /* main.m */; };
 		A45F0D4D1A5C6515008673FC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A45F0D4C1A5C6515008673FC /* AppDelegate.m */; };
 		A45F0D531A5C6515008673FC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A45F0D511A5C6515008673FC /* Main.storyboard */; };
@@ -33,10 +36,14 @@
 /* Begin PBXFileReference section */
 		8F0232E7F6F389A4CECE670C /* AMSequencer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMSequencer.h; path = Core/AMSequencer.h; sourceTree = "<group>"; };
 		8F0763D2246B340EEC482E45 /* AMSequencer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMSequencer.m; path = Core/AMSequencer.m; sourceTree = "<group>"; };
+		8F0AE1AC2BDFCA960D899F80 /* AMPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMPlayer.m; path = Core/AMPlayer.m; sourceTree = "<group>"; };
+		8F0DA14C9FCAE3399B86B93B /* AMPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMPlayer.h; path = Core/AMPlayer.h; sourceTree = "<group>"; };
+		A41641901A65DC5C00E3E228 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		A44910771A5F396E00E8C6DB /* AMStave.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMStave.h; path = Core/AMStave.h; sourceTree = "<group>"; };
 		A44910781A5F396E00E8C6DB /* AMStave.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMStave.m; path = Core/AMStave.m; sourceTree = "<group>"; };
 		A449107A1A5F3A1200E8C6DB /* AMNote.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMNote.h; path = Core/AMNote.h; sourceTree = "<group>"; };
 		A449107B1A5F3A1200E8C6DB /* AMNote.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMNote.m; path = Core/AMNote.m; sourceTree = "<group>"; };
+		A45A57301A65D9D100422614 /* tickSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = tickSound.mp3; path = Core/Sounds/tickSound.mp3; sourceTree = "<group>"; };
 		A45F0D441A5C6515008673FC /* iAM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iAM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A45F0D481A5C6515008673FC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A45F0D491A5C6515008673FC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -59,6 +66,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A41641911A65DC5C00E3E228 /* AVFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,6 +80,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8F026D41013513503897B9C8 /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				A45A57301A65D9D100422614 /* tickSound.mp3 */,
+			);
+			name = Sounds;
+			sourceTree = "<group>";
+		};
 		A44910761A5F38EF00E8C6DB /* Core */ = {
 			isa = PBXGroup;
 			children = (
@@ -81,6 +97,9 @@
 				A449107B1A5F3A1200E8C6DB /* AMNote.m */,
 				8F0763D2246B340EEC482E45 /* AMSequencer.m */,
 				8F0232E7F6F389A4CECE670C /* AMSequencer.h */,
+				8F0AE1AC2BDFCA960D899F80 /* AMPlayer.m */,
+				8F0DA14C9FCAE3399B86B93B /* AMPlayer.h */,
+				8F026D41013513503897B9C8 /* Sounds */,
 			);
 			name = Core;
 			sourceTree = "<group>";
@@ -88,6 +107,7 @@
 		A45F0D3B1A5C6515008673FC = {
 			isa = PBXGroup;
 			children = (
+				A41641901A65DC5C00E3E228 /* AVFoundation.framework */,
 				A45F0D461A5C6515008673FC /* iAM */,
 				A45F0D601A5C6515008673FC /* iAMTests */,
 				A45F0D451A5C6515008673FC /* Products */,
@@ -230,6 +250,7 @@
 				A45F0D531A5C6515008673FC /* Main.storyboard in Resources */,
 				A45F0D581A5C6515008673FC /* LaunchScreen.xib in Resources */,
 				A45F0D551A5C6515008673FC /* Images.xcassets in Resources */,
+				A45A57311A65D9D100422614 /* tickSound.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -254,6 +275,7 @@
 				A449107C1A5F3A1200E8C6DB /* AMNote.m in Sources */,
 				A45F0D6F1A5C6935008673FC /* AMViewController.m in Sources */,
 				8F0B34AA1C650F6EBD78FA56 /* AMSequencer.m in Sources */,
+				8F04FBE0580CA198436BDD5E /* AMPlayer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

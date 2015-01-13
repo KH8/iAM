@@ -5,12 +5,15 @@
 
 #import "AMSequencer.h"
 #import "AMNote.h"
+#import "AMPlayer.h"
 
 @interface AMSequencer ()
 
 @property bool kill;
 @property bool isRunning;
 @property AMStave *mainStave;
+
+@property AMPlayer *mainPlayer;
 
 @end
 
@@ -20,6 +23,8 @@
     _kill = false;
     _mainStave = amStave;
     [self performSelectorInBackground:@selector(runSequence) withObject:nil];
+
+    _mainPlayer = [[AMPlayer alloc] init];
 }
 
 - (void)startStop {
@@ -37,6 +42,7 @@
                     [note play];
                     [NSThread sleepForTimeInterval:0.01f];
                 }
+                [_mainPlayer playSound];
             }
         }
         [NSThread sleepForTimeInterval:0.01f];

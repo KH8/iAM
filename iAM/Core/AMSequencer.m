@@ -35,11 +35,11 @@
                 for (NSMutableArray *line in _mainStave) {
                     AMNote *note = line[i];
                     [note play];
+                    [NSThread sleepForTimeInterval:0.01f];
                 }
-                [NSThread sleepForTimeInterval:2.0f];
             }
         }
-        [NSThread sleepForTimeInterval:0.1f];
+        [NSThread sleepForTimeInterval:0.01f];
     }
 }
 

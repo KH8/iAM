@@ -40,12 +40,13 @@
                 for (NSMutableArray *line in _mainStave) {
                     AMNote *note = line[i];
                     [note play];
-                    [NSThread sleepForTimeInterval:0.01f];
+                    if(note.isSelected){
+                        [_mainPlayer playSound];
+                    }
                 }
-                [_mainPlayer playSound];
+                [NSThread sleepForTimeInterval:0.2f];
             }
         }
-        [NSThread sleepForTimeInterval:0.01f];
     }
 }
 

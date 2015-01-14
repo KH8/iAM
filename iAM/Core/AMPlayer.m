@@ -14,13 +14,12 @@
 
 @implementation AMPlayer
 
-- (id)init
-{
+- (id)initWithFile:(NSString *)aFileName ofType: (NSString*)aFileType{
     self = [super init];
     if (self)
     {
         NSBundle *mainBundle = [NSBundle mainBundle];
-        NSString *filePath = [mainBundle pathForResource:@"tickSound" ofType:@"mp3"];
+        NSString *filePath = [mainBundle pathForResource:aFileName ofType:aFileType];
         NSData *fileData = [NSData dataWithContentsOfFile:filePath];
         NSError *error = nil;
 

@@ -15,13 +15,15 @@
 		A41641911A65DC5C00E3E228 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A41641901A65DC5C00E3E228 /* AVFoundation.framework */; };
 		A44910791A5F396E00E8C6DB /* AMStave.m in Sources */ = {isa = PBXBuildFile; fileRef = A44910781A5F396E00E8C6DB /* AMStave.m */; };
 		A449107C1A5F3A1200E8C6DB /* AMNote.m in Sources */ = {isa = PBXBuildFile; fileRef = A449107B1A5F3A1200E8C6DB /* AMNote.m */; };
-		A45A57311A65D9D100422614 /* tickSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A45A57301A65D9D100422614 /* tickSound.mp3 */; };
 		A45F0D4A1A5C6515008673FC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A45F0D491A5C6515008673FC /* main.m */; };
 		A45F0D4D1A5C6515008673FC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A45F0D4C1A5C6515008673FC /* AppDelegate.m */; };
 		A45F0D531A5C6515008673FC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A45F0D511A5C6515008673FC /* Main.storyboard */; };
 		A45F0D551A5C6515008673FC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A45F0D541A5C6515008673FC /* Images.xcassets */; };
 		A45F0D581A5C6515008673FC /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = A45F0D561A5C6515008673FC /* LaunchScreen.xib */; };
 		A45F0D641A5C6515008673FC /* iAMTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A45F0D631A5C6515008673FC /* iAMTests.m */; };
+		A4FB07BC1A67142700F14D64 /* highStickSound.wav in Resources */ = {isa = PBXBuildFile; fileRef = A4FB07B91A67142700F14D64 /* highStickSound.wav */; };
+		A4FB07BD1A67142700F14D64 /* lowStickSound.wav in Resources */ = {isa = PBXBuildFile; fileRef = A4FB07BA1A67142700F14D64 /* lowStickSound.wav */; };
+		A4FB07BE1A67142700F14D64 /* tickSound.wav in Resources */ = {isa = PBXBuildFile; fileRef = A4FB07BB1A67142700F14D64 /* tickSound.wav */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,7 +52,6 @@
 		A44910781A5F396E00E8C6DB /* AMStave.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMStave.m; path = Core/AMStave.m; sourceTree = "<group>"; };
 		A449107A1A5F3A1200E8C6DB /* AMNote.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMNote.h; path = Core/AMNote.h; sourceTree = "<group>"; };
 		A449107B1A5F3A1200E8C6DB /* AMNote.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMNote.m; path = Core/AMNote.m; sourceTree = "<group>"; };
-		A45A57301A65D9D100422614 /* tickSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = tickSound.mp3; path = Core/Sounds/tickSound.mp3; sourceTree = "<group>"; };
 		A45F0D441A5C6515008673FC /* iAM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iAM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A45F0D481A5C6515008673FC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A45F0D491A5C6515008673FC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -62,6 +63,9 @@
 		A45F0D5D1A5C6515008673FC /* iAMTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iAMTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A45F0D621A5C6515008673FC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A45F0D631A5C6515008673FC /* iAMTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iAMTests.m; sourceTree = "<group>"; };
+		A4FB07B91A67142700F14D64 /* highStickSound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = highStickSound.wav; path = Core/Sounds/highStickSound.wav; sourceTree = "<group>"; };
+		A4FB07BA1A67142700F14D64 /* lowStickSound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = lowStickSound.wav; path = Core/Sounds/lowStickSound.wav; sourceTree = "<group>"; };
+		A4FB07BB1A67142700F14D64 /* tickSound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = tickSound.wav; path = Core/Sounds/tickSound.wav; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,7 +103,9 @@
 		8F026D41013513503897B9C8 /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
-				A45A57301A65D9D100422614 /* tickSound.mp3 */,
+				A4FB07B91A67142700F14D64 /* highStickSound.wav */,
+				A4FB07BA1A67142700F14D64 /* lowStickSound.wav */,
+				A4FB07BB1A67142700F14D64 /* tickSound.wav */,
 			);
 			name = Sounds;
 			sourceTree = "<group>";
@@ -261,9 +267,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				A45F0D531A5C6515008673FC /* Main.storyboard in Resources */,
+				A4FB07BC1A67142700F14D64 /* highStickSound.wav in Resources */,
+				A4FB07BD1A67142700F14D64 /* lowStickSound.wav in Resources */,
 				A45F0D581A5C6515008673FC /* LaunchScreen.xib in Resources */,
 				A45F0D551A5C6515008673FC /* Images.xcassets in Resources */,
-				A45A57311A65D9D100422614 /* tickSound.mp3 in Resources */,
+				A4FB07BE1A67142700F14D64 /* tickSound.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

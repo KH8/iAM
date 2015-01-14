@@ -10,7 +10,7 @@
 #import "AMSequencer.h"
 #import "AMCollectionViewCell.h"
 
-@interface AMViewController : UIViewController <SequencerDelegate, NoteDelegate>
+@interface AMViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, AMSequencerDelegate, AMNoteDelegate>
 
 @property (strong, nonatomic) AMSequencer *mainSequencer;
 

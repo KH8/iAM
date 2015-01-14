@@ -58,7 +58,6 @@ int defaultNumberOfNotesPerLine = 8;
     return defaultNumberOfNotesPerLine;
 }
 
-
 - (NSUInteger)count{
     return _mainArray.count;
 }

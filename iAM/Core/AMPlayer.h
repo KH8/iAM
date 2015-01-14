@@ -8,6 +8,7 @@
 
 @interface AMPlayer : NSObject
 
--(void) playSound;
+- (id)initWithFile: (NSString*)aFileName ofType: (NSString*)aFileType;
+- (void)playSound;
 
 @end

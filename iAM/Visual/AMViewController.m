@@ -7,7 +7,6 @@
 //
 
 #import "AMViewController.h"
-#import "AMCollectionViewCell.h"
 
 @interface AMViewController ()
 
@@ -33,14 +32,16 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
+    _mainStave = nil;
+    _mainSequencer = nil;
 }
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
     return _mainStave.count;
 }
 
-- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSUInteger)section {
-    NSMutableArray * lineOfNotes = _mainStave[section];
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    NSMutableArray * lineOfNotes = _mainStave[(NSUInteger) section];
     return lineOfNotes.count;
 }
 
@@ -51,11 +52,14 @@
     newCell.noteAssigned = lineOfNotes[(NSUInteger) indexPath.row];
     newCell.noteAssigned.delegate = self;
     newCell.titleLabel.text = [NSString stringWithFormat:@"%@", newCell.noteAssigned.id];
-    
-    newCell.backgroundColor = [UIColor lightGrayColor ];
-    if(newCell.noteAssigned.isSelected) newCell.backgroundColor = [UIColor grayColor ];
-    if(newCell.noteAssigned.isPlaying) newCell.backgroundColor = [UIColor redColor];
-    
+
+    UIColor *color = [[UIColor lightGrayColor] colorWithAlphaComponent:0.9F];
+    if(newCell.noteAssigned.isSelected) color = [[UIColor grayColor] colorWithAlphaComponent:0.9F];
+    if(newCell.noteAssigned.isPlaying) color = [[UIColor greenColor] colorWithAlphaComponent:0.9F];
+    if(newCell.noteAssigned.isTriggered) color = [color colorWithAlphaComponent:0.5F];
+
+    newCell.backgroundColor = color;
+
     return newCell;
 }
 

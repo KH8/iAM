@@ -6,7 +6,7 @@
 #import <Foundation/Foundation.h>
 #import "AMStave.h"
 
-@protocol SequencerDelegate <NSObject>
+@protocol AMSequencerDelegate <NSObject>
 
 @required
 
@@ -18,7 +18,7 @@
 @interface AMSequencer : NSObject
 {
     // Delegate to respond back
-    id <SequencerDelegate> _delegate;
+    id <AMSequencerDelegate> _delegate;
 
 }
 @property (nonatomic,strong) id delegate;

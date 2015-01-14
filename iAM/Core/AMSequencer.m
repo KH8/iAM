@@ -13,7 +13,7 @@
 @property bool isRunning;
 @property AMStave *mainStave;
 
-@property AMPlayer *mainPlayer;
+@property NSArray *arrayOfPlayers;
 
 @end
 
@@ -24,7 +24,11 @@
     _mainStave = amStave;
     [self performSelectorInBackground:@selector(runSequence) withObject:nil];
 
-    _mainPlayer = [[AMPlayer alloc] init];
+    AMPlayer *amPlayer0 = [[AMPlayer alloc] initWithFile:@"tickSound" ofType:@"wav"];
+    AMPlayer *amPlayer1 = [[AMPlayer alloc] initWithFile:@"highStickSound" ofType:@"wav"];
+    AMPlayer *amPlayer2 = [[AMPlayer alloc] initWithFile:@"lowStickSound" ofType:@"wav"];
+
+    _arrayOfPlayers = @[amPlayer0,amPlayer1,amPlayer2];
 }
 
 - (void)startStop {
@@ -36,15 +40,21 @@
 - (void)runSequence{
     while (!_kill){
         if(_isRunning) {
-            for (int i = 0; i < _mainStave.getLength; i++) {
+            for (NSUInteger i = 0; i < _mainStave.getLength; i++) {
+                NSUInteger j = 0;
                 for (NSMutableArray *line in _mainStave) {
                     AMNote *note = line[i];
-                    [note play];
-                    if(note.isSelected){
-                        [_mainPlayer playSound];
+                    [note trigger];
+                    if(note.isPlaying){
+                        [_arrayOfPlayers[j] playSound];
                     }
+                    j++;
                 }
-                [NSThread sleepForTimeInterval:0.2f];
+                [NSThread sleepForTimeInterval:0.1f];
+                for (NSMutableArray *line in _mainStave) {
+                    AMNote *note = line[i];
+                    [note trigger];
+                }
             }
         }
     }

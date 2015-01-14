@@ -20,8 +20,8 @@
 
 @implementation AMStave
 
-int defaultNumberOfLines = 5;
-int defaultNumberOfNotesPerLine = 11;
+int defaultNumberOfLines = 3;
+int defaultNumberOfNotesPerLine = 8;
 
 - (void)configureDefault{
     [self configureCustomWithNumberOfLines:@(defaultNumberOfLines) numberOfNotesPerLine:@(defaultNumberOfNotesPerLine)];

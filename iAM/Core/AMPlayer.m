@@ -6,18 +6,31 @@
 #import "AMPlayer.h"
 #import <AVFoundation/AVFoundation.h>
 
+@interface AMPlayer ()
+
+@property AVAudioPlayer *audioPlayer;
+
+@end
+
 @implementation AMPlayer
 
+- (id)init
+{
+    self = [super init];
+    if (self)
+    {
+        NSBundle *mainBundle = [NSBundle mainBundle];
+        NSString *filePath = [mainBundle pathForResource:@"tickSound" ofType:@"mp3"];
+        NSData *fileData = [NSData dataWithContentsOfFile:filePath];
+        NSError *error = nil;
+
+        _audioPlayer = [[AVAudioPlayer alloc] initWithData:fileData error:&error];
+    }
+    return self;
+}
+
 -(void) playSound {
-    AVAudioPlayer *audioPlayer;
-
-    NSBundle *mainBundle = [NSBundle mainBundle];
-    NSString *filePath = [mainBundle pathForResource:@"tickSound" ofType:@"mp3"];
-    NSData *fileData = [NSData dataWithContentsOfFile:filePath];
-    NSError *error = nil;
-
-    audioPlayer = [[AVAudioPlayer alloc] initWithData:fileData error:&error];
-    [audioPlayer play];
+    [_audioPlayer play];
 }
 
 @end

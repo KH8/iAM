@@ -10,5 +10,6 @@
 
 - (id)initWithFile: (NSString*)aFileName ofType: (NSString*)aFileType;
 - (void)playSound;
+- (void)stopSound;
 
 @end

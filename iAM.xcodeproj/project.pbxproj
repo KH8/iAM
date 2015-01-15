@@ -13,6 +13,9 @@
 		8F0B34AA1C650F6EBD78FA56 /* AMSequencer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F0763D2246B340EEC482E45 /* AMSequencer.m */; };
 		8F0B7BBFD13CA2A424283225 /* AMCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F0B1F4FAA5303D5E98B0847 /* AMCollectionViewCell.m */; };
 		A41641911A65DC5C00E3E228 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A41641901A65DC5C00E3E228 /* AVFoundation.framework */; };
+		A44804B11A686E430094BA1F /* highStickSound.aif in Resources */ = {isa = PBXBuildFile; fileRef = A44804AE1A686E430094BA1F /* highStickSound.aif */; };
+		A44804B21A686E430094BA1F /* lowStickSound.aif in Resources */ = {isa = PBXBuildFile; fileRef = A44804AF1A686E430094BA1F /* lowStickSound.aif */; };
+		A44804B31A686E430094BA1F /* tickSound.aif in Resources */ = {isa = PBXBuildFile; fileRef = A44804B01A686E430094BA1F /* tickSound.aif */; };
 		A44910791A5F396E00E8C6DB /* AMStave.m in Sources */ = {isa = PBXBuildFile; fileRef = A44910781A5F396E00E8C6DB /* AMStave.m */; };
 		A449107C1A5F3A1200E8C6DB /* AMNote.m in Sources */ = {isa = PBXBuildFile; fileRef = A449107B1A5F3A1200E8C6DB /* AMNote.m */; };
 		A45F0D4A1A5C6515008673FC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A45F0D491A5C6515008673FC /* main.m */; };
@@ -21,9 +24,6 @@
 		A45F0D551A5C6515008673FC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A45F0D541A5C6515008673FC /* Images.xcassets */; };
 		A45F0D581A5C6515008673FC /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = A45F0D561A5C6515008673FC /* LaunchScreen.xib */; };
 		A45F0D641A5C6515008673FC /* iAMTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A45F0D631A5C6515008673FC /* iAMTests.m */; };
-		A4FB07BC1A67142700F14D64 /* highStickSound.wav in Resources */ = {isa = PBXBuildFile; fileRef = A4FB07B91A67142700F14D64 /* highStickSound.wav */; };
-		A4FB07BD1A67142700F14D64 /* lowStickSound.wav in Resources */ = {isa = PBXBuildFile; fileRef = A4FB07BA1A67142700F14D64 /* lowStickSound.wav */; };
-		A4FB07BE1A67142700F14D64 /* tickSound.wav in Resources */ = {isa = PBXBuildFile; fileRef = A4FB07BB1A67142700F14D64 /* tickSound.wav */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +48,9 @@
 		8F0D8E3934B282764EF13D8A /* AMViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMViewController.h; sourceTree = "<group>"; };
 		8F0DA14C9FCAE3399B86B93B /* AMPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMPlayer.h; path = Core/AMPlayer.h; sourceTree = "<group>"; };
 		A41641901A65DC5C00E3E228 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		A44804AE1A686E430094BA1F /* highStickSound.aif */ = {isa = PBXFileReference; lastKnownFileType = file; name = highStickSound.aif; path = Core/Sounds/highStickSound.aif; sourceTree = "<group>"; };
+		A44804AF1A686E430094BA1F /* lowStickSound.aif */ = {isa = PBXFileReference; lastKnownFileType = file; name = lowStickSound.aif; path = Core/Sounds/lowStickSound.aif; sourceTree = "<group>"; };
+		A44804B01A686E430094BA1F /* tickSound.aif */ = {isa = PBXFileReference; lastKnownFileType = file; name = tickSound.aif; path = Core/Sounds/tickSound.aif; sourceTree = "<group>"; };
 		A44910771A5F396E00E8C6DB /* AMStave.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMStave.h; path = Core/AMStave.h; sourceTree = "<group>"; };
 		A44910781A5F396E00E8C6DB /* AMStave.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMStave.m; path = Core/AMStave.m; sourceTree = "<group>"; };
 		A449107A1A5F3A1200E8C6DB /* AMNote.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMNote.h; path = Core/AMNote.h; sourceTree = "<group>"; };
@@ -63,9 +66,6 @@
 		A45F0D5D1A5C6515008673FC /* iAMTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iAMTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A45F0D621A5C6515008673FC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A45F0D631A5C6515008673FC /* iAMTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iAMTests.m; sourceTree = "<group>"; };
-		A4FB07B91A67142700F14D64 /* highStickSound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = highStickSound.wav; path = Core/Sounds/highStickSound.wav; sourceTree = "<group>"; };
-		A4FB07BA1A67142700F14D64 /* lowStickSound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = lowStickSound.wav; path = Core/Sounds/lowStickSound.wav; sourceTree = "<group>"; };
-		A4FB07BB1A67142700F14D64 /* tickSound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = tickSound.wav; path = Core/Sounds/tickSound.wav; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,9 +103,9 @@
 		8F026D41013513503897B9C8 /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
-				A4FB07B91A67142700F14D64 /* highStickSound.wav */,
-				A4FB07BA1A67142700F14D64 /* lowStickSound.wav */,
-				A4FB07BB1A67142700F14D64 /* tickSound.wav */,
+				A44804AE1A686E430094BA1F /* highStickSound.aif */,
+				A44804AF1A686E430094BA1F /* lowStickSound.aif */,
+				A44804B01A686E430094BA1F /* tickSound.aif */,
 			);
 			name = Sounds;
 			sourceTree = "<group>";
@@ -267,11 +267,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				A45F0D531A5C6515008673FC /* Main.storyboard in Resources */,
-				A4FB07BC1A67142700F14D64 /* highStickSound.wav in Resources */,
-				A4FB07BD1A67142700F14D64 /* lowStickSound.wav in Resources */,
 				A45F0D581A5C6515008673FC /* LaunchScreen.xib in Resources */,
 				A45F0D551A5C6515008673FC /* Images.xcassets in Resources */,
-				A4FB07BE1A67142700F14D64 /* tickSound.wav in Resources */,
+				A44804B21A686E430094BA1F /* lowStickSound.aif in Resources */,
+				A44804B11A686E430094BA1F /* highStickSound.aif in Resources */,
+				A44804B31A686E430094BA1F /* tickSound.aif in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

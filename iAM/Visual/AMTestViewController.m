@@ -18,7 +18,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    _player = [[AMPlayer alloc] initWithFile:@"tickSound" ofType:@"wav"];
+    _player = [[AMPlayer alloc] initWithFile:@"tickSound" ofType:@"aif"];
 }
 
 - (void)didReceiveMemoryWarning {

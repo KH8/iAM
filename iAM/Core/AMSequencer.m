@@ -24,9 +24,9 @@
     _mainStave = amStave;
     [self performSelectorInBackground:@selector(runSequence) withObject:nil];
 
-    AMPlayer *amPlayer0 = [[AMPlayer alloc] initWithFile:@"tickSound" ofType:@"wav"];
-    AMPlayer *amPlayer1 = [[AMPlayer alloc] initWithFile:@"highStickSound" ofType:@"wav"];
-    AMPlayer *amPlayer2 = [[AMPlayer alloc] initWithFile:@"lowStickSound" ofType:@"wav"];
+    AMPlayer *amPlayer0 = [[AMPlayer alloc] initWithFile:@"tickSound" ofType:@"aif"];
+    AMPlayer *amPlayer1 = [[AMPlayer alloc] initWithFile:@"highStickSound" ofType:@"aif"];
+    AMPlayer *amPlayer2 = [[AMPlayer alloc] initWithFile:@"lowStickSound" ofType:@"aif"];
 
     _arrayOfPlayers = @[amPlayer0,amPlayer1,amPlayer2];
 }
@@ -41,22 +41,23 @@
     while (!_kill){
         if(_isRunning) {
             for (NSUInteger i = 0; i < _mainStave.getLength; i++) {
-                NSUInteger j = 0;
-                for (NSMutableArray *line in _mainStave) {
-                    AMNote *note = line[i];
-                    [note trigger];
-                    if(note.isPlaying){
-                        [_arrayOfPlayers[j] playSound];
-                    }
-                    j++;
-                }
+                [self handleStave:_mainStave atPosition:i withAction:@selector(playSound)];
                 [NSThread sleepForTimeInterval:0.1f];
-                for (NSMutableArray *line in _mainStave) {
-                    AMNote *note = line[i];
-                    [note trigger];
-                }
+                [self handleStave:_mainStave atPosition:i withAction:@selector(stopSound)];
             }
         }
+    }
+}
+
+- (void)handleStave: (AMStave *)aStave atPosition: (NSUInteger)aPosition withAction: (SEL)aSelector{
+    NSUInteger j = 0;
+    for (NSMutableArray *line in aStave) {
+        AMNote *note = line[aPosition];
+        [note trigger];
+        if(note.isPlaying){
+            ((void (*)(id, SEL))[_arrayOfPlayers[j] methodForSelector:aSelector])(_arrayOfPlayers[j], aSelector);
+        }
+        j++;
     }
 }
 

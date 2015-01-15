@@ -32,4 +32,8 @@
     [_audioPlayer play];
 }
 
+-(void) stopSound {
+    [_audioPlayer stop];
+}
+
 @end

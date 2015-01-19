@@ -9,9 +9,10 @@
 
 @interface AMSequencer ()
 
-@property bool kill;
+@property bool isBackgroundRunning;
 @property bool isRunning;
 @property AMStave *mainStave;
+@property int lengthToBePlayed;
 
 @property NSArray *arrayOfPlayers;
 
@@ -20,8 +21,10 @@
 @implementation AMSequencer
 
 - (void)initializeWithStave:(AMStave *)amStave {
-    _kill = false;
+    _isBackgroundRunning = YES;
     _mainStave = amStave;
+    _lengthToBePlayed = amStave.getNumberOfNotesPerLine;
+
     [self performSelectorInBackground:@selector(runSequence) withObject:nil];
 
     AMPlayer *amPlayer0 = [[AMPlayer alloc] initWithFile:@"tickSound" ofType:@"aif"];
@@ -31,19 +34,33 @@
     _arrayOfPlayers = @[amPlayer0,amPlayer1,amPlayer2];
 }
 
-- (void)startStop {
+- (void)killBackgroundThread{
+    _isBackgroundRunning = NO;
+}
+
+- (void)startStop{
     _isRunning = !_isRunning;
     if(_isRunning) [_delegate sequencerHasStarted];
     else [_delegate sequencerHasStopped];
 }
 
+- (void)setLengthToBePlayed:(NSUInteger*)aLength {
+    _lengthToBePlayed = (NSUInteger) aLength;
+}
+
+- (NSUInteger)getLengthToBePlayed {
+    return (NSUInteger) _lengthToBePlayed;
+}
+
+
 - (void)runSequence{
-    while (!_kill){
+    while (_isBackgroundRunning){
         if(_isRunning) {
-            for (NSUInteger i = 0; i < _mainStave.getLength; i++) {
+            for (NSUInteger i = 0; i < _lengthToBePlayed; i++) {
                 [self handleStave:_mainStave atPosition:i withAction:@selector(playSound)];
                 [NSThread sleepForTimeInterval:0.1f];
                 [self handleStave:_mainStave atPosition:i withAction:@selector(stopSound)];
+                if(!_isRunning) break;
             }
         }
     }

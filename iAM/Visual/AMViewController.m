@@ -13,6 +13,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *clearButton;
 @property (weak, nonatomic) IBOutlet UIButton *startButton;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
+@property (weak, nonatomic) IBOutlet UITextField *lengthField;
 
 @property AMStave *mainStave;
 
@@ -33,6 +34,8 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     _mainStave = nil;
+
+    [_mainSequencer killBackgroundThread];
     _mainSequencer = nil;
 }
 
@@ -41,8 +44,7 @@
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    NSMutableArray * lineOfNotes = _mainStave[(NSUInteger) section];
-    return lineOfNotes.count;
+    return _mainSequencer.getLengthToBePlayed;
 }
 
 - (UICollectionViewCell*)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -108,5 +110,17 @@
     });
 }
 
+- (IBAction)newLengthEntered:(id)sender {
+    BOOL valid;
+    NSCharacterSet *alphaNumbers = [NSCharacterSet decimalDigitCharacterSet];
+    NSCharacterSet *inStringSet = [NSCharacterSet characterSetWithCharactersInString:_lengthField.text];
+    valid = [alphaNumbers isSupersetOfSet:inStringSet];
+    if (!valid){
+        _lengthField.text = [NSString stringWithFormat:@"%d", _mainSequencer.getLengthToBePlayed];
+        return;
+    }
+    NSString *str = _lengthField.text;
+    [_mainSequencer setLengthToBePlayed:(NSUInteger *) [str integerValue]];
+}
 
 @end

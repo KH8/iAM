@@ -11,10 +11,9 @@
 @interface AMStave : NSMutableArray
 
 - (void)configureDefault;
-- (void)configureCustomWithNumberOfLines: (NSNumber*)aNumberOfLines numberOfNotesPerLine: (NSNumber*)aNumberOfNotesPerLine;
+- (void)configureCustomWithNumberOfLines: (NSUInteger*)aNumberOfLines numberOfNotesPerLine: (NSUInteger*)aNumberOfNotesPerLine;
 
 - (void)clear;
-
-- (NSInteger)getLength;
+- (NSUInteger)getNumberOfNotesPerLine;
 
 @end

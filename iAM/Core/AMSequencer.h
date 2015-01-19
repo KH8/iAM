@@ -23,7 +23,11 @@
 }
 @property (nonatomic,strong) id delegate;
 
--(void)initializeWithStave: (AMStave*)amStave;
--(void)startStop;
+- (void)initializeWithStave: (AMStave*)amStave;
+- (void)killBackgroundThread;
+
+- (void)startStop;
+- (void)setLengthToBePlayed: (NSUInteger*)aLength;
+- (NSUInteger)getLengthToBePlayed;
 
 @end

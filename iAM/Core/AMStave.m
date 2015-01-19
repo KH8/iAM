@@ -24,12 +24,12 @@ int defaultNumberOfLines = 3;
 int defaultNumberOfNotesPerLine = 8;
 
 - (void)configureDefault{
-    [self configureCustomWithNumberOfLines:@(defaultNumberOfLines) numberOfNotesPerLine:@(defaultNumberOfNotesPerLine)];
+    [self configureCustomWithNumberOfLines:(NSUInteger *) defaultNumberOfLines numberOfNotesPerLine:(NSUInteger *) defaultNumberOfNotesPerLine];
 }
 
-- (void)configureCustomWithNumberOfLines: (NSNumber*)aNumberOfLines numberOfNotesPerLine: (NSNumber*)aNumberOfNotesPerLine{
-    _numberOfLines = [aNumberOfLines intValue];
-    _numberOfNotesPerLine = [aNumberOfNotesPerLine intValue];
+- (void)configureCustomWithNumberOfLines: (NSUInteger*)aNumberOfLines numberOfNotesPerLine: (NSUInteger*)aNumberOfNotesPerLine{
+    _numberOfLines = (int) aNumberOfLines;
+    _numberOfNotesPerLine = (int) aNumberOfNotesPerLine;
 
     _mainArray = [[NSMutableArray alloc] init];
 
@@ -54,9 +54,10 @@ int defaultNumberOfNotesPerLine = 8;
     }
 }
 
-- (NSInteger)getLength {
-    return defaultNumberOfNotesPerLine;
+- (NSUInteger)getNumberOfNotesPerLine {
+    return (NSUInteger) _numberOfNotesPerLine;
 }
+
 
 - (NSUInteger)count{
     return _mainArray.count;

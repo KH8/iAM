@@ -14,6 +14,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *startButton;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (weak, nonatomic) IBOutlet UITextField *lengthTextField;
+@property (weak, nonatomic) IBOutlet UITextField *tempoTextField;
 
 @property AMStave *mainStave;
 
@@ -132,6 +133,8 @@
 
     [_mainSequencer setLengthToBePlayed:newValue];
     [_collectionView reloadData];
+}
+- (IBAction)tempoHasBeenChanged:(id)sender {
 }
 
 @end

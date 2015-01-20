@@ -72,15 +72,16 @@
     return _tempo;
 }
 
-
 - (void)runSequence{
     while (_isBackgroundRunning){
+        NSDate *lastDate = [NSDate date];
         if(_isRunning) {
             for (NSUInteger i = 0; i < _lengthToBePlayed; i++) {
                 [self handleStave:_mainStave atPosition:i withAction:@selector(playSound)];
-                [NSThread sleepForTimeInterval:0.1f];
+                [self waitProperIntervalSinceDate:lastDate];
                 [self handleStave:_mainStave atPosition:i withAction:@selector(stopSound)];
                 if(!_isRunning) break;
+                lastDate = [NSDate date];
             }
         }
     }
@@ -96,6 +97,16 @@
         }
         j++;
     }
+}
+
+- (void)waitProperIntervalSinceDate: (NSDate*)aDate{
+    NSInteger intervalBetweenBeatsInMilliseconds = 60000 / _tempo;
+    NSInteger actualIntervalInGrid = intervalBetweenBeatsInMilliseconds / 2;
+    NSNumber *actualIntervalInGridInSeconds = @(actualIntervalInGrid / 1000.0f);
+    NSNumber *timeElapsedSinceLastBeat = @([aDate timeIntervalSinceNow] * -1000.0);
+    NSNumber *intervalRemaining = @(actualIntervalInGridInSeconds.floatValue - timeElapsedSinceLastBeat.floatValue);
+
+    [NSThread sleepForTimeInterval:intervalRemaining.floatValue];
 }
 
 @end

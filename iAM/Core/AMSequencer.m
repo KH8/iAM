@@ -12,7 +12,7 @@
 @property bool isBackgroundRunning;
 @property bool isRunning;
 @property AMStave *mainStave;
-@property int lengthToBePlayed;
+@property (nonatomic) int lengthToBePlayed;
 
 @property NSArray *arrayOfPlayers;
 
@@ -22,6 +22,9 @@
 
 - (void)initializeWithStave:(AMStave *)amStave {
     _isBackgroundRunning = YES;
+    _maxLength = 64;
+    _minLength = 1;
+
     _mainStave = amStave;
     _lengthToBePlayed = amStave.getNumberOfNotesPerLine;
 
@@ -44,8 +47,8 @@
     else [_delegate sequencerHasStopped];
 }
 
-- (void)setLengthToBePlayed:(NSUInteger*)aLength {
-    _lengthToBePlayed = (NSUInteger) aLength;
+- (void)setLengthToBePlayed:(int)aLength {
+    _lengthToBePlayed = (int) aLength;
 }
 
 - (NSUInteger)getLengthToBePlayed {

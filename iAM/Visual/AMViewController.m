@@ -13,7 +13,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *clearButton;
 @property (weak, nonatomic) IBOutlet UIButton *startButton;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
-@property (weak, nonatomic) IBOutlet UITextField *lengthField;
+@property (weak, nonatomic) IBOutlet UITextField *lengthTextField;
 
 @property AMStave *mainStave;
 
@@ -109,18 +109,27 @@
         [_collectionView reloadData];
     });
 }
+- (IBAction)lengthHasBeenChanged:(id)sender {
+    BOOL isValid;
+    NSInteger actualLengthValue = _mainSequencer.getLengthToBePlayed;
 
-- (IBAction)newLengthEntered:(id)sender {
-    BOOL valid;
     NSCharacterSet *alphaNumbers = [NSCharacterSet decimalDigitCharacterSet];
-    NSCharacterSet *inStringSet = [NSCharacterSet characterSetWithCharactersInString:_lengthField.text];
-    valid = [alphaNumbers isSupersetOfSet:inStringSet];
-    if (!valid){
-        _lengthField.text = [NSString stringWithFormat:@"%d", _mainSequencer.getLengthToBePlayed];
+    NSCharacterSet *inStringSet = [NSCharacterSet characterSetWithCharactersInString:_lengthTextField.text];
+    isValid = [alphaNumbers isSupersetOfSet:inStringSet];
+    if (!isValid) {
+        _lengthTextField.text = @"8";
         return;
     }
-    NSString *str = _lengthField.text;
-    [_mainSequencer setLengthToBePlayed:(NSUInteger *) [str integerValue]];
+
+    NSInteger newValue = [_lengthTextField.text integerValue];
+
+    if(newValue > _mainSequencer.maxLength || newValue < _mainSequencer.minLength) {
+        _lengthTextField.text = [NSString stringWithFormat:@"%d", actualLengthValue];
+        return;
+    }
+
+    [_mainSequencer setLengthToBePlayed:newValue];
+    [_collectionView reloadData];
 }
 
 @end

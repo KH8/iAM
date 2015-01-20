@@ -23,11 +23,14 @@
 }
 @property (nonatomic,strong) id delegate;
 
+@property (nonatomic) NSInteger maxLength;
+@property (nonatomic) NSInteger minLength;
+
 - (void)initializeWithStave: (AMStave*)amStave;
 - (void)killBackgroundThread;
 
 - (void)startStop;
-- (void)setLengthToBePlayed: (NSUInteger*)aLength;
+- (void)setLengthToBePlayed: (int)aLength;
 - (NSUInteger)getLengthToBePlayed;
 
 @end

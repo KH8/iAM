@@ -6,6 +6,7 @@
 #import "AMSequencer.h"
 #import "AMNote.h"
 #import "AMPlayer.h"
+#import "AMLogger.h"
 
 @interface AMSequencer ()
 
@@ -82,6 +83,8 @@
                 [self handleStave:_mainStave atPosition:i withAction:@selector(stopSound)];
                 if(!_isRunning) break;
                 lastDate = [NSDate date];
+
+                [AMLogger logMessage:[NSString stringWithFormat:@"%@: %@", @("last date stored"), [NSString stringWithUTF8String:[[lastDate description] UTF8String]]]];
             }
         }
     }
@@ -107,6 +110,10 @@
     NSNumber *intervalRemaining = @(actualIntervalInGridInSeconds.floatValue - timeElapsedSinceLastBeat.floatValue);
 
     [NSThread sleepForTimeInterval:intervalRemaining.floatValue];
+
+    [AMLogger logMessage:[NSString stringWithFormat:@"%@: %@", @("interval"), @(actualIntervalInGridInSeconds.floatValue)]];
+    [AMLogger logMessage:[NSString stringWithFormat:@"%@: %@", @("time elapsed"), @(timeElapsedSinceLastBeat.floatValue)]];
+    [AMLogger logMessage:[NSString stringWithFormat:@"%@: %@", @("interval calculated"), @(intervalRemaining.floatValue)]];
 }
 
 @end

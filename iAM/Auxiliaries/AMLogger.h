@@ -7,4 +7,7 @@
 
 
 @interface AMLogger : NSObject
+
++ (void)logMessage: (NSString *)aMessage;
+
 @end

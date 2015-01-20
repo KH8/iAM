@@ -7,6 +7,7 @@
 //
 
 #import "AMViewController.h"
+#import "AMLogger.h"
 
 @interface AMViewController ()
 
@@ -33,6 +34,8 @@
 
     _lengthTextField.text = [NSString stringWithFormat:@"%d", _mainSequencer.getLengthToBePlayed];
     _tempoTextField.text = [NSString stringWithFormat:@"%d", _mainSequencer.getTempo];
+
+    [AMLogger logMessage:@"View has been loaded"];
 }
 
 - (void)didReceiveMemoryWarning {

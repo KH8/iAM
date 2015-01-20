@@ -9,9 +9,11 @@
 /* Begin PBXBuildFile section */
 		8F046B026B5E2504F7049EBB /* AMTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F0AB88EF3D7984948985E29 /* AMTestViewController.m */; };
 		8F04FBE0580CA198436BDD5E /* AMPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F0AE1AC2BDFCA960D899F80 /* AMPlayer.m */; };
+		8F06837020640123D62992DF /* AMLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F0F0B92C68B7F72ABB63477 /* AMLogger.m */; };
 		8F081AD4F297441F7B21E453 /* AMViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F04E6D9B4037B610C133F34 /* AMViewController.m */; };
 		8F0B34AA1C650F6EBD78FA56 /* AMSequencer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F0763D2246B340EEC482E45 /* AMSequencer.m */; };
 		8F0B7BBFD13CA2A424283225 /* AMCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F0B1F4FAA5303D5E98B0847 /* AMCollectionViewCell.m */; };
+		8F0EE4811BA81BC15A3EA9F9 /* Auxiliaries in Resources */ = {isa = PBXBuildFile; fileRef = 8F0A00A072A07FD1C6DC55AA /* Auxiliaries */; };
 		A41641911A65DC5C00E3E228 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A41641901A65DC5C00E3E228 /* AVFoundation.framework */; };
 		A44804B11A686E430094BA1F /* highStickSound.aif in Resources */ = {isa = PBXBuildFile; fileRef = A44804AE1A686E430094BA1F /* highStickSound.aif */; };
 		A44804B21A686E430094BA1F /* lowStickSound.aif in Resources */ = {isa = PBXBuildFile; fileRef = A44804AF1A686E430094BA1F /* lowStickSound.aif */; };
@@ -40,13 +42,16 @@
 		8F0232E7F6F389A4CECE670C /* AMSequencer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMSequencer.h; path = Core/AMSequencer.h; sourceTree = "<group>"; };
 		8F04E6D9B4037B610C133F34 /* AMViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMViewController.m; sourceTree = "<group>"; };
 		8F0763D2246B340EEC482E45 /* AMSequencer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMSequencer.m; path = Core/AMSequencer.m; sourceTree = "<group>"; };
+		8F0A00A072A07FD1C6DC55AA /* Auxiliaries */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Auxiliaries; sourceTree = "<group>"; };
 		8F0AB88EF3D7984948985E29 /* AMTestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMTestViewController.m; sourceTree = "<group>"; };
 		8F0AD5A2B8400C3F3D22A86A /* AMCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMCollectionViewCell.h; sourceTree = "<group>"; };
 		8F0AE1AC2BDFCA960D899F80 /* AMPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMPlayer.m; path = Core/AMPlayer.m; sourceTree = "<group>"; };
 		8F0B1F4FAA5303D5E98B0847 /* AMCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMCollectionViewCell.m; sourceTree = "<group>"; };
+		8F0C23A5AA2C331BBA048FCF /* AMLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMLogger.h; path = Auxiliaries/AMLogger.h; sourceTree = "<group>"; };
 		8F0C410D5FCFA749CBDBCBF3 /* AMTestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMTestViewController.h; sourceTree = "<group>"; };
 		8F0D8E3934B282764EF13D8A /* AMViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMViewController.h; sourceTree = "<group>"; };
 		8F0DA14C9FCAE3399B86B93B /* AMPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMPlayer.h; path = Core/AMPlayer.h; sourceTree = "<group>"; };
+		8F0F0B92C68B7F72ABB63477 /* AMLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMLogger.m; path = Auxiliaries/AMLogger.m; sourceTree = "<group>"; };
 		A41641901A65DC5C00E3E228 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		A44804AE1A686E430094BA1F /* highStickSound.aif */ = {isa = PBXFileReference; lastKnownFileType = file; name = highStickSound.aif; path = Core/Sounds/highStickSound.aif; sourceTree = "<group>"; };
 		A44804AF1A686E430094BA1F /* lowStickSound.aif */ = {isa = PBXFileReference; lastKnownFileType = file; name = lowStickSound.aif; path = Core/Sounds/lowStickSound.aif; sourceTree = "<group>"; };
@@ -156,6 +161,9 @@
 				A45F0D561A5C6515008673FC /* LaunchScreen.xib */,
 				A45F0D471A5C6515008673FC /* Supporting Files */,
 				8F01C9F7EDEB97C2F2D72BE8 /* Visual */,
+				8F0A00A072A07FD1C6DC55AA /* Auxiliaries */,
+				8F0F0B92C68B7F72ABB63477 /* AMLogger.m */,
+				8F0C23A5AA2C331BBA048FCF /* AMLogger.h */,
 			);
 			path = iAM;
 			sourceTree = "<group>";
@@ -272,6 +280,7 @@
 				A44804B21A686E430094BA1F /* lowStickSound.aif in Resources */,
 				A44804B11A686E430094BA1F /* highStickSound.aif in Resources */,
 				A44804B31A686E430094BA1F /* tickSound.aif in Resources */,
+				8F0EE4811BA81BC15A3EA9F9 /* Auxiliaries in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -298,6 +307,7 @@
 				8F0B7BBFD13CA2A424283225 /* AMCollectionViewCell.m in Sources */,
 				8F081AD4F297441F7B21E453 /* AMViewController.m in Sources */,
 				8F046B026B5E2504F7049EBB /* AMTestViewController.m in Sources */,
+				8F06837020640123D62992DF /* AMLogger.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -419,9 +429,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = iAM/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "iAM/iAM-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -429,9 +442,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = iAM/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "iAM/iAM-Bridging-Header.h";
 			};
 			name = Release;
 		};

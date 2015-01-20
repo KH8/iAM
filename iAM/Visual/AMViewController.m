@@ -32,6 +32,7 @@
     _mainSequencer.delegate = self;
 
     _lengthTextField.text = [NSString stringWithFormat:@"%d", _mainSequencer.getLengthToBePlayed];
+    _tempoTextField.text = [NSString stringWithFormat:@"%d", _mainSequencer.getTempo];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -112,29 +113,41 @@
         [_collectionView reloadData];
     });
 }
+
 - (IBAction)lengthHasBeenChanged:(id)sender {
-    BOOL isValid;
     NSInteger actualLengthValue = _mainSequencer.getLengthToBePlayed;
+    NSInteger newLengthValue = [_lengthTextField.text integerValue];
 
-    NSCharacterSet *alphaNumbers = [NSCharacterSet decimalDigitCharacterSet];
-    NSCharacterSet *inStringSet = [NSCharacterSet characterSetWithCharactersInString:_lengthTextField.text];
-    isValid = [alphaNumbers isSupersetOfSet:inStringSet];
-    if (!isValid) {
-        _lengthTextField.text = @"8";
-        return;
-    }
-
-    NSInteger newValue = [_lengthTextField.text integerValue];
-
-    if(newValue > _mainSequencer.maxLength || newValue < _mainSequencer.minLength) {
+    if (![self isTextANumber:_lengthTextField.text] || ![self isValue:newLengthValue withingMax:_mainSequencer.maxLength andMin:_mainSequencer.minLength]) {
         _lengthTextField.text = [NSString stringWithFormat:@"%d", actualLengthValue];
         return;
     }
 
-    [_mainSequencer setLengthToBePlayed:newValue];
+    [_mainSequencer setLengthToBePlayed:newLengthValue];
     [_collectionView reloadData];
 }
+
 - (IBAction)tempoHasBeenChanged:(id)sender {
+    NSInteger actualTempoValue = _mainSequencer.getTempo;
+    NSInteger newTempoValue = [_tempoTextField.text integerValue];
+
+    if (![self isTextANumber:_tempoTextField.text] || ![self isValue:newTempoValue withingMax:_mainSequencer.maxTempo andMin:_mainSequencer.minTempo]) {
+        _tempoTextField.text = [NSString stringWithFormat:@"%d", actualTempoValue];
+        return;
+    }
+
+    [_mainSequencer setTempo:newTempoValue];
+    [_collectionView reloadData];
+}
+
+- (bool)isTextANumber: (NSString *)aString{
+    NSCharacterSet *alphaNumbers = [NSCharacterSet decimalDigitCharacterSet];
+    NSCharacterSet *inStringSet = [NSCharacterSet characterSetWithCharactersInString:aString];
+    return [alphaNumbers isSupersetOfSet:inStringSet];
+}
+
+- (bool)isValue: (NSInteger)aValue withingMax: (NSInteger)aMaximum andMin: (NSInteger)aMinimum{
+    return aValue <= aMaximum && aValue >= aMinimum;
 }
 
 @end

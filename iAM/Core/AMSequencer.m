@@ -12,7 +12,9 @@
 @property bool isBackgroundRunning;
 @property bool isRunning;
 @property AMStave *mainStave;
-@property (nonatomic) int lengthToBePlayed;
+
+@property (nonatomic) NSInteger lengthToBePlayed;
+@property (nonatomic) NSInteger tempo;
 
 @property NSArray *arrayOfPlayers;
 
@@ -20,14 +22,21 @@
 
 @implementation AMSequencer
 
-- (void)initializeWithStave:(AMStave *)amStave {
-    _isBackgroundRunning = YES;
+- (void)setBasicParameters {
+    _lengthToBePlayed = 8;
+    _tempo = 120;
+
     _maxLength = 64;
     _minLength = 1;
+    _maxTempo = 280;
+    _minTempo = 60;
+}
 
+- (void)initializeWithStave:(AMStave *)amStave {
     _mainStave = amStave;
-    _lengthToBePlayed = amStave.getNumberOfNotesPerLine;
+    _isBackgroundRunning = YES;
 
+    [self setBasicParameters];
     [self performSelectorInBackground:@selector(runSequence) withObject:nil];
 
     AMPlayer *amPlayer0 = [[AMPlayer alloc] initWithFile:@"tickSound" ofType:@"aif"];
@@ -47,12 +56,20 @@
     else [_delegate sequencerHasStopped];
 }
 
-- (void)setLengthToBePlayed:(int)aLength {
-    _lengthToBePlayed = (int) aLength;
+- (void)setLengthToBePlayed:(NSInteger)aLength {
+    _lengthToBePlayed = aLength;
 }
 
-- (NSUInteger)getLengthToBePlayed {
-    return (NSUInteger) _lengthToBePlayed;
+- (NSInteger)getLengthToBePlayed {
+    return _lengthToBePlayed;
+}
+
+- (void)setTempo:(NSInteger)aTempo {
+    _tempo = aTempo;
+}
+
+- (NSInteger)getTempo {
+    return _tempo;
 }
 
 

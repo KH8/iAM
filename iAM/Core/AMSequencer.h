@@ -26,11 +26,17 @@
 @property (nonatomic) NSInteger maxLength;
 @property (nonatomic) NSInteger minLength;
 
+@property (nonatomic) NSInteger maxTempo;
+@property (nonatomic) NSInteger minTempo;
+
 - (void)initializeWithStave: (AMStave*)amStave;
 - (void)killBackgroundThread;
 
 - (void)startStop;
-- (void)setLengthToBePlayed: (int)aLength;
-- (NSUInteger)getLengthToBePlayed;
+
+- (void)setLengthToBePlayed: (NSInteger)aLength;
+- (NSInteger)getLengthToBePlayed;
+- (void)setTempo: (NSInteger)aTempo;
+- (NSInteger)getTempo;
 
 @end

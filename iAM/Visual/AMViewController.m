@@ -29,6 +29,8 @@
     _mainSequencer = [[AMSequencer alloc] init];
     [_mainSequencer initializeWithStave:_mainStave];
     _mainSequencer.delegate = self;
+
+    _lengthTextField.text = [NSString stringWithFormat:@"%d", _mainSequencer.getLengthToBePlayed];
 }
 
 - (void)didReceiveMemoryWarning {

@@ -6,6 +6,7 @@
 #import "AMSequencer.h"
 #import "AMNote.h"
 #import "AMPlayer.h"
+#import "AMLogger.h"
 
 @interface AMSequencer ()
 
@@ -52,8 +53,14 @@
 
 - (void)startStop{
     _isRunning = !_isRunning;
-    if(_isRunning) [_delegate sequencerHasStarted];
-    else [_delegate sequencerHasStopped];
+    if(_isRunning) {
+        [AMLogger logMessage:@("sequence started")];
+        [_delegate sequencerHasStarted];
+    }
+    else {
+        [AMLogger logMessage:@("sequence stopped")];
+        [_delegate sequencerHasStopped];
+    }
 }
 
 - (void)setLengthToBePlayed:(NSInteger)aLength {
@@ -80,7 +87,10 @@
                 [self handleStave:_mainStave atPosition:i withAction:@selector(playSound)];
                 [self waitProperIntervalSinceDate:lastDate];
                 [self handleStave:_mainStave atPosition:i withAction:@selector(stopSound)];
-                if(!_isRunning) break;
+                if(!_isRunning) {
+                    break;
+                }
+                [AMLogger logMessage:[NSString stringWithFormat:@"interval since last bar: %f", [lastDate timeIntervalSinceNow] * -1000.f]];
                 lastDate = [NSDate date];
             }
         }

@@ -100,10 +100,10 @@
 }
 
 - (void)waitProperIntervalSinceDate: (NSDate*)aDate{
-    NSInteger intervalBetweenBeatsInMilliseconds = 60000 / _tempo;
-    NSInteger actualIntervalInGrid = intervalBetweenBeatsInMilliseconds / 8;
-    NSNumber *actualIntervalInGridInSeconds = @(actualIntervalInGrid / 1000.0f);
-    NSNumber *timeElapsedSinceLastBeat = @([aDate timeIntervalSinceNow] * -1.0);
+    NSNumber *intervalBetweenBeatsInMilliseconds = @(60000.0f / _tempo);
+    NSNumber *actualIntervalInGrid = @(intervalBetweenBeatsInMilliseconds.floatValue / 8.0f);
+    NSNumber *actualIntervalInGridInSeconds = @(actualIntervalInGrid.floatValue / 1000.0f);
+    NSNumber *timeElapsedSinceLastBeat = @([aDate timeIntervalSinceNow] * -1.0f);
     NSNumber *intervalRemaining = @(actualIntervalInGridInSeconds.floatValue - timeElapsedSinceLastBeat.floatValue);
 
     [NSThread sleepForTimeInterval:intervalRemaining.floatValue];

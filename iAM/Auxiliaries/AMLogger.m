@@ -14,9 +14,7 @@
 }
 
 + (void)logMessage:(NSString *)aMessage {
-    NSDate *actualDate = [NSDate date];
-    NSString *formattedMessage = [NSString stringWithFormat:@"%@: %@", [NSString stringWithUTF8String:[[actualDate description] UTF8String]], aMessage];
-    printf("%s\n", [formattedMessage cStringUsingEncoding:[NSString defaultCStringEncoding]]);
+    NSLog(aMessage);
 }
 
 @end

@@ -83,8 +83,6 @@
                 [self handleStave:_mainStave atPosition:i withAction:@selector(stopSound)];
                 if(!_isRunning) break;
                 lastDate = [NSDate date];
-
-                [AMLogger logMessage:[NSString stringWithFormat:@"%@: %@", @("last date stored"), [NSString stringWithUTF8String:[[lastDate description] UTF8String]]]];
             }
         }
     }
@@ -106,14 +104,10 @@
     NSInteger intervalBetweenBeatsInMilliseconds = 60000 / _tempo;
     NSInteger actualIntervalInGrid = intervalBetweenBeatsInMilliseconds / 2;
     NSNumber *actualIntervalInGridInSeconds = @(actualIntervalInGrid / 1000.0f);
-    NSNumber *timeElapsedSinceLastBeat = @([aDate timeIntervalSinceNow] * -1000.0);
+    NSNumber *timeElapsedSinceLastBeat = @([aDate timeIntervalSinceNow] * -1.0);
     NSNumber *intervalRemaining = @(actualIntervalInGridInSeconds.floatValue - timeElapsedSinceLastBeat.floatValue);
 
     [NSThread sleepForTimeInterval:intervalRemaining.floatValue];
-
-    [AMLogger logMessage:[NSString stringWithFormat:@"%@: %@", @("interval"), @(actualIntervalInGridInSeconds.floatValue)]];
-    [AMLogger logMessage:[NSString stringWithFormat:@"%@: %@", @("time elapsed"), @(timeElapsedSinceLastBeat.floatValue)]];
-    [AMLogger logMessage:[NSString stringWithFormat:@"%@: %@", @("interval calculated"), @(intervalRemaining.floatValue)]];
 }
 
 @end

@@ -12,6 +12,5 @@
 @interface AMCollectionViewCell : UICollectionViewCell
 
 @property (weak, nonatomic) AMNote *noteAssigned;
-@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 
 @end

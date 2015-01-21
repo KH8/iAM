@@ -7,7 +7,6 @@
 //
 
 #import "AMViewController.h"
-#import "AMLogger.h"
 
 @interface AMViewController ()
 
@@ -34,8 +33,6 @@
 
     _lengthTextField.text = [NSString stringWithFormat:@"%d", _mainSequencer.getLengthToBePlayed];
     _tempoTextField.text = [NSString stringWithFormat:@"%d", _mainSequencer.getTempo];
-
-    [AMLogger logMessage:@"View has been loaded"];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -60,7 +57,6 @@
     NSMutableArray * lineOfNotes = _mainStave[(NSUInteger) indexPath.section];
     newCell.noteAssigned = lineOfNotes[(NSUInteger) indexPath.row];
     newCell.noteAssigned.delegate = self;
-    newCell.titleLabel.text = [NSString stringWithFormat:@"%@", newCell.noteAssigned.id];
 
     UIColor *color = [[UIColor lightGrayColor] colorWithAlphaComponent:0.9F];
     if(newCell.noteAssigned.isSelected) color = [[UIColor grayColor] colorWithAlphaComponent:0.9F];

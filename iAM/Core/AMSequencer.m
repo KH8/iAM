@@ -6,7 +6,6 @@
 #import "AMSequencer.h"
 #import "AMNote.h"
 #import "AMPlayer.h"
-#import "AMLogger.h"
 
 @interface AMSequencer ()
 
@@ -24,7 +23,7 @@
 @implementation AMSequencer
 
 - (void)setBasicParameters {
-    _lengthToBePlayed = 8;
+    _lengthToBePlayed = 16;
     _tempo = 120;
 
     _maxLength = 64;
@@ -102,7 +101,7 @@
 
 - (void)waitProperIntervalSinceDate: (NSDate*)aDate{
     NSInteger intervalBetweenBeatsInMilliseconds = 60000 / _tempo;
-    NSInteger actualIntervalInGrid = intervalBetweenBeatsInMilliseconds / 2;
+    NSInteger actualIntervalInGrid = intervalBetweenBeatsInMilliseconds / 8;
     NSNumber *actualIntervalInGridInSeconds = @(actualIntervalInGrid / 1000.0f);
     NSNumber *timeElapsedSinceLastBeat = @([aDate timeIntervalSinceNow] * -1.0);
     NSNumber *intervalRemaining = @(actualIntervalInGridInSeconds.floatValue - timeElapsedSinceLastBeat.floatValue);

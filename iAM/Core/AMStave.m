@@ -20,8 +20,8 @@
 
 @implementation AMStave
 
-int defaultNumberOfLines = 3;
-int defaultNumberOfNotesPerLine = 64;
+NSUInteger const defaultNumberOfLines = 3;
+NSUInteger const defaultNumberOfNotesPerLine = 64;
 
 - (void)configureDefault{
     [self configureCustomWithNumberOfLines:(NSUInteger *) defaultNumberOfLines numberOfNotesPerLine:(NSUInteger *) defaultNumberOfNotesPerLine];

@@ -14,7 +14,7 @@
 }
 
 + (void)logMessage:(NSString *)aMessage {
-    NSLog(aMessage);
+    NSLog(@"%@", aMessage);
 }
 
 @end

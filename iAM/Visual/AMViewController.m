@@ -31,8 +31,8 @@
     [_mainSequencer initializeWithStave:_mainStave];
     _mainSequencer.delegate = self;
 
-    _lengthTextField.text = [NSString stringWithFormat:@"%d", _mainSequencer.getLengthToBePlayed];
-    _tempoTextField.text = [NSString stringWithFormat:@"%d", _mainSequencer.getTempo];
+    _lengthTextField.text = [NSString stringWithFormat:@"%ld", _mainSequencer.getLengthToBePlayed];
+    _tempoTextField.text = [NSString stringWithFormat:@"%ld", _mainSequencer.getTempo];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -118,7 +118,7 @@
     NSInteger newLengthValue = [_lengthTextField.text integerValue];
 
     if (![self isTextANumber:_lengthTextField.text] || ![self isValue:newLengthValue withingMax:_mainSequencer.maxLength andMin:_mainSequencer.minLength]) {
-        _lengthTextField.text = [NSString stringWithFormat:@"%d", actualLengthValue];
+        _lengthTextField.text = [NSString stringWithFormat:@"%ld", actualLengthValue];
         return;
     }
 
@@ -131,7 +131,7 @@
     NSInteger newTempoValue = [_tempoTextField.text integerValue];
 
     if (![self isTextANumber:_tempoTextField.text] || ![self isValue:newTempoValue withingMax:_mainSequencer.maxTempo andMin:_mainSequencer.minTempo]) {
-        _tempoTextField.text = [NSString stringWithFormat:@"%d", actualTempoValue];
+        _tempoTextField.text = [NSString stringWithFormat:@"%ld", actualTempoValue];
         return;
     }
 

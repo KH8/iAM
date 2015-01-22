@@ -285,7 +285,6 @@
 				A44804B21A686E430094BA1F /* lowStickSound.aif in Resources */,
 				A44804B11A686E430094BA1F /* highStickSound.aif in Resources */,
 				A44804B31A686E430094BA1F /* tickSound.aif in Resources */,
-				8F0EE4811BA81BC15A3EA9F9,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

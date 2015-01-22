@@ -7,17 +7,14 @@
 //
 
 #import "AMViewController.h"
+#import "AMStave.h"
 
 @interface AMViewController () {
     NSArray *sizePickerData;
     NSArray *tempoPickerData;
 }
 
-@property (weak, nonatomic) IBOutlet UIButton *clearButton;
-@property (weak, nonatomic) IBOutlet UIButton *startButton;
-@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
-
-@property AMStave *mainStave;
+@property AMCollectionViewController *collectionViewController;
 
 @end
 
@@ -25,11 +22,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    _collectionViewController = [[AMCollectionViewController alloc] init];
     
-    _mainStave = [[AMStave alloc] init];
-    [_mainStave configureDefault];
+    _collectionView.delegate = _collectionViewController;
+    _collectionView.dataSource = _collectionViewController;
+    
     _mainSequencer = [[AMSequencer alloc] init];
-    [_mainSequencer initializeWithStave:_mainStave];
+    [_mainSequencer initializeWithStave:_collectionViewController.mainStave];
     _mainSequencer.delegate = self;
     
     sizePickerData = @[@"3",@"4",@"6",@"8",@"9",@"12",@"16"];
@@ -38,61 +37,13 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    _mainStave = nil;
 
     [_mainSequencer killBackgroundThread];
     _mainSequencer = nil;
 }
 
-- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
-    return _mainStave.count;
-}
-
-- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return _mainSequencer.getLengthToBePlayed;
-}
-
-- (UICollectionViewCell*)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    
-    AMCollectionViewCell * newCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"myCell" forIndexPath:indexPath];
-    NSMutableArray * lineOfNotes = _mainStave[(NSUInteger) indexPath.section];
-    newCell.noteAssigned = lineOfNotes[(NSUInteger) indexPath.row];
-    newCell.noteAssigned.delegate = self;
-
-    UIColor *color = [[UIColor lightGrayColor] colorWithAlphaComponent:0.9F];
-    if(newCell.noteAssigned.isSelected) color = [[UIColor grayColor] colorWithAlphaComponent:0.9F];
-    if(newCell.noteAssigned.isPlaying) color = [[UIColor greenColor] colorWithAlphaComponent:0.9F];
-    if(newCell.noteAssigned.isTriggered) color = [color colorWithAlphaComponent:0.5F];
-
-    newCell.backgroundColor = color;
-
-    return newCell;
-}
-
-- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
-    
-    AMCollectionViewCell *cell = (AMCollectionViewCell*) [collectionView cellForItemAtIndexPath:indexPath];
-    AMNote *note = cell.noteAssigned;
-    
-    [note select];
-    NSArray *arrayOfPaths = @[indexPath];
-    [_collectionView reloadItemsAtIndexPaths:arrayOfPaths];
-}
-
-- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section{
-    return 0.0;
-}
-
-- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section{
-    return 0.0;
-}
-
-- (UIEdgeInsets)collectionView: (UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
-    return UIEdgeInsetsMake(1,1,1,1);
-}
-
 - (IBAction)onTouchEvent:(id)sender {
-    [_mainStave clear];
+    [_collectionViewController.mainStave clear];
     [_collectionView reloadData];
 }
 

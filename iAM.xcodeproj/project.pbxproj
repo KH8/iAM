@@ -19,6 +19,7 @@
 		A44804B31A686E430094BA1F /* tickSound.aif in Resources */ = {isa = PBXBuildFile; fileRef = A44804B01A686E430094BA1F /* tickSound.aif */; };
 		A44910791A5F396E00E8C6DB /* AMStave.m in Sources */ = {isa = PBXBuildFile; fileRef = A44910781A5F396E00E8C6DB /* AMStave.m */; };
 		A449107C1A5F3A1200E8C6DB /* AMNote.m in Sources */ = {isa = PBXBuildFile; fileRef = A449107B1A5F3A1200E8C6DB /* AMNote.m */; };
+		A45A3D6E1A71B4DF00039934 /* AMCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A45A3D6D1A71B4DF00039934 /* AMCollectionViewController.m */; };
 		A45F0D4A1A5C6515008673FC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A45F0D491A5C6515008673FC /* main.m */; };
 		A45F0D4D1A5C6515008673FC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A45F0D4C1A5C6515008673FC /* AppDelegate.m */; };
 		A45F0D531A5C6515008673FC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A45F0D511A5C6515008673FC /* Main.storyboard */; };
@@ -58,6 +59,8 @@
 		A44910781A5F396E00E8C6DB /* AMStave.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMStave.m; path = Core/AMStave.m; sourceTree = "<group>"; };
 		A449107A1A5F3A1200E8C6DB /* AMNote.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMNote.h; path = Core/AMNote.h; sourceTree = "<group>"; };
 		A449107B1A5F3A1200E8C6DB /* AMNote.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMNote.m; path = Core/AMNote.m; sourceTree = "<group>"; };
+		A45A3D6C1A71B4DF00039934 /* AMCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMCollectionViewController.h; sourceTree = "<group>"; };
+		A45A3D6D1A71B4DF00039934 /* AMCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMCollectionViewController.m; sourceTree = "<group>"; };
 		A45F0D441A5C6515008673FC /* iAM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iAM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A45F0D481A5C6515008673FC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A45F0D491A5C6515008673FC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -99,6 +102,8 @@
 				8F04E6D9B4037B610C133F34 /* AMViewController.m */,
 				8F0C410D5FCFA749CBDBCBF3 /* AMTestViewController.h */,
 				8F0AB88EF3D7984948985E29 /* AMTestViewController.m */,
+				A45A3D6C1A71B4DF00039934 /* AMCollectionViewController.h */,
+				A45A3D6D1A71B4DF00039934 /* AMCollectionViewController.m */,
 			);
 			path = Visual;
 			sourceTree = "<group>";
@@ -309,6 +314,7 @@
 				8F0B34AA1C650F6EBD78FA56 /* AMSequencer.m in Sources */,
 				8F0B7BBFD13CA2A424283225 /* AMCollectionViewCell.m in Sources */,
 				8F081AD4F297441F7B21E453 /* AMViewController.m in Sources */,
+				A45A3D6E1A71B4DF00039934 /* AMCollectionViewController.m in Sources */,
 				8F046B026B5E2504F7049EBB /* AMTestViewController.m in Sources */,
 				8F0000638125D61039818FFA /* AMLogger.m in Sources */,
 				8F03D778486C6AEEDE7E8BA1 /* AMPlayer.m in Sources */,

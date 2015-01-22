@@ -8,13 +8,14 @@
 
 #import "AMViewController.h"
 
-@interface AMViewController ()
+@interface AMViewController () {
+    NSArray *sizePickerData;
+    NSArray *tempoPickerData;
+}
 
 @property (weak, nonatomic) IBOutlet UIButton *clearButton;
 @property (weak, nonatomic) IBOutlet UIButton *startButton;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
-@property (weak, nonatomic) IBOutlet UITextField *lengthTextField;
-@property (weak, nonatomic) IBOutlet UITextField *tempoTextField;
 
 @property AMStave *mainStave;
 
@@ -30,9 +31,9 @@
     _mainSequencer = [[AMSequencer alloc] init];
     [_mainSequencer initializeWithStave:_mainStave];
     _mainSequencer.delegate = self;
-
-    _lengthTextField.text = [NSString stringWithFormat:@"%ld", _mainSequencer.getLengthToBePlayed];
-    _tempoTextField.text = [NSString stringWithFormat:@"%ld", _mainSequencer.getTempo];
+    
+    sizePickerData = @[@"3",@"4",@"6",@"8",@"9",@"12",@"16"];
+    tempoPickerData = @[@"60",@"100",@"140",@"180",@"220",@"260",@"300"];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -113,12 +114,10 @@
     });
 }
 
-- (IBAction)lengthHasBeenChanged:(id)sender {
-    NSInteger actualLengthValue = _mainSequencer.getLengthToBePlayed;
-    NSInteger newLengthValue = [_lengthTextField.text integerValue];
+- (void)lengthHasBeenChanged:(NSString*)lengthText {
+    NSInteger newLengthValue = [lengthText integerValue];
 
-    if (![self isTextANumber:_lengthTextField.text] || ![self isValue:newLengthValue withingMax:_mainSequencer.maxLength andMin:_mainSequencer.minLength]) {
-        _lengthTextField.text = [NSString stringWithFormat:@"%ld", actualLengthValue];
+    if (![self isTextANumber:lengthText] || ![self isValue:newLengthValue withingMax:_mainSequencer.maxLength andMin:_mainSequencer.minLength]) {
         return;
     }
 
@@ -126,12 +125,10 @@
     [_collectionView reloadData];
 }
 
-- (IBAction)tempoHasBeenChanged:(id)sender {
-    NSInteger actualTempoValue = _mainSequencer.getTempo;
-    NSInteger newTempoValue = [_tempoTextField.text integerValue];
+- (void)tempoHasBeenChanged:(NSString*)tempoText {
+    NSInteger newTempoValue = [tempoText integerValue];
 
-    if (![self isTextANumber:_tempoTextField.text] || ![self isValue:newTempoValue withingMax:_mainSequencer.maxTempo andMin:_mainSequencer.minTempo]) {
-        _tempoTextField.text = [NSString stringWithFormat:@"%ld", actualTempoValue];
+    if (![self isTextANumber:tempoText] || ![self isValue:newTempoValue withingMax:_mainSequencer.maxTempo andMin:_mainSequencer.minTempo]) {
         return;
     }
 
@@ -147,6 +144,44 @@
 
 - (bool)isValue: (NSInteger)aValue withingMax: (NSInteger)aMaximum andMin: (NSInteger)aMinimum{
     return aValue <= aMaximum && aValue >= aMinimum;
+}
+
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
+{
+    return 1;
+}
+
+- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
+{
+    if(pickerView == _sizePicker){
+        return sizePickerData.count;
+    }
+    if(pickerView == _tempoPicker){
+        return tempoPickerData.count;
+    }
+    return 0;
+}
+
+- (NSString*)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
+{
+    if(pickerView == _sizePicker){
+        return sizePickerData[row];
+    }
+    if(pickerView == _tempoPicker){
+        return tempoPickerData[row];
+    }
+    return @"";
+}
+
+-(void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
+    if(pickerView == _sizePicker){
+        NSString *valueSelected = sizePickerData[row];
+        [self lengthHasBeenChanged:valueSelected];
+    }
+    if(pickerView == _tempoPicker){
+        NSString *valueSelected = tempoPickerData[row];
+        [self tempoHasBeenChanged:valueSelected];
+    }
 }
 
 @end

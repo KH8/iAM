@@ -10,9 +10,12 @@
 #import "AMSequencer.h"
 #import "AMCollectionViewCell.h"
 
-@interface AMViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, AMSequencerDelegate, AMNoteDelegate>
+@interface AMViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, AMSequencerDelegate, AMNoteDelegate, UIPickerViewDataSource, UIPickerViewDelegate>
 
 @property (strong, nonatomic) AMSequencer *mainSequencer;
+
+@property (weak, nonatomic) IBOutlet UIPickerView *sizePicker;
+@property (weak, nonatomic) IBOutlet UIPickerView *tempoPicker;
 
 - (void) sequencerHasStarted;
 - (void) sequencerHasStopped;

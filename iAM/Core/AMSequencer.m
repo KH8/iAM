@@ -23,14 +23,19 @@
 
 @implementation AMSequencer
 
+NSUInteger const maxLength = 64;
+NSUInteger const minLength = 3;
+NSUInteger const maxTempo = 300;
+NSUInteger const minTempo = 60;
+
 - (void)setBasicParameters {
     _lengthToBePlayed = 16;
     _tempo = 120;
 
-    _maxLength = 64;
-    _minLength = 1;
-    _maxTempo = 280;
-    _minTempo = 60;
+    _maxLength = maxLength;
+    _minLength = minLength;
+    _maxTempo = maxTempo;
+    _minTempo = minTempo;
 }
 
 - (void)initializeWithStave:(AMStave *)amStave {

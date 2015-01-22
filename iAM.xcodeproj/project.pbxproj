@@ -93,12 +93,12 @@
 		8F01C9F7EDEB97C2F2D72BE8 /* Visual */ = {
 			isa = PBXGroup;
 			children = (
-				8F0D8E3934B282764EF13D8A /* AMViewController.h */,
 				8F0AD5A2B8400C3F3D22A86A /* AMCollectionViewCell.h */,
 				8F0B1F4FAA5303D5E98B0847 /* AMCollectionViewCell.m */,
+				8F0D8E3934B282764EF13D8A /* AMViewController.h */,
 				8F04E6D9B4037B610C133F34 /* AMViewController.m */,
-				8F0AB88EF3D7984948985E29 /* AMTestViewController.m */,
 				8F0C410D5FCFA749CBDBCBF3 /* AMTestViewController.h */,
+				8F0AB88EF3D7984948985E29 /* AMTestViewController.m */,
 			);
 			path = Visual;
 			sourceTree = "<group>";
@@ -129,10 +129,10 @@
 				A44910781A5F396E00E8C6DB /* AMStave.m */,
 				A449107A1A5F3A1200E8C6DB /* AMNote.h */,
 				A449107B1A5F3A1200E8C6DB /* AMNote.m */,
-				8F0763D2246B340EEC482E45 /* AMSequencer.m */,
 				8F0232E7F6F389A4CECE670C /* AMSequencer.h */,
-				8F0AE1AC2BDFCA960D899F80 /* AMPlayer.m */,
+				8F0763D2246B340EEC482E45 /* AMSequencer.m */,
 				8F0DA14C9FCAE3399B86B93B /* AMPlayer.h */,
+				8F0AE1AC2BDFCA960D899F80 /* AMPlayer.m */,
 				8F026D41013513503897B9C8 /* Sounds */,
 			);
 			name = Core;

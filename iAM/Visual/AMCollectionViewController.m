@@ -15,7 +15,9 @@
 
 @end
 
-@implementation AMCollectionViewController
+@implementation AMCollectionViewController {
+    NSInteger lengthToBeDisplayed;
+}
 
 static NSString * const reuseIdentifier = @"myCell";
 
@@ -25,6 +27,7 @@ static NSString * const reuseIdentifier = @"myCell";
         _mainStave = [[AMStave alloc] init];
         [_mainStave configureDefault];
         _collectionView = aCollectionView;
+        lengthToBeDisplayed = 8;
     }
     return self;
 }
@@ -38,7 +41,7 @@ static NSString * const reuseIdentifier = @"myCell";
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 8;
+    return lengthToBeDisplayed;
 }
 
 - (UICollectionViewCell*)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -84,6 +87,11 @@ static NSString * const reuseIdentifier = @"myCell";
     dispatch_async(dispatch_get_main_queue(), ^{
         [_collectionView reloadData];
     });
+}
+
+- (void)setLengthToBeDisplayed: (NSInteger)aLength{
+    lengthToBeDisplayed = aLength;
+    [self reloadData];
 }
 
 - (void)reloadData {

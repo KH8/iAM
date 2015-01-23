@@ -15,8 +15,9 @@
 @property AMStave *mainStave;
 
 - (id)initWithCollectionView:(UICollectionView *)aCollectionView;
+- (void)dealloc;
 
-- (void) noteHasBeenTriggered;
-- (void) reloadData;
+- (void)setLengthToBeDisplayed: (NSInteger)aLength;
+- (void)reloadData;
 
 @end

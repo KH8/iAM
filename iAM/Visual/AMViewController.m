@@ -8,13 +8,14 @@
 
 #import "AMViewController.h"
 #import "AMStave.h"
+#import "AMPickerController.h"
 
 @interface AMViewController () {
-    NSArray *sizePickerData;
-    NSArray *tempoPickerData;
 }
 
 @property AMCollectionViewController *collectionViewController;
+@property AMPickerController *lengthPickerController;
+@property AMPickerController *tempoPickerController;
 
 @end
 
@@ -23,26 +24,33 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     _collectionViewController = [[AMCollectionViewController alloc] initWithCollectionView:_collectionView];
-
     _collectionView.delegate = _collectionViewController;
     _collectionView.dataSource = _collectionViewController;
     
     _mainSequencer = [[AMSequencer alloc] init];
     [_mainSequencer initializeWithStave:_collectionViewController.mainStave];
     _mainSequencer.delegate = self;
-    
-    sizePickerData = @[@"3",@"4",@"6",@"8",@"9",@"12",@"16"];
-    tempoPickerData = @[@"60",@"100",@"140",@"180",@"220",@"260",@"300"];
+
+    NSArray *sizePickerData = @[@"3",@"4",@"6",@"8",@"9",@"12",@"16"];
+    _lengthPickerController = [[AMPickerController alloc] initWithDataArray:sizePickerData];
+    _lengthPickerController.delegate = self;
+    _lengthPicker.delegate = _lengthPickerController;
+    _lengthPicker.dataSource = _lengthPickerController;
+
+    NSArray *tempoPickerData = @[@"60",@"100",@"140",@"180",@"220",@"260",@"300"];
+    _tempoPickerController = [[AMPickerController alloc] initWithDataArray:tempoPickerData];
+    _tempoPickerController.delegate = self;
+    _tempoPicker.delegate = _tempoPickerController;
+    _tempoPicker.dataSource = _tempoPickerController;
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-
     [_mainSequencer killBackgroundThread];
     _mainSequencer = nil;
 }
 
-- (IBAction)onTouchEvent:(id)sender {
+- (IBAction)onClearEvent:(id)sender {
     [_collectionViewController.mainStave clear];
     [_collectionViewController reloadData];
 }
@@ -59,6 +67,10 @@
     [_startButton setTitle:@"Start" forState:UIControlStateNormal];
 }
 
+- (void)pickerSelectionHasChanged{
+    [self lengthHasBeenChanged:_lengthPickerController.getActualPickerValue];
+    [self tempoHasBeenChanged:_tempoPickerController.getActualPickerValue];
+}
 
 - (void)lengthHasBeenChanged:(NSString*)lengthText {
     NSInteger newLengthValue = [lengthText integerValue];
@@ -68,7 +80,7 @@
     }
 
     [_mainSequencer setLengthToBePlayed:newLengthValue];
-    [_collectionViewController reloadData];
+    [_collectionViewController setLengthToBeDisplayed:newLengthValue];
 }
 
 - (void)tempoHasBeenChanged:(NSString*)tempoText {
@@ -79,7 +91,6 @@
     }
 
     [_mainSequencer setTempo:newTempoValue];
-    [_collectionView reloadData];
 }
 
 - (bool)isTextANumber: (NSString *)aString{
@@ -90,44 +101,6 @@
 
 - (bool)isValue: (NSInteger)aValue withingMax: (NSInteger)aMaximum andMin: (NSInteger)aMinimum{
     return aValue <= aMaximum && aValue >= aMinimum;
-}
-
-- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
-{
-    return 1;
-}
-
-- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
-{
-    if(pickerView == _sizePicker){
-        return sizePickerData.count;
-    }
-    if(pickerView == _tempoPicker){
-        return tempoPickerData.count;
-    }
-    return 0;
-}
-
-- (NSString*)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
-{
-    if(pickerView == _sizePicker){
-        return sizePickerData[row];
-    }
-    if(pickerView == _tempoPicker){
-        return tempoPickerData[row];
-    }
-    return @"";
-}
-
--(void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
-    if(pickerView == _sizePicker){
-        NSString *valueSelected = sizePickerData[row];
-        [self lengthHasBeenChanged:valueSelected];
-    }
-    if(pickerView == _tempoPicker){
-        NSString *valueSelected = tempoPickerData[row];
-        [self tempoHasBeenChanged:valueSelected];
-    }
 }
 
 @end

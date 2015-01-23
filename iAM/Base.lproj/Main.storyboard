@@ -19,10 +19,6 @@
                         <subviews>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8JB-Pp-4Cc">
                                 <rect key="frame" x="149" y="489" width="80" height="162"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="Cpc-Be-Cbd" id="3rJ-GU-h6u"/>
-                                    <outlet property="delegate" destination="Cpc-Be-Cbd" id="3lz-HA-ZTZ"/>
-                                </connections>
                             </pickerView>
                             <collectionView autoresizesSubviews="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" bounces="NO" alwaysBounceHorizontal="YES" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="seQ-A1-cWb">
                                 <rect key="frame" x="0.0" y="28" width="600" height="453"/>
@@ -71,7 +67,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="onTouchEvent:" destination="Cpc-Be-Cbd" eventType="touchUpInside" id="oEV-VF-UcJ"/>
+                                    <action selector="onClearEvent:" destination="Cpc-Be-Cbd" eventType="touchUpInside" id="agB-9a-Ei3"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eyU-Z2-h1b">
@@ -98,10 +94,6 @@
                                 <constraints>
                                     <constraint firstAttribute="width" constant="80" id="R2L-KH-EeT"/>
                                 </constraints>
-                                <connections>
-                                    <outlet property="dataSource" destination="Cpc-Be-Cbd" id="dPr-ik-jpK"/>
-                                    <outlet property="delegate" destination="Cpc-Be-Cbd" id="JhE-00-bJE"/>
-                                </connections>
                             </pickerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -131,9 +123,9 @@
                     <connections>
                         <outlet property="clearButton" destination="xK2-Oz-09u" id="IKc-LK-h9o"/>
                         <outlet property="collectionView" destination="seQ-A1-cWb" id="RGC-JP-FJm"/>
-                        <outlet property="sizePicker" destination="8JB-Pp-4Cc" id="RCH-RX-bGS"/>
+                        <outlet property="lengthPicker" destination="8JB-Pp-4Cc" id="M0a-y9-2aQ"/>
                         <outlet property="startButton" destination="9E2-pr-GCi" id="Ok6-6I-Fve"/>
-                        <outlet property="tempoPicker" destination="ibw-dR-ieT" id="Kig-W2-ZKd"/>
+                        <outlet property="tempoPicker" destination="ibw-dR-ieT" id="s4y-qr-aeS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lD3-VX-VHG" userLabel="First Responder" sceneMemberID="firstResponder"/>

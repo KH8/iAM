@@ -22,8 +22,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    _collectionViewController = [[AMCollectionViewController alloc] init];
-    
+    _collectionViewController = [[AMCollectionViewController alloc] initWithCollectionView:_collectionView];
+
     _collectionView.delegate = _collectionViewController;
     _collectionView.dataSource = _collectionViewController;
     
@@ -44,7 +44,7 @@
 
 - (IBAction)onTouchEvent:(id)sender {
     [_collectionViewController.mainStave clear];
-    [_collectionView reloadData];
+    [_collectionViewController reloadData];
 }
 
 - (IBAction)onStartEvent:(id)sender {
@@ -59,11 +59,6 @@
     [_startButton setTitle:@"Start" forState:UIControlStateNormal];
 }
 
-- (void)noteHasBeenTriggered {
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [_collectionView reloadData];
-    });
-}
 
 - (void)lengthHasBeenChanged:(NSString*)lengthText {
     NSInteger newLengthValue = [lengthText integerValue];
@@ -73,7 +68,7 @@
     }
 
     [_mainSequencer setLengthToBePlayed:newLengthValue];
-    [_collectionView reloadData];
+    [_collectionViewController reloadData];
 }
 
 - (void)tempoHasBeenChanged:(NSString*)tempoText {

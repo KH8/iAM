@@ -8,9 +8,15 @@
 
 #import <UIKit/UIKit.h>
 #import "AMStave.h"
+#import "AMNote.h"
 
-@interface AMCollectionViewController : UICollectionViewController
+@interface AMCollectionViewController : NSObject <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, AMNoteDelegate>
 
 @property AMStave *mainStave;
+
+- (id)initWithCollectionView:(UICollectionView *)aCollectionView;
+
+- (void) noteHasBeenTriggered;
+- (void) reloadData;
 
 @end

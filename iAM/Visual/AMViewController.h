@@ -11,7 +11,7 @@
 #import "AMSequencer.h"
 #import "AMNote.h"
 
-@interface AMViewController : UIViewController <AMSequencerDelegate, AMNoteDelegate, UIPickerViewDataSource, UIPickerViewDelegate>
+@interface AMViewController : UIViewController <AMSequencerDelegate, UIPickerViewDataSource, UIPickerViewDelegate>
 
 @property (strong, nonatomic) AMSequencer *mainSequencer;
 
@@ -23,6 +23,5 @@
 
 - (void) sequencerHasStarted;
 - (void) sequencerHasStopped;
-- (void) noteHasBeenTriggered;
 
 @end

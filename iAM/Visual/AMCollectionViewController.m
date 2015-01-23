@@ -11,20 +11,25 @@
 
 @interface AMCollectionViewController ()
 
+@property UICollectionView *collectionView;
+
 @end
 
 @implementation AMCollectionViewController
 
-static NSString * const reuseIdentifier = @"Cell";
+static NSString * const reuseIdentifier = @"myCell";
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    _mainStave = [[AMStave alloc] init];
-    [_mainStave configureDefault];
+- (id)initWithCollectionView:(UICollectionView *)aCollectionView {
+    self = [super init];
+    if (self) {
+        _mainStave = [[AMStave alloc] init];
+        [_mainStave configureDefault];
+        _collectionView = aCollectionView;
+    }
+    return self;
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
+- (void)dealloc {
     _mainStave = nil;
 }
 
@@ -38,7 +43,7 @@ static NSString * const reuseIdentifier = @"Cell";
 
 - (UICollectionViewCell*)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     
-    AMCollectionViewCell * newCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"myCell" forIndexPath:indexPath];
+    AMCollectionViewCell * newCell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
     NSMutableArray * lineOfNotes = _mainStave[(NSUInteger) indexPath.section];
     newCell.noteAssigned = lineOfNotes[(NSUInteger) indexPath.row];
     newCell.noteAssigned.delegate = self;
@@ -59,8 +64,8 @@ static NSString * const reuseIdentifier = @"Cell";
     AMNote *note = cell.noteAssigned;
     
     [note select];
-    //NSArray *arrayOfPaths = @[indexPath];
-    //[self reloadItemsAtIndexPaths:arrayOfPaths];
+    NSArray *arrayOfPaths = @[indexPath];
+    [_collectionView reloadItemsAtIndexPaths:arrayOfPaths];
 }
 
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section{
@@ -74,5 +79,16 @@ static NSString * const reuseIdentifier = @"Cell";
 - (UIEdgeInsets)collectionView: (UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
     return UIEdgeInsetsMake(1,1,1,1);
 }
+
+- (void)noteHasBeenTriggered {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [_collectionView reloadData];
+    });
+}
+
+- (void)reloadData {
+    [_collectionView reloadData];
+}
+
 
 @end

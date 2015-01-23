@@ -32,11 +32,11 @@
 
 - (NSString*)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
 {
-    return pickerData[row];
+    return pickerData[(NSUInteger) row];
 }
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
-    actualValue = pickerData[row];
+    actualValue = pickerData[(NSUInteger) row];
     [_delegate pickerSelectionHasChanged];
 }
 

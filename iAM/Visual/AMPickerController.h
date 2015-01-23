@@ -20,7 +20,6 @@
 
 }
 @property (nonatomic,strong) id delegate;
-@property (weak, nonatomic) IBOutlet UIPickerView *picker;
 
 -(id)initWithDataArray:(NSArray*)anArray;
 -(NSString*)getActualPickerValue;

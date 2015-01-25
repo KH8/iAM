@@ -3,12 +3,12 @@
 // Copyright (c) 2015 H@E. All rights reserved.
 //
 
-#import "AMSequencer.h"
+#import "AMSequence.h"
 #import "AMNote.h"
 #import "AMPlayer.h"
 #import "AMLogger.h"
 
-@interface AMSequencer ()
+@interface AMSequence ()
 
 @property bool isBackgroundRunning;
 @property bool isRunning;
@@ -21,7 +21,7 @@
 
 @end
 
-@implementation AMSequencer
+@implementation AMSequence
 
 NSUInteger const maxLength = 64;
 NSUInteger const minLength = 3;
@@ -29,7 +29,7 @@ NSUInteger const maxTempo = 300;
 NSUInteger const minTempo = 60;
 
 - (void)setBasicParameters {
-    _lengthToBePlayed = 16;
+    _lengthToBePlayed = 8;
     _tempo = 120;
 
     _maxLength = maxLength;
@@ -43,11 +43,15 @@ NSUInteger const minTempo = 60;
     _isBackgroundRunning = YES;
 
     [self setBasicParameters];
-    [self performSelectorInBackground:@selector(runSequence) withObject:nil];
+    [self performSelectorInBackground:@selector(runSequence)
+                           withObject:nil];
 
-    AMPlayer *amPlayer0 = [[AMPlayer alloc] initWithFile:@"tickSound" ofType:@"aif"];
-    AMPlayer *amPlayer1 = [[AMPlayer alloc] initWithFile:@"highStickSound" ofType:@"aif"];
-    AMPlayer *amPlayer2 = [[AMPlayer alloc] initWithFile:@"lowStickSound" ofType:@"aif"];
+    AMPlayer *amPlayer0 = [[AMPlayer alloc] initWithFile:@"tickSound"
+                                                  ofType:@"aif"];
+    AMPlayer *amPlayer1 = [[AMPlayer alloc] initWithFile:@"highStickSound"
+                                                  ofType:@"aif"];
+    AMPlayer *amPlayer2 = [[AMPlayer alloc] initWithFile:@"lowStickSound"
+                                                  ofType:@"aif"];
 
     _arrayOfPlayers = @[amPlayer0,amPlayer1,amPlayer2];
 }
@@ -60,12 +64,14 @@ NSUInteger const minTempo = 60;
     _isRunning = !_isRunning;
     if(_isRunning) {
         [AMLogger logMessage:@("sequence started")];
-        [_delegate sequencerHasStarted];
     }
     else {
         [AMLogger logMessage:@("sequence stopped")];
-        [_delegate sequencerHasStopped];
     }
+}
+
+- (bool)isRunning {
+    return _isRunning;
 }
 
 - (void)setLengthToBePlayed:(NSInteger)aLength {
@@ -89,9 +95,11 @@ NSUInteger const minTempo = 60;
         NSDate *lastDate = [NSDate date];
         if(_isRunning) {
             for (NSUInteger i = 0; i < _lengthToBePlayed; i++) {
-                [self handleStave:_mainStave atPosition:i withAction:@selector(playSound)];
+                [self handleStave:_mainStave atPosition:i
+                       withAction:@selector(playSound)];
                 [self waitProperIntervalSinceDate:lastDate];
-                [self handleStave:_mainStave atPosition:i withAction:@selector(stopSound)];
+                [self handleStave:_mainStave atPosition:i
+                       withAction:@selector(stopSound)];
                 if(!_isRunning) {
                     break;
                 }
@@ -102,7 +110,9 @@ NSUInteger const minTempo = 60;
     }
 }
 
-- (void)handleStave: (AMStave *)aStave atPosition: (NSUInteger)aPosition withAction: (SEL)aSelector{
+- (void)handleStave: (AMStave *)aStave
+         atPosition: (NSUInteger)aPosition
+         withAction: (SEL)aSelector{
     NSUInteger j = 0;
     for (NSMutableArray *line in aStave) {
         AMNote *note = line[aPosition];
@@ -112,6 +122,7 @@ NSUInteger const minTempo = 60;
         }
         j++;
     }
+    [_delegate rowHasBeenTriggered:aPosition];
 }
 
 - (void)waitProperIntervalSinceDate: (NSDate*)aDate{

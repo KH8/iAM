@@ -12,7 +12,6 @@
 
 @property (atomic) BOOL selectionState;
 @property (atomic) BOOL triggeredState;
-@property (atomic) BOOL playingState;
 
 @end
 
@@ -27,9 +26,8 @@
 }
 
 - (BOOL)isPlaying {
-    return _playingState;
+    return _selectionState && _triggeredState;
 }
-
 
 -(void)select {
     _selectionState = !_selectionState;
@@ -37,9 +35,6 @@
 
 - (void)trigger {
     _triggeredState = !_triggeredState;
-    _playingState = NO;
-    if(_selectionState) _playingState = _triggeredState;
-    [_delegate noteHasBeenTriggered];
 }
 
 @end

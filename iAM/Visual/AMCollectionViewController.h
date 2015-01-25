@@ -8,10 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "AMStave.h"
+#import "AMSequence.h"
 #import "AMNote.h"
 
-@interface AMCollectionViewController : NSObject <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, AMNoteDelegate>
+@interface AMCollectionViewController : NSObject <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, AMSequenceDelegate>
 
+@property AMSequence *mainSequencer;
 @property AMStave *mainStave;
 
 - (id)initWithCollectionView:(UICollectionView *)aCollectionView;

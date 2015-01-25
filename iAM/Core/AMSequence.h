@@ -6,19 +6,18 @@
 #import <Foundation/Foundation.h>
 #import "AMStave.h"
 
-@protocol AMSequencerDelegate <NSObject>
+@protocol AMSequenceDelegate <NSObject>
 
 @required
 
-- (void) sequencerHasStarted;
-- (void) sequencerHasStopped;
+- (void) rowHasBeenTriggered: (NSInteger)row;
 
 @end
 
-@interface AMSequencer : NSObject
+@interface AMSequence : NSObject
 {
     // Delegate to respond back
-    id <AMSequencerDelegate> _delegate;
+    id <AMSequenceDelegate> _delegate;
 
 }
 @property (nonatomic,strong) id delegate;
@@ -33,6 +32,7 @@
 - (void)killBackgroundThread;
 
 - (void)startStop;
+- (bool)isRunning;
 
 - (void)setLengthToBePlayed: (NSInteger)aLength;
 - (NSInteger)getLengthToBePlayed;

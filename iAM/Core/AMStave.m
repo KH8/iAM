@@ -24,10 +24,12 @@ NSUInteger const defaultNumberOfLines = 3;
 NSUInteger const defaultNumberOfNotesPerLine = 64;
 
 - (void)configureDefault{
-    [self configureCustomWithNumberOfLines:(NSUInteger *) defaultNumberOfLines numberOfNotesPerLine:(NSUInteger *) defaultNumberOfNotesPerLine];
+    [self configureCustomWithNumberOfLines:(NSUInteger *) defaultNumberOfLines
+                      numberOfNotesPerLine:(NSUInteger *) defaultNumberOfNotesPerLine];
 }
 
-- (void)configureCustomWithNumberOfLines: (NSUInteger*)aNumberOfLines numberOfNotesPerLine: (NSUInteger*)aNumberOfNotesPerLine{
+- (void)configureCustomWithNumberOfLines: (NSUInteger*)aNumberOfLines
+                    numberOfNotesPerLine: (NSUInteger*)aNumberOfNotesPerLine{
     _numberOfLines = (int) aNumberOfLines;
     _numberOfNotesPerLine = (int) aNumberOfNotesPerLine;
 
@@ -58,13 +60,14 @@ NSUInteger const defaultNumberOfNotesPerLine = 64;
     return (NSUInteger) _numberOfNotesPerLine;
 }
 
-
 - (NSUInteger)count{
     return _mainArray.count;
 }
 
-- (void)insertObject:(id)anObject atIndex:(NSUInteger)index{
-    [_mainArray insertObject:anObject atIndex:index];
+- (void)insertObject:(id)anObject
+             atIndex:(NSUInteger)index{
+    [_mainArray insertObject:anObject
+                     atIndex:index];
 }
 
 - (id)objectAtIndex:(NSUInteger)index{

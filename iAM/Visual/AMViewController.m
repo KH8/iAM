@@ -26,10 +26,6 @@
     _collectionViewController = [[AMCollectionViewController alloc] initWithCollectionView:_collectionView];
     _collectionView.delegate = _collectionViewController;
     _collectionView.dataSource = _collectionViewController;
-    
-    _mainSequencer = [[AMSequencer alloc] init];
-    [_mainSequencer initializeWithStave:_collectionViewController.mainStave];
-    _mainSequencer.delegate = self;
 
     NSArray *sizePickerData = @[@"3",@"4",@"6",@"8",@"9",@"12",@"16"];
     _lengthPickerController = [[AMPickerController alloc] initWithDataArray:sizePickerData];
@@ -46,8 +42,9 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    [_mainSequencer killBackgroundThread];
-    _mainSequencer = nil;
+    _collectionViewController = nil;
+    _lengthPickerController = nil;
+    _tempoPickerController = nil;
 }
 
 - (IBAction)onClearEvent:(id)sender {
@@ -56,15 +53,13 @@
 }
 
 - (IBAction)onStartEvent:(id)sender {
-    [_mainSequencer startStop];
-}
-
-- (void)sequencerHasStarted {
-    [_startButton setTitle:@"Stop" forState:UIControlStateNormal];
-}
-
-- (void)sequencerHasStopped {
-    [_startButton setTitle:@"Start" forState:UIControlStateNormal];
+    [_collectionViewController.mainSequencer startStop];
+    if(_collectionViewController.mainSequencer.isRunning){
+        [_startButton setTitle:@"Stop" forState:UIControlStateNormal];
+    }
+    else{
+        [_startButton setTitle:@"Start" forState:UIControlStateNormal];
+    }
 }
 
 - (void)pickerSelectionHasChanged{
@@ -75,22 +70,26 @@
 - (void)lengthHasBeenChanged:(NSString*)lengthText {
     NSInteger newLengthValue = [lengthText integerValue];
 
-    if (![self isTextANumber:lengthText] || ![self isValue:newLengthValue withingMax:_mainSequencer.maxLength andMin:_mainSequencer.minLength]) {
+    if (![self isTextANumber:lengthText] || ![self isValue:newLengthValue
+                                                withingMax:_collectionViewController.mainSequencer.maxLength
+                                                    andMin:_collectionViewController.mainSequencer.minLength]) {
         return;
     }
 
-    [_mainSequencer setLengthToBePlayed:newLengthValue];
+    [_collectionViewController.mainSequencer setLengthToBePlayed:newLengthValue];
     [_collectionViewController setLengthToBeDisplayed:newLengthValue];
 }
 
 - (void)tempoHasBeenChanged:(NSString*)tempoText {
     NSInteger newTempoValue = [tempoText integerValue];
 
-    if (![self isTextANumber:tempoText] || ![self isValue:newTempoValue withingMax:_mainSequencer.maxTempo andMin:_mainSequencer.minTempo]) {
+    if (![self isTextANumber:tempoText] || ![self isValue:newTempoValue
+                                               withingMax:_collectionViewController.mainSequencer.maxTempo
+                                                   andMin:_collectionViewController.mainSequencer.minTempo]) {
         return;
     }
 
-    [_mainSequencer setTempo:newTempoValue];
+    [_collectionViewController.mainSequencer setTempo:newTempoValue];
 }
 
 - (bool)isTextANumber: (NSString *)aString{
@@ -99,7 +98,9 @@
     return [alphaNumbers isSupersetOfSet:inStringSet];
 }
 
-- (bool)isValue: (NSInteger)aValue withingMax: (NSInteger)aMaximum andMin: (NSInteger)aMinimum{
+- (bool)isValue: (NSInteger)aValue
+     withingMax: (NSInteger)aMaximum
+         andMin: (NSInteger)aMinimum{
     return aValue <= aMaximum && aValue >= aMinimum;
 }
 

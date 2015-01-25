@@ -14,7 +14,8 @@
 
 @implementation AMPlayer
 
-- (id)initWithFile:(NSString *)aFileName ofType: (NSString*)aFileType{
+- (id)initWithFile:(NSString *)aFileName
+            ofType: (NSString*)aFileType{
     self = [super init];
     if (self)
     {

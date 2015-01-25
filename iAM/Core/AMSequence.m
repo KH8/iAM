@@ -10,6 +10,8 @@
 
 @interface AMSequence ()
 
+@property (nonatomic, retain) NSMutableArray *delegates;
+
 @property bool isBackgroundRunning;
 @property bool isRunning;
 @property AMStave *mainStave;
@@ -22,6 +24,20 @@
 @end
 
 @implementation AMSequence
+
+@synthesize delegates = _delegates;
+
+- (void) addDelegate: (id<AMSequenceDelegate>) delegate
+{
+    // Additional code
+    [_delegates addObject: delegate];
+}
+
+- (void) removeDelegate: (id<AMSequenceDelegate>) delegate
+{
+    // Additional code
+    [_delegates removeObject: delegate];
+}
 
 NSUInteger const maxLength = 64;
 NSUInteger const minLength = 3;
@@ -38,22 +54,28 @@ NSUInteger const minTempo = 60;
     _minTempo = minTempo;
 }
 
-- (void)initializeWithStave:(AMStave *)amStave {
-    _mainStave = amStave;
-    _isBackgroundRunning = YES;
+- (id)init {
+    self = [super init];
+    if (self) {
+        _mainStave = [[AMStave alloc] init];
+        [_mainStave configureDefault];
 
-    [self setBasicParameters];
-    [self performSelectorInBackground:@selector(runSequence)
-                           withObject:nil];
+        _isBackgroundRunning = YES;
 
-    AMPlayer *amPlayer0 = [[AMPlayer alloc] initWithFile:@"tickSound"
-                                                  ofType:@"aif"];
-    AMPlayer *amPlayer1 = [[AMPlayer alloc] initWithFile:@"highStickSound"
-                                                  ofType:@"aif"];
-    AMPlayer *amPlayer2 = [[AMPlayer alloc] initWithFile:@"lowStickSound"
-                                                  ofType:@"aif"];
+        [self setBasicParameters];
+        [self performSelectorInBackground:@selector(runSequence)
+                               withObject:nil];
 
-    _arrayOfPlayers = @[amPlayer0,amPlayer1,amPlayer2];
+        AMPlayer *amPlayer0 = [[AMPlayer alloc] initWithFile:@"tickSound"
+                                                      ofType:@"aif"];
+        AMPlayer *amPlayer1 = [[AMPlayer alloc] initWithFile:@"highStickSound"
+                                                      ofType:@"aif"];
+        AMPlayer *amPlayer2 = [[AMPlayer alloc] initWithFile:@"lowStickSound"
+                                                      ofType:@"aif"];
+
+        _arrayOfPlayers = @[amPlayer0,amPlayer1,amPlayer2];
+    }
+    return self;
 }
 
 - (void)killBackgroundThread{
@@ -64,14 +86,35 @@ NSUInteger const minTempo = 60;
     _isRunning = !_isRunning;
     if(_isRunning) {
         [AMLogger logMessage:@("sequence started")];
+        for(NSValue *val in _delegates){
+            id<AMSequenceDelegate> delegate = [val pointerValue];
+            [delegate sequenceHasStarted];
+        }
     }
     else {
         [AMLogger logMessage:@("sequence stopped")];
+        for(NSValue *val in _delegates){
+            id<AMSequenceDelegate> delegate = [val pointerValue];
+            [delegate sequenceHasStopped];
+        }
     }
 }
 
 - (bool)isRunning {
     return _isRunning;
+}
+
+- (void)clear {
+    [_mainStave clear];
+}
+
+
+- (NSInteger)getNumberOfLines {
+    return _mainStave.count;
+}
+
+- (NSMutableArray *)getLine: (NSUInteger)index {
+    return _mainStave[index];
 }
 
 - (void)setLengthToBePlayed:(NSInteger)aLength {
@@ -120,9 +163,13 @@ NSUInteger const minTempo = 60;
         if(note.isPlaying){
             ((void (*)(id, SEL))[_arrayOfPlayers[j] methodForSelector:aSelector])(_arrayOfPlayers[j], aSelector);
         }
+        for(NSValue *val in _delegates){
+            id<AMSequenceDelegate> delegate = [val pointerValue];
+            [delegate rowHasBeenTriggered: (NSInteger)aPosition
+                                inSection: j];
+        }
         j++;
     }
-    [_delegate rowHasBeenTriggered:aPosition];
 }
 
 - (void)waitProperIntervalSinceDate: (NSDate*)aDate{

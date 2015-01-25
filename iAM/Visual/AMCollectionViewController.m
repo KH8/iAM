@@ -11,44 +11,39 @@
 
 @interface AMCollectionViewController ()
 
+@property AMSequence *mainSequence;
+
 @property UICollectionView *collectionView;
 
 @end
 
 @implementation AMCollectionViewController {
-    NSInteger lengthToBeDisplayed;
 }
 
 static NSString * const reuseIdentifier = @"myCell";
 
-- (id)initWithCollectionView:(UICollectionView *)aCollectionView {
+- (id)initWithCollectionView:(UICollectionView *)aCollectionView
+                 andSequence: (AMSequence *)aSequence{
     self = [super init];
     if (self) {
         _collectionView = aCollectionView;
 
-        _mainStave = [[AMStave alloc] init];
-        [_mainStave configureDefault];
-
-        _mainSequencer = [[AMSequence alloc] init];
-        [_mainSequencer initializeWithStave:_mainStave];
-        _mainSequencer.delegate = self;
-
-        lengthToBeDisplayed = 8;
+        _mainSequence = aSequence;
+        [_mainSequence addDelegate:self];
     }
     return self;
 }
 
 - (void)dealloc {
-    _mainStave = nil;
 }
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
-    return _mainStave.count;
+    return _mainSequence.getNumberOfLines;
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView
      numberOfItemsInSection:(NSInteger)section {
-    return lengthToBeDisplayed;
+    return _mainSequence.getLengthToBePlayed;
 }
 
 - (UICollectionViewCell*)collectionView:(UICollectionView *)collectionView
@@ -56,7 +51,7 @@ static NSString * const reuseIdentifier = @"myCell";
     
     AMCollectionViewCell * newCell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier
                                                                                forIndexPath:indexPath];
-    NSMutableArray * lineOfNotes = _mainStave[(NSUInteger) indexPath.section];
+    NSMutableArray * lineOfNotes = [_mainSequence getLine:(NSUInteger) indexPath.section];
     newCell.noteAssigned = lineOfNotes[(NSUInteger) indexPath.row];
     
     UIColor *color = [[UIColor lightGrayColor] colorWithAlphaComponent:0.9F];
@@ -98,19 +93,20 @@ static NSString * const reuseIdentifier = @"myCell";
     return UIEdgeInsetsMake(1,1,1,1);
 }
 
-- (void)rowHasBeenTriggered:(NSInteger)row {
+- (void)rowHasBeenTriggered:(NSInteger)row
+                  inSection: (NSInteger)section{
     dispatch_async(dispatch_get_main_queue(), ^{
-        NSIndexPath *indexPath0 = [NSIndexPath indexPathForRow:row inSection: 0];
-        NSIndexPath *indexPath1 = [NSIndexPath indexPathForRow:row inSection: 1];
-        NSIndexPath *indexPath2 = [NSIndexPath indexPathForRow:row inSection: 2];
-        NSArray *arrayOfPaths = @[indexPath0, indexPath1, indexPath2];
+        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:row
+                                                    inSection:section];
+        NSArray *arrayOfPaths = @[indexPath];
         [_collectionView reloadItemsAtIndexPaths:arrayOfPaths];
     });
 }
 
-- (void)setLengthToBeDisplayed: (NSInteger)aLength{
-    lengthToBeDisplayed = aLength;
-    [self reloadData];
+- (void)sequenceHasStarted {
+}
+
+- (void)sequenceHasStopped {
 }
 
 - (void)reloadData {

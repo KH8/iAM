@@ -10,17 +10,14 @@
 
 @required
 
-- (void) rowHasBeenTriggered: (NSInteger)row;
+- (void) sequenceHasStarted;
+- (void) sequenceHasStopped;
+- (void) rowHasBeenTriggered: (NSInteger)row
+                   inSection: (NSInteger)section;
 
 @end
 
 @interface AMSequence : NSObject
-{
-    // Delegate to respond back
-    id <AMSequenceDelegate> _delegate;
-
-}
-@property (nonatomic,strong) id delegate;
 
 @property (nonatomic) NSInteger maxLength;
 @property (nonatomic) NSInteger minLength;
@@ -28,12 +25,18 @@
 @property (nonatomic) NSInteger maxTempo;
 @property (nonatomic) NSInteger minTempo;
 
-- (void)initializeWithStave: (AMStave*)amStave;
+- (void) addDelegate: (id<AMSequenceDelegate>) delegate;
+- (void) removeDelegate: (id<AMSequenceDelegate>) delegate;
+
+- (id)init;
 - (void)killBackgroundThread;
 
 - (void)startStop;
 - (bool)isRunning;
+- (void)clear;
 
+- (NSInteger)getNumberOfLines;
+- (NSMutableArray *)getLine: (NSUInteger)index;
 - (void)setLengthToBePlayed: (NSInteger)aLength;
 - (NSInteger)getLengthToBePlayed;
 - (void)setTempo: (NSInteger)aTempo;

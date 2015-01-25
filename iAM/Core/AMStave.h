@@ -15,6 +15,5 @@
                     numberOfNotesPerLine: (NSUInteger*)aNumberOfNotesPerLine;
 
 - (void)clear;
-- (NSUInteger)getNumberOfNotesPerLine;
 
 @end

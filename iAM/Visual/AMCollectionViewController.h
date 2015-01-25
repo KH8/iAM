@@ -13,13 +13,9 @@
 
 @interface AMCollectionViewController : NSObject <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, AMSequenceDelegate>
 
-@property AMSequence *mainSequencer;
-@property AMStave *mainStave;
-
-- (id)initWithCollectionView:(UICollectionView *)aCollectionView;
+- (id)initWithCollectionView:(UICollectionView *)aCollectionView
+                 andSequence: (AMSequence *)aSequence;
 - (void)dealloc;
-
-- (void)setLengthToBeDisplayed: (NSInteger)aLength;
 - (void)reloadData;
 
 @end

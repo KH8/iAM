@@ -12,7 +12,7 @@
 #import "AMSequence.h"
 #import "AMNote.h"
 
-@interface AMViewController : UIViewController <AMPickerControllerDelegate>
+@interface AMViewController : UIViewController <AMPickerControllerDelegate, AMSequenceDelegate>
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (weak, nonatomic) IBOutlet UIPickerView *lengthPicker;

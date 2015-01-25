@@ -56,10 +56,6 @@ NSUInteger const defaultNumberOfNotesPerLine = 64;
     }
 }
 
-- (NSUInteger)getNumberOfNotesPerLine {
-    return (NSUInteger) _numberOfNotesPerLine;
-}
-
 - (NSUInteger)count{
     return _mainArray.count;
 }

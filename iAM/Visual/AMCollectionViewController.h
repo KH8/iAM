@@ -8,13 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "AMStave.h"
-#import "AMSequence.h"
+#import "AMSequencer.h"
 #import "AMNote.h"
 
 @interface AMCollectionViewController : NSObject <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
 
 - (id)initWithCollectionView:(UICollectionView *)aCollectionView
-                 andSequence: (AMSequence *)aSequence;
+                andSequencer: (AMSequencer *)aSequencer;
 - (void)dealloc;
 - (void)reloadData;
 

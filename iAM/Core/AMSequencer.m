@@ -3,12 +3,12 @@
 // Copyright (c) 2015 H@E. All rights reserved.
 //
 
-#import "AMSequence.h"
+#import "AMSequencer.h"
 #import "AMNote.h"
 #import "AMPlayer.h"
 #import "AMLogger.h"
 
-@interface AMSequence ()
+@interface AMSequencer ()
 
 @property bool isBackgroundRunning;
 @property bool isRunning;
@@ -21,7 +21,7 @@
 
 @end
 
-@implementation AMSequence
+@implementation AMSequencer
 
 NSUInteger const maxLength = 64;
 NSUInteger const minLength = 3;
@@ -70,11 +70,11 @@ NSUInteger const minTempo = 60;
     _isRunning = !_isRunning;
     if(_isRunning) {
         [AMLogger logMessage:@("sequence started")];
-        [_sequenceDelegate sequenceHasStarted];
+        [_sequencerDelegate sequenceHasStarted];
     }
     else {
         [AMLogger logMessage:@("sequence stopped")];
-        [_sequenceDelegate sequenceHasStopped];
+        [_sequencerDelegate sequenceHasStopped];
     }
 }
 

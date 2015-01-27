@@ -12,7 +12,7 @@
 
 @interface AMViewController () {
 }
-@property AMSequence *mainSequence;
+@property AMSequencer *mainSequencer;
 
 @property AMCollectionViewController *collectionViewController;
 @property AMPickerController *lengthPickerController;
@@ -30,34 +30,34 @@
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
-    if(_mainSequence.isRunning){
-        [_mainSequence startStop];
-        [_mainSequence killBackgroundThread];
+    if(_mainSequencer.isRunning){
+        [_mainSequencer startStop];
+        [_mainSequencer killBackgroundThread];
     }
 }
 
 - (void)loadMainObjects{
-    _mainSequence = [[AMSequence alloc] init];
-    _mainSequence.sequenceDelegate = self;
+    _mainSequencer = [[AMSequencer alloc] init];
+    _mainSequencer.sequencerDelegate = self;
 }
 
 - (void)loadCollectionViewController{
     _collectionViewController = [[AMCollectionViewController alloc] initWithCollectionView:_collectionView
-                                                                               andSequence:_mainSequence];
+                                                                              andSequencer:_mainSequencer];
     _collectionView.delegate = _collectionViewController;
     _collectionView.dataSource = _collectionViewController;
 }
 
 - (void)loadPickers{
-    NSArray *sizePickerData = [self createRangeOfValuesStartingFrom:_mainSequence.minLength
-                                                               upTo:_mainSequence.maxLength];
+    NSArray *sizePickerData = [self createRangeOfValuesStartingFrom:_mainSequencer.minLength
+                                                               upTo:_mainSequencer.maxLength];
     _lengthPickerController = [[AMPickerController alloc] initWithPicker:_lengthPicker
                                                                dataArray:sizePickerData
                                                            andStartIndex:5];
     _lengthPickerController.delegate = self;
 
-    NSArray *tempoPickerData = [self createRangeOfValuesStartingFrom:_mainSequence.minTempo
-                                                                upTo:_mainSequence.maxTempo];
+    NSArray *tempoPickerData = [self createRangeOfValuesStartingFrom:_mainSequencer.minTempo
+                                                                upTo:_mainSequencer.maxTempo];
     _tempoPickerController = [[AMPickerController alloc] initWithPicker:_tempoPicker
                                                               dataArray:tempoPickerData
                                                           andStartIndex:60];
@@ -77,18 +77,18 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     _collectionViewController = nil;
-    _mainSequence = nil;
+    _mainSequencer = nil;
     _lengthPickerController = nil;
     _tempoPickerController = nil;
 }
 
 - (IBAction)onClearEvent:(id)sender {
-    [_mainSequence clear];
+    [_mainSequencer clear];
     [_collectionViewController reloadData];
 }
 
 - (IBAction)onStartEvent:(id)sender {
-    [_mainSequence startStop];
+    [_mainSequencer startStop];
 }
 
 - (void)pickerSelectionHasChanged{
@@ -101,24 +101,24 @@
     NSInteger newLengthValue = [lengthText integerValue];
 
     if (![self isTextANumber:lengthText] || ![self isValue:newLengthValue
-                                                withingMax:_mainSequence.maxLength
-                                                    andMin:_mainSequence.minLength]) {
+                                                withingMax:_mainSequencer.maxLength
+                                                    andMin:_mainSequencer.minLength]) {
         return;
     }
 
-    [_mainSequence setLengthToBePlayed:newLengthValue];
+    [_mainSequencer setLengthToBePlayed:newLengthValue];
 }
 
 - (void)tempoHasBeenChanged:(NSString*)tempoText {
     NSInteger newTempoValue = [tempoText integerValue];
 
     if (![self isTextANumber:tempoText] || ![self isValue:newTempoValue
-                                               withingMax:_mainSequence.maxTempo
-                                                   andMin:_mainSequence.minTempo]) {
+                                               withingMax:_mainSequencer.maxTempo
+                                                   andMin:_mainSequencer.minTempo]) {
         return;
     }
 
-    [_mainSequence setTempo:newTempoValue];
+    [_mainSequencer setTempo:newTempoValue];
 }
 
 - (bool)isTextANumber: (NSString *)aString{

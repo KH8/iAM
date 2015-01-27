@@ -9,9 +9,10 @@
 #import "AMCollectionViewController.h"
 #import "AMCollectionViewCell.h"
 
+
 @interface AMCollectionViewController ()
 
-@property AMSequence *mainSequence;
+@property AMSequencer *mainSequencer;
 @property UICollectionView *collectionView;
 
 @end
@@ -23,11 +24,11 @@
 static NSString * const reuseIdentifier = @"myCell";
 
 - (id)initWithCollectionView:(UICollectionView *)aCollectionView
-                 andSequence: (AMSequence *)aSequence{
+                andSequencer: (AMSequencer *)aSequencer {
     self = [super init];
     if (self) {
         _collectionView = aCollectionView;
-        _mainSequence = aSequence;
+        _mainSequencer = aSequencer;
     }
     return self;
 }
@@ -36,27 +37,27 @@ static NSString * const reuseIdentifier = @"myCell";
 }
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
-    return _mainSequence.getNumberOfLines;
+    return [self getNumberOfSections];
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView
      numberOfItemsInSection:(NSInteger)section {
-    return _mainSequence.getLengthToBePlayed;
+    return [self getNumberOfRows];
 }
 
 - (UICollectionViewCell*)collectionView:(UICollectionView *)collectionView
                  cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    
     AMCollectionViewCell * newCell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier
                                                                                forIndexPath:indexPath];
-    NSMutableArray * lineOfNotes = [_mainSequence getLine:(NSUInteger) indexPath.section];
-    [newCell setNoteAssigned:lineOfNotes[(NSUInteger) indexPath.row]];
+    NSUInteger numberOfLine = (NSUInteger) [self getNumberOfLine:indexPath];
+    NSMutableArray * lineOfNotes = [_mainSequencer getLine: numberOfLine];
+    NSUInteger numberOfNote = (NSUInteger) [self getNumberOfNote:indexPath];
+    [newCell setNoteAssigned:lineOfNotes[numberOfNote]];
     return newCell;
 }
 
 - (void)collectionView:(UICollectionView *)collectionView
         didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
-    
     AMCollectionViewCell *cell = (AMCollectionViewCell*) [collectionView cellForItemAtIndexPath:indexPath];
     [cell touch];
 }
@@ -83,5 +84,20 @@ static NSString * const reuseIdentifier = @"myCell";
     [_collectionView reloadData];
 }
 
+- (NSInteger)getNumberOfRows {
+    return _mainSequencer.getNumberOfLines;
+}
+
+- (NSInteger)getNumberOfSections {
+    return _mainSequencer.getLengthToBePlayed;
+}
+
+- (NSInteger)getNumberOfLine: (NSIndexPath *)indexPath {
+    return indexPath.row;
+}
+
+- (NSInteger)getNumberOfNote: (NSIndexPath *)indexPath {
+    return indexPath.section;
+}
 
 @end

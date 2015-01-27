@@ -9,10 +9,10 @@
 #import <UIKit/UIKit.h>
 #import "AMCollectionViewController.h"
 #import "AMPickerController.h"
-#import "AMSequence.h"
+#import "AMSequencer.h"
 #import "AMNote.h"
 
-@interface AMViewController : UIViewController <AMPickerControllerDelegate, AMSequenceDelegate>
+@interface AMViewController : UIViewController <AMPickerControllerDelegate, AMSequencerDelegate>
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (weak, nonatomic) IBOutlet UIPickerView *lengthPicker;

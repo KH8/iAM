@@ -6,7 +6,7 @@
 #import <Foundation/Foundation.h>
 #import "AMStave.h"
 
-@protocol AMSequenceDelegate <NSObject>
+@protocol AMSequencerDelegate <NSObject>
 
 @required
 
@@ -15,9 +15,9 @@
 
 @end
 
-@interface AMSequence : NSObject
+@interface AMSequencer : NSObject
 
-@property (nonatomic, weak) id <AMSequenceDelegate> sequenceDelegate;
+@property (nonatomic, weak) id <AMSequencerDelegate> sequencerDelegate;
 
 @property (nonatomic) NSInteger maxLength;
 @property (nonatomic) NSInteger minLength;

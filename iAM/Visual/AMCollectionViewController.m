@@ -29,7 +29,7 @@ static NSString * const reuseIdentifier = @"myCell";
         _collectionView = aCollectionView;
 
         _mainSequence = aSequence;
-        [_mainSequence addDelegate:self];
+        _mainSequence.sequenceViewDelegate = self;
     }
     return self;
 }
@@ -101,12 +101,6 @@ static NSString * const reuseIdentifier = @"myCell";
         NSArray *arrayOfPaths = @[indexPath];
         [_collectionView reloadItemsAtIndexPaths:arrayOfPaths];
     });
-}
-
-- (void)sequenceHasStarted {
-}
-
-- (void)sequenceHasStopped {
 }
 
 - (void)reloadData {

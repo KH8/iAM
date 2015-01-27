@@ -11,7 +11,7 @@
 #import "AMSequence.h"
 #import "AMNote.h"
 
-@interface AMCollectionViewController : NSObject <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, AMSequenceDelegate>
+@interface AMCollectionViewController : NSObject <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, AMSequenceViewDelegate>
 
 - (id)initWithCollectionView:(UICollectionView *)aCollectionView
                  andSequence: (AMSequence *)aSequence;

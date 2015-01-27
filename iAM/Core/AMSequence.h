@@ -12,6 +12,13 @@
 
 - (void) sequenceHasStarted;
 - (void) sequenceHasStopped;
+
+@end
+
+@protocol AMSequenceViewDelegate <NSObject>
+
+@required
+
 - (void) rowHasBeenTriggered: (NSInteger)row
                    inSection: (NSInteger)section;
 
@@ -19,14 +26,14 @@
 
 @interface AMSequence : NSObject
 
+@property (nonatomic, weak) id <AMSequenceDelegate> sequenceDelegate;
+@property (nonatomic, weak) id <AMSequenceViewDelegate> sequenceViewDelegate;
+
 @property (nonatomic) NSInteger maxLength;
 @property (nonatomic) NSInteger minLength;
 
 @property (nonatomic) NSInteger maxTempo;
 @property (nonatomic) NSInteger minTempo;
-
-- (void) addDelegate: (id<AMSequenceDelegate>) delegate;
-- (void) removeDelegate: (id<AMSequenceDelegate>) delegate;
 
 - (id)init;
 - (void)killBackgroundThread;

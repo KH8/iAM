@@ -31,7 +31,7 @@
 
 - (void)loadMainObjects{
     _mainSequence = [[AMSequence alloc] init];
-    [_mainSequence addDelegate:self];
+    _mainSequence.sequenceViewDelegate = self;
 }
 
 - (void)loadCollectionViewController{
@@ -112,9 +112,6 @@
      withingMax: (NSInteger)aMaximum
          andMin: (NSInteger)aMinimum{
     return aValue <= aMaximum && aValue >= aMinimum;
-}
-
-- (void)rowHasBeenTriggered:(NSInteger)row inSection: (NSInteger)section{
 }
 
 - (void)sequenceHasStarted {

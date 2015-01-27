@@ -10,8 +10,6 @@
 
 @interface AMSequence ()
 
-@property (nonatomic, retain) NSMutableArray *delegates;
-
 @property bool isBackgroundRunning;
 @property bool isRunning;
 @property AMStave *mainStave;
@@ -24,20 +22,6 @@
 @end
 
 @implementation AMSequence
-
-@synthesize delegates = _delegates;
-
-- (void) addDelegate: (id<AMSequenceDelegate>) delegate
-{
-    // Additional code
-    [_delegates addObject: delegate];
-}
-
-- (void) removeDelegate: (id<AMSequenceDelegate>) delegate
-{
-    // Additional code
-    [_delegates removeObject: delegate];
-}
 
 NSUInteger const maxLength = 64;
 NSUInteger const minLength = 3;
@@ -86,17 +70,11 @@ NSUInteger const minTempo = 60;
     _isRunning = !_isRunning;
     if(_isRunning) {
         [AMLogger logMessage:@("sequence started")];
-        for(NSValue *val in _delegates){
-            id<AMSequenceDelegate> delegate = [val pointerValue];
-            [delegate sequenceHasStarted];
-        }
+        [_sequenceDelegate sequenceHasStarted];
     }
     else {
         [AMLogger logMessage:@("sequence stopped")];
-        for(NSValue *val in _delegates){
-            id<AMSequenceDelegate> delegate = [val pointerValue];
-            [delegate sequenceHasStopped];
-        }
+        [_sequenceDelegate sequenceHasStopped];
     }
 }
 
@@ -163,11 +141,8 @@ NSUInteger const minTempo = 60;
         if(note.isPlaying){
             ((void (*)(id, SEL))[_arrayOfPlayers[j] methodForSelector:aSelector])(_arrayOfPlayers[j], aSelector);
         }
-        for(NSValue *val in _delegates){
-            id<AMSequenceDelegate> delegate = [val pointerValue];
-            [delegate rowHasBeenTriggered: (NSInteger)aPosition
+        [_sequenceViewDelegate rowHasBeenTriggered: (NSInteger)aPosition
                                 inSection: j];
-        }
         j++;
     }
 }

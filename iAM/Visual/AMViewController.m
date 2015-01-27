@@ -31,7 +31,7 @@
 
 - (void)loadMainObjects{
     _mainSequence = [[AMSequence alloc] init];
-    _mainSequence.sequenceViewDelegate = self;
+    _mainSequence.sequenceDelegate = self;
 }
 
 - (void)loadCollectionViewController{
@@ -42,17 +42,29 @@
 }
 
 - (void)loadPickers{
-    NSArray *sizePickerData = @[@"3",@"4",@"6",@"8",@"9",@"12",@"16"];
+    NSArray *sizePickerData = [self createRangeOfValuesStartingFrom:_mainSequence.minLength
+                                                               upTo:_mainSequence.maxLength];
     _lengthPickerController = [[AMPickerController alloc] initWithDataArray:sizePickerData];
     _lengthPickerController.delegate = self;
     _lengthPicker.delegate = _lengthPickerController;
     _lengthPicker.dataSource = _lengthPickerController;
 
-    NSArray *tempoPickerData = @[@"60",@"100",@"140",@"180",@"220",@"260",@"300"];
+    NSArray *tempoPickerData = [self createRangeOfValuesStartingFrom:_mainSequence.minTempo
+                                                                upTo:_mainSequence.maxTempo];
     _tempoPickerController = [[AMPickerController alloc] initWithDataArray:tempoPickerData];
     _tempoPickerController.delegate = self;
     _tempoPicker.delegate = _tempoPickerController;
     _tempoPicker.dataSource = _tempoPickerController;
+}
+
+- (NSMutableArray *)createRangeOfValuesStartingFrom: (NSInteger)startValue
+                                               upTo: (NSInteger)endValue{
+    NSMutableArray *anArray = [[NSMutableArray alloc] init];
+    for (NSInteger i = startValue; i <= endValue; i++)
+    {
+        [anArray addObject:[NSString stringWithFormat:@"%d", i]];
+    }
+    return anArray;
 }
 
 - (void)didReceiveMemoryWarning {

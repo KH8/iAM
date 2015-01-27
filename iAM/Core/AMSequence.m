@@ -141,8 +141,6 @@ NSUInteger const minTempo = 60;
         if(note.isPlaying){
             ((void (*)(id, SEL))[_arrayOfPlayers[j] methodForSelector:aSelector])(_arrayOfPlayers[j], aSelector);
         }
-        [_sequenceViewDelegate rowHasBeenTriggered: (NSInteger)aPosition
-                                inSection: j];
         j++;
     }
 }

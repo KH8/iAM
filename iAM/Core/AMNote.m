@@ -35,6 +35,7 @@
 
 - (void)trigger {
     _triggeredState = !_triggeredState;
+    [_delegate noteHasBeenTriggered];
 }
 
 @end

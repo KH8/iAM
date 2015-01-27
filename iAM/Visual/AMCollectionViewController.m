@@ -12,10 +12,10 @@
 @interface AMCollectionViewController ()
 
 @property AMSequence *mainSequence;
-
 @property UICollectionView *collectionView;
 
 @end
+
 
 @implementation AMCollectionViewController {
 }
@@ -27,9 +27,7 @@ static NSString * const reuseIdentifier = @"myCell";
     self = [super init];
     if (self) {
         _collectionView = aCollectionView;
-
         _mainSequence = aSequence;
-        _mainSequence.sequenceViewDelegate = self;
     }
     return self;
 }
@@ -52,15 +50,7 @@ static NSString * const reuseIdentifier = @"myCell";
     AMCollectionViewCell * newCell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier
                                                                                forIndexPath:indexPath];
     NSMutableArray * lineOfNotes = [_mainSequence getLine:(NSUInteger) indexPath.section];
-    newCell.noteAssigned = lineOfNotes[(NSUInteger) indexPath.row];
-    
-    UIColor *color = [[UIColor lightGrayColor] colorWithAlphaComponent:0.9F];
-    if(newCell.noteAssigned.isSelected) color = [[UIColor grayColor] colorWithAlphaComponent:0.9F];
-    if(newCell.noteAssigned.isPlaying) color = [[UIColor greenColor] colorWithAlphaComponent:0.9F];
-    if(newCell.noteAssigned.isTriggered) color = [color colorWithAlphaComponent:0.5F];
-    
-    newCell.backgroundColor = color;
-    
+    [newCell setNoteAssigned:lineOfNotes[(NSUInteger) indexPath.row]];
     return newCell;
 }
 
@@ -68,11 +58,7 @@ static NSString * const reuseIdentifier = @"myCell";
         didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     
     AMCollectionViewCell *cell = (AMCollectionViewCell*) [collectionView cellForItemAtIndexPath:indexPath];
-    AMNote *note = cell.noteAssigned;
-    
-    [note select];
-    NSArray *arrayOfPaths = @[indexPath];
-    [_collectionView reloadItemsAtIndexPaths:arrayOfPaths];
+    [cell touch];
 }
 
 - (CGFloat)collectionView:(UICollectionView *)collectionView
@@ -91,16 +77,6 @@ static NSString * const reuseIdentifier = @"myCell";
                         layout:(UICollectionViewLayout*)collectionViewLayout
         insetForSectionAtIndex:(NSInteger)section {
     return UIEdgeInsetsMake(1,1,1,1);
-}
-
-- (void)rowHasBeenTriggered:(NSInteger)row
-                  inSection: (NSInteger)section{
-    dispatch_async(dispatch_get_main_queue(), ^{
-        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:row
-                                                    inSection:section];
-        NSArray *arrayOfPaths = @[indexPath];
-        [_collectionView reloadItemsAtIndexPaths:arrayOfPaths];
-    });
 }
 
 - (void)reloadData {

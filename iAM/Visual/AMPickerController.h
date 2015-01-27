@@ -19,6 +19,7 @@
     id <AMPickerControllerDelegate> _delegate;
 
 }
+
 @property (nonatomic,strong) id delegate;
 
 -(id)initWithDataArray:(NSArray*)anArray;

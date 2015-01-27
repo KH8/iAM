@@ -9,8 +9,10 @@
 #import <UIKit/UIKit.h>
 #import "AMNote.h"
 
-@interface AMCollectionViewCell : UICollectionViewCell
+@interface AMCollectionViewCell : UICollectionViewCell <AMNoteDelegate>
 
-@property (weak, nonatomic) AMNote *noteAssigned;
+- (void)setNoteAssigned: (AMNote*)aNote;
+- (void)reloadCell;
+- (void)touch;
 
 @end

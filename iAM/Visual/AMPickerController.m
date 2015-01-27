@@ -5,17 +5,29 @@
 
 #import "AMPickerController.h"
 
+@interface AMPickerController ()
+
+@property UIPickerView *picker;
+
+@end
+
 
 @implementation AMPickerController {
     NSArray *pickerData;
     NSString *actualValue;
 }
 
-- (id)initWithDataArray:(NSArray *)anArray {
+- (id)initWithPicker:(UIPickerView *)aPicker
+           dataArray:(NSArray *)anArray
+       andStartIndex:(NSInteger)index {
     self = [super init];
     if (self) {
+        _picker = aPicker;
+        _picker.delegate = self;
+        _picker.dataSource = self;
         pickerData = anArray;
-        actualValue = pickerData[0];
+        actualValue = pickerData[index];
+        [_picker selectRow:index inComponent:0 animated:NO];
     }
     return self;
 }

@@ -29,6 +29,13 @@
     [self loadPickers];
 }
 
+- (void)viewDidDisappear:(BOOL)animated {
+    if(_mainSequence.isRunning){
+        [_mainSequence startStop];
+        [_mainSequence killBackgroundThread];
+    }
+}
+
 - (void)loadMainObjects{
     _mainSequence = [[AMSequence alloc] init];
     _mainSequence.sequenceDelegate = self;
@@ -44,17 +51,17 @@
 - (void)loadPickers{
     NSArray *sizePickerData = [self createRangeOfValuesStartingFrom:_mainSequence.minLength
                                                                upTo:_mainSequence.maxLength];
-    _lengthPickerController = [[AMPickerController alloc] initWithDataArray:sizePickerData];
+    _lengthPickerController = [[AMPickerController alloc] initWithPicker:_lengthPicker
+                                                               dataArray:sizePickerData
+                                                           andStartIndex:5];
     _lengthPickerController.delegate = self;
-    _lengthPicker.delegate = _lengthPickerController;
-    _lengthPicker.dataSource = _lengthPickerController;
 
     NSArray *tempoPickerData = [self createRangeOfValuesStartingFrom:_mainSequence.minTempo
                                                                 upTo:_mainSequence.maxTempo];
-    _tempoPickerController = [[AMPickerController alloc] initWithDataArray:tempoPickerData];
+    _tempoPickerController = [[AMPickerController alloc] initWithPicker:_tempoPicker
+                                                              dataArray:tempoPickerData
+                                                          andStartIndex:60];
     _tempoPickerController.delegate = self;
-    _tempoPicker.delegate = _tempoPickerController;
-    _tempoPicker.dataSource = _tempoPickerController;
 }
 
 - (NSMutableArray *)createRangeOfValuesStartingFrom: (NSInteger)startValue

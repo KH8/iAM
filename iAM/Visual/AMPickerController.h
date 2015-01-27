@@ -22,7 +22,9 @@
 
 @property (nonatomic,strong) id delegate;
 
--(id)initWithDataArray:(NSArray*)anArray;
+-(id)initWithPicker: (UIPickerView *)aPicker
+          dataArray: (NSArray*)anArray
+      andStartIndex:(NSInteger)index;
 -(NSString*)getActualPickerValue;
 
 @end

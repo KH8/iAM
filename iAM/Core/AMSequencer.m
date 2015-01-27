@@ -11,7 +11,7 @@
 @interface AMSequencer ()
 
 @property bool isBackgroundRunning;
-@property bool isRunning;
+@property bool runnignState;
 @property AMStave *mainStave;
 
 @property (nonatomic) NSInteger lengthToBePlayed;
@@ -29,7 +29,7 @@ NSUInteger const maxTempo = 300;
 NSUInteger const minTempo = 60;
 
 - (void)setBasicParameters {
-    _lengthToBePlayed = 8;
+    _lengthToBePlayed = 16;
     _tempo = 120;
 
     _maxLength = maxLength;
@@ -67,8 +67,8 @@ NSUInteger const minTempo = 60;
 }
 
 - (void)startStop{
-    _isRunning = !_isRunning;
-    if(_isRunning) {
+    _runnignState = !_runnignState;
+    if(_runnignState) {
         [AMLogger logMessage:@("sequence started")];
         [_sequencerDelegate sequenceHasStarted];
     }
@@ -79,7 +79,7 @@ NSUInteger const minTempo = 60;
 }
 
 - (bool)isRunning {
-    return _isRunning;
+    return _runnignState;
 }
 
 - (void)clear {
@@ -114,14 +114,14 @@ NSUInteger const minTempo = 60;
 - (void)runSequence{
     while (_isBackgroundRunning){
         NSDate *lastDate = [NSDate date];
-        if(_isRunning) {
+        if(_runnignState) {
             for (NSUInteger i = 0; i < _lengthToBePlayed; i++) {
                 [self handleStave:_mainStave atPosition:i
                        withAction:@selector(playSound)];
                 [self waitProperIntervalSinceDate:lastDate];
                 [self handleStave:_mainStave atPosition:i
                        withAction:@selector(stopSound)];
-                if(!_isRunning) {
+                if(!_runnignState) {
                     break;
                 }
                 [AMLogger logMessage:[NSString stringWithFormat:@"interval since last bar: %f", [lastDate timeIntervalSinceNow] * -1000.f]];

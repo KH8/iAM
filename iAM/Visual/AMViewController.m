@@ -53,7 +53,7 @@
                                                                upTo:_mainSequencer.maxLength];
     _lengthPickerController = [[AMPickerController alloc] initWithPicker:_lengthPicker
                                                                dataArray:sizePickerData
-                                                           andStartIndex:5];
+                                                           andStartIndex:13];
     _lengthPickerController.delegate = self;
 
     NSArray *tempoPickerData = [self createRangeOfValuesStartingFrom:_mainSequencer.minTempo

@@ -13,7 +13,7 @@
                         <viewControllerLayoutGuide type="top" id="6mO-t5-TNi"/>
                         <viewControllerLayoutGuide type="bottom" id="sw7-6B-i6c"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="1Er-fy-ePC">
+                    <view key="view" opaque="NO" contentMode="scaleToFill" id="1Er-fy-ePC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -21,8 +21,8 @@
                                 <rect key="frame" x="149" y="489" width="80" height="162"/>
                             </pickerView>
                             <collectionView autoresizesSubviews="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" bounces="NO" alwaysBounceHorizontal="YES" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="seQ-A1-cWb">
-                                <rect key="frame" x="0.0" y="28" width="600" height="453"/>
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="calibratedRGB"/>
+                                <rect key="frame" x="0.0" y="67" width="600" height="414"/>
+                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="0.0" id="AUX-s0-pQO">
                                     <size key="itemSize" width="50" height="50"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -51,6 +51,7 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                                 <state key="normal" title="Size:">
+                                    <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" red="0.502" green="0.502" blue="0.502" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                             </button>
@@ -58,12 +59,14 @@
                                 <rect key="frame" x="237" y="555" width="50" height="30"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                                 <state key="normal" title="Tempo:">
+                                    <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" red="0.502" green="0.502" blue="0.502" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xK2-Oz-09u">
                                 <rect key="frame" x="547" y="555" width="37" height="30"/>
                                 <state key="normal" title="Clear">
+                                    <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -73,6 +76,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eyU-Z2-h1b">
                                 <rect key="frame" x="509" y="555" width="30" height="30"/>
                                 <state key="normal" title="Test">
+                                    <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -83,6 +87,7 @@
                                 <rect key="frame" x="16" y="555" width="33" height="30"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                                 <state key="normal" title="Start">
+                                    <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" red="0.502" green="0.502" blue="0.502" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
@@ -101,22 +106,22 @@
                         <constraints>
                             <constraint firstItem="8JB-Pp-4Cc" firstAttribute="centerY" secondItem="Bzj-27-fSe" secondAttribute="centerY" id="0AT-U9-jSq"/>
                             <constraint firstItem="sw7-6B-i6c" firstAttribute="top" secondItem="eyU-Z2-h1b" secondAttribute="bottom" constant="15" id="2Jx-xN-CdZ"/>
+                            <constraint firstAttribute="trailing" secondItem="seQ-A1-cWb" secondAttribute="trailing" id="3MO-0t-xhS"/>
                             <constraint firstAttribute="trailingMargin" secondItem="eyU-Z2-h1b" secondAttribute="trailing" constant="45" id="DbK-ca-HNH"/>
-                            <constraint firstItem="seQ-A1-cWb" firstAttribute="leading" secondItem="1Er-fy-ePC" secondAttribute="leading" id="Kiw-dA-1cQ"/>
-                            <constraint firstItem="seQ-A1-cWb" firstAttribute="top" secondItem="6mO-t5-TNi" secondAttribute="bottom" constant="8" symbolic="YES" id="KuQ-Or-kte"/>
                             <constraint firstItem="sw7-6B-i6c" firstAttribute="top" secondItem="9E2-pr-GCi" secondAttribute="bottom" constant="15" id="Lp5-jX-qN3"/>
                             <constraint firstItem="ibw-dR-ieT" firstAttribute="leading" secondItem="te5-ea-RC4" secondAttribute="trailing" constant="8" symbolic="YES" id="PmM-O9-Esl"/>
                             <constraint firstItem="xK2-Oz-09u" firstAttribute="trailing" secondItem="1Er-fy-ePC" secondAttribute="trailingMargin" id="bw8-G2-PJi"/>
                             <constraint firstItem="te5-ea-RC4" firstAttribute="leading" secondItem="8JB-Pp-4Cc" secondAttribute="trailing" constant="8" symbolic="YES" id="cD2-BJ-COM"/>
                             <constraint firstItem="te5-ea-RC4" firstAttribute="leading" secondItem="1Er-fy-ePC" secondAttribute="leadingMargin" constant="221" id="ftc-OU-c9E"/>
                             <constraint firstItem="sw7-6B-i6c" firstAttribute="top" secondItem="xK2-Oz-09u" secondAttribute="bottom" constant="15" id="lel-c6-KIY"/>
-                            <constraint firstItem="8JB-Pp-4Cc" firstAttribute="top" secondItem="seQ-A1-cWb" secondAttribute="bottom" constant="8" symbolic="YES" id="lrl-We-Huz"/>
+                            <constraint firstItem="8JB-Pp-4Cc" firstAttribute="top" secondItem="seQ-A1-cWb" secondAttribute="bottom" constant="8" symbolic="YES" id="mxb-jb-TNp"/>
                             <constraint firstItem="sw7-6B-i6c" firstAttribute="top" secondItem="te5-ea-RC4" secondAttribute="bottom" constant="15" id="nVb-QZ-D6b"/>
                             <constraint firstItem="sw7-6B-i6c" firstAttribute="top" secondItem="Bzj-27-fSe" secondAttribute="bottom" constant="15" id="qP1-ca-L9k"/>
+                            <constraint firstItem="seQ-A1-cWb" firstAttribute="leading" secondItem="1Er-fy-ePC" secondAttribute="leading" id="s5G-cp-PdU"/>
                             <constraint firstItem="8JB-Pp-4Cc" firstAttribute="leading" secondItem="Bzj-27-fSe" secondAttribute="trailing" constant="8" symbolic="YES" id="sWZ-vK-NGp"/>
                             <constraint firstItem="ibw-dR-ieT" firstAttribute="top" secondItem="8JB-Pp-4Cc" secondAttribute="top" id="xLD-vF-2xF"/>
-                            <constraint firstAttribute="trailing" secondItem="seQ-A1-cWb" secondAttribute="trailing" id="xa2-VN-2PZ"/>
                             <constraint firstItem="Bzj-27-fSe" firstAttribute="leading" secondItem="1Er-fy-ePC" secondAttribute="leadingMargin" constant="92" id="xal-Ow-ie8"/>
+                            <constraint firstItem="seQ-A1-cWb" firstAttribute="top" secondItem="6mO-t5-TNi" secondAttribute="bottom" constant="47" id="xas-tr-8WX"/>
                             <constraint firstItem="9E2-pr-GCi" firstAttribute="leading" secondItem="1Er-fy-ePC" secondAttribute="leadingMargin" id="zfC-ss-6Hi"/>
                         </constraints>
                     </view>
@@ -147,6 +152,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bP2-eT-Rh5">
                                 <rect key="frame" x="282" y="550" width="35" height="30"/>
                                 <state key="normal" title="Back">
+                                    <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -156,6 +162,7 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Raw-Ng-waA">
                                 <rect key="frame" x="20" y="20" width="88" height="30"/>
                                 <state key="normal" title="Test Play">
+                                    <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>

@@ -41,7 +41,7 @@
 
 - (void)loadMainObjects{
     _arrayOfSequencers = [[NSMutableArray alloc] init];
-    for (int i = 0; i < 3; ++i) {
+    for (int i = 0; i < 1; ++i) {
         [self addNewSequencer];
     }
     _actuallySelectedSequencer = _arrayOfSequencers[0];

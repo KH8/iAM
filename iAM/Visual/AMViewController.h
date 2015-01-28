@@ -19,5 +19,7 @@
 @property (weak, nonatomic) IBOutlet UIPickerView *tempoPicker;
 @property (weak, nonatomic) IBOutlet UIButton *clearButton;
 @property (weak, nonatomic) IBOutlet UIButton *startButton;
+@property (weak, nonatomic) IBOutlet UIPageControl *pageControl;
+@property (weak, nonatomic) IBOutlet UIButton *addPageButton;
 
 @end

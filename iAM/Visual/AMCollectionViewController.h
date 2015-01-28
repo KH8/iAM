@@ -15,6 +15,8 @@
 
 - (id)initWithCollectionView:(UICollectionView *)aCollectionView
                 andSequencer: (AMSequencer *)aSequencer;
+- (void)changeSequencerAssigned: (AMSequencer *)aSequencer;
+
 - (void)dealloc;
 - (void)reloadData;
 

@@ -100,16 +100,39 @@
                                     <constraint firstAttribute="width" constant="80" id="R2L-KH-EeT"/>
                                 </constraints>
                             </pickerView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o9C-mf-4T0">
+                                <rect key="frame" x="547" y="35" width="30" height="30"/>
+                                <state key="normal" title="Add">
+                                    <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="addPage:" destination="Cpc-Be-Cbd" eventType="touchUpInside" id="fSB-MH-A89"/>
+                                </connections>
+                            </button>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="Odp-23-gs5">
+                                <rect key="frame" x="70" y="28" width="461" height="37"/>
+                                <color key="pageIndicatorTintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="currentPageIndicatorTintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="pageSelectionHasChanged:" destination="Cpc-Be-Cbd" eventType="valueChanged" id="TKO-3U-KTu"/>
+                                </connections>
+                            </pageControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="8JB-Pp-4Cc" firstAttribute="centerY" secondItem="Bzj-27-fSe" secondAttribute="centerY" id="0AT-U9-jSq"/>
+                            <constraint firstItem="Odp-23-gs5" firstAttribute="leading" secondItem="1Er-fy-ePC" secondAttribute="leadingMargin" constant="54" id="1fk-Lt-DrQ"/>
+                            <constraint firstItem="Odp-23-gs5" firstAttribute="top" secondItem="6mO-t5-TNi" secondAttribute="bottom" constant="8" symbolic="YES" id="22X-go-IUo"/>
                             <constraint firstItem="sw7-6B-i6c" firstAttribute="top" secondItem="eyU-Z2-h1b" secondAttribute="bottom" constant="15" id="2Jx-xN-CdZ"/>
                             <constraint firstAttribute="trailing" secondItem="seQ-A1-cWb" secondAttribute="trailing" id="3MO-0t-xhS"/>
+                            <constraint firstItem="Odp-23-gs5" firstAttribute="centerX" secondItem="seQ-A1-cWb" secondAttribute="centerX" id="ADq-1S-W1h"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="o9C-mf-4T0" secondAttribute="trailing" constant="7" id="DVb-W5-Ekl"/>
                             <constraint firstAttribute="trailingMargin" secondItem="eyU-Z2-h1b" secondAttribute="trailing" constant="45" id="DbK-ca-HNH"/>
                             <constraint firstItem="sw7-6B-i6c" firstAttribute="top" secondItem="9E2-pr-GCi" secondAttribute="bottom" constant="15" id="Lp5-jX-qN3"/>
                             <constraint firstItem="ibw-dR-ieT" firstAttribute="leading" secondItem="te5-ea-RC4" secondAttribute="trailing" constant="8" symbolic="YES" id="PmM-O9-Esl"/>
+                            <constraint firstItem="o9C-mf-4T0" firstAttribute="top" secondItem="6mO-t5-TNi" secondAttribute="bottom" constant="15" id="bA2-r6-hnq"/>
                             <constraint firstItem="xK2-Oz-09u" firstAttribute="trailing" secondItem="1Er-fy-ePC" secondAttribute="trailingMargin" id="bw8-G2-PJi"/>
                             <constraint firstItem="te5-ea-RC4" firstAttribute="leading" secondItem="8JB-Pp-4Cc" secondAttribute="trailing" constant="8" symbolic="YES" id="cD2-BJ-COM"/>
                             <constraint firstItem="te5-ea-RC4" firstAttribute="leading" secondItem="1Er-fy-ePC" secondAttribute="leadingMargin" constant="221" id="ftc-OU-c9E"/>
@@ -126,9 +149,11 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="addPageButton" destination="o9C-mf-4T0" id="8BZ-g6-ZfZ"/>
                         <outlet property="clearButton" destination="xK2-Oz-09u" id="IKc-LK-h9o"/>
                         <outlet property="collectionView" destination="seQ-A1-cWb" id="RGC-JP-FJm"/>
                         <outlet property="lengthPicker" destination="8JB-Pp-4Cc" id="M0a-y9-2aQ"/>
+                        <outlet property="pageControl" destination="Odp-23-gs5" id="wrC-K3-wcn"/>
                         <outlet property="startButton" destination="9E2-pr-GCi" id="Ok6-6I-Fve"/>
                         <outlet property="tempoPicker" destination="ibw-dR-ieT" id="s4y-qr-aeS"/>
                     </connections>
@@ -160,7 +185,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Raw-Ng-waA">
-                                <rect key="frame" x="20" y="20" width="88" height="30"/>
+                                <rect key="frame" x="16" y="20" width="88" height="30"/>
                                 <state key="normal" title="Test Play">
                                     <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>

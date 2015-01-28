@@ -33,6 +33,14 @@ static NSString * const reuseIdentifier = @"myCell";
     return self;
 }
 
+- (void)changeSequencerAssigned: (AMSequencer *)aSequencer{
+    if(_mainSequencer.isRunning){
+       [_mainSequencer startStop];
+    }
+    _mainSequencer = aSequencer;
+    [self reloadData];
+}
+
 - (void)dealloc {
 }
 

@@ -14,22 +14,31 @@
 
 @implementation AMPickerController {
     NSArray *pickerData;
-    NSString *actualValue;
+    NSNumber *actualValue;
 }
 
-- (id)initWithPicker:(UIPickerView *)aPicker
-           dataArray:(NSArray *)anArray
-       andStartIndex:(NSInteger)index {
+- (id)initWithPicker: (UIPickerView *)aPicker
+           dataArray: (NSArray *)anArray
+       andStartValue: (NSNumber*)newValue{
     self = [super init];
     if (self) {
         _picker = aPicker;
         _picker.delegate = self;
         _picker.dataSource = self;
         pickerData = anArray;
-        actualValue = pickerData[index];
-        [_picker selectRow:index inComponent:0 animated:NO];
+        [self setActualValue:newValue];
     }
     return self;
+}
+
+- (void)setActualValue: (NSNumber*)newValue{
+    for (NSNumber *data in pickerData) {
+        if([data isEqualToNumber:newValue]){
+            NSInteger anIndex=[pickerData indexOfObject:data];
+            actualValue = pickerData[(NSUInteger) anIndex];
+            [_picker selectRow:anIndex inComponent:0 animated:NO];
+        }
+    }
 }
 
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView {
@@ -44,7 +53,7 @@ numberOfRowsInComponent:(NSInteger)component {
 - (NSString*)pickerView:(UIPickerView *)pickerView
             titleForRow:(NSInteger)row
            forComponent:(NSInteger)component {
-    return pickerData[(NSUInteger) row];
+    return [NSString stringWithFormat:@"%ld", (long)[pickerData[(NSUInteger) row] integerValue]];
 }
 
 - (void)pickerView:(UIPickerView *)pickerView
@@ -54,7 +63,7 @@ numberOfRowsInComponent:(NSInteger)component {
     [_delegate pickerSelectionHasChanged];
 }
 
-- (NSString*)getActualPickerValue{
+- (NSNumber*)getActualPickerValue{
     return actualValue;
 }
 

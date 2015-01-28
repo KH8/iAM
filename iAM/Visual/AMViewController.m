@@ -7,9 +7,6 @@
 //
 
 #import "AMViewController.h"
-#import "AMStave.h"
-#import "AMPickerController.h"
-#import "AMLogger.h"
 
 @interface AMViewController () {
 }
@@ -65,14 +62,13 @@
                                                                upTo:_actuallySelectedSequencer.maxLength];
     _lengthPickerController = [[AMPickerController alloc] initWithPicker:_lengthPicker
                                                                dataArray:sizePickerData
-                                                           andStartIndex:13];
+                                                           andStartValue:@(_actuallySelectedSequencer.getLengthToBePlayed)];
     _lengthPickerController.delegate = self;
-
     NSArray *tempoPickerData = [self createRangeOfValuesStartingFrom:_actuallySelectedSequencer.minTempo
                                                                 upTo:_actuallySelectedSequencer.maxTempo];
     _tempoPickerController = [[AMPickerController alloc] initWithPicker:_tempoPicker
                                                               dataArray:tempoPickerData
-                                                          andStartIndex:60];
+                                                          andStartValue:@(_actuallySelectedSequencer.getTempo)];
     _tempoPickerController.delegate = self;
 }
 
@@ -81,7 +77,7 @@
     NSMutableArray *anArray = [[NSMutableArray alloc] init];
     for (NSInteger i = startValue; i <= endValue; i++)
     {
-        [anArray addObject:[NSString stringWithFormat:@"%d", i]];
+        [anArray addObject:@(i)];
     }
     return anArray;
 }
@@ -109,30 +105,24 @@
     [_collectionViewController reloadData];
 }
 
-- (void)lengthHasBeenChanged:(NSString*)lengthText {
+- (void)lengthHasBeenChanged:(NSNumber*)lengthText {
     NSInteger newLengthValue = [lengthText integerValue];
-    if (![self isTextANumber:lengthText] || ![self isValue:newLengthValue
-                                                withingMax:_actuallySelectedSequencer.maxLength
-                                                    andMin:_actuallySelectedSequencer.minLength]) {
+    if (![self isValue:newLengthValue
+            withingMax:_actuallySelectedSequencer.maxLength
+                andMin:_actuallySelectedSequencer.minLength]) {
         return;
     }
     [_actuallySelectedSequencer setLengthToBePlayed:newLengthValue];
 }
 
-- (void)tempoHasBeenChanged:(NSString*)tempoText {
+- (void)tempoHasBeenChanged:(NSNumber*)tempoText {
     NSInteger newTempoValue = [tempoText integerValue];
-    if (![self isTextANumber:tempoText] || ![self isValue:newTempoValue
-                                               withingMax:_actuallySelectedSequencer.maxTempo
-                                                   andMin:_actuallySelectedSequencer.minTempo]) {
+    if (![self isValue:newTempoValue
+            withingMax:_actuallySelectedSequencer.maxTempo
+                andMin:_actuallySelectedSequencer.minTempo]) {
         return;
     }
     [_actuallySelectedSequencer setTempo:newTempoValue];
-}
-
-- (bool)isTextANumber: (NSString *)aString{
-    NSCharacterSet *alphaNumbers = [NSCharacterSet decimalDigitCharacterSet];
-    NSCharacterSet *inStringSet = [NSCharacterSet characterSetWithCharactersInString:aString];
-    return [alphaNumbers isSupersetOfSet:inStringSet];
 }
 
 - (bool)isValue: (NSInteger)aValue
@@ -150,8 +140,10 @@
 }
 
 - (IBAction)pageSelectionHasChanged:(id)sender {
-    _actuallySelectedSequencer = _arrayOfSequencers[_pageControl.currentPage];
+    _actuallySelectedSequencer = _arrayOfSequencers[(NSUInteger) _pageControl.currentPage];
     [_collectionViewController changeSequencerAssigned:_actuallySelectedSequencer];
+    [_lengthPickerController setActualValue:@(_actuallySelectedSequencer.getLengthToBePlayed)];
+    [_tempoPickerController setActualValue:@(_actuallySelectedSequencer.getTempo)];
 }
 
 - (IBAction)addPage:(id)sender {

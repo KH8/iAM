@@ -22,9 +22,10 @@
 
 @property (nonatomic,strong) id delegate;
 
--(id)initWithPicker: (UIPickerView *)aPicker
+- (id)initWithPicker: (UIPickerView *)aPicker
           dataArray: (NSArray*)anArray
-      andStartIndex:(NSInteger)index;
--(NSString*)getActualPickerValue;
+      andStartValue: (NSNumber*)newValue;
+- (void)setActualValue: (NSNumber*)newValue;
+- (NSNumber*)getActualPickerValue;
 
 @end

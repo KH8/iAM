@@ -44,11 +44,7 @@ NSUInteger const minTempo = 60;
         _mainStave = [[AMStave alloc] init];
         [_mainStave configureDefault];
 
-        _isBackgroundRunning = YES;
-
         [self setBasicParameters];
-        [self performSelectorInBackground:@selector(runSequence)
-                               withObject:nil];
 
         AMPlayer *amPlayer0 = [[AMPlayer alloc] initWithFile:@"tickSound"
                                                       ofType:@"aif"];
@@ -69,12 +65,16 @@ NSUInteger const minTempo = 60;
 - (void)startStop{
     _runnignState = !_runnignState;
     if(_runnignState) {
-        [AMLogger logMessage:@("sequence started")];
+        _isBackgroundRunning = YES;
+        [self performSelectorInBackground:@selector(runSequence)
+                               withObject:nil];
         [_sequencerDelegate sequenceHasStarted];
+        [AMLogger logMessage:@("sequence started")];
     }
     else {
-        [AMLogger logMessage:@("sequence stopped")];
+        _isBackgroundRunning = NO;
         [_sequencerDelegate sequenceHasStopped];
+        [AMLogger logMessage:@("sequence stopped")];
     }
 }
 

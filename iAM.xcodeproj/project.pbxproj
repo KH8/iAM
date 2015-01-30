@@ -20,6 +20,7 @@
 		A44804B31A686E430094BA1F /* tickSound.aif in Resources */ = {isa = PBXBuildFile; fileRef = A44804B01A686E430094BA1F /* tickSound.aif */; };
 		A44910791A5F396E00E8C6DB /* AMStave.m in Sources */ = {isa = PBXBuildFile; fileRef = A44910781A5F396E00E8C6DB /* AMStave.m */; };
 		A449107C1A5F3A1200E8C6DB /* AMNote.m in Sources */ = {isa = PBXBuildFile; fileRef = A449107B1A5F3A1200E8C6DB /* AMNote.m */; };
+		A44A3C731A7BF1E800B3B4DC /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A44A3C721A7BF1E800B3B4DC /* SWRevealViewController.m */; };
 		A45A3D6E1A71B4DF00039934 /* AMCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A45A3D6D1A71B4DF00039934 /* AMCollectionViewController.m */; };
 		A45F0D4A1A5C6515008673FC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A45F0D491A5C6515008673FC /* main.m */; };
 		A45F0D4D1A5C6515008673FC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A45F0D4C1A5C6515008673FC /* AppDelegate.m */; };
@@ -62,6 +63,8 @@
 		A44910781A5F396E00E8C6DB /* AMStave.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMStave.m; path = Core/AMStave.m; sourceTree = "<group>"; };
 		A449107A1A5F3A1200E8C6DB /* AMNote.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMNote.h; path = Core/AMNote.h; sourceTree = "<group>"; };
 		A449107B1A5F3A1200E8C6DB /* AMNote.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMNote.m; path = Core/AMNote.m; sourceTree = "<group>"; };
+		A44A3C711A7BF1E800B3B4DC /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
+		A44A3C721A7BF1E800B3B4DC /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		A45A3D6C1A71B4DF00039934 /* AMCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMCollectionViewController.h; sourceTree = "<group>"; };
 		A45A3D6D1A71B4DF00039934 /* AMCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMCollectionViewController.m; sourceTree = "<group>"; };
 		A45F0D441A5C6515008673FC /* iAM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iAM.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -99,6 +102,7 @@
 		8F01C9F7EDEB97C2F2D72BE8 /* Visual */ = {
 			isa = PBXGroup;
 			children = (
+				A44A3C701A7BF1E800B3B4DC /* SWRevealViewController */,
 				8F0AD5A2B8400C3F3D22A86A /* AMCollectionViewCell.h */,
 				8F0B1F4FAA5303D5E98B0847 /* AMCollectionViewCell.m */,
 				8F0D8E3934B282764EF13D8A /* AMViewController.h */,
@@ -146,6 +150,15 @@
 				8F026D41013513503897B9C8 /* Sounds */,
 			);
 			name = Core;
+			sourceTree = "<group>";
+		};
+		A44A3C701A7BF1E800B3B4DC /* SWRevealViewController */ = {
+			isa = PBXGroup;
+			children = (
+				A44A3C711A7BF1E800B3B4DC /* SWRevealViewController.h */,
+				A44A3C721A7BF1E800B3B4DC /* SWRevealViewController.m */,
+			);
+			path = SWRevealViewController;
 			sourceTree = "<group>";
 		};
 		A45F0D3B1A5C6515008673FC = {
@@ -312,6 +325,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A44A3C731A7BF1E800B3B4DC /* SWRevealViewController.m in Sources */,
 				A45F0D4D1A5C6515008673FC /* AppDelegate.m in Sources */,
 				A44910791A5F396E00E8C6DB /* AMStave.m in Sources */,
 				A45F0D4A1A5C6515008673FC /* main.m in Sources */,

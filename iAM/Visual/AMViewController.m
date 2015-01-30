@@ -7,6 +7,7 @@
 //
 
 #import "AMViewController.h"
+#import "SWRevealViewController.h"
 
 @interface AMViewController () {
 }
@@ -27,6 +28,14 @@
     [self loadMainObjects];
     [self loadCollectionViewController];
     [self loadPickers];
+    
+    SWRevealViewController *revealViewController = self.revealViewController;
+    if ( revealViewController )
+    {
+        [self.sidebarButton setTarget: self.revealViewController];
+        [self.sidebarButton setAction: @selector( revealToggle: )];
+        [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
+    }
 }
 
 - (void)viewDidDisappear:(BOOL)animated {

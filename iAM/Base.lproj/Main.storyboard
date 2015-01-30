@@ -210,8 +210,8 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <segue destination="usW-4H-ZPN" kind="custom" identifier="sw_front" customClass="SWRevealViewControllerSegueSetController" id="xxB-np-igB"/>
-                        <segue destination="dS9-ds-i5t" kind="custom" identifier="sw_rear" customClass="SWRevealViewControllerSegueSetController" id="FnX-EG-b7L"/>
+                        <segue destination="dS9-ds-i5t" kind="custom" identifier="sw_right" customClass="SWRevealViewControllerSegueSetController" id="K5a-iJ-boN"/>
+                        <segue destination="usW-4H-ZPN" kind="custom" identifier="sw_front" customClass="SWRevealViewControllerSegueSetController" id="GEb-Os-OPW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4r9-0c-uVk" userLabel="First Responder" sceneMemberID="firstResponder"/>

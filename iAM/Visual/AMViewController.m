@@ -28,14 +28,7 @@
     [self loadMainObjects];
     [self loadCollectionViewController];
     [self loadPickers];
-    
-    SWRevealViewController *revealViewController = self.revealViewController;
-    if ( revealViewController )
-    {
-        [self.sidebarButton setTarget: self.revealViewController];
-        [self.sidebarButton setAction: @selector( revealToggle: )];
-        [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
-    }
+    [self loadSidebarMenu];
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
@@ -79,6 +72,16 @@
                                                               dataArray:tempoPickerData
                                                           andStartValue:@(_actuallySelectedSequencer.getTempo)];
     _tempoPickerController.delegate = self;
+}
+
+- (void)loadSidebarMenu{
+    SWRevealViewController *revealViewController = self.revealViewController;
+    if ( revealViewController )
+    {
+        [self.sidebarButton setTarget: self.revealViewController];
+        [self.sidebarButton setAction: @selector( rightRevealToggle: )];
+        [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
+    }
 }
 
 - (NSMutableArray *)createRangeOfValuesStartingFrom: (NSInteger)startValue

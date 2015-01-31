@@ -9,14 +9,13 @@
 #import <UIKit/UIKit.h>
 #import "AMCollectionViewController.h"
 #import "AMPickerController.h"
+#import "AMPopoverViewController.h"
 #import "AMSequencer.h"
 #import "AMNote.h"
 
-@interface AMViewController : UIViewController <AMPickerControllerDelegate, AMSequencerDelegate>
+@interface AMViewController : UIViewController <AMPopoverViewControllerDelegate, AMSequencerDelegate>
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
-@property (weak, nonatomic) IBOutlet UIPickerView *lengthPicker;
-@property (weak, nonatomic) IBOutlet UIPickerView *tempoPicker;
 @property (weak, nonatomic) IBOutlet UIButton *clearButton;
 @property (weak, nonatomic) IBOutlet UIButton *startButton;
 @property (weak, nonatomic) IBOutlet UIPageControl *pageControl;

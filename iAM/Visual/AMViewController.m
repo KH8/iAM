@@ -8,6 +8,7 @@
 
 #import "AMViewController.h"
 #import "SWRevealViewController.h"
+#import "AMPopoverViewController.h"
 
 @interface AMViewController () {
 }
@@ -16,8 +17,6 @@
 @property AMSequencer *actuallySelectedSequencer;
 
 @property AMCollectionViewController *collectionViewController;
-@property AMPickerController *lengthPickerController;
-@property AMPickerController *tempoPickerController;
 
 @end
 
@@ -27,7 +26,6 @@
     [super viewDidLoad];
     [self loadMainObjects];
     [self loadCollectionViewController];
-    [self loadPickers];
     [self loadSidebarMenu];
 }
 
@@ -58,22 +56,6 @@
     _collectionView.delegate = _collectionViewController;
     _collectionView.dataSource = _collectionViewController;
 }
-
-- (void)loadPickers{
-    NSArray *sizePickerData = [self createRangeOfValuesStartingFrom:_actuallySelectedSequencer.minLength
-                                                               upTo:_actuallySelectedSequencer.maxLength];
-    _lengthPickerController = [[AMPickerController alloc] initWithPicker:_lengthPicker
-                                                               dataArray:sizePickerData
-                                                           andStartValue:@(_actuallySelectedSequencer.getLengthToBePlayed)];
-    _lengthPickerController.delegate = self;
-    NSArray *tempoPickerData = [self createRangeOfValuesStartingFrom:_actuallySelectedSequencer.minTempo
-                                                                upTo:_actuallySelectedSequencer.maxTempo];
-    _tempoPickerController = [[AMPickerController alloc] initWithPicker:_tempoPicker
-                                                              dataArray:tempoPickerData
-                                                          andStartValue:@(_actuallySelectedSequencer.getTempo)];
-    _tempoPickerController.delegate = self;
-}
-
 - (void)loadSidebarMenu{
     SWRevealViewController *revealController = [self revealViewController];
     
@@ -86,22 +68,10 @@
     [self.listButton setAction: @selector( rightRevealToggle: )];
 }
 
-- (NSMutableArray *)createRangeOfValuesStartingFrom: (NSInteger)startValue
-                                               upTo: (NSInteger)endValue{
-    NSMutableArray *anArray = [[NSMutableArray alloc] init];
-    for (NSInteger i = startValue; i <= endValue; i++)
-    {
-        [anArray addObject:@(i)];
-    }
-    return anArray;
-}
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     _collectionViewController = nil;
     _actuallySelectedSequencer = nil;
-    _lengthPickerController = nil;
-    _tempoPickerController = nil;
 }
 
 - (IBAction)onClearEvent:(id)sender {
@@ -113,9 +83,9 @@
     [_actuallySelectedSequencer startStop];
 }
 
-- (void)pickerSelectionHasChanged{
-    [self lengthHasBeenChanged:_lengthPickerController.getActualPickerValue];
-    [self tempoHasBeenChanged:_tempoPickerController.getActualPickerValue];
+- (void)valuesPickedLength:(NSNumber *)lengthPicked andTempo:(NSNumber *)tempoPicked{
+    [self lengthHasBeenChanged:lengthPicked];
+    [self tempoHasBeenChanged:tempoPicked];
     [_collectionViewController reloadData];
 }
 
@@ -156,13 +126,20 @@
 - (IBAction)pageSelectionHasChanged:(id)sender {
     _actuallySelectedSequencer = _arrayOfSequencers[(NSUInteger) _pageControl.currentPage];
     [_collectionViewController changeSequencerAssigned:_actuallySelectedSequencer];
-    [_lengthPickerController setActualValue:@(_actuallySelectedSequencer.getLengthToBePlayed)];
-    [_tempoPickerController setActualValue:@(_actuallySelectedSequencer.getTempo)];
 }
 
 - (IBAction)addPage:(id)sender {
     _pageControl.numberOfPages = _pageControl.numberOfPages + 1;
     [self addNewSequencer];
 }
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if([segue.identifier isEqualToString:@"sw_popover"]){
+        AMPopoverViewController *popoverViewController = (AMPopoverViewController *)segue.destinationViewController;
+        popoverViewController.actuallySelectedSequencer = _actuallySelectedSequencer;
+        popoverViewController.delegate = self;
+    }
+}
+
 
 @end

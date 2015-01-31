@@ -7,9 +7,32 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AMPickerController.h"
+#import "AMSequencer.h"
 
-@interface AMPopoverViewController : UIViewController
+@protocol AMPopoverViewControllerDelegate <NSObject>
 
-@property (weak, nonatomic) IBOutlet UIButton *closeButton;
+@required
+
+- (void) valuesPickedLength:(NSNumber *)lengthPicked andTempo:(NSNumber *)tempoPicked;
+
+@end
+
+@interface AMPopoverViewController : UIViewController <AMPickerControllerDelegate>
+{
+    // Delegate to respond back
+    id <AMPopoverViewControllerDelegate> _delegate;
+    
+}
+
+@property (nonatomic,strong) id delegate;
+
+@property AMPickerController *lengthPickerController;
+@property AMPickerController *tempoPickerController;
+
+@property (weak, nonatomic) IBOutlet UIPickerView *lengthPicker;
+@property (weak, nonatomic) IBOutlet UIPickerView *tempoPicker;
+
+@property AMSequencer *actuallySelectedSequencer;
 
 @end

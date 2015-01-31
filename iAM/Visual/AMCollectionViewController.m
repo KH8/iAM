@@ -82,10 +82,17 @@ static NSString * const reuseIdentifier = @"myCell";
     return 0.0;
 }
 
-- (UIEdgeInsets)collectionView: (UICollectionView *)collectionView
-                        layout:(UICollectionViewLayout*)collectionViewLayout
-        insetForSectionAtIndex:(NSInteger)section {
-    return UIEdgeInsetsMake(1,1,1,1);
+- (UIEdgeInsets)collectionView:(UICollectionView *)collectionView
+                        layout:(UICollectionViewLayout *)collectionViewLayout
+        insetForSectionAtIndex:(NSInteger)section{
+    return UIEdgeInsetsMake(-30, 1, 2, 0);
+}
+
+- (CGSize)collectionView:(UICollectionView *)collectionView
+                  layout:(UICollectionViewLayout *)collectionViewLayout
+  sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
+    float cellSize = (_collectionView.bounds.size.height / 3.0) - 2.0;
+    return CGSizeMake(cellSize, cellSize);
 }
 
 - (void)reloadData {

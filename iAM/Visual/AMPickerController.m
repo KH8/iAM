@@ -50,10 +50,12 @@ numberOfRowsInComponent:(NSInteger)component {
     return pickerData.count;
 }
 
-- (NSString*)pickerView:(UIPickerView *)pickerView
-            titleForRow:(NSInteger)row
-           forComponent:(NSInteger)component {
-    return [NSString stringWithFormat:@"%ld", (long)[pickerData[(NSUInteger) row] integerValue]];
+- (NSAttributedString*)pickerView:(UIPickerView *)pickerView
+            attributedTitleForRow:(NSInteger)row
+                     forComponent:(NSInteger)component{
+    NSString *string = [NSString stringWithFormat:@"%ld", (long)[pickerData[(NSUInteger) row] integerValue]];
+    NSAttributedString *attributedString = [[NSAttributedString alloc] initWithString:string attributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]}];
+    return attributedString;
 }
 
 - (void)pickerView:(UIPickerView *)pickerView

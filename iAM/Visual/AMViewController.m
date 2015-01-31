@@ -8,7 +8,6 @@
 
 #import "AMViewController.h"
 #import "SWRevealViewController.h"
-#import "AMPopoverViewController.h"
 
 @interface AMViewController () {
 }
@@ -140,6 +139,5 @@
         popoverViewController.delegate = self;
     }
 }
-
 
 @end

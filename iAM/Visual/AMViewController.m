@@ -75,13 +75,15 @@
 }
 
 - (void)loadSidebarMenu{
-    SWRevealViewController *revealViewController = self.revealViewController;
-    if ( revealViewController )
-    {
-        [self.sidebarButton setTarget: self.revealViewController];
-        [self.sidebarButton setAction: @selector( rightRevealToggle: )];
-        [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
-    }
+    SWRevealViewController *revealController = [self revealViewController];
+    
+    [revealController panGestureRecognizer];
+    [revealController tapGestureRecognizer];
+    
+    [self.sideMenuButton setTarget: self.revealViewController];
+    [self.sideMenuButton setAction: @selector( revealToggle: )];
+    [self.listButton setTarget: self.revealViewController];
+    [self.listButton setAction: @selector( rightRevealToggle: )];
 }
 
 - (NSMutableArray *)createRangeOfValuesStartingFrom: (NSInteger)startValue

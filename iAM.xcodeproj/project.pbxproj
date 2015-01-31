@@ -14,6 +14,7 @@
 		8F0B34AA1C650F6EBD78FA56 /* AMSequencer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F0763D2246B340EEC482E45 /* AMSequencer.m */; };
 		8F0B7BBFD13CA2A424283225 /* AMCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F0B1F4FAA5303D5E98B0847 /* AMCollectionViewCell.m */; };
 		A41641911A65DC5C00E3E228 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A41641901A65DC5C00E3E228 /* AVFoundation.framework */; };
+		A427C9F11A7D141D0003FB21 /* AMPopoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A427C9F01A7D141D0003FB21 /* AMPopoverViewController.m */; };
 		A44804B11A686E430094BA1F /* highStickSound.aif in Resources */ = {isa = PBXBuildFile; fileRef = A44804AE1A686E430094BA1F /* highStickSound.aif */; };
 		A44804B21A686E430094BA1F /* lowStickSound.aif in Resources */ = {isa = PBXBuildFile; fileRef = A44804AF1A686E430094BA1F /* lowStickSound.aif */; };
 		A44804B31A686E430094BA1F /* tickSound.aif in Resources */ = {isa = PBXBuildFile; fileRef = A44804B01A686E430094BA1F /* tickSound.aif */; };
@@ -53,6 +54,8 @@
 		8F0DA14C9FCAE3399B86B93B /* AMPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMPlayer.h; path = Core/AMPlayer.h; sourceTree = "<group>"; };
 		8F0F37B35BC39D2D480297F5 /* AMPickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMPickerController.m; sourceTree = "<group>"; };
 		A41641901A65DC5C00E3E228 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		A427C9EF1A7D141D0003FB21 /* AMPopoverViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMPopoverViewController.h; sourceTree = "<group>"; };
+		A427C9F01A7D141D0003FB21 /* AMPopoverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMPopoverViewController.m; sourceTree = "<group>"; };
 		A44804AE1A686E430094BA1F /* highStickSound.aif */ = {isa = PBXFileReference; lastKnownFileType = file; name = highStickSound.aif; path = Core/Sounds/highStickSound.aif; sourceTree = "<group>"; };
 		A44804AF1A686E430094BA1F /* lowStickSound.aif */ = {isa = PBXFileReference; lastKnownFileType = file; name = lowStickSound.aif; path = Core/Sounds/lowStickSound.aif; sourceTree = "<group>"; };
 		A44804B01A686E430094BA1F /* tickSound.aif */ = {isa = PBXFileReference; lastKnownFileType = file; name = tickSound.aif; path = Core/Sounds/tickSound.aif; sourceTree = "<group>"; };
@@ -108,6 +111,8 @@
 				A45A3D6D1A71B4DF00039934 /* AMCollectionViewController.m */,
 				8F0CFF565E646A31B3FE79A7 /* AMPickerController.h */,
 				8F0F37B35BC39D2D480297F5 /* AMPickerController.m */,
+				A427C9EF1A7D141D0003FB21 /* AMPopoverViewController.h */,
+				A427C9F01A7D141D0003FB21 /* AMPopoverViewController.m */,
 			);
 			path = Visual;
 			sourceTree = "<group>";
@@ -320,6 +325,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A427C9F11A7D141D0003FB21 /* AMPopoverViewController.m in Sources */,
 				A44A3C731A7BF1E800B3B4DC /* SWRevealViewController.m in Sources */,
 				A45F0D4D1A5C6515008673FC /* AppDelegate.m in Sources */,
 				A44910791A5F396E00E8C6DB /* AMStave.m in Sources */,

@@ -108,6 +108,15 @@
                                     <action selector="pageSelectionHasChanged:" destination="Cpc-Be-Cbd" eventType="valueChanged" id="TKO-3U-KTu"/>
                                 </connections>
                             </pageControl>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P9F-pb-G13">
+                                <rect key="frame" x="485" y="555" width="46" height="30"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="Fdi-8I-min" kind="presentation" modalPresentationStyle="overFullScreen" modalTransitionStyle="coverVertical" id="Uy9-Na-gz8"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
@@ -116,6 +125,7 @@
                             <constraint firstAttribute="trailing" secondItem="seQ-A1-cWb" secondAttribute="trailing" id="3MO-0t-xhS"/>
                             <constraint firstItem="Odp-23-gs5" firstAttribute="centerX" secondItem="seQ-A1-cWb" secondAttribute="centerX" id="7IF-kC-YaL"/>
                             <constraint firstAttribute="trailingMargin" secondItem="o9C-mf-4T0" secondAttribute="trailing" constant="7" id="DVb-W5-Ekl"/>
+                            <constraint firstItem="sw7-6B-i6c" firstAttribute="top" secondItem="P9F-pb-G13" secondAttribute="bottom" constant="15" id="FFa-bk-Csu"/>
                             <constraint firstItem="sw7-6B-i6c" firstAttribute="top" secondItem="9E2-pr-GCi" secondAttribute="bottom" constant="15" id="Lp5-jX-qN3"/>
                             <constraint firstItem="ibw-dR-ieT" firstAttribute="leading" secondItem="te5-ea-RC4" secondAttribute="trailing" constant="8" symbolic="YES" id="PmM-O9-Esl"/>
                             <constraint firstItem="Odp-23-gs5" firstAttribute="leading" secondItem="1Er-fy-ePC" secondAttribute="leadingMargin" constant="54" id="aNF-R3-782"/>
@@ -123,6 +133,7 @@
                             <constraint firstItem="xK2-Oz-09u" firstAttribute="trailing" secondItem="1Er-fy-ePC" secondAttribute="trailingMargin" id="bw8-G2-PJi"/>
                             <constraint firstItem="te5-ea-RC4" firstAttribute="leading" secondItem="8JB-Pp-4Cc" secondAttribute="trailing" constant="8" symbolic="YES" id="cD2-BJ-COM"/>
                             <constraint firstItem="te5-ea-RC4" firstAttribute="leading" secondItem="1Er-fy-ePC" secondAttribute="leadingMargin" constant="221" id="ftc-OU-c9E"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="P9F-pb-G13" secondAttribute="trailing" constant="53" id="fuA-YI-66Z"/>
                             <constraint firstItem="sw7-6B-i6c" firstAttribute="top" secondItem="xK2-Oz-09u" secondAttribute="bottom" constant="15" id="lel-c6-KIY"/>
                             <constraint firstItem="8JB-Pp-4Cc" firstAttribute="top" secondItem="seQ-A1-cWb" secondAttribute="bottom" constant="8" symbolic="YES" id="mxb-jb-TNp"/>
                             <constraint firstItem="sw7-6B-i6c" firstAttribute="top" secondItem="te5-ea-RC4" secondAttribute="bottom" constant="15" id="nVb-QZ-D6b"/>
@@ -154,7 +165,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lD3-VX-VHG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="556" y="-254"/>
+            <point key="canvasLocation" x="574" y="-254"/>
         </scene>
         <!--Reveal View Controller-->
         <scene sceneID="gCq-ec-8eB">
@@ -170,9 +181,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <segue destination="usW-4H-ZPN" kind="custom" identifier="sw_front" customClass="SWRevealViewControllerSegueSetController" id="GEb-Os-OPW"/>
                         <segue destination="VYX-gv-vDf" kind="custom" identifier="sw_rear" customClass="SWRevealViewControllerSegueSetController" id="bJL-U4-Lpf"/>
                         <segue destination="9xo-7Y-GEb" kind="custom" identifier="sw_right" customClass="SWRevealViewControllerSegueSetController" id="hPo-no-mgL"/>
+                        <segue destination="usW-4H-ZPN" kind="custom" identifier="sw_front" customClass="SWRevealViewControllerSegueSetController" id="eFA-hQ-eRV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4r9-0c-uVk" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -190,7 +201,7 @@
                     <view key="view" contentMode="scaleToFill" id="rOZ-K1-r0N">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b1l-8r-LsT" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -208,7 +219,7 @@
                     <view key="view" contentMode="scaleToFill" id="KEY-nn-oKE">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OUB-9k-CU7" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -230,6 +241,33 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dfq-7u-kUP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-163" y="-254"/>
+        </scene>
+        <!--Popover View Controller-->
+        <scene sceneID="xHp-In-B2d">
+            <objects>
+                <viewController id="Fdi-8I-min" customClass="AMPopoverViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="xTc-KQ-AEl"/>
+                        <viewControllerLayoutGuide type="bottom" id="mJB-qH-SCf"/>
+                    </layoutGuides>
+                    <view key="view" alpha="0.5" contentMode="scaleToFill" id="tyE-74-eos">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="QgY-36-7io" appends="YES" id="F4I-Se-OTX"/>
+                        </connections>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sRX-d3-20t" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="down" id="QgY-36-7io">
+                    <connections>
+                        <action selector="gesturePerformed:" destination="Fdi-8I-min" id="hUP-J3-z23"/>
+                    </connections>
+                </swipeGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="574" y="497"/>
         </scene>
     </scenes>
 </document>

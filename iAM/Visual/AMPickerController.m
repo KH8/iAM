@@ -54,7 +54,7 @@ numberOfRowsInComponent:(NSInteger)component {
             attributedTitleForRow:(NSInteger)row
                      forComponent:(NSInteger)component{
     NSString *string = [NSString stringWithFormat:@"%ld", (long)[pickerData[(NSUInteger) row] integerValue]];
-    NSAttributedString *attributedString = [[NSAttributedString alloc] initWithString:string attributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]}];
+    NSAttributedString *attributedString = [[NSAttributedString alloc] initWithString:string attributes:@{NSForegroundColorAttributeName:[UIColor blackColor]}];
     return attributedString;
 }
 

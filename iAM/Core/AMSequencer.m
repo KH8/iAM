@@ -71,7 +71,9 @@ NSUInteger const minTempo = 60;
 }
 
 - (NSTimer*)getTimer{
-    return [NSTimer scheduledTimerWithTimeInterval:[self getProperIntervalSinceDate] target:self selector:@selector(onTick) userInfo:nil repeats:YES];
+    return [NSTimer scheduledTimerWithTimeInterval:[self getProperIntervalSinceDate]
+                                            target:self selector:@selector(onTick)
+                                          userInfo:nil repeats:YES];
 }
 
 - (void)killBackgroundThread{
@@ -125,18 +127,23 @@ NSUInteger const minTempo = 60;
 }
 
 -(void)onTick {
-    NSInteger index = _actualIndex % _lengthToBePlayed;
     if(_runnignState) {
-        [self handleStave:_mainStave atPosition:index
-               withAction:@selector(playSound)];
-        [NSThread sleepForTimeInterval:[self getProperIntervalSinceDate]];
-        [self handleStave:_mainStave atPosition:index
-               withAction:@selector(stopSound)];
-        _actualIndex++;
+        [self performSelectorInBackground:@selector(runSequence)
+                               withObject:nil];
     }
     else{
         _actualIndex = 0;
     }
+}
+
+- (void)runSequence{
+    NSInteger index = _actualIndex % _lengthToBePlayed;
+    [self handleStave:_mainStave atPosition:index
+           withAction:@selector(playSound)];
+    [NSThread sleepForTimeInterval:0.1f];
+    [self handleStave:_mainStave atPosition:index
+           withAction:@selector(stopSound)];
+    _actualIndex++;
 }
 
 - (void)handleStave: (AMStave *)aStave

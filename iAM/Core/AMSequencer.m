@@ -10,14 +10,16 @@
 
 @interface AMSequencer ()
 
-@property bool isBackgroundRunning;
-@property bool runnignState;
+@property NSTimer* timer;
+
 @property AMStave *mainStave;
+@property NSArray *arrayOfPlayers;
+
+@property bool runnignState;
+@property NSInteger actualIndex;
 
 @property (nonatomic) NSInteger lengthToBePlayed;
 @property (nonatomic) NSInteger tempo;
-
-@property NSArray *arrayOfPlayers;
 
 @end
 
@@ -27,16 +29,6 @@ NSUInteger const maxLength = 64;
 NSUInteger const minLength = 3;
 NSUInteger const maxTempo = 300;
 NSUInteger const minTempo = 60;
-
-- (void)setBasicParameters {
-    _lengthToBePlayed = 16;
-    _tempo = 120;
-
-    _maxLength = maxLength;
-    _minLength = minLength;
-    _maxTempo = maxTempo;
-    _minTempo = minTempo;
-}
 
 - (id)init {
     self = [super init];
@@ -52,27 +44,47 @@ NSUInteger const minTempo = 60;
                                                       ofType:@"aif"];
         AMPlayer *amPlayer2 = [[AMPlayer alloc] initWithFile:@"lowStickSound"
                                                       ofType:@"aif"];
-
         _arrayOfPlayers = @[amPlayer0,amPlayer1,amPlayer2];
+        
+        [self initTimer];
     }
     return self;
 }
 
+- (void)setBasicParameters {
+    _lengthToBePlayed = 16;
+    _tempo = 120;
+
+    _maxLength = maxLength;
+    _minLength = minLength;
+    _maxTempo = maxTempo;
+    _minTempo = minTempo;
+
+    _actualIndex = 0;
+}
+
+- (void)initTimer{
+    _timer = [self getTimer];
+    
+    NSRunLoop *runner = [NSRunLoop currentRunLoop];
+    [runner addTimer: _timer forMode: NSDefaultRunLoopMode];
+}
+
+- (NSTimer*)getTimer{
+    return [NSTimer scheduledTimerWithTimeInterval:[self getProperIntervalSinceDate] target:self selector:@selector(onTick) userInfo:nil repeats:YES];
+}
+
 - (void)killBackgroundThread{
-    _isBackgroundRunning = NO;
+    _runnignState = NO;
 }
 
 - (void)startStop{
     _runnignState = !_runnignState;
     if(_runnignState) {
-        _isBackgroundRunning = YES;
-        [self performSelectorInBackground:@selector(runSequence)
-                               withObject:nil];
         [_sequencerDelegate sequenceHasStarted];
         [AMLogger logMessage:@("sequence started")];
     }
     else {
-        _isBackgroundRunning = NO;
         [_sequencerDelegate sequenceHasStopped];
         [AMLogger logMessage:@("sequence stopped")];
     }
@@ -105,29 +117,25 @@ NSUInteger const minTempo = 60;
 
 - (void)setTempo:(NSInteger)aTempo {
     _tempo = aTempo;
+    _timer = [self getTimer];
 }
 
 - (NSInteger)getTempo {
     return _tempo;
 }
 
-- (void)runSequence{
-    while (_isBackgroundRunning){
-        NSDate *lastDate = [NSDate date];
-        if(_runnignState) {
-            for (NSUInteger i = 0; i < _lengthToBePlayed; i++) {
-                [self handleStave:_mainStave atPosition:i
-                       withAction:@selector(playSound)];
-                [self waitProperIntervalSinceDate:lastDate];
-                [self handleStave:_mainStave atPosition:i
-                       withAction:@selector(stopSound)];
-                if(!_runnignState) {
-                    break;
-                }
-                [AMLogger logMessage:[NSString stringWithFormat:@"interval since last bar: %f", [lastDate timeIntervalSinceNow] * -1000.f]];
-                lastDate = [NSDate date];
-            }
-        }
+-(void)onTick {
+    NSInteger index = _actualIndex % _lengthToBePlayed;
+    if(_runnignState) {
+        [self handleStave:_mainStave atPosition:index
+               withAction:@selector(playSound)];
+        [NSThread sleepForTimeInterval:[self getProperIntervalSinceDate]];
+        [self handleStave:_mainStave atPosition:index
+               withAction:@selector(stopSound)];
+        _actualIndex++;
+    }
+    else{
+        _actualIndex = 0;
     }
 }
 
@@ -145,14 +153,11 @@ NSUInteger const minTempo = 60;
     }
 }
 
-- (void)waitProperIntervalSinceDate: (NSDate*)aDate{
+- (float)getProperIntervalSinceDate{
     NSNumber *intervalBetweenBeatsInMilliseconds = @(60000.0f / _tempo);
     NSNumber *actualIntervalInGrid = @(intervalBetweenBeatsInMilliseconds.floatValue / 8.0f);
     NSNumber *actualIntervalInGridInSeconds = @(actualIntervalInGrid.floatValue / 1000.0f);
-    NSNumber *timeElapsedSinceLastBeat = @([aDate timeIntervalSinceNow] * -1.0f);
-    NSNumber *intervalRemaining = @(actualIntervalInGridInSeconds.floatValue - timeElapsedSinceLastBeat.floatValue);
-
-    [NSThread sleepForTimeInterval:intervalRemaining.floatValue];
+    return actualIntervalInGridInSeconds.floatValue;
 }
 
 @end

@@ -271,6 +271,7 @@
 				TargetAttributes = {
 					A45F0D431A5C6515008673FC = {
 						CreatedOnToolsVersion = 6.1.1;
+						DevelopmentTeam = KG884VLNH2;
 					};
 					A45F0D5C1A5C6515008673FC = {
 						CreatedOnToolsVersion = 6.1.1;

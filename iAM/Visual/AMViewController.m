@@ -82,7 +82,8 @@
     [_actuallySelectedSequencer startStop];
 }
 
-- (void)valuesPickedLength:(NSNumber *)lengthPicked andTempo:(NSNumber *)tempoPicked{
+- (void)valuesPickedLength:(NSNumber *)lengthPicked
+                  andTempo:(NSNumber *)tempoPicked{
     [self lengthHasBeenChanged:lengthPicked];
     [self tempoHasBeenChanged:tempoPicked];
     [_collectionViewController reloadData];

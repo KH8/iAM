@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "AMStave.h"
+#import "AMBar.h"
 #import "AMSequencer.h"
 #import "AMNote.h"
 

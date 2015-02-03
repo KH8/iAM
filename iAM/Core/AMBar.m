@@ -6,10 +6,10 @@
 //  Copyright (c) 2015 H@E. All rights reserved.
 //
 
-#import "AMStave.h"
+#import "AMBar.h"
 #import "AMNote.h"
 
-@interface AMStave ()
+@interface AMBar ()
 
 @property NSMutableArray *mainArray;
 
@@ -18,7 +18,7 @@
 
 @end
 
-@implementation AMStave
+@implementation AMBar
 
 NSUInteger const defaultNumberOfLines = 3;
 NSUInteger const defaultNumberOfNotesPerLine = 64;

@@ -83,7 +83,7 @@
                                     <segue destination="Fdi-8I-min" kind="presentation" identifier="sw_popover" modalPresentationStyle="overFullScreen" modalTransitionStyle="coverVertical" id="Uy9-Na-gz8"/>
                                 </connections>
                             </button>
-                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="Odp-23-gs5">
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="1" translatesAutoresizingMaskIntoConstraints="NO" id="Odp-23-gs5">
                                 <rect key="frame" x="70" y="510" width="461" height="37"/>
                                 <color key="pageIndicatorTintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="currentPageIndicatorTintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>

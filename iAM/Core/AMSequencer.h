@@ -4,7 +4,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "AMStave.h"
+#import "AMBar.h"
 
 @protocol AMSequencerDelegate <NSObject>
 

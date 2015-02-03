@@ -10,14 +10,21 @@
 
 @interface AMSequencer ()
 
-@property bool isBackgroundRunning;
-@property bool runnignState;
-@property AMStave *mainStave;
+@property NSTimer *mainTimer;
+
+@property AMBar *mainStave;
+@property NSArray *arrayOfPlayers;
+
+@property bool runningState;
+@property NSInteger actualTickIndex;
+@property NSInteger actualNoteIndex;
+@property NSInteger numberOfTicksPerBeat;
+
+@property NSMutableArray *notesToBeClearedIndex;
+@property NSMutableArray *indexesCleared;
 
 @property (nonatomic) NSInteger lengthToBePlayed;
 @property (nonatomic) NSInteger tempo;
-
-@property NSArray *arrayOfPlayers;
 
 @end
 
@@ -28,23 +35,13 @@ NSUInteger const minLength = 3;
 NSUInteger const maxTempo = 300;
 NSUInteger const minTempo = 60;
 
-- (void)setBasicParameters {
-    _lengthToBePlayed = 16;
-    _tempo = 120;
-
-    _maxLength = maxLength;
-    _minLength = minLength;
-    _maxTempo = maxTempo;
-    _minTempo = minTempo;
-}
-
 - (id)init {
     self = [super init];
     if (self) {
-        _mainStave = [[AMStave alloc] init];
+        _mainStave = [[AMBar alloc] init];
         [_mainStave configureDefault];
 
-        [self setBasicParameters];
+        [self initBasicParameters];
 
         AMPlayer *amPlayer0 = [[AMPlayer alloc] initWithFile:@"tickSound"
                                                       ofType:@"aif"];
@@ -52,34 +49,57 @@ NSUInteger const minTempo = 60;
                                                       ofType:@"aif"];
         AMPlayer *amPlayer2 = [[AMPlayer alloc] initWithFile:@"lowStickSound"
                                                       ofType:@"aif"];
-
         _arrayOfPlayers = @[amPlayer0,amPlayer1,amPlayer2];
+
+        [self initTimer];
+        [self computeProperIntervalSinceDate];
     }
     return self;
 }
 
+- (void)initBasicParameters {
+    _lengthToBePlayed = 16;
+    _tempo = 120;
+
+    _maxLength = maxLength;
+    _minLength = minLength;
+    _maxTempo = maxTempo;
+    _minTempo = minTempo;
+
+    _actualTickIndex = 0;
+    _actualNoteIndex = 0;
+    _numberOfTicksPerBeat = 0;
+
+    _notesToBeClearedIndex = [[NSMutableArray alloc] init];
+    _indexesCleared = [[NSMutableArray alloc] init];
+}
+
+- (void)initTimer {
+    _mainTimer = [NSTimer scheduledTimerWithTimeInterval:0.002f
+                                                  target:self selector:@selector(onTick)
+                                                userInfo:nil repeats:YES];
+    NSRunLoop *runner = [NSRunLoop currentRunLoop];
+    [runner addTimer: _mainTimer forMode: NSDefaultRunLoopMode];
+}
+
 - (void)killBackgroundThread{
-    _isBackgroundRunning = NO;
+    _runningState = NO;
 }
 
 - (void)startStop{
-    _runnignState = !_runnignState;
-    if(_runnignState) {
-        _isBackgroundRunning = YES;
-        [self performSelectorInBackground:@selector(runSequence)
-                               withObject:nil];
+    _runningState = !_runningState;
+    if(_runningState) {
         [_sequencerDelegate sequenceHasStarted];
         [AMLogger logMessage:@("sequence started")];
     }
     else {
-        _isBackgroundRunning = NO;
         [_sequencerDelegate sequenceHasStopped];
         [AMLogger logMessage:@("sequence stopped")];
     }
 }
 
 - (bool)isRunning {
-    return _runnignState;
+    return _runningState;
 }
 
 - (void)clear {
@@ -105,33 +125,67 @@ NSUInteger const minTempo = 60;
 
 - (void)setTempo:(NSInteger)aTempo {
     _tempo = aTempo;
+    [self computeProperIntervalSinceDate];
 }
 
 - (NSInteger)getTempo {
     return _tempo;
 }
 
-- (void)runSequence{
-    while (_isBackgroundRunning){
-        NSDate *lastDate = [NSDate date];
-        if(_runnignState) {
-            for (NSUInteger i = 0; i < _lengthToBePlayed; i++) {
-                [self handleStave:_mainStave atPosition:i
-                       withAction:@selector(playSound)];
-                [self waitProperIntervalSinceDate:lastDate];
-                [self handleStave:_mainStave atPosition:i
-                       withAction:@selector(stopSound)];
-                if(!_runnignState) {
-                    break;
-                }
-                [AMLogger logMessage:[NSString stringWithFormat:@"interval since last bar: %f", [lastDate timeIntervalSinceNow] * -1000.f]];
-                lastDate = [NSDate date];
-            }
+-(void)onTick {
+    if (_runningState) {
+        if(_actualTickIndex % _numberOfTicksPerBeat == 0){
+            [self performSelectorInBackground:@selector(playTheRow)
+                                   withObject:nil];
         }
+        if(_actualTickIndex % _numberOfTicksPerBeat == _numberOfTicksPerBeat - 1){
+            [self performSelectorInBackground:@selector(clearTheRow)
+                                   withObject:nil];
+        }
+        _actualTickIndex++;
+        if(_actualTickIndex > _numberOfTicksPerBeat * 100){
+            _actualTickIndex = 0;
+        }
+    }
+    else{
+        if(_notesToBeClearedIndex.count != 0){
+            [self performSelectorInBackground:@selector(clearTheRow)
+                                   withObject:nil];
+        }
+        _actualTickIndex = 0;
+        _actualNoteIndex = 0;
     }
 }
 
-- (void)handleStave: (AMStave *)aStave
+- (void)playTheRow {
+    NSInteger index = _actualNoteIndex % _lengthToBePlayed;
+    [self handleStave:_mainStave atPosition:(NSUInteger) index
+           withAction:@selector(playSound)];
+
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [_notesToBeClearedIndex addObject:@(index)];
+    });
+
+    _actualNoteIndex++;
+    if(_actualNoteIndex > _lengthToBePlayed * 100) {
+        _actualNoteIndex = 0;
+    }
+}
+
+- (void)clearTheRow {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        for (NSNumber *index in _notesToBeClearedIndex){
+            [self handleStave:_mainStave atPosition:(NSUInteger) index.integerValue
+                   withAction:@selector(stopSound)];
+            [_indexesCleared addObject:index];
+        }
+        for (NSNumber *index in _indexesCleared){
+            [_notesToBeClearedIndex removeObject:index];
+        }
+    });
+}
+
+- (void)handleStave: (AMBar *)aStave
          atPosition: (NSUInteger)aPosition
          withAction: (SEL)aSelector{
     NSUInteger j = 0;
@@ -145,14 +199,11 @@ NSUInteger const minTempo = 60;
     }
 }
 
-- (void)waitProperIntervalSinceDate: (NSDate*)aDate{
+- (void)computeProperIntervalSinceDate{
     NSNumber *intervalBetweenBeatsInMilliseconds = @(60000.0f / _tempo);
-    NSNumber *actualIntervalInGrid = @(intervalBetweenBeatsInMilliseconds.floatValue / 8.0f);
-    NSNumber *actualIntervalInGridInSeconds = @(actualIntervalInGrid.floatValue / 1000.0f);
-    NSNumber *timeElapsedSinceLastBeat = @([aDate timeIntervalSinceNow] * -1.0f);
-    NSNumber *intervalRemaining = @(actualIntervalInGridInSeconds.floatValue - timeElapsedSinceLastBeat.floatValue);
-
-    [NSThread sleepForTimeInterval:intervalRemaining.floatValue];
+    NSNumber *actualIntervalInGrid = @(intervalBetweenBeatsInMilliseconds.floatValue / 4.0f);
+    NSNumber *numberOfTicksFloat = @(actualIntervalInGrid.floatValue / 2.0f);
+    _numberOfTicksPerBeat = numberOfTicksFloat.integerValue;
 }
 
 @end

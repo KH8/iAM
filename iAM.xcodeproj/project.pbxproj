@@ -18,7 +18,7 @@
 		A44804B11A686E430094BA1F /* highStickSound.aif in Resources */ = {isa = PBXBuildFile; fileRef = A44804AE1A686E430094BA1F /* highStickSound.aif */; };
 		A44804B21A686E430094BA1F /* lowStickSound.aif in Resources */ = {isa = PBXBuildFile; fileRef = A44804AF1A686E430094BA1F /* lowStickSound.aif */; };
 		A44804B31A686E430094BA1F /* tickSound.aif in Resources */ = {isa = PBXBuildFile; fileRef = A44804B01A686E430094BA1F /* tickSound.aif */; };
-		A44910791A5F396E00E8C6DB /* AMStave.m in Sources */ = {isa = PBXBuildFile; fileRef = A44910781A5F396E00E8C6DB /* AMStave.m */; };
+		A44910791A5F396E00E8C6DB /* AMBar.m in Sources */ = {isa = PBXBuildFile; fileRef = A44910781A5F396E00E8C6DB /* AMBar.m */; };
 		A449107C1A5F3A1200E8C6DB /* AMNote.m in Sources */ = {isa = PBXBuildFile; fileRef = A449107B1A5F3A1200E8C6DB /* AMNote.m */; };
 		A44A3C731A7BF1E800B3B4DC /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A44A3C721A7BF1E800B3B4DC /* SWRevealViewController.m */; };
 		A45A3D6E1A71B4DF00039934 /* AMCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A45A3D6D1A71B4DF00039934 /* AMCollectionViewController.m */; };
@@ -59,8 +59,8 @@
 		A44804AE1A686E430094BA1F /* highStickSound.aif */ = {isa = PBXFileReference; lastKnownFileType = file; name = highStickSound.aif; path = Core/Sounds/highStickSound.aif; sourceTree = "<group>"; };
 		A44804AF1A686E430094BA1F /* lowStickSound.aif */ = {isa = PBXFileReference; lastKnownFileType = file; name = lowStickSound.aif; path = Core/Sounds/lowStickSound.aif; sourceTree = "<group>"; };
 		A44804B01A686E430094BA1F /* tickSound.aif */ = {isa = PBXFileReference; lastKnownFileType = file; name = tickSound.aif; path = Core/Sounds/tickSound.aif; sourceTree = "<group>"; };
-		A44910771A5F396E00E8C6DB /* AMStave.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMStave.h; path = Core/AMStave.h; sourceTree = "<group>"; };
-		A44910781A5F396E00E8C6DB /* AMStave.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMStave.m; path = Core/AMStave.m; sourceTree = "<group>"; };
+		A44910771A5F396E00E8C6DB /* AMBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMBar.h; path = Core/AMBar.h; sourceTree = "<group>"; };
+		A44910781A5F396E00E8C6DB /* AMBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMBar.m; path = Core/AMBar.m; sourceTree = "<group>"; };
 		A449107A1A5F3A1200E8C6DB /* AMNote.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMNote.h; path = Core/AMNote.h; sourceTree = "<group>"; };
 		A449107B1A5F3A1200E8C6DB /* AMNote.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMNote.m; path = Core/AMNote.m; sourceTree = "<group>"; };
 		A44A3C711A7BF1E800B3B4DC /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
@@ -139,8 +139,8 @@
 		A44910761A5F38EF00E8C6DB /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				A44910771A5F396E00E8C6DB /* AMStave.h */,
-				A44910781A5F396E00E8C6DB /* AMStave.m */,
+				A44910771A5F396E00E8C6DB /* AMBar.h */,
+				A44910781A5F396E00E8C6DB /* AMBar.m */,
 				A449107A1A5F3A1200E8C6DB /* AMNote.h */,
 				A449107B1A5F3A1200E8C6DB /* AMNote.m */,
 				8F0232E7F6F389A4CECE670C /* AMSequencer.h */,
@@ -271,6 +271,7 @@
 				TargetAttributes = {
 					A45F0D431A5C6515008673FC = {
 						CreatedOnToolsVersion = 6.1.1;
+						DevelopmentTeam = KG884VLNH2;
 					};
 					A45F0D5C1A5C6515008673FC = {
 						CreatedOnToolsVersion = 6.1.1;
@@ -328,7 +329,7 @@
 				A427C9F11A7D141D0003FB21 /* AMPopoverViewController.m in Sources */,
 				A44A3C731A7BF1E800B3B4DC /* SWRevealViewController.m in Sources */,
 				A45F0D4D1A5C6515008673FC /* AppDelegate.m in Sources */,
-				A44910791A5F396E00E8C6DB /* AMStave.m in Sources */,
+				A44910791A5F396E00E8C6DB /* AMBar.m in Sources */,
 				A45F0D4A1A5C6515008673FC /* main.m in Sources */,
 				A449107C1A5F3A1200E8C6DB /* AMNote.m in Sources */,
 				8F0B34AA1C650F6EBD78FA56 /* AMSequencer.m in Sources */,

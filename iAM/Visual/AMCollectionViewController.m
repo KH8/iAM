@@ -91,7 +91,7 @@ static NSString * const reuseIdentifier = @"myCell";
 - (CGSize)collectionView:(UICollectionView *)collectionView
                   layout:(UICollectionViewLayout *)collectionViewLayout
   sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
-    float cellSize = (_collectionView.bounds.size.height / 3.0) - 2.0;
+    float cellSize = (float) ((_collectionView.bounds.size.height / 3.0) - 2.0);
     return CGSizeMake(cellSize, cellSize);
 }
 

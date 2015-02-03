@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface AMStave : NSMutableArray
+@interface AMBar : NSMutableArray
 
 - (void)configureDefault;
 - (void)configureCustomWithNumberOfLines: (NSUInteger*)aNumberOfLines

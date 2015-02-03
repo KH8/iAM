@@ -37,7 +37,7 @@
 
 - (void)loadMainObjects{
     _arrayOfSequencers = [[NSMutableArray alloc] init];
-    for (int i = 0; i < 3; ++i) {
+    for (int i = 0; i < 1; ++i) {
         [self addNewSequencer];
     }
     _actuallySelectedSequencer = _arrayOfSequencers[0];
@@ -82,7 +82,8 @@
     [_actuallySelectedSequencer startStop];
 }
 
-- (void)valuesPickedLength:(NSNumber *)lengthPicked andTempo:(NSNumber *)tempoPicked{
+- (void)valuesPickedLength:(NSNumber *)lengthPicked
+                  andTempo:(NSNumber *)tempoPicked{
     [self lengthHasBeenChanged:lengthPicked];
     [self tempoHasBeenChanged:tempoPicked];
     [_collectionViewController reloadData];

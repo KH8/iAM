@@ -79,7 +79,7 @@ NSUInteger const minTempo = 60;
                                                   target:self selector:@selector(onTick)
                                                 userInfo:nil repeats:YES];
     NSRunLoop *runner = [NSRunLoop currentRunLoop];
-    [runner addTimer: _mainTimer forMode: NSDefaultRunLoopMode];
+    [runner addTimer: _mainTimer forMode: NSRunLoopCommonModes];
 }
 
 - (void)killBackgroundThread{
@@ -143,7 +143,7 @@ NSUInteger const minTempo = 60;
                                    withObject:nil];
         }
         _actualTickIndex++;
-        if(_actualTickIndex > _numberOfTicksPerBeat * 100){
+        if(_actualTickIndex == _numberOfTicksPerBeat * 100){
             _actualTickIndex = 0;
         }
     }
@@ -167,7 +167,7 @@ NSUInteger const minTempo = 60;
     });
 
     _actualNoteIndex++;
-    if(_actualNoteIndex > _lengthToBePlayed * 100) {
+    if(_actualNoteIndex == _lengthToBePlayed * 100) {
         _actualNoteIndex = 0;
     }
 }

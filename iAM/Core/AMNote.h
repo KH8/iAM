@@ -16,7 +16,6 @@
 
 @end
 
-
 @interface AMNote : NSObject
 
 @property NSNumber *id;

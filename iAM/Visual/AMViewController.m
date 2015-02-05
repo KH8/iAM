@@ -91,22 +91,24 @@
 
 - (void)lengthHasBeenChanged:(NSNumber*)lengthText {
     NSInteger newLengthValue = [lengthText integerValue];
+    AMBar *bar = _actuallySelectedSequencer.getActualBar;
     if (![self isValue:newLengthValue
-            withingMax:_actuallySelectedSequencer.maxLength
-                andMin:_actuallySelectedSequencer.minLength]) {
+            withingMax:bar.maxLength
+                andMin:bar.minLength]) {
         return;
     }
-    [_actuallySelectedSequencer setLengthToBePlayed:newLengthValue];
+    [bar setLengthToBePlayed:newLengthValue];
 }
 
 - (void)tempoHasBeenChanged:(NSNumber*)tempoText {
     NSInteger newTempoValue = [tempoText integerValue];
+    AMStave *stave = _actuallySelectedSequencer.getStave;
     if (![self isValue:newTempoValue
-            withingMax:_actuallySelectedSequencer.maxTempo
-                andMin:_actuallySelectedSequencer.minTempo]) {
+            withingMax:stave.maxTempo
+                andMin:stave.minTempo]) {
         return;
     }
-    [_actuallySelectedSequencer setTempo:newTempoValue];
+    [stave setTempo:newTempoValue];
 }
 
 - (bool)isValue: (NSInteger)aValue

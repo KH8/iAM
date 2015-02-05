@@ -10,6 +10,7 @@
 		8F0000638125D61039818FFA /* AMLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F0C76E602A4AADF9198375D /* AMLogger.m */; };
 		8F014B76B26DA38094740698 /* AMPickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F0F37B35BC39D2D480297F5 /* AMPickerController.m */; };
 		8F03D778486C6AEEDE7E8BA1 /* AMPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F0AE1AC2BDFCA960D899F80 /* AMPlayer.m */; };
+		8F0429D984C1902211CA628C /* AMStave.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F06F04C52B9EB00C5FB2317 /* AMStave.m */; };
 		8F081AD4F297441F7B21E453 /* AMViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F04E6D9B4037B610C133F34 /* AMViewController.m */; };
 		8F0B34AA1C650F6EBD78FA56 /* AMSequencer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F0763D2246B340EEC482E45 /* AMSequencer.m */; };
 		8F0B7BBFD13CA2A424283225 /* AMCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F0B1F4FAA5303D5E98B0847 /* AMCollectionViewCell.m */; };
@@ -43,7 +44,9 @@
 /* Begin PBXFileReference section */
 		8F0232E7F6F389A4CECE670C /* AMSequencer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMSequencer.h; path = Core/AMSequencer.h; sourceTree = "<group>"; };
 		8F02B68F8A11924C2A921DCB /* AMLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMLogger.h; sourceTree = "<group>"; };
+		8F032510F1AC78879C985F8B /* AMStave.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMStave.h; sourceTree = "<group>"; };
 		8F04E6D9B4037B610C133F34 /* AMViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMViewController.m; sourceTree = "<group>"; };
+		8F06F04C52B9EB00C5FB2317 /* AMStave.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMStave.m; sourceTree = "<group>"; };
 		8F0763D2246B340EEC482E45 /* AMSequencer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMSequencer.m; path = Core/AMSequencer.m; sourceTree = "<group>"; };
 		8F0AD5A2B8400C3F3D22A86A /* AMCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMCollectionViewCell.h; sourceTree = "<group>"; };
 		8F0AE1AC2BDFCA960D899F80 /* AMPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMPlayer.m; path = Core/AMPlayer.m; sourceTree = "<group>"; };
@@ -148,6 +151,8 @@
 				8F0DA14C9FCAE3399B86B93B /* AMPlayer.h */,
 				8F0AE1AC2BDFCA960D899F80 /* AMPlayer.m */,
 				8F026D41013513503897B9C8 /* Sounds */,
+				8F06F04C52B9EB00C5FB2317 /* AMStave.m */,
+				8F032510F1AC78879C985F8B /* AMStave.h */,
 			);
 			name = Core;
 			sourceTree = "<group>";
@@ -272,6 +277,11 @@
 					A45F0D431A5C6515008673FC = {
 						CreatedOnToolsVersion = 6.1.1;
 						DevelopmentTeam = KG884VLNH2;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 					A45F0D5C1A5C6515008673FC = {
 						CreatedOnToolsVersion = 6.1.1;
@@ -339,6 +349,7 @@
 				8F0000638125D61039818FFA /* AMLogger.m in Sources */,
 				8F03D778486C6AEEDE7E8BA1 /* AMPlayer.m in Sources */,
 				8F014B76B26DA38094740698 /* AMPickerController.m in Sources */,
+				8F0429D984C1902211CA628C /* AMStave.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

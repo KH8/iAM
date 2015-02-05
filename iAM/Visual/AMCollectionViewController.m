@@ -58,7 +58,7 @@ static NSString * const reuseIdentifier = @"myCell";
     AMCollectionViewCell * newCell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier
                                                                                forIndexPath:indexPath];
     NSUInteger numberOfLine = (NSUInteger) [self getNumberOfLine:indexPath];
-    NSMutableArray * lineOfNotes = [_mainSequencer getLine: numberOfLine];
+    NSMutableArray * lineOfNotes = [[_mainSequencer getActualBar] getLineAtIndex: numberOfLine];
     NSUInteger numberOfNote = (NSUInteger) [self getNumberOfNote:indexPath];
     [newCell setNoteAssigned:lineOfNotes[numberOfNote]];
     return newCell;
@@ -100,11 +100,13 @@ static NSString * const reuseIdentifier = @"myCell";
 }
 
 - (NSInteger)getNumberOfRows {
-    return _mainSequencer.getNumberOfLines;
+    AMBar *bar = [_mainSequencer getActualBar];
+    return bar.getNumberOfLines;
 }
 
 - (NSInteger)getNumberOfSections {
-    return _mainSequencer.getLengthToBePlayed;
+    AMBar *bar = [_mainSequencer getActualBar];
+    return bar.getLengthToBePlayed;
 }
 
 - (NSInteger)getNumberOfLine: (NSIndexPath *)indexPath {

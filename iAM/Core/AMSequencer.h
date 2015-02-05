@@ -5,6 +5,7 @@
 
 #import <Foundation/Foundation.h>
 #import "AMBar.h"
+#import "AMStave.h"
 
 @protocol AMSequencerDelegate <NSObject>
 
@@ -15,15 +16,9 @@
 
 @end
 
-@interface AMSequencer : NSObject
+@interface AMSequencer : NSObject <AMStaveDelegate>
 
 @property (nonatomic, weak) id <AMSequencerDelegate> sequencerDelegate;
-
-@property (nonatomic) NSInteger maxLength;
-@property (nonatomic) NSInteger minLength;
-
-@property (nonatomic) NSInteger maxTempo;
-@property (nonatomic) NSInteger minTempo;
 
 - (id)init;
 - (void)killBackgroundThread;
@@ -32,11 +27,7 @@
 - (bool)isRunning;
 - (void)clear;
 
-- (NSInteger)getNumberOfLines;
-- (NSMutableArray *)getLine: (NSUInteger)index;
-- (void)setLengthToBePlayed: (NSInteger)aLength;
-- (NSInteger)getLengthToBePlayed;
-- (void)setTempo: (NSInteger)aTempo;
-- (NSInteger)getTempo;
+- (AMStave *)getStave;
+- (AMBar *)getActualBar;
 
 @end

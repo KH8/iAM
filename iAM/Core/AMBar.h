@@ -10,9 +10,19 @@
 
 @interface AMBar : NSMutableArray
 
+@property (nonatomic) NSInteger maxLength;
+@property (nonatomic) NSInteger minLength;
+
+- (id)init;
+
 - (void)configureDefault;
 - (void)configureCustomWithNumberOfLines: (NSUInteger*)aNumberOfLines
                     numberOfNotesPerLine: (NSUInteger*)aNumberOfNotesPerLine;
+
+- (NSInteger)getNumberOfLines;
+- (NSMutableArray *)getLineAtIndex: (NSUInteger)index;
+- (void)setLengthToBePlayed: (NSInteger)aLength;
+- (NSInteger)getLengthToBePlayed;
 
 - (void)clear;
 

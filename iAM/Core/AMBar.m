@@ -16,12 +16,32 @@
 @property int numberOfLines;
 @property int numberOfNotesPerLine;
 
+@property (nonatomic) NSInteger lengthToBePlayed;
+
 @end
 
 @implementation AMBar
 
 NSUInteger const defaultNumberOfLines = 3;
 NSUInteger const defaultNumberOfNotesPerLine = 64;
+
+NSUInteger const maxLength = 64;
+NSUInteger const minLength = 3;
+
+- (id)init {
+    self = [super init];
+    if (self) {
+        [self initBasicParameters];
+    }
+    return self;
+}
+
+- (void)initBasicParameters {
+    _lengthToBePlayed = 16;
+
+    _maxLength = maxLength;
+    _minLength = minLength;
+}
 
 - (void)configureDefault{
     [self configureCustomWithNumberOfLines:(NSUInteger *) defaultNumberOfLines
@@ -56,8 +76,20 @@ NSUInteger const defaultNumberOfNotesPerLine = 64;
     }
 }
 
+- (NSInteger)getNumberOfLines {
+    return [self count];
+}
+
 - (NSUInteger)count{
     return _mainArray.count;
+}
+
+- (NSMutableArray *)getLineAtIndex: (NSUInteger)index {
+    return [self objectAtIndex:index];
+}
+
+- (id)objectAtIndex:(NSUInteger)index{
+    return _mainArray[index];
 }
 
 - (void)insertObject:(id)anObject
@@ -66,8 +98,12 @@ NSUInteger const defaultNumberOfNotesPerLine = 64;
                      atIndex:index];
 }
 
-- (id)objectAtIndex:(NSUInteger)index{
-    return _mainArray[index];
+- (void)setLengthToBePlayed:(NSInteger)aLength {
+    _lengthToBePlayed = aLength;
+}
+
+- (NSInteger)getLengthToBePlayed {
+    return _lengthToBePlayed;
 }
 
 @end

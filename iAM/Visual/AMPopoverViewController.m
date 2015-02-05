@@ -23,18 +23,20 @@
 }
 
 - (void)loadPickers{
-    NSArray *sizePickerData = [self createRangeOfValuesStartingFrom:_actuallySelectedSequencer.minLength
-                                                               upTo:_actuallySelectedSequencer.maxLength];
+    AMBar *bar = _actuallySelectedSequencer.getActualBar;
+    NSArray *sizePickerData = [self createRangeOfValuesStartingFrom:bar.minLength
+                                                               upTo:bar.maxLength];
     _lengthPickerController = [[AMPickerController alloc] initWithPicker:_lengthPicker
-                                                                                     dataArray:sizePickerData
-                                                                                 andStartValue:@(_actuallySelectedSequencer.getLengthToBePlayed)];
+                                                               dataArray:sizePickerData
+                                                           andStartValue:@(bar.getLengthToBePlayed)];
     _lengthPickerController.delegate = self;
-    
-    NSArray *tempoPickerData = [self createRangeOfValuesStartingFrom:_actuallySelectedSequencer.minTempo
-                                                                upTo:_actuallySelectedSequencer.maxTempo];
+
+    AMStave *stave = _actuallySelectedSequencer.getStave;
+    NSArray *tempoPickerData = [self createRangeOfValuesStartingFrom:stave.minTempo
+                                                                upTo:stave.maxTempo];
     _tempoPickerController = [[AMPickerController alloc] initWithPicker:_tempoPicker
-                                                                                    dataArray:tempoPickerData
-                                                                                andStartValue:@(_actuallySelectedSequencer.getTempo)];
+                                                              dataArray:tempoPickerData
+                                                          andStartValue:@(stave.getTempo)];
     _tempoPickerController.delegate = self;
 }
 

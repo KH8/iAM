@@ -49,7 +49,6 @@ NSUInteger const minTempo = 60;
     AMBar *newBar = [[AMBar alloc] init];
     [newBar configureDefault];
     [_arrayOfBars addObject:newBar];
-    _actualIndex = _arrayOfBars.count - 1;
 }
 
 - (void)setFirstBarAsActual {
@@ -61,12 +60,13 @@ NSUInteger const minTempo = 60;
     if(_actualIndex >= _arrayOfBars.count) _actualIndex = 0;
 }
 
-- (AMBar *)getActualBar {
-    return _arrayOfBars[(NSUInteger) _actualIndex];
+- (void)setIndexAsActual: (NSUInteger)index{
+    _actualIndex = index;
+    if(_actualIndex >= _arrayOfBars.count) _actualIndex = 0;
 }
 
-- (AMBar *)getBarAtIndex:(NSUInteger)index {
-    return _arrayOfBars[index];
+- (AMBar *)getActualBar {
+    return _arrayOfBars[(NSUInteger) _actualIndex];
 }
 
 - (NSInteger)getActualIndex {

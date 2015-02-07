@@ -12,9 +12,7 @@
 @interface AMViewController () {
 }
 
-@property NSMutableArray *arrayOfSequencers;
-@property AMSequencer *actuallySelectedSequencer;
-
+@property AMSequencer *mainSequencer;
 @property AMCollectionViewController *collectionViewController;
 
 @end
@@ -29,29 +27,20 @@
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
-    if(_actuallySelectedSequencer.isRunning){
-        [_actuallySelectedSequencer startStop];
-        [_actuallySelectedSequencer killBackgroundThread];
+    if(_mainSequencer.isRunning){
+        [_mainSequencer startStop];
+        [_mainSequencer killBackgroundThread];
     }
 }
 
 - (void)loadMainObjects{
-    _arrayOfSequencers = [[NSMutableArray alloc] init];
-    for (int i = 0; i < 1; ++i) {
-        [self addNewSequencer];
-    }
-    _actuallySelectedSequencer = _arrayOfSequencers[0];
-}
-
-- (void)addNewSequencer{
-    AMSequencer *newSequencer = [[AMSequencer alloc] init];
-    newSequencer.sequencerDelegate = self;
-    [_arrayOfSequencers addObject:newSequencer];
+    _mainSequencer = [[AMSequencer alloc] init];
+    _mainSequencer.sequencerDelegate = self;
 }
 
 - (void)loadCollectionViewController{
     _collectionViewController = [[AMCollectionViewController alloc] initWithCollectionView:_collectionView
-                                                                              andSequencer:_actuallySelectedSequencer];
+                                                                              andSequencer:_mainSequencer];
     _collectionView.delegate = _collectionViewController;
     _collectionView.dataSource = _collectionViewController;
 }
@@ -70,16 +59,16 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     _collectionViewController = nil;
-    _actuallySelectedSequencer = nil;
+    _mainSequencer = nil;
 }
 
 - (IBAction)onClearEvent:(id)sender {
-    [_actuallySelectedSequencer clear];
+    [_mainSequencer clear];
     [_collectionViewController reloadData];
 }
 
 - (IBAction)onStartEvent:(id)sender {
-    [_actuallySelectedSequencer startStop];
+    [_mainSequencer startStop];
 }
 
 - (void)valuesPickedLength:(NSNumber *)lengthPicked
@@ -91,7 +80,8 @@
 
 - (void)lengthHasBeenChanged:(NSNumber*)lengthText {
     NSInteger newLengthValue = [lengthText integerValue];
-    AMBar *bar = _actuallySelectedSequencer.getActualBar;
+    AMStave *stave = _mainSequencer.getStave;
+    AMBar *bar = stave.getActualBar;
     if (![self isValue:newLengthValue
             withingMax:bar.maxLength
                 andMin:bar.minLength]) {
@@ -102,7 +92,7 @@
 
 - (void)tempoHasBeenChanged:(NSNumber*)tempoText {
     NSInteger newTempoValue = [tempoText integerValue];
-    AMStave *stave = _actuallySelectedSequencer.getStave;
+    AMStave *stave = _mainSequencer.getStave;
     if (![self isValue:newTempoValue
             withingMax:stave.maxTempo
                 andMin:stave.minTempo]) {
@@ -126,19 +116,18 @@
 }
 
 - (IBAction)pageSelectionHasChanged:(id)sender {
-    _actuallySelectedSequencer = _arrayOfSequencers[(NSUInteger) _pageControl.currentPage];
-    [_collectionViewController changeSequencerAssigned:_actuallySelectedSequencer];
+    [_collectionViewController changePage:_pageControl.currentPage];
 }
 
 - (IBAction)addPage:(id)sender {
     _pageControl.numberOfPages = _pageControl.numberOfPages + 1;
-    [self addNewSequencer];
+    [_collectionViewController addPage];
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if([segue.identifier isEqualToString:@"sw_popover"]){
         AMPopoverViewController *popoverViewController = (AMPopoverViewController *)segue.destinationViewController;
-        popoverViewController.actuallySelectedSequencer = _actuallySelectedSequencer;
+        popoverViewController.actuallySelectedSequencer = _mainSequencer;
         popoverViewController.delegate = self;
     }
 }

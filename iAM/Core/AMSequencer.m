@@ -97,12 +97,6 @@
     return _mainStave;
 }
 
-
-- (AMBar *)getActualBar {
-    return _actualBar;
-}
-
-
 -(void)onTick {
     if (_runningState) {
         if(_actualTickIndex % _numberOfTicksPerBeat == 0){

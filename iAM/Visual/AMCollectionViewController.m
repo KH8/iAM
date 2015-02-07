@@ -12,6 +12,8 @@
 
 @interface AMCollectionViewController ()
 
+@property AMBar *actualBar;
+@property AMStave *actualStave;
 @property AMSequencer *mainSequencer;
 @property UICollectionView *collectionView;
 
@@ -24,24 +26,31 @@
 static NSString * const reuseIdentifier = @"myCell";
 
 - (id)initWithCollectionView:(UICollectionView *)aCollectionView
-                andSequencer: (AMSequencer *)aSequencer {
+                andSequencer: (AMSequencer *)aSequencer{
     self = [super init];
     if (self) {
         _collectionView = aCollectionView;
         _mainSequencer = aSequencer;
+        _actualStave = _mainSequencer.getStave;
+        _actualBar = _actualStave.getActualBar;
     }
     return self;
 }
 
-- (void)changeSequencerAssigned: (AMSequencer *)aSequencer{
+- (void)dealloc {
+}
+
+- (void)changePage: (NSUInteger)index{
     if(_mainSequencer.isRunning){
-       [_mainSequencer startStop];
+        [_mainSequencer startStop];
     }
-    _mainSequencer = aSequencer;
+    [_actualStave setIndexAsActual: index];
+    _actualBar = _actualStave.getActualBar;
     [self reloadData];
 }
 
-- (void)dealloc {
+- (void)addPage{
+    [_actualStave addBar];
 }
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
@@ -58,7 +67,7 @@ static NSString * const reuseIdentifier = @"myCell";
     AMCollectionViewCell * newCell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier
                                                                                forIndexPath:indexPath];
     NSUInteger numberOfLine = (NSUInteger) [self getNumberOfLine:indexPath];
-    NSMutableArray * lineOfNotes = [[_mainSequencer getActualBar] getLineAtIndex: numberOfLine];
+    NSMutableArray * lineOfNotes = [_actualBar getLineAtIndex: numberOfLine];
     NSUInteger numberOfNote = (NSUInteger) [self getNumberOfNote:indexPath];
     [newCell setNoteAssigned:lineOfNotes[numberOfNote]];
     return newCell;
@@ -100,13 +109,11 @@ static NSString * const reuseIdentifier = @"myCell";
 }
 
 - (NSInteger)getNumberOfRows {
-    AMBar *bar = [_mainSequencer getActualBar];
-    return bar.getNumberOfLines;
+    return _actualBar.getNumberOfLines;
 }
 
 - (NSInteger)getNumberOfSections {
-    AMBar *bar = [_mainSequencer getActualBar];
-    return bar.getLengthToBePlayed;
+    return _actualBar.getLengthToBePlayed;
 }
 
 - (NSInteger)getNumberOfLine: (NSIndexPath *)indexPath {

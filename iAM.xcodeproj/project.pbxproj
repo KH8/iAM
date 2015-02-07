@@ -142,6 +142,8 @@
 		A44910761A5F38EF00E8C6DB /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				8F032510F1AC78879C985F8B /* AMStave.h */,
+				8F06F04C52B9EB00C5FB2317 /* AMStave.m */,
 				A44910771A5F396E00E8C6DB /* AMBar.h */,
 				A44910781A5F396E00E8C6DB /* AMBar.m */,
 				A449107A1A5F3A1200E8C6DB /* AMNote.h */,
@@ -151,8 +153,6 @@
 				8F0DA14C9FCAE3399B86B93B /* AMPlayer.h */,
 				8F0AE1AC2BDFCA960D899F80 /* AMPlayer.m */,
 				8F026D41013513503897B9C8 /* Sounds */,
-				8F06F04C52B9EB00C5FB2317 /* AMStave.m */,
-				8F032510F1AC78879C985F8B /* AMStave.h */,
 			);
 			name = Core;
 			sourceTree = "<group>";

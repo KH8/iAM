@@ -28,6 +28,5 @@
 - (void)clear;
 
 - (AMStave *)getStave;
-- (AMBar *)getActualBar;
 
 @end

@@ -23,14 +23,6 @@
 }
 
 - (void)loadPickers{
-    AMBar *bar = _actuallySelectedSequencer.getActualBar;
-    NSArray *sizePickerData = [self createRangeOfValuesStartingFrom:bar.minLength
-                                                               upTo:bar.maxLength];
-    _lengthPickerController = [[AMPickerController alloc] initWithPicker:_lengthPicker
-                                                               dataArray:sizePickerData
-                                                           andStartValue:@(bar.getLengthToBePlayed)];
-    _lengthPickerController.delegate = self;
-
     AMStave *stave = _actuallySelectedSequencer.getStave;
     NSArray *tempoPickerData = [self createRangeOfValuesStartingFrom:stave.minTempo
                                                                 upTo:stave.maxTempo];
@@ -38,6 +30,14 @@
                                                               dataArray:tempoPickerData
                                                           andStartValue:@(stave.getTempo)];
     _tempoPickerController.delegate = self;
+    
+    AMBar *bar = stave.getActualBar;
+    NSArray *sizePickerData = [self createRangeOfValuesStartingFrom:bar.minLength
+                                                               upTo:bar.maxLength];
+    _lengthPickerController = [[AMPickerController alloc] initWithPicker:_lengthPicker
+                                                               dataArray:sizePickerData
+                                                           andStartValue:@(bar.getLengthToBePlayed)];
+    _lengthPickerController.delegate = self;
 }
 
 - (NSMutableArray *)createRangeOfValuesStartingFrom: (NSInteger)startValue

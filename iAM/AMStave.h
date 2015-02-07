@@ -30,9 +30,9 @@
 
 - (void)setFirstBarAsActual;
 - (void)setNextBarAsActual;
+- (void)setIndexAsActual: (NSUInteger)index;
 
 - (AMBar*)getActualBar;
-- (AMBar*)getBarAtIndex: (NSUInteger)index;
 - (NSInteger )getActualIndex;
 
 @end

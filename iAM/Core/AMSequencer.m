@@ -32,7 +32,7 @@
     self = [super init];
     if (self) {
         _mainStave = [[AMStave alloc] init];
-        _mainStave.delegate = self;
+        _mainStave.mechanicalDelegate = self;
 
         _actualBar = _mainStave.getActualBar;
 
@@ -47,7 +47,7 @@
         _arrayOfPlayers = @[amPlayer0,amPlayer1,amPlayer2];
 
         [self initTimer];
-        [self computeProperIntervalSinceDate];
+        [self computeProperInterval];
     }
     return self;
 }
@@ -164,7 +164,7 @@
     }
 }
 
-- (void)computeProperIntervalSinceDate{
+- (void)computeProperInterval{
     NSNumber *intervalBetweenBeatsInMilliseconds = @(60000.0f / _mainStave.getTempo);
     NSNumber *actualIntervalInGrid = @(intervalBetweenBeatsInMilliseconds.floatValue / 4.0f);
     NSNumber *numberOfTicksFloat = @(actualIntervalInGrid.floatValue / 2.0f);
@@ -172,7 +172,12 @@
 }
 
 - (void)tempoHasBeenChanged {
-    [self computeProperIntervalSinceDate];
+    [self computeProperInterval];
+}
+
+- (void)barHasBeenChanged {
+    _actualBar = _mainStave.getActualBar;
+    [self computeProperInterval];
 }
 
 @end

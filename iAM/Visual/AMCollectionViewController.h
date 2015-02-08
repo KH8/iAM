@@ -11,13 +11,11 @@
 #import "AMSequencer.h"
 #import "AMNote.h"
 
-@interface AMCollectionViewController : NSObject <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
+@interface AMCollectionViewController : NSObject <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, AMStaveVisualDelegate>
 
 - (id)initWithCollectionView:(UICollectionView *)aCollectionView
                 andSequencer: (AMSequencer *)aSequencer;
 - (void)dealloc;
-- (void)changePage: (NSUInteger)index;
-- (void)addPage;
 - (void)reloadData;
 
 @end

@@ -6,17 +6,27 @@
 #import <Foundation/Foundation.h>
 #import "AMBar.h"
 
-@protocol AMStaveDelegate <NSObject>
+@protocol AMStaveMechanicalDelegate <NSObject>
 
 @required
 
 - (void) tempoHasBeenChanged;
+- (void) barHasBeenChanged;
+
+@end
+
+@protocol AMStaveVisualDelegate <NSObject>
+
+@required
+
+- (void) barHasBeenChanged;
 
 @end
 
 @interface AMStave : NSObject
 
-@property (nonatomic, weak) id <AMStaveDelegate> delegate;
+@property (nonatomic, weak) id <AMStaveMechanicalDelegate> mechanicalDelegate;
+@property (nonatomic, weak) id <AMStaveVisualDelegate> visualDelegate;
 
 @property (nonatomic) NSInteger maxTempo;
 @property (nonatomic) NSInteger minTempo;

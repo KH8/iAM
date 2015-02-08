@@ -38,7 +38,7 @@ NSUInteger const minTempo = 60;
 
 - (void)setTempo:(NSInteger)aTempo {
     _tempo = aTempo;
-    [_delegate tempoHasBeenChanged];
+    [_mechanicalDelegate tempoHasBeenChanged];
 }
 
 - (NSInteger)getTempo {
@@ -53,16 +53,22 @@ NSUInteger const minTempo = 60;
 
 - (void)setFirstBarAsActual {
     _actualIndex = 0;
+    [_visualDelegate barHasBeenChanged];
+    [_mechanicalDelegate barHasBeenChanged];
 }
 
 - (void)setNextBarAsActual {
     _actualIndex++;
     if(_actualIndex >= _arrayOfBars.count) _actualIndex = 0;
+    [_visualDelegate barHasBeenChanged];
+    [_mechanicalDelegate barHasBeenChanged];
 }
 
 - (void)setIndexAsActual: (NSUInteger)index{
     _actualIndex = index;
     if(_actualIndex >= _arrayOfBars.count) _actualIndex = 0;
+    [_visualDelegate barHasBeenChanged];
+    [_mechanicalDelegate barHasBeenChanged];
 }
 
 - (AMBar *)getActualBar {

@@ -32,25 +32,13 @@ static NSString * const reuseIdentifier = @"myCell";
         _collectionView = aCollectionView;
         _mainSequencer = aSequencer;
         _actualStave = _mainSequencer.getStave;
+        _actualStave.visualDelegate = self;
         _actualBar = _actualStave.getActualBar;
     }
     return self;
 }
 
 - (void)dealloc {
-}
-
-- (void)changePage: (NSUInteger)index{
-    if(_mainSequencer.isRunning){
-        [_mainSequencer startStop];
-    }
-    [_actualStave setIndexAsActual: index];
-    _actualBar = _actualStave.getActualBar;
-    [self reloadData];
-}
-
-- (void)addPage{
-    [_actualStave addBar];
 }
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
@@ -122,6 +110,11 @@ static NSString * const reuseIdentifier = @"myCell";
 
 - (NSInteger)getNumberOfNote: (NSIndexPath *)indexPath {
     return indexPath.section;
+}
+
+- (void)barHasBeenChanged {
+    _actualBar = _actualStave.getActualBar;
+    [self reloadData];
 }
 
 @end

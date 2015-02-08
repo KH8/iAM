@@ -12,8 +12,8 @@
 @interface AMViewController () {
 }
 
-@property AMSequencer *mainSequencer;
 @property AMCollectionViewController *collectionViewController;
+@property AMSequencer *mainSequencer;
 
 @end
 
@@ -116,12 +116,17 @@
 }
 
 - (IBAction)pageSelectionHasChanged:(id)sender {
-    [_collectionViewController changePage:_pageControl.currentPage];
+    if(_mainSequencer.isRunning){
+        [_mainSequencer startStop];
+    }
+    AMStave *stave = _mainSequencer.getStave;
+    [stave setIndexAsActual:_pageControl.currentPage];
 }
 
 - (IBAction)addPage:(id)sender {
     _pageControl.numberOfPages = _pageControl.numberOfPages + 1;
-    [_collectionViewController addPage];
+    AMStave *stave = _mainSequencer.getStave;
+    [stave addBar];
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{

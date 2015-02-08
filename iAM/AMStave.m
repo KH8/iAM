@@ -10,6 +10,7 @@
 @property (nonatomic) NSInteger tempo;
 @property (nonatomic) NSMutableArray *arrayOfBars;
 @property (nonatomic) NSInteger actualIndex;
+@property (nonatomic) AMBar *previousBar;
 
 @end
 
@@ -25,6 +26,7 @@ NSUInteger const minTempo = 60;
         _arrayOfBars = [[NSMutableArray alloc] init];
         [self addBar];
         [self initBasicParameters];
+        _previousBar = _arrayOfBars[0];
     }
     return self;
 }
@@ -51,28 +53,36 @@ NSUInteger const minTempo = 60;
     [_arrayOfBars addObject:newBar];
 }
 
+- (void)runAllVisualDelegates{
+    [_visualDelegate barHasBeenChanged];
+    [_visualPageViewDelegate barHasBeenChanged];
+    [_mechanicalDelegate barHasBeenChanged];
+}
+
 - (void)setFirstBarAsActual {
     _actualIndex = 0;
-    [_visualDelegate barHasBeenChanged];
-    [_mechanicalDelegate barHasBeenChanged];
+    [self runAllVisualDelegates];
 }
 
 - (void)setNextBarAsActual {
     _actualIndex++;
     if(_actualIndex >= _arrayOfBars.count) _actualIndex = 0;
-    [_visualDelegate barHasBeenChanged];
-    [_mechanicalDelegate barHasBeenChanged];
+    [self runAllVisualDelegates];
 }
 
 - (void)setIndexAsActual: (NSUInteger)index{
     _actualIndex = index;
     if(_actualIndex >= _arrayOfBars.count) _actualIndex = 0;
-    [_visualDelegate barHasBeenChanged];
-    [_mechanicalDelegate barHasBeenChanged];
+    [self runAllVisualDelegates];
 }
 
 - (AMBar *)getActualBar {
-    return _arrayOfBars[(NSUInteger) _actualIndex];
+    AMBar *actualBar = _arrayOfBars[(NSUInteger) _actualIndex];
+    if(actualBar != _previousBar){
+        [_previousBar clearTriggerMarkers];
+        _previousBar = actualBar;
+    }
+    return actualBar;
 }
 
 - (NSInteger)getActualIndex {

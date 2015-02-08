@@ -13,7 +13,7 @@
 @interface AMCollectionViewController ()
 
 @property AMBar *actualBar;
-@property AMStave *actualStave;
+@property AMStave *mainStave;
 @property AMSequencer *mainSequencer;
 @property UICollectionView *collectionView;
 
@@ -31,9 +31,9 @@ static NSString * const reuseIdentifier = @"myCell";
     if (self) {
         _collectionView = aCollectionView;
         _mainSequencer = aSequencer;
-        _actualStave = _mainSequencer.getStave;
-        _actualStave.visualDelegate = self;
-        _actualBar = _actualStave.getActualBar;
+        _mainStave = _mainSequencer.getStave;
+        _mainStave.visualDelegate = self;
+        _actualBar = _mainStave.getActualBar;
     }
     return self;
 }
@@ -113,7 +113,7 @@ static NSString * const reuseIdentifier = @"myCell";
 }
 
 - (void)barHasBeenChanged {
-    _actualBar = _actualStave.getActualBar;
+    _actualBar = _mainStave.getActualBar;
     [self reloadData];
 }
 

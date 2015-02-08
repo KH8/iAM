@@ -28,4 +28,6 @@
 - (void)select;
 - (void)trigger;
 
+- (void)clearTriggerMarker;
+
 @end

@@ -76,6 +76,7 @@
 - (void)startStop{
     _runningState = !_runningState;
     if(_runningState) {
+        [_mainStave setFirstBarAsActual];
         [_sequencerDelegate sequenceHasStarted];
         [AMLogger logMessage:@("sequence started")];
     }
@@ -124,15 +125,16 @@
 
 - (void)playTheRow {
     NSInteger index = _actualNoteIndex % _actualBar.getLengthToBePlayed;
-    [self handleStave:_actualBar atPosition:(NSUInteger) index
-           withAction:@selector(playSound)];
+    [self handlePlayOnStave:_actualBar
+               atPosition:(NSUInteger) index];
 
     dispatch_async(dispatch_get_main_queue(), ^{
         [_notesToBeClearedIndex addObject:@(index)];
     });
 
     _actualNoteIndex++;
-    if(_actualNoteIndex == _actualBar.getLengthToBePlayed * 100) {
+    if(_actualNoteIndex == _actualBar.getLengthToBePlayed) {
+        [_mainStave setNextBarAsActual];
         _actualNoteIndex = 0;
     }
 }
@@ -140,8 +142,8 @@
 - (void)clearTheRow {
     dispatch_async(dispatch_get_main_queue(), ^{
         for (NSNumber *index in _notesToBeClearedIndex){
-            [self handleStave:_actualBar atPosition:(NSUInteger) index.integerValue
-                   withAction:@selector(stopSound)];
+            [self handleStopOnStave:_actualBar
+                         atPosition:(NSUInteger) index.integerValue];
             [_indexesCleared addObject:index];
         }
         for (NSNumber *index in _indexesCleared){
@@ -150,15 +152,27 @@
     });
 }
 
-- (void)handleStave: (AMBar *)aStave
-         atPosition: (NSUInteger)aPosition
-         withAction: (SEL)aSelector{
+- (void)handlePlayOnStave: (AMBar *)aStave
+         atPosition: (NSUInteger)aPosition{
     NSUInteger j = 0;
     for (NSMutableArray *line in aStave) {
         AMNote *note = line[aPosition];
         [note trigger];
         if(note.isPlaying){
-            ((void (*)(id, SEL))[_arrayOfPlayers[j] methodForSelector:aSelector])(_arrayOfPlayers[j], aSelector);
+            [_arrayOfPlayers[j] playSound];
+        }
+        j++;
+    }
+}
+
+- (void)handleStopOnStave: (AMBar *)aStave
+               atPosition: (NSUInteger)aPosition{
+    NSUInteger j = 0;
+    for (NSMutableArray *line in aStave) {
+        AMNote *note = line[aPosition];
+        [note clearTriggerMarker];
+        if(note.isPlaying){
+            [_arrayOfPlayers[j] stopSound];
         }
         j++;
     }

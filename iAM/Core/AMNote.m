@@ -38,4 +38,9 @@
     [_delegate noteHasBeenTriggered];
 }
 
+- (void)clearTriggerMarker{
+    _triggeredState = NO;
+    [_delegate noteHasBeenTriggered];
+}
+
 @end

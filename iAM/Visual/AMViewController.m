@@ -14,6 +14,7 @@
 
 @property AMCollectionViewController *collectionViewController;
 @property AMSequencer *mainSequencer;
+@property AMStave *mainStave;
 
 @end
 
@@ -36,6 +37,8 @@
 - (void)loadMainObjects{
     _mainSequencer = [[AMSequencer alloc] init];
     _mainSequencer.sequencerDelegate = self;
+    _mainStave = _mainSequencer.getStave;
+    _mainStave.visualPageViewDelegate = self;
 }
 
 - (void)loadCollectionViewController{
@@ -80,8 +83,7 @@
 
 - (void)lengthHasBeenChanged:(NSNumber*)lengthText {
     NSInteger newLengthValue = [lengthText integerValue];
-    AMStave *stave = _mainSequencer.getStave;
-    AMBar *bar = stave.getActualBar;
+    AMBar *bar = _mainStave.getActualBar;
     if (![self isValue:newLengthValue
             withingMax:bar.maxLength
                 andMin:bar.minLength]) {
@@ -92,13 +94,12 @@
 
 - (void)tempoHasBeenChanged:(NSNumber*)tempoText {
     NSInteger newTempoValue = [tempoText integerValue];
-    AMStave *stave = _mainSequencer.getStave;
     if (![self isValue:newTempoValue
-            withingMax:stave.maxTempo
-                andMin:stave.minTempo]) {
+            withingMax:_mainStave.maxTempo
+                andMin:_mainStave.minTempo]) {
         return;
     }
-    [stave setTempo:newTempoValue];
+    [_mainStave setTempo:newTempoValue];
 }
 
 - (bool)isValue: (NSInteger)aValue
@@ -123,10 +124,13 @@
     [stave setIndexAsActual:_pageControl.currentPage];
 }
 
+- (void)barHasBeenChanged {
+    _pageControl.currentPage = _mainStave.getActualIndex;
+}
+
 - (IBAction)addPage:(id)sender {
     _pageControl.numberOfPages = _pageControl.numberOfPages + 1;
-    AMStave *stave = _mainSequencer.getStave;
-    [stave addBar];
+    [_mainStave addBar];
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{

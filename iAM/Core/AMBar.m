@@ -76,6 +76,14 @@ NSUInteger const minLength = 3;
     }
 }
 
+- (void)clearTriggerMarkers{
+    for (NSMutableArray *line in _mainArray) {
+        for (AMNote *note in line) {
+            [note clearTriggerMarker];
+        }
+    }
+}
+
 - (NSInteger)getNumberOfLines {
     return [self count];
 }

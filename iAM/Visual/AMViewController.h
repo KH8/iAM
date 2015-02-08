@@ -13,7 +13,7 @@
 #import "AMSequencer.h"
 #import "AMNote.h"
 
-@interface AMViewController : UIViewController <AMPopoverViewControllerDelegate, AMSequencerDelegate>
+@interface AMViewController : UIViewController <AMPopoverViewControllerDelegate, AMSequencerDelegate, AMStaveVisualDelegate>
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (weak, nonatomic) IBOutlet UIButton *clearButton;

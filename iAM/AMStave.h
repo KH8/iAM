@@ -27,6 +27,7 @@
 
 @property (nonatomic, weak) id <AMStaveMechanicalDelegate> mechanicalDelegate;
 @property (nonatomic, weak) id <AMStaveVisualDelegate> visualDelegate;
+@property (nonatomic, weak) id <AMStaveVisualDelegate> visualPageViewDelegate;
 
 @property (nonatomic) NSInteger maxTempo;
 @property (nonatomic) NSInteger minTempo;

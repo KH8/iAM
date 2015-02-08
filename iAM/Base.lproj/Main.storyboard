@@ -222,67 +222,53 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8JB-Pp-4Cc">
-                                <rect key="frame" x="145" y="219" width="100" height="162"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="100" id="7lj-WF-JAP"/>
-                                </constraints>
-                            </pickerView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="te5-ea-RC4">
-                                <rect key="frame" x="418" y="285" width="37" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="37" id="kpF-cd-tya"/>
-                                </constraints>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="te5-ea-RC4">
+                                <rect key="frame" x="402" y="228" width="100" height="30"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                                 <state key="normal" title="bpm">
                                     <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" red="0.502" green="0.502" blue="0.502" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                             </button>
-                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ibw-dR-ieT">
-                                <rect key="frame" x="310" y="219" width="100" height="162"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="100" id="fwk-Dd-lJA"/>
-                                </constraints>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ibw-dR-ieT">
+                                <rect key="frame" x="402" y="58" width="100" height="162"/>
                             </pickerView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bzj-27-fSe">
-                                <rect key="frame" x="253" y="285" width="49" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="49" id="3LN-N3-0IG"/>
-                                </constraints>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bzj-27-fSe">
+                                <rect key="frame" x="294" y="228" width="100" height="30"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                                 <state key="normal" title="beats">
                                     <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" red="0.502" green="0.502" blue="0.502" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                             </button>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="2Gi-xc-BB0">
-                                <rect key="frame" x="150" y="389" width="300" height="31"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="296" id="x63-7h-mlQ"/>
-                                </constraints>
-                            </slider>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iSG-qw-jf2">
+                                <rect key="frame" x="78" y="228" width="208" height="30"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                <state key="normal" title="signature">
+                                    <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" red="0.502" green="0.502" blue="0.502" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8JB-Pp-4Cc">
+                                <rect key="frame" x="294" y="58" width="100" height="162"/>
+                            </pickerView>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rxW-8T-fOo">
+                                <rect key="frame" x="186" y="58" width="100" height="162"/>
+                            </pickerView>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bPl-GG-4YA">
+                                <rect key="frame" x="78" y="58" width="100" height="162"/>
+                            </pickerView>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
                         <gestureRecognizers/>
-                        <constraints>
-                            <constraint firstAttribute="centerX" secondItem="2Gi-xc-BB0" secondAttribute="centerX" id="I0b-xO-Shi"/>
-                            <constraint firstItem="Bzj-27-fSe" firstAttribute="leading" secondItem="8JB-Pp-4Cc" secondAttribute="trailing" constant="8" symbolic="YES" id="Il3-4w-wg7"/>
-                            <constraint firstItem="ibw-dR-ieT" firstAttribute="leading" secondItem="Bzj-27-fSe" secondAttribute="trailing" constant="8" symbolic="YES" id="NUI-df-CpB"/>
-                            <constraint firstItem="8JB-Pp-4Cc" firstAttribute="leading" secondItem="tyE-74-eos" secondAttribute="leading" constant="145" id="Ryk-SH-vZ8"/>
-                            <constraint firstItem="2Gi-xc-BB0" firstAttribute="top" secondItem="8JB-Pp-4Cc" secondAttribute="bottom" constant="8" symbolic="YES" id="Y0c-E4-7aW"/>
-                            <constraint firstItem="8JB-Pp-4Cc" firstAttribute="centerY" secondItem="tyE-74-eos" secondAttribute="centerY" id="nJA-kh-4gE"/>
-                            <constraint firstItem="te5-ea-RC4" firstAttribute="centerY" secondItem="ibw-dR-ieT" secondAttribute="centerY" id="q1E-2z-lMy"/>
-                            <constraint firstItem="te5-ea-RC4" firstAttribute="baseline" secondItem="Bzj-27-fSe" secondAttribute="baseline" id="uhf-yl-09M"/>
-                            <constraint firstItem="te5-ea-RC4" firstAttribute="leading" secondItem="ibw-dR-ieT" secondAttribute="trailing" constant="8" symbolic="YES" id="y4G-nu-PMI"/>
-                            <constraint firstItem="8JB-Pp-4Cc" firstAttribute="top" secondItem="ibw-dR-ieT" secondAttribute="top" id="ywp-M6-RPL"/>
-                        </constraints>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="QgY-36-7io" appends="YES" id="F4I-Se-OTX"/>
                         </connections>
                     </view>
                     <connections>
                         <outlet property="lengthPicker" destination="8JB-Pp-4Cc" id="p5E-lk-Cfr"/>
+                        <outlet property="signatureDenominatorPicker" destination="rxW-8T-fOo" id="3j9-i3-eM8"/>
+                        <outlet property="signatureNumeratorPicker" destination="bPl-GG-4YA" id="iri-Ag-KCp"/>
                         <outlet property="tempoPicker" destination="ibw-dR-ieT" id="UHi-O8-8tO"/>
                     </connections>
                 </viewController>

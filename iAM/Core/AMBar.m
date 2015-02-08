@@ -16,6 +16,9 @@
 @property int numberOfLines;
 @property int numberOfNotesPerLine;
 
+@property (nonatomic) NSInteger signatureNumerator;
+@property (nonatomic) NSInteger signatureDenominator;
+
 @property (nonatomic) NSInteger lengthToBePlayed;
 
 @end
@@ -28,6 +31,9 @@ NSUInteger const defaultNumberOfNotesPerLine = 64;
 NSUInteger const maxLength = 64;
 NSUInteger const minLength = 3;
 
+NSUInteger const maxSignature = 32;
+NSUInteger const minSignature = 1;
+
 - (id)init {
     self = [super init];
     if (self) {
@@ -38,9 +44,15 @@ NSUInteger const minLength = 3;
 
 - (void)initBasicParameters {
     _lengthToBePlayed = 16;
+    
+    _signatureNumerator = 4;
+    _signatureDenominator = 4;
 
     _maxLength = maxLength;
     _minLength = minLength;
+    
+    _maxSignature = maxSignature;
+    _minSignature = minSignature;
 }
 
 - (void)configureDefault{
@@ -104,6 +116,22 @@ NSUInteger const minLength = 3;
              atIndex:(NSUInteger)index{
     [_mainArray insertObject:anObject
                      atIndex:index];
+}
+
+- (void)setSignatureNumerator: (NSInteger)aSignatureNumerator{
+    _signatureNumerator = aSignatureNumerator;
+}
+
+- (NSInteger)getSignatureNumerator{
+    return _signatureNumerator;
+}
+
+- (void)setSignatureDenominator: (NSInteger)aSignatureDenominator{
+    _signatureDenominator = aSignatureDenominator;
+}
+
+- (NSInteger)getSignatureDenominator{
+    return _signatureDenominator;
 }
 
 - (void)setLengthToBePlayed:(NSInteger)aLength {

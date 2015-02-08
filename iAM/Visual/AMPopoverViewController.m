@@ -24,6 +24,21 @@
 
 - (void)loadPickers{
     AMStave *stave = _actuallySelectedSequencer.getStave;
+    AMBar *bar = stave.getActualBar;
+    NSArray *sinatureNumeratorPickerData = [self createRangeOfValuesStartingFrom:bar.minSignature
+                                                                            upTo:bar.getSignatureNumerator];
+    _signatureNumeratorPickerController = [[AMPickerController alloc] initWithPicker:_signatureNumeratorPicker
+                                                                           dataArray:sinatureNumeratorPickerData
+                                                                       andStartValue:@(bar.getSignatureNumerator)];
+    _signatureNumeratorPickerController.delegate = self;
+    
+    NSArray *sinatureDenominatorPickerData = [self createRangeOfValuesStartingFrom:bar.minSignature
+                                                                              upTo:bar.maxSignature];
+    _signatureDenominatorPickerController = [[AMPickerController alloc] initWithPicker:_signatureDenominatorPicker
+                                                                             dataArray:sinatureDenominatorPickerData
+                                                                         andStartValue:@(bar.getSignatureDenominator)];
+    _signatureDenominatorPickerController.delegate = self;
+    
     NSArray *tempoPickerData = [self createRangeOfValuesStartingFrom:stave.minTempo
                                                                 upTo:stave.maxTempo];
     _tempoPickerController = [[AMPickerController alloc] initWithPicker:_tempoPicker
@@ -31,7 +46,6 @@
                                                           andStartValue:@(stave.getTempo)];
     _tempoPickerController.delegate = self;
     
-    AMBar *bar = stave.getActualBar;
     NSArray *sizePickerData = [self createRangeOfValuesStartingFrom:bar.minLength
                                                                upTo:bar.maxLength];
     _lengthPickerController = [[AMPickerController alloc] initWithPicker:_lengthPicker
@@ -62,6 +76,12 @@
 }
 
 - (void)pickerSelectionHasChanged{
+    AMStave *stave = _actuallySelectedSequencer.getStave;
+    AMBar *bar = stave.getActualBar;
+    NSArray *sinatureNumeratorPickerData = [self createRangeOfValuesStartingFrom:bar.minSignature
+                                                                            upTo:bar.getSignatureNumerator];
+    [_signatureNumeratorPickerController setDataArray:sinatureNumeratorPickerData];
+    [_signatureNumeratorPicker reloadAllComponents];
     _lengthPicked = _lengthPickerController.getActualPickerValue;
     _tempoPicked = _tempoPickerController.getActualPickerValue;
     [_delegate valuesPickedLength:_lengthPicked andTempo:_tempoPicked];

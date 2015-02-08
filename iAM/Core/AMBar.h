@@ -13,6 +13,9 @@
 @property (nonatomic) NSInteger maxLength;
 @property (nonatomic) NSInteger minLength;
 
+@property (nonatomic) NSInteger maxSignature;
+@property (nonatomic) NSInteger minSignature;
+
 - (id)init;
 
 - (void)configureDefault;
@@ -21,6 +24,11 @@
 
 - (NSInteger)getNumberOfLines;
 - (NSMutableArray *)getLineAtIndex: (NSUInteger)index;
+
+- (void)setSignatureNumerator: (NSInteger)aSignatureNumerator;
+- (NSInteger)getSignatureNumerator;
+- (void)setSignatureDenominator: (NSInteger)aSignatureDenominator;
+- (NSInteger)getSignatureDenominator;
 - (void)setLengthToBePlayed: (NSInteger)aLength;
 - (NSInteger)getLengthToBePlayed;
 

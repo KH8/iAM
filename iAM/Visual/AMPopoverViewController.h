@@ -26,8 +26,12 @@
 }
 
 @property (nonatomic,strong) id delegate;
+@property AMPickerController *signatureNumeratorPickerController;
+@property AMPickerController *signatureDenominatorPickerController;
 @property AMPickerController *lengthPickerController;
 @property AMPickerController *tempoPickerController;
+@property (weak, nonatomic) IBOutlet UIPickerView *signatureNumeratorPicker;
+@property (weak, nonatomic) IBOutlet UIPickerView *signatureDenominatorPicker;
 @property (weak, nonatomic) IBOutlet UIPickerView *lengthPicker;
 @property (weak, nonatomic) IBOutlet UIPickerView *tempoPicker;
 @property AMSequencer *actuallySelectedSequencer;

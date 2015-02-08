@@ -31,6 +31,10 @@
     return self;
 }
 
+- (void)setDataArray: (NSArray*)anArray{
+    pickerData = anArray;
+}
+
 - (void)setActualValue: (NSNumber*)newValue{
     for (NSNumber *data in pickerData) {
         if([data isEqualToNumber:newValue]){

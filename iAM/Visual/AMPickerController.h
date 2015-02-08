@@ -25,6 +25,7 @@
 - (id)initWithPicker: (UIPickerView *)aPicker
           dataArray: (NSArray*)anArray
       andStartValue: (NSNumber*)newValue;
+- (void)setDataArray: (NSArray*)anArray;
 - (void)setActualValue: (NSNumber*)newValue;
 - (NSNumber*)getActualPickerValue;
 

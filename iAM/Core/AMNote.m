@@ -12,6 +12,7 @@
 
 @property (atomic) BOOL selectionState;
 @property (atomic) BOOL triggeredState;
+@property (atomic) BOOL majorNoteState;
 
 @end
 
@@ -29,18 +30,28 @@
     return _selectionState && _triggeredState;
 }
 
+- (BOOL)isMajorNote {
+    return _majorNoteState;
+}
+
 -(void)select {
     _selectionState = !_selectionState;
+    [_delegate noteStateHasBeenChanged];
 }
 
 - (void)trigger {
     _triggeredState = !_triggeredState;
-    [_delegate noteHasBeenTriggered];
+    [_delegate noteStateHasBeenChanged];
 }
 
 - (void)clearTriggerMarker{
     _triggeredState = NO;
-    [_delegate noteHasBeenTriggered];
+    [_delegate noteStateHasBeenChanged];
+}
+
+- (void)changeMajorNoteState{
+    _majorNoteState = !_majorNoteState;
+    [_delegate noteStateHasBeenChanged];
 }
 
 @end

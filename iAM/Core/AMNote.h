@@ -12,7 +12,7 @@
 
 @required
 
-- (void) noteHasBeenTriggered;
+- (void) noteStateHasBeenChanged;
 
 @end
 
@@ -24,10 +24,11 @@
 - (BOOL)isSelected;
 - (BOOL)isTriggered;
 - (BOOL)isPlaying;
+- (BOOL)isMajorNote;
 
 - (void)select;
 - (void)trigger;
-
 - (void)clearTriggerMarker;
+- (void)changeMajorNoteState;
 
 @end

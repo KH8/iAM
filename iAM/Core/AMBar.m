@@ -76,6 +76,23 @@ NSUInteger const minSignature = 1;
         }
         [_mainArray addObject: newLine];
     }
+    
+    [self updateMajorNotes];
+}
+
+- (void)updateMajorNotes{
+    for (NSMutableArray *line in _mainArray) {
+        int i = 0;
+        for (AMNote *note in line) {
+            if(i % _signatureNumerator == 0 && !note.isMajorNote){
+                [note changeMajorNoteState];
+            }
+            else if(note.isMajorNote){
+                [note changeMajorNoteState];
+            }
+            i++;
+        }
+    }
 }
 
 - (void)clear{
@@ -120,6 +137,7 @@ NSUInteger const minSignature = 1;
 
 - (void)setSignatureNumerator: (NSInteger)aSignatureNumerator{
     _signatureNumerator = aSignatureNumerator;
+    [self updateMajorNotes];
 }
 
 - (NSInteger)getSignatureNumerator{

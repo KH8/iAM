@@ -23,19 +23,19 @@
 }
 
 - (void)reloadCell {
-    UIColor *color = [[UIColor lightGrayColor] colorWithAlphaComponent:0.9F];
-    if(_noteAssigned.isSelected) color = [[UIColor grayColor] colorWithAlphaComponent:0.9F];
-    if(_noteAssigned.isPlaying) color = [[UIColor greenColor] colorWithAlphaComponent:0.9F];
+    UIColor *color = [[UIColor lightGrayColor] colorWithAlphaComponent:0.7F];
+    if(_noteAssigned.isMajorNote) color = [[UIColor lightGrayColor] colorWithAlphaComponent:0.9F];
+    if(_noteAssigned.isSelected) color = [[UIColor grayColor] colorWithAlphaComponent:0.7F];
+    if(_noteAssigned.isPlaying) color = [[UIColor greenColor] colorWithAlphaComponent:0.7F];
     if(_noteAssigned.isTriggered) color = [color colorWithAlphaComponent:0.5F];
     self.backgroundColor = color;
 }
 
 - (void)touch {
     [_noteAssigned select];
-    [self reloadCell];
 }
 
-- (void)noteHasBeenTriggered {
+- (void)noteStateHasBeenChanged {
     dispatch_async(dispatch_get_main_queue(), ^{
         [self reloadCell];
     });

@@ -10,12 +10,11 @@
 
 @interface AMPopoverViewController ()
 
-@property NSNumber *lengthPicked;
-@property NSNumber *tempoPicked;
-
 @end
 
-@implementation AMPopoverViewController
+@implementation AMPopoverViewController{
+    
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -75,17 +74,46 @@
 }
 
 - (void)pickerSelectionHasChanged{
-    _lengthPicked = _lengthPickerController.getActualPickerValue;
-    _tempoPicked = _tempoPickerController.getActualPickerValue;
-    [_delegate valuesPickedLength:_lengthPicked andTempo:_tempoPicked];
     AMStave *stave = _actuallySelectedSequencer.getStave;
+    [self tempoHasBeenChanged:stave];
     AMBar *bar = stave.getActualBar;
-    [bar setSignatureNumerator:[[_signatureNumeratorPickerController getActualPickerValue] integerValue]];
-    [bar setSignatureDenominator:[[_signatureDenominatorPickerController getActualPickerValue] integerValue]];
+    [self signatureDenominatorHasBeenChanged:bar];
+    [self signatureNumeratorHasBeenChanged:bar];
+    [self lengthHasBeenChanged:bar];
+}
+
+- (void)signatureNumeratorHasBeenChanged:(AMBar*)bar {
+    NSInteger valuePicked = [_signatureNumeratorPickerController getActualPickerValue];
+    if([bar getSignatureNumerator] == valuePicked) return;
+    [bar setSignatureNumerator:valuePicked];
+}
+
+- (void)signatureDenominatorHasBeenChanged:(AMBar*)bar {
+    NSInteger valuePicked = [_signatureDenominatorPickerController getActualPickerValue];
+    if([bar getSignatureDenominator] == valuePicked) return;
+    [bar setSignatureDenominator:valuePicked];
     NSArray *sinatureNumeratorPickerData = [self createRangeOfValuesStartingFrom:bar.minSignature
                                                                             upTo:bar.getSignatureDenominator];
     [_signatureNumeratorPickerController setDataArray:sinatureNumeratorPickerData];
     [_signatureNumeratorPicker reloadAllComponents];
+}
+
+- (void)lengthHasBeenChanged:(AMBar*)bar {
+    NSInteger valuePicked = [_lengthPickerController getActualPickerValue];
+    if([bar getLengthToBePlayed] == valuePicked) return;
+    [bar setLengthToBePlayed:valuePicked];
+}
+
+- (void)tempoHasBeenChanged:(AMStave*)stave {
+    NSInteger valuePicked = [_tempoPickerController getActualPickerValue];
+    if([stave getTempo] == valuePicked) return;
+    [stave setTempo:valuePicked];
+}
+
+- (bool)isValue: (NSInteger)aValue
+     withingMax: (NSInteger)aMaximum
+         andMin: (NSInteger)aMinimum{
+    return aValue <= aMaximum && aValue >= aMinimum;
 }
 
 @end

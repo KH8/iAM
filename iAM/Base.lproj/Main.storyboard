@@ -71,7 +71,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="addPage:" destination="Cpc-Be-Cbd" eventType="touchUpInside" id="fSB-MH-A89"/>
+                                    <action selector="onAddPageEvent:" destination="Cpc-Be-Cbd" eventType="touchUpInside" id="KSI-df-Loa"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P9F-pb-G13">
@@ -88,7 +88,7 @@
                                 <color key="pageIndicatorTintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="currentPageIndicatorTintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
-                                    <action selector="pageSelectionHasChanged:" destination="Cpc-Be-Cbd" eventType="valueChanged" id="TKO-3U-KTu"/>
+                                    <action selector="onPageSelectionHasChangedEvent:" destination="Cpc-Be-Cbd" eventType="valueChanged" id="6cN-Sz-bWQ"/>
                                 </connections>
                             </pageControl>
                         </subviews>

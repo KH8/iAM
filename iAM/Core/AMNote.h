@@ -29,6 +29,7 @@
 - (void)select;
 - (void)trigger;
 - (void)clearTriggerMarker;
-- (void)changeMajorNoteState;
+- (void)setAsMajorNoteState;
+- (void)resetAsMajorNoteState;
 
 @end

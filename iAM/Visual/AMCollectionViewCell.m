@@ -23,11 +23,11 @@
 }
 
 - (void)reloadCell {
-    UIColor *color = [[UIColor lightGrayColor] colorWithAlphaComponent:0.7F];
-    if(_noteAssigned.isMajorNote) color = [[UIColor lightGrayColor] colorWithAlphaComponent:0.9F];
+    UIColor *color = [[UIColor lightGrayColor] colorWithAlphaComponent:0.5F];
+    if(_noteAssigned.isMajorNote) color = [[UIColor lightGrayColor] colorWithAlphaComponent:0.7F];
     if(_noteAssigned.isSelected) color = [[UIColor grayColor] colorWithAlphaComponent:0.7F];
-    if(_noteAssigned.isPlaying) color = [[UIColor greenColor] colorWithAlphaComponent:0.7F];
-    if(_noteAssigned.isTriggered) color = [color colorWithAlphaComponent:0.5F];
+    if(_noteAssigned.isPlaying) color = [[UIColor greenColor] colorWithAlphaComponent:0.5F];
+    if(_noteAssigned.isTriggered) color = [color colorWithAlphaComponent:0.2F];
     self.backgroundColor = color;
 }
 

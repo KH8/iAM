@@ -69,8 +69,8 @@ numberOfRowsInComponent:(NSInteger)component {
     [_delegate pickerSelectionHasChanged];
 }
 
-- (NSNumber*)getActualPickerValue{
-    return actualValue;
+- (NSInteger)getActualPickerValue{
+    return [actualValue integerValue];
 }
 
 @end

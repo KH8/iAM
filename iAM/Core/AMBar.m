@@ -84,11 +84,9 @@ NSUInteger const minSignature = 1;
     for (NSMutableArray *line in _mainArray) {
         int i = 0;
         for (AMNote *note in line) {
-            if(i % _signatureNumerator == 0 && !note.isMajorNote){
-                [note changeMajorNoteState];
-            }
-            else if(note.isMajorNote){
-                [note changeMajorNoteState];
+            [note resetAsMajorNoteState];
+            if(i % _signatureNumerator == 0){
+                [note setAsMajorNoteState];
             }
             i++;
         }
@@ -154,6 +152,7 @@ NSUInteger const minSignature = 1;
 
 - (void)setLengthToBePlayed:(NSInteger)aLength {
     _lengthToBePlayed = aLength;
+    [_delegate lengthHasBeenChanged];
 }
 
 - (NSInteger)getLengthToBePlayed {

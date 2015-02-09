@@ -8,7 +8,17 @@
 
 #import <Foundation/Foundation.h>
 
+@protocol AMBarVisualDelegate <NSObject>
+
+@required
+
+- (void) lengthHasBeenChanged;
+
+@end
+
 @interface AMBar : NSMutableArray
+
+@property (nonatomic, weak) id <AMBarVisualDelegate> delegate;
 
 @property (nonatomic) NSInteger maxLength;
 @property (nonatomic) NSInteger minLength;

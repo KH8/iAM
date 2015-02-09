@@ -34,6 +34,7 @@ static NSString * const reuseIdentifier = @"myCell";
         _mainStave = _mainSequencer.getStave;
         _mainStave.visualDelegate = self;
         _actualBar = _mainStave.getActualBar;
+        _actualBar.delegate = self;
     }
     return self;
 }
@@ -46,7 +47,7 @@ static NSString * const reuseIdentifier = @"myCell";
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView
-     numberOfItemsInSection:(NSInteger)section {
+     numberOfItemsInSection:(NSInteger)section{
     return [self getNumberOfRows];
 }
 
@@ -92,28 +93,33 @@ static NSString * const reuseIdentifier = @"myCell";
     return CGSizeMake(cellSize, cellSize);
 }
 
-- (void)reloadData {
+- (void)reloadData{
     [_collectionView reloadData];
 }
 
-- (NSInteger)getNumberOfRows {
+- (NSInteger)getNumberOfRows{
     return _actualBar.getNumberOfLines;
 }
 
-- (NSInteger)getNumberOfSections {
+- (NSInteger)getNumberOfSections{
     return _actualBar.getLengthToBePlayed;
 }
 
-- (NSInteger)getNumberOfLine: (NSIndexPath *)indexPath {
+- (NSInteger)getNumberOfLine: (NSIndexPath *)indexPath{
     return indexPath.row;
 }
 
-- (NSInteger)getNumberOfNote: (NSIndexPath *)indexPath {
+- (NSInteger)getNumberOfNote: (NSIndexPath *)indexPath{
     return indexPath.section;
 }
 
-- (void)barHasBeenChanged {
+- (void)barHasBeenChanged{
     _actualBar = _mainStave.getActualBar;
+    _actualBar.delegate = self;
+    [self reloadData];
+}
+
+- (void)lengthHasBeenChanged{
     [self reloadData];
 }
 

@@ -10,22 +10,8 @@
 #import "AMPickerController.h"
 #import "AMSequencer.h"
 
-@protocol AMPopoverViewControllerDelegate <NSObject>
-
-@required
-
-- (void) valuesPickedLength:(NSNumber *)lengthPicked andTempo:(NSNumber *)tempoPicked;
-
-@end
-
 @interface AMPopoverViewController : UIViewController <AMPickerControllerDelegate>
-{
-    // Delegate to respond back
-    id <AMPopoverViewControllerDelegate> _delegate;
-    
-}
 
-@property (nonatomic,strong) id delegate;
 @property AMPickerController *signatureNumeratorPickerController;
 @property AMPickerController *signatureDenominatorPickerController;
 @property AMPickerController *lengthPickerController;

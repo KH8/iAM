@@ -45,12 +45,20 @@
 }
 
 - (void)clearTriggerMarker{
+    if(_triggeredState == NO) return;
     _triggeredState = NO;
     [_delegate noteStateHasBeenChanged];
 }
 
-- (void)changeMajorNoteState{
-    _majorNoteState = !_majorNoteState;
+- (void)setAsMajorNoteState{
+    if(_majorNoteState == YES) return;
+    _majorNoteState = YES;
+    [_delegate noteStateHasBeenChanged];
+}
+
+- (void)resetAsMajorNoteState{
+    if(_majorNoteState == NO) return;
+    _majorNoteState = NO;
     [_delegate noteStateHasBeenChanged];
 }
 

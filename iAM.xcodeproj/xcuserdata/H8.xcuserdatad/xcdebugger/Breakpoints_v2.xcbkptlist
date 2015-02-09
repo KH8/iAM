@@ -47,7 +47,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "12"
             endingLineNumber = "12"
-            landmarkName = "@protocol AMPopoverViewControllerDelegate"
+            landmarkName = "@interface AMPopoverViewController"
             landmarkType = "2">
          </BreakpointContent>
       </BreakpointProxy>

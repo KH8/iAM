@@ -65,47 +65,26 @@
     _mainSequencer = nil;
 }
 
+- (IBAction)onStartEvent:(id)sender {
+    [_mainSequencer startStop];
+}
+
 - (IBAction)onClearEvent:(id)sender {
     [_mainSequencer clear];
     [_collectionViewController reloadData];
 }
 
-- (IBAction)onStartEvent:(id)sender {
-    [_mainSequencer startStop];
+- (IBAction)onAddPageEvent:(id)sender {
+    _pageControl.numberOfPages = _pageControl.numberOfPages + 1;
+    [_mainStave addBar];
 }
 
-- (void)valuesPickedLength:(NSNumber *)lengthPicked
-                  andTempo:(NSNumber *)tempoPicked{
-    [self lengthHasBeenChanged:lengthPicked];
-    [self tempoHasBeenChanged:tempoPicked];
-    [_collectionViewController reloadData];
-}
-
-- (void)lengthHasBeenChanged:(NSNumber*)lengthText {
-    NSInteger newLengthValue = [lengthText integerValue];
-    AMBar *bar = _mainStave.getActualBar;
-    if (![self isValue:newLengthValue
-            withingMax:bar.maxLength
-                andMin:bar.minLength]) {
-        return;
+- (IBAction)onPageSelectionHasChangedEvent:(id)sender {
+    if(_mainSequencer.isRunning){
+        [_mainSequencer startStop];
     }
-    [bar setLengthToBePlayed:newLengthValue];
-}
-
-- (void)tempoHasBeenChanged:(NSNumber*)tempoText {
-    NSInteger newTempoValue = [tempoText integerValue];
-    if (![self isValue:newTempoValue
-            withingMax:_mainStave.maxTempo
-                andMin:_mainStave.minTempo]) {
-        return;
-    }
-    [_mainStave setTempo:newTempoValue];
-}
-
-- (bool)isValue: (NSInteger)aValue
-     withingMax: (NSInteger)aMaximum
-         andMin: (NSInteger)aMinimum{
-    return aValue <= aMaximum && aValue >= aMinimum;
+    AMStave *stave = _mainSequencer.getStave;
+    [stave setIndexAsActual:_pageControl.currentPage];
 }
 
 - (void)sequenceHasStarted {
@@ -116,28 +95,14 @@
     [_startButton setTitle:@"Start" forState:UIControlStateNormal];
 }
 
-- (IBAction)pageSelectionHasChanged:(id)sender {
-    if(_mainSequencer.isRunning){
-        [_mainSequencer startStop];
-    }
-    AMStave *stave = _mainSequencer.getStave;
-    [stave setIndexAsActual:_pageControl.currentPage];
-}
-
 - (void)barHasBeenChanged {
     _pageControl.currentPage = _mainStave.getActualIndex;
-}
-
-- (IBAction)addPage:(id)sender {
-    _pageControl.numberOfPages = _pageControl.numberOfPages + 1;
-    [_mainStave addBar];
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if([segue.identifier isEqualToString:@"sw_popover"]){
         AMPopoverViewController *popoverViewController = (AMPopoverViewController *)segue.destinationViewController;
         popoverViewController.actuallySelectedSequencer = _mainSequencer;
-        popoverViewController.delegate = self;
     }
 }
 

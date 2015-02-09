@@ -26,14 +26,13 @@
     AMStave *stave = _actuallySelectedSequencer.getStave;
     AMBar *bar = stave.getActualBar;
     NSArray *sinatureNumeratorPickerData = [self createRangeOfValuesStartingFrom:bar.minSignature
-                                                                            upTo:bar.getSignatureNumerator];
+                                                                            upTo:bar.getSignatureDenominator];
     _signatureNumeratorPickerController = [[AMPickerController alloc] initWithPicker:_signatureNumeratorPicker
                                                                            dataArray:sinatureNumeratorPickerData
                                                                        andStartValue:@(bar.getSignatureNumerator)];
     _signatureNumeratorPickerController.delegate = self;
     
-    NSArray *sinatureDenominatorPickerData = [self createRangeOfValuesStartingFrom:bar.minSignature
-                                                                              upTo:bar.maxSignature];
+    NSArray *sinatureDenominatorPickerData = @[@1, @2, @4, @8, @16, @32];
     _signatureDenominatorPickerController = [[AMPickerController alloc] initWithPicker:_signatureDenominatorPicker
                                                                              dataArray:sinatureDenominatorPickerData
                                                                          andStartValue:@(bar.getSignatureDenominator)];
@@ -76,15 +75,17 @@
 }
 
 - (void)pickerSelectionHasChanged{
-    AMStave *stave = _actuallySelectedSequencer.getStave;
-    AMBar *bar = stave.getActualBar;
-    NSArray *sinatureNumeratorPickerData = [self createRangeOfValuesStartingFrom:bar.minSignature
-                                                                            upTo:bar.getSignatureNumerator];
-    [_signatureNumeratorPickerController setDataArray:sinatureNumeratorPickerData];
-    [_signatureNumeratorPicker reloadAllComponents];
     _lengthPicked = _lengthPickerController.getActualPickerValue;
     _tempoPicked = _tempoPickerController.getActualPickerValue;
     [_delegate valuesPickedLength:_lengthPicked andTempo:_tempoPicked];
+    AMStave *stave = _actuallySelectedSequencer.getStave;
+    AMBar *bar = stave.getActualBar;
+    [bar setSignatureNumerator:[[_signatureNumeratorPickerController getActualPickerValue] integerValue]];
+    [bar setSignatureDenominator:[[_signatureDenominatorPickerController getActualPickerValue] integerValue]];
+    NSArray *sinatureNumeratorPickerData = [self createRangeOfValuesStartingFrom:bar.minSignature
+                                                                            upTo:bar.getSignatureDenominator];
+    [_signatureNumeratorPickerController setDataArray:sinatureNumeratorPickerData];
+    [_signatureNumeratorPicker reloadAllComponents];
 }
 
 @end

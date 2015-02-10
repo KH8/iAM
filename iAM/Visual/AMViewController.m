@@ -79,6 +79,9 @@
     [_mainStave addBar];
 }
 
+- (IBAction)onRemovePage:(id)sender {
+}
+
 - (IBAction)onPageSelectionHasChangedEvent:(id)sender {
     if(_mainSequencer.isRunning){
         [_mainSequencer startStop];
@@ -87,12 +90,14 @@
     [stave setIndexAsActual:_pageControl.currentPage];
 }
 
+- (IBAction)onShowSettings:(id)sender {
+    [self performSegueWithIdentifier: @"sw_popover" sender: self];
+}
+
 - (void)sequenceHasStarted {
-    [_startButton setTitle:@"Stop" forState:UIControlStateNormal];
 }
 
 - (void)sequenceHasStopped {
-    [_startButton setTitle:@"Start" forState:UIControlStateNormal];
 }
 
 - (void)barHasBeenChanged {

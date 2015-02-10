@@ -16,10 +16,8 @@
 @interface AMViewController : UIViewController <AMSequencerDelegate, AMStaveVisualDelegate>
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
-@property (weak, nonatomic) IBOutlet UIButton *clearButton;
-@property (weak, nonatomic) IBOutlet UIButton *startButton;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *startButton;
 @property (weak, nonatomic) IBOutlet UIPageControl *pageControl;
-@property (weak, nonatomic) IBOutlet UIButton *addPageButton;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *sideMenuButton;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *listButton;
 

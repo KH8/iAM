@@ -2,9 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="23J-3V-BDE">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
-        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
-        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--MainView-->
@@ -19,8 +16,43 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6nd-hL-bKe">
+                                <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                                <items>
+                                    <barButtonItem systemItem="rewind" id="xLx-kq-S2R"/>
+                                    <barButtonItem systemItem="play" id="7aK-c8-lKa">
+                                        <connections>
+                                            <action selector="onStartEvent:" destination="Cpc-Be-Cbd" id="mbL-Uq-fmg"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem systemItem="fastForward" id="Iwv-d9-lZd"/>
+                                    <barButtonItem systemItem="flexibleSpace" id="D6O-Oz-0yd"/>
+                                    <barButtonItem systemItem="compose" id="fuI-My-I8C">
+                                        <connections>
+                                            <action selector="onShowSettings:" destination="Cpc-Be-Cbd" id="Ujg-s8-C5q"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem systemItem="flexibleSpace" id="EYd-vo-VV7"/>
+                                    <barButtonItem systemItem="refresh" id="jZZ-vB-5Es">
+                                        <connections>
+                                            <action selector="onClearEvent:" destination="Cpc-Be-Cbd" id="Gzb-6q-hmu"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem systemItem="flexibleSpace" id="X7t-Zq-2uN"/>
+                                    <barButtonItem systemItem="trash" id="M9b-Tf-Auf">
+                                        <connections>
+                                            <action selector="onRemovePage:" destination="Cpc-Be-Cbd" id="2kk-gI-mle"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem systemItem="add" id="dGK-4e-c4c">
+                                        <connections>
+                                            <action selector="onAddPageEvent:" destination="Cpc-Be-Cbd" id="wJw-Eh-Dae"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
                             <collectionView autoresizesSubviews="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" bounces="NO" alwaysBounceHorizontal="YES" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="seQ-A1-cWb">
-                                <rect key="frame" x="0.0" y="64" width="600" height="444"/>
+                                <rect key="frame" x="0.0" y="64" width="600" height="492"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="d1n-mZ-tTT">
                                     <size key="itemSize" width="50" height="50"/>
@@ -43,92 +75,40 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xK2-Oz-09u">
-                                <rect key="frame" x="547" y="555" width="37" height="30"/>
-                                <state key="normal" title="Clear">
-                                    <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="onClearEvent:" destination="Cpc-Be-Cbd" eventType="touchUpInside" id="agB-9a-Ei3"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9E2-pr-GCi">
-                                <rect key="frame" x="16" y="555" width="33" height="30"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
-                                <state key="normal" title="Start">
-                                    <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" red="0.502" green="0.502" blue="0.502" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="onStartEvent:" destination="Cpc-Be-Cbd" eventType="touchUpInside" id="9PI-wX-8Qo"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o9C-mf-4T0">
-                                <rect key="frame" x="562" y="474" width="22" height="22"/>
-                                <state key="normal">
-                                    <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="onAddPageEvent:" destination="Cpc-Be-Cbd" eventType="touchUpInside" id="KSI-df-Loa"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P9F-pb-G13">
-                                <rect key="frame" x="272" y="555" width="57" height="30"/>
-                                <state key="normal" title="Settings">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="Fdi-8I-min" kind="presentation" identifier="sw_popover" modalPresentationStyle="overFullScreen" modalTransitionStyle="coverVertical" id="Uy9-Na-gz8"/>
-                                </connections>
-                            </button>
-                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="1" translatesAutoresizingMaskIntoConstraints="NO" id="Odp-23-gs5">
-                                <rect key="frame" x="70" y="510" width="461" height="37"/>
-                                <color key="pageIndicatorTintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <color key="currentPageIndicatorTintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <connections>
-                                    <action selector="onPageSelectionHasChangedEvent:" destination="Cpc-Be-Cbd" eventType="valueChanged" id="6cN-Sz-bWQ"/>
-                                </connections>
-                            </pageControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
                         <constraints>
-                            <constraint firstItem="9E2-pr-GCi" firstAttribute="leading" secondItem="1Er-fy-ePC" secondAttribute="leadingMargin" id="2Yh-j8-qdS"/>
-                            <constraint firstItem="P9F-pb-G13" firstAttribute="bottom" secondItem="9E2-pr-GCi" secondAttribute="bottom" id="5fw-CU-YmM"/>
-                            <constraint firstItem="P9F-pb-G13" firstAttribute="firstBaseline" secondItem="xK2-Oz-09u" secondAttribute="baseline" id="6JY-Tx-KeX"/>
-                            <constraint firstItem="P9F-pb-G13" firstAttribute="top" secondItem="9E2-pr-GCi" secondAttribute="top" id="7LU-lp-SPY"/>
-                            <constraint firstAttribute="bottom" secondItem="Odp-23-gs5" secondAttribute="bottom" constant="53" id="AFo-zu-xTt"/>
-                            <constraint firstItem="seQ-A1-cWb" firstAttribute="top" secondItem="6mO-t5-TNi" secondAttribute="bottom" id="BPj-ao-7pK"/>
-                            <constraint firstItem="P9F-pb-G13" firstAttribute="baseline" secondItem="xK2-Oz-09u" secondAttribute="baseline" id="H3t-IF-qB1"/>
-                            <constraint firstItem="Odp-23-gs5" firstAttribute="leading" secondItem="1Er-fy-ePC" secondAttribute="leadingMargin" constant="54" id="N6B-Md-il6"/>
-                            <constraint firstItem="seQ-A1-cWb" firstAttribute="leading" secondItem="1Er-fy-ePC" secondAttribute="leading" id="TcC-xy-Uho"/>
-                            <constraint firstItem="P9F-pb-G13" firstAttribute="baseline" secondItem="9E2-pr-GCi" secondAttribute="firstBaseline" id="VNd-zv-Hn7"/>
-                            <constraint firstAttribute="trailing" secondItem="seQ-A1-cWb" secondAttribute="trailing" id="Z0N-xw-cGq"/>
-                            <constraint firstItem="Odp-23-gs5" firstAttribute="top" secondItem="seQ-A1-cWb" secondAttribute="bottom" constant="2" id="Z7j-7U-lmn"/>
-                            <constraint firstItem="P9F-pb-G13" firstAttribute="baseline" secondItem="9E2-pr-GCi" secondAttribute="baseline" id="a30-Vo-owO"/>
-                            <constraint firstItem="xK2-Oz-09u" firstAttribute="trailing" secondItem="1Er-fy-ePC" secondAttribute="trailingMargin" id="bw8-G2-PJi"/>
-                            <constraint firstItem="Odp-23-gs5" firstAttribute="centerX" secondItem="P9F-pb-G13" secondAttribute="centerX" id="dXM-TZ-hRC"/>
-                            <constraint firstItem="o9C-mf-4T0" firstAttribute="trailing" secondItem="seQ-A1-cWb" secondAttribute="trailing" constant="-16" id="ddy-aM-Xws"/>
-                            <constraint firstItem="o9C-mf-4T0" firstAttribute="bottom" secondItem="seQ-A1-cWb" secondAttribute="bottom" constant="-12" id="e3v-dk-dRh"/>
-                            <constraint firstItem="sw7-6B-i6c" firstAttribute="top" secondItem="xK2-Oz-09u" secondAttribute="bottom" constant="15" id="lel-c6-KIY"/>
-                            <constraint firstItem="seQ-A1-cWb" firstAttribute="centerX" secondItem="Odp-23-gs5" secondAttribute="centerX" id="peD-sP-OMZ"/>
-                            <constraint firstItem="P9F-pb-G13" firstAttribute="top" secondItem="Odp-23-gs5" secondAttribute="bottom" constant="8" symbolic="YES" id="t0S-7k-yza"/>
+                            <constraint firstItem="6nd-hL-bKe" firstAttribute="width" secondItem="1Er-fy-ePC" secondAttribute="width" id="BTj-ax-CoV"/>
+                            <constraint firstItem="seQ-A1-cWb" firstAttribute="top" secondItem="6mO-t5-TNi" secondAttribute="bottom" id="HrM-6E-KaC"/>
+                            <constraint firstItem="seQ-A1-cWb" firstAttribute="bottom" secondItem="6nd-hL-bKe" secondAttribute="top" id="T5Y-ax-l5d"/>
+                            <constraint firstItem="seQ-A1-cWb" firstAttribute="leading" secondItem="6nd-hL-bKe" secondAttribute="leading" id="WVm-KI-OTu"/>
+                            <constraint firstItem="seQ-A1-cWb" firstAttribute="trailing" secondItem="6nd-hL-bKe" secondAttribute="trailing" id="d9n-ST-0UC"/>
+                            <constraint firstItem="sw7-6B-i6c" firstAttribute="top" secondItem="6nd-hL-bKe" secondAttribute="bottom" id="lIi-Y1-z83"/>
+                            <constraint firstAttribute="centerX" secondItem="6nd-hL-bKe" secondAttribute="centerX" id="ro6-uE-wHi"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="lBY-Ec-Nek">
+                        <nil key="title"/>
                         <barButtonItem key="leftBarButtonItem" systemItem="organize" id="iNB-dB-j6p"/>
+                        <pageControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="1" id="Odp-23-gs5">
+                            <rect key="frame" x="54" y="3.5" width="490" height="37"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="pageIndicatorTintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="currentPageIndicatorTintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="onPageSelectionHasChangedEvent:" destination="Cpc-Be-Cbd" eventType="valueChanged" id="6cN-Sz-bWQ"/>
+                            </connections>
+                        </pageControl>
                         <barButtonItem key="rightBarButtonItem" systemItem="compose" id="hpG-sj-3LD"/>
                     </navigationItem>
                     <connections>
-                        <outlet property="addPageButton" destination="o9C-mf-4T0" id="8BZ-g6-ZfZ"/>
-                        <outlet property="clearButton" destination="xK2-Oz-09u" id="IKc-LK-h9o"/>
                         <outlet property="collectionView" destination="seQ-A1-cWb" id="RGC-JP-FJm"/>
                         <outlet property="listButton" destination="hpG-sj-3LD" id="q4w-z7-Bqr"/>
                         <outlet property="pageControl" destination="Odp-23-gs5" id="wrC-K3-wcn"/>
                         <outlet property="sideMenuButton" destination="iNB-dB-j6p" id="g1l-NZ-Xrv"/>
-                        <outlet property="startButton" destination="9E2-pr-GCi" id="Ok6-6I-Fve"/>
+                        <outlet property="startButton" destination="7aK-c8-lKa" id="BGB-eR-Ynv"/>
+                        <segue destination="Fdi-8I-min" kind="presentation" identifier="sw_popover" modalPresentationStyle="overFullScreen" modalTransitionStyle="coverVertical" id="7Qk-9f-4Ap"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lD3-VX-VHG" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -10,7 +10,17 @@
 #import "AMPickerController.h"
 #import "AMSequencer.h"
 
+@protocol AMPopoverViewControllerDelegate <NSObject>
+
+@required
+
+- (void) pickedValuesHaveBeenChanged;
+
+@end
+
 @interface AMPopoverViewController : UIViewController <AMPickerControllerDelegate>
+
+@property (nonatomic, weak) id <AMPopoverViewControllerDelegate> delegate;
 
 @property AMPickerController *signatureNumeratorPickerController;
 @property AMPickerController *signatureDenominatorPickerController;

@@ -80,6 +80,7 @@
     [self signatureDenominatorHasBeenChanged:bar];
     [self signatureNumeratorHasBeenChanged:bar];
     [self lengthHasBeenChanged:bar];
+    [_delegate pickedValuesHaveBeenChanged];
 }
 
 - (void)signatureNumeratorHasBeenChanged:(AMBar*)bar {

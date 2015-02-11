@@ -97,22 +97,26 @@
 }
 
 - (void)sequenceHasStarted {
-    _temporaryPlayButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemPause target:self action:@selector(onPlayButtonTouchedEvent:)];
-    NSMutableArray *toolbarItems = [[NSMutableArray alloc] init];
-    for (NSObject *item in _bottomToolBar.items) {
-        [toolbarItems addObject:item];
-    }
-    [toolbarItems replaceObjectAtIndex:2 withObject:_temporaryPlayButton];
-    _bottomToolBar.items = toolbarItems;
+    _temporaryPlayButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemPause
+                                                                         target:self
+                                                                         action:@selector(onPlayButtonTouchedEvent:)];
+    [self replaceObjectInToolBarAtIndex:2 withObject:_temporaryPlayButton];
 }
 
 - (void)sequenceHasStopped {
-    _temporaryPlayButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemPlay target:self action:@selector(onPlayButtonTouchedEvent:)];
+    _temporaryPlayButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemPlay
+                                                                         target:self
+                                                                         action:@selector(onPlayButtonTouchedEvent:)];
+    [self replaceObjectInToolBarAtIndex:2 withObject:_temporaryPlayButton];
+}
+
+
+- (void)replaceObjectInToolBarAtIndex: (NSInteger)anIndex withObject: (NSObject*)anObject{
     NSMutableArray *toolbarItems = [[NSMutableArray alloc] init];
     for (NSObject *item in _bottomToolBar.items) {
         [toolbarItems addObject:item];
     }
-    [toolbarItems replaceObjectAtIndex:2 withObject:_temporaryPlayButton];
+    [toolbarItems replaceObjectAtIndex:anIndex withObject:anObject];
     _bottomToolBar.items = toolbarItems;
 }
 
@@ -120,11 +124,22 @@
     _pageControl.currentPage = _mainStave.getActualIndex;
 }
 
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if([segue.identifier isEqualToString:@"sw_popover"]){
         AMPopoverViewController *popoverViewController = (AMPopoverViewController *)segue.destinationViewController;
         popoverViewController.actuallySelectedSequencer = _mainSequencer;
+        popoverViewController.delegate = self;
     }
+}
+
+- (void)pickedValuesHaveBeenChanged{
+    AMBar *bar = _mainStave.getActualBar;
+    NSString *newTitle = [NSString stringWithFormat:@"%ld:%ld %ld BPM", (long)bar.getSignatureNumerator, (long)bar.getSignatureDenominator, (long)_mainStave.getTempo];
+    _temporarySettingsButton = [[UIBarButtonItem alloc] initWithTitle:newTitle
+                                                                style:UIBarButtonItemStylePlain
+                                                               target:self
+                                                               action:@selector(onShowSettings:)];
+    [self replaceObjectInToolBarAtIndex:6 withObject:_temporarySettingsButton];
 }
 
 @end

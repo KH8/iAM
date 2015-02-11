@@ -26,9 +26,9 @@
 		A45F0D4A1A5C6515008673FC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A45F0D491A5C6515008673FC /* main.m */; };
 		A45F0D4D1A5C6515008673FC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A45F0D4C1A5C6515008673FC /* AppDelegate.m */; };
 		A45F0D531A5C6515008673FC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A45F0D511A5C6515008673FC /* Main.storyboard */; };
-		A45F0D551A5C6515008673FC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A45F0D541A5C6515008673FC /* Images.xcassets */; };
 		A45F0D581A5C6515008673FC /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = A45F0D561A5C6515008673FC /* LaunchScreen.xib */; };
 		A45F0D641A5C6515008673FC /* iAMTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A45F0D631A5C6515008673FC /* iAMTests.m */; };
+		A4C47C1A1A8BB68E002CF325 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A4C47C191A8BB68E002CF325 /* Images.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,11 +76,11 @@
 		A45F0D4B1A5C6515008673FC /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		A45F0D4C1A5C6515008673FC /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		A45F0D521A5C6515008673FC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		A45F0D541A5C6515008673FC /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		A45F0D571A5C6515008673FC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		A45F0D5D1A5C6515008673FC /* iAMTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iAMTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A45F0D621A5C6515008673FC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A45F0D631A5C6515008673FC /* iAMTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iAMTests.m; sourceTree = "<group>"; };
+		A4C47C191A8BB68E002CF325 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -188,11 +188,11 @@
 		A45F0D461A5C6515008673FC /* iAM */ = {
 			isa = PBXGroup;
 			children = (
+				A4C47C191A8BB68E002CF325 /* Images.xcassets */,
 				A44910761A5F38EF00E8C6DB /* Core */,
 				A45F0D4B1A5C6515008673FC /* AppDelegate.h */,
 				A45F0D4C1A5C6515008673FC /* AppDelegate.m */,
 				A45F0D511A5C6515008673FC /* Main.storyboard */,
-				A45F0D541A5C6515008673FC /* Images.xcassets */,
 				A45F0D561A5C6515008673FC /* LaunchScreen.xib */,
 				A45F0D471A5C6515008673FC /* Supporting Files */,
 				8F01C9F7EDEB97C2F2D72BE8 /* Visual */,
@@ -315,8 +315,8 @@
 			files = (
 				A45F0D531A5C6515008673FC /* Main.storyboard in Resources */,
 				A45F0D581A5C6515008673FC /* LaunchScreen.xib in Resources */,
-				A45F0D551A5C6515008673FC /* Images.xcassets in Resources */,
 				A44804B21A686E430094BA1F /* lowStickSound.aif in Resources */,
+				A4C47C1A1A8BB68E002CF325 /* Images.xcassets in Resources */,
 				A44804B11A686E430094BA1F /* highStickSound.aif in Resources */,
 				A44804B31A686E430094BA1F /* tickSound.aif in Resources */,
 			);

@@ -83,7 +83,7 @@ static NSString * const reuseIdentifier = @"myCell";
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView
                         layout:(UICollectionViewLayout *)collectionViewLayout
         insetForSectionAtIndex:(NSInteger)section{
-    return UIEdgeInsetsMake(-30, 1, 2, 0);
+    return UIEdgeInsetsMake(0, 2, 0, 0);
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView

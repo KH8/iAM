@@ -3,17 +3,17 @@
     {
       "idiom" : "universal",
       "scale" : "1x",
-      "filename" : "iMtlo.png"
+      "filename" : "background.png"
     },
     {
       "idiom" : "universal",
       "scale" : "2x",
-      "filename" : "iMtlo-1.png"
+      "filename" : "background-1.png"
     },
     {
       "idiom" : "universal",
       "scale" : "3x",
-      "filename" : "iMtlo-2.png"
+      "filename" : "background-2.png"
     }
   ],
   "info" : {

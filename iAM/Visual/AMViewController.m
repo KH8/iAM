@@ -16,6 +16,7 @@
 @property AMSequencer *mainSequencer;
 @property AMStave *mainStave;
 @property UIBarButtonItem *temporaryPlayButton;
+@property UIBarButtonItem *temporarySettingsButton;
 
 @end
 

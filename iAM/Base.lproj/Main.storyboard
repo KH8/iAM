@@ -33,7 +33,7 @@
                                     <barButtonItem width="20" style="plain" systemItem="fixedSpace" id="um2-YR-dZo"/>
                                     <barButtonItem systemItem="fastForward" id="Iwv-d9-lZd"/>
                                     <barButtonItem systemItem="flexibleSpace" id="D6O-Oz-0yd"/>
-                                    <barButtonItem systemItem="compose" id="fuI-My-I8C">
+                                    <barButtonItem title="4/4 120 bpm" id="fuI-My-I8C">
                                         <connections>
                                             <action selector="onShowSettings:" destination="Cpc-Be-Cbd" id="Ujg-s8-C5q"/>
                                         </connections>

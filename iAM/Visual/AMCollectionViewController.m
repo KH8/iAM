@@ -83,13 +83,13 @@ static NSString * const reuseIdentifier = @"myCell";
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView
                         layout:(UICollectionViewLayout *)collectionViewLayout
         insetForSectionAtIndex:(NSInteger)section{
-    return UIEdgeInsetsMake(0, 2, 0, 0);
+    return UIEdgeInsetsMake(0, 0, 0, 0);
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView
                   layout:(UICollectionViewLayout *)collectionViewLayout
   sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
-    float cellSize = (float) ((_collectionView.bounds.size.height / 3.0) - 2.0);
+    float cellSize = (float) ((_collectionView.bounds.size.height / 3.0) - 0.1);
     return CGSizeMake(cellSize, cellSize);
 }
 

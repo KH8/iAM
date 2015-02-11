@@ -24,11 +24,13 @@
                                 </constraints>
                                 <items>
                                     <barButtonItem systemItem="rewind" id="xLx-kq-S2R"/>
+                                    <barButtonItem width="20" style="plain" systemItem="fixedSpace" id="hef-ZL-SyR"/>
                                     <barButtonItem systemItem="play" id="7aK-c8-lKa">
                                         <connections>
-                                            <action selector="onStartEvent:" destination="Cpc-Be-Cbd" id="mbL-Uq-fmg"/>
+                                            <action selector="onPlayButtonTouchedEvent:" destination="Cpc-Be-Cbd" id="Lth-Df-kCD"/>
                                         </connections>
                                     </barButtonItem>
+                                    <barButtonItem width="20" style="plain" systemItem="fixedSpace" id="um2-YR-dZo"/>
                                     <barButtonItem systemItem="fastForward" id="Iwv-d9-lZd"/>
                                     <barButtonItem systemItem="flexibleSpace" id="D6O-Oz-0yd"/>
                                     <barButtonItem systemItem="compose" id="fuI-My-I8C">
@@ -36,16 +38,10 @@
                                             <action selector="onShowSettings:" destination="Cpc-Be-Cbd" id="Ujg-s8-C5q"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem systemItem="flexibleSpace" id="EYd-vo-VV7"/>
-                                    <barButtonItem systemItem="refresh" id="jZZ-vB-5Es">
-                                        <connections>
-                                            <action selector="onClearEvent:" destination="Cpc-Be-Cbd" id="Gzb-6q-hmu"/>
-                                        </connections>
-                                    </barButtonItem>
                                     <barButtonItem systemItem="flexibleSpace" id="X7t-Zq-2uN"/>
                                     <barButtonItem systemItem="trash" id="M9b-Tf-Auf">
                                         <connections>
-                                            <action selector="onRemovePage:" destination="Cpc-Be-Cbd" id="2kk-gI-mle"/>
+                                            <action selector="onClearEvent:" destination="Cpc-Be-Cbd" id="8wH-84-zfP"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem systemItem="add" id="dGK-4e-c4c">
@@ -72,11 +68,31 @@
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rJO-60-geH">
+                                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="5"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="layer. masksToBounds" value="YES"/>
+                                                    </userDefinedRuntimeAttributes>
+                                                </view>
+                                            </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
-                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         <rect key="contentStretch" x="0.0" y="0.0" width="0.0" height="0.0"/>
+                                        <constraints>
+                                            <constraint firstItem="rJO-60-geH" firstAttribute="leading" secondItem="Hbc-vl-YS1" secondAttribute="leading" constant="1" id="1xu-Ws-vfF"/>
+                                            <constraint firstAttribute="bottom" secondItem="rJO-60-geH" secondAttribute="bottom" constant="1" id="TRQ-0x-mFc"/>
+                                            <constraint firstAttribute="trailing" secondItem="rJO-60-geH" secondAttribute="trailing" constant="1" id="XdY-e5-7sh"/>
+                                            <constraint firstItem="rJO-60-geH" firstAttribute="top" secondItem="Hbc-vl-YS1" secondAttribute="top" constant="1" id="zle-Vm-jzA"/>
+                                        </constraints>
                                         <size key="customSize" width="50" height="50"/>
+                                        <connections>
+                                            <outlet property="rectangleView" destination="rJO-60-geH" id="geW-uv-8Cy"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
@@ -108,11 +124,11 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="compose" id="hpG-sj-3LD"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="bottomToolBar" destination="6nd-hL-bKe" id="5kB-ee-BfX"/>
                         <outlet property="collectionView" destination="seQ-A1-cWb" id="RGC-JP-FJm"/>
                         <outlet property="listButton" destination="hpG-sj-3LD" id="q4w-z7-Bqr"/>
                         <outlet property="pageControl" destination="Odp-23-gs5" id="wrC-K3-wcn"/>
                         <outlet property="sideMenuButton" destination="iNB-dB-j6p" id="g1l-NZ-Xrv"/>
-                        <outlet property="startButton" destination="7aK-c8-lKa" id="BGB-eR-Ynv"/>
                         <segue destination="Fdi-8I-min" kind="presentation" identifier="sw_popover" modalPresentationStyle="overFullScreen" modalTransitionStyle="coverVertical" id="7Qk-9f-4Ap"/>
                     </connections>
                 </viewController>
@@ -225,7 +241,7 @@
                         <viewControllerLayoutGuide type="top" id="xTc-KQ-AEl"/>
                         <viewControllerLayoutGuide type="bottom" id="mJB-qH-SCf"/>
                     </layoutGuides>
-                    <view key="view" alpha="0.90000000000000013" contentMode="scaleToFill" id="tyE-74-eos">
+                    <view key="view" alpha="0.75" contentMode="scaleToFill" id="tyE-74-eos">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -233,7 +249,7 @@
                                 <rect key="frame" x="397" y="228" width="100" height="30"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                                 <state key="normal" title="bpm">
-                                    <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                     <color key="titleShadowColor" red="0.502" green="0.502" blue="0.502" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                             </button>
@@ -244,7 +260,7 @@
                                 <rect key="frame" x="289" y="228" width="100" height="30"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                                 <state key="normal" title="beats">
-                                    <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                     <color key="titleShadowColor" red="0.502" green="0.502" blue="0.502" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                             </button>
@@ -262,12 +278,12 @@
                                 <rect key="frame" x="73" y="228" width="208" height="30"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                                 <state key="normal" title="signature">
-                                    <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                     <color key="titleShadowColor" red="0.502" green="0.502" blue="0.502" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <gestureRecognizers/>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="QgY-36-7io" appends="YES" id="F4I-Se-OTX"/>

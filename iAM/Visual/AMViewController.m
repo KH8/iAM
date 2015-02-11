@@ -15,6 +15,7 @@
 @property AMCollectionViewController *collectionViewController;
 @property AMSequencer *mainSequencer;
 @property AMStave *mainStave;
+@property UIBarButtonItem *temporaryPlayButton;
 
 @end
 
@@ -65,7 +66,7 @@
     _mainSequencer = nil;
 }
 
-- (IBAction)onStartEvent:(id)sender {
+- (IBAction)onPlayButtonTouchedEvent:(id)sender {
     [_mainSequencer startStop];
 }
 
@@ -95,9 +96,23 @@
 }
 
 - (void)sequenceHasStarted {
+    _temporaryPlayButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemPause target:self action:@selector(onPlayButtonTouchedEvent:)];
+    NSMutableArray *toolbarItems = [[NSMutableArray alloc] init];
+    for (NSObject *item in _bottomToolBar.items) {
+        [toolbarItems addObject:item];
+    }
+    [toolbarItems replaceObjectAtIndex:2 withObject:_temporaryPlayButton];
+    _bottomToolBar.items = toolbarItems;
 }
 
 - (void)sequenceHasStopped {
+    _temporaryPlayButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemPlay target:self action:@selector(onPlayButtonTouchedEvent:)];
+    NSMutableArray *toolbarItems = [[NSMutableArray alloc] init];
+    for (NSObject *item in _bottomToolBar.items) {
+        [toolbarItems addObject:item];
+    }
+    [toolbarItems replaceObjectAtIndex:2 withObject:_temporaryPlayButton];
+    _bottomToolBar.items = toolbarItems;
 }
 
 - (void)barHasBeenChanged {

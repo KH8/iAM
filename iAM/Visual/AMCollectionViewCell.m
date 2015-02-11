@@ -11,6 +11,7 @@
 @interface AMCollectionViewCell()
 
 @property (weak, nonatomic) AMNote *noteAssigned;
+@property (weak, nonatomic) IBOutlet UIView *rectangleView;
 
 @end
 
@@ -25,10 +26,10 @@
 - (void)reloadCell {
     UIColor *color = [[UIColor lightGrayColor] colorWithAlphaComponent:0.7F];
     if(_noteAssigned.isMajorNote) color = [[UIColor lightGrayColor] colorWithAlphaComponent:0.4F];
-    if(_noteAssigned.isSelected) color = [[UIColor lightGrayColor] colorWithAlphaComponent:0.2F];
+    if(_noteAssigned.isSelected) color = [[UIColor lightGrayColor] colorWithAlphaComponent:0.25F];
     if(_noteAssigned.isPlaying) color = [[UIColor redColor] colorWithAlphaComponent:0.5F];
     if(_noteAssigned.isTriggered) color = [color colorWithAlphaComponent:0.8F];
-    self.backgroundColor = color;
+    _rectangleView.backgroundColor = color;
 }
 
 - (void)touch {

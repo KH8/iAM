@@ -19,6 +19,7 @@
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="black" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6nd-hL-bKe">
                                 <rect key="frame" x="0.0" y="492" width="600" height="44"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="cRU-s5-Q6a"/>
                                 </constraints>
@@ -33,7 +34,7 @@
                                     <barButtonItem width="20" style="plain" systemItem="fixedSpace" id="um2-YR-dZo"/>
                                     <barButtonItem systemItem="fastForward" id="Iwv-d9-lZd"/>
                                     <barButtonItem systemItem="flexibleSpace" id="D6O-Oz-0yd"/>
-                                    <barButtonItem title="4/4 120 BPM" id="fuI-My-I8C">
+                                    <barButtonItem title="4:4 x4 120 BPM" id="fuI-My-I8C">
                                         <connections>
                                             <action selector="onShowSettings:" destination="Cpc-Be-Cbd" id="Ujg-s8-C5q"/>
                                         </connections>
@@ -44,6 +45,7 @@
                                             <action selector="onClearEvent:" destination="Cpc-Be-Cbd" id="8wH-84-zfP"/>
                                         </connections>
                                     </barButtonItem>
+                                    <barButtonItem width="20" style="plain" systemItem="fixedSpace" id="NIr-2D-ojA"/>
                                     <barButtonItem systemItem="add" id="dGK-4e-c4c">
                                         <connections>
                                             <action selector="onAddPageEvent:" destination="Cpc-Be-Cbd" id="wJw-Eh-Dae"/>
@@ -198,6 +200,7 @@
                                 <items>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="xfy-IG-Og2"/>
                                     <barButtonItem systemItem="trash" id="k2J-DC-6zc"/>
+                                    <barButtonItem width="20" style="plain" systemItem="fixedSpace" id="zod-sq-fyw"/>
                                     <barButtonItem title="Item" systemItem="add" id="uPF-m8-4xl"/>
                                 </items>
                                 <color key="tintColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -248,7 +251,7 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="te5-ea-RC4">
                                 <rect key="frame" x="397" y="228" width="100" height="30"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
-                                <state key="normal" title="bpm">
+                                <state key="normal" title="BPM">
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                     <color key="titleShadowColor" red="0.502" green="0.502" blue="0.502" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
@@ -259,7 +262,7 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bzj-27-fSe">
                                 <rect key="frame" x="289" y="228" width="100" height="30"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
-                                <state key="normal" title="beats">
+                                <state key="normal" title="DENSITY">
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                     <color key="titleShadowColor" red="0.502" green="0.502" blue="0.502" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
@@ -277,7 +280,7 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iSG-qw-jf2">
                                 <rect key="frame" x="73" y="228" width="208" height="30"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
-                                <state key="normal" title="signature">
+                                <state key="normal" title="SIGNATURE">
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                     <color key="titleShadowColor" red="0.502" green="0.502" blue="0.502" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
@@ -290,7 +293,7 @@
                         </connections>
                     </view>
                     <connections>
-                        <outlet property="lengthPicker" destination="8JB-Pp-4Cc" id="p5E-lk-Cfr"/>
+                        <outlet property="densityPicker" destination="8JB-Pp-4Cc" id="XTJ-ew-7LX"/>
                         <outlet property="signatureDenominatorPicker" destination="rxW-8T-fOo" id="3j9-i3-eM8"/>
                         <outlet property="signatureNumeratorPicker" destination="bPl-GG-4YA" id="iri-Ag-KCp"/>
                         <outlet property="tempoPicker" destination="ibw-dR-ieT" id="UHi-O8-8tO"/>

@@ -20,8 +20,8 @@
 
 @property (nonatomic, weak) id <AMBarVisualDelegate> delegate;
 
-@property (nonatomic) NSInteger maxLength;
-@property (nonatomic) NSInteger minLength;
+@property (nonatomic) NSInteger maxDensity;
+@property (nonatomic) NSInteger minDensity;
 
 @property (nonatomic) NSInteger maxSignature;
 @property (nonatomic) NSInteger minSignature;
@@ -39,7 +39,8 @@
 - (NSInteger)getSignatureNumerator;
 - (void)setSignatureDenominator: (NSInteger)aSignatureDenominator;
 - (NSInteger)getSignatureDenominator;
-- (void)setLengthToBePlayed: (NSInteger)aLength;
+- (void)setDensity: (NSInteger)aDensity;
+- (NSInteger)getDensity;
 - (NSInteger)getLengthToBePlayed;
 
 - (void)clear;

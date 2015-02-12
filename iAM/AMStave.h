@@ -38,12 +38,14 @@
 - (NSInteger)getTempo;
 
 - (void)addBar;
+- (void)removeActualBar;
 
 - (void)setFirstBarAsActual;
 - (void)setNextBarAsActual;
 - (void)setIndexAsActual: (NSUInteger)index;
 
 - (AMBar*)getActualBar;
-- (NSInteger )getActualIndex;
+- (NSInteger)getActualIndex;
+- (NSInteger)getSize;
 
 @end

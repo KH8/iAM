@@ -18,18 +18,17 @@
 
 @property (nonatomic) NSInteger signatureNumerator;
 @property (nonatomic) NSInteger signatureDenominator;
-
-@property (nonatomic) NSInteger lengthToBePlayed;
+@property (nonatomic) NSInteger density;
 
 @end
 
 @implementation AMBar
 
 NSUInteger const defaultNumberOfLines = 3;
-NSUInteger const defaultNumberOfNotesPerLine = 64;
+NSUInteger const defaultNumberOfNotesPerLine = 128;
 
-NSUInteger const maxLength = 64;
-NSUInteger const minLength = 3;
+NSUInteger const maxDensity = 1;
+NSUInteger const minDensity = 4;
 
 NSUInteger const maxSignature = 32;
 NSUInteger const minSignature = 1;
@@ -43,13 +42,13 @@ NSUInteger const minSignature = 1;
 }
 
 - (void)initBasicParameters {
-    _lengthToBePlayed = 16;
+    _density = 4;
     
     _signatureNumerator = 4;
     _signatureDenominator = 4;
 
-    _maxLength = maxLength;
-    _minLength = minLength;
+    _maxDensity = maxDensity;
+    _minDensity = minDensity;
     
     _maxSignature = maxSignature;
     _minSignature = minSignature;
@@ -85,7 +84,7 @@ NSUInteger const minSignature = 1;
         int i = 0;
         for (AMNote *note in line) {
             [note resetAsMajorNoteState];
-            if(i % _signatureNumerator == 0){
+            if(i % _density == 0){
                 [note setAsMajorNoteState];
             }
             i++;
@@ -135,12 +134,12 @@ NSUInteger const minSignature = 1;
 
 - (void)setSignatureNumerator: (NSInteger)aSignatureNumerator{
     _signatureNumerator = aSignatureNumerator;
-    [self updateMajorNotes];
+    [_delegate lengthHasBeenChanged];
+
 }
 
 - (NSInteger)getSignatureNumerator{
-    return _signatureNumerator;
-}
+    return _signatureNumerator;}
 
 - (void)setSignatureDenominator: (NSInteger)aSignatureDenominator{
     _signatureDenominator = aSignatureDenominator;
@@ -150,13 +149,18 @@ NSUInteger const minSignature = 1;
     return _signatureDenominator;
 }
 
-- (void)setLengthToBePlayed:(NSInteger)aLength {
-    _lengthToBePlayed = aLength;
+- (void)setDensity:(NSInteger)aDensity {
+    _density = aDensity;
+    [self updateMajorNotes];
     [_delegate lengthHasBeenChanged];
 }
 
-- (NSInteger)getLengthToBePlayed {
-    return _lengthToBePlayed;
+- (NSInteger)getDensity {
+    return _density;
+}
+
+- (NSInteger)getLengthToBePlayed{
+    return _density * _signatureNumerator;
 }
 
 @end

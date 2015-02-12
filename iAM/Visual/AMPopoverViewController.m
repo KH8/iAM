@@ -44,12 +44,11 @@
                                                           andStartValue:@(stave.getTempo)];
     _tempoPickerController.delegate = self;
     
-    NSArray *sizePickerData = [self createRangeOfValuesStartingFrom:bar.minLength
-                                                               upTo:bar.maxLength];
-    _lengthPickerController = [[AMPickerController alloc] initWithPicker:_lengthPicker
-                                                               dataArray:sizePickerData
-                                                           andStartValue:@(bar.getLengthToBePlayed)];
-    _lengthPickerController.delegate = self;
+    NSArray *densityPickerData = @[@1, @2, @4];
+    _densityPickerController = [[AMPickerController alloc] initWithPicker:_densityPicker
+                                                               dataArray:densityPickerData
+                                                           andStartValue:@(bar.getDensity)];
+    _densityPickerController.delegate = self;
 }
 
 - (NSMutableArray *)createRangeOfValuesStartingFrom: (NSInteger)startValue
@@ -64,7 +63,7 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    _lengthPickerController = nil;
+    _densityPickerController = nil;
     _tempoPickerController = nil;
 }
 
@@ -79,7 +78,7 @@
     AMBar *bar = stave.getActualBar;
     [self signatureDenominatorHasBeenChanged:bar];
     [self signatureNumeratorHasBeenChanged:bar];
-    [self lengthHasBeenChanged:bar];
+    [self densityHasBeenChanged:bar];
     [_delegate pickedValuesHaveBeenChanged];
 }
 
@@ -99,10 +98,10 @@
     [_signatureNumeratorPicker reloadAllComponents];
 }
 
-- (void)lengthHasBeenChanged:(AMBar*)bar {
-    NSInteger valuePicked = [_lengthPickerController getActualPickerValue];
-    if([bar getLengthToBePlayed] == valuePicked) return;
-    [bar setLengthToBePlayed:valuePicked];
+- (void)densityHasBeenChanged:(AMBar*)bar {
+    NSInteger valuePicked = [_densityPickerController getActualPickerValue];
+    if([bar getDensity] == valuePicked) return;
+    [bar setDensity:valuePicked];
 }
 
 - (void)tempoHasBeenChanged:(AMStave*)stave {

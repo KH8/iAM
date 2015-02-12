@@ -50,7 +50,24 @@ NSUInteger const minTempo = 60;
 - (void)addBar {
     AMBar *newBar = [[AMBar alloc] init];
     [newBar configureDefault];
-    [_arrayOfBars addObject:newBar];
+    
+    NSInteger newIndex = 0;
+    if(_arrayOfBars.count != 0){
+        newIndex = _actualIndex + 1;
+    }
+    
+    [_arrayOfBars insertObject:newBar atIndex:newIndex];
+    [self runAllVisualDelegates];
+}
+
+- (void)removeActualBar {
+    if(_arrayOfBars.count == 1){
+        return;
+    }
+    AMBar *barToBeRemoved = [self getActualBar];
+    [_arrayOfBars removeObject:barToBeRemoved];
+    if(_actualIndex >= _arrayOfBars.count) _actualIndex = 0;
+    [self runAllVisualDelegates];
 }
 
 - (void)runAllVisualDelegates{
@@ -89,5 +106,8 @@ NSUInteger const minTempo = 60;
     return _actualIndex;
 }
 
+- (NSInteger)getSize{
+    return _arrayOfBars.count;
+}
 
 @end

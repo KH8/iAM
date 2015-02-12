@@ -27,6 +27,7 @@
     [self loadMainObjects];
     [self loadCollectionViewController];
     [self loadSidebarMenu];
+    [self loadToolBar];
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
@@ -49,6 +50,7 @@
     _collectionView.delegate = _collectionViewController;
     _collectionView.dataSource = _collectionViewController;
 }
+
 - (void)loadSidebarMenu{
     SWRevealViewController *revealController = [self revealViewController];
     
@@ -59,6 +61,12 @@
     [self.sideMenuButton setAction: @selector( revealToggle: )];
     [self.listButton setTarget: self.revealViewController];
     [self.listButton setAction: @selector( rightRevealToggle: )];
+}
+
+- (void)loadToolBar{
+    UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc]initWithTarget:self
+                                                                                           action:@selector(onRemovePage:)];
+    [[[_bottomToolBar subviews] objectAtIndex:6] addGestureRecognizer:longPress];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -77,11 +85,15 @@
 }
 
 - (IBAction)onAddPageEvent:(id)sender {
-    _pageControl.numberOfPages = _pageControl.numberOfPages + 1;
     [_mainStave addBar];
 }
 
-- (IBAction)onRemovePage:(id)sender {
+- (void)onRemovePage:(UILongPressGestureRecognizer*)sender {
+    if (sender.state == UIGestureRecognizerStateEnded) {
+    }
+    else if (sender.state == UIGestureRecognizerStateBegan){
+        [_mainStave removeActualBar];
+    }
 }
 
 - (IBAction)onPageSelectionHasChangedEvent:(id)sender {
@@ -122,6 +134,7 @@
 
 - (void)barHasBeenChanged {
     _pageControl.currentPage = _mainStave.getActualIndex;
+    _pageControl.numberOfPages = _mainStave.getSize;
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
@@ -134,7 +147,11 @@
 
 - (void)pickedValuesHaveBeenChanged{
     AMBar *bar = _mainStave.getActualBar;
-    NSString *newTitle = [NSString stringWithFormat:@"%ld:%ld %ld BPM", (long)bar.getSignatureNumerator, (long)bar.getSignatureDenominator, (long)_mainStave.getTempo];
+    NSString *newTitle = [NSString stringWithFormat:@"%ld:%ld x%ld %ld BPM",
+                          (long)bar.getSignatureNumerator,
+                          (long)bar.getSignatureDenominator,
+                          (long)bar.getDensity,
+                          (long)_mainStave.getTempo];
     _temporarySettingsButton = [[UIBarButtonItem alloc] initWithTitle:newTitle
                                                                 style:UIBarButtonItemStylePlain
                                                                target:self

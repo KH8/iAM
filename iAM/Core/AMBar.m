@@ -84,7 +84,7 @@ NSUInteger const minSignature = 1;
         int i = 0;
         for (AMNote *note in line) {
             [note resetAsMajorNoteState];
-            if(i % _density == 0){
+            if(i % 4 == 0){
                 [note setAsMajorNoteState];
             }
             i++;

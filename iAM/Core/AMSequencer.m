@@ -180,7 +180,7 @@
 
 - (void)computeProperInterval{
     NSNumber *intervalBetweenBeatsInMilliseconds = @(60000.0f / _mainStave.getTempo);
-    NSNumber *actualIntervalInGrid = @(intervalBetweenBeatsInMilliseconds.floatValue / 4.0f);
+    NSNumber *actualIntervalInGrid = @(intervalBetweenBeatsInMilliseconds.floatValue / _actualBar.getDensity);
     NSNumber *numberOfTicksFloat = @(actualIntervalInGrid.floatValue / 2.0f);
     _numberOfTicksPerBeat = numberOfTicksFloat.integerValue;
 }

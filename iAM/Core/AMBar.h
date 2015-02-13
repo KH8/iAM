@@ -12,13 +12,14 @@
 
 @required
 
-- (void) lengthHasBeenChanged;
+- (void)signatureHasBeenChanged;
 
 @end
 
 @interface AMBar : NSMutableArray
 
 @property (nonatomic, weak) id <AMBarVisualDelegate> delegate;
+@property (nonatomic, weak) id <AMBarVisualDelegate> staveDelegate;
 
 @property (nonatomic) NSInteger maxDensity;
 @property (nonatomic) NSInteger minDensity;

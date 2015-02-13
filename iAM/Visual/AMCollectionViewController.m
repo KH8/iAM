@@ -119,7 +119,7 @@ static NSString * const reuseIdentifier = @"myCell";
     [self reloadData];
 }
 
-- (void)lengthHasBeenChanged{
+- (void)signatureHasBeenChanged{
     [self reloadData];
 }
 

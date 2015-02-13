@@ -134,7 +134,8 @@ NSUInteger const minSignature = 1;
 
 - (void)setSignatureNumerator: (NSInteger)aSignatureNumerator{
     _signatureNumerator = aSignatureNumerator;
-    [_delegate lengthHasBeenChanged];
+    [_delegate signatureHasBeenChanged];
+    [_staveDelegate signatureHasBeenChanged];
 
 }
 
@@ -143,6 +144,8 @@ NSUInteger const minSignature = 1;
 
 - (void)setSignatureDenominator: (NSInteger)aSignatureDenominator{
     _signatureDenominator = aSignatureDenominator;
+    [_delegate signatureHasBeenChanged];
+    [_staveDelegate signatureHasBeenChanged];
 }
 
 - (NSInteger)getSignatureDenominator{
@@ -152,7 +155,8 @@ NSUInteger const minSignature = 1;
 - (void)setDensity:(NSInteger)aDensity {
     _density = aDensity;
     [self updateMajorNotes];
-    [_delegate lengthHasBeenChanged];
+    [_delegate signatureHasBeenChanged];
+    [_staveDelegate signatureHasBeenChanged];
 }
 
 - (NSInteger)getDensity {

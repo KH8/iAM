@@ -49,6 +49,7 @@ NSUInteger const minTempo = 60;
 
 - (void)addBar {
     AMBar *newBar = [[AMBar alloc] init];
+    newBar.staveDelegate = self;
     [newBar configureDefault];
     
     NSInteger newIndex = 0;
@@ -108,6 +109,10 @@ NSUInteger const minTempo = 60;
 
 - (NSInteger)getSize{
     return _arrayOfBars.count;
+}
+
+- (void)signatureHasBeenChanged{
+    [self runAllVisualDelegates];
 }
 
 @end

@@ -10,8 +10,8 @@
 
 @required
 
-- (void) tempoHasBeenChanged;
-- (void) barHasBeenChanged;
+- (void)tempoHasBeenChanged;
+- (void)barHasBeenChanged;
 
 @end
 
@@ -19,11 +19,11 @@
 
 @required
 
-- (void) barHasBeenChanged;
+- (void)barHasBeenChanged;
 
 @end
 
-@interface AMStave : NSObject
+@interface AMStave : NSObject <AMBarVisualDelegate>
 
 @property (nonatomic, weak) id <AMStaveMechanicalDelegate> mechanicalDelegate;
 @property (nonatomic, weak) id <AMStaveVisualDelegate> visualDelegate;

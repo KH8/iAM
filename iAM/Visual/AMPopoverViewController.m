@@ -84,6 +84,10 @@
 
 - (void)signatureNumeratorHasBeenChanged:(AMBar*)bar {
     NSInteger valuePicked = [_signatureNumeratorPickerController getActualPickerValue];
+    NSInteger newSignatureDenominator = [_signatureDenominatorPickerController getActualPickerValue];
+    if(valuePicked > newSignatureDenominator){
+        valuePicked = newSignatureDenominator;
+    }
     if([bar getSignatureNumerator] == valuePicked) return;
     [bar setSignatureNumerator:valuePicked];
 }

@@ -135,6 +135,7 @@
 - (void)barHasBeenChanged {
     _pageControl.currentPage = _mainStave.getActualIndex;
     _pageControl.numberOfPages = _mainStave.getSize;
+    [self updateSettingsButton];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
@@ -146,6 +147,10 @@
 }
 
 - (void)pickedValuesHaveBeenChanged{
+    [self updateSettingsButton];
+}
+
+- (void)updateSettingsButton{
     AMBar *bar = _mainStave.getActualBar;
     NSString *newTitle = [NSString stringWithFormat:@"%ld:%ld x%ld %ld BPM",
                           (long)bar.getSignatureNumerator,

@@ -62,7 +62,7 @@
 }
 
 - (void)initTimer {
-    _mainTimer = [NSTimer scheduledTimerWithTimeInterval:0.002f
+    _mainTimer = [NSTimer scheduledTimerWithTimeInterval:0.001f
                                                   target:self selector:@selector(onTick)
                                                 userInfo:nil repeats:YES];
     NSRunLoop *runner = [NSRunLoop currentRunLoop];
@@ -125,20 +125,15 @@
 
 - (void)playTheRow {
     NSInteger incrementValue = 4.0 / _actualBar.getDensity;
-    NSInteger length = _actualBar.getLengthToBePlayed * incrementValue;
-    NSInteger index = _actualNoteIndex % length;
+    NSInteger index = _actualNoteIndex % _actualBar.getLengthToBePlayed;
+    index = index * incrementValue;
     [self handlePlayOnStave:_actualBar
                atPosition:(NSUInteger) index];
 
     dispatch_async(dispatch_get_main_queue(), ^{
         [_notesToBeClearedIndex addObject:@(index)];
     });
-
-    _actualNoteIndex = _actualNoteIndex + incrementValue;
-    if(_actualNoteIndex == length * incrementValue) {
-        [_mainStave setNextBarAsActual];
-        _actualNoteIndex = 0;
-    }
+    _actualNoteIndex++;
 }
 
 - (void)clearTheRow {
@@ -152,6 +147,10 @@
             [_notesToBeClearedIndex removeObject:index];
         }
     });
+    if(_actualNoteIndex == _actualBar.getLengthToBePlayed) {
+        [_mainStave setNextBarAsActual];
+        _actualNoteIndex = 0;
+    }
 }
 
 - (void)handlePlayOnStave: (AMBar *)aStave
@@ -185,7 +184,7 @@
     NSNumber *actualIntervalInGrid = @(intervalBetweenBeatsInMilliseconds.floatValue / _actualBar.getDensity);
     NSNumber *denominatorFactor = @(_actualBar.getSignatureDenominator / 4.0);
     NSNumber *actualIntervalAdequateToSignatureDenominator = @(actualIntervalInGrid.floatValue / denominatorFactor.floatValue);
-    NSNumber *numberOfTicksFloat = @(actualIntervalAdequateToSignatureDenominator.floatValue / 2.0f);
+    NSNumber *numberOfTicksFloat = @(actualIntervalAdequateToSignatureDenominator.floatValue / 1.0f);
     _numberOfTicksPerBeat = numberOfTicksFloat.integerValue;
 }
 

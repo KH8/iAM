@@ -124,7 +124,9 @@
 }
 
 - (void)playTheRow {
-    NSInteger index = _actualNoteIndex % _actualBar.getLengthToBePlayed;
+    NSInteger incrementValue = 4.0 / _actualBar.getDensity;
+    NSInteger length = _actualBar.getLengthToBePlayed * incrementValue;
+    NSInteger index = _actualNoteIndex % length;
     [self handlePlayOnStave:_actualBar
                atPosition:(NSUInteger) index];
 
@@ -132,8 +134,8 @@
         [_notesToBeClearedIndex addObject:@(index)];
     });
 
-    _actualNoteIndex++;
-    if(_actualNoteIndex == _actualBar.getLengthToBePlayed) {
+    _actualNoteIndex = _actualNoteIndex + incrementValue;
+    if(_actualNoteIndex == length * incrementValue) {
         [_mainStave setNextBarAsActual];
         _actualNoteIndex = 0;
     }
@@ -181,7 +183,9 @@
 - (void)computeProperInterval{
     NSNumber *intervalBetweenBeatsInMilliseconds = @(60000.0f / _mainStave.getTempo);
     NSNumber *actualIntervalInGrid = @(intervalBetweenBeatsInMilliseconds.floatValue / _actualBar.getDensity);
-    NSNumber *numberOfTicksFloat = @(actualIntervalInGrid.floatValue / 2.0f);
+    NSNumber *denominatorFactor = @(_actualBar.getSignatureDenominator / 4.0);
+    NSNumber *actualIntervalAdequateToSignatureDenominator = @(actualIntervalInGrid.floatValue / denominatorFactor.floatValue);
+    NSNumber *numberOfTicksFloat = @(actualIntervalAdequateToSignatureDenominator.floatValue / 2.0f);
     _numberOfTicksPerBeat = numberOfTicksFloat.integerValue;
 }
 

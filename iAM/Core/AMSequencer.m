@@ -115,8 +115,8 @@
     }
     else{
         if(_notesToBeClearedIndex.count != 0){
-            [self performSelectorInBackground:@selector(clearTheRow)
-                                   withObject:nil];
+            [_mainStave clearAllTriggerMarkers];
+            [_notesToBeClearedIndex removeAllObjects];
         }
         _actualTickIndex = 0;
         _actualNoteIndex = 0;

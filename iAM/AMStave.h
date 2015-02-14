@@ -48,4 +48,6 @@
 - (NSInteger)getActualIndex;
 - (NSInteger)getSize;
 
+- (void)clearAllTriggerMarkers;
+
 @end

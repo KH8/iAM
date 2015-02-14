@@ -111,6 +111,12 @@ NSUInteger const minTempo = 60;
     return _arrayOfBars.count;
 }
 
+- (void)clearAllTriggerMarkers{
+    for (AMBar *bar in _arrayOfBars) {
+        [bar clearTriggerMarkers];
+    }
+}
+
 - (void)signatureHasBeenChanged{
     [self runAllVisualDelegates];
 }

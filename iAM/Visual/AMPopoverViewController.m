@@ -23,6 +23,7 @@
 
 - (void)loadPickers{
     AMStave *stave = _actuallySelectedSequencer.getStave;
+    stave.mechanicalPickerViewDelegate = self;
     AMBar *bar = stave.getActualBar;
     NSArray *sinatureNumeratorPickerData = [self createRangeOfValuesStartingFrom:bar.minSignature
                                                                             upTo:bar.getSignatureDenominator];
@@ -72,6 +73,11 @@
                              completion: nil];
 }
 
+- (IBAction)onTapTempo:(id)sender {
+    AMStave *stave = _actuallySelectedSequencer.getStave;
+    [stave tapTempo];
+}
+
 - (void)pickerSelectionHasChanged{
     AMStave *stave = _actuallySelectedSequencer.getStave;
     [self tempoHasBeenChanged:stave];
@@ -113,6 +119,14 @@
     if([stave getTempo] == valuePicked) return;
     [stave setTempo:valuePicked];
 }
+
+- (void)tempoHasBeenChanged{
+    AMStave *stave = _actuallySelectedSequencer.getStave;
+    NSNumber *newTempo = [[NSNumber alloc] initWithInteger:stave.getTempo];
+    [_tempoPickerController setActualValue:newTempo];
+}
+
+- (void)barHasBeenChanged{}
 
 - (bool)isValue: (NSInteger)aValue
      withingMax: (NSInteger)aMaximum

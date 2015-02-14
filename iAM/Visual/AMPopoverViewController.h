@@ -18,7 +18,7 @@
 
 @end
 
-@interface AMPopoverViewController : UIViewController <AMPickerControllerDelegate>
+@interface AMPopoverViewController : UIViewController <AMPickerControllerDelegate, AMStaveMechanicalDelegate>
 
 @property (nonatomic, weak) id <AMPopoverViewControllerDelegate> delegate;
 

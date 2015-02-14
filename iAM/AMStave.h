@@ -26,6 +26,7 @@
 @interface AMStave : NSObject <AMBarVisualDelegate>
 
 @property (nonatomic, weak) id <AMStaveMechanicalDelegate> mechanicalDelegate;
+@property (nonatomic, weak) id <AMStaveMechanicalDelegate> mechanicalPickerViewDelegate;
 @property (nonatomic, weak) id <AMStaveVisualDelegate> visualDelegate;
 @property (nonatomic, weak) id <AMStaveVisualDelegate> visualPageViewDelegate;
 
@@ -36,6 +37,7 @@
 
 - (void)setTempo: (NSInteger)aTempo;
 - (NSInteger)getTempo;
+- (void)tapTempo;
 
 - (void)addBar;
 - (void)removeActualBar;

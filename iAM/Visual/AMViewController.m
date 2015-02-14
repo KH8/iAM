@@ -6,8 +6,8 @@
 //  Copyright (c) 2015 H@E. All rights reserved.
 //
 
-#import "AMViewController.h"
 #import "SWRevealViewController.h"
+#import "AMViewController.h"
 
 @interface AMViewController () {
 }

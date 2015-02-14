@@ -4,6 +4,7 @@
 //
 
 #import "AMStave.h"
+#import "AMLogger.h"
 
 @interface AMStave ()
 
@@ -11,6 +12,8 @@
 @property (nonatomic) NSMutableArray *arrayOfBars;
 @property (nonatomic) NSInteger actualIndex;
 @property (nonatomic) AMBar *previousBar;
+
+@property (nonatomic) NSDate *lastTapTime;
 
 @end
 
@@ -36,6 +39,8 @@ NSUInteger const minTempo = 60;
 
     _maxTempo = maxTempo;
     _minTempo = minTempo;
+    
+    _lastTapTime = [NSDate date];
 }
 
 - (void)setTempo:(NSInteger)aTempo {
@@ -45,6 +50,24 @@ NSUInteger const minTempo = 60;
 
 - (NSInteger)getTempo {
     return _tempo;
+}
+
+- (void)tapTempo {
+    NSDate *actualTapTime = [NSDate date];
+    NSTimeInterval executionTime = [actualTapTime timeIntervalSinceDate:_lastTapTime];
+    _lastTapTime = actualTapTime;
+    NSNumber *intervalSinceLastTapInMilliseconds = @(executionTime * 1000.0f);
+    
+    if(intervalSinceLastTapInMilliseconds.floatValue > 1000.0f){
+        return;
+    }
+    if(intervalSinceLastTapInMilliseconds.floatValue < 200.0f){
+        return;
+    }
+    
+    NSNumber *newTempo = @(60000.0f / intervalSinceLastTapInMilliseconds.floatValue);
+    [self setTempo:newTempo.integerValue];
+    [_mechanicalPickerViewDelegate tempoHasBeenChanged];
 }
 
 - (void)addBar {

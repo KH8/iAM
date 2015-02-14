@@ -171,7 +171,7 @@
     NSUInteger j = 0;
     for (NSMutableArray *line in aStave) {
         AMNote *note = line[aPosition];
-        [note clearTriggerMarker];
+        [note changeTriggerMarker:NO];
         if(note.isPlaying){
             [_arrayOfPlayers[j] stopSound];
         }

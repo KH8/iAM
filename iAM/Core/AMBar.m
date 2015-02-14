@@ -83,9 +83,9 @@ NSUInteger const minSignature = 1;
     for (NSMutableArray *line in _mainArray) {
         int i = 0;
         for (AMNote *note in line) {
-            [note resetAsMajorNoteState];
+            [note markMajorNoteState:NO];
             if(i % 4 == 0){
-                [note setAsMajorNoteState];
+                [note markMajorNoteState:YES];
             }
             i++;
         }
@@ -105,7 +105,7 @@ NSUInteger const minSignature = 1;
 - (void)clearTriggerMarkers{
     for (NSMutableArray *line in _mainArray) {
         for (AMNote *note in line) {
-            [note clearTriggerMarker];
+            [note changeTriggerMarker:NO];
         }
     }
 }

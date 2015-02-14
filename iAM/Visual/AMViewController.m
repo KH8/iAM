@@ -8,6 +8,7 @@
 
 #import "SWRevealViewController.h"
 #import "AMViewController.h"
+#import <AVFoundation/AVFoundation.h>
 
 @interface AMViewController () {
 }
@@ -23,11 +24,12 @@
 @implementation AMViewController
 
 - (void)viewDidLoad {
-    [super viewDidLoad];
     [self loadMainObjects];
     [self loadCollectionViewController];
     [self loadSidebarMenu];
     [self loadToolBar];
+    [self loadBackgroundAudioSession];
+    [super viewDidLoad];
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
@@ -69,6 +71,10 @@
     [[[_bottomToolBar subviews] objectAtIndex:6] addGestureRecognizer:longPress];
 }
 
+- (void)loadBackgroundAudioSession{
+    [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback error:nil];
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     _collectionViewController = nil;
@@ -77,6 +83,13 @@
 
 - (IBAction)onPlayButtonTouchedEvent:(id)sender {
     [_mainSequencer startStop];
+    if(_mainSequencer.isRunning){
+        [[AVAudioSession sharedInstance] setActive: YES error: nil];
+        [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
+    }
+    else{
+        [[UIApplication sharedApplication] endReceivingRemoteControlEvents];
+    }
 }
 
 - (IBAction)onClearEvent:(id)sender {

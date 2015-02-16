@@ -72,7 +72,7 @@
 }
 
 - (void)loadBackgroundAudioSession{
-    [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback error:nil];
+    [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryMultiRoute error:nil];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -88,6 +88,7 @@
         [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
     }
     else{
+        [[AVAudioSession sharedInstance] setActive: NO error: nil];
         [[UIApplication sharedApplication] endReceivingRemoteControlEvents];
     }
 }

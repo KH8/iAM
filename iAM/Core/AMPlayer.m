@@ -9,6 +9,8 @@
 @interface AMPlayer ()
 
 @property AVAudioPlayer *audioPlayer;
+@property NSString *fileName;
+@property NSString *fileType;
 
 @end
 
@@ -19,22 +21,29 @@
     self = [super init];
     if (self)
     {
-        NSBundle *mainBundle = [NSBundle mainBundle];
-        NSString *filePath = [mainBundle pathForResource:aFileName ofType:aFileType];
-        NSData *fileData = [NSData dataWithContentsOfFile:filePath];
-        NSError *error = nil;
-
-        _audioPlayer = [[AVAudioPlayer alloc] initWithData:fileData error:&error];
+        _fileName = aFileName;
+        _fileType = aFileType;
+        //[self initNewAudioPlayer];
     }
     return self;
 }
 
--(void) playSound {
+- (void) initNewAudioPlayer{
+    NSBundle *mainBundle = [NSBundle mainBundle];
+    NSString *filePath = [mainBundle pathForResource:_fileName ofType:_fileType];
+    NSData *fileData = [NSData dataWithContentsOfFile:filePath];
+    NSError *error = nil;
+    _audioPlayer = [[AVAudioPlayer alloc] initWithData:fileData error:&error];
+}
+
+- (void) playSound {
+    [self initNewAudioPlayer];
     [_audioPlayer play];
 }
 
--(void) stopSound {
+- (void) stopSound {
     [_audioPlayer stop];
+    _audioPlayer = nil;
 }
 
 @end

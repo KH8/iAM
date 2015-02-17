@@ -24,7 +24,7 @@
 - (void)killBackgroundThread;
 
 - (void)startStop;
-- (bool)isRunning;
+- (BOOL)isRunning;
 - (void)clear;
 
 - (AMStave *)getStave;

@@ -86,7 +86,7 @@
     }
 }
 
-- (bool)isRunning {
+- (BOOL)isRunning {
     return _runningState;
 }
 
@@ -124,7 +124,7 @@
 }
 
 - (void)playTheRow {
-    NSInteger incrementValue = 4.0 / _actualBar.getDensity;
+    NSInteger incrementValue = (NSInteger) (4.0 / _actualBar.getDensity);
     NSInteger index = _actualNoteIndex % _actualBar.getLengthToBePlayed;
     index = index * incrementValue;
     [self handlePlayOnStave:_actualBar

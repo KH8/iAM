@@ -4,7 +4,6 @@
 //
 
 #import "AMStave.h"
-#import "AMLogger.h"
 
 @interface AMStave ()
 

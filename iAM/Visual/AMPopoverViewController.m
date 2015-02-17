@@ -25,10 +25,10 @@
     AMStave *stave = _actuallySelectedSequencer.getStave;
     stave.mechanicalPickerViewDelegate = self;
     AMBar *bar = stave.getActualBar;
-    NSArray *sinatureNumeratorPickerData = [self createRangeOfValuesStartingFrom:bar.minSignature
+    NSArray *signatureNumeratorPickerData = [self createRangeOfValuesStartingFrom:bar.minSignature
                                                                             upTo:bar.getSignatureDenominator];
     _signatureNumeratorPickerController = [[AMPickerController alloc] initWithPicker:_signatureNumeratorPicker
-                                                                           dataArray:sinatureNumeratorPickerData
+                                                                           dataArray:signatureNumeratorPickerData
                                                                        andStartValue:@(bar.getSignatureNumerator)];
     _signatureNumeratorPickerController.delegate = self;
     
@@ -102,9 +102,9 @@
     NSInteger valuePicked = [_signatureDenominatorPickerController getActualPickerValue];
     if([bar getSignatureDenominator] == valuePicked) return;
     [bar setSignatureDenominator:valuePicked];
-    NSArray *sinatureNumeratorPickerData = [self createRangeOfValuesStartingFrom:bar.minSignature
+    NSArray *signatureNumeratorPickerData = [self createRangeOfValuesStartingFrom:bar.minSignature
                                                                             upTo:bar.getSignatureDenominator];
-    [_signatureNumeratorPickerController setDataArray:sinatureNumeratorPickerData];
+    [_signatureNumeratorPickerController setDataArray:signatureNumeratorPickerData];
     [_signatureNumeratorPicker reloadAllComponents];
 }
 
@@ -127,11 +127,5 @@
 }
 
 - (void)barHasBeenChanged{}
-
-- (bool)isValue: (NSInteger)aValue
-     withingMax: (NSInteger)aMaximum
-         andMin: (NSInteger)aMinimum{
-    return aValue <= aMaximum && aValue >= aMinimum;
-}
 
 @end

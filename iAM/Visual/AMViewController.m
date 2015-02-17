@@ -68,7 +68,7 @@
 - (void)loadToolBar{
     UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc]initWithTarget:self
                                                                                            action:@selector(onRemovePage:)];
-    [[[_bottomToolBar subviews] objectAtIndex:6] addGestureRecognizer:longPress];
+    [[_bottomToolBar subviews][6] addGestureRecognizer:longPress];
 }
 
 - (void)loadBackgroundAudioSession{
@@ -115,7 +115,7 @@
         [_mainSequencer startStop];
     }
     AMStave *stave = _mainSequencer.getStave;
-    [stave setIndexAsActual:_pageControl.currentPage];
+    [stave setIndexAsActual:(NSUInteger) _pageControl.currentPage];
 }
 
 - (IBAction)onShowSettings:(id)sender {
@@ -142,7 +142,7 @@
     for (NSObject *item in _bottomToolBar.items) {
         [toolbarItems addObject:item];
     }
-    [toolbarItems replaceObjectAtIndex:anIndex withObject:anObject];
+    toolbarItems[(NSUInteger) anIndex] = anObject;
     _bottomToolBar.items = toolbarItems;
 }
 

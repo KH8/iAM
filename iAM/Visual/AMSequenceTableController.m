@@ -46,7 +46,7 @@ static NSString * const reuseIdentifier = @"mySequenceStepCell";
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     AMSequenceTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier forIndexPath:indexPath];
-    cell.stepTitle.text = _sequenceSteps[indexPath.row];
+    cell.stepTitle.text = _sequenceSteps[(NSUInteger) indexPath.row];
     cell.stepSubtitle.text  = @("4:4 x2 120BPM");
     return cell;
 }

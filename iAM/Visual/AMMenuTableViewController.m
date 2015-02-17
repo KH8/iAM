@@ -46,7 +46,7 @@ static NSString * const reuseIdentifier = @"myMenuStepCell";
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier forIndexPath:indexPath];
-    cell.textLabel.text = _menuItems[indexPath.row];
+    cell.textLabel.text = _menuItems[(NSUInteger) indexPath.row];
     return cell;
 }
 

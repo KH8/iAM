@@ -23,7 +23,6 @@
     {
         _fileName = aFileName;
         _fileType = aFileType;
-        //[self initNewAudioPlayer];
     }
     return self;
 }

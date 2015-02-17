@@ -110,8 +110,8 @@ static NSString * const reuseIdentifier = @"myCell";
 }
 
 - (NSInteger)getNumberOfNote: (NSIndexPath *)indexPath{
-    NSInteger multiplicator = 4.0 / _actualBar.getDensity;
-    return indexPath.section * multiplicator;
+    NSInteger multiplier = (NSInteger) (4.0 / _actualBar.getDensity);
+    return indexPath.section * multiplier;
 }
 
 - (void)barHasBeenChanged{

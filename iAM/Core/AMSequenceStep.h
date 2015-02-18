@@ -19,10 +19,14 @@ enum {
 
 typedef NSInteger StepType;
 
-- (id)init;
+- (id)initWithIndex:(NSInteger)index;
 - (AMStave*)getStave;
 
 - (void)setNextStepType;
 - (StepType)getStepType;
+
+- (void)setName: (NSString*)newName;
+- (NSString*)getName;
+- (NSString*)getDescription;
 
 @end

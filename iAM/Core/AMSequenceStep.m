@@ -10,16 +10,19 @@
 
 @interface AMSequenceStep()
 
-@property AMStave *mainStave;
+@property (nonatomic) NSString *name;
 @property StepType stepType;
+
+@property AMStave *mainStave;
 
 @end
 
 @implementation AMSequenceStep
 
-- (id)init {
+- (id)initWithIndex:(NSInteger)index {
     self = [super init];
     if (self) {
+        _name = [NSString stringWithFormat:@"STEP %ld", (long)index];
         _mainStave = [[AMStave alloc] init];
         _stepType = INFINITE_LOOP;
     }
@@ -36,6 +39,23 @@
 
 - (StepType)getStepType{
     return _stepType;
+}
+
+- (void)setName: (NSString*)newName{
+    _name = [NSString stringWithFormat:@"%@", newName];
+}
+
+- (NSString*)getName{
+    return _name;
+}
+
+- (NSString*)getDescription{
+    AMBar *bar = _mainStave.getActualBar;
+    return [NSString stringWithFormat:@"%ld:%ld x%ld %ld BPM",
+            (long)bar.getSignatureNumerator,
+            (long)bar.getSignatureDenominator,
+            (long)bar.getDensity,
+            (long)_mainStave.getTempo];
 }
 
 @end

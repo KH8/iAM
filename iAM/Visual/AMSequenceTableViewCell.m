@@ -7,6 +7,13 @@
 //
 
 #import "AMSequenceTableViewCell.h"
+#import "AMSequenceStep.h"
+
+@interface AMSequenceTableViewCell ()
+
+@property AMSequenceStep *sequenceStep;
+
+@end
 
 @implementation AMSequenceTableViewCell
 
@@ -18,6 +25,16 @@
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
+}
+
+- (void)assignSequenceStep: (AMSequenceStep*)aStep{
+    _sequenceStep = aStep;
+    _stepTitle.text = _sequenceStep.getName;
+    _stepSubtitle.text = _sequenceStep.getDescription;
+}
+
+- (IBAction)newLabelEntered:(id)sender {
+    [_sequenceStep setName:_stepTitle.text];
 }
 
 @end

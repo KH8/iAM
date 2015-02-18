@@ -7,10 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AMSequenceStep.h"
 
 @interface AMSequenceTableViewCell : UITableViewCell
 
-@property (weak, nonatomic) IBOutlet UILabel *stepTitle;
+@property (weak, nonatomic) IBOutlet UITextField *stepTitle;
 @property (weak, nonatomic) IBOutlet UILabel *stepSubtitle;
+
+- (void)assignSequenceStep: (AMSequenceStep*)aStep;
 
 @end

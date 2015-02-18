@@ -236,30 +236,36 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="right" tableViewCell="WuP-nO-XxU" id="AIB-5G-Bc9">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YH8-W3-SOb">
-                                                    <rect key="frame" x="501" y="5" width="42" height="20.5"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SoH-Jh-0hG">
                                                     <rect key="frame" x="517" y="26" width="26" height="12"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Label" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pXz-Eu-HxI">
+                                                    <rect key="frame" x="243" y="5" width="300" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="300" id="1Zd-gG-K9x"/>
+                                                    </constraints>
+                                                    <color key="textColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                    <connections>
+                                                        <action selector="newLabelEntered:" destination="WuP-nO-XxU" eventType="editingDidEnd" id="p1P-Zm-kn3"/>
+                                                    </connections>
+                                                </textField>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="SoH-Jh-0hG" secondAttribute="trailing" constant="10" id="DcH-F9-kyv"/>
-                                                <constraint firstItem="YH8-W3-SOb" firstAttribute="top" secondItem="AIB-5G-Bc9" secondAttribute="top" constant="5" id="EEI-w5-SXq"/>
+                                                <constraint firstAttribute="trailing" secondItem="pXz-Eu-HxI" secondAttribute="trailing" constant="10" id="FWa-c8-NaY"/>
                                                 <constraint firstAttribute="bottom" secondItem="SoH-Jh-0hG" secondAttribute="bottom" constant="5" id="RTi-op-kT6"/>
-                                                <constraint firstAttribute="trailing" secondItem="YH8-W3-SOb" secondAttribute="trailing" constant="10" id="WX6-fM-viC"/>
+                                                <constraint firstItem="pXz-Eu-HxI" firstAttribute="top" secondItem="AIB-5G-Bc9" secondAttribute="top" constant="5" id="nL1-Yt-SDQ"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.20000000000000001" alpha="1" colorSpace="calibratedWhite"/>
                                         <connections>
                                             <outlet property="stepSubtitle" destination="SoH-Jh-0hG" id="vaW-9x-3Ly"/>
-                                            <outlet property="stepTitle" destination="YH8-W3-SOb" id="nPI-l3-LxB"/>
+                                            <outlet property="stepTitle" destination="pXz-Eu-HxI" id="4WD-a2-roA"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

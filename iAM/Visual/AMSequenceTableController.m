@@ -26,9 +26,9 @@ static NSString * const reuseIdentifier = @"mySequenceStepCell";
 
 - (void)initInitialSteps{
     _sequenceSteps = [[NSMutableArray alloc] init];
-    [_sequenceSteps addObject:@("STEP 1")];
-    [_sequenceSteps addObject:@("STEP 2")];
-    [_sequenceSteps addObject:@("STEP 3")];
+    [_sequenceSteps addObject:[[AMSequenceStep alloc] initWithIndex:1]];
+    [_sequenceSteps addObject:[[AMSequenceStep alloc] initWithIndex:2]];
+    [_sequenceSteps addObject:[[AMSequenceStep alloc] initWithIndex:3]];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -46,8 +46,7 @@ static NSString * const reuseIdentifier = @"mySequenceStepCell";
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     AMSequenceTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier forIndexPath:indexPath];
-    cell.stepTitle.text = _sequenceSteps[(NSUInteger) indexPath.row];
-    cell.stepSubtitle.text  = @("4:4 x2 120BPM");
+    [cell assignSequenceStep:_sequenceSteps[indexPath.row]];
     return cell;
 }
 

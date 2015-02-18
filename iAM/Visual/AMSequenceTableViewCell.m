@@ -33,6 +33,10 @@
     _stepSubtitle.text = _sequenceStep.getDescription;
 }
 
+- (AMSequenceStep*)getStepAssigned{
+    return _sequenceStep;
+}
+
 - (IBAction)newLabelEntered:(id)sender {
     [_sequenceStep setName:_stepTitle.text];
 }

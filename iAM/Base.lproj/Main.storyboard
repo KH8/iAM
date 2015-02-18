@@ -284,10 +284,16 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="xfy-IG-Og2"/>
                                     <barButtonItem systemItem="trash" id="k2J-DC-6zc">
                                         <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <action selector="onDeleteStep:" destination="9xo-7Y-GEb" id="fy4-zI-WrU"/>
+                                        </connections>
                                     </barButtonItem>
                                     <barButtonItem width="20" style="plain" systemItem="fixedSpace" id="zod-sq-fyw"/>
                                     <barButtonItem title="Item" systemItem="add" id="uPF-m8-4xl">
                                         <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <action selector="onAddStep:" destination="9xo-7Y-GEb" id="ErB-q8-WBT"/>
+                                        </connections>
                                     </barButtonItem>
                                 </items>
                                 <color key="tintColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -305,6 +311,9 @@
                             <constraint firstItem="IhR-XU-bF7" firstAttribute="leading" secondItem="KEY-nn-oKE" secondAttribute="leading" id="w4A-81-Cgp"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="IhR-XU-bF7" id="Gmi-Lk-3lR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OUB-9k-CU7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

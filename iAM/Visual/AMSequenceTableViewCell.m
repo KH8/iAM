@@ -11,13 +11,13 @@
 @implementation AMSequenceTableViewCell
 
 - (void)awakeFromNib {
-    // Initialization code
+    UIView *bgColorView = [[UIView alloc] init];
+    bgColorView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.4F];
+    [self setSelectedBackgroundView:bgColorView];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
 }
 
 @end

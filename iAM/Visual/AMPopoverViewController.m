@@ -124,6 +124,7 @@
     AMStave *stave = _actuallySelectedSequencer.getStave;
     NSNumber *newTempo = [[NSNumber alloc] initWithInteger:stave.getTempo];
     [_tempoPickerController setActualValue:newTempo];
+    [_delegate pickedValuesHaveBeenChanged];
 }
 
 - (void)barHasBeenChanged{}

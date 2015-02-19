@@ -243,15 +243,14 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Label" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pXz-Eu-HxI">
-                                                    <rect key="frame" x="243" y="5" width="300" height="21"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="300" id="1Zd-gG-K9x"/>
-                                                    </constraints>
+                                                    <rect key="frame" x="497" y="5" width="46" height="21"/>
                                                     <color key="textColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <textInputTraits key="textInputTraits"/>
+                                                    <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
                                                     <connections>
                                                         <action selector="newLabelEntered:" destination="WuP-nO-XxU" eventType="editingDidEnd" id="p1P-Zm-kn3"/>
+                                                        <action selector="newLebelEnteringStarted:" destination="WuP-nO-XxU" eventType="editingDidBegin" id="XPN-c0-mbB"/>
+                                                        <outlet property="delegate" destination="WuP-nO-XxU" id="VEI-fR-Lfq"/>
                                                     </connections>
                                                 </textField>
                                             </subviews>
@@ -263,6 +262,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.20000000000000001" alpha="1" colorSpace="calibratedWhite"/>
+                                        <gestureRecognizers/>
                                         <connections>
                                             <outlet property="stepSubtitle" destination="SoH-Jh-0hG" id="vaW-9x-3Ly"/>
                                             <outlet property="stepTitle" destination="pXz-Eu-HxI" id="4WD-a2-roA"/>

@@ -66,7 +66,7 @@
                                                   target:self selector:@selector(onTick)
                                                 userInfo:nil repeats:YES];
     NSRunLoop *runner = [NSRunLoop currentRunLoop];
-    [runner addTimer: _mainTimer forMode: NSRunLoopCommonModes];
+    [runner addTimer:_mainTimer forMode: NSRunLoopCommonModes];
 }
 
 - (void)killBackgroundThread{
@@ -124,6 +124,7 @@
 }
 
 - (void)playTheRow {
+    NSLog(@"tick");
     NSInteger incrementValue = (NSInteger) (4.0 / _actualBar.getDensity);
     NSInteger index = _actualNoteIndex % _actualBar.getLengthToBePlayed;
     index = index * incrementValue;

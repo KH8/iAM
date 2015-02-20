@@ -248,8 +248,7 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
                                                     <connections>
-                                                        <action selector="newLabelEntered:" destination="WuP-nO-XxU" eventType="editingDidEnd" id="p1P-Zm-kn3"/>
-                                                        <action selector="newLebelEnteringStarted:" destination="WuP-nO-XxU" eventType="editingDidBegin" id="XPN-c0-mbB"/>
+                                                        <action selector="textFieldEditingChanged:" destination="WuP-nO-XxU" eventType="editingChanged" id="Ccn-NN-cgP"/>
                                                         <outlet property="delegate" destination="WuP-nO-XxU" id="VEI-fR-Lfq"/>
                                                     </connections>
                                                 </textField>

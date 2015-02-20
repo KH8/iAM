@@ -26,6 +26,7 @@
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
+    [_stepTitle resignFirstResponder];
 }
 
 - (void)assignSequenceStep: (AMSequenceStep*)aStep{
@@ -34,34 +35,39 @@
     _stepSubtitle.text = _sequenceStep.getDescription;
 }
 
-- (AMSequenceStep*)getStepAssigned{
+- (AMSequenceStep*)getStepAssigned {
     return _sequenceStep;
 }
 
-- (IBAction)newLebelEnteringStarted:(id)sender {
-    
+- (IBAction)textFieldEditingChanged:(id)sender {
+    [self adjustTextFieldsFrameWhileEditing];
 }
 
-- (IBAction)newLabelEntered:(id)sender {
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder];
+    return YES;
+}
+
+- (void)textFieldDidEndEditing:(UITextField *)textField {
     [_sequenceStep setName:_stepTitle.text];
     [self adjustTextFieldsFrame];
 }
 
-- (void)adjustTextFieldsFrame{
+- (void)adjustTextFieldsFrame {
     CGFloat fixedWidth = _stepTitle.frame.size.width;
     CGSize newSize = [_stepTitle sizeThatFits:CGSizeMake(fixedWidth, MAXFLOAT)];
     CGRect newFrame = _stepTitle.frame;
-    newFrame.size = CGSizeMake(fmaxf(newSize.width, fixedWidth), newSize.height);
+    newFrame.size = CGSizeMake(newSize.width, newSize.height);
     _stepTitle.frame = newFrame;
 }
 
-- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField{
-    return YES;
-}
-
-- (BOOL)textFieldShouldReturn:(UITextField *)textField{
-    [textField resignFirstResponder];
-    return YES;
+- (void)adjustTextFieldsFrameWhileEditing {
+    CGFloat fixedWidth = _stepTitle.frame.size.width;
+    CGSize newSize = [_stepTitle sizeThatFits:CGSizeMake(fixedWidth, MAXFLOAT)];
+    CGRect newFrame = _stepTitle.frame;
+    newFrame.size = CGSizeMake(262.0f, newSize.height);
+    newFrame.origin.x = 0.0f;
+    _stepTitle.frame = newFrame;
 }
 
 @end

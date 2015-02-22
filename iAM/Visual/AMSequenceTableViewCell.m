@@ -33,22 +33,32 @@
     _sequenceStep = aStep;
     _stepTitle.text = _sequenceStep.getName;
     _stepSubtitle.text = _sequenceStep.getDescription;
-    self.accessoryType = [self acquireButtonAdequateForStepType:aStep];
+    [self setAccessoryButton:_sequenceStep];
 }
 
-- (UITableViewCellAccessoryType)acquireButtonAdequateForStepType: (AMSequenceStep*)aStep{
+- (void)setAccessoryButton: (AMSequenceStep*)aStep{
+    UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(32, 32, 32, 32)];
     switch (aStep.getStepType)
     {
         case PLAY_ONCE:
-            self.tintColor = [UIColor blackColor];
-            return UITableViewCellAccessoryDetailButton;
+            [button setImage:[[UIImage imageNamed:@"007.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
+            break;
         case REPEAT:
-            self.tintColor = [UIColor grayColor];
-            return UITableViewCellAccessoryDetailButton;
+            [button setImage:[[UIImage imageNamed:@"009.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
+            break;
         case INFINITE_LOOP:
-            self.tintColor = [UIColor orangeColor];
-            return UITableViewCellAccessoryDetailButton;
+            [button setImage:[[UIImage imageNamed:@"010.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
+            break;
     }
+    [button addTarget:self action:@selector(changeStepType) forControlEvents:UIControlEventTouchUpInside];
+    button.tintColor = [UIColor orangeColor];
+    self.accessoryType = UITableViewCellAccessoryDetailButton;
+    self.accessoryView = button;
+}
+
+- (void)changeStepType{
+    [_sequenceStep setNextStepType];
+    [self setAccessoryButton:_sequenceStep];
 }
 
 - (AMSequenceStep*)getStepAssigned {

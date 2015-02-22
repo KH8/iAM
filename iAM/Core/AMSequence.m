@@ -47,6 +47,7 @@
     [_mainSequence removeObjectAtIndex:_actualIndex];
     _actualIndex = 0;
     [self runAllVisualDelegates];
+    [_delegate selectionHasBeenChanged];
 }
 
 - (NSInteger)getActualIndex{

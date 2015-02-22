@@ -62,15 +62,6 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath
     [_mainSequence getStepAtIndex:indexPath.row];
 }
 
-- (void)tableView: (UITableView *) tableView
-accessoryButtonTappedForRowWithIndexPath: (NSIndexPath *) indexPath{
-    AMSequenceStep *stepAssigned = [_mainSequence getStepAtIndex:indexPath.row];
-    [stepAssigned setNextStepType];
-    [tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
-                          withRowAnimation:UITableViewRowAnimationNone];
-    [self changeIndexSelected:_mainSequence.getActualIndex];
-}
-
 - (IBAction)onAddStep:(id)sender {
     [_mainSequence addNewStep];
 }

@@ -53,6 +53,9 @@ static NSString * const reuseIdentifier = @"mySequenceStepCell";
          cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     AMSequenceTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier forIndexPath:indexPath];
     [cell assignSequenceStep:_sequenceSteps[indexPath.row]];
+    
+    
+    
     return cell;
 }
 
@@ -60,6 +63,10 @@ static NSString * const reuseIdentifier = @"mySequenceStepCell";
 didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     _indexSelected = (NSUInteger)indexPath.row;
+}
+
+- (void)tableView: (UITableView *) tableView accessoryButtonTappedForRowWithIndexPath: (NSIndexPath *) indexPath{
+    [_sequenceSteps[indexPath.row] setNextStepType];
 }
 
 - (IBAction)onAddStep:(id)sender {

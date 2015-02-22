@@ -34,7 +34,10 @@
 }
 
 - (void)setNextStepType{
-    
+    _stepType += 1;
+    if(_stepType > 3){
+        _stepType = 1;
+    }
 }
 
 - (StepType)getStepType{

@@ -8,13 +8,12 @@
 
 #import "AMSequenceTableController.h"
 #import "AMSequenceTableViewCell.h"
+#import "AMSequence.h"
 
 @interface AMSequenceTableController ()
 
-@property NSMutableArray *sequenceSteps;
+@property AMSequence *mainSequence;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-
-@property NSUInteger indexSelected;
 
 @end
 
@@ -24,20 +23,18 @@ static NSString * const reuseIdentifier = @"mySequenceStepCell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self initInitialSteps];
+    [self initSequence];
+    [self changeIndexSelected:0];
 }
 
-- (void)initInitialSteps{
-    _sequenceSteps = [[NSMutableArray alloc] init];
-    [_sequenceSteps addObject:[[AMSequenceStep alloc] initWithIndex:1]];
-    [_sequenceSteps addObject:[[AMSequenceStep alloc] initWithIndex:2]];
-    [_sequenceSteps addObject:[[AMSequenceStep alloc] initWithIndex:3]];
-    [self changeIndexSelected:0];
+- (void)initSequence{
+    _mainSequence = [[AMSequence alloc] init];
+    _mainSequence.delegate = self;
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    _sequenceSteps = nil;
+    _mainSequence = nil;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -46,14 +43,14 @@ static NSString * const reuseIdentifier = @"mySequenceStepCell";
 
 - (NSInteger)tableView:(UITableView *)tableView
  numberOfRowsInSection:(NSInteger)section {
-    return [_sequenceSteps count];
+    return [_mainSequence count];
 }
 
 - (UITableViewCell*)tableView:(UITableView *)tableView
-         cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+        cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     AMSequenceTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier
                                                                     forIndexPath:indexPath];
-    AMSequenceStep *stepAssigned = _sequenceSteps[indexPath.row];
+    AMSequenceStep *stepAssigned = [_mainSequence getStepAtIndex:indexPath.row];
     [cell assignSequenceStep:stepAssigned];
     return cell;
 }
@@ -61,30 +58,25 @@ static NSString * const reuseIdentifier = @"mySequenceStepCell";
 - (void)tableView:(UITableView *)tableView
 didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    _indexSelected = (NSUInteger)indexPath.row;
+    [_mainSequence setIndexAsActual:indexPath.row];
+    [_mainSequence getStepAtIndex:indexPath.row];
 }
 
 - (void)tableView: (UITableView *) tableView
 accessoryButtonTappedForRowWithIndexPath: (NSIndexPath *) indexPath{
-    AMSequenceStep *stepAssigned = _sequenceSteps[indexPath.row];
+    AMSequenceStep *stepAssigned = [_mainSequence getStepAtIndex:indexPath.row];
     [stepAssigned setNextStepType];
     [tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
                           withRowAnimation:UITableViewRowAnimationNone];
+    [self changeIndexSelected:_mainSequence.getActualIndex];
 }
 
 - (IBAction)onAddStep:(id)sender {
-    NSInteger newIndex = _sequenceSteps.count + 1;
-    [_sequenceSteps insertObject:[[AMSequenceStep alloc] initWithIndex:newIndex]
-                         atIndex:_indexSelected + 1];
-    [self reloadView];
+    [_mainSequence addNewStep];
 }
 
 - (IBAction)onDeleteStep:(id)sender {
-    if(_sequenceSteps.count == 1) return;
-    AMSequenceStep *objectToBeRemoved = _sequenceSteps[_indexSelected];
-    [_sequenceSteps removeObject:objectToBeRemoved];
-    [self changeIndexSelected:0];
-    [self reloadView];
+    [_mainSequence removeStep];
 }
 
 - (void)reloadView {
@@ -98,11 +90,18 @@ accessoryButtonTappedForRowWithIndexPath: (NSIndexPath *) indexPath{
 }
 
 - (void)changeIndexSelected: (NSUInteger)newIndex {
-    _indexSelected = newIndex;
     [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:newIndex
                                                             inSection:0]
                                 animated:NO
                           scrollPosition:UITableViewScrollPositionNone];
+}
+
+- (void)sequenceHasBeenChanged{
+    [self reloadView];
+}
+
+- (void)selectionHasBeenChanged{
+    [self changeIndexSelected:_mainSequence.getActualIndex];
 }
 
 @end

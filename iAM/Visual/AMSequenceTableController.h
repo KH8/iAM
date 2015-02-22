@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AMSequence.h"
 
-@interface AMSequenceTableController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@interface AMSequenceTableController : UIViewController <UITableViewDataSource, UITableViewDelegate, AMSequenceDelegate>
 
 @end

@@ -49,13 +49,12 @@ static NSString * const reuseIdentifier = @"mySequenceStepCell";
     return [_sequenceSteps count];
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView
+- (UITableViewCell*)tableView:(UITableView *)tableView
          cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    AMSequenceTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier forIndexPath:indexPath];
-    [cell assignSequenceStep:_sequenceSteps[indexPath.row]];
-    
-    
-    
+    AMSequenceTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier
+                                                                    forIndexPath:indexPath];
+    AMSequenceStep *stepAssigned = _sequenceSteps[indexPath.row];
+    [cell assignSequenceStep:stepAssigned];
     return cell;
 }
 
@@ -65,8 +64,12 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath
     _indexSelected = (NSUInteger)indexPath.row;
 }
 
-- (void)tableView: (UITableView *) tableView accessoryButtonTappedForRowWithIndexPath: (NSIndexPath *) indexPath{
-    [_sequenceSteps[indexPath.row] setNextStepType];
+- (void)tableView: (UITableView *) tableView
+accessoryButtonTappedForRowWithIndexPath: (NSIndexPath *) indexPath{
+    AMSequenceStep *stepAssigned = _sequenceSteps[indexPath.row];
+    [stepAssigned setNextStepType];
+    [tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
+                          withRowAnimation:UITableViewRowAnimationNone];
 }
 
 - (IBAction)onAddStep:(id)sender {

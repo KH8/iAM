@@ -33,6 +33,21 @@
     _sequenceStep = aStep;
     _stepTitle.text = _sequenceStep.getName;
     _stepSubtitle.text = _sequenceStep.getDescription;
+    self.accessoryType = [self acquireButtonAdequateForStepType:aStep];
+}
+
+- (UITableViewCellAccessoryType)acquireButtonAdequateForStepType: (AMSequenceStep*)aStep{
+    switch (aStep.getStepType)
+    {
+        case 1:
+            return UITableViewCellAccessoryDetailButton;
+        case 2:
+            return UITableViewCellAccessoryDetailDisclosureButton;
+        case 3:
+            return UITableViewCellAccessoryDetailButton;
+        default:
+            return -1;
+    }
 }
 
 - (AMSequenceStep*)getStepAssigned {

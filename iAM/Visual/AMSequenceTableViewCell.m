@@ -40,10 +40,13 @@
     switch (aStep.getStepType)
     {
         case PLAY_ONCE:
+            self.tintColor = [UIColor blackColor];
             return UITableViewCellAccessoryDetailButton;
         case REPEAT:
-            return UITableViewCellAccessoryDetailDisclosureButton;
+            self.tintColor = [UIColor grayColor];
+            return UITableViewCellAccessoryDetailButton;
         case INFINITE_LOOP:
+            self.tintColor = [UIColor orangeColor];
             return UITableViewCellAccessoryDetailButton;
     }
 }

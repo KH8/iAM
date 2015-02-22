@@ -34,9 +34,17 @@
 }
 
 - (void)setNextStepType{
-    _stepType += 1;
-    if(_stepType > 3){
-        _stepType = 1;
+    switch (_stepType)
+    {
+        case PLAY_ONCE:
+            _stepType = REPEAT;
+            break;
+        case REPEAT:
+            _stepType = INFINITE_LOOP;
+            break;
+        case INFINITE_LOOP:
+            _stepType = PLAY_ONCE;
+            break;
     }
 }
 

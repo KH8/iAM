@@ -39,14 +39,12 @@
 - (UITableViewCellAccessoryType)acquireButtonAdequateForStepType: (AMSequenceStep*)aStep{
     switch (aStep.getStepType)
     {
-        case 1:
+        case PLAY_ONCE:
             return UITableViewCellAccessoryDetailButton;
-        case 2:
+        case REPEAT:
             return UITableViewCellAccessoryDetailDisclosureButton;
-        case 3:
+        case INFINITE_LOOP:
             return UITableViewCellAccessoryDetailButton;
-        default:
-            return -1;
     }
 }
 

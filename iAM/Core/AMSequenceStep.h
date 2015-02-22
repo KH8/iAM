@@ -11,13 +11,11 @@
 
 @interface AMSequenceStep : NSObject
 
-enum {
+typedef enum{
     PLAY_ONCE,
     REPEAT,
     INFINITE_LOOP
-};
-
-typedef NSInteger StepType;
+} StepType;
 
 - (id)initWithIndex:(NSInteger)index;
 - (AMStave*)getStave;

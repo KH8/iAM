@@ -37,17 +37,17 @@
 }
 
 - (void)setAccessoryButton: (AMSequenceStep*)aStep{
-    UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(32, 32, 32, 32)];
+    UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(33, 33, 33, 33)];
     switch (aStep.getStepType)
     {
         case PLAY_ONCE:
-            [button setImage:[[UIImage imageNamed:@"007.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
+            [button setImage:[[UIImage imageNamed:@"seq1.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
             break;
         case REPEAT:
-            [button setImage:[[UIImage imageNamed:@"009.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
+            [button setImage:[[UIImage imageNamed:@"seq2.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
             break;
         case INFINITE_LOOP:
-            [button setImage:[[UIImage imageNamed:@"010.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
+            [button setImage:[[UIImage imageNamed:@"seq3.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
             break;
     }
     [button addTarget:self action:@selector(changeStepType) forControlEvents:UIControlEventTouchUpInside];

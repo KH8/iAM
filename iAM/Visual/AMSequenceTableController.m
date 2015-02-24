@@ -29,7 +29,7 @@ static NSString * const reuseIdentifier = @"mySequenceStepCell";
 
 - (void)initSequence{
     _mainSequence = [[AMSequence alloc] init];
-    _mainSequence.delegate = self;
+    _mainSequence.visualDelegate = self;
 }
 
 - (void)didReceiveMemoryWarning {

@@ -21,7 +21,8 @@
 
 @interface AMSequence : NSObject
 
-@property (nonatomic, weak) id <AMSequenceDelegate> delegate;
+@property (nonatomic, weak) id <AMSequenceDelegate> visualDelegate;
+@property (nonatomic, weak) id <AMSequenceDelegate> mechanicalDelegate;
 
 - (id)init;
 
@@ -31,8 +32,12 @@
 
 - (NSInteger)getActualIndex;
 - (AMSequenceStep*)getNextStep;
+- (AMSequenceStep*)getActualStep;
 - (AMSequenceStep*)getStepAtIndex: (NSUInteger)anIndex;
 - (void)setIndexAsActual:(NSUInteger)anIndex;
+
+- (void)setOneStepForward;
+- (void)setOneStepBackward;
 
 - (NSInteger)count;
 

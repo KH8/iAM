@@ -4,6 +4,7 @@
 //
 
 #import "AMSequencer.h"
+#import "AMSequence.h"
 #import "AMNote.h"
 #import "AMPlayer.h"
 #import "AMLogger.h"
@@ -12,6 +13,8 @@
 
 @property NSTimer *mainTimer;
 
+@property AMSequence *mainSequence;
+@property AMSequenceStep *actualStep;
 @property AMStave *mainStave;
 @property AMBar *actualBar;
 @property NSArray *arrayOfPlayers;
@@ -31,7 +34,12 @@
 - (id)init {
     self = [super init];
     if (self) {
-        _mainStave = [[AMStave alloc] init];
+        _mainSequence = [[AMSequence alloc] init];
+        _mainSequence.mechanicalDelegate = self;
+        
+        _actualStep = _mainSequence.getActualStep;
+        
+        _mainStave = _actualStep.getStave;
         _mainStave.mechanicalDelegate = self;
 
         _actualBar = _mainStave.getActualBar;
@@ -196,6 +204,15 @@
 - (void)barHasBeenChanged {
     _actualBar = _mainStave.getActualBar;
     [self computeProperInterval];
+}
+
+- (void)sequenceHasBeenChanged{
+}
+
+- (void)selectionHasBeenChanged{
+    _actualStep = _mainSequence.getActualStep;
+    _mainStave = _actualStep.getStave;
+    _mainStave.mechanicalDelegate = self;
 }
 
 @end

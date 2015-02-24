@@ -13,6 +13,8 @@
 @property NSMutableArray *mainSequence;
 @property NSInteger actualIndex;
 
+@property NSInteger actualStepLoopCounter;
+
 @end
 
 @implementation AMSequence
@@ -23,6 +25,7 @@
         _mainSequence = [[NSMutableArray alloc] init];
         [self addNewStep];
         _actualIndex = 0;
+        _actualStepLoopCounter = 0;
     }
     return self;
 }
@@ -47,7 +50,7 @@
     [_mainSequence removeObjectAtIndex:_actualIndex];
     _actualIndex = 0;
     [self runAllVisualDelegates];
-    [_delegate selectionHasBeenChanged];
+    [self runAllMechanicalDelegates];
 }
 
 - (NSInteger)getActualIndex{
@@ -55,6 +58,24 @@
 }
 
 - (AMSequenceStep*)getNextStep{
+    AMSequenceStep *actualStep = [self getActualStep];
+    switch (actualStep.getStepType) {
+        case PLAY_ONCE:
+            [self setIndexAsActual:_actualIndex + 1];
+            break;
+        case REPEAT:
+            if(_actualStepLoopCounter > actualStep.getNumberOfLoops){
+                [self setIndexAsActual:_actualIndex + 1];
+            }
+            break;
+        case INFINITE_LOOP:
+            break;
+    }
+    return [self getActualStep];
+}
+
+
+- (AMSequenceStep*)getActualStep{
     return _mainSequence[_actualIndex];
 }
 
@@ -64,7 +85,23 @@
 
 - (void)setIndexAsActual:(NSUInteger)anIndex{
     _actualIndex = anIndex;
-    [_delegate selectionHasBeenChanged];
+    
+    if(_actualIndex > _mainSequence.count){
+        _actualIndex = 0;
+    }
+    if(_actualIndex < 0){
+        _actualIndex = _mainSequence.count;
+    }
+    
+    [self runAllMechanicalDelegates];
+}
+
+- (void)setOneStepForward{
+    [self setIndexAsActual:_actualIndex + 1];
+}
+
+- (void)setOneStepBackward{
+    [self setIndexAsActual:_actualIndex - 1];
 }
 
 - (NSInteger)count{
@@ -72,7 +109,12 @@
 }
 
 - (void)runAllVisualDelegates{
-    [_delegate sequenceHasBeenChanged];
+    [_visualDelegate sequenceHasBeenChanged];
+}
+
+- (void)runAllMechanicalDelegates{
+    [_visualDelegate selectionHasBeenChanged];
+    [_mechanicalDelegate selectionHasBeenChanged];
 }
 
 @end

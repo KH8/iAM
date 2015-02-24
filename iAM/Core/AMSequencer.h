@@ -6,6 +6,7 @@
 #import <Foundation/Foundation.h>
 #import "AMBar.h"
 #import "AMStave.h"
+#import "AMSequence.h"
 
 @protocol AMSequencerDelegate <NSObject>
 
@@ -16,7 +17,7 @@
 
 @end
 
-@interface AMSequencer : NSObject <AMStaveMechanicalDelegate>
+@interface AMSequencer : NSObject <AMStaveMechanicalDelegate, AMSequenceDelegate>
 
 @property (nonatomic, weak) id <AMSequencerDelegate> sequencerDelegate;
 

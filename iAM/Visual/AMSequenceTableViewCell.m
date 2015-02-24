@@ -7,7 +7,6 @@
 //
 
 #import "AMSequenceTableViewCell.h"
-#import "AMSequenceStep.h"
 
 @interface AMSequenceTableViewCell ()
 

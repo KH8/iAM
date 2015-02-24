@@ -29,5 +29,6 @@
 - (void)clear;
 
 - (AMStave *)getStave;
+- (AMSequence *)getSequence;
 
 @end

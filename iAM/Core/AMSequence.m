@@ -11,7 +11,7 @@
 @interface AMSequence()
 
 @property NSMutableArray *mainSequence;
-@property NSInteger actualIndex;
+@property NSUInteger actualIndex;
 
 @property NSInteger actualStepLoopCounter;
 

@@ -9,7 +9,7 @@
 
 @property (nonatomic) NSInteger tempo;
 @property (nonatomic) NSMutableArray *arrayOfBars;
-@property (nonatomic) NSInteger actualIndex;
+@property (nonatomic) NSUInteger actualIndex;
 @property (nonatomic) AMBar *previousBar;
 
 @property (nonatomic) NSDate *lastTapTime;
@@ -74,7 +74,7 @@ NSUInteger const minTempo = 60;
     newBar.staveDelegate = self;
     [newBar configureDefault];
     
-    NSInteger newIndex = 0;
+    NSUInteger newIndex = 0;
     if(_arrayOfBars.count != 0){
         newIndex = _actualIndex + 1;
     }

@@ -8,6 +8,7 @@
 
 #import "SWRevealViewController.h"
 #import "AMViewController.h"
+#import "AMSequencerSingleton.h"
 #import <AVFoundation/AVFoundation.h>
 
 @interface AMViewController () {
@@ -40,7 +41,9 @@
 }
 
 - (void)loadMainObjects{
-    _mainSequencer = [[AMSequencer alloc] init];
+    AMSequencerSingleton *sequencerSingleton = [AMSequencerSingleton sharedSequencer];
+    _mainSequencer = sequencerSingleton.sequencer;
+    
     _mainSequencer.sequencerDelegate = self;
     _mainStave = _mainSequencer.getStave;
     _mainStave.visualPageViewDelegate = self;

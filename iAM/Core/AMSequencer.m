@@ -4,7 +4,6 @@
 //
 
 #import "AMSequencer.h"
-#import "AMSequence.h"
 #import "AMNote.h"
 #import "AMPlayer.h"
 
@@ -101,6 +100,10 @@
 
 - (AMStave *)getStave {
     return _mainStave;
+}
+
+- (AMSequence *)getSequence{
+    return _mainSequence;
 }
 
 -(void)onTick {

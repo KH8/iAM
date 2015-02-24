@@ -8,7 +8,7 @@
 
 #import "AMSequenceTableController.h"
 #import "AMSequenceTableViewCell.h"
-#import "AMSequence.h"
+#import "AMSequencerSingleton.h"
 
 @interface AMSequenceTableController ()
 
@@ -28,7 +28,9 @@ static NSString * const reuseIdentifier = @"mySequenceStepCell";
 }
 
 - (void)initSequence{
-    _mainSequence = [[AMSequence alloc] init];
+    AMSequencerSingleton *sequencerSingleton = [AMSequencerSingleton sharedSequencer];
+    AMSequencer *mainSequencer = sequencerSingleton.sequencer;
+    _mainSequence = [mainSequencer getSequence];
     _mainSequence.visualDelegate = self;
 }
 
@@ -50,7 +52,7 @@ static NSString * const reuseIdentifier = @"mySequenceStepCell";
         cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     AMSequenceTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier
                                                                     forIndexPath:indexPath];
-    AMSequenceStep *stepAssigned = [_mainSequence getStepAtIndex:indexPath.row];
+    AMSequenceStep *stepAssigned = [_mainSequence getStepAtIndex:(NSUInteger) indexPath.row];
     [cell assignSequenceStep:stepAssigned];
     return cell;
 }
@@ -58,8 +60,8 @@ static NSString * const reuseIdentifier = @"mySequenceStepCell";
 - (void)tableView:(UITableView *)tableView
 didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [_mainSequence setIndexAsActual:indexPath.row];
-    [_mainSequence getStepAtIndex:indexPath.row];
+    [_mainSequence setIndexAsActual:(NSUInteger) indexPath.row];
+    [_mainSequence getStepAtIndex:(NSUInteger) indexPath.row];
 }
 
 - (IBAction)onAddStep:(id)sender {
@@ -72,9 +74,9 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 
 - (void)reloadView {
     dispatch_async(dispatch_get_main_queue(), ^{
-        NSIndexPath *ipath = [self.tableView indexPathForSelectedRow];
+        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         [_tableView reloadData];
-        [self.tableView selectRowAtIndexPath:ipath
+        [self.tableView selectRowAtIndexPath:indexPath
                                     animated:NO
                               scrollPosition:UITableViewScrollPositionNone];
     });
@@ -92,7 +94,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 }
 
 - (void)selectionHasBeenChanged{
-    [self changeIndexSelected:_mainSequence.getActualIndex];
+    [self changeIndexSelected:(NSUInteger) _mainSequence.getActualIndex];
 }
 
 @end

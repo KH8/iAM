@@ -16,47 +16,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="black" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6nd-hL-bKe">
-                                <rect key="frame" x="0.0" y="492" width="600" height="44"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                <gestureRecognizers/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="cRU-s5-Q6a"/>
-                                </constraints>
-                                <items>
-                                    <barButtonItem systemItem="rewind" id="xLx-kq-S2R"/>
-                                    <barButtonItem width="20" style="plain" systemItem="fixedSpace" id="hef-ZL-SyR"/>
-                                    <barButtonItem systemItem="play" id="7aK-c8-lKa">
-                                        <connections>
-                                            <action selector="onPlayButtonTouchedEvent:" destination="Cpc-Be-Cbd" id="Lth-Df-kCD"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem width="20" style="plain" systemItem="fixedSpace" id="um2-YR-dZo"/>
-                                    <barButtonItem systemItem="fastForward" id="Iwv-d9-lZd"/>
-                                    <barButtonItem systemItem="flexibleSpace" id="D6O-Oz-0yd"/>
-                                    <barButtonItem title="4:4 x4 120 BPM" id="fuI-My-I8C">
-                                        <connections>
-                                            <action selector="onShowSettings:" destination="Cpc-Be-Cbd" id="Ujg-s8-C5q"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem systemItem="flexibleSpace" id="X7t-Zq-2uN"/>
-                                    <barButtonItem systemItem="trash" id="M9b-Tf-Auf">
-                                        <connections>
-                                            <action selector="onClearEvent:" destination="Cpc-Be-Cbd" id="8wH-84-zfP"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem width="20" style="plain" systemItem="fixedSpace" id="NIr-2D-ojA"/>
-                                    <barButtonItem systemItem="add" id="dGK-4e-c4c">
-                                        <connections>
-                                            <action selector="onAddPageEvent:" destination="Cpc-Be-Cbd" id="wJw-Eh-Dae"/>
-                                        </connections>
-                                    </barButtonItem>
-                                </items>
-                                <color key="barTintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                            </toolbar>
-                            <collectionView autoresizesSubviews="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" bounces="NO" alwaysBounceHorizontal="YES" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="seQ-A1-cWb">
+                            <collectionView autoresizesSubviews="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" bounces="NO" alwaysBounceHorizontal="YES" showsVerticalScrollIndicator="NO" indicatorStyle="black" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="seQ-A1-cWb">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="492"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="backgroundColor" white="0.050000000000000003" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="d1n-mZ-tTT">
                                     <size key="itemSize" width="50" height="50"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -98,6 +60,52 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="black" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6nd-hL-bKe">
+                                <rect key="frame" x="0.0" y="492" width="600" height="44"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="cRU-s5-Q6a"/>
+                                </constraints>
+                                <items>
+                                    <barButtonItem systemItem="rewind" id="xLx-kq-S2R">
+                                        <inset key="imageInsets" minX="-30" minY="-30" maxX="-30" maxY="-30"/>
+                                    </barButtonItem>
+                                    <barButtonItem width="20" style="plain" systemItem="fixedSpace" id="hef-ZL-SyR"/>
+                                    <barButtonItem systemItem="play" id="7aK-c8-lKa">
+                                        <inset key="imageInsets" minX="-30" minY="-30" maxX="-30" maxY="-30"/>
+                                        <connections>
+                                            <action selector="onPlayButtonTouchedEvent:" destination="Cpc-Be-Cbd" id="Lth-Df-kCD"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem width="20" style="plain" systemItem="fixedSpace" id="um2-YR-dZo"/>
+                                    <barButtonItem systemItem="fastForward" id="Iwv-d9-lZd">
+                                        <inset key="imageInsets" minX="-30" minY="-30" maxX="-30" maxY="-30"/>
+                                    </barButtonItem>
+                                    <barButtonItem systemItem="flexibleSpace" id="D6O-Oz-0yd"/>
+                                    <barButtonItem title="4:4 x4 120 BPM" id="fuI-My-I8C">
+                                        <inset key="imageInsets" minX="-30" minY="-30" maxX="-30" maxY="-30"/>
+                                        <connections>
+                                            <action selector="onShowSettings:" destination="Cpc-Be-Cbd" id="Ujg-s8-C5q"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem systemItem="flexibleSpace" id="X7t-Zq-2uN"/>
+                                    <barButtonItem systemItem="trash" id="M9b-Tf-Auf">
+                                        <inset key="imageInsets" minX="-30" minY="-30" maxX="-30" maxY="-30"/>
+                                        <connections>
+                                            <action selector="onClearEvent:" destination="Cpc-Be-Cbd" id="8wH-84-zfP"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem width="20" style="plain" systemItem="fixedSpace" id="NIr-2D-ojA"/>
+                                    <barButtonItem systemItem="add" id="dGK-4e-c4c">
+                                        <inset key="imageInsets" minX="-30" minY="-30" maxX="-30" maxY="-30"/>
+                                        <connections>
+                                            <action selector="onAddPageEvent:" destination="Cpc-Be-Cbd" id="wJw-Eh-Dae"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                                <color key="barTintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
@@ -113,9 +121,11 @@
                     </view>
                     <navigationItem key="navigationItem" id="lBY-Ec-Nek">
                         <nil key="title"/>
-                        <barButtonItem key="leftBarButtonItem" systemItem="organize" id="iNB-dB-j6p"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="organize" id="iNB-dB-j6p">
+                            <inset key="imageInsets" minX="0.0" minY="-30" maxX="-30" maxY="-30"/>
+                        </barButtonItem>
                         <pageControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="1" id="Odp-23-gs5">
-                            <rect key="frame" x="54" y="3.5" width="490" height="37"/>
+                            <rect key="frame" x="39" y="3.5" width="520" height="37"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="pageIndicatorTintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             <color key="currentPageIndicatorTintColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -123,7 +133,9 @@
                                 <action selector="onPageSelectionHasChangedEvent:" destination="Cpc-Be-Cbd" eventType="valueChanged" id="6cN-Sz-bWQ"/>
                             </connections>
                         </pageControl>
-                        <barButtonItem key="rightBarButtonItem" systemItem="compose" id="hpG-sj-3LD"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="compose" id="hpG-sj-3LD">
+                            <inset key="imageInsets" minX="-30" minY="-30" maxX="0.0" maxY="-30"/>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="bottomToolBar" destination="6nd-hL-bKe" id="5kB-ee-BfX"/>
@@ -282,6 +294,7 @@
                                 <items>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="xfy-IG-Og2"/>
                                     <barButtonItem systemItem="trash" id="k2J-DC-6zc">
+                                        <inset key="imageInsets" minX="-30" minY="-30" maxX="-30" maxY="-30"/>
                                         <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         <connections>
                                             <action selector="onDeleteStep:" destination="9xo-7Y-GEb" id="fy4-zI-WrU"/>
@@ -289,6 +302,7 @@
                                     </barButtonItem>
                                     <barButtonItem width="20" style="plain" systemItem="fixedSpace" id="zod-sq-fyw"/>
                                     <barButtonItem title="Item" systemItem="add" id="uPF-m8-4xl">
+                                        <inset key="imageInsets" minX="-30" minY="-30" maxX="-30" maxY="-30"/>
                                         <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         <connections>
                                             <action selector="onAddStep:" destination="9xo-7Y-GEb" id="ErB-q8-WBT"/>
@@ -353,6 +367,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="X0j-Qg-8RD"/>
                                 </constraints>
+                                <inset key="contentEdgeInsets" minX="-30" minY="-60" maxX="-30" maxY="-60"/>
                                 <state key="normal" title="TAP TEMPO">
                                     <color key="titleColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>

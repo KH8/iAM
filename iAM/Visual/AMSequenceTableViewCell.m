@@ -37,7 +37,7 @@
 }
 
 - (void)setAccessoryButton: (AMSequenceStep*)aStep{
-    UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(33, 33, 33, 33)];
+    UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(30, 30, 30, 30)];
     switch (aStep.getStepType)
     {
         case PLAY_ONCE:

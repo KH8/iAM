@@ -7,7 +7,6 @@
 #import "AMSequence.h"
 #import "AMNote.h"
 #import "AMPlayer.h"
-#import "AMLogger.h"
 
 @interface AMSequencer ()
 
@@ -86,11 +85,9 @@
     if(_runningState) {
         [_mainStave setFirstBarAsActual];
         [_sequencerDelegate sequenceHasStarted];
-        [AMLogger logMessage:@("sequence started")];
     }
     else {
         [_sequencerDelegate sequenceHasStopped];
-        [AMLogger logMessage:@("sequence stopped")];
     }
 }
 

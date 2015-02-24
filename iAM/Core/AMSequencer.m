@@ -70,7 +70,7 @@
 }
 
 - (void)initTimer {
-    _mainTimer = [NSTimer scheduledTimerWithTimeInterval:0.001f
+    _mainTimer = [NSTimer scheduledTimerWithTimeInterval:0.0001f
                                                   target:self selector:@selector(onTick)
                                                 userInfo:nil repeats:YES];
     NSRunLoop *runner = [NSRunLoop currentRunLoop];
@@ -193,7 +193,7 @@
     NSNumber *actualIntervalInGrid = @(intervalBetweenBeatsInMilliseconds.floatValue / _actualBar.getDensity);
     NSNumber *denominatorFactor = @(_actualBar.getSignatureDenominator / 4.0);
     NSNumber *actualIntervalAdequateToSignatureDenominator = @(actualIntervalInGrid.floatValue / denominatorFactor.floatValue);
-    NSNumber *numberOfTicksFloat = @(actualIntervalAdequateToSignatureDenominator.floatValue / 1.0f);
+    NSNumber *numberOfTicksFloat = @(actualIntervalAdequateToSignatureDenominator.floatValue / 0.1f);
     _numberOfTicksPerBeat = numberOfTicksFloat.integerValue;
 }
 

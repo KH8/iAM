@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8F0000638125D61039818FFA /* AMAppSingleton.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F0C76E602A4AADF9198375D /* AMAppSingleton.m */; };
 		8F014B76B26DA38094740698 /* AMPickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F0F37B35BC39D2D480297F5 /* AMPickerController.m */; };
 		8F03D778486C6AEEDE7E8BA1 /* AMPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F0AE1AC2BDFCA960D899F80 /* AMPlayer.m */; };
 		8F081AD4F297441F7B21E453 /* AMViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F04E6D9B4037B610C133F34 /* AMViewController.m */; };
@@ -17,6 +16,7 @@
 		A41C08EB1A927435006F0F06 /* AMSequenceTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = A41C08EA1A927435006F0F06 /* AMSequenceTableController.m */; };
 		A41C08EE1A9279F7006F0F06 /* AMSequenceTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A41C08ED1A9279F7006F0F06 /* AMSequenceTableViewCell.m */; };
 		A41C08F11A92803B006F0F06 /* AMMenuTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A41C08F01A92803B006F0F06 /* AMMenuTableViewController.m */; };
+		A41E3CA61A9D1057004C7675 /* AMAppSingleton.m in Sources */ = {isa = PBXBuildFile; fileRef = A41E3CA51A9D1057004C7675 /* AMAppSingleton.m */; };
 		A427C9F11A7D141D0003FB21 /* AMPopoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A427C9F01A7D141D0003FB21 /* AMPopoverViewController.m */; };
 		A44804B11A686E430094BA1F /* highStickSound.aif in Resources */ = {isa = PBXBuildFile; fileRef = A44804AE1A686E430094BA1F /* highStickSound.aif */; };
 		A44804B21A686E430094BA1F /* lowStickSound.aif in Resources */ = {isa = PBXBuildFile; fileRef = A44804AF1A686E430094BA1F /* lowStickSound.aif */; };
@@ -51,13 +51,11 @@
 
 /* Begin PBXFileReference section */
 		8F0232E7F6F389A4CECE670C /* AMSequencer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMSequencer.h; path = Core/AMSequencer.h; sourceTree = "<group>"; };
-		8F02B68F8A11924C2A921DCB /* AMAppSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMAppSingleton.h; path = Auxiliaries/AMAppSingleton.h; sourceTree = "<group>"; };
 		8F04E6D9B4037B610C133F34 /* AMViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMViewController.m; sourceTree = "<group>"; };
 		8F0763D2246B340EEC482E45 /* AMSequencer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMSequencer.m; path = Core/AMSequencer.m; sourceTree = "<group>"; };
 		8F0AD5A2B8400C3F3D22A86A /* AMCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMCollectionViewCell.h; sourceTree = "<group>"; };
 		8F0AE1AC2BDFCA960D899F80 /* AMPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMPlayer.m; path = Core/AMPlayer.m; sourceTree = "<group>"; };
 		8F0B1F4FAA5303D5E98B0847 /* AMCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMCollectionViewCell.m; sourceTree = "<group>"; };
-		8F0C76E602A4AADF9198375D /* AMAppSingleton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMAppSingleton.m; path = Auxiliaries/AMAppSingleton.m; sourceTree = "<group>"; };
 		8F0CFF565E646A31B3FE79A7 /* AMPickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMPickerController.h; sourceTree = "<group>"; };
 		8F0D8E3934B282764EF13D8A /* AMViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMViewController.h; sourceTree = "<group>"; };
 		8F0DA14C9FCAE3399B86B93B /* AMPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMPlayer.h; path = Core/AMPlayer.h; sourceTree = "<group>"; };
@@ -69,6 +67,8 @@
 		A41C08ED1A9279F7006F0F06 /* AMSequenceTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMSequenceTableViewCell.m; sourceTree = "<group>"; };
 		A41C08EF1A92803B006F0F06 /* AMMenuTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMMenuTableViewController.h; sourceTree = "<group>"; };
 		A41C08F01A92803B006F0F06 /* AMMenuTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMMenuTableViewController.m; sourceTree = "<group>"; };
+		A41E3CA41A9D1057004C7675 /* AMAppSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMAppSingleton.h; path = Core/AMAppSingleton.h; sourceTree = "<group>"; };
+		A41E3CA51A9D1057004C7675 /* AMAppSingleton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMAppSingleton.m; path = Core/AMAppSingleton.m; sourceTree = "<group>"; };
 		A427C9EF1A7D141D0003FB21 /* AMPopoverViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMPopoverViewController.h; sourceTree = "<group>"; };
 		A427C9F01A7D141D0003FB21 /* AMPopoverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMPopoverViewController.m; sourceTree = "<group>"; };
 		A44804AE1A686E430094BA1F /* highStickSound.aif */ = {isa = PBXFileReference; lastKnownFileType = file; name = highStickSound.aif; path = Core/Sounds/highStickSound.aif; sourceTree = "<group>"; };
@@ -161,8 +161,8 @@
 		A44910761A5F38EF00E8C6DB /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				8F02B68F8A11924C2A921DCB /* AMAppSingleton.h */,
-				8F0C76E602A4AADF9198375D /* AMAppSingleton.m */,
+				A41E3CA41A9D1057004C7675 /* AMAppSingleton.h */,
+				A41E3CA51A9D1057004C7675 /* AMAppSingleton.m */,
 				A4A4D2371A928C95006CB6CE /* AMStave.h */,
 				A4A4D2381A928C95006CB6CE /* AMStave.m */,
 				A44910771A5F396E00E8C6DB /* AMBar.h */,
@@ -383,11 +383,11 @@
 				A41C08EB1A927435006F0F06 /* AMSequenceTableController.m in Sources */,
 				A41C08F11A92803B006F0F06 /* AMMenuTableViewController.m in Sources */,
 				8F0B7BBFD13CA2A424283225 /* AMCollectionViewCell.m in Sources */,
+				A41E3CA61A9D1057004C7675 /* AMAppSingleton.m in Sources */,
 				8F081AD4F297441F7B21E453 /* AMViewController.m in Sources */,
 				A4A132A51A95287400D6E2F1 /* AMSequenceStep.m in Sources */,
 				A45A3D6E1A71B4DF00039934 /* AMCollectionViewController.m in Sources */,
 				A4A132A81A9528A800D6E2F1 /* AMSequence.m in Sources */,
-				8F0000638125D61039818FFA /* AMAppSingleton.m in Sources */,
 				A4A4D2391A928C95006CB6CE /* AMStave.m in Sources */,
 				8F03D778486C6AEEDE7E8BA1 /* AMPlayer.m in Sources */,
 				8F014B76B26DA38094740698 /* AMPickerController.m in Sources */,

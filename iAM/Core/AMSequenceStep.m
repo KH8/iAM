@@ -14,6 +14,7 @@
 @property StepType stepType;
 
 @property AMStave *mainStave;
+@property (nonatomic) NSInteger numberOfLoops;
 
 @end
 
@@ -25,6 +26,7 @@
         _name = [NSString stringWithFormat:@"STEP %ld", (long)index];
         _mainStave = [[AMStave alloc] init];
         _stepType = INFINITE_LOOP;
+        _numberOfLoops = 0;
     }
     return self;
 }
@@ -41,9 +43,11 @@
             break;
         case REPEAT:
             _stepType = INFINITE_LOOP;
+            _numberOfLoops = 0;
             break;
         case INFINITE_LOOP:
             _stepType = PLAY_ONCE;
+            _numberOfLoops = 1;
             break;
     }
 }
@@ -67,6 +71,22 @@
             (long)bar.getSignatureDenominator,
             (long)bar.getDensity,
             (long)_mainStave.getTempo];
+}
+
+- (void)setNumberOfLoops:(NSInteger)newNumberOfLoops{
+    _numberOfLoops = newNumberOfLoops;
+}
+
+- (NSInteger)getNumberOfLoops{
+    return _numberOfLoops;
+}
+
+- (BOOL)isNumberOfLoopsAvailable{
+    BOOL response = NO;
+    if(_stepType == REPEAT){
+        response = YES;
+    }
+    return response;
 }
 
 @end

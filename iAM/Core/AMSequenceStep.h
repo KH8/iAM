@@ -27,4 +27,8 @@ typedef enum{
 - (NSString*)getName;
 - (NSString*)getDescription;
 
+- (void)setNumberOfLoops:(NSInteger)newNumberOfLoops;
+- (NSInteger)getNumberOfLoops;
+- (BOOL)isNumberOfLoopsAvailable;
+
 @end

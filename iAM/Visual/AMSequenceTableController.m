@@ -12,6 +12,7 @@
 
 @interface AMSequenceTableController ()
 
+@property AMSequencer *mainSequencer;
 @property AMSequence *mainSequence;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
@@ -29,8 +30,9 @@ static NSString * const reuseIdentifier = @"mySequenceStepCell";
 
 - (void)initSequence{
     AMSequencerSingleton *sequencerSingleton = [AMSequencerSingleton sharedSequencer];
-    AMSequencer *mainSequencer = sequencerSingleton.sequencer;
-    _mainSequence = [mainSequencer getSequence];
+    _mainSequencer = sequencerSingleton.sequencer;
+    _mainSequencer.sequencerSyncDelegate = self;
+    _mainSequence = [_mainSequencer getSequence];
     _mainSequence.visualDelegate = self;
 }
 
@@ -95,6 +97,10 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 
 - (void)stepHasBeenChanged{
     [self changeIndexSelected:(NSUInteger) _mainSequence.getActualIndex];
+}
+
+- (void)stepParametersHaveBeenChanged{
+    [_tableView reloadData];
 }
 
 @end

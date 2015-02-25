@@ -89,16 +89,18 @@
 }
 
 - (void)setOneStepForward{
-    if(_actualIndex == _mainSequence.count){
-        _actualIndex = 0;
+    NSUInteger maxIndex = _mainSequence.count - 1;
+    if(_actualIndex == maxIndex){
+        [self setIndexAsActual: 0];
         return;
     }
     [self setIndexAsActual:_actualIndex + 1];
 }
 
 - (void)setOneStepBackward{
+    NSUInteger maxIndex = _mainSequence.count - 1;
     if(_actualIndex == 0){
-        _actualIndex = _mainSequence.count;
+        [self setIndexAsActual: maxIndex];
         return;
     }
     [self setIndexAsActual:_actualIndex - 1];

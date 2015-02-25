@@ -16,6 +16,7 @@
 
 @property AMCollectionViewController *collectionViewController;
 @property AMSequencer *mainSequencer;
+@property AMSequence *mainSequence;
 @property AMStave *mainStave;
 @property UIBarButtonItem *temporaryPlayButton;
 @property UIBarButtonItem *temporarySettingsButton;
@@ -43,8 +44,8 @@
 - (void)loadMainObjects{
     AMSequencerSingleton *sequencerSingleton = [AMSequencerSingleton sharedSequencer];
     _mainSequencer = sequencerSingleton.sequencer;
-    
     _mainSequencer.sequencerDelegate = self;
+    _mainSequence = _mainSequencer.getSequence;
     _mainStave = _mainSequencer.getStave;
     _mainStave.visualPageViewDelegate = self;
 }
@@ -125,6 +126,14 @@
     [self performSegueWithIdentifier: @"sw_popover" sender: self];
 }
 
+- (IBAction)onPreviousStep:(id)sender {
+    [_mainSequence setOneStepBackward];
+}
+
+- (IBAction)onNextStep:(id)sender {
+    [_mainSequence setOneStepForward];
+}
+
 - (void)sequenceHasStarted {
     _temporaryPlayButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemPause
                                                                          target:self
@@ -174,6 +183,7 @@
 
 - (void)pickedValuesHaveBeenChanged{
     [self updateSettingsButton];
+    [_mainSequencer syncronizeParameters];
 }
 
 - (void)updateSettingsButton{

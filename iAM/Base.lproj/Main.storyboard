@@ -70,6 +70,9 @@
                                 <items>
                                     <barButtonItem systemItem="rewind" id="xLx-kq-S2R">
                                         <inset key="imageInsets" minX="-30" minY="-30" maxX="-30" maxY="-30"/>
+                                        <connections>
+                                            <action selector="onPreviousStep:" destination="Cpc-Be-Cbd" id="bfp-Po-1T3"/>
+                                        </connections>
                                     </barButtonItem>
                                     <barButtonItem width="20" style="plain" systemItem="fixedSpace" id="hef-ZL-SyR"/>
                                     <barButtonItem systemItem="play" id="7aK-c8-lKa">
@@ -81,6 +84,9 @@
                                     <barButtonItem width="20" style="plain" systemItem="fixedSpace" id="um2-YR-dZo"/>
                                     <barButtonItem systemItem="fastForward" id="Iwv-d9-lZd">
                                         <inset key="imageInsets" minX="-30" minY="-30" maxX="-30" maxY="-30"/>
+                                        <connections>
+                                            <action selector="onNextStep:" destination="Cpc-Be-Cbd" id="eD3-q3-2Si"/>
+                                        </connections>
                                     </barButtonItem>
                                     <barButtonItem systemItem="flexibleSpace" id="D6O-Oz-0yd"/>
                                     <barButtonItem title="4:4 x4 120 BPM" id="fuI-My-I8C">

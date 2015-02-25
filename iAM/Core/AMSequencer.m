@@ -216,4 +216,8 @@
     [_sequencerDelegate stepHasBeenChanged];
 }
 
+- (void)syncronizeParameters;{
+    [_sequencerSyncDelegate stepParametersHaveBeenChanged];
+}
+
 @end

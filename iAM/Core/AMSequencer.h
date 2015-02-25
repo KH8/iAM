@@ -18,9 +18,18 @@
 
 @end
 
+@protocol AMSequencerSyncDelegate <NSObject>
+
+@required
+
+- (void) stepParametersHaveBeenChanged;
+
+@end
+
 @interface AMSequencer : NSObject <AMStaveMechanicalDelegate, AMSequenceDelegate>
 
 @property (nonatomic, weak) id <AMSequencerDelegate> sequencerDelegate;
+@property (nonatomic, weak) id <AMSequencerSyncDelegate> sequencerSyncDelegate;
 
 - (id)init;
 - (void)killBackgroundThread;
@@ -31,5 +40,7 @@
 
 - (AMStave *)getStave;
 - (AMSequence *)getSequence;
+
+- (void)syncronizeParameters;
 
 @end

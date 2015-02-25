@@ -94,6 +94,10 @@ static NSString * const reuseIdentifier = @"myCell";
 }
 
 - (void)reloadData{
+    _mainStave = _mainSequencer.getStave;
+    _mainStave.visualDelegate = self;
+    _actualBar = _mainStave.getActualBar;
+    _actualBar.delegate = self;
     [_collectionView reloadData];
 }
 
@@ -115,8 +119,6 @@ static NSString * const reuseIdentifier = @"myCell";
 }
 
 - (void)barHasBeenChanged{
-    _actualBar = _mainStave.getActualBar;
-    _actualBar.delegate = self;
     [self reloadData];
 }
 

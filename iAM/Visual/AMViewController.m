@@ -139,6 +139,12 @@
     [self replaceObjectInToolBarAtIndex:2 withObject:_temporaryPlayButton];
 }
 
+- (void)stepHasBeenChanged {
+    _mainStave = _mainSequencer.getStave;
+    _mainStave.visualPageViewDelegate = self;
+    [self barHasBeenChanged];
+}
+
 
 - (void)replaceObjectInToolBarAtIndex: (NSInteger)anIndex withObject: (NSObject*)anObject{
     NSMutableArray *toolbarItems = [[NSMutableArray alloc] init];
@@ -150,9 +156,12 @@
 }
 
 - (void)barHasBeenChanged {
-    _pageControl.currentPage = _mainStave.getActualIndex;
+    _mainStave = _mainSequencer.getStave;
+    _mainStave.visualPageViewDelegate = self;
     _pageControl.numberOfPages = _mainStave.getSize;
+    _pageControl.currentPage = _mainStave.getActualIndex;
     [self updateSettingsButton];
+    [_collectionViewController reloadData];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{

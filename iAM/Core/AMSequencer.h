@@ -14,6 +14,7 @@
 
 - (void) sequenceHasStarted;
 - (void) sequenceHasStopped;
+- (void) stepHasBeenChanged;
 
 @end
 

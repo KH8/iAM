@@ -15,7 +15,7 @@
 @required
 
 - (void)sequenceHasBeenChanged;
-- (void)selectionHasBeenChanged;
+- (void)stepHasBeenChanged;
 
 @end
 

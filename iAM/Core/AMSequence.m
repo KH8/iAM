@@ -85,22 +85,22 @@
 
 - (void)setIndexAsActual:(NSUInteger)anIndex{
     _actualIndex = anIndex;
-    
-    if(_actualIndex > _mainSequence.count){
-        _actualIndex = 0;
-    }
-    if(_actualIndex < 0){
-        _actualIndex = _mainSequence.count;
-    }
-    
     [self runAllMechanicalDelegates];
 }
 
 - (void)setOneStepForward{
+    if(_actualIndex == _mainSequence.count){
+        _actualIndex = 0;
+        return;
+    }
     [self setIndexAsActual:_actualIndex + 1];
 }
 
 - (void)setOneStepBackward{
+    if(_actualIndex == 0){
+        _actualIndex = _mainSequence.count;
+        return;
+    }
     [self setIndexAsActual:_actualIndex - 1];
 }
 
@@ -113,8 +113,8 @@
 }
 
 - (void)runAllMechanicalDelegates{
-    [_visualDelegate selectionHasBeenChanged];
-    [_mechanicalDelegate selectionHasBeenChanged];
+    [_visualDelegate stepHasBeenChanged];
+    [_mechanicalDelegate stepHasBeenChanged];
 }
 
 @end

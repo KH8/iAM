@@ -209,10 +209,11 @@
 - (void)sequenceHasBeenChanged{
 }
 
-- (void)selectionHasBeenChanged{
+- (void)stepHasBeenChanged{
     _actualStep = _mainSequence.getActualStep;
     _mainStave = _actualStep.getStave;
     _mainStave.mechanicalDelegate = self;
+    [_sequencerDelegate stepHasBeenChanged];
 }
 
 @end

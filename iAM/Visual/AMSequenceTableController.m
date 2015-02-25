@@ -93,7 +93,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath
     [self reloadView];
 }
 
-- (void)selectionHasBeenChanged{
+- (void)stepHasBeenChanged{
     [self changeIndexSelected:(NSUInteger) _mainSequence.getActualIndex];
 }
 

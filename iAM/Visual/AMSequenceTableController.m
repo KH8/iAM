@@ -16,6 +16,9 @@
 @property AMSequence *mainSequence;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
+@property UIBarButtonItem *tempAddButton;
+@property UIBarButtonItem *tempDeleteButton;
+
 @end
 
 @implementation AMSequenceTableController
@@ -25,6 +28,7 @@ static NSString * const reuseIdentifier = @"mySequenceStepCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self initSequence];
+    [self initBottomToolBar];
     [self changeIndexSelected:0];
 }
 
@@ -34,6 +38,35 @@ static NSString * const reuseIdentifier = @"mySequenceStepCell";
     _mainSequencer.sequencerSyncDelegate = self;
     _mainSequence = [_mainSequencer getSequence];
     _mainSequence.visualDelegate = self;
+}
+
+- (void)initBottomToolBar{
+    UIImage *addImage = [[UIImage imageNamed:@"add.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    _tempAddButton = [[UIBarButtonItem alloc] initWithImage:addImage style:UIBarButtonItemStylePlain
+                                                     target:self
+                                                     action:@selector(onAddStep:)];
+    _tempAddButton.tintColor = [UIColor orangeColor];
+    [self replaceObjectInToolBarAtIndex:3 withObject:_tempAddButton];
+    UIView *addButtonView= (UIView *)[_bottomToolBar.subviews objectAtIndex:3];
+    addButtonView.frame = CGRectMake(30, 30, 30, 30);
+    
+    UIImage *deleteImage = [[UIImage imageNamed:@"delete.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    _tempDeleteButton = [[UIBarButtonItem alloc] initWithImage:deleteImage style:UIBarButtonItemStylePlain
+                                                     target:self
+                                                     action:@selector(onDeleteStep:)];
+    _tempDeleteButton.tintColor = [UIColor orangeColor];
+    [self replaceObjectInToolBarAtIndex:2 withObject:_tempDeleteButton];
+    UIView *deleteButtonView= (UIView *)[_bottomToolBar.subviews objectAtIndex:2];
+    deleteButtonView.frame = CGRectMake(30, 30, 30, 30);
+}
+
+- (void)replaceObjectInToolBarAtIndex: (NSInteger)anIndex withObject: (NSObject*)anObject{
+    NSMutableArray *toolbarItems = [[NSMutableArray alloc] init];
+    for (NSObject *item in _bottomToolBar.items) {
+        [toolbarItems addObject:item];
+    }
+    toolbarItems[(NSUInteger) anIndex] = anObject;
+    _bottomToolBar.items = toolbarItems;
 }
 
 - (void)didReceiveMemoryWarning {

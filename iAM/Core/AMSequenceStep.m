@@ -65,11 +65,13 @@
 }
 
 - (NSString*)getDescription{
-    AMBar *bar = _mainStave.getActualBar;
-    return [NSString stringWithFormat:@"%ld:%ld x%ld %ld BPM",
-            (long)bar.getSignatureNumerator,
-            (long)bar.getSignatureDenominator,
-            (long)bar.getDensity,
+    NSString *bar = @"BARS";
+    if(_mainStave.getSize == 1){
+        bar = @"BAR";
+    }
+    return [NSString stringWithFormat:@"%ld %@ %ld BPM",
+            (long)_mainStave.getSize,
+            bar,
             (long)_mainStave.getTempo];
 }
 

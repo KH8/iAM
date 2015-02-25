@@ -104,6 +104,7 @@
 
 - (IBAction)onAddPageEvent:(id)sender {
     [_mainStave addBar];
+    [_mainSequencer syncronizeParameters];
 }
 
 - (void)onRemovePage:(UILongPressGestureRecognizer*)sender {
@@ -111,6 +112,7 @@
     }
     else if (sender.state == UIGestureRecognizerStateBegan){
         [_mainStave removeActualBar];
+        [_mainSequencer syncronizeParameters];
     }
 }
 

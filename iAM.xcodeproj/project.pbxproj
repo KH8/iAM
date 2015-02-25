@@ -18,6 +18,8 @@
 		A41C08F11A92803B006F0F06 /* AMMenuTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A41C08F01A92803B006F0F06 /* AMMenuTableViewController.m */; };
 		A41E3CA61A9D1057004C7675 /* AMSequencerSingleton.m in Sources */ = {isa = PBXBuildFile; fileRef = A41E3CA51A9D1057004C7675 /* AMSequencerSingleton.m */; };
 		A427C9F11A7D141D0003FB21 /* AMPopoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A427C9F01A7D141D0003FB21 /* AMPopoverViewController.m */; };
+		A44492061A9E7CE4008CEB8E /* add.png in Resources */ = {isa = PBXBuildFile; fileRef = A44492041A9E7CE4008CEB8E /* add.png */; };
+		A44492071A9E7CE4008CEB8E /* delete.png in Resources */ = {isa = PBXBuildFile; fileRef = A44492051A9E7CE4008CEB8E /* delete.png */; };
 		A44804B11A686E430094BA1F /* highStickSound.aif in Resources */ = {isa = PBXBuildFile; fileRef = A44804AE1A686E430094BA1F /* highStickSound.aif */; };
 		A44804B21A686E430094BA1F /* lowStickSound.aif in Resources */ = {isa = PBXBuildFile; fileRef = A44804AF1A686E430094BA1F /* lowStickSound.aif */; };
 		A44804B31A686E430094BA1F /* tickSound.aif in Resources */ = {isa = PBXBuildFile; fileRef = A44804B01A686E430094BA1F /* tickSound.aif */; };
@@ -71,6 +73,8 @@
 		A41E3CA51A9D1057004C7675 /* AMSequencerSingleton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMSequencerSingleton.m; path = Core/AMSequencerSingleton.m; sourceTree = "<group>"; };
 		A427C9EF1A7D141D0003FB21 /* AMPopoverViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMPopoverViewController.h; sourceTree = "<group>"; };
 		A427C9F01A7D141D0003FB21 /* AMPopoverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMPopoverViewController.m; sourceTree = "<group>"; };
+		A44492041A9E7CE4008CEB8E /* add.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = add.png; path = Icons/add.png; sourceTree = "<group>"; };
+		A44492051A9E7CE4008CEB8E /* delete.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = delete.png; path = Icons/delete.png; sourceTree = "<group>"; };
 		A44804AE1A686E430094BA1F /* highStickSound.aif */ = {isa = PBXFileReference; lastKnownFileType = file; name = highStickSound.aif; path = Core/Sounds/highStickSound.aif; sourceTree = "<group>"; };
 		A44804AF1A686E430094BA1F /* lowStickSound.aif */ = {isa = PBXFileReference; lastKnownFileType = file; name = lowStickSound.aif; path = Core/Sounds/lowStickSound.aif; sourceTree = "<group>"; };
 		A44804B01A686E430094BA1F /* tickSound.aif */ = {isa = PBXFileReference; lastKnownFileType = file; name = tickSound.aif; path = Core/Sounds/tickSound.aif; sourceTree = "<group>"; };
@@ -254,6 +258,8 @@
 		A49A749F1A9A86FB006BC3C7 /* Icons */ = {
 			isa = PBXGroup;
 			children = (
+				A44492041A9E7CE4008CEB8E /* add.png */,
+				A44492051A9E7CE4008CEB8E /* delete.png */,
 				A45003691A9BD73B008F4B6A /* seq1.png */,
 				A450036A1A9BD73B008F4B6A /* seq2.png */,
 				A450036B1A9BD73B008F4B6A /* seq3.png */,
@@ -350,7 +356,9 @@
 				A45F0D531A5C6515008673FC /* Main.storyboard in Resources */,
 				A45F0D581A5C6515008673FC /* LaunchScreen.xib in Resources */,
 				A450036E1A9BD73B008F4B6A /* seq3.png in Resources */,
+				A44492061A9E7CE4008CEB8E /* add.png in Resources */,
 				A44804B21A686E430094BA1F /* lowStickSound.aif in Resources */,
+				A44492071A9E7CE4008CEB8E /* delete.png in Resources */,
 				A4C47C1A1A8BB68E002CF325 /* Images.xcassets in Resources */,
 				A44804B11A686E430094BA1F /* highStickSound.aif in Resources */,
 				A44804B31A686E430094BA1F /* tickSound.aif in Resources */,

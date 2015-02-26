@@ -59,7 +59,7 @@ static NSString * const reuseIdentifier = @"mySequenceStepCell";
                           imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     
     UIButton *face = [UIButton buttonWithType:UIButtonTypeCustom];
-    face.bounds = CGRectMake( 0, 0, 26, 26 );
+    face.bounds = CGRectMake( 30, 30, 30, 30 );
     [face setImage:faceImage
           forState:UIControlStateNormal];
     [face addTarget:self
@@ -144,6 +144,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 
 - (void)stepParametersHaveBeenChanged{
     [_tableView reloadData];
+    [self changeIndexSelected:(NSUInteger) _mainSequence.getActualIndex];
 }
 
 @end

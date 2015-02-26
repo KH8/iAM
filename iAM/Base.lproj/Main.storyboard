@@ -299,17 +299,14 @@
                                 </constraints>
                                 <items>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="xfy-IG-Og2"/>
-                                    <barButtonItem systemItem="trash" id="k2J-DC-6zc">
+                                    <barButtonItem style="plain" systemItem="trash" id="k2J-DC-6zc">
                                         <inset key="imageInsets" minX="-30" minY="-30" maxX="-30" maxY="-30"/>
-                                        <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         <connections>
                                             <action selector="onDeleteStep:" destination="9xo-7Y-GEb" id="fy4-zI-WrU"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem width="20" style="plain" systemItem="fixedSpace" id="zod-sq-fyw"/>
-                                    <barButtonItem title="Item" systemItem="add" id="uPF-m8-4xl">
+                                    <barButtonItem title="Item" style="plain" systemItem="add" id="uPF-m8-4xl">
                                         <inset key="imageInsets" minX="-30" minY="-30" maxX="-30" maxY="-30"/>
-                                        <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         <connections>
                                             <action selector="onAddStep:" destination="9xo-7Y-GEb" id="ErB-q8-WBT"/>
                                         </connections>

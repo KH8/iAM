@@ -40,16 +40,23 @@
     switch (aStep.getStepType)
     {
         case PLAY_ONCE:
-            [button setImage:[[UIImage imageNamed:@"seq1.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
+            [button setImage:[[UIImage imageNamed:@"seq1.png"]
+                              imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]
+                    forState:UIControlStateNormal];
             break;
         case REPEAT:
-            [button setImage:[[UIImage imageNamed:@"seq2.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
+            [button setImage:[[UIImage imageNamed:@"seq2.png"]
+                              imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]
+                    forState:UIControlStateNormal];
             break;
         case INFINITE_LOOP:
-            [button setImage:[[UIImage imageNamed:@"seq3.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
+            [button setImage:[[UIImage imageNamed:@"seq3.png"]
+                              imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]
+                    forState:UIControlStateNormal];
             break;
     }
-    [button addTarget:self action:@selector(changeStepType) forControlEvents:UIControlEventTouchUpInside];
+    [button addTarget:self action:@selector(changeStepType)
+     forControlEvents:UIControlEventTouchUpInside];
     button.tintColor = [UIColor orangeColor];
     self.accessoryType = UITableViewCellAccessoryDetailButton;
     self.accessoryView = button;

@@ -41,23 +41,33 @@ static NSString * const reuseIdentifier = @"mySequenceStepCell";
 }
 
 - (void)initBottomToolBar{
-    UIImage *addImage = [[UIImage imageNamed:@"add.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-    _tempAddButton = [[UIBarButtonItem alloc] initWithImage:addImage style:UIBarButtonItemStylePlain
-                                                     target:self
-                                                     action:@selector(onAddStep:)];
-    _tempAddButton.tintColor = [UIColor orangeColor];
-    [self replaceObjectInToolBarAtIndex:3 withObject:_tempAddButton];
-    UIView *addButtonView= (UIView *)[_bottomToolBar.subviews objectAtIndex:3];
-    addButtonView.frame = CGRectMake(30, 30, 30, 30);
+    [self setBottomBarButton:_tempAddButton
+             withPictureName:@"add.png"
+                    selector:@selector(onAddStep:)
+              buttonPosition:2];
+    [self setBottomBarButton:_tempDeleteButton
+             withPictureName:@"delete.png"
+                    selector:@selector(onDeleteStep:)
+              buttonPosition:1];
+}
+
+- (void)setBottomBarButton: (UIBarButtonItem *)button
+           withPictureName: (NSString *)pictureName
+                  selector: (SEL)selector
+            buttonPosition: (NSUInteger)position{
+    UIImage *faceImage = [[UIImage imageNamed:pictureName]
+                          imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     
-    UIImage *deleteImage = [[UIImage imageNamed:@"delete.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-    _tempDeleteButton = [[UIBarButtonItem alloc] initWithImage:deleteImage style:UIBarButtonItemStylePlain
-                                                     target:self
-                                                     action:@selector(onDeleteStep:)];
-    _tempDeleteButton.tintColor = [UIColor orangeColor];
-    [self replaceObjectInToolBarAtIndex:2 withObject:_tempDeleteButton];
-    UIView *deleteButtonView= (UIView *)[_bottomToolBar.subviews objectAtIndex:2];
-    deleteButtonView.frame = CGRectMake(30, 30, 30, 30);
+    UIButton *face = [UIButton buttonWithType:UIButtonTypeCustom];
+    face.bounds = CGRectMake( 0, 0, 26, 26 );
+    [face setImage:faceImage
+          forState:UIControlStateNormal];
+    [face addTarget:self
+             action:selector
+   forControlEvents:UIControlEventTouchDown];
+    
+    button = [[UIBarButtonItem alloc] initWithCustomView:face];
+    [self replaceObjectInToolBarAtIndex:position withObject:button];
 }
 
 - (void)replaceObjectInToolBarAtIndex: (NSInteger)anIndex withObject: (NSObject*)anObject{

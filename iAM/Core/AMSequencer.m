@@ -9,7 +9,10 @@
 
 @interface AMSequencer ()
 
+@property BOOL debug;
+
 @property NSTimer *mainTimer;
+@property NSDate *auxTimeStamp;
 
 @property AMSequence *mainSequence;
 @property AMSequenceStep *actualStep;
@@ -32,6 +35,8 @@
 - (id)init {
     self = [super init];
     if (self) {
+        _debug = NO;
+        
         _mainSequence = [[AMSequence alloc] init];
         _mainSequence.mechanicalDelegate = self;
         
@@ -68,7 +73,8 @@
 }
 
 - (void)initTimer {
-    _mainTimer = [NSTimer scheduledTimerWithTimeInterval:0.0001f
+    _auxTimeStamp = [NSDate date];
+    _mainTimer = [NSTimer scheduledTimerWithTimeInterval:0.002f
                                                   target:self selector:@selector(onTick)
                                                 userInfo:nil repeats:YES];
     NSRunLoop *runner = [NSRunLoop currentRunLoop];
@@ -107,6 +113,11 @@
 }
 
 -(void)onTick {
+    if(_debug){
+        NSLog(@"Interval: %f", [_auxTimeStamp timeIntervalSinceNow]);
+        _auxTimeStamp = [NSDate date];
+    }
+    
     if (_runningState) {
         if(_actualTickIndex % _numberOfTicksPerBeat == 0){
             [self performSelectorInBackground:@selector(playTheRow)
@@ -132,7 +143,6 @@
 }
 
 - (void)playTheRow {
-    NSLog(@"tick");
     NSInteger incrementValue = (NSInteger) (4.0 / _actualBar.getDensity);
     NSInteger index = _actualNoteIndex % _actualBar.getLengthToBePlayed;
     index = index * incrementValue;
@@ -193,7 +203,7 @@
     NSNumber *actualIntervalInGrid = @(intervalBetweenBeatsInMilliseconds.floatValue / _actualBar.getDensity);
     NSNumber *denominatorFactor = @(_actualBar.getSignatureDenominator / 4.0);
     NSNumber *actualIntervalAdequateToSignatureDenominator = @(actualIntervalInGrid.floatValue / denominatorFactor.floatValue);
-    NSNumber *numberOfTicksFloat = @(actualIntervalAdequateToSignatureDenominator.floatValue / 0.1f);
+    NSNumber *numberOfTicksFloat = @(actualIntervalAdequateToSignatureDenominator.floatValue / 2.0f);
     _numberOfTicksPerBeat = numberOfTicksFloat.integerValue;
 }
 

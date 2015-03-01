@@ -156,8 +156,8 @@
     [self barHasBeenChanged];
 }
 
-
-- (void)replaceObjectInToolBarAtIndex: (NSInteger)anIndex withObject: (NSObject*)anObject{
+- (void)replaceObjectInToolBarAtIndex: (NSInteger)anIndex
+                           withObject: (NSObject*)anObject{
     NSMutableArray *toolbarItems = [[NSMutableArray alloc] init];
     for (NSObject *item in _bottomToolBar.items) {
         [toolbarItems addObject:item];

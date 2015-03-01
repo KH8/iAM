@@ -66,7 +66,9 @@
         case REPEAT:
             if(_actualStepLoopCounter > actualStep.getNumberOfLoops){
                 [self setIndexAsActual:_actualIndex + 1];
+                break;
             }
+            _actualStepLoopCounter++;
             break;
         case INFINITE_LOOP:
             break;
@@ -76,6 +78,7 @@
 
 
 - (AMSequenceStep*)getActualStep{
+    _actualStepLoopCounter = 0;
     return _mainSequence[_actualIndex];
 }
 

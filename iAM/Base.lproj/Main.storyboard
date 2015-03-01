@@ -299,8 +299,18 @@
                                 </constraints>
                                 <items>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="xfy-IG-Og2">
-                                        <color key="tintColor" white="0.20000000000000001" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                     </barButtonItem>
+                                    <barButtonItem systemItem="rewind" id="nHm-VA-KyE">
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                    </barButtonItem>
+                                    <barButtonItem title="2" id="jup-Yi-TgY">
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                    </barButtonItem>
+                                    <barButtonItem systemItem="fastForward" id="mmQ-aa-Rwc">
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                    </barButtonItem>
+                                    <barButtonItem width="20" style="plain" systemItem="fixedSpace" id="T3c-H1-wF6"/>
                                     <barButtonItem style="plain" systemItem="trash" id="k2J-DC-6zc">
                                         <inset key="imageInsets" minX="-30" minY="-30" maxX="-30" maxY="-30"/>
                                         <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>

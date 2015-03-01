@@ -42,13 +42,21 @@ static NSString * const reuseIdentifier = @"mySequenceStepCell";
 
 - (void)initBottomToolBar{
     [self setBottomBarButton:_tempAddButton
+             withPictureName:@"addloop.png"
+                    selector:@selector(onAddStep:)
+              buttonPosition:3];
+    [self setBottomBarButton:_tempDeleteButton
+             withPictureName:@"subloop.png"
+                    selector:@selector(onDeleteStep:)
+              buttonPosition:1];
+    [self setBottomBarButton:_tempAddButton
              withPictureName:@"add.png"
                     selector:@selector(onAddStep:)
-              buttonPosition:2];
+              buttonPosition:6];
     [self setBottomBarButton:_tempDeleteButton
              withPictureName:@"delete.png"
                     selector:@selector(onDeleteStep:)
-              buttonPosition:1];
+              buttonPosition:5];
 }
 
 - (void)setBottomBarButton: (UIBarButtonItem *)button

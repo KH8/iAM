@@ -44,30 +44,35 @@ static NSString * const reuseIdentifier = @"mySequenceStepCell";
     [self setBottomBarButton:_tempAddButton
              withPictureName:@"addloop.png"
                     selector:@selector(onAddStep:)
-              buttonPosition:3];
+              buttonPosition:3
+                        size:20];
     [self setBottomBarButton:_tempDeleteButton
              withPictureName:@"subloop.png"
                     selector:@selector(onDeleteStep:)
-              buttonPosition:1];
+              buttonPosition:1
+                        size:20];
     [self setBottomBarButton:_tempAddButton
              withPictureName:@"add.png"
                     selector:@selector(onAddStep:)
-              buttonPosition:6];
+              buttonPosition:6
+                        size:30];
     [self setBottomBarButton:_tempDeleteButton
              withPictureName:@"delete.png"
                     selector:@selector(onDeleteStep:)
-              buttonPosition:5];
+              buttonPosition:5
+                        size:30];
 }
 
 - (void)setBottomBarButton: (UIBarButtonItem *)button
            withPictureName: (NSString *)pictureName
                   selector: (SEL)selector
-            buttonPosition: (NSUInteger)position{
+            buttonPosition: (NSUInteger)position
+                      size: (NSInteger)size{
     UIImage *faceImage = [[UIImage imageNamed:pictureName]
                           imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     
     UIButton *face = [UIButton buttonWithType:UIButtonTypeCustom];
-    face.bounds = CGRectMake( 30, 30, 30, 30 );
+    face.bounds = CGRectMake( size, size, size, size );
     [face setImage:faceImage
           forState:UIControlStateNormal];
     [face addTarget:self

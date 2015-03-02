@@ -310,7 +310,7 @@
                                     <barButtonItem systemItem="fastForward" id="mmQ-aa-Rwc">
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                     </barButtonItem>
-                                    <barButtonItem width="40" style="plain" systemItem="fixedSpace" id="T3c-H1-wF6"/>
+                                    <barButtonItem width="80" style="plain" systemItem="fixedSpace" id="T3c-H1-wF6"/>
                                     <barButtonItem style="plain" systemItem="trash" id="k2J-DC-6zc">
                                         <inset key="imageInsets" minX="-30" minY="-30" maxX="-30" maxY="-30"/>
                                         <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -343,6 +343,7 @@
                     </view>
                     <connections>
                         <outlet property="bottomToolBar" destination="z4s-zD-Gpo" id="BMA-eK-r3s"/>
+                        <outlet property="loopCountButton" destination="jup-Yi-TgY" id="dpf-H2-VgD"/>
                         <outlet property="tableView" destination="IhR-XU-bF7" id="Gmi-Lk-3lR"/>
                     </connections>
                 </viewController>

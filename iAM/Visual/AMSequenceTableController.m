@@ -18,6 +18,7 @@
 
 @property UIBarButtonItem *tempAddButton;
 @property UIBarButtonItem *tempDeleteButton;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *loopCountButton;
 
 @end
 
@@ -30,6 +31,7 @@ static NSString * const reuseIdentifier = @"mySequenceStepCell";
     [self initSequence];
     [self initBottomToolBar];
     [self changeIndexSelected:0];
+    [self stepLoopCounterUpdate];
 }
 
 - (void)initSequence{
@@ -42,13 +44,13 @@ static NSString * const reuseIdentifier = @"mySequenceStepCell";
 
 - (void)initBottomToolBar{
     [self setBottomBarButton:_tempAddButton
-             withPictureName:@"addloop.png"
-                    selector:@selector(onAddStep:)
+             withPictureName:@"incloop.png"
+                    selector:@selector(onIncrementLoop:)
               buttonPosition:3
                         size:20];
     [self setBottomBarButton:_tempDeleteButton
-             withPictureName:@"subloop.png"
-                    selector:@selector(onDeleteStep:)
+             withPictureName:@"decloop.png"
+                    selector:@selector(onDecrementLoop:)
               buttonPosition:1
                         size:20];
     [self setBottomBarButton:_tempAddButton
@@ -85,29 +87,29 @@ static NSString * const reuseIdentifier = @"mySequenceStepCell";
 
 - (void)replaceObjectInToolBarAtIndex: (NSInteger)anIndex withObject: (NSObject*)anObject{
     NSMutableArray *toolbarItems = [[NSMutableArray alloc] init];
-    for (NSObject *item in _bottomToolBar.items) {
+    for (NSObject *item in _bottomToolBar.items){
         [toolbarItems addObject:item];
     }
     toolbarItems[(NSUInteger) anIndex] = anObject;
     _bottomToolBar.items = toolbarItems;
 }
 
-- (void)didReceiveMemoryWarning {
+- (void)didReceiveMemoryWarning{
     [super didReceiveMemoryWarning];
     _mainSequence = nil;
 }
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView
- numberOfRowsInSection:(NSInteger)section {
+ numberOfRowsInSection:(NSInteger)section{
     return [_mainSequence count];
 }
 
 - (UITableViewCell*)tableView:(UITableView *)tableView
-        cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+        cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     AMSequenceTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier
                                                                     forIndexPath:indexPath];
     AMSequenceStep *stepAssigned = [_mainSequence getStepAtIndex:(NSUInteger) indexPath.row];
@@ -122,15 +124,27 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath
     [_mainSequence getStepAtIndex:(NSUInteger) indexPath.row];
 }
 
-- (IBAction)onAddStep:(id)sender {
+- (IBAction)onAddStep:(id)sender{
     [_mainSequence addNewStep];
 }
 
-- (IBAction)onDeleteStep:(id)sender {
+- (IBAction)onDeleteStep:(id)sender{
     [_mainSequence removeStep];
 }
 
-- (void)reloadView {
+- (IBAction)onIncrementLoop:(id)sender{
+    AMSequenceStep *step = _mainSequence.getActualStep;
+    step.visualDelegate = self;
+    [step incrementLoop];
+}
+
+- (IBAction)onDecrementLoop:(id)sender{
+    AMSequenceStep *step = _mainSequence.getActualStep;
+    step.visualDelegate = self;
+    [step decrementLoop];
+}
+
+- (void)reloadView{
     dispatch_async(dispatch_get_main_queue(), ^{
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         [_tableView reloadData];
@@ -153,11 +167,22 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 
 - (void)stepHasBeenChanged{
     [self changeIndexSelected:(NSUInteger) _mainSequence.getActualIndex];
+    [self stepLoopCounterUpdate];
 }
 
 - (void)stepParametersHaveBeenChanged{
     [_tableView reloadData];
     [self changeIndexSelected:(NSUInteger) _mainSequence.getActualIndex];
+}
+
+- (void)sequenceStepPropertiesHasBeenChanged{
+    [self stepLoopCounterUpdate];
+}
+
+- (void)stepLoopCounterUpdate{
+    AMSequenceStep *step = _mainSequence.getActualStep;
+    step.visualDelegate = self;
+    _loopCountButton.title = [NSString stringWithFormat:@"%ld", (long)step.getNumberOfLoops];
 }
 
 @end

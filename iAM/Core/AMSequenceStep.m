@@ -75,8 +75,17 @@
             (long)_mainStave.getTempo];
 }
 
-- (void)setNumberOfLoops:(NSInteger)newNumberOfLoops{
-    _numberOfLoops = newNumberOfLoops;
+- (void)incrementLoop{
+    _numberOfLoops++;
+    [_visualDelegate sequenceStepPropertiesHasBeenChanged];
+}
+
+- (void)decrementLoop{
+    if(_numberOfLoops == 1){
+        return;
+    }
+    _numberOfLoops--;
+    [_visualDelegate sequenceStepPropertiesHasBeenChanged];
 }
 
 - (NSInteger)getNumberOfLoops{

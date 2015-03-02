@@ -9,7 +9,17 @@
 #import <Foundation/Foundation.h>
 #import "AMStave.h"
 
+@protocol AMSequenceStepDelegate <NSObject>
+
+@required
+
+- (void)sequenceStepPropertiesHasBeenChanged;
+
+@end
+
 @interface AMSequenceStep : NSObject
+
+@property (nonatomic, weak) id <AMSequenceStepDelegate> visualDelegate;
 
 typedef enum{
     PLAY_ONCE,
@@ -27,7 +37,8 @@ typedef enum{
 - (NSString*)getName;
 - (NSString*)getDescription;
 
-- (void)setNumberOfLoops:(NSInteger)newNumberOfLoops;
+- (void)incrementLoop;
+- (void)decrementLoop;
 - (NSInteger)getNumberOfLoops;
 - (BOOL)isNumberOfLoopsAvailable;
 

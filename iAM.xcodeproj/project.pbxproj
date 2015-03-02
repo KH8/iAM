@@ -35,11 +35,11 @@
 		A45F0D531A5C6515008673FC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A45F0D511A5C6515008673FC /* Main.storyboard */; };
 		A45F0D581A5C6515008673FC /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = A45F0D561A5C6515008673FC /* LaunchScreen.xib */; };
 		A45F0D641A5C6515008673FC /* iAMTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A45F0D631A5C6515008673FC /* iAMTests.m */; };
-		A493C6DF1AA3B66500C219CC /* addloop.png in Resources */ = {isa = PBXBuildFile; fileRef = A493C6DD1AA3B66500C219CC /* addloop.png */; };
-		A493C6E21AA3B6D200C219CC /* subloop.png in Resources */ = {isa = PBXBuildFile; fileRef = A493C6E11AA3B6D200C219CC /* subloop.png */; };
 		A4A132A51A95287400D6E2F1 /* AMSequenceStep.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A132A41A95287400D6E2F1 /* AMSequenceStep.m */; };
 		A4A132A81A9528A800D6E2F1 /* AMSequence.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A132A71A9528A800D6E2F1 /* AMSequence.m */; };
 		A4A4D2391A928C95006CB6CE /* AMStave.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A4D2381A928C95006CB6CE /* AMStave.m */; };
+		A4A705EF1AA50E3400A911C6 /* decloop.png in Resources */ = {isa = PBXBuildFile; fileRef = A4A705ED1AA50E3400A911C6 /* decloop.png */; };
+		A4A705F01AA50E3400A911C6 /* incloop.png in Resources */ = {isa = PBXBuildFile; fileRef = A4A705EE1AA50E3400A911C6 /* incloop.png */; };
 		A4C47C1A1A8BB68E002CF325 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A4C47C191A8BB68E002CF325 /* Images.xcassets */; };
 /* End PBXBuildFile section */
 
@@ -101,14 +101,14 @@
 		A45F0D5D1A5C6515008673FC /* iAMTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iAMTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A45F0D621A5C6515008673FC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A45F0D631A5C6515008673FC /* iAMTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iAMTests.m; sourceTree = "<group>"; };
-		A493C6DD1AA3B66500C219CC /* addloop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = addloop.png; path = Icons/addloop.png; sourceTree = "<group>"; };
-		A493C6E11AA3B6D200C219CC /* subloop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = subloop.png; path = Icons/subloop.png; sourceTree = "<group>"; };
 		A4A132A31A95287400D6E2F1 /* AMSequenceStep.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMSequenceStep.h; path = Core/AMSequenceStep.h; sourceTree = "<group>"; };
 		A4A132A41A95287400D6E2F1 /* AMSequenceStep.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMSequenceStep.m; path = Core/AMSequenceStep.m; sourceTree = "<group>"; };
 		A4A132A61A9528A800D6E2F1 /* AMSequence.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMSequence.h; path = Core/AMSequence.h; sourceTree = "<group>"; };
 		A4A132A71A9528A800D6E2F1 /* AMSequence.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMSequence.m; path = Core/AMSequence.m; sourceTree = "<group>"; };
 		A4A4D2371A928C95006CB6CE /* AMStave.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMStave.h; path = Core/AMStave.h; sourceTree = "<group>"; };
 		A4A4D2381A928C95006CB6CE /* AMStave.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMStave.m; path = Core/AMStave.m; sourceTree = "<group>"; };
+		A4A705ED1AA50E3400A911C6 /* decloop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = decloop.png; path = Icons/decloop.png; sourceTree = "<group>"; };
+		A4A705EE1AA50E3400A911C6 /* incloop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = incloop.png; path = Icons/incloop.png; sourceTree = "<group>"; };
 		A4C47C191A8BB68E002CF325 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -262,8 +262,8 @@
 		A49A749F1A9A86FB006BC3C7 /* Icons */ = {
 			isa = PBXGroup;
 			children = (
-				A493C6E11AA3B6D200C219CC /* subloop.png */,
-				A493C6DD1AA3B66500C219CC /* addloop.png */,
+				A4A705ED1AA50E3400A911C6 /* decloop.png */,
+				A4A705EE1AA50E3400A911C6 /* incloop.png */,
 				A44492041A9E7CE4008CEB8E /* add.png */,
 				A44492051A9E7CE4008CEB8E /* delete.png */,
 				A45003691A9BD73B008F4B6A /* seq1.png */,
@@ -359,13 +359,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A4A705EF1AA50E3400A911C6 /* decloop.png in Resources */,
 				A45F0D531A5C6515008673FC /* Main.storyboard in Resources */,
 				A45F0D581A5C6515008673FC /* LaunchScreen.xib in Resources */,
 				A450036E1A9BD73B008F4B6A /* seq3.png in Resources */,
+				A4A705F01AA50E3400A911C6 /* incloop.png in Resources */,
 				A44492061A9E7CE4008CEB8E /* add.png in Resources */,
 				A44804B21A686E430094BA1F /* lowStickSound.aif in Resources */,
-				A493C6DF1AA3B66500C219CC /* addloop.png in Resources */,
-				A493C6E21AA3B6D200C219CC /* subloop.png in Resources */,
 				A44492071A9E7CE4008CEB8E /* delete.png in Resources */,
 				A4C47C1A1A8BB68E002CF325 /* Images.xcassets in Resources */,
 				A44804B11A686E430094BA1F /* highStickSound.aif in Resources */,

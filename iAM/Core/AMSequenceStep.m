@@ -26,7 +26,7 @@
         _name = [NSString stringWithFormat:@"STEP %ld", (long)index];
         _mainStave = [[AMStave alloc] init];
         _stepType = INFINITE_LOOP;
-        _numberOfLoops = 0;
+        _numberOfLoops = 1;
     }
     return self;
 }
@@ -43,13 +43,14 @@
             break;
         case REPEAT:
             _stepType = INFINITE_LOOP;
-            _numberOfLoops = 0;
+            _numberOfLoops = 1;
             break;
         case INFINITE_LOOP:
             _stepType = PLAY_ONCE;
             _numberOfLoops = 1;
             break;
     }
+    [_visualDelegate sequenceStepPropertiesHasBeenChanged];
 }
 
 - (StepType)getStepType{

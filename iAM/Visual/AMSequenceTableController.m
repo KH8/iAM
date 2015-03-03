@@ -14,11 +14,15 @@
 
 @property AMSequencer *mainSequencer;
 @property AMSequence *mainSequence;
+
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
-@property UIBarButtonItem *tempAddButton;
 @property UIBarButtonItem *tempDeleteButton;
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *loopCountButton;
+@property UIBarButtonItem *tempAddButton;
+
+@property UIBarButtonItem *tempLoopCountButton;
+@property UIBarButtonItem *tempIncrementButton;
+@property UIBarButtonItem *tempDecrementButton;
 
 @end
 
@@ -44,36 +48,30 @@ static NSString * const reuseIdentifier = @"mySequenceStepCell";
 
 - (void)initBottomToolBar{
     [self setBottomBarButton:_tempAddButton
-             withPictureName:@"incloop.png"
-                    selector:@selector(onIncrementLoop:)
-              buttonPosition:3
-                        size:20];
-    [self setBottomBarButton:_tempDeleteButton
-             withPictureName:@"decloop.png"
-                    selector:@selector(onDecrementLoop:)
-              buttonPosition:1
-                        size:20];
-    [self setBottomBarButton:_tempAddButton
              withPictureName:@"add.png"
                     selector:@selector(onAddStep:)
               buttonPosition:6
-                        size:30];
+                        size:30
+                       color:[UIColor blackColor]];
     [self setBottomBarButton:_tempDeleteButton
              withPictureName:@"delete.png"
                     selector:@selector(onDeleteStep:)
               buttonPosition:5
-                        size:30];
+                        size:30
+                       color:[UIColor blackColor]];
 }
 
 - (void)setBottomBarButton: (UIBarButtonItem *)button
            withPictureName: (NSString *)pictureName
                   selector: (SEL)selector
             buttonPosition: (NSUInteger)position
-                      size: (NSInteger)size{
+                      size: (NSInteger)size
+                     color: (UIColor*)color{
     UIImage *faceImage = [[UIImage imageNamed:pictureName]
-                          imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-    
+                          imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+
     UIButton *face = [UIButton buttonWithType:UIButtonTypeCustom];
+    face.tintColor = color;
     face.bounds = CGRectMake( size, size, size, size );
     [face setImage:faceImage
           forState:UIControlStateNormal];
@@ -182,7 +180,53 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 - (void)stepLoopCounterUpdate{
     AMSequenceStep *step = _mainSequence.getActualStep;
     step.visualDelegate = self;
-    _loopCountButton.title = [NSString stringWithFormat:@"%ld", (long)step.getNumberOfLoops];
+    
+    if(step.getStepType != REPEAT){
+        [self hideAllLoopCountButtons];
+        return;
+    }
+    [self showAllLoopCountButtons];
+}
+
+- (void)hideAllLoopCountButtons{
+    [self hideButton:_tempIncrementButton
+          atPosition:3];
+    [self hideButton:_tempDecrementButton
+          atPosition:1];
+    [self hideButton:_tempLoopCountButton
+          atPosition:2];
+}
+
+- (void)showAllLoopCountButtons{
+    [self setBottomBarButton:_tempIncrementButton
+             withPictureName:@"incloop.png"
+                    selector:@selector(onIncrementLoop:)
+              buttonPosition:3
+                        size:20
+                       color:[UIColor orangeColor]];
+    [self setBottomBarButton:_tempDecrementButton
+             withPictureName:@"decloop.png"
+                    selector:@selector(onDecrementLoop:)
+              buttonPosition:1
+                        size:20
+                       color:[UIColor orangeColor]];
+    
+    AMSequenceStep *step = _mainSequence.getActualStep;
+    _tempLoopCountButton = [[UIBarButtonItem alloc] init];
+    _tempLoopCountButton.title = [NSString stringWithFormat:@"%ld", (long)step.getNumberOfLoops];
+    _tempLoopCountButton.tintColor = [UIColor orangeColor];
+    [self replaceObjectInToolBarAtIndex:2
+                             withObject:_tempLoopCountButton];
+}
+
+- (void)hideButton: (UIBarButtonItem*)button
+        atPosition: (NSUInteger)position{
+    button = [[UIBarButtonItem alloc] init];
+    button.style = UIBarButtonItemStylePlain;
+    button.enabled = false;
+    button.title = nil;
+    [self replaceObjectInToolBarAtIndex:position
+                             withObject:button];
 }
 
 @end

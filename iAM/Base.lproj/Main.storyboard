@@ -301,15 +301,9 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="xfy-IG-Og2">
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                     </barButtonItem>
-                                    <barButtonItem systemItem="rewind" id="nHm-VA-KyE">
-                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                    </barButtonItem>
-                                    <barButtonItem title="2" id="jup-Yi-TgY">
-                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                    </barButtonItem>
-                                    <barButtonItem systemItem="fastForward" id="mmQ-aa-Rwc">
-                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                    </barButtonItem>
+                                    <barButtonItem systemItem="rewind" id="nHm-VA-KyE"/>
+                                    <barButtonItem title="2" id="jup-Yi-TgY"/>
+                                    <barButtonItem systemItem="fastForward" id="mmQ-aa-Rwc"/>
                                     <barButtonItem width="80" style="plain" systemItem="fixedSpace" id="T3c-H1-wF6"/>
                                     <barButtonItem style="plain" systemItem="trash" id="k2J-DC-6zc">
                                         <inset key="imageInsets" minX="-30" minY="-30" maxX="-30" maxY="-30"/>
@@ -321,9 +315,6 @@
                                     <barButtonItem title="Item" style="plain" systemItem="add" id="uPF-m8-4xl">
                                         <inset key="imageInsets" minX="-30" minY="-30" maxX="-30" maxY="-30"/>
                                         <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <connections>
-                                            <action selector="onAddStep:" destination="9xo-7Y-GEb" id="ErB-q8-WBT"/>
-                                        </connections>
                                     </barButtonItem>
                                 </items>
                                 <color key="tintColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -342,8 +333,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="bottomToolBar" destination="z4s-zD-Gpo" id="BMA-eK-r3s"/>
-                        <outlet property="loopCountButton" destination="jup-Yi-TgY" id="dpf-H2-VgD"/>
+                        <outlet property="bottomToolBar" destination="z4s-zD-Gpo" id="713-90-6ZC"/>
                         <outlet property="tableView" destination="IhR-XU-bF7" id="Gmi-Lk-3lR"/>
                     </connections>
                 </viewController>

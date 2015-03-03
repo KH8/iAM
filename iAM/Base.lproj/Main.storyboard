@@ -301,10 +301,16 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="xfy-IG-Og2">
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                     </barButtonItem>
-                                    <barButtonItem systemItem="rewind" id="nHm-VA-KyE"/>
-                                    <barButtonItem title="2" id="jup-Yi-TgY"/>
-                                    <barButtonItem systemItem="fastForward" id="mmQ-aa-Rwc"/>
-                                    <barButtonItem width="80" style="plain" systemItem="fixedSpace" id="T3c-H1-wF6"/>
+                                    <barButtonItem systemItem="rewind" id="nHm-VA-KyE">
+                                        <inset key="imageInsets" minX="30" minY="30" maxX="30" maxY="30"/>
+                                    </barButtonItem>
+                                    <barButtonItem title="2" id="jup-Yi-TgY">
+                                        <inset key="imageInsets" minX="-30" minY="-30" maxX="-30" maxY="-30"/>
+                                    </barButtonItem>
+                                    <barButtonItem systemItem="fastForward" id="mmQ-aa-Rwc">
+                                        <inset key="imageInsets" minX="30" minY="30" maxX="30" maxY="30"/>
+                                    </barButtonItem>
+                                    <barButtonItem width="70" style="plain" systemItem="fixedSpace" id="T3c-H1-wF6"/>
                                     <barButtonItem style="plain" systemItem="trash" id="k2J-DC-6zc">
                                         <inset key="imageInsets" minX="-30" minY="-30" maxX="-30" maxY="-30"/>
                                         <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>

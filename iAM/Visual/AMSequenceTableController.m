@@ -202,13 +202,13 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath
              withPictureName:@"incloop.png"
                     selector:@selector(onIncrementLoop:)
               buttonPosition:3
-                        size:20
+                        size:22
                        color:[UIColor orangeColor]];
     [self setBottomBarButton:_tempDecrementButton
              withPictureName:@"decloop.png"
                     selector:@selector(onDecrementLoop:)
               buttonPosition:1
-                        size:20
+                        size:22
                        color:[UIColor orangeColor]];
     
     AMSequenceStep *step = _mainSequence.getActualStep;

@@ -52,13 +52,13 @@ static NSString * const reuseIdentifier = @"mySequenceStepCell";
                     selector:@selector(onAddStep:)
               buttonPosition:6
                         size:30
-                       color:[UIColor blackColor]];
+                       color:[UIColor darkGrayColor]];
     [self setBottomBarButton:_tempDeleteButton
              withPictureName:@"delete.png"
                     selector:@selector(onDeleteStep:)
               buttonPosition:5
                         size:30
-                       color:[UIColor blackColor]];
+                       color:[UIColor darkGrayColor]];
 }
 
 - (void)setBottomBarButton: (UIBarButtonItem *)button

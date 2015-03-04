@@ -18,7 +18,7 @@
 
 - (void)awakeFromNib {
     UIView *bgColorView = [[UIView alloc] init];
-    bgColorView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.4F];
+    bgColorView.backgroundColor = [[UIColor grayColor] colorWithAlphaComponent:0.2F];
     [self setSelectedBackgroundView:bgColorView];
     [self adjustTextFieldsFrame];
 }

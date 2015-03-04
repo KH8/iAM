@@ -25,10 +25,10 @@ static NSString * const reuseIdentifier = @"myMenuStepCell";
 
 - (void)initMenuItems{
     _menuItems = [[NSMutableArray alloc] init];
-    [_menuItems addObject:@("NEW SEQUENCE")];
-    [_menuItems addObject:@("SAVE SEQUENCE")];
-    [_menuItems addObject:@("PROPERTIES")];
-    [_menuItems addObject:@("ABOUT")];
+    [_menuItems addObject:@("New Sequence")];
+    [_menuItems addObject:@("Save Sequence")];
+    [_menuItems addObject:@("Properties")];
+    [_menuItems addObject:@("About")];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -47,6 +47,11 @@ static NSString * const reuseIdentifier = @"myMenuStepCell";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier forIndexPath:indexPath];
     cell.textLabel.text = _menuItems[(NSUInteger) indexPath.row];
+    
+    if(indexPath.row == 0){
+        cell.textLabel.textColor = [UIColor orangeColor];
+    }
+    
     return cell;
 }
 

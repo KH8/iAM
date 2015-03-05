@@ -11,21 +11,30 @@
 @interface AMSequenceTableViewCell ()
 
 @property AMSequenceStep *sequenceStep;
+@property (weak, nonatomic) IBOutlet UIImageView *selectionImageView;
 
 @end
 
 @implementation AMSequenceTableViewCell
 
 - (void)awakeFromNib {
-    UIView *bgColorView = [[UIView alloc] init];
-    bgColorView.backgroundColor = [[UIColor grayColor] colorWithAlphaComponent:0.2F];
-    [self setSelectedBackgroundView:bgColorView];
     [self adjustTextFieldsFrame];
+}
+
+- (void)setSelectionMarkerVisible{
+    _selectionImageView.image = [[UIImage imageNamed:@"selected.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    _selectionImageView.contentMode = UIViewContentModeScaleAspectFit;
+    _selectionImageView.tintColor = [UIColor orangeColor];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
     [_stepTitle resignFirstResponder];
+    
+    _selectionImageView.tintColor = [UIColor blackColor];
+    if(self.isSelected){
+        [self setSelectionMarkerVisible];
+    }
 }
 
 - (void)assignSequenceStep: (AMSequenceStep*)aStep{
@@ -40,18 +49,15 @@
     switch (aStep.getStepType)
     {
         case PLAY_ONCE:
-            [button setImage:[[UIImage imageNamed:@"seq1.png"]
-                              imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]
+            [button setImage:[[UIImage imageNamed:@"seq1.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]
                     forState:UIControlStateNormal];
             break;
         case REPEAT:
-            [button setImage:[[UIImage imageNamed:@"seq2.png"]
-                              imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]
+            [button setImage:[[UIImage imageNamed:@"seq2.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]
                     forState:UIControlStateNormal];
             break;
         case INFINITE_LOOP:
-            [button setImage:[[UIImage imageNamed:@"seq3.png"]
-                              imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]
+            [button setImage:[[UIImage imageNamed:@"seq3.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]
                     forState:UIControlStateNormal];
             break;
     }
@@ -87,18 +93,15 @@
 
 - (void)adjustTextFieldsFrame {
     CGFloat fixedWidth = _stepTitle.frame.size.width;
-    CGSize newSize = [_stepTitle sizeThatFits:CGSizeMake(fixedWidth, MAXFLOAT)];
-    CGRect newFrame = _stepTitle.frame;
-    newFrame.size = CGSizeMake(newSize.width, newSize.height);
+    CGSize newSize = [_stepTitle sizeThatFits:CGSizeMake(fixedWidth, 160.0)];
+    CGRect newFrame = CGRectMake(newSize.width, newSize.height, 160.0, newSize.height);
     _stepTitle.frame = newFrame;
 }
 
 - (void)adjustTextFieldsFrameWhileEditing {
-    CGFloat fixedWidth = _stepTitle.frame.size.width;
-    CGSize newSize = [_stepTitle sizeThatFits:CGSizeMake(fixedWidth, MAXFLOAT)];
     CGRect newFrame = _stepTitle.frame;
-    newFrame.size = CGSizeMake(262.0f, newSize.height);
-    newFrame.origin.x = 0.0f;
+    newFrame.size = CGSizeMake(262.0, _stepTitle.frame.size.height);
+    newFrame.origin.x = 0.0;
     _stepTitle.frame = newFrame;
 }
 

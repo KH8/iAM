@@ -122,6 +122,11 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath
     [_mainSequence getStepAtIndex:(NSUInteger) indexPath.row];
 }
 
+- (void)tableView:(UITableView *)tableView
+didDeselectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+}
+
 - (IBAction)onAddStep:(id)sender{
     [_mainSequence addNewStep];
 }

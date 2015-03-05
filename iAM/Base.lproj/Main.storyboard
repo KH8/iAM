@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="23J-3V-BDE">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--MainView-->
@@ -249,7 +250,7 @@
                                 <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <color key="separatorColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="gray" accessoryType="detailButton" indentationWidth="10" reuseIdentifier="mySequenceStepCell" id="WuP-nO-XxU" customClass="AMSequenceTableViewCell">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" accessoryType="detailButton" indentationWidth="10" reuseIdentifier="mySequenceStepCell" id="WuP-nO-XxU" customClass="AMSequenceTableViewCell">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="right" tableViewCell="WuP-nO-XxU" id="AIB-5G-Bc9">
@@ -271,18 +272,28 @@
                                                         <outlet property="delegate" destination="WuP-nO-XxU" id="VEI-fR-Lfq"/>
                                                     </connections>
                                                 </textField>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qkj-Ao-eIy">
+                                                    <rect key="frame" x="588" y="16" width="12" height="12"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="12" id="EFz-tv-wXH"/>
+                                                        <constraint firstAttribute="width" constant="12" id="Qm3-TH-13b"/>
+                                                    </constraints>
+                                                </imageView>
                                             </subviews>
                                             <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <constraints>
+                                                <constraint firstAttribute="centerY" secondItem="qkj-Ao-eIy" secondAttribute="centerY" id="Cy1-Hk-py9"/>
                                                 <constraint firstAttribute="trailing" secondItem="SoH-Jh-0hG" secondAttribute="trailing" constant="10" id="DcH-F9-kyv"/>
                                                 <constraint firstAttribute="trailing" secondItem="pXz-Eu-HxI" secondAttribute="trailing" constant="10" id="FWa-c8-NaY"/>
                                                 <constraint firstAttribute="bottom" secondItem="SoH-Jh-0hG" secondAttribute="bottom" constant="5" id="RTi-op-kT6"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="qkj-Ao-eIy" secondAttribute="trailing" constant="-55" id="gSQ-73-J5H"/>
                                                 <constraint firstItem="pXz-Eu-HxI" firstAttribute="top" secondItem="AIB-5G-Bc9" secondAttribute="top" constant="5" id="nL1-Yt-SDQ"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <gestureRecognizers/>
                                         <connections>
+                                            <outlet property="selectionImageView" destination="qkj-Ao-eIy" id="kte-ee-R5i"/>
                                             <outlet property="stepSubtitle" destination="SoH-Jh-0hG" id="vaW-9x-3Ly"/>
                                             <outlet property="stepTitle" destination="pXz-Eu-HxI" id="4WD-a2-roA"/>
                                         </connections>
@@ -312,7 +323,7 @@
                                     <barButtonItem systemItem="fastForward" id="mmQ-aa-Rwc">
                                         <inset key="imageInsets" minX="30" minY="30" maxX="30" maxY="30"/>
                                     </barButtonItem>
-                                    <barButtonItem width="70" style="plain" systemItem="fixedSpace" id="T3c-H1-wF6"/>
+                                    <barButtonItem width="75" style="plain" systemItem="fixedSpace" id="T3c-H1-wF6"/>
                                     <barButtonItem style="plain" systemItem="trash" id="k2J-DC-6zc">
                                         <inset key="imageInsets" minX="-30" minY="-30" maxX="-30" maxY="-30"/>
                                         <color key="tintColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>

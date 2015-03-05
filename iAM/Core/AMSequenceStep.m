@@ -70,10 +70,18 @@
     if(_mainStave.getSize == 1){
         bar = @"BAR";
     }
-    return [NSString stringWithFormat:@"%ld %@ %ld BPM",
-            (long)_mainStave.getSize,
-            bar,
-            (long)_mainStave.getTempo];
+    NSString *description = [NSString stringWithFormat:@"%ld %@ %ld BPM",
+                           (long)_mainStave.getSize,
+                           bar,
+                           (long)_mainStave.getTempo];
+    
+    if(_stepType == REPEAT){
+        return [NSString stringWithFormat:@" %@ x%ld",
+                description,
+                (long)_numberOfLoops];
+    }
+    
+    return description;
 }
 
 - (void)incrementLoop{

@@ -26,7 +26,7 @@
 
 - (id)init;
 
-- (void)addNewStep;
+- (AMSequenceStep*)addNewStep;
 - (void)removeStep;
 - (void)removeStepAtIndex: (NSUInteger)anIndex;
 

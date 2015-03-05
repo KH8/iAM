@@ -30,13 +30,15 @@
     return self;
 }
 
-- (void)addNewStep{
+- (AMSequenceStep*)addNewStep{
     NSInteger newIndex = 0;
     if(_mainSequence.count != 0){
         newIndex = _actualIndex + 1;
     }
-    [_mainSequence insertObject:[[AMSequenceStep alloc] initWithIndex:_mainSequence.count+1] atIndex:newIndex];
+    AMSequenceStep *newStep = [[AMSequenceStep alloc] initWithIndex:_mainSequence.count+1];
+    [_mainSequence insertObject:newStep atIndex:newIndex];
     [self runAllVisualDelegates];
+    return newStep;
 }
 
 - (void)removeStep{

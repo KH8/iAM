@@ -44,6 +44,8 @@ static NSString * const reuseIdentifier = @"mySequenceStepCell";
     _mainSequencer.sequencerSyncDelegate = self;
     _mainSequence = [_mainSequencer getSequence];
     _mainSequence.visualDelegate = self;
+    AMSequenceStep *step = _mainSequence.getActualStep;
+    step.visualDelegate = self;
 }
 
 - (void)initBottomToolBar{
@@ -128,7 +130,8 @@ didDeselectRowAtIndexPath:(NSIndexPath *)indexPath{
 }
 
 - (IBAction)onAddStep:(id)sender{
-    [_mainSequence addNewStep];
+    AMSequenceStep *newStep = [_mainSequence addNewStep];
+    newStep.visualDelegate = self;
 }
 
 - (IBAction)onDeleteStep:(id)sender{
@@ -137,13 +140,11 @@ didDeselectRowAtIndexPath:(NSIndexPath *)indexPath{
 
 - (IBAction)onIncrementLoop:(id)sender{
     AMSequenceStep *step = _mainSequence.getActualStep;
-    step.visualDelegate = self;
     [step incrementLoop];
 }
 
 - (IBAction)onDecrementLoop:(id)sender{
     AMSequenceStep *step = _mainSequence.getActualStep;
-    step.visualDelegate = self;
     [step decrementLoop];
 }
 
@@ -179,12 +180,13 @@ didDeselectRowAtIndexPath:(NSIndexPath *)indexPath{
 }
 
 - (void)sequenceStepPropertiesHasBeenChanged{
+    [_tableView reloadData];
+    [self changeIndexSelected:(NSUInteger) _mainSequence.getActualIndex];
     [self stepLoopCounterUpdate];
 }
 
 - (void)stepLoopCounterUpdate{
     AMSequenceStep *step = _mainSequence.getActualStep;
-    step.visualDelegate = self;
     
     if(step.getStepType != REPEAT){
         [self hideAllLoopCountButtons];

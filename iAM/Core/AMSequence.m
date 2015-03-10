@@ -63,24 +63,24 @@
     AMSequenceStep *actualStep = [self getActualStep];
     switch (actualStep.getStepType) {
         case PLAY_ONCE:
-            [self setIndexAsActual:_actualIndex + 1];
+            [self setOneStepForward];
             break;
         case REPEAT:
-            if(_actualStepLoopCounter > actualStep.getNumberOfLoops){
-                [self setIndexAsActual:_actualIndex + 1];
+            _actualStepLoopCounter++;
+            if(_actualStepLoopCounter == actualStep.getNumberOfLoops){
+                [self setOneStepForward];
                 break;
             }
-            _actualStepLoopCounter++;
             break;
         case INFINITE_LOOP:
             break;
     }
+    [self runAllMechanicalDelegates];
     return [self getActualStep];
 }
 
 
 - (AMSequenceStep*)getActualStep{
-    _actualStepLoopCounter = 0;
     return _mainSequence[_actualIndex];
 }
 
@@ -94,6 +94,8 @@
 }
 
 - (void)setOneStepForward{
+    _actualStepLoopCounter = 0;
+    
     NSUInteger maxIndex = _mainSequence.count - 1;
     if(_actualIndex == maxIndex){
         [self setIndexAsActual: 0];
@@ -103,6 +105,8 @@
 }
 
 - (void)setOneStepBackward{
+    _actualStepLoopCounter = 0;
+    
     NSUInteger maxIndex = _mainSequence.count - 1;
     if(_actualIndex == 0){
         [self setIndexAsActual: maxIndex];

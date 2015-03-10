@@ -26,8 +26,7 @@
 @property NSInteger actualNoteIndex;
 @property NSInteger numberOfTicksPerBeat;
 
-@property NSMutableArray *notesToBeClearedIndex;
-@property NSMutableArray *indexesCleared;
+@property NSInteger actualBarIndex;
 
 @end
 
@@ -68,9 +67,7 @@
     _actualTickIndex = 0;
     _actualNoteIndex = 0;
     _numberOfTicksPerBeat = 0;
-
-    _notesToBeClearedIndex = [[NSMutableArray alloc] init];
-    _indexesCleared = [[NSMutableArray alloc] init];
+    _actualBarIndex = 0;
 }
 
 - (void)initTimer {
@@ -78,7 +75,7 @@
     [self updateTimerInterval];
 }
 
-- (void)initRunner{
+- (void)initRunner {
     _runner = [NSRunLoop currentRunLoop];
     [_runner addTimer:_mainTimer forMode: NSRunLoopCommonModes];
 }
@@ -87,7 +84,7 @@
     _runningState = NO;
 }
 
-- (void)startStop{
+- (void)startStop {
     _runningState = !_runningState;
     if(_runningState) {
         [_mainStave setFirstBarAsActual];
@@ -110,51 +107,71 @@
     return _mainStave;
 }
 
-- (AMSequence *)getSequence{
+- (AMSequence *)getSequence {
     return _mainSequence;
 }
 
--(void)onTick {
+- (void)onTick {
     if(_debug){
         NSLog(@"Interval: %f", [_auxTimeStamp timeIntervalSinceNow]);
         _auxTimeStamp = [NSDate date];
     }
+    [self clearNotes];
+    [self playNotes];
+}
+
+- (void)playNotes {
     if(_runningState){
-    [self performSelectorInBackground:@selector(playTheRow)
-                           withObject:nil];
+        [self performSelectorInBackground:@selector(playTheRow)
+                               withObject:nil];
+        [self incrementActualNoteIndex];
     }
+    else{
+        _actualNoteIndex = 0;
+        _actualBarIndex = 0;
+    }
+}
+
+- (void)clearNotes {
     [self performSelectorInBackground:@selector(clearTheRow)
                            withObject:nil];
 }
 
-- (void)playTheRow {
-    NSInteger incrementValue = (NSInteger) (4.0 / _actualBar.getDensity);
-    NSInteger index = _actualNoteIndex % _actualBar.getLengthToBePlayed;
-    index = index * incrementValue;
-    [self handlePlayOnStave:_actualBar
-               atPosition:(NSUInteger) index];
-
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [_notesToBeClearedIndex addObject:@(index)];
-    });
+- (void)incrementActualNoteIndex {
     _actualNoteIndex++;
+    if(_actualNoteIndex == _actualBar.getLengthToBePlayed) {
+        [self incrementActualBarIndex];
+        _actualNoteIndex = 0;
+    }
+}
+
+- (void)incrementActualBarIndex {
+    _actualBarIndex++;
+    if(_actualBarIndex == _mainStave.getSize) {
+        [_mainSequence getNextStep];
+        _actualBarIndex = 0;
+    }
+    else{
+        [_mainStave setNextBarAsActual];
+    }
+}
+
+- (void)playTheRow {
+    [self handlePlayOnStave:_actualBar
+                 atPosition:(NSUInteger) [self getIndex]];
 }
 
 - (void)clearTheRow {
-    if(_actualNoteIndex == _actualBar.getLengthToBePlayed) {
-        [_mainStave setNextBarAsActual];
-        _actualNoteIndex = 0;
+    for (int i = 0; i < 128; i++) {
+        [self handleStopOnStave:_actualBar
+                     atPosition:(NSUInteger) i];
     }
-    dispatch_async(dispatch_get_main_queue(), ^{
-        for (NSNumber *index in _notesToBeClearedIndex){
-            [self handleStopOnStave:_actualBar
-                         atPosition:(NSUInteger) index.integerValue];
-            [_indexesCleared addObject:index];
-        }
-        for (NSNumber *index in _indexesCleared){
-            [_notesToBeClearedIndex removeObject:index];
-        }
-    });
+}
+
+- (NSInteger)getIndex {
+    NSInteger incrementValue = (NSInteger) (4.0 / _actualBar.getDensity);
+    NSInteger index = _actualNoteIndex % _actualBar.getLengthToBePlayed;
+    return index * incrementValue;
 }
 
 - (void)handlePlayOnStave: (AMBar *)aStave
@@ -217,7 +234,10 @@
 - (void)stepHasBeenChanged{
     _actualStep = _mainSequence.getActualStep;
     _mainStave = _actualStep.getStave;
+    [_mainStave setFirstBarAsActual];
     _mainStave.mechanicalDelegate = self;
+    _actualBar = _mainStave.getActualBar;
+    [self updateTimerInterval];
     [_sequencerDelegate stepHasBeenChanged];
 }
 

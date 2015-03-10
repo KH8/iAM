@@ -36,7 +36,7 @@
 - (id)init {
     self = [super init];
     if (self) {
-        _debug = YES;
+        _debug = NO;
         
         _mainSequence = [[AMSequence alloc] init];
         _mainSequence.mechanicalDelegate = self;
@@ -59,7 +59,7 @@
         _arrayOfPlayers = @[amPlayer0,amPlayer1,amPlayer2];
 
         [self initTimer];
-        [self computeProperInterval];
+        [self initRunner];
     }
     return self;
 }
@@ -75,7 +75,12 @@
 
 - (void)initTimer {
     _auxTimeStamp = [NSDate date];
-    [self computeProperInterval];
+    [self updateTimerInterval];
+}
+
+- (void)initRunner{
+    _runner = [NSRunLoop currentRunLoop];
+    [_runner addTimer:_mainTimer forMode: NSRunLoopCommonModes];
 }
 
 - (void)killBackgroundThread{
@@ -114,12 +119,12 @@
         NSLog(@"Interval: %f", [_auxTimeStamp timeIntervalSinceNow]);
         _auxTimeStamp = [NSDate date];
     }
-    /*if(_runningState){
+    if(_runningState){
     [self performSelectorInBackground:@selector(playTheRow)
                            withObject:nil];
     }
     [self performSelectorInBackground:@selector(clearTheRow)
-                           withObject:nil];*/
+                           withObject:nil];
 }
 
 - (void)playTheRow {
@@ -136,6 +141,10 @@
 }
 
 - (void)clearTheRow {
+    if(_actualNoteIndex == _actualBar.getLengthToBePlayed) {
+        [_mainStave setNextBarAsActual];
+        _actualNoteIndex = 0;
+    }
     dispatch_async(dispatch_get_main_queue(), ^{
         for (NSNumber *index in _notesToBeClearedIndex){
             [self handleStopOnStave:_actualBar
@@ -146,10 +155,6 @@
             [_notesToBeClearedIndex removeObject:index];
         }
     });
-    if(_actualNoteIndex == _actualBar.getLengthToBePlayed) {
-        [_mainStave setNextBarAsActual];
-        _actualNoteIndex = 0;
-    }
 }
 
 - (void)handlePlayOnStave: (AMBar *)aStave
@@ -178,30 +183,32 @@
     }
 }
 
-- (void)computeProperInterval{
-    NSNumber *intervalBetweenBeatsInSeconds = @(1.0f / _mainStave.getTempo);
+- (void)updateTimerInterval{
+    [_mainTimer invalidate];
+    _mainTimer = [self getTimer];
+}
+
+- (NSTimer*)getTimer{
+    NSNumber *intervalBetweenBeatsInSeconds = @(60.0f / _mainStave.getTempo);
     NSNumber *actualIntervalInGrid = @(intervalBetweenBeatsInSeconds.floatValue / _actualBar.getDensity);
     NSNumber *denominatorFactor = @(_actualBar.getSignatureDenominator / 4.0);
     NSNumber *actualIntervalAdequateToSignatureDenominator = @(actualIntervalInGrid.floatValue / denominatorFactor.floatValue);
-    [self setTimerWithInterval:actualIntervalAdequateToSignatureDenominator];
+    return [self setTimerWithInterval:actualIntervalAdequateToSignatureDenominator];
 }
 
-- (void)setTimerWithInterval: (NSNumber*)interval{
-    _mainTimer = [NSTimer scheduledTimerWithTimeInterval:interval.floatValue
+- (NSTimer*)setTimerWithInterval: (NSNumber*)interval{
+    return [NSTimer scheduledTimerWithTimeInterval:interval.floatValue
                                                   target:self selector:@selector(onTick)
                                                 userInfo:nil repeats:YES];
-    _runner = nil;
-    _runner = [NSRunLoop currentRunLoop];
-    [_runner addTimer:_mainTimer forMode: NSRunLoopCommonModes];
 }
 
 - (void)tempoHasBeenChanged {
-    [self computeProperInterval];
+    [self updateTimerInterval];
 }
 
 - (void)barHasBeenChanged {
     _actualBar = _mainStave.getActualBar;
-    [self computeProperInterval];
+    [self updateTimerInterval];
 }
 
 - (void)sequenceHasBeenChanged{

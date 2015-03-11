@@ -385,7 +385,7 @@
                         <viewControllerLayoutGuide type="top" id="xTc-KQ-AEl"/>
                         <viewControllerLayoutGuide type="bottom" id="mJB-qH-SCf"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="tyE-74-eos">
+                    <view key="view" clipsSubviews="YES" contentMode="scaleToFill" id="tyE-74-eos">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -451,7 +451,7 @@
                                     <constraint firstAttribute="centerY" secondItem="ibw-dR-ieT" secondAttribute="centerY" constant="1.5" id="zpG-5Q-HJX"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="|             SIGNATURE              |     DENSITY     |       BPM       |" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BWP-jM-7xd">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" |            SIGNATURE            |      DENSITY     |       BPM       |" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BWP-jM-7xd">
                                 <rect key="frame" x="0.0" y="525" width="600" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="S9m-G7-bcc"/>

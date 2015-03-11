@@ -20,10 +20,10 @@
 
 @implementation AMSequenceStep
 
-- (id)initWithIndex:(NSInteger)index {
+- (id)init {
     self = [super init];
     if (self) {
-        _name = [NSString stringWithFormat:@"STEP %ld", (long)index];
+        _name = @"NEW STEP";
         _mainStave = [[AMStave alloc] init];
         _stepType = INFINITE_LOOP;
         _numberOfLoops = 1;

@@ -35,7 +35,7 @@
     if(_mainSequence.count != 0){
         newIndex = _actualIndex + 1;
     }
-    AMSequenceStep *newStep = [[AMSequenceStep alloc] initWithIndex:_mainSequence.count+1];
+    AMSequenceStep *newStep = [[AMSequenceStep alloc] init];
     [_mainSequence insertObject:newStep atIndex:newIndex];
     [self runAllVisualDelegates];
     return newStep;

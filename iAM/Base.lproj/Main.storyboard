@@ -385,13 +385,16 @@
                         <viewControllerLayoutGuide type="top" id="xTc-KQ-AEl"/>
                         <viewControllerLayoutGuide type="bottom" id="mJB-qH-SCf"/>
                     </layoutGuides>
-                    <view key="view" alpha="0.90000000000000002" contentMode="scaleToFill" id="tyE-74-eos">
+                    <view key="view" contentMode="scaleToFill" id="tyE-74-eos">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" alpha="0.44999999999999962" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CRn-gj-ty1">
+                            <view alpha="0.69999999999999996" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GXz-Pf-LpU">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CRn-gj-ty1">
                                 <rect key="frame" x="0.0" y="53" width="600" height="30"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="X0j-Qg-8RD"/>
                                 </constraints>
@@ -408,7 +411,7 @@
                                 <rect key="frame" x="93" y="83" width="415" height="442"/>
                                 <subviews>
                                     <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ibw-dR-ieT">
-                                        <rect key="frame" x="315" y="138.5" width="100" height="162"/>
+                                        <rect key="frame" x="315" y="138" width="100" height="162"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="162" id="Fip-6J-E5Y"/>
                                             <constraint firstAttribute="width" constant="100" id="Kh7-JR-Byp"/>
@@ -430,7 +433,6 @@
                                     </pickerView>
                                     <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bPl-GG-4YA">
                                         <rect key="frame" x="0.0" y="138" width="100" height="162"/>
-                                        <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="100" id="9KK-o7-vu1"/>
                                             <constraint firstAttribute="height" constant="162" id="tbi-7A-WsG"/>
@@ -449,9 +451,8 @@
                                     <constraint firstAttribute="centerY" secondItem="ibw-dR-ieT" secondAttribute="centerY" constant="1.5" id="zpG-5Q-HJX"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.45000000000000001" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="|             SIGNATURE              |     DENSITY     |       BPM       |" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BWP-jM-7xd">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="|             SIGNATURE              |     DENSITY     |       BPM       |" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BWP-jM-7xd">
                                 <rect key="frame" x="0.0" y="525" width="600" height="30"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="S9m-G7-bcc"/>
                                 </constraints>
@@ -460,7 +461,6 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="BWP-jM-7xd" firstAttribute="top" secondItem="4Sn-Mq-EaF" secondAttribute="bottom" id="2rM-tI-wRf"/>

@@ -27,7 +27,7 @@ typedef enum{
     INFINITE_LOOP
 } StepType;
 
-- (id)initWithIndex:(NSInteger)index;
+- (id)init;
 - (AMStave*)getStave;
 
 - (void)setNextStepType;

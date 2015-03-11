@@ -82,7 +82,6 @@
 
 - (void)loadIcons{
     UIBarButtonItem *originalLeftButton = self.navigationItem.leftBarButtonItem;
-    
     UIButton *face = [UIButton buttonWithType:UIButtonTypeCustom];
     face.tintColor = [UIColor orangeColor];
     face.bounds = CGRectMake( 26, 26, 26, 26 );
@@ -91,7 +90,6 @@
     [face addTarget:originalLeftButton.target
              action:originalLeftButton.action
    forControlEvents:UIControlEventTouchDown];
-    
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:face];
 }
 

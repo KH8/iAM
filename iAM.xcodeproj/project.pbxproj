@@ -35,6 +35,7 @@
 		A45F0D531A5C6515008673FC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A45F0D511A5C6515008673FC /* Main.storyboard */; };
 		A45F0D581A5C6515008673FC /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = A45F0D561A5C6515008673FC /* LaunchScreen.xib */; };
 		A45F0D641A5C6515008673FC /* iAMTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A45F0D631A5C6515008673FC /* iAMTests.m */; };
+		A49FDBC11AB0F208008D5595 /* menu.png in Resources */ = {isa = PBXBuildFile; fileRef = A49FDBC01AB0F208008D5595 /* menu.png */; };
 		A4A132A51A95287400D6E2F1 /* AMSequenceStep.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A132A41A95287400D6E2F1 /* AMSequenceStep.m */; };
 		A4A132A81A9528A800D6E2F1 /* AMSequence.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A132A71A9528A800D6E2F1 /* AMSequence.m */; };
 		A4A4D2391A928C95006CB6CE /* AMStave.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A4D2381A928C95006CB6CE /* AMStave.m */; };
@@ -104,6 +105,7 @@
 		A45F0D5D1A5C6515008673FC /* iAMTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iAMTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A45F0D621A5C6515008673FC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A45F0D631A5C6515008673FC /* iAMTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iAMTests.m; sourceTree = "<group>"; };
+		A49FDBC01AB0F208008D5595 /* menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = menu.png; path = Icons/menu.png; sourceTree = "<group>"; };
 		A4A132A31A95287400D6E2F1 /* AMSequenceStep.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMSequenceStep.h; path = Core/AMSequenceStep.h; sourceTree = "<group>"; };
 		A4A132A41A95287400D6E2F1 /* AMSequenceStep.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMSequenceStep.m; path = Core/AMSequenceStep.m; sourceTree = "<group>"; };
 		A4A132A61A9528A800D6E2F1 /* AMSequence.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMSequence.h; path = Core/AMSequence.h; sourceTree = "<group>"; };
@@ -268,6 +270,7 @@
 		A49A749F1A9A86FB006BC3C7 /* Icons */ = {
 			isa = PBXGroup;
 			children = (
+				A49FDBC01AB0F208008D5595 /* menu.png */,
 				A4DDA2B91AA9079D006B9F33 /* icon.png */,
 				A4DDA2B71AA8FB57006B9F33 /* selected.png */,
 				A4DDA2B51AA8F8B8006B9F33 /* spot.png */,
@@ -370,6 +373,7 @@
 			files = (
 				A4A705EF1AA50E3400A911C6 /* decloop.png in Resources */,
 				A45F0D531A5C6515008673FC /* Main.storyboard in Resources */,
+				A49FDBC11AB0F208008D5595 /* menu.png in Resources */,
 				A45F0D581A5C6515008673FC /* LaunchScreen.xib in Resources */,
 				A4DDA2B81AA8FB57006B9F33 /* selected.png in Resources */,
 				A4DDA2BA1AA9079D006B9F33 /* icon.png in Resources */,

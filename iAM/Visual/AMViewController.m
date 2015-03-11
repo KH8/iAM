@@ -31,6 +31,7 @@
     [self loadSidebarMenu];
     [self loadToolBar];
     [self loadBackgroundAudioSession];
+    [self loadIcons];
     [super viewDidLoad];
 }
 
@@ -77,6 +78,21 @@
 
 - (void)loadBackgroundAudioSession{
     [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryMultiRoute error:nil];
+}
+
+- (void)loadIcons{
+    UIBarButtonItem *originalLeftButton = self.navigationItem.leftBarButtonItem;
+    
+    UIButton *face = [UIButton buttonWithType:UIButtonTypeCustom];
+    face.tintColor = [UIColor orangeColor];
+    face.bounds = CGRectMake( 26, 26, 26, 26 );
+    [face setImage:[[UIImage imageNamed:@"menu.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]
+          forState:UIControlStateNormal];
+    [face addTarget:originalLeftButton.target
+             action:originalLeftButton.action
+   forControlEvents:UIControlEventTouchDown];
+    
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:face];
 }
 
 - (void)didReceiveMemoryWarning {

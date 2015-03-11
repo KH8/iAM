@@ -219,10 +219,25 @@
                                     <outlet property="delegate" destination="VYX-gv-vDf" id="4UK-td-ptg"/>
                                 </connections>
                             </tableView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="black" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DTN-eO-v4a">
+                                <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="Pfa-S2-UWd"/>
+                                </constraints>
+                                <items>
+                                    <barButtonItem systemItem="add" id="Nlr-L8-lGJ"/>
+                                    <barButtonItem systemItem="trash" id="7TC-Kh-Fx8"/>
+                                </items>
+                                <color key="barTintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="lw6-5y-do4" firstAttribute="top" secondItem="rOZ-K1-r0N" secondAttribute="top" id="2UO-7U-Jb1"/>
+                            <constraint firstItem="BTg-4X-bTc" firstAttribute="top" secondItem="DTN-eO-v4a" secondAttribute="bottom" id="Dip-JE-fL6"/>
+                            <constraint firstAttribute="trailing" secondItem="DTN-eO-v4a" secondAttribute="trailing" id="Py4-8C-gLL"/>
+                            <constraint firstItem="DTN-eO-v4a" firstAttribute="leading" secondItem="rOZ-K1-r0N" secondAttribute="leading" id="iHL-8A-BO8"/>
                             <constraint firstItem="BTg-4X-bTc" firstAttribute="top" secondItem="lw6-5y-do4" secondAttribute="bottom" id="qbu-lQ-rVo"/>
                             <constraint firstAttribute="trailing" secondItem="lw6-5y-do4" secondAttribute="trailing" id="sHq-1H-IeM"/>
                             <constraint firstItem="lw6-5y-do4" firstAttribute="leading" secondItem="rOZ-K1-r0N" secondAttribute="leading" id="sSf-px-vdT"/>

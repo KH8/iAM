@@ -100,7 +100,7 @@
 
 - (void)adjustTextFieldsFrameWhileEditing {
     CGRect newFrame = _stepTitle.frame;
-    newFrame.size = CGSizeMake(262.0, _stepTitle.frame.size.height);
+    newFrame.size = CGSizeMake(284.0, _stepTitle.frame.size.height);
     newFrame.origin.x = 0.0;
     _stepTitle.frame = newFrame;
 }

@@ -193,11 +193,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" allowsSelectionDuringEditing="YES" rowHeight="30" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="lw6-5y-do4">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <rect key="frame" x="44" y="0.0" width="556" height="600"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <color key="separatorColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="myMenuStepCell" textLabel="V0f-Ez-S0p" rowHeight="40" style="IBUITableViewCellStyleDefault" id="XQ2-0a-wTK">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="myMenuStepCell" textLabel="V0f-Ez-S0p" rowHeight="36" style="IBUITableViewCellStyleDefault" id="XQ2-0a-wTK">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="XQ2-0a-wTK" id="z1P-vV-xRV">
@@ -205,7 +205,7 @@
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="V0f-Ez-S0p">
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -220,31 +220,18 @@
                                     <outlet property="delegate" destination="VYX-gv-vDf" id="4UK-td-ptg"/>
                                 </connections>
                             </tableView>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DTN-eO-v4a">
-                                <rect key="frame" x="0.0" y="556" width="600" height="44"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="Pfa-S2-UWd"/>
-                                </constraints>
-                                <items>
-                                    <barButtonItem systemItem="add" id="Nlr-L8-lGJ"/>
-                                    <barButtonItem systemItem="trash" id="7TC-Kh-Fx8"/>
-                                </items>
-                                <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <color key="barTintColor" cocoaTouchSystemColor="darkTextColor"/>
-                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                         <constraints>
                             <constraint firstItem="lw6-5y-do4" firstAttribute="top" secondItem="rOZ-K1-r0N" secondAttribute="top" id="2UO-7U-Jb1"/>
-                            <constraint firstItem="BTg-4X-bTc" firstAttribute="top" secondItem="DTN-eO-v4a" secondAttribute="bottom" id="Dip-JE-fL6"/>
-                            <constraint firstAttribute="trailing" secondItem="DTN-eO-v4a" secondAttribute="trailing" id="Py4-8C-gLL"/>
-                            <constraint firstItem="DTN-eO-v4a" firstAttribute="leading" secondItem="rOZ-K1-r0N" secondAttribute="leading" id="iHL-8A-BO8"/>
                             <constraint firstItem="BTg-4X-bTc" firstAttribute="top" secondItem="lw6-5y-do4" secondAttribute="bottom" id="qbu-lQ-rVo"/>
                             <constraint firstAttribute="trailing" secondItem="lw6-5y-do4" secondAttribute="trailing" id="sHq-1H-IeM"/>
-                            <constraint firstItem="lw6-5y-do4" firstAttribute="leading" secondItem="rOZ-K1-r0N" secondAttribute="leading" id="sSf-px-vdT"/>
+                            <constraint firstItem="lw6-5y-do4" firstAttribute="leading" secondItem="rOZ-K1-r0N" secondAttribute="leading" constant="44" id="sSf-px-vdT"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="mainView" destination="rOZ-K1-r0N" id="z0l-Rt-6om"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b1l-8r-LsT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -340,7 +327,7 @@
                                     <barButtonItem systemItem="fastForward" id="mmQ-aa-Rwc">
                                         <inset key="imageInsets" minX="30" minY="30" maxX="30" maxY="30"/>
                                     </barButtonItem>
-                                    <barButtonItem width="75" style="plain" systemItem="fixedSpace" id="T3c-H1-wF6"/>
+                                    <barButtonItem width="100" style="plain" systemItem="fixedSpace" id="T3c-H1-wF6"/>
                                     <barButtonItem style="plain" systemItem="trash" id="k2J-DC-6zc">
                                         <inset key="imageInsets" minX="-30" minY="-30" maxX="-30" maxY="-30"/>
                                         <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>

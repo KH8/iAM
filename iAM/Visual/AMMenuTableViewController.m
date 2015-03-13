@@ -40,21 +40,21 @@ static NSString * const reuseIdentifier = @"myMenuStepCell";
     AMMenuToolBarCreator *menuToolBarCreator = [[AMMenuToolBarCreator alloc] initWithParent:self];
     _sequenceButtonLabel = [menuToolBarCreator createBarButtonLabelWithText:@"SEQUENCES"
                                                                        font:[UIFont boldSystemFontOfSize:14]
-                                                                      color:[UIColor blackColor]
+                                                                      color:[UIColor orangeColor]
                                                                     bgColor:[UIColor clearColor]];
     _sequenceButton = [menuToolBarCreator createBarButtonWithLabel:_sequenceButtonLabel
                                                          selector:@selector(sequencesButtonAction)];
     [menuToolBarCreator setSequenceButton:_sequenceButton];
     _propertiesButtonLabel = [menuToolBarCreator createBarButtonLabelWithText:@"PROPERTIES"
                                                                         font:[UIFont boldSystemFontOfSize:14]
-                                                                       color:[UIColor blackColor]
+                                                                       color:[UIColor grayColor]
                                                                      bgColor:[UIColor clearColor]];
     _propertiesButton = [menuToolBarCreator createBarButtonWithLabel:_propertiesButtonLabel
                                                             selector:@selector(propertiesButtonAction)];
     [menuToolBarCreator setPropertiesButton:_propertiesButton];
     _aboutButtonLabel = [menuToolBarCreator createBarButtonLabelWithText:@"ABOUT"
                                                                    font:[UIFont boldSystemFontOfSize:14]
-                                                                  color:[UIColor blackColor]
+                                                                  color:[UIColor grayColor]
                                                                 bgColor:[UIColor clearColor]];
     _aboutButton = [menuToolBarCreator createBarButtonWithLabel:_aboutButtonLabel
                                                        selector:@selector(aboutButtonAction)];
@@ -100,18 +100,30 @@ static NSString * const reuseIdentifier = @"myMenuStepCell";
     _sequenceButtonLabel.font = [UIFont boldSystemFontOfSize:14];
     _propertiesButtonLabel.font = [UIFont systemFontOfSize:14];
     _aboutButtonLabel.font = [UIFont systemFontOfSize:14];
+    
+    _sequenceButtonLabel.textColor = [UIColor orangeColor];
+    _propertiesButtonLabel.textColor = [UIColor grayColor];
+    _aboutButtonLabel.textColor = [UIColor grayColor];
 }
 
 - (void)propertiesButtonAction{
     _sequenceButtonLabel.font = [UIFont systemFontOfSize:14];
     _propertiesButtonLabel.font = [UIFont boldSystemFontOfSize:14];
     _aboutButtonLabel.font = [UIFont systemFontOfSize:14];
+    
+    _sequenceButtonLabel.textColor = [UIColor grayColor];
+    _propertiesButtonLabel.textColor = [UIColor orangeColor];
+    _aboutButtonLabel.textColor = [UIColor grayColor];
 }
 
 - (void)aboutButtonAction{
     _sequenceButtonLabel.font = [UIFont systemFontOfSize:14];
     _propertiesButtonLabel.font = [UIFont systemFontOfSize:14];
     _aboutButtonLabel.font = [UIFont boldSystemFontOfSize:14];
+    
+    _sequenceButtonLabel.textColor = [UIColor grayColor];
+    _propertiesButtonLabel.textColor = [UIColor grayColor];
+    _aboutButtonLabel.textColor = [UIColor orangeColor];
 }
 
 @end

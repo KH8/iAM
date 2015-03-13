@@ -31,12 +31,14 @@
 
 - (UIBarButtonItem*)createBarButtonWithLabel: (UILabel *)label
                                     selector: (SEL)selector{
+    [label setUserInteractionEnabled:NO];
+    
     UIButton *button =  [UIButton buttonWithType:UIButtonTypeCustom];
+    [button addSubview:label];
     [button sizeToFit];
     [button addTarget:_parent
                action:selector
      forControlEvents:UIControlEventTouchDown];
-    [button addSubview:label];
     
     return [[UIBarButtonItem alloc] initWithCustomView:button];
 }
@@ -83,7 +85,7 @@
                                                            frame.size.height,
                                                            30)];
     _toolbar.transform = CGAffineTransformRotate(CGAffineTransformIdentity, M_PI/2);
-    _toolbar.barTintColor = [UIColor orangeColor];
+    _toolbar.barTintColor = [UIColor clearColor];
 }
 
 - (void)initMenuToolBarComponents{

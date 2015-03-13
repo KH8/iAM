@@ -54,12 +54,18 @@ numberOfRowsInComponent:(NSInteger)component {
     return pickerData.count;
 }
 
-- (NSAttributedString*)pickerView:(UIPickerView *)pickerView
-            attributedTitleForRow:(NSInteger)row
-                     forComponent:(NSInteger)component{
-    NSString *string = [NSString stringWithFormat:@"%ld", (long)[pickerData[(NSUInteger) row] integerValue]];
-    NSAttributedString *attributedString = [[NSAttributedString alloc] initWithString:string attributes:@{NSForegroundColorAttributeName:[UIColor orangeColor]}];
-    return attributedString;
+- (UIView *)pickerView:(UIPickerView *)pickerView
+            viewForRow:(NSInteger)row
+          forComponent:(NSInteger)component
+           reusingView:(UIView *)view
+{
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 300, 37)];
+    label.text = [NSString stringWithFormat:@"%ld", (long)[pickerData[(NSUInteger) row] integerValue]];
+    label.textAlignment = NSTextAlignmentCenter;
+    label.textColor = [UIColor orangeColor];
+    label.backgroundColor = [UIColor clearColor];
+    [label sizeToFit];
+    return label;
 }
 
 - (void)pickerView:(UIPickerView *)pickerView

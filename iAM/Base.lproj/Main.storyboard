@@ -193,7 +193,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" allowsSelectionDuringEditing="YES" rowHeight="30" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="lw6-5y-do4">
-                                <rect key="frame" x="44" y="0.0" width="556" height="600"/>
+                                <rect key="frame" x="40" y="0.0" width="560" height="600"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <color key="separatorColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -211,7 +211,7 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         <color key="tintColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
                                     </tableViewCell>
                                 </prototypes>
@@ -221,12 +221,12 @@
                                 </connections>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="lw6-5y-do4" firstAttribute="top" secondItem="rOZ-K1-r0N" secondAttribute="top" id="2UO-7U-Jb1"/>
                             <constraint firstItem="BTg-4X-bTc" firstAttribute="top" secondItem="lw6-5y-do4" secondAttribute="bottom" id="qbu-lQ-rVo"/>
                             <constraint firstAttribute="trailing" secondItem="lw6-5y-do4" secondAttribute="trailing" id="sHq-1H-IeM"/>
-                            <constraint firstItem="lw6-5y-do4" firstAttribute="leading" secondItem="rOZ-K1-r0N" secondAttribute="leading" constant="44" id="sSf-px-vdT"/>
+                            <constraint firstItem="lw6-5y-do4" firstAttribute="leading" secondItem="rOZ-K1-r0N" secondAttribute="leading" constant="40" id="sSf-px-vdT"/>
                         </constraints>
                     </view>
                     <connections>

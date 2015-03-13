@@ -7,6 +7,7 @@
 //
 
 #import "AMMenuTableViewController.h"
+#import "AMMenuToolBarCreator.h"
 
 @interface AMMenuTableViewController ()
 
@@ -25,7 +26,6 @@ static NSString * const reuseIdentifier = @"myMenuStepCell";
     [super viewDidLoad];
     [self initMenuItems];
     [self initMenuToolBar];
-    [self initMenuToolBarComponents];
 }
 
 - (void)initMenuItems{
@@ -37,58 +37,9 @@ static NSString * const reuseIdentifier = @"myMenuStepCell";
 }
 
 - (void)initMenuToolBar{
-    _toolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(_mainView.frame.size.height/2*-1 + 20,
-                                                           _mainView.frame.size.height/2 - 20,
-                                                           _mainView.frame.size.height,
-                                                           40)];
-    _toolbar.transform = CGAffineTransformRotate(CGAffineTransformIdentity, M_PI/2);
-    _toolbar.barTintColor = [UIColor blackColor];
+    AMMenuToolBarCreator *menuToolBarCreator = [[AMMenuToolBarCreator alloc] initWithParentFrame:self.view.frame];
+    _toolbar = [menuToolBarCreator getToolBar];
     [self.view addSubview:_toolbar];
-}
-
-- (void)initMenuToolBarComponents{
-    NSArray *buttons = [NSArray arrayWithObjects: [self createBarFlexibleSpace],
-                        [self createBarButtonWithPictureName:@"seq2.png"
-                                                    selector:@selector(sequencesButtonAction)
-                                                        size:30
-                                                       color:[UIColor orangeColor]],
-                        [self createBarFlexibleSpace],
-                        [self createBarButtonWithPictureName:@"seq2.png"
-                                                    selector:@selector(propertiesButtonAction)
-                                                        size:30
-                                                       color:[UIColor grayColor]],
-                        [self createBarFlexibleSpace],
-                        [self createBarButtonWithPictureName:@"seq2.png"
-                                                    selector:@selector(aboutButtonAction)
-                                                        size:30
-                                                       color:[UIColor grayColor]],
-                        [self createBarFlexibleSpace], nil];
-    [_toolbar setItems: buttons animated:NO];
-}
-
-- (UIBarButtonItem*)createBarButtonWithPictureName: (NSString *)pictureName
-                                        selector: (SEL)selector
-                                            size: (NSInteger)size
-                                           color: (UIColor*)color{
-    UIImage *faceImage = [[UIImage imageNamed:pictureName]
-                          imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
-    
-    UIButton *face = [UIButton buttonWithType:UIButtonTypeCustom];
-    face.tintColor = color;
-    face.bounds = CGRectMake( size, size, size, size );
-    [face setImage:faceImage
-          forState:UIControlStateNormal];
-    [face addTarget:self
-             action:selector
-   forControlEvents:UIControlEventTouchDown];
-    
-    return [[UIBarButtonItem alloc] initWithCustomView:face];
-}
-
-- (UIBarButtonItem*)createBarFlexibleSpace{
-    return [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace
-                                                         target:nil
-                                                         action:nil];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -113,18 +64,6 @@ static NSString * const reuseIdentifier = @"myMenuStepCell";
     }
     
     return cell;
-}
-
-- (void)sequencesButtonAction{
-    
-}
-
-- (void)propertiesButtonAction{
-    
-}
-
-- (void)aboutButtonAction{
-    
 }
 
 @end

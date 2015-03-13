@@ -85,7 +85,8 @@
                                                            frame.size.height,
                                                            30)];
     _toolbar.transform = CGAffineTransformRotate(CGAffineTransformIdentity, M_PI/2);
-    _toolbar.barTintColor = [UIColor clearColor];
+    _toolbar.translucent = NO;
+    _toolbar.barTintColor = [UIColor blackColor];
 }
 
 - (void)initMenuToolBarComponents{

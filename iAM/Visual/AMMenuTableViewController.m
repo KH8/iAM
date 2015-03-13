@@ -96,6 +96,11 @@ static NSString * const reuseIdentifier = @"myMenuStepCell";
     return cell;
 }
 
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    return @"";
+}
+
 - (void)sequencesButtonAction{
     _sequenceButtonLabel.font = [UIFont boldSystemFontOfSize:14];
     _propertiesButtonLabel.font = [UIFont systemFontOfSize:14];

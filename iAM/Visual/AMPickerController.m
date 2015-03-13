@@ -59,8 +59,9 @@ numberOfRowsInComponent:(NSInteger)component {
           forComponent:(NSInteger)component
            reusingView:(UIView *)view
 {
-    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 300, 37)];
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 0, 0)];
     label.text = [NSString stringWithFormat:@"%ld", (long)[pickerData[(NSUInteger) row] integerValue]];
+    label.font = [UIFont systemFontOfSize:24];
     label.textAlignment = NSTextAlignmentCenter;
     label.textColor = [UIColor orangeColor];
     label.backgroundColor = [UIColor clearColor];

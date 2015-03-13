@@ -11,7 +11,7 @@
 
 @interface AMMenuToolBarCreator : NSObject
 
-- (id)initWithParentFrame: (CGRect)frame;
+- (id)initWithParent: (UIViewController*)parent;
 
 - (UIToolbar*)getToolBar;
 

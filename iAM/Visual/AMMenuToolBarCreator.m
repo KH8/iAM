@@ -11,15 +11,21 @@
 @interface AMMenuToolBarCreator ()
 
 @property (nonatomic) UIToolbar* toolbar;
+@property (nonatomic) UIViewController* parent;
+
+@property UIBarButtonItem* sequenceButton;
+@property UIBarButtonItem* propertiesButton;
+@property UIBarButtonItem* aboutButton;
 
 @end
 
 @implementation AMMenuToolBarCreator
 
-- (id)initWithParentFrame: (CGRect)frame {
+- (id)initWithParent: (UIViewController*)parent {
     self = [super init];
     if (self) {
-        [self initMenuToolBarWithParentFrame:frame];
+        _parent = parent;
+        [self initMenuToolBarWithParentFrame:_parent.view.frame];
         [self initMenuToolBarComponents];
     }
     return self;
@@ -35,25 +41,30 @@
 }
 
 - (void)initMenuToolBarComponents{
+    _sequenceButton = [self createBarButtonWithText:@"SEQUENCES"
+                                           selector:@selector(sequencesButtonAction)
+                                               font:[UIFont boldSystemFontOfSize:14]
+                                              color:[UIColor blackColor]
+                                            bgColor:[UIColor clearColor]];
+    _propertiesButton = [self createBarButtonWithText:@"PROPERTIES"
+                                             selector:@selector(propertiesButtonAction)
+                                                 font:[UIFont systemFontOfSize:14]
+                                                color:[UIColor blackColor]
+                                              bgColor:[UIColor clearColor]];
+    _aboutButton = [self createBarButtonWithText:@"ABOUT"
+                                        selector:@selector(aboutButtonAction)
+                                            font:[UIFont systemFontOfSize:14]
+                                           color:[UIColor blackColor]
+                                         bgColor:[UIColor clearColor]];
+    
     NSArray *buttons = [NSArray arrayWithObjects:
-                        [self createBarButtonWithText:@"SEQUENCES"
-                                             selector:@selector(sequencesButtonAction:)
-                                                 font:[UIFont boldSystemFontOfSize:14]
-                                                color:[UIColor blackColor]
-                                              bgColor:[UIColor clearColor]],
+                        _sequenceButton,
                         [self createBarFixedSpaceWithSize:60],
-                        [self createBarButtonWithText:@"PROPERTIES"
-                                             selector:@selector(propertiesButtonAction:)
-                                                 font:[UIFont systemFontOfSize:14]
-                                                color:[UIColor blackColor]
-                                              bgColor:[UIColor clearColor]],
+                        _propertiesButton,
                         [self createBarFixedSpaceWithSize:60],
-                        [self createBarButtonWithText:@"ABOUT"
-                                             selector:@selector(aboutButtonAction:)
-                                                 font:[UIFont systemFontOfSize:14]
-                                                color:[UIColor blackColor]
-                                              bgColor:[UIColor clearColor]],
+                        _aboutButton,
                         [self createBarFlexibleSpace],nil];
+    
     [_toolbar setItems: buttons animated:NO];
 }
 
@@ -74,7 +85,7 @@
     
     [button addSubview:label];
     [button sizeToFit];
-    [button addTarget:self
+    [button addTarget:_parent
                action:selector
      forControlEvents:UIControlEventTouchDown];
     
@@ -97,15 +108,6 @@
 
 - (UIToolbar*)getToolBar{
     return _toolbar;
-}
-
-- (IBAction)sequencesButtonAction:(id)sender{
-}
-
-- (IBAction)propertiesButtonAction:(id)sender{
-}
-
-- (IBAction)aboutButtonAction:(id)sender{
 }
 
 @end

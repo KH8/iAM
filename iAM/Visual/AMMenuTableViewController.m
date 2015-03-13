@@ -37,7 +37,7 @@ static NSString * const reuseIdentifier = @"myMenuStepCell";
 }
 
 - (void)initMenuToolBar{
-    AMMenuToolBarCreator *menuToolBarCreator = [[AMMenuToolBarCreator alloc] initWithParentFrame:self.view.frame];
+    AMMenuToolBarCreator *menuToolBarCreator = [[AMMenuToolBarCreator alloc] initWithParent:self];
     _toolbar = [menuToolBarCreator getToolBar];
     [self.view addSubview:_toolbar];
 }
@@ -64,6 +64,18 @@ static NSString * const reuseIdentifier = @"myMenuStepCell";
     }
     
     return cell;
+}
+
+- (void)sequencesButtonAction{
+    
+}
+
+- (void)propertiesButtonAction{
+    
+}
+
+- (void)aboutButtonAction{
+    
 }
 
 @end

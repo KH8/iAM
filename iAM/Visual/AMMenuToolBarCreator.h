@@ -15,4 +15,17 @@
 
 - (UIToolbar*)getToolBar;
 
+- (UIBarButtonItem*)createBarButtonWithLabel: (UILabel *)label
+                                    selector: (SEL)selector;
+- (UILabel*)createBarButtonLabelWithText: (NSString *)text
+                                    font: (UIFont*)font
+                                   color: (UIColor*)color
+                                 bgColor: (UIColor*)bgColor;
+- (UIBarButtonItem*)createBarFlexibleSpace;
+- (UIBarButtonItem*)createBarFixedSpaceWithSize: (NSInteger)size;
+
+- (void)setSequenceButton: (UIBarButtonItem*)button;
+- (void)setPropertiesButton: (UIBarButtonItem*)button;
+- (void)setAboutButton: (UIBarButtonItem*)button;
+
 @end

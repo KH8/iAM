@@ -41,7 +41,6 @@
 		A4A4D2391A928C95006CB6CE /* AMStave.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A4D2381A928C95006CB6CE /* AMStave.m */; };
 		A4A705EF1AA50E3400A911C6 /* decloop.png in Resources */ = {isa = PBXBuildFile; fileRef = A4A705ED1AA50E3400A911C6 /* decloop.png */; };
 		A4A705F01AA50E3400A911C6 /* incloop.png in Resources */ = {isa = PBXBuildFile; fileRef = A4A705EE1AA50E3400A911C6 /* incloop.png */; };
-		A4BD704C1AB3088D0054D899 /* AMMenuToolBarCreator.m in Sources */ = {isa = PBXBuildFile; fileRef = A4BD704B1AB3088D0054D899 /* AMMenuToolBarCreator.m */; };
 		A4C47C1A1A8BB68E002CF325 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A4C47C191A8BB68E002CF325 /* Images.xcassets */; };
 		A4DDA2B61AA8F8B8006B9F33 /* spot.png in Resources */ = {isa = PBXBuildFile; fileRef = A4DDA2B51AA8F8B8006B9F33 /* spot.png */; };
 		A4DDA2B81AA8FB57006B9F33 /* selected.png in Resources */ = {isa = PBXBuildFile; fileRef = A4DDA2B71AA8FB57006B9F33 /* selected.png */; };
@@ -119,8 +118,6 @@
 		A4A4D2381A928C95006CB6CE /* AMStave.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMStave.m; path = Core/AMStave.m; sourceTree = "<group>"; };
 		A4A705ED1AA50E3400A911C6 /* decloop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = decloop.png; path = Icons/decloop.png; sourceTree = "<group>"; };
 		A4A705EE1AA50E3400A911C6 /* incloop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = incloop.png; path = Icons/incloop.png; sourceTree = "<group>"; };
-		A4BD704A1AB3088D0054D899 /* AMMenuToolBarCreator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMMenuToolBarCreator.h; sourceTree = "<group>"; };
-		A4BD704B1AB3088D0054D899 /* AMMenuToolBarCreator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMMenuToolBarCreator.m; sourceTree = "<group>"; };
 		A4C47C191A8BB68E002CF325 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		A4DDA2B51AA8F8B8006B9F33 /* spot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = spot.png; path = Icons/spot.png; sourceTree = "<group>"; };
 		A4DDA2B71AA8FB57006B9F33 /* selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = selected.png; path = Icons/selected.png; sourceTree = "<group>"; };
@@ -171,8 +168,6 @@
 				A41C08ED1A9279F7006F0F06 /* AMSequenceTableViewCell.m */,
 				A41C08EF1A92803B006F0F06 /* AMMenuTableViewController.h */,
 				A41C08F01A92803B006F0F06 /* AMMenuTableViewController.m */,
-				A4BD704A1AB3088D0054D899 /* AMMenuToolBarCreator.h */,
-				A4BD704B1AB3088D0054D899 /* AMMenuToolBarCreator.m */,
 			);
 			path = Visual;
 			sourceTree = "<group>";
@@ -433,7 +428,6 @@
 				A45F0D4A1A5C6515008673FC /* main.m in Sources */,
 				A449107C1A5F3A1200E8C6DB /* AMNote.m in Sources */,
 				8F0B34AA1C650F6EBD78FA56 /* AMSequencer.m in Sources */,
-				A4BD704C1AB3088D0054D899 /* AMMenuToolBarCreator.m in Sources */,
 				A41C08EB1A927435006F0F06 /* AMSequenceTableController.m in Sources */,
 				A41C08F11A92803B006F0F06 /* AMMenuTableViewController.m in Sources */,
 				8F0B7BBFD13CA2A424283225 /* AMCollectionViewCell.m in Sources */,

@@ -192,13 +192,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" allowsSelectionDuringEditing="YES" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="lw6-5y-do4">
-                                <rect key="frame" x="40" y="0.0" width="560" height="600"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelectionDuringEditing="YES" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="lw6-5y-do4">
+                                <rect key="frame" x="0.0" y="44" width="600" height="512"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="separatorColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="sectionIndexBackgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="myMenuStepCell" textLabel="V0f-Ez-S0p" style="IBUITableViewCellStyleDefault" id="XQ2-0a-wTK">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="myMenuStepCell" textLabel="V0f-Ez-S0p" detailTextLabel="LSS-29-rKV" style="IBUITableViewCellStyleSubtitle" id="XQ2-0a-wTK">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="XQ2-0a-wTK" id="z1P-vV-xRV">
@@ -206,8 +206,14 @@
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="V0f-Ez-S0p">
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="LSS-29-rKV">
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -221,22 +227,52 @@
                                     <outlet property="delegate" destination="VYX-gv-vDf" id="4UK-td-ptg"/>
                                 </connections>
                             </tableView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FOk-Ok-i3h">
+                                <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="3F5-BX-OBK"/>
+                                </constraints>
+                                <items>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="oLZ-qg-z7X"/>
+                                    <barButtonItem title="Item" systemItem="trash" id="9ex-By-6c7"/>
+                                    <barButtonItem width="20" style="plain" systemItem="fixedSpace" id="UJ7-vb-XA9"/>
+                                    <barButtonItem systemItem="add" id="dQ9-UK-qeh"/>
+                                </items>
+                                <color key="barTintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </toolbar>
+                            <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2kb-eS-rew">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                <color key="barTintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <items>
+                                    <navigationItem id="8IU-Rz-1uh">
+                                        <barButtonItem key="leftBarButtonItem" title="Item" style="plain" id="XL1-4B-JsO"/>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="lw6-5y-do4" firstAttribute="top" secondItem="rOZ-K1-r0N" secondAttribute="top" id="2UO-7U-Jb1"/>
-                            <constraint firstItem="BTg-4X-bTc" firstAttribute="top" secondItem="lw6-5y-do4" secondAttribute="bottom" id="qbu-lQ-rVo"/>
+                            <constraint firstItem="2kb-eS-rew" firstAttribute="leading" secondItem="rOZ-K1-r0N" secondAttribute="leading" id="0jL-TX-4tx"/>
+                            <constraint firstItem="FOk-Ok-i3h" firstAttribute="leading" secondItem="rOZ-K1-r0N" secondAttribute="leading" id="1jE-cx-AnD"/>
+                            <constraint firstItem="2kb-eS-rew" firstAttribute="top" secondItem="rOZ-K1-r0N" secondAttribute="top" id="32Z-YM-Igm"/>
+                            <constraint firstAttribute="trailing" secondItem="2kb-eS-rew" secondAttribute="trailing" id="Fpr-iM-TeR"/>
+                            <constraint firstAttribute="trailing" secondItem="FOk-Ok-i3h" secondAttribute="trailing" id="IJe-Fg-Kr1"/>
+                            <constraint firstItem="lw6-5y-do4" firstAttribute="top" secondItem="2kb-eS-rew" secondAttribute="bottom" id="lF0-YL-5dg"/>
+                            <constraint firstItem="BTg-4X-bTc" firstAttribute="top" secondItem="FOk-Ok-i3h" secondAttribute="bottom" id="oh7-7j-GTF"/>
+                            <constraint firstItem="BTg-4X-bTc" firstAttribute="top" secondItem="lw6-5y-do4" secondAttribute="bottom" constant="44" id="qbu-lQ-rVo"/>
                             <constraint firstAttribute="trailing" secondItem="lw6-5y-do4" secondAttribute="trailing" id="sHq-1H-IeM"/>
-                            <constraint firstItem="lw6-5y-do4" firstAttribute="leading" secondItem="rOZ-K1-r0N" secondAttribute="leading" constant="40" id="sSf-px-vdT"/>
+                            <constraint firstItem="lw6-5y-do4" firstAttribute="leading" secondItem="rOZ-K1-r0N" secondAttribute="leading" id="sSf-px-vdT"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="mainView" destination="rOZ-K1-r0N" id="z0l-Rt-6om"/>
+                        <outlet property="navigationBarItem" destination="8IU-Rz-1uh" id="9sD-Kq-e2x"/>
+                        <outlet property="sideMenuButton" destination="XL1-4B-JsO" id="qnA-HH-ssz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b1l-8r-LsT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-883" y="497"/>
+            <point key="canvasLocation" x="-163" y="497"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="N5x-HU-r0s">
@@ -263,6 +299,9 @@
                                         <state key="normal" image="about.png">
                                             <attributedString key="attributedTitle"/>
                                         </state>
+                                        <connections>
+                                            <segue destination="VYX-gv-vDf" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="Zbc-wj-7uH"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="g5H-tA-nWi">
                                         <rect key="frame" x="5" y="105" width="30" height="30"/>
@@ -274,6 +313,9 @@
                                         <state key="normal" image="settings.png">
                                             <attributedString key="attributedTitle"/>
                                         </state>
+                                        <connections>
+                                            <segue destination="VYX-gv-vDf" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="2Ez-ny-UTI"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Eh0-EG-bf7">
                                         <rect key="frame" x="5" y="60" width="30" height="30"/>
@@ -285,6 +327,9 @@
                                         <state key="normal" image="list.png">
                                             <attributedString key="attributedTitle"/>
                                         </state>
+                                        <connections>
+                                            <segue destination="VYX-gv-vDf" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="GXg-O2-hfG"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Gxg-ug-BE5">
                                         <rect key="frame" x="5" y="15" width="30" height="30"/>
@@ -296,6 +341,9 @@
                                         <state key="normal" image="grid.png">
                                             <attributedString key="attributedTitle"/>
                                         </state>
+                                        <connections>
+                                            <segue destination="usW-4H-ZPN" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="zkT-HV-92U"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -629,5 +677,9 @@
         <image name="list.png" width="120" height="120"/>
         <image name="settings.png" width="120" height="120"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="Zbc-wj-7uH"/>
+        <segue reference="zkT-HV-92U"/>
+    </inferredMetricsTieBreakers>
     <color key="tintColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
 </document>

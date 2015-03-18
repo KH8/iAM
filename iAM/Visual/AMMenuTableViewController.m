@@ -9,10 +9,11 @@
 #import "SWRevealViewController.h"
 #import "AMMenuTableViewController.h"
 #import "AMSequencerSingleton.h"
+#import "AMSequence.h"
 
 @interface AMMenuTableViewController ()
 
-@property (strong, nonatomic) IBOutlet UIView *mainView;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property NSMutableArray *arrayOfSequences;
 
 @end
@@ -83,6 +84,19 @@ static NSString * const reuseIdentifier = @"myMenuStepCell";
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
     return @"";
+}
+
+- (IBAction)onAddAction:(id)sender {
+    AMSequence *newSequence = [[AMSequence alloc] init];
+    [_arrayOfSequences addObject:newSequence];
+    [_tableView reloadData];
+}
+
+- (IBAction)onDeleteAction:(id)sender {
+    if(_arrayOfSequences.count == 1){
+        return;
+    }
+    [_tableView reloadData];
 }
 
 @end

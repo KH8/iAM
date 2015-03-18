@@ -8,12 +8,12 @@
 
 #import "SWRevealViewController.h"
 #import "AMMenuTableViewController.h"
+#import "AMSequencerSingleton.h"
 
 @interface AMMenuTableViewController ()
 
-@property NSMutableArray *menuItems;
-
 @property (strong, nonatomic) IBOutlet UIView *mainView;
+@property NSMutableArray *arrayOfSequences;
 
 @end
 
@@ -25,8 +25,7 @@ static NSString * const reuseIdentifier = @"myMenuStepCell";
     [super viewDidLoad];
     [self loadSidebarMenu];
     [self loadIcons];
-    
-    [self initMocks];
+    [self loadMainObjects];
 }
 
 - (void)loadSidebarMenu{
@@ -52,15 +51,13 @@ static NSString * const reuseIdentifier = @"myMenuStepCell";
     _navigationBarItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:face];
 }
 
-- (void)initMocks{
-    _menuItems = [[NSMutableArray alloc] init];
-    [_menuItems addObject:@("NEW SEQUENCE")];
-    [_menuItems addObject:@("NEW SEQUENCE")];
+- (void)loadMainObjects{
+    AMSequencerSingleton *sequencerSingleton = [AMSequencerSingleton sharedSequencer];
+    _arrayOfSequences = sequencerSingleton.arrayOfSequences;
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    _menuItems = nil;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -68,12 +65,12 @@ static NSString * const reuseIdentifier = @"myMenuStepCell";
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [_menuItems count];
+    return [_arrayOfSequences count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier forIndexPath:indexPath];
-    cell.textLabel.text = _menuItems[(NSUInteger) indexPath.row];
+    cell.textLabel.text = [_arrayOfSequences[(NSUInteger) indexPath.row] getName];
     cell.detailTextLabel.text = @"CREATED: 2015.03.10, MODIFIED: 2015.03.15";
     
     if(indexPath.row == 0){

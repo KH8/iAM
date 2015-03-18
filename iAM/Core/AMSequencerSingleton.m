@@ -9,6 +9,7 @@
 @implementation AMSequencerSingleton
 
 @synthesize sequencer;
+@synthesize arrayOfSequences;
 
 #pragma mark Singleton Methods
 
@@ -21,10 +22,11 @@
     return sharedMySequencer;
 }
 
-
 - (id)init {
     if (self = [super init]) {
         sequencer = [[AMSequencer alloc] init];
+        arrayOfSequences = [[NSMutableArray alloc] init];
+        [arrayOfSequences addObject:sequencer.getSequence];
     }
     return self;
 }

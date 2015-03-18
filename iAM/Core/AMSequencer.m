@@ -107,6 +107,15 @@
     return _mainStave;
 }
 
+- (void)setSequence:(AMSequence *)newSequence{
+    if(_runningState){
+        [self startStop];
+    }
+    _mainSequence = newSequence;
+    [_sequencerDelegate stepHasBeenChanged];
+    [_sequencerSyncDelegate stepParametersHaveBeenChanged];
+}
+
 - (AMSequence *)getSequence {
     return _mainSequence;
 }

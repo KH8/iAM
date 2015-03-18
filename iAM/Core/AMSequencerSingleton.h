@@ -8,10 +8,13 @@
 
 @interface AMSequencerSingleton : NSObject {
     AMSequencer *sequencer;
+    NSMutableArray *arrayOfSequences;
 }
 
 @property (nonatomic, retain) AMSequencer *sequencer;
+@property (nonatomic, retain) NSMutableArray *arrayOfSequences;
 
 + (id)sharedSequencer;
+
 
 @end

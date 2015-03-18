@@ -39,6 +39,7 @@
 - (void)clear;
 
 - (AMStave *)getStave;
+- (void)setSequence:(AMSequence *)newSequence;
 - (AMSequence *)getSequence;
 
 - (void)syncronizeParameters;

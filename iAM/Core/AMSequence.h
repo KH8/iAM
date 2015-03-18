@@ -26,6 +26,9 @@
 
 - (id)init;
 
+- (void)setName:(NSString*)newName;
+- (NSString*)getName;
+
 - (AMSequenceStep*)addNewStep;
 - (void)removeStep;
 - (void)removeStepAtIndex: (NSUInteger)anIndex;

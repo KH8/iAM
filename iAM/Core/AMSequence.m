@@ -10,6 +10,7 @@
 
 @interface AMSequence()
 
+@property (nonatomic) NSString *name;
 @property NSMutableArray *mainSequence;
 @property NSUInteger actualIndex;
 
@@ -22,12 +23,22 @@
 - (id)init {
     self = [super init];
     if (self) {
+        _name = @"NEW SEQUENCE";
         _mainSequence = [[NSMutableArray alloc] init];
         [self addNewStep];
         _actualIndex = 0;
         _actualStepLoopCounter = 0;
     }
     return self;
+}
+
+- (void)setName:(NSString*)newName{
+    _name = newName;
+    [self runAllVisualDelegates];
+}
+
+- (NSString*)getName{
+    return _name;
 }
 
 - (AMSequenceStep*)addNewStep{

@@ -49,6 +49,7 @@
 		A4E7B6241AB745E200D7D357 /* grid.png in Resources */ = {isa = PBXBuildFile; fileRef = A4E7B6201AB745E200D7D357 /* grid.png */; };
 		A4E7B6251AB745E200D7D357 /* list.png in Resources */ = {isa = PBXBuildFile; fileRef = A4E7B6211AB745E200D7D357 /* list.png */; };
 		A4E7B6261AB745E200D7D357 /* settings.png in Resources */ = {isa = PBXBuildFile; fileRef = A4E7B6221AB745E200D7D357 /* settings.png */; };
+		A4F24F8B1ABC914F00BF47C3 /* AMMutableArray.m in Sources */ = {isa = PBXBuildFile; fileRef = A4F24F8A1ABC914F00BF47C3 /* AMMutableArray.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -126,6 +127,8 @@
 		A4E7B6201AB745E200D7D357 /* grid.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = grid.png; path = Icons/grid.png; sourceTree = "<group>"; };
 		A4E7B6211AB745E200D7D357 /* list.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = list.png; path = Icons/list.png; sourceTree = "<group>"; };
 		A4E7B6221AB745E200D7D357 /* settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = settings.png; path = Icons/settings.png; sourceTree = "<group>"; };
+		A4F24F891ABC914F00BF47C3 /* AMMutableArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMMutableArray.h; path = Core/Auxiliaries/AMMutableArray.h; sourceTree = "<group>"; };
+		A4F24F8A1ABC914F00BF47C3 /* AMMutableArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMMutableArray.m; path = Core/Auxiliaries/AMMutableArray.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -185,6 +188,7 @@
 		A44910761A5F38EF00E8C6DB /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				A4F24F881ABC90F500BF47C3 /* Auxiliaries */,
 				A41E3CA41A9D1057004C7675 /* AMSequencerSingleton.h */,
 				A41E3CA51A9D1057004C7675 /* AMSequencerSingleton.m */,
 				A4A4D2371A928C95006CB6CE /* AMStave.h */,
@@ -295,6 +299,15 @@
 				A450036B1A9BD73B008F4B6A /* seq3.png */,
 			);
 			name = Icons;
+			sourceTree = "<group>";
+		};
+		A4F24F881ABC90F500BF47C3 /* Auxiliaries */ = {
+			isa = PBXGroup;
+			children = (
+				A4F24F891ABC914F00BF47C3 /* AMMutableArray.h */,
+				A4F24F8A1ABC914F00BF47C3 /* AMMutableArray.m */,
+			);
+			name = Auxiliaries;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -435,6 +448,7 @@
 				8F081AD4F297441F7B21E453 /* AMViewController.m in Sources */,
 				A4A132A51A95287400D6E2F1 /* AMSequenceStep.m in Sources */,
 				A45A3D6E1A71B4DF00039934 /* AMCollectionViewController.m in Sources */,
+				A4F24F8B1ABC914F00BF47C3 /* AMMutableArray.m in Sources */,
 				A4A132A81A9528A800D6E2F1 /* AMSequence.m in Sources */,
 				A4A4D2391A928C95006CB6CE /* AMStave.m in Sources */,
 				8F03D778486C6AEEDE7E8BA1 /* AMPlayer.m in Sources */,

@@ -34,5 +34,7 @@
 - (NSObject*)getObjectAtIndex: (NSUInteger)anIndex;
 
 - (void)setIndexAsActual:(NSUInteger)anIndex;
+- (void)setFirstIndexAsActual;
+- (void)setNextIndexAsActual;
 
 @end

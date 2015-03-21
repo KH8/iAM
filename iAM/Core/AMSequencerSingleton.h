@@ -5,14 +5,15 @@
 
 #import <Foundation/Foundation.h>
 #import "AMSequencer.h"
+#import "AMMutableArray.h"
 
 @interface AMSequencerSingleton : NSObject {
     AMSequencer *sequencer;
-    NSMutableArray *arrayOfSequences;
+    AMMutableArray *arrayOfSequences;
 }
 
 @property (nonatomic, retain) AMSequencer *sequencer;
-@property (nonatomic, retain) NSMutableArray *arrayOfSequences;
+@property (nonatomic, retain) AMMutableArray *arrayOfSequences;
 
 + (id)sharedSequencer;
 

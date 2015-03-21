@@ -10,11 +10,12 @@
 #import "AMMenuTableViewController.h"
 #import "AMSequencerSingleton.h"
 #import "AMSequence.h"
+#import "AMMutableArray.h"
 
 @interface AMMenuTableViewController ()
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property NSMutableArray *arrayOfSequences;
+@property AMMutableArray *arrayOfSequences;
 
 @end
 
@@ -72,7 +73,12 @@ static NSString * const reuseIdentifier = @"myMenuStepCell";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier forIndexPath:indexPath];
     cell.textLabel.text = [_arrayOfSequences[(NSUInteger) indexPath.row] getName];
-    cell.detailTextLabel.text = @"CREATED: 2015.03.10, MODIFIED: 2015.03.15";
+    
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"dd-MM-yyyy HH:mm"];
+    NSString *dateString = [formatter stringFromDate:[NSDate date]];
+    
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"CREATED: %@", dateString];
     
     if(indexPath.row == 0){
         cell.textLabel.textColor = [UIColor orangeColor];
@@ -93,9 +99,7 @@ static NSString * const reuseIdentifier = @"myMenuStepCell";
 }
 
 - (IBAction)onDeleteAction:(id)sender {
-    if(_arrayOfSequences.count == 1){
-        return;
-    }
+    [_arrayOfSequences removeActualObject];
     [_tableView reloadData];
 }
 

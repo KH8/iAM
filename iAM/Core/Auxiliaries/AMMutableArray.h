@@ -17,7 +17,7 @@
 
 @end
 
-@interface AMMutableArray : NSMutableArray
+@interface AMMutableArray : NSObject
 
 @property (nonatomic, weak) id <AMMutableArrayDelegate> delegate;
 
@@ -36,5 +36,10 @@
 - (void)setIndexAsActual:(NSUInteger)anIndex;
 - (void)setFirstIndexAsActual;
 - (void)setNextIndexAsActual;
+
+- (NSUInteger)count;
+
+- (id)objectAtIndexedSubscript:(NSUInteger)idx;
+- (void)setObject:(id)obj atIndexedSubscript:(NSUInteger)idx;
 
 @end

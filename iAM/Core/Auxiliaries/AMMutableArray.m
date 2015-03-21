@@ -11,6 +11,8 @@
 @interface AMMutableArray ()
 
 @property (nonatomic) NSUInteger actualIndex;
+@property NSMutableArray *baseArray;
+
 @end
 
 @implementation AMMutableArray
@@ -18,20 +20,21 @@
 - (id)init{
     self = [super init];
     if (self) {
+        _baseArray = [[NSMutableArray alloc] init];
     }
     return self;
 }
 
 - (void)addObject:(NSObject*)newObject{
     NSUInteger newIndex = 0;
-    if(self.count != 0){
+    if(_baseArray.count != 0){
         newIndex = _actualIndex + 1;
     }
     [self addObject:newObject atIndex:newIndex];
 }
 
 - (void)addObject:(NSObject*)newObject atIndex:(NSUInteger)anIndex{
-    [self insertObject:newObject atIndex:anIndex];
+    [_baseArray insertObject:newObject atIndex:anIndex];
     [_delegate arrayHasBeenChanged];
 }
 
@@ -40,10 +43,10 @@
 }
 
 - (void)removeObjectAtIndex:(NSUInteger)anIndex{
-    if(self.count == 1){
+    if(_baseArray.count == 1){
         return;
     }
-    [self removeObjectAtIndex:anIndex];
+    [_baseArray removeObjectAtIndex:anIndex];
     [_delegate arrayHasBeenChanged];
     if(anIndex == _actualIndex){
         [self setNextIndexAsActual];
@@ -55,18 +58,18 @@
 }
 
 - (NSObject*)getActualObject{
-    return self[_actualIndex];
+    return _baseArray[_actualIndex];
 }
 
 - (NSObject*)getObjectAtIndex: (NSUInteger)anIndex{
-    if(anIndex >= self.count){
+    if(anIndex >= _baseArray.count){
         return nil;
     }
-    return self[anIndex];
+    return _baseArray[anIndex];
 }
 
 - (void)setIndexAsActual:(NSUInteger)anIndex{
-    if(anIndex >= self.count){
+    if(anIndex >= _baseArray.count){
         return;
     }
     _actualIndex = anIndex;
@@ -79,8 +82,21 @@
 
 - (void)setNextIndexAsActual{
     _actualIndex++;
-    if(_actualIndex >= self.count) _actualIndex = 0;
+    if(_actualIndex >= _baseArray.count) _actualIndex = 0;
     [_delegate selectionHasBeenChanged];
 }
+
+- (NSUInteger)count{
+    return [_baseArray count];
+}
+
+- (id)objectAtIndexedSubscript:(NSUInteger)idx{
+    return _baseArray[idx];
+}
+
+- (void)setObject:(id)obj atIndexedSubscript:(NSUInteger)idx{
+    _baseArray[idx] = obj;
+}
+
 
 @end

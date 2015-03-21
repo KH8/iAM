@@ -25,7 +25,7 @@
 - (id)init {
     if (self = [super init]) {
         sequencer = [[AMSequencer alloc] init];
-        arrayOfSequences = [[NSMutableArray alloc] init];
+        arrayOfSequences = [[AMMutableArray alloc] init];
         [arrayOfSequences addObject:sequencer.getSequence];
     }
     return self;

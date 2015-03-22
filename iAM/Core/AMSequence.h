@@ -28,6 +28,7 @@
 
 - (void)setName:(NSString*)newName;
 - (NSString*)getName;
+- (NSString*)getCreationDate;
 
 - (AMSequenceStep*)addNewStep;
 - (void)removeStep;

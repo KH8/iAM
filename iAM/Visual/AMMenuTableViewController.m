@@ -73,14 +73,10 @@ static NSString * const reuseIdentifier = @"myMenuStepCell";
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    AMSequence *sequenceAssigned = _arrayOfSequences[(NSUInteger) indexPath.row];
     AMMenuTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier forIndexPath:indexPath];
-    cell.textLabel.text = [_arrayOfSequences[(NSUInteger) indexPath.row] getName];
-    
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"dd-MM-yyyy HH:mm"];
-    NSString *dateString = [formatter stringFromDate:[NSDate date]];
-    
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"CREATED: %@", dateString];
+    cell.textLabel.text = sequenceAssigned.getName;
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"CREATED: %@", sequenceAssigned.getCreationDate];
     
     if(indexPath.row == 0){
         cell.textLabel.textColor = [UIColor orangeColor];
@@ -89,8 +85,7 @@ static NSString * const reuseIdentifier = @"myMenuStepCell";
     return cell;
 }
 
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
-{
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
     return @"";
 }
 

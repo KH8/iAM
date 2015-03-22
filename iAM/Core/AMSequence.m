@@ -11,6 +11,7 @@
 @interface AMSequence()
 
 @property (nonatomic) NSString *name;
+@property (nonatomic) NSString *creationDate;
 @property NSMutableArray *mainSequence;
 @property NSUInteger actualIndex;
 
@@ -24,6 +25,11 @@
     self = [super init];
     if (self) {
         _name = @"NEW SEQUENCE";
+        
+        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+        [formatter setDateFormat:@"dd-MM-yyyy HH:mm"];
+        _creationDate = [formatter stringFromDate:[NSDate date]];
+        
         _mainSequence = [[NSMutableArray alloc] init];
         [self addNewStep];
         _actualIndex = 0;
@@ -39,6 +45,10 @@
 
 - (NSString*)getName{
     return _name;
+}
+
+- (NSString*)getCreationDate{
+    return _creationDate;
 }
 
 - (AMSequenceStep*)addNewStep{

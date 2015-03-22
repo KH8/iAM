@@ -8,6 +8,7 @@
 
 #import "SWRevealViewController.h"
 #import "AMMenuTableViewController.h"
+#import "AMMenuTableViewCell.h"
 #import "AMSequencerSingleton.h"
 #import "AMSequence.h"
 #import "AMMutableArray.h"
@@ -28,6 +29,7 @@ static NSString * const reuseIdentifier = @"myMenuStepCell";
     [self loadSidebarMenu];
     [self loadIcons];
     [self loadMainObjects];
+    [self changeIndexSelected:0];
 }
 
 - (void)loadSidebarMenu{
@@ -71,7 +73,7 @@ static NSString * const reuseIdentifier = @"myMenuStepCell";
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier forIndexPath:indexPath];
+    AMMenuTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier forIndexPath:indexPath];
     cell.textLabel.text = [_arrayOfSequences[(NSUInteger) indexPath.row] getName];
     
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
@@ -96,11 +98,20 @@ static NSString * const reuseIdentifier = @"myMenuStepCell";
     AMSequence *newSequence = [[AMSequence alloc] init];
     [_arrayOfSequences addObject:newSequence];
     [_tableView reloadData];
+    [self changeIndexSelected:(NSUInteger) _arrayOfSequences.getActualIndex];
 }
 
 - (IBAction)onDeleteAction:(id)sender {
     [_arrayOfSequences removeActualObject];
     [_tableView reloadData];
+    [self changeIndexSelected:(NSUInteger) _arrayOfSequences.getActualIndex];
+}
+
+- (void)changeIndexSelected: (NSUInteger)newIndex {
+    [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:newIndex
+                                                            inSection:0]
+                                animated:NO
+                          scrollPosition:UITableViewScrollPositionNone];
 }
 
 @end

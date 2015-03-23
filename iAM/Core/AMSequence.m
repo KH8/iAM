@@ -59,6 +59,7 @@
     AMSequenceStep *newStep = [[AMSequenceStep alloc] init];
     [_mainSequence insertObject:newStep atIndex:newIndex];
     [self runAllVisualDelegates];
+    
     return newStep;
 }
 

@@ -1,35 +1,38 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6751" systemVersion="14C1514" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
-    <entity name="Bar" representedClassName="Bars" syncable="YES">
+    <entity name="Bars" representedClassName="Bar" syncable="YES">
         <attribute name="barDensity" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="barId" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="barSigDenominator" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="barSigNumerator" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="barStepId" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="barTempo" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="barNotes" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Notes" inverseName="bar" inverseEntity="Notes" syncable="YES"/>
+        <relationship name="step" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Steps" inverseName="stepBars" inverseEntity="Steps" syncable="YES"/>
     </entity>
-    <entity name="Note" representedClassName="Notes" syncable="YES">
+    <entity name="Notes" representedClassName="Note" syncable="YES">
         <attribute name="noteBarId" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="noteCoordLine" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="noteCoordPos" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="noteId" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <relationship name="bar" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Bars" inverseName="barNotes" inverseEntity="Bars" syncable="YES"/>
     </entity>
-    <entity name="Sequence" representedClassName="Sequences" syncable="YES">
+    <entity name="Sequences" representedClassName="Sequence" syncable="YES">
         <attribute name="sequenceCreationDate" optional="YES" attributeType="Date" syncable="YES"/>
-        <attribute name="sequenceId" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="sequenceName" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="sequenceSteps" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Steps" inverseName="sequence" inverseEntity="Steps" syncable="YES"/>
     </entity>
-    <entity name="Step" representedClassName="Step" syncable="YES">
-        <attribute name="stepId" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+    <entity name="Steps" representedClassName="Step" syncable="YES">
         <attribute name="stepName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="stepNumberOfLoops" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
-        <attribute name="stepSequenceId" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="stepType" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="sequence" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Sequences" inverseName="sequenceSteps" inverseEntity="Sequences" syncable="YES"/>
+        <relationship name="stepBars" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Bars" inverseName="step" inverseEntity="Bars" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Bar" positionX="-1730" positionY="-1080" width="128" height="135"/>
-        <element name="Note" positionX="-1512" positionY="-1080" width="128" height="105"/>
-        <element name="Sequence" positionX="-2160" positionY="-1078" width="126" height="90"/>
-        <element name="Step" positionX="-1946" positionY="-1080" width="128" height="120"/>
+        <element name="Bars" positionX="-1730" positionY="-1080" width="128" height="163"/>
+        <element name="Notes" positionX="-1512" positionY="-1080" width="128" height="118"/>
+        <element name="Sequences" positionX="-2160" positionY="-1078" width="126" height="88"/>
+        <element name="Steps" positionX="-1946" positionY="-1080" width="128" height="118"/>
     </elements>
 </model>

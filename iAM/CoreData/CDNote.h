@@ -1,22 +1,20 @@
 //
-//  Note.h
+//  CDNote.h
 //  iAM
 //
-//  Created by Krzysztof Reczek on 25.03.2015.
+//  Created by Krzysztof Reczek on 26.03.2015.
 //  Copyright (c) 2015 H@E. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class Bar;
+@class CDBar;
 
-@interface Note : NSManagedObject
+@interface CDNote : NSManagedObject
 
-@property (nonatomic, retain) NSNumber * noteBarId;
 @property (nonatomic, retain) NSNumber * noteCoordLine;
 @property (nonatomic, retain) NSNumber * noteCoordPos;
-@property (nonatomic, retain) NSNumber * noteId;
-@property (nonatomic, retain) Bar *bar;
+@property (nonatomic, retain) CDBar *bar;
 
 @end

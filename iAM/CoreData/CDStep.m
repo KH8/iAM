@@ -1,17 +1,17 @@
 //
-//  Step.m
+//  CDStep.m
 //  iAM
 //
-//  Created by Krzysztof Reczek on 25.03.2015.
+//  Created by Krzysztof Reczek on 26.03.2015.
 //  Copyright (c) 2015 H@E. All rights reserved.
 //
 
-#import "Step.h"
-#import "Bar.h"
-#import "Sequence.h"
+#import "CDStep.h"
+#import "CDBar.h"
+#import "CDSequence.h"
 
 
-@implementation Step
+@implementation CDStep
 
 @dynamic stepName;
 @dynamic stepNumberOfLoops;

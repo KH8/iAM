@@ -1,16 +1,16 @@
 //
-//  Sequence.m
+//  CDSequence.m
 //  iAM
 //
-//  Created by Krzysztof Reczek on 25.03.2015.
+//  Created by Krzysztof Reczek on 26.03.2015.
 //  Copyright (c) 2015 H@E. All rights reserved.
 //
 
-#import "Sequence.h"
-#import "Step.h"
+#import "CDSequence.h"
+#import "CDStep.h"
 
 
-@implementation Sequence
+@implementation CDSequence
 
 @dynamic sequenceCreationDate;
 @dynamic sequenceName;

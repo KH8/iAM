@@ -1,23 +1,21 @@
 //
-//  Bar.m
+//  CDBar.m
 //  iAM
 //
-//  Created by Krzysztof Reczek on 25.03.2015.
+//  Created by Krzysztof Reczek on 26.03.2015.
 //  Copyright (c) 2015 H@E. All rights reserved.
 //
 
-#import "Bar.h"
-#import "Note.h"
-#import "Step.h"
+#import "CDBar.h"
+#import "CDNote.h"
+#import "CDStep.h"
 
 
-@implementation Bar
+@implementation CDBar
 
 @dynamic barDensity;
-@dynamic barId;
 @dynamic barSigDenominator;
 @dynamic barSigNumerator;
-@dynamic barStepId;
 @dynamic barTempo;
 @dynamic barNotes;
 @dynamic step;

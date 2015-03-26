@@ -2,19 +2,15 @@
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6751" systemVersion="14C1514" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="Bar" representedClassName="Bar" syncable="YES">
         <attribute name="barDensity" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
-        <attribute name="barId" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="barSigDenominator" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="barSigNumerator" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
-        <attribute name="barStepId" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="barTempo" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <relationship name="barNotes" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Note" inverseName="bar" inverseEntity="Note" syncable="YES"/>
         <relationship name="step" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Step" inverseName="stepBars" inverseEntity="Step" syncable="YES"/>
     </entity>
     <entity name="Note" representedClassName="Note" syncable="YES">
-        <attribute name="noteBarId" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="noteCoordLine" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="noteCoordPos" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
-        <attribute name="noteId" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <relationship name="bar" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Bar" inverseName="barNotes" inverseEntity="Bar" syncable="YES"/>
     </entity>
     <entity name="Sequence" representedClassName="Sequence" syncable="YES">
@@ -30,8 +26,8 @@
         <relationship name="stepBars" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Bar" inverseName="step" inverseEntity="Bar" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Bar" positionX="-1730" positionY="-1080" width="128" height="165"/>
-        <element name="Note" positionX="-1512" positionY="-1080" width="128" height="120"/>
+        <element name="Bar" positionX="-1730" positionY="-1080" width="128" height="135"/>
+        <element name="Note" positionX="-1512" positionY="-1080" width="128" height="88"/>
         <element name="Sequence" positionX="-2160" positionY="-1078" width="126" height="88"/>
         <element name="Step" positionX="-1946" positionY="-1080" width="128" height="120"/>
     </elements>

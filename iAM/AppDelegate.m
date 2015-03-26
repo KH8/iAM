@@ -7,10 +7,10 @@
 //
 
 #import "AppDelegate.h"
-#import "Step.h"
-#import "Sequence.h"
-#import "Note.h"
-#import "Bar.h"
+#import "CDStep.h"
+#import "CDSequence.h"
+#import "CDNote.h"
+#import "CDBar.h"
 
 @interface AppDelegate ()
 
@@ -18,9 +18,9 @@
 
 @implementation AppDelegate
 
-@synthesize managedObjectContext = __managedObjectContext;
-@synthesize managedObjectModel = __managedObjectModel;
-@synthesize persistentStoreCoordinator = __persistentStoreCoordinator;
+@synthesize managedObjectContext = _managedObjectContext;
+@synthesize managedObjectModel = _managedObjectModel;
+@synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     NSManagedObjectContext *context = [self managedObjectContext];
@@ -36,10 +36,47 @@
     [fetchRequest setEntity:entity];
     NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:&error];
     if(fetchedObjects.count == 0){
-        //
+        [self initCoreDataEntitiesInContext:context];
+        fetchedObjects = [context executeFetchRequest:fetchRequest error:&error];
     }
 
     return YES;
+}
+
+- (void)initCoreDataEntitiesInContext: (NSManagedObjectContext*)context{
+    CDSequence *sequence = [NSEntityDescription insertNewObjectForEntityForName:@"Sequence"
+                                                       inManagedObjectContext:context];
+    sequence.sequenceName = @"NEW SEQUENCE";
+    sequence.sequenceCreationDate = [NSDate date];
+    
+    CDStep *step = [NSEntityDescription insertNewObjectForEntityForName:@"Step"
+                                               inManagedObjectContext:context];
+    step.stepName = @"NEW STEP";
+    step.stepNumberOfLoops = @0;
+    step.stepType = @3;
+    step.sequence = sequence;
+    [sequence addSequenceStepsObject:step];
+    
+    CDBar *bar = [NSEntityDescription insertNewObjectForEntityForName:@"Bar"
+                                             inManagedObjectContext:context];
+    bar.barDensity = @4;
+    bar.barTempo = @120;
+    bar.barSigNumerator = @4;
+    bar.barSigDenominator = @4;
+    bar.step = step;
+    [step addStepBarsObject:bar];
+    
+    CDNote *note = [NSEntityDescription insertNewObjectForEntityForName:@"Note"
+                                                 inManagedObjectContext:context];
+    note.noteCoordLine = @1;
+    note.noteCoordPos = @1;
+    note.bar = bar;
+    [bar addBarNotesObject:note];
+    
+    NSError *error;
+    if (![context save:&error]) {
+        NSLog(@"Core data error occured: %@", [error localizedDescription]);
+    }
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
@@ -60,8 +97,21 @@
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
 }
 
-- (void)applicationWillTerminate:(UIApplication *)application {
-    // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+- (void)applicationWillTerminate:(UIApplication *)application
+{
+    [self saveContext];
+}
+
+- (void)saveContext
+{
+    NSError *error = nil;
+    NSManagedObjectContext *managedObjectContext = self.managedObjectContext;
+    if (managedObjectContext != nil) {
+        if ([managedObjectContext hasChanges] && ![managedObjectContext save:&error]) {
+            NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+            abort();
+        }
+    }
 }
 
 #pragma mark - Core Data stack
@@ -70,48 +120,48 @@
 // If the context doesn't already exist, it is created and bound to the persistent store coordinator for the application.
 - (NSManagedObjectContext *)managedObjectContext
 {
-    if (__managedObjectContext != nil) {
-        return __managedObjectContext;
+    if (_managedObjectContext != nil) {
+        return _managedObjectContext;
     }
     
     NSPersistentStoreCoordinator *coordinator = [self persistentStoreCoordinator];
     if (coordinator != nil) {
-        __managedObjectContext = [[NSManagedObjectContext alloc] init];
-        [__managedObjectContext setPersistentStoreCoordinator:coordinator];
+        _managedObjectContext = [[NSManagedObjectContext alloc] init];
+        [_managedObjectContext setPersistentStoreCoordinator:coordinator];
     }
-    return __managedObjectContext;
+    return _managedObjectContext;
 }
 
 // Returns the managed object model for the application.
 // If the model doesn't already exist, it is created from the application's model.
 - (NSManagedObjectModel *)managedObjectModel
 {
-    if (__managedObjectModel != nil) {
-        return __managedObjectModel;
+    if (_managedObjectModel != nil) {
+        return _managedObjectModel;
     }
     NSURL *modelURL = [[NSBundle mainBundle] URLForResource:@"AMDataModel" withExtension:@"momd"];
-    __managedObjectModel = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];
-    return __managedObjectModel;
+    _managedObjectModel = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];
+    return _managedObjectModel;
 }
 
 // Returns the persistent store coordinator for the application.
 // If the coordinator doesn't already exist, it is created and the application's store added to it.
 - (NSPersistentStoreCoordinator *)persistentStoreCoordinator
 {
-    if (__persistentStoreCoordinator != nil) {
-        return __persistentStoreCoordinator;
+    if (_persistentStoreCoordinator != nil) {
+        return _persistentStoreCoordinator;
     }
     
     NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"AMDataModel.sqlite"];
     
     NSError *error = nil;
-    __persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self managedObjectModel]];
-    if (![__persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:nil error:&error]) {
+    _persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self managedObjectModel]];
+    if (![_persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:nil error:&error]) {
         NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
         abort();
     }
     
-    return __persistentStoreCoordinator;
+    return _persistentStoreCoordinator;
 }
 
 #pragma mark - Application's Documents directory

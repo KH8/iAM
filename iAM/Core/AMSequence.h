@@ -28,8 +28,10 @@
 
 - (void)setName:(NSString*)newName;
 - (NSString*)getName;
+- (void)setCreationDate:(NSDate*)date;
 - (NSString*)getCreationDate;
 
+- (void)addStep:(AMSequenceStep*)step;
 - (AMSequenceStep*)addNewStep;
 - (void)removeStep;
 - (void)removeStepAtIndex: (NSUInteger)anIndex;

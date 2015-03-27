@@ -46,6 +46,7 @@
 		A4A4D2391A928C95006CB6CE /* AMStave.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A4D2381A928C95006CB6CE /* AMStave.m */; };
 		A4A705EF1AA50E3400A911C6 /* decloop.png in Resources */ = {isa = PBXBuildFile; fileRef = A4A705ED1AA50E3400A911C6 /* decloop.png */; };
 		A4A705F01AA50E3400A911C6 /* incloop.png in Resources */ = {isa = PBXBuildFile; fileRef = A4A705EE1AA50E3400A911C6 /* incloop.png */; };
+		A4AA2B4B1AC5FD9B0076FDF6 /* AMDataMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = A4AA2B4A1AC5FD9B0076FDF6 /* AMDataMapper.m */; };
 		A4B4CDB61ABEEBB400615051 /* AMMenuTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A4B4CDB51ABEEBB400615051 /* AMMenuTableViewCell.m */; };
 		A4C47C1A1A8BB68E002CF325 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A4C47C191A8BB68E002CF325 /* Images.xcassets */; };
 		A4DDA2B61AA8F8B8006B9F33 /* spot.png in Resources */ = {isa = PBXBuildFile; fileRef = A4DDA2B51AA8F8B8006B9F33 /* spot.png */; };
@@ -134,6 +135,8 @@
 		A4A4D2381A928C95006CB6CE /* AMStave.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMStave.m; path = Core/AMStave.m; sourceTree = "<group>"; };
 		A4A705ED1AA50E3400A911C6 /* decloop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = decloop.png; path = Icons/decloop.png; sourceTree = "<group>"; };
 		A4A705EE1AA50E3400A911C6 /* incloop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = incloop.png; path = Icons/incloop.png; sourceTree = "<group>"; };
+		A4AA2B491AC5FD9B0076FDF6 /* AMDataMapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMDataMapper.h; path = CoreData/AMDataMapper.h; sourceTree = "<group>"; };
+		A4AA2B4A1AC5FD9B0076FDF6 /* AMDataMapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMDataMapper.m; path = CoreData/AMDataMapper.m; sourceTree = "<group>"; };
 		A4B4CDB41ABEEBB400615051 /* AMMenuTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMMenuTableViewCell.h; sourceTree = "<group>"; };
 		A4B4CDB51ABEEBB400615051 /* AMMenuTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMMenuTableViewCell.m; sourceTree = "<group>"; };
 		A4C47C191A8BB68E002CF325 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -220,11 +223,11 @@
 				8F0763D2246B340EEC482E45 /* AMSequencer.m */,
 				8F0DA14C9FCAE3399B86B93B /* AMPlayer.h */,
 				8F0AE1AC2BDFCA960D899F80 /* AMPlayer.m */,
-				8F026D41013513503897B9C8 /* Sounds */,
 				A4A132A61A9528A800D6E2F1 /* AMSequence.h */,
 				A4A132A71A9528A800D6E2F1 /* AMSequence.m */,
 				A4A132A31A95287400D6E2F1 /* AMSequenceStep.h */,
 				A4A132A41A95287400D6E2F1 /* AMSequenceStep.m */,
+				8F026D41013513503897B9C8 /* Sounds */,
 			);
 			name = Core;
 			sourceTree = "<group>";
@@ -333,6 +336,8 @@
 				A47F819A1AC4BCB400B0E081 /* CDStep.h */,
 				A47F819B1AC4BCB400B0E081 /* CDStep.m */,
 				A4A4B2AE1AC0C4F00099A746 /* AMDataModel.xcdatamodeld */,
+				A4AA2B491AC5FD9B0076FDF6 /* AMDataMapper.h */,
+				A4AA2B4A1AC5FD9B0076FDF6 /* AMDataMapper.m */,
 			);
 			name = CoreData;
 			sourceTree = "<group>";
@@ -491,6 +496,7 @@
 				A45A3D6E1A71B4DF00039934 /* AMCollectionViewController.m in Sources */,
 				A4F24F8B1ABC914F00BF47C3 /* AMMutableArray.m in Sources */,
 				A4A132A81A9528A800D6E2F1 /* AMSequence.m in Sources */,
+				A4AA2B4B1AC5FD9B0076FDF6 /* AMDataMapper.m in Sources */,
 				A4A4D2391A928C95006CB6CE /* AMStave.m in Sources */,
 				8F03D778486C6AEEDE7E8BA1 /* AMPlayer.m in Sources */,
 				8F014B76B26DA38094740698 /* AMPickerController.m in Sources */,

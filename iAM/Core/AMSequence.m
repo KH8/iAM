@@ -25,12 +25,8 @@
     self = [super init];
     if (self) {
         _name = @"NEW SEQUENCE";
-        
-        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-        [formatter setDateFormat:@"dd-MM-yyyy HH:mm"];
-        _creationDate = [formatter stringFromDate:[NSDate date]];
-        
         _mainSequence = [[NSMutableArray alloc] init];
+        [self setCreationDate:[NSDate date]];
         [self addNewStep];
         _actualIndex = 0;
         _actualStepLoopCounter = 0;
@@ -47,19 +43,28 @@
     return _name;
 }
 
+- (void)setCreationDate:(NSDate*)date{
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"dd-MM-yyyy HH:mm"];
+    _creationDate = [formatter stringFromDate:date];
+}
+
 - (NSString*)getCreationDate{
     return _creationDate;
 }
 
-- (AMSequenceStep*)addNewStep{
+- (void)addStep:(AMSequenceStep*)step{
     NSInteger newIndex = 0;
     if(_mainSequence.count != 0){
         newIndex = _actualIndex + 1;
     }
-    AMSequenceStep *newStep = [[AMSequenceStep alloc] init];
-    [_mainSequence insertObject:newStep atIndex:newIndex];
+    [_mainSequence insertObject:step atIndex:newIndex];
     [self runAllVisualDelegates];
-    
+}
+
+- (AMSequenceStep*)addNewStep{
+    AMSequenceStep *newStep = [[AMSequenceStep alloc] init];
+    [self addStep:newStep];
     return newStep;
 }
 

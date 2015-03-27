@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AMSequencer.h"
+#import "AMMutableArray.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 

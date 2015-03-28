@@ -6,7 +6,6 @@
 //  Copyright (c) 2015 H@E. All rights reserved.
 //
 
-#import "SWRevealViewController.h"
 #import "AMMenuTableViewController.h"
 #import "AMMenuTableViewCell.h"
 #import "AMSequencerSingleton.h"
@@ -26,33 +25,8 @@ static NSString * const reuseIdentifier = @"myMenuStepCell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self loadSidebarMenu];
-    [self loadIcons];
     [self loadMainObjects];
     [self changeIndexSelected:0];
-}
-
-- (void)loadSidebarMenu{
-    SWRevealViewController *revealController = [self revealViewController];
-    
-    [revealController panGestureRecognizer];
-    [revealController tapGestureRecognizer];
-    
-    [_sideMenuButton setTarget: self.revealViewController];
-    [_sideMenuButton setAction: @selector( revealToggle: )];
-}
-
-- (void)loadIcons{
-    UIBarButtonItem *originalLeftButton = _navigationBarItem.leftBarButtonItem;
-    UIButton *face = [UIButton buttonWithType:UIButtonTypeCustom];
-    face.tintColor = [UIColor orangeColor];
-    face.bounds = CGRectMake( 26, 26, 26, 26 );
-    [face setImage:[[UIImage imageNamed:@"menu.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]
-          forState:UIControlStateNormal];
-    [face addTarget:originalLeftButton.target
-             action:originalLeftButton.action
-   forControlEvents:UIControlEventTouchDown];
-    _navigationBarItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:face];
 }
 
 - (void)loadMainObjects{

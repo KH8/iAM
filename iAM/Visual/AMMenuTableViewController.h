@@ -7,10 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AMNavigationViewController.h"
 
-@interface AMMenuTableViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
-
-@property (weak, nonatomic) IBOutlet UINavigationItem *navigationBarItem;
-@property (strong, nonatomic) IBOutlet UIBarButtonItem *sideMenuButton;
+@interface AMMenuTableViewController : AMNavigationViewController <UITableViewDataSource, UITableViewDelegate>
 
 @end

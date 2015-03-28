@@ -6,6 +6,8 @@
 //  Copyright (c) 2015 H@E. All rights reserved.
 //
 
+#import "AMSequencerSingleton.h"
+#import "AMDataMapper.h"
 #import "AppDelegate.h"
 #import "CDStep.h"
 #import "CDSequence.h"
@@ -39,6 +41,11 @@
         [self initCoreDataEntitiesInContext:context];
         fetchedObjects = [context executeFetchRequest:fetchRequest error:&error];
     }
+    
+    AMDataMapper *dataMapper = [[AMDataMapper alloc] init];
+    AMSequencerSingleton *sequencerSingleton = [AMSequencerSingleton sharedSequencer];
+    sequencerSingleton.arrayOfSequences = [dataMapper getActualConfigurationFromContext:context];
+    [sequencerSingleton.sequencer setSequence:sequencerSingleton.arrayOfSequences[0]];
 
     return YES;
 }
@@ -46,22 +53,22 @@
 - (void)initCoreDataEntitiesInContext: (NSManagedObjectContext*)context{
     CDSequence *sequence = [NSEntityDescription insertNewObjectForEntityForName:@"Sequence"
                                                        inManagedObjectContext:context];
-    sequence.sequenceName = @"NEW SEQUENCE";
+    sequence.sequenceName = @"NEW SEQUENCE432";
     sequence.sequenceCreationDate = [NSDate date];
     
     CDStep *step = [NSEntityDescription insertNewObjectForEntityForName:@"Step"
                                                inManagedObjectContext:context];
-    step.stepName = @"NEW STEP";
+    step.stepName = @"NEW STEP432";
     step.stepNumberOfLoops = @0;
-    step.stepType = @3;
+    step.stepType = @2;
+    step.stepTempo = @120;
     step.sequence = sequence;
     [sequence addSequenceStepsObject:step];
     
     CDBar *bar = [NSEntityDescription insertNewObjectForEntityForName:@"Bar"
                                              inManagedObjectContext:context];
     bar.barDensity = @4;
-    bar.barTempo = @120;
-    bar.barSigNumerator = @4;
+    bar.barSigNumerator = @1;
     bar.barSigDenominator = @4;
     bar.step = step;
     [step addStepBarsObject:bar];

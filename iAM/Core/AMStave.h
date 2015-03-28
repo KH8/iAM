@@ -40,6 +40,7 @@
 - (void)tapTempo;
 
 - (void)addBar;
+- (void)addBar:(AMBar*)newBar;
 - (void)removeActualBar;
 
 - (void)setFirstBarAsActual;

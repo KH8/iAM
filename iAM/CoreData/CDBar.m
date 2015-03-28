@@ -2,7 +2,7 @@
 //  CDBar.m
 //  iAM
 //
-//  Created by Krzysztof Reczek on 26.03.2015.
+//  Created by Krzysztof Reczek on 28.03.2015.
 //  Copyright (c) 2015 H@E. All rights reserved.
 //
 
@@ -16,7 +16,6 @@
 @dynamic barDensity;
 @dynamic barSigDenominator;
 @dynamic barSigNumerator;
-@dynamic barTempo;
 @dynamic barNotes;
 @dynamic step;
 

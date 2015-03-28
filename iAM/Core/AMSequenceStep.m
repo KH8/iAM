@@ -11,7 +11,7 @@
 @interface AMSequenceStep()
 
 @property (nonatomic) NSString *name;
-@property StepType stepType;
+@property (nonatomic) StepType stepType;
 
 @property AMStave *mainStave;
 @property (nonatomic) NSInteger numberOfLoops;
@@ -33,6 +33,21 @@
 
 - (AMStave*)getStave{
     return _mainStave;
+}
+
+- (void)setStepTypeFromInteger:(NSInteger)stepType{
+    switch (_stepType)
+    {
+        case 1:
+            _stepType = PLAY_ONCE;
+            break;
+        case 2:
+            _stepType = REPEAT;
+            break;
+        case 3:
+            _stepType = INFINITE_LOOP;
+            break;
+    }
 }
 
 - (void)setNextStepType{
@@ -95,6 +110,10 @@
     }
     _numberOfLoops--;
     [_visualDelegate sequenceStepPropertiesHasBeenChanged];
+}
+
+- (void)setNumberOfLoops:(NSInteger)numberOfLoops{
+    _numberOfLoops = numberOfLoops;
 }
 
 - (NSInteger)getNumberOfLoops{

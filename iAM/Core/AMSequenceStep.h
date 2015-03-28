@@ -22,14 +22,15 @@
 @property (nonatomic, weak) id <AMSequenceStepDelegate> visualDelegate;
 
 typedef enum{
-    PLAY_ONCE,
-    REPEAT,
-    INFINITE_LOOP
+    PLAY_ONCE = 1,
+    REPEAT = 2,
+    INFINITE_LOOP = 3
 } StepType;
 
 - (id)init;
 - (AMStave*)getStave;
 
+- (void)setStepTypeFromInteger:(NSInteger)stepType;
 - (void)setNextStepType;
 - (StepType)getStepType;
 
@@ -39,6 +40,7 @@ typedef enum{
 
 - (void)incrementLoop;
 - (void)decrementLoop;
+- (void)setNumberOfLoops:(NSInteger)numberOfLoops;
 - (NSInteger)getNumberOfLoops;
 - (BOOL)isNumberOfLoopsAvailable;
 

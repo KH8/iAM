@@ -71,9 +71,12 @@ NSUInteger const minTempo = 60;
 
 - (void)addBar {
     AMBar *newBar = [[AMBar alloc] init];
-    newBar.staveDelegate = self;
     [newBar configureDefault];
-    
+    newBar.staveDelegate = self;
+    [self addBar:newBar];
+}
+
+- (void)addBar:(AMBar*)newBar{
     NSUInteger newIndex = 0;
     if(_arrayOfBars.count != 0){
         newIndex = _actualIndex + 1;

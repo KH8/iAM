@@ -11,6 +11,7 @@
 #import "CDSequence.h"
 #import "CDNote.h"
 #import "CDBar.h"
+#import "AMNote.h"
 
 @implementation AMDataMapper
 
@@ -49,43 +50,30 @@
 }
 
 - (AMSequenceStep*)getStepFromCoreData:(CDStep*)step{
-    return nil;
+    AMSequenceStep *newStep = [[AMSequenceStep alloc] init];
+    [newStep setName:step.stepName];
+    [newStep setStepTypeFromInteger:[step.stepType integerValue]];
+    [newStep setNumberOfLoops:[step.stepNumberOfLoops integerValue]];
+    AMStave *stave = newStep.getStave;
+    for (CDBar *bar in step.stepBars) {
+        [stave setTempo:[step.stepTempo integerValue]];
+        [stave addBar:[self getBarFromCoreData:bar]];
+    }
+    return newStep;
 }
 
-- (void)initCoreDataEntitiesInContext: (NSManagedObjectContext*)context{
-    CDSequence *sequence = [NSEntityDescription insertNewObjectForEntityForName:@"Sequence"
-                                                         inManagedObjectContext:context];
-    sequence.sequenceName = @"NEW SEQUENCE";
-    sequence.sequenceCreationDate = [NSDate date];
-    
-    CDStep *step = [NSEntityDescription insertNewObjectForEntityForName:@"Step"
-                                                 inManagedObjectContext:context];
-    step.stepName = @"NEW STEP";
-    step.stepNumberOfLoops = @0;
-    step.stepType = @3;
-    step.sequence = sequence;
-    [sequence addSequenceStepsObject:step];
-    
-    CDBar *bar = [NSEntityDescription insertNewObjectForEntityForName:@"Bar"
-                                               inManagedObjectContext:context];
-    bar.barDensity = @4;
-    bar.barTempo = @120;
-    bar.barSigNumerator = @4;
-    bar.barSigDenominator = @4;
-    bar.step = step;
-    [step addStepBarsObject:bar];
-    
-    CDNote *note = [NSEntityDescription insertNewObjectForEntityForName:@"Note"
-                                                 inManagedObjectContext:context];
-    note.noteCoordLine = @1;
-    note.noteCoordPos = @1;
-    note.bar = bar;
-    [bar addBarNotesObject:note];
-    
-    NSError *error;
-    if (![context save:&error]) {
-        NSLog(@"Core data error occured: %@", [error localizedDescription]);
+- (AMBar*)getBarFromCoreData:(CDBar*)bar{
+    AMBar *newBar = [[AMBar alloc] init];
+    [newBar configureDefault];
+    [newBar setSignatureNumerator:[bar.barSigNumerator integerValue]];
+    [newBar setSignatureDenominator:[bar.barSigDenominator integerValue]];
+    [newBar setDensity:[bar.barDensity integerValue]];
+    for (CDNote *note in bar.barNotes) {
+        NSMutableArray *lineOfNotes = [newBar getLineAtIndex:[note.noteCoordLine integerValue]];
+        AMNote *correspondingNote = lineOfNotes[[note.noteCoordPos integerValue]];
+        [correspondingNote select];
     }
+    return newBar;
 }
 
 @end

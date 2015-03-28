@@ -4,7 +4,6 @@
         <attribute name="barDensity" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="barSigDenominator" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="barSigNumerator" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
-        <attribute name="barTempo" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <relationship name="barNotes" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Note" inverseName="bar" inverseEntity="Note" syncable="YES"/>
         <relationship name="step" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Step" inverseName="stepBars" inverseEntity="Step" syncable="YES"/>
     </entity>
@@ -21,14 +20,15 @@
     <entity name="Step" representedClassName="Step" syncable="YES">
         <attribute name="stepName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="stepNumberOfLoops" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="stepTempo" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="stepType" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <relationship name="sequence" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Sequence" inverseName="sequenceSteps" inverseEntity="Sequence" syncable="YES"/>
         <relationship name="stepBars" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Bar" inverseName="step" inverseEntity="Bar" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Bar" positionX="-1730" positionY="-1080" width="128" height="135"/>
+        <element name="Bar" positionX="-1730" positionY="-1080" width="128" height="30"/>
         <element name="Note" positionX="-1512" positionY="-1080" width="128" height="88"/>
         <element name="Sequence" positionX="-2160" positionY="-1078" width="126" height="88"/>
-        <element name="Step" positionX="-1946" positionY="-1080" width="128" height="120"/>
+        <element name="Step" positionX="-1946" positionY="-1080" width="128" height="30"/>
     </elements>
 </model>

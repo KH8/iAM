@@ -34,6 +34,7 @@
 @property (nonatomic) NSInteger minTempo;
 
 - (id)init;
+- (id)initWithSubComponents;
 
 - (void)setTempo: (NSInteger)aTempo;
 - (NSInteger)getTempo;

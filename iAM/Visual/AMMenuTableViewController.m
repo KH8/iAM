@@ -64,7 +64,7 @@ static NSString * const reuseIdentifier = @"myMenuStepCell";
 }
 
 - (IBAction)onAddAction:(id)sender {
-    AMSequence *newSequence = [[AMSequence alloc] init];
+    AMSequence *newSequence = [[AMSequence alloc] initWithSubComponents];
     [_arrayOfSequences addObject:newSequence];
     [_tableView reloadData];
     [self changeIndexSelected:(NSUInteger) _arrayOfSequences.getActualIndex];

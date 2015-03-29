@@ -34,6 +34,14 @@
     return self;
 }
 
+- (id)initWithSubComponents{
+    self = [self init];
+    if (self) {
+        [self addNewStep];
+    }
+    return self;
+}
+
 - (void)setName:(NSString*)newName{
     _name = newName;
     [self runAllVisualDelegates];
@@ -59,7 +67,7 @@
 }
 
 - (AMSequenceStep*)addNewStep{
-    AMSequenceStep *newStep = [[AMSequenceStep alloc] init];
+    AMSequenceStep *newStep = [[AMSequenceStep alloc] initWithSubComponents];
     [self addStep:newStep];
     return newStep;
 }

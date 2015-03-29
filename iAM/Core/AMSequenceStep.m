@@ -31,6 +31,14 @@
     return self;
 }
 
+- (id)initWithSubComponents {
+    self = [self init];
+    if (self) {
+        _mainStave = [[AMStave alloc] initWithSubComponents];
+    }
+    return self;
+}
+
 - (AMStave*)getStave{
     return _mainStave;
 }

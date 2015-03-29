@@ -53,12 +53,12 @@
 - (void)initCoreDataEntitiesInContext: (NSManagedObjectContext*)context{
     CDSequence *sequence = [NSEntityDescription insertNewObjectForEntityForName:@"Sequence"
                                                        inManagedObjectContext:context];
-    sequence.sequenceName = @"NEW SEQUENCE432";
+    sequence.sequenceName = @"NEW SEQUENCE";
     sequence.sequenceCreationDate = [NSDate date];
     
     CDStep *step = [NSEntityDescription insertNewObjectForEntityForName:@"Step"
                                                inManagedObjectContext:context];
-    step.stepName = @"NEW STEP432";
+    step.stepName = @"NEW STEP";
     step.stepNumberOfLoops = @0;
     step.stepType = @3;
     step.stepTempo = @140;

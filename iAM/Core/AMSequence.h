@@ -25,6 +25,7 @@
 @property (nonatomic, weak) id <AMSequenceDelegate> mechanicalDelegate;
 
 - (id)init;
+- (id)initWithSubComponents;
 
 - (void)setName:(NSString*)newName;
 - (NSString*)getName;

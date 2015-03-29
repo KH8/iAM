@@ -28,6 +28,8 @@ typedef enum{
 } StepType;
 
 - (id)init;
+- (id)initWithSubComponents;
+
 - (AMStave*)getStave;
 
 - (void)setStepTypeFromInteger:(NSInteger)stepType;

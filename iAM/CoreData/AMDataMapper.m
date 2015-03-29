@@ -77,6 +77,10 @@
     for (AMSequence *sequence in configuration) {
         [self getCoreDataFromSequence:sequence inContext:context];
     }
+    NSError *error;
+    if (![context save:&error]) {
+        NSLog(@"Core data error occured: %@", [error localizedDescription]);
+    }
 }
 
 - (void)getCoreDataFromSequence:(AMSequence*)sequence
@@ -86,16 +90,55 @@
     newSequence.sequenceName = sequence.getName;
     newSequence.sequenceCreationDate = sequence.getCreationDate;
     for (AMSequenceStep *step in sequence.getAllSteps) {
-        [self getCoreDataFromStep:step];
+        CDStep *newStep = [self getCoreDataFromStep:step
+                                          inContext:context];
+        newStep.sequence = newSequence;
+        [newSequence addSequenceStepsObject:newStep];
     }
 }
 
-- (void)getCoreDataFromStep:(AMSequenceStep*)step{
-    
+- (CDStep*)getCoreDataFromStep:(AMSequenceStep*)step
+                     inContext:(NSManagedObjectContext*)context{
+    CDStep *newStep = [NSEntityDescription insertNewObjectForEntityForName:@"Step"
+                                                            inManagedObjectContext:context];
+    newStep.stepName = step.getName;
+    newStep.stepNumberOfLoops = [[NSNumber alloc] initWithInteger:step.getNumberOfLoops];
+    newStep.stepType = [[NSNumber alloc] initWithInteger:step.getStepType];
+    AMStave *stave = step.getStave;
+    newStep.stepTempo = [[NSNumber alloc] initWithInteger:stave.getTempo];
+    for (AMBar *bar in stave.getAllBars) {
+        CDBar *newBar = [self getCoreDataFromBar:bar
+                                       inContext:context];
+        newBar.step = newStep;
+        [newStep addStepBarsObject:newBar];
+    }
+    return newStep;
 }
 
-- (void)getCoreDataFromBar:(AMBar*)bar{
-    
+- (CDBar*)getCoreDataFromBar:(AMBar*)bar
+                 inContext:(NSManagedObjectContext*)context{
+    CDBar *newBar = [NSEntityDescription insertNewObjectForEntityForName:@"Bar"
+                                                  inManagedObjectContext:context];
+    newBar.barDensity = [[NSNumber alloc] initWithInteger:bar.getDensity];
+    newBar.barSigNumerator = [[NSNumber alloc] initWithInteger:bar.getSignatureNumerator];
+    newBar.barSigDenominator = [[NSNumber alloc] initWithInteger:bar.getSignatureDenominator];
+    NSInteger lineIndex = 0;
+    NSInteger noteIndex = 0;
+    for (NSMutableArray *line in bar) {
+        for (AMNote *note in line) {
+            if(note.isSelected){
+                CDNote *newNote = [NSEntityDescription insertNewObjectForEntityForName:@"Note"
+                                                                inManagedObjectContext:context];
+                newNote.noteCoordLine = [[NSNumber alloc] initWithInteger:lineIndex];
+                newNote.noteCoordPos = [[NSNumber alloc] initWithInteger:noteIndex];
+                newNote.bar = newBar;
+                [newBar addBarNotesObject:newNote];
+            }
+            noteIndex++;
+        }
+        lineIndex++;
+    }
+    return newBar;
 }
 
 @end

@@ -106,6 +106,12 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application
 {
+    [self clearContext];
+    AMDataMapper *dataMapper = [[AMDataMapper alloc] init];
+    AMSequencerSingleton *sequencerSingleton = [AMSequencerSingleton sharedSequencer];
+    NSManagedObjectContext *context = [self managedObjectContext];
+    [dataMapper getCoreDatafromActualConfiguration:sequencerSingleton.arrayOfSequences
+                                         inContext:context];
     [self saveContext];
 }
 

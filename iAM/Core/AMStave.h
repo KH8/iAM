@@ -50,6 +50,7 @@
 - (AMBar*)getActualBar;
 - (NSInteger)getActualIndex;
 - (NSInteger)getSize;
+- (NSMutableArray*)getAllBars;
 
 - (void)clearAllTriggerMarkers;
 

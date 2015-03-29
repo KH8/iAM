@@ -13,6 +13,7 @@
 @interface AMDataMapper : NSObject
 
 - (AMMutableArray*)getActualConfigurationFromContext:(NSManagedObjectContext*)context;
-- (NSManagedObjectContext*)getContextFromActualConfiguration:(AMMutableArray*)context;
+- (void)getCoreDatafromActualConfiguration:(AMMutableArray*)configuration
+                                 inContext:(NSManagedObjectContext*)context;
 
 @end

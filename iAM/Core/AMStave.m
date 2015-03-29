@@ -136,6 +136,10 @@ NSUInteger const minTempo = 60;
     return _arrayOfBars.count;
 }
 
+- (NSMutableArray*)getAllBars{
+    return _arrayOfBars;
+}
+
 - (void)clearAllTriggerMarkers{
     for (AMBar *bar in _arrayOfBars) {
         [bar clearTriggerMarkers];

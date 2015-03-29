@@ -123,8 +123,8 @@
     newBar.barSigNumerator = [[NSNumber alloc] initWithInteger:bar.getSignatureNumerator];
     newBar.barSigDenominator = [[NSNumber alloc] initWithInteger:bar.getSignatureDenominator];
     NSInteger lineIndex = 0;
-    NSInteger noteIndex = 0;
     for (NSMutableArray *line in bar) {
+        NSInteger noteIndex = 0;
         for (AMNote *note in line) {
             if(note.isSelected){
                 CDNote *newNote = [NSEntityDescription insertNewObjectForEntityForName:@"Note"

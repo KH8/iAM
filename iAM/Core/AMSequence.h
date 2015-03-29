@@ -29,10 +29,11 @@
 - (void)setName:(NSString*)newName;
 - (NSString*)getName;
 - (void)setCreationDate:(NSDate*)date;
-- (NSString*)getCreationDate;
+- (NSDate*)getCreationDate;
+- (NSString*)getCreationDateString;
 
-- (void)addStep:(AMSequenceStep*)step;
 - (AMSequenceStep*)addNewStep;
+- (void)addStep:(AMSequenceStep*)step;
 - (void)removeStep;
 - (void)removeStepAtIndex: (NSUInteger)anIndex;
 
@@ -41,6 +42,7 @@
 - (AMSequenceStep*)getActualStep;
 - (AMSequenceStep*)getStepAtIndex: (NSUInteger)anIndex;
 - (void)setIndexAsActual:(NSUInteger)anIndex;
+- (NSMutableArray*)getAllSteps;
 
 - (void)setOneStepForward;
 - (void)setOneStepBackward;

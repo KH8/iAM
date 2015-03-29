@@ -60,15 +60,15 @@
                                                inManagedObjectContext:context];
     step.stepName = @"NEW STEP432";
     step.stepNumberOfLoops = @0;
-    step.stepType = @2;
-    step.stepTempo = @120;
+    step.stepType = @3;
+    step.stepTempo = @140;
     step.sequence = sequence;
     [sequence addSequenceStepsObject:step];
     
     CDBar *bar = [NSEntityDescription insertNewObjectForEntityForName:@"Bar"
                                              inManagedObjectContext:context];
     bar.barDensity = @4;
-    bar.barSigNumerator = @1;
+    bar.barSigNumerator = @4;
     bar.barSigDenominator = @4;
     bar.step = step;
     [step addStepBarsObject:bar];
@@ -109,8 +109,7 @@
     [self saveContext];
 }
 
-- (void)saveContext
-{
+- (void)saveContext{
     NSError *error = nil;
     NSManagedObjectContext *managedObjectContext = self.managedObjectContext;
     if (managedObjectContext != nil) {
@@ -119,6 +118,15 @@
             abort();
         }
     }
+}
+
+- (void)clearContext{
+    NSManagedObjectContext *context = [self managedObjectContext];
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    [fetchRequest setEntity:[NSEntityDescription entityForName:@"Sequence" inManagedObjectContext:context]];
+    NSArray * result = [context executeFetchRequest:fetchRequest error:nil];
+    for (id sequence in result)
+        [context deleteObject:sequence];
 }
 
 #pragma mark - Core Data stack

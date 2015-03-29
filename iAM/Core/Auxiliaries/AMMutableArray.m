@@ -98,5 +98,8 @@
     _baseArray[idx] = obj;
 }
 
+- (NSUInteger)countByEnumeratingWithState:(NSFastEnumerationState *)state objects:(id __unsafe_unretained [])stackbuf count:(NSUInteger)len {
+    return [_baseArray countByEnumeratingWithState:state objects:stackbuf count:len];
+}
 
 @end

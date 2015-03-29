@@ -11,7 +11,8 @@
 @interface AMSequence()
 
 @property (nonatomic) NSString *name;
-@property (nonatomic) NSString *creationDate;
+@property (nonatomic) NSDate *creationDate;
+@property (nonatomic) NSString *creationDateString;
 @property NSMutableArray *mainSequence;
 @property NSUInteger actualIndex;
 
@@ -27,7 +28,6 @@
         _name = @"NEW SEQUENCE";
         _mainSequence = [[NSMutableArray alloc] init];
         [self setCreationDate:[NSDate date]];
-        [self addNewStep];
         _actualIndex = 0;
         _actualStepLoopCounter = 0;
     }
@@ -46,11 +46,22 @@
 - (void)setCreationDate:(NSDate*)date{
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"dd-MM-yyyy HH:mm"];
-    _creationDate = [formatter stringFromDate:date];
+    _creationDate = date;
+    _creationDateString = [formatter stringFromDate:_creationDate];
 }
 
-- (NSString*)getCreationDate{
+- (NSDate*)getCreationDate{
     return _creationDate;
+}
+
+- (NSString*)getCreationDateString{
+    return _creationDateString;
+}
+
+- (AMSequenceStep*)addNewStep{
+    AMSequenceStep *newStep = [[AMSequenceStep alloc] init];
+    [self addStep:newStep];
+    return newStep;
 }
 
 - (void)addStep:(AMSequenceStep*)step{
@@ -60,12 +71,6 @@
     }
     [_mainSequence insertObject:step atIndex:newIndex];
     [self runAllVisualDelegates];
-}
-
-- (AMSequenceStep*)addNewStep{
-    AMSequenceStep *newStep = [[AMSequenceStep alloc] init];
-    [self addStep:newStep];
-    return newStep;
 }
 
 - (void)removeStep{
@@ -118,6 +123,10 @@
 - (void)setIndexAsActual:(NSUInteger)anIndex{
     _actualIndex = anIndex;
     [self runAllMechanicalDelegates];
+}
+
+- (NSMutableArray*)getAllSteps{
+    return _mainSequence;
 }
 
 - (void)setOneStepForward{

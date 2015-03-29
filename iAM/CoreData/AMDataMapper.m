@@ -35,10 +35,6 @@
     return array;
 }
 
-- (NSManagedObjectContext*)getContextFromActualConfiguration:(AMMutableArray*)context{
-    return nil;
-}
-
 - (AMSequence*)getSequenceFromCoreData:(CDSequence*)sequence{
     AMSequence *newSequence = [[AMSequence alloc] init];
     [newSequence setName:sequence.sequenceName];
@@ -74,6 +70,32 @@
         [correspondingNote select];
     }
     return newBar;
+}
+
+- (void)getCoreDatafromActualConfiguration:(AMMutableArray*)configuration
+                                 inContext:(NSManagedObjectContext*)context{
+    for (AMSequence *sequence in configuration) {
+        [self getCoreDataFromSequence:sequence inContext:context];
+    }
+}
+
+- (void)getCoreDataFromSequence:(AMSequence*)sequence
+                             inContext:(NSManagedObjectContext*)context{
+    CDSequence *newSequence = [NSEntityDescription insertNewObjectForEntityForName:@"Sequence"
+                                                            inManagedObjectContext:context];
+    newSequence.sequenceName = sequence.getName;
+    newSequence.sequenceCreationDate = sequence.getCreationDate;
+    for (AMSequenceStep *step in sequence.getAllSteps) {
+        [self getCoreDataFromStep:step];
+    }
+}
+
+- (void)getCoreDataFromStep:(AMSequenceStep*)step{
+    
+}
+
+- (void)getCoreDataFromBar:(AMBar*)bar{
+    
 }
 
 @end

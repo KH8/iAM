@@ -38,17 +38,7 @@
         _debug = NO;
         
         _mainSequence = [[AMSequence alloc] init];
-        _mainSequence.mechanicalDelegate = self;
         
-        _actualStep = _mainSequence.getActualStep;
-        
-        _mainStave = _actualStep.getStave;
-        _mainStave.mechanicalDelegate = self;
-
-        _actualBar = _mainStave.getActualBar;
-
-        [self initBasicParameters];
-
         AMPlayer *amPlayer0 = [[AMPlayer alloc] initWithFile:@"tickSound"
                                                       ofType:@"aif"];
         AMPlayer *amPlayer1 = [[AMPlayer alloc] initWithFile:@"highStickSound"
@@ -112,6 +102,17 @@
         [self startStop];
     }
     _mainSequence = newSequence;
+    _mainSequence.mechanicalDelegate = self;
+    
+    _actualStep = _mainSequence.getActualStep;
+    
+    _mainStave = _actualStep.getStave;
+    _mainStave.mechanicalDelegate = self;
+    
+    _actualBar = _mainStave.getActualBar;
+    
+    [self initBasicParameters];
+    
     [_sequencerDelegate stepHasBeenChanged];
     [_sequencerSyncDelegate stepParametersHaveBeenChanged];
 }

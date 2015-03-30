@@ -44,7 +44,7 @@
 }
 
 - (void)setStepTypeFromInteger:(NSInteger)stepType{
-    switch (_stepType)
+    switch (stepType)
     {
         case 1:
             _stepType = PLAY_ONCE;
@@ -55,6 +55,18 @@
         case 3:
             _stepType = INFINITE_LOOP;
             break;
+    }
+}
+
+- (NSInteger)getIntegerFromStepType{
+    switch (_stepType)
+    {
+        case PLAY_ONCE:
+            return 1;
+        case REPEAT:
+            return 2;
+        case INFINITE_LOOP:
+            return 3;
     }
 }
 

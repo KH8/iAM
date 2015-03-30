@@ -26,13 +26,14 @@
 @implementation AMViewController
 
 - (void)viewDidLoad {
+    [super viewDidLoad];
     [self loadMainObjects];
     [self loadCollectionViewController];
     [self loadSidebarMenu];
     [self loadToolBar];
     [self loadBackgroundAudioSession];
     [self loadIcons];
-    [super viewDidLoad];
+    [self updateSettingsButton];
 }
 
 - (void)viewDidDisappear:(BOOL)animated {

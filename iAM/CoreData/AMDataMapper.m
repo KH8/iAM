@@ -103,7 +103,7 @@
                                                             inManagedObjectContext:context];
     newStep.stepName = step.getName;
     newStep.stepNumberOfLoops = [[NSNumber alloc] initWithInteger:step.getNumberOfLoops];
-    newStep.stepType = [[NSNumber alloc] initWithInteger:step.getStepType];
+    newStep.stepType = [[NSNumber alloc] initWithInteger:step.getIntegerFromStepType];
     AMStave *stave = step.getStave;
     newStep.stepTempo = [[NSNumber alloc] initWithInteger:stave.getTempo];
     for (AMBar *bar in stave.getAllBars) {

@@ -75,8 +75,8 @@
     
     CDNote *note = [NSEntityDescription insertNewObjectForEntityForName:@"Note"
                                                  inManagedObjectContext:context];
-    note.noteCoordLine = @1;
-    note.noteCoordPos = @1;
+    note.noteCoordLine = @0;
+    note.noteCoordPos = @0;
     note.bar = bar;
     [bar addBarNotesObject:note];
     

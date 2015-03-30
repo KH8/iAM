@@ -188,11 +188,11 @@ didDeselectRowAtIndexPath:(NSIndexPath *)indexPath{
 - (void)stepLoopCounterUpdate{
     AMSequenceStep *step = _mainSequence.getActualStep;
     
-    if(step.getStepType != REPEAT){
-        [self hideAllLoopCountButtons];
+    if(step.getStepType == REPEAT){
+        [self showAllLoopCountButtons];
         return;
     }
-    [self showAllLoopCountButtons];
+    [self hideAllLoopCountButtons];
 }
 
 - (void)hideAllLoopCountButtons{

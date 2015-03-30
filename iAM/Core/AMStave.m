@@ -26,6 +26,7 @@ NSUInteger const minTempo = 60;
     if (self) {
         _actualIndex = 0;
         _arrayOfBars = [[NSMutableArray alloc] init];
+        [self initBasicParameters];
     }
     return self;
 }
@@ -34,7 +35,6 @@ NSUInteger const minTempo = 60;
     self = [self init];
     if (self) {
         [self addBar];
-        [self initBasicParameters];
         _previousBar = _arrayOfBars[0];
     }
     return self;

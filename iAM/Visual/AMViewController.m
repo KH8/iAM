@@ -33,6 +33,7 @@
     [self loadToolBar];
     [self loadBackgroundAudioSession];
     [self loadIcons];
+    [self updatePageControl];
     [self updateSettingsButton];
 }
 
@@ -184,8 +185,7 @@
 - (void)barHasBeenChanged {
     _mainStave = _mainSequencer.getStave;
     _mainStave.visualPageViewDelegate = self;
-    _pageControl.numberOfPages = _mainStave.getSize;
-    _pageControl.currentPage = _mainStave.getActualIndex;
+    [self updatePageControl];
     [self updateSettingsButton];
     [_collectionViewController reloadData];
 }
@@ -215,6 +215,11 @@
                                                                target:self
                                                                action:@selector(onShowSettings:)];
     [self replaceObjectInToolBarAtIndex:6 withObject:_temporarySettingsButton];
+}
+
+- (void)updatePageControl {
+    _pageControl.numberOfPages = _mainStave.getSize;
+    _pageControl.currentPage = _mainStave.getActualIndex;
 }
 
 @end

@@ -9,8 +9,6 @@
 #import "AMMenuTableViewController.h"
 #import "AMMenuTableViewCell.h"
 #import "AMSequencerSingleton.h"
-#import "AMSequence.h"
-#import "AMMutableArray.h"
 
 @interface AMMenuTableViewController ()
 

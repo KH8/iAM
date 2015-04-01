@@ -6,8 +6,8 @@
 //  Copyright (c) 2015 H@E. All rights reserved.
 //
 
-#import "SWRevealViewController.h"
 #import "AMViewController.h"
+#import "SWRevealViewController.h"
 #import "AMSequencerSingleton.h"
 #import <AVFoundation/AVFoundation.h>
 

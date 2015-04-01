@@ -23,8 +23,8 @@
 
 - (void)loadPickers{
     AMStave *stave = _actuallySelectedSequencer.getStave;
-    stave.mechanicalPickerViewDelegate = self;
-    AMBar *bar = stave.getActualBar;
+    stave.delegate = self;
+    AMBar *bar = (AMBar *)stave.getActualObject;
     NSArray *signatureNumeratorPickerData = [self createRangeOfValuesStartingFrom:bar.minSignature
                                                                             upTo:bar.getSignatureDenominator];
     _signatureNumeratorPickerController = [[AMPickerController alloc] initWithPicker:_signatureNumeratorPicker
@@ -81,7 +81,7 @@
 - (void)pickerSelectionHasChanged{
     AMStave *stave = _actuallySelectedSequencer.getStave;
     [self tempoHasBeenChanged:stave];
-    AMBar *bar = stave.getActualBar;
+    AMBar *bar = (AMBar *)stave.getActualObject;
     [self signatureDenominatorHasBeenChanged:bar];
     [self signatureNumeratorHasBeenChanged:bar];
     [self densityHasBeenChanged:bar];
@@ -126,7 +126,5 @@
     [_tempoPickerController setActualValue:newTempo];
     [_delegate pickedValuesHaveBeenChanged];
 }
-
-- (void)barHasBeenChanged{}
 
 @end

@@ -22,4 +22,6 @@
 - (NSDate*)getCreationDate;
 - (NSString*)getCreationDateString;
 
+- (void)addStep;
+
 @end

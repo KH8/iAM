@@ -33,8 +33,7 @@
 - (id)initWithSubComponents{
     self = [self init];
     if (self) {
-        AMSequenceStep *sequenceStep = [[AMSequenceStep alloc] initWithSubComponents];
-        [self addObject:sequenceStep];
+        [self addStep];
     }
     return self;
 }
@@ -79,6 +78,11 @@
             break;
     }
     return (AMSequenceStep *)[self getActualObject];
+}
+
+- (void)addStep{
+    AMSequenceStep *sequenceStep = [[AMSequenceStep alloc] initWithSubComponents];
+    [self addObject:sequenceStep];
 }
 
 @end

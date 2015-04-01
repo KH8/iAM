@@ -41,11 +41,10 @@ static NSString * const reuseIdentifier = @"mySequenceStepCell";
 - (void)initSequence{
     AMSequencerSingleton *sequencerSingleton = [AMSequencerSingleton sharedSequencer];
     _mainSequencer = sequencerSingleton.sequencer;
-    _mainSequencer.sequencerSyncDelegate = self;
     _mainSequence = [_mainSequencer getSequence];
-    _mainSequence.visualDelegate = self;
-    AMSequenceStep *step = _mainSequence.getActualStep;
-    step.visualDelegate = self;
+    _mainSequence.arrayDelegate = self;
+    AMSequenceStep *step = (AMSequenceStep *)_mainSequence.getActualObject;
+    step.delegate = self;
 }
 
 - (void)initBottomToolBar{
@@ -112,7 +111,7 @@ static NSString * const reuseIdentifier = @"mySequenceStepCell";
         cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     AMSequenceTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier
                                                                     forIndexPath:indexPath];
-    AMSequenceStep *stepAssigned = [_mainSequence getStepAtIndex:(NSUInteger) indexPath.row];
+    AMSequenceStep *stepAssigned = (AMSequenceStep *)[_mainSequence getObjectAtIndex:(NSUInteger) indexPath.row];
     [cell assignSequenceStep:stepAssigned];
     return cell;
 }
@@ -121,7 +120,6 @@ static NSString * const reuseIdentifier = @"mySequenceStepCell";
 didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [_mainSequence setIndexAsActual:(NSUInteger) indexPath.row];
-    [_mainSequence getStepAtIndex:(NSUInteger) indexPath.row];
 }
 
 - (void)tableView:(UITableView *)tableView
@@ -130,32 +128,41 @@ didDeselectRowAtIndexPath:(NSIndexPath *)indexPath{
 }
 
 - (IBAction)onAddStep:(id)sender{
-    AMSequenceStep *newStep = [_mainSequence addNewStep];
-    newStep.visualDelegate = self;
+    [_mainSequence addStep];
+    AMSequenceStep *step = (AMSequenceStep *)_mainSequence.getActualObject;
+    step.delegate = self;
 }
 
 - (IBAction)onDeleteStep:(id)sender{
-    [_mainSequence removeStep];
+    [_mainSequence removeActualObject];
 }
 
 - (IBAction)onIncrementLoop:(id)sender{
-    AMSequenceStep *step = _mainSequence.getActualStep;
+    AMSequenceStep *step = (AMSequenceStep *)_mainSequence.getActualObject;
     [step incrementLoop];
 }
 
 - (IBAction)onDecrementLoop:(id)sender{
-    AMSequenceStep *step = _mainSequence.getActualStep;
+    AMSequenceStep *step = (AMSequenceStep *)_mainSequence.getActualObject;
     [step decrementLoop];
 }
 
-- (void)reloadView{
-    dispatch_async(dispatch_get_main_queue(), ^{
-        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        [_tableView reloadData];
-        [self.tableView selectRowAtIndexPath:indexPath
-                                    animated:NO
-                              scrollPosition:UITableViewScrollPositionNone];
-    });
+- (void)arrayHasBeenChanged {
+    [self updateComponents];
+}
+
+- (void)selectionHasBeenChanged {
+    [self updateComponents];
+}
+
+- (void)sequenceStepPropertiesHasBeenChanged{
+    [self updateComponents];
+}
+
+- (void)updateComponents{
+    [self reloadView];
+    [self changeIndexSelected:(NSUInteger) _mainSequence.getActualIndex];
+    [self stepLoopCounterUpdate];
 }
 
 - (void)changeIndexSelected: (NSUInteger)newIndex {
@@ -165,29 +172,9 @@ didDeselectRowAtIndexPath:(NSIndexPath *)indexPath{
                           scrollPosition:UITableViewScrollPositionNone];
 }
 
-- (void)sequenceHasBeenChanged{
-    [self reloadView];
-}
-
-- (void)stepHasBeenChanged{
-    [self changeIndexSelected:(NSUInteger) _mainSequence.getActualIndex];
-    [self stepLoopCounterUpdate];
-}
-
-- (void)stepParametersHaveBeenChanged{
-    [_tableView reloadData];
-    [self changeIndexSelected:(NSUInteger) _mainSequence.getActualIndex];
-}
-
-- (void)sequenceStepPropertiesHasBeenChanged{
-    [_tableView reloadData];
-    [self changeIndexSelected:(NSUInteger) _mainSequence.getActualIndex];
-    [self stepLoopCounterUpdate];
-}
-
 - (void)stepLoopCounterUpdate{
-    AMSequenceStep *step = _mainSequence.getActualStep;
-    
+    AMSequenceStep *step = (AMSequenceStep *)_mainSequence.getActualObject;
+
     if(step.getStepType == REPEAT){
         [self showAllLoopCountButtons];
         return;
@@ -217,8 +204,8 @@ didDeselectRowAtIndexPath:(NSIndexPath *)indexPath{
               buttonPosition:1
                         size:22
                        color:[UIColor orangeColor]];
-    
-    AMSequenceStep *step = _mainSequence.getActualStep;
+
+    AMSequenceStep *step = (AMSequenceStep *)_mainSequence.getActualObject;
     _tempLoopCountButton = [[UIBarButtonItem alloc] init];
     _tempLoopCountButton.title = [NSString stringWithFormat:@"%ld", (long)step.getNumberOfLoops];
     _tempLoopCountButton.tintColor = [UIColor orangeColor];
@@ -234,6 +221,16 @@ didDeselectRowAtIndexPath:(NSIndexPath *)indexPath{
     button.title = nil;
     [self replaceObjectInToolBarAtIndex:position
                              withObject:button];
+}
+
+- (void)reloadView{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        [_tableView reloadData];
+        [self.tableView selectRowAtIndexPath:indexPath
+                                    animated:NO
+                              scrollPosition:UITableViewScrollPositionNone];
+    });
 }
 
 @end

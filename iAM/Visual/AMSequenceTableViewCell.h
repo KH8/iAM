@@ -15,6 +15,5 @@
 @property (weak, nonatomic) IBOutlet UILabel *stepSubtitle;
 
 - (void)assignSequenceStep: (AMSequenceStep*)aStep;
-- (AMSequenceStep*)getStepAssigned;
 
 @end

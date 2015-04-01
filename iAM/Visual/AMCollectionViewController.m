@@ -31,10 +31,7 @@ static NSString * const reuseIdentifier = @"myCell";
     if (self) {
         _collectionView = aCollectionView;
         _mainSequencer = aSequencer;
-        _mainStave = _mainSequencer.getStave;
-        _mainStave.visualDelegate = self;
-        _actualBar = _mainStave.getActualBar;
-        _actualBar.delegate = self;
+        [self updateComponents];
     }
     return self;
 }
@@ -75,14 +72,6 @@ static NSString * const reuseIdentifier = @"myCell";
     return CGSizeMake(cellSize, cellSize);
 }
 
-- (void)reloadData{
-    _mainStave = _mainSequencer.getStave;
-    _mainStave.visualDelegate = self;
-    _actualBar = _mainStave.getActualBar;
-    _actualBar.delegate = self;
-    [_collectionView reloadData];
-}
-
 - (NSInteger)getNumberOfRows{
     return _actualBar.getNumberOfLines;
 }
@@ -100,12 +89,30 @@ static NSString * const reuseIdentifier = @"myCell";
     return indexPath.section * multiplier;
 }
 
-- (void)barHasBeenChanged{
+- (void)signatureHasBeenChanged{
     [self reloadData];
 }
 
-- (void)signatureHasBeenChanged{
+- (void)arrayHasBeenChanged {
+
+}
+
+- (void)selectionHasBeenChanged {
+    [self updateComponents];
     [self reloadData];
+}
+
+- (void)updateComponents{
+    AMSequence *sequence = _mainSequencer.getSequence;
+    sequence.arrayDelegate = self;
+    _mainStave = _mainSequencer.getStave;
+    _mainStave.arrayDelegate = self;
+    _actualBar = (AMBar *)_mainStave.getActualObject;
+    _actualBar.delegate = self;
+}
+
+- (void)reloadData{
+    [_collectionView reloadData];
 }
 
 @end

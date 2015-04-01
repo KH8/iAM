@@ -77,7 +77,7 @@
 }
 
 - (void)setFirstIndexAsActual{
-    _actualIndex 0;
+    _actualIndex = 0;
     [self setActualIndex:_actualIndex];
 }
 
@@ -88,8 +88,12 @@
 }
 
 - (void)setPreviousIndexAsActual{
-    _actualIndex--;
-    if(_actualIndex < 0) _actualIndex = _baseArray.count - 1;
+    if(_actualIndex == 0) {
+        _actualIndex = _baseArray.count - 1;
+    }
+    else{
+        _actualIndex--;
+    }
     [self setActualIndex:_actualIndex];
 }
 

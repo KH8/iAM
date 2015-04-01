@@ -60,7 +60,7 @@
 
 - (void)initTimer {
     _auxTimeStamp = [NSDate date];
-    [self setTimerWithInterval:@1];
+    _mainTimer = [self setTimerWithInterval:@1];
 }
 
 - (void)initRunner {
@@ -122,8 +122,9 @@
 
 - (void)playNotes {
     if(_runningState){
-        [self performSelectorInBackground:@selector(playTheRow)
-                               withObject:nil];
+        [self playTheRow];
+        /*[self performSelectorInBackground:@selector(playTheRow)
+                               withObject:nil];*/
         [self incrementActualNoteIndex];
     }
     else{
@@ -133,8 +134,9 @@
 }
 
 - (void)clearNotes {
-    [self performSelectorInBackground:@selector(clearTheRow)
-                           withObject:nil];
+    [self clearTheRow];
+    /*[self performSelectorInBackground:@selector(clearTheRow)
+                           withObject:nil];*/
 }
 
 - (void)incrementActualNoteIndex {

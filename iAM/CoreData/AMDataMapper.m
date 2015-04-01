@@ -51,10 +51,11 @@
     StepType stepType = [newStep integerToStepType:[step.stepType integerValue]];
     [newStep setStepType:stepType];
     [newStep setNumberOfLoops:[step.stepNumberOfLoops integerValue]];
-    AMStave *stave = newStep.getStave;
+    AMStave *newStave = [[AMStave alloc] init];
+    [newStep setStave:newStave];
     for (CDBar *bar in step.stepBars) {
-        [stave setTempo:[step.stepTempo integerValue]];
-        [stave addObject:[self getBarFromCoreData:bar]];
+        [newStave setTempo:[step.stepTempo integerValue]];
+        [newStave addObject:[self getBarFromCoreData:bar]];
     }
     return newStep;
 }

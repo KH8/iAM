@@ -120,7 +120,7 @@
 
 - (IBAction)onAddPageEvent:(id)sender {
     [_mainStave addBar];
-    [_mainSequencer syncronizeParameters];
+    [_mainSequencer synchronizeParameters];
 }
 
 - (void)onRemovePage:(UILongPressGestureRecognizer*)sender {
@@ -128,7 +128,7 @@
     }
     else if (sender.state == UIGestureRecognizerStateBegan){
         [_mainStave removeActualBar];
-        [_mainSequencer syncronizeParameters];
+        [_mainSequencer synchronizeParameters];
     }
 }
 
@@ -200,7 +200,7 @@
 
 - (void)pickedValuesHaveBeenChanged{
     [self updateSettingsButton];
-    [_mainSequencer syncronizeParameters];
+    [_mainSequencer synchronizeParameters];
 }
 
 - (void)updateSettingsButton{

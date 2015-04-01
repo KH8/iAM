@@ -19,13 +19,12 @@
 @property AMSequenceStep *actualStep;
 @property AMStave *mainStave;
 @property AMBar *actualBar;
+
 @property NSArray *arrayOfPlayers;
 
 @property bool runningState;
-@property NSInteger actualTickIndex;
-@property NSInteger actualNoteIndex;
-@property NSInteger numberOfTicksPerBeat;
 
+@property NSInteger actualNoteIndex;
 @property NSInteger actualBarIndex;
 
 @end
@@ -36,33 +35,32 @@
     self = [super init];
     if (self) {
         _debug = NO;
-        
-        _mainSequence = [[AMSequence alloc] init];
-        
-        AMPlayer *amPlayer0 = [[AMPlayer alloc] initWithFile:@"tickSound"
-                                                      ofType:@"aif"];
-        AMPlayer *amPlayer1 = [[AMPlayer alloc] initWithFile:@"highStickSound"
-                                                      ofType:@"aif"];
-        AMPlayer *amPlayer2 = [[AMPlayer alloc] initWithFile:@"lowStickSound"
-                                                      ofType:@"aif"];
-        _arrayOfPlayers = @[amPlayer0,amPlayer1,amPlayer2];
-
+        [self initPlayers];
+        [self initBasicParameters];
         [self initTimer];
         [self initRunner];
     }
     return self;
 }
 
+- (void)initPlayers{
+    AMPlayer *amPlayer0 = [[AMPlayer alloc] initWithFile:@"tickSound"
+                                                  ofType:@"aif"];
+    AMPlayer *amPlayer1 = [[AMPlayer alloc] initWithFile:@"highStickSound"
+                                                  ofType:@"aif"];
+    AMPlayer *amPlayer2 = [[AMPlayer alloc] initWithFile:@"lowStickSound"
+                                                  ofType:@"aif"];
+    _arrayOfPlayers = @[amPlayer0,amPlayer1,amPlayer2];
+}
+
 - (void)initBasicParameters {
-    _actualTickIndex = 0;
     _actualNoteIndex = 0;
-    _numberOfTicksPerBeat = 0;
     _actualBarIndex = 0;
 }
 
 - (void)initTimer {
     _auxTimeStamp = [NSDate date];
-    [self updateTimerInterval];
+    [self setTimerWithInterval:@1];
 }
 
 - (void)initRunner {
@@ -77,7 +75,7 @@
 - (void)startStop {
     _runningState = !_runningState;
     if(_runningState) {
-        [_mainStave setFirstBarAsActual];
+        [_mainStave setFirstIndexAsActual];
         [_sequencerDelegate sequenceHasStarted];
     }
     else {
@@ -101,20 +99,11 @@
     if(_runningState){
         [self startStop];
     }
+
     _mainSequence = newSequence;
-    _mainSequence.mechanicalDelegate = self;
-    
-    _actualStep = _mainSequence.getActualStep;
-    
-    _mainStave = _actualStep.getStave;
-    _mainStave.mechanicalDelegate = self;
-    
-    _actualBar = _mainStave.getActualBar;
-    
-    [self initBasicParameters];
-    
-    [_sequencerDelegate stepHasBeenChanged];
-    [_sequencerSyncDelegate stepParametersHaveBeenChanged];
+    _mainSequence.arrayDelegate = self;
+
+    [self updateComponents];
 }
 
 - (AMSequence *)getSequence {
@@ -157,12 +146,12 @@
 
 - (void)incrementActualBarIndex {
     _actualBarIndex++;
-    if(_actualBarIndex == _mainStave.getSize) {
-        [_mainSequence getNextStep];
+    if(_actualBarIndex == _mainStave.count) {
+        [_mainSequence setNextIndexAsActual];
         _actualBarIndex = 0;
     }
     else{
-        [_mainStave setNextBarAsActual];
+        [_mainStave setNextIndexAsActual];
     }
 }
 
@@ -185,7 +174,7 @@
 }
 
 - (void)handlePlayOnStave: (AMBar *)aStave
-         atPosition: (NSUInteger)aPosition{
+         atPosition: (NSUInteger)aPosition {
     NSUInteger j = 0;
     for (NSMutableArray *line in aStave) {
         AMNote *note = line[aPosition];
@@ -198,7 +187,7 @@
 }
 
 - (void)handleStopOnStave: (AMBar *)aStave
-               atPosition: (NSUInteger)aPosition{
+               atPosition: (NSUInteger)aPosition {
     NSUInteger j = 0;
     for (NSMutableArray *line in aStave) {
         AMNote *note = line[aPosition];
@@ -233,26 +222,23 @@
     [self updateTimerInterval];
 }
 
-- (void)barHasBeenChanged {
-    _actualBar = _mainStave.getActualBar;
-    [self updateTimerInterval];
+- (void)arrayHasBeenChanged {
+
 }
 
-- (void)sequenceHasBeenChanged{
+- (void)selectionHasBeenChanged {
+    [self updateComponents];
 }
 
-- (void)stepHasBeenChanged{
-    _actualStep = _mainSequence.getActualStep;
+- (void)updateComponents{
+    _actualStep = (AMSequenceStep *)_mainSequence.getActualObject;
+
     _mainStave = _actualStep.getStave;
-    [_mainStave setFirstBarAsActual];
-    _mainStave.mechanicalDelegate = self;
-    _actualBar = _mainStave.getActualBar;
-    [self updateTimerInterval];
-    [_sequencerDelegate stepHasBeenChanged];
-}
+    _mainStave.delegate = self;
+    [_mainStave setFirstIndexAsActual];
 
-- (void)syncronizeParameters;{
-    [_sequencerSyncDelegate stepParametersHaveBeenChanged];
+    _actualBar = (AMBar *)_mainStave.getActualObject;
+    [self updateTimerInterval];
 }
 
 @end

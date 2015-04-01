@@ -35,7 +35,7 @@
 
 - (void)addObject:(NSObject*)newObject atIndex:(NSUInteger)anIndex{
     [_baseArray insertObject:newObject atIndex:anIndex];
-    [_delegate arrayHasBeenChanged];
+    [_arrayDelegate arrayHasBeenChanged];
 }
 
 - (void)removeActualObject{
@@ -47,7 +47,7 @@
         return;
     }
     [_baseArray removeObjectAtIndex:anIndex];
-    [_delegate arrayHasBeenChanged];
+    [_arrayDelegate arrayHasBeenChanged];
     if(anIndex == _actualIndex){
         [self setNextIndexAsActual];
     }
@@ -73,17 +73,18 @@
         return;
     }
     _actualIndex = anIndex;
+    [_arrayDelegate selectionHasBeenChanged];
 }
 
 - (void)setFirstIndexAsActual{
-    _actualIndex = 0;
-    [_delegate selectionHasBeenChanged];
+    _actualIndex 0;
+    [self setActualIndex:_actualIndex];
 }
 
 - (void)setNextIndexAsActual{
     _actualIndex++;
     if(_actualIndex >= _baseArray.count) _actualIndex = 0;
-    [_delegate selectionHasBeenChanged];
+    [self setActualIndex:_actualIndex];
 }
 
 - (NSUInteger)count{

@@ -19,7 +19,7 @@
 
 @interface AMMutableArray : NSObject
 
-@property (nonatomic, weak) id <AMMutableArrayDelegate> delegate;
+@property (nonatomic, weak) id <AMMutableArrayDelegate> arrayDelegate;
 
 - (id)init;
 

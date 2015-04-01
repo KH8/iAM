@@ -19,7 +19,7 @@
 
 @interface AMSequenceStep : NSObject
 
-@property (nonatomic, weak) id <AMSequenceStepDelegate> visualDelegate;
+@property (nonatomic, weak) id <AMSequenceStepDelegate> delegate;
 
 typedef enum{
     PLAY_ONCE,
@@ -30,11 +30,11 @@ typedef enum{
 - (id)init;
 - (id)initWithSubComponents;
 
+- (void)setStave:(AMStave *)stave;
 - (AMStave*)getStave;
 
-- (void)setStepTypeFromInteger:(NSInteger)stepType;
-- (NSInteger)getIntegerFromStepType;
 - (void)setNextStepType;
+- (void)setStepType:(StepType)stepType;
 - (StepType)getStepType;
 
 - (void)setName: (NSString*)newName;
@@ -43,8 +43,11 @@ typedef enum{
 
 - (void)incrementLoop;
 - (void)decrementLoop;
+
 - (void)setNumberOfLoops:(NSInteger)numberOfLoops;
 - (NSInteger)getNumberOfLoops;
-- (BOOL)isNumberOfLoopsAvailable;
+
+- (NSInteger)stepTypeToInteger:(StepType)stepType;
+- (StepType)integerToStepType:(NSInteger)stepTypeValue;
 
 @end

@@ -14,22 +14,12 @@
 
 - (void) sequenceHasStarted;
 - (void) sequenceHasStopped;
-- (void) stepHasBeenChanged;
 
 @end
 
-@protocol AMSequencerSyncDelegate <NSObject>
-
-@required
-
-- (void) stepParametersHaveBeenChanged;
-
-@end
-
-@interface AMSequencer : NSObject <AMStaveMechanicalDelegate, AMSequenceDelegate>
+@interface AMSequencer : NSObject <AMStaveMechanicalDelegate, AMMutableArrayDelegate>
 
 @property (nonatomic, weak) id <AMSequencerDelegate> sequencerDelegate;
-@property (nonatomic, weak) id <AMSequencerSyncDelegate> sequencerSyncDelegate;
 
 - (id)init;
 - (void)killBackgroundThread;
@@ -39,9 +29,8 @@
 - (void)clear;
 
 - (AMStave *)getStave;
+
 - (void)setSequence:(AMSequence *)newSequence;
 - (AMSequence *)getSequence;
-
-- (void)syncronizeParameters;
 
 @end

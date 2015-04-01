@@ -24,7 +24,6 @@
     self = [super init];
     if (self) {
         _name = @"NEW STEP";
-        _mainStave = [[AMStave alloc] init];
         _stepType = INFINITE_LOOP;
         _numberOfLoops = 1;
     }
@@ -34,58 +33,41 @@
 - (id)initWithSubComponents {
     self = [self init];
     if (self) {
-        _mainStave = [[AMStave alloc] initWithSubComponents];
+        AMStave *newStave = [[AMStave alloc] initWithSubComponents];
+        [self setStave:newStave];
     }
     return self;
+}
+
+- (void)setStave:(AMStave *)stave{
+    _mainStave = stave;
+    [_delegate sequenceStepPropertiesHasBeenChanged];
 }
 
 - (AMStave*)getStave{
     return _mainStave;
 }
 
-- (void)setStepTypeFromInteger:(NSInteger)stepType{
-    switch (stepType)
-    {
-        case 1:
-            _stepType = PLAY_ONCE;
-            break;
-        case 2:
-            _stepType = REPEAT;
-            break;
-        case 3:
-            _stepType = INFINITE_LOOP;
-            break;
-    }
-}
-
-- (NSInteger)getIntegerFromStepType{
-    switch (_stepType)
-    {
-        case PLAY_ONCE:
-            return 1;
-        case REPEAT:
-            return 2;
-        case INFINITE_LOOP:
-            return 3;
-    }
-}
-
 - (void)setNextStepType{
     switch (_stepType)
     {
         case PLAY_ONCE:
-            _stepType = REPEAT;
+            [self setStepType:REPEAT];
             break;
         case REPEAT:
-            _stepType = INFINITE_LOOP;
+            [self setStepType:INFINITE_LOOP];
             _numberOfLoops = 1;
             break;
         case INFINITE_LOOP:
-            _stepType = PLAY_ONCE;
+            [self setStepType:PLAY_ONCE];
             _numberOfLoops = 1;
             break;
     }
-    [_visualDelegate sequenceStepPropertiesHasBeenChanged];
+}
+
+- (void)setStepType:(StepType)stepType{
+    _stepType = stepType;
+    [_delegate sequenceStepPropertiesHasBeenChanged];
 }
 
 - (StepType)getStepType{
@@ -102,11 +84,11 @@
 
 - (NSString*)getDescription{
     NSString *bar = @"BARS";
-    if(_mainStave.getSize == 1){
+    if(_mainStave.count == 1){
         bar = @"BAR";
     }
     NSString *description = [NSString stringWithFormat:@"%ld %@ %ld BPM",
-                           (long)_mainStave.getSize,
+                           (long)_mainStave.count,
                            bar,
                            (long)_mainStave.getTempo];
     
@@ -121,7 +103,7 @@
 
 - (void)incrementLoop{
     _numberOfLoops++;
-    [_visualDelegate sequenceStepPropertiesHasBeenChanged];
+    [_delegate sequenceStepPropertiesHasBeenChanged];
 }
 
 - (void)decrementLoop{
@@ -129,7 +111,7 @@
         return;
     }
     _numberOfLoops--;
-    [_visualDelegate sequenceStepPropertiesHasBeenChanged];
+    [_delegate sequenceStepPropertiesHasBeenChanged];
 }
 
 - (void)setNumberOfLoops:(NSInteger)numberOfLoops{
@@ -140,12 +122,32 @@
     return _numberOfLoops;
 }
 
-- (BOOL)isNumberOfLoopsAvailable{
-    BOOL response = NO;
-    if(_stepType == REPEAT){
-        response = YES;
+- (NSInteger)stepTypeToInteger:(StepType)stepType{
+    switch (_stepType)
+    {
+        case PLAY_ONCE:
+            return 1;
+        case REPEAT:
+            return 2;
+        case INFINITE_LOOP:
+            return 3;
+        default:
+            return 1;
     }
-    return response;
+}
+
+- (StepType)integerToStepType:(NSInteger)stepTypeValue{
+    switch (stepTypeValue)
+    {
+        case 1:
+            return PLAY_ONCE;
+        case 2:
+            return REPEAT;
+        case 3:
+            return INFINITE_LOOP;
+        default:
+            return PLAY_ONCE;
+    }
 }
 
 @end

@@ -17,5 +17,4 @@
 
 + (id)sharedSequencer;
 
-
 @end

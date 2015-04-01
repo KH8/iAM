@@ -50,7 +50,7 @@ static NSString * const reuseIdentifier = @"myMenuStepCell";
     AMSequence *sequenceAssigned = _arrayOfSequences[(NSUInteger) indexPath.row];
     AMMenuTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier forIndexPath:indexPath];
     cell.textLabel.text = sequenceAssigned.getName;
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"CREATED: %@", sequenceAssigned.getCreationDate];
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"CREATED: %@", sequenceAssigned.getCreationDateString];
     
     if(indexPath.row == 0){
         cell.textLabel.textColor = [UIColor orangeColor];

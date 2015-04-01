@@ -92,24 +92,6 @@ NSUInteger const minSignature = 1;
     }
 }
 
-- (void)clear{
-    for (NSMutableArray *line in _mainArray) {
-        for (AMNote *note in line) {
-            if(note.isSelected) {
-                [note select];
-            }
-        }
-    }
-}
-
-- (void)clearTriggerMarkers{
-    for (NSMutableArray *line in _mainArray) {
-        for (AMNote *note in line) {
-            [note changeTriggerMarker:NO];
-        }
-    }
-}
-
 - (NSInteger)getNumberOfLines {
     return [self count];
 }
@@ -165,6 +147,24 @@ NSUInteger const minSignature = 1;
 
 - (NSInteger)getLengthToBePlayed{
     return _density * _signatureNumerator;
+}
+
+- (void)clear{
+    for (NSMutableArray *line in _mainArray) {
+        for (AMNote *note in line) {
+            if(note.isSelected) {
+                [note select];
+            }
+        }
+    }
+}
+
+- (void)clearTriggerMarkers{
+    for (NSMutableArray *line in _mainArray) {
+        for (AMNote *note in line) {
+            [note changeTriggerMarker:NO];
+        }
+    }
 }
 
 @end

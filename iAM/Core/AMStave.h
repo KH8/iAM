@@ -5,30 +5,19 @@
 
 #import <Foundation/Foundation.h>
 #import "AMBar.h"
+#import "AMMutableArray.h"
 
 @protocol AMStaveMechanicalDelegate <NSObject>
 
 @required
 
 - (void)tempoHasBeenChanged;
-- (void)barHasBeenChanged;
 
 @end
 
-@protocol AMStaveVisualDelegate <NSObject>
+@interface AMStave : AMMutableArray
 
-@required
-
-- (void)barHasBeenChanged;
-
-@end
-
-@interface AMStave : NSObject <AMBarVisualDelegate>
-
-@property (nonatomic, weak) id <AMStaveMechanicalDelegate> mechanicalDelegate;
-@property (nonatomic, weak) id <AMStaveMechanicalDelegate> mechanicalPickerViewDelegate;
-@property (nonatomic, weak) id <AMStaveVisualDelegate> visualDelegate;
-@property (nonatomic, weak) id <AMStaveVisualDelegate> visualPageViewDelegate;
+@property (nonatomic, weak) id <AMStaveMechanicalDelegate> delegate;
 
 @property (nonatomic) NSInteger maxTempo;
 @property (nonatomic) NSInteger minTempo;
@@ -38,21 +27,7 @@
 
 - (void)setTempo: (NSInteger)aTempo;
 - (NSInteger)getTempo;
+
 - (void)tapTempo;
-
-- (void)addBar;
-- (void)addBar:(AMBar*)newBar;
-- (void)removeActualBar;
-
-- (void)setFirstBarAsActual;
-- (void)setNextBarAsActual;
-- (void)setIndexAsActual: (NSUInteger)index;
-
-- (AMBar*)getActualBar;
-- (NSInteger)getActualIndex;
-- (NSInteger)getSize;
-- (NSMutableArray*)getAllBars;
-
-- (void)clearAllTriggerMarkers;
 
 @end

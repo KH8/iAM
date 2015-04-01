@@ -8,7 +8,6 @@
 
 #import "AMSequencerSingleton.h"
 #import "AMDataMapper.h"
-#import "AppDelegate.h"
 #import "CDStep.h"
 #import "CDSequence.h"
 #import "CDNote.h"
@@ -39,7 +38,7 @@
     NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:&error];
     if(fetchedObjects.count == 0){
         [self initCoreDataEntitiesInContext:context];
-        fetchedObjects = [context executeFetchRequest:fetchRequest error:&error];
+        [context executeFetchRequest:fetchRequest error:&error];
     }
     
     AMDataMapper *dataMapper = [[AMDataMapper alloc] init];
@@ -110,7 +109,7 @@
     AMDataMapper *dataMapper = [[AMDataMapper alloc] init];
     AMSequencerSingleton *sequencerSingleton = [AMSequencerSingleton sharedSequencer];
     NSManagedObjectContext *context = [self managedObjectContext];
-    [dataMapper getCoreDatafromActualConfiguration:sequencerSingleton.arrayOfSequences
+    [dataMapper getCoreDataFromActualConfiguration:sequencerSingleton.arrayOfSequences
                                          inContext:context];
     [self saveContext];
 }

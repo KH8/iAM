@@ -40,7 +40,7 @@
     [newSequence setName:sequence.sequenceName];
     [newSequence setCreationDate:sequence.sequenceCreationDate];
     for (CDStep *step in sequence.sequenceSteps) {
-        [newSequence addStep:[self getStepFromCoreData:step]];
+        [newSequence addObject:[self getStepFromCoreData:step]];
     }
     return newSequence;
 }
@@ -48,12 +48,13 @@
 - (AMSequenceStep*)getStepFromCoreData:(CDStep*)step{
     AMSequenceStep *newStep = [[AMSequenceStep alloc] init];
     [newStep setName:step.stepName];
-    [newStep setStepTypeFromInteger:[step.stepType integerValue]];
+    StepType stepType = [newStep integerToStepType:[step.stepType integerValue]];
+    [newStep setStepType:stepType];
     [newStep setNumberOfLoops:[step.stepNumberOfLoops integerValue]];
     AMStave *stave = newStep.getStave;
     for (CDBar *bar in step.stepBars) {
         [stave setTempo:[step.stepTempo integerValue]];
-        [stave addBar:[self getBarFromCoreData:bar]];
+        [stave addObject:[self getBarFromCoreData:bar]];
     }
     return newStep;
 }
@@ -65,14 +66,14 @@
     [newBar setSignatureDenominator:[bar.barSigDenominator integerValue]];
     [newBar setDensity:[bar.barDensity integerValue]];
     for (CDNote *note in bar.barNotes) {
-        NSMutableArray *lineOfNotes = [newBar getLineAtIndex:[note.noteCoordLine integerValue]];
-        AMNote *correspondingNote = lineOfNotes[[note.noteCoordPos integerValue]];
+        NSMutableArray *lineOfNotes = [newBar getLineAtIndex:(NSUInteger) [note.noteCoordLine integerValue]];
+        AMNote *correspondingNote = lineOfNotes[(NSUInteger) [note.noteCoordPos integerValue]];
         [correspondingNote select];
     }
     return newBar;
 }
 
-- (void)getCoreDatafromActualConfiguration:(AMMutableArray*)configuration
+- (void)getCoreDataFromActualConfiguration:(AMMutableArray*)configuration
                                  inContext:(NSManagedObjectContext*)context{
     for (AMSequence *sequence in configuration) {
         [self getCoreDataFromSequence:sequence inContext:context];
@@ -89,7 +90,7 @@
                                                             inManagedObjectContext:context];
     newSequence.sequenceName = sequence.getName;
     newSequence.sequenceCreationDate = sequence.getCreationDate;
-    for (AMSequenceStep *step in sequence.getAllSteps) {
+    for (AMSequenceStep *step in sequence) {
         CDStep *newStep = [self getCoreDataFromStep:step
                                           inContext:context];
         newStep.sequence = newSequence;
@@ -103,10 +104,11 @@
                                                             inManagedObjectContext:context];
     newStep.stepName = step.getName;
     newStep.stepNumberOfLoops = [[NSNumber alloc] initWithInteger:step.getNumberOfLoops];
-    newStep.stepType = [[NSNumber alloc] initWithInteger:step.getIntegerFromStepType];
+    NSInteger stepTypeInteger = [step stepTypeToInteger:[step getStepType]];
+    newStep.stepType = [[NSNumber alloc] initWithInteger:stepTypeInteger];
     AMStave *stave = step.getStave;
     newStep.stepTempo = [[NSNumber alloc] initWithInteger:stave.getTempo];
-    for (AMBar *bar in stave.getAllBars) {
+    for (AMBar *bar in stave) {
         CDBar *newBar = [self getCoreDataFromBar:bar
                                        inContext:context];
         newBar.step = newStep;

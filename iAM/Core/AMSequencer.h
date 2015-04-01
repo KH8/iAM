@@ -14,10 +14,11 @@
 
 - (void) sequenceHasStarted;
 - (void) sequenceHasStopped;
+- (void) sequenceHasChanged;
 
 @end
 
-@interface AMSequencer : NSObject <AMStaveMechanicalDelegate, AMMutableArrayDelegate>
+@interface AMSequencer : NSObject <AMStaveDelegate, AMMutableArrayDelegate>
 
 @property (nonatomic, weak) id <AMSequencerDelegate> sequencerDelegate;
 

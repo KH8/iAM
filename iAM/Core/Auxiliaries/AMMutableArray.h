@@ -36,6 +36,7 @@
 - (void)setIndexAsActual:(NSUInteger)anIndex;
 - (void)setFirstIndexAsActual;
 - (void)setNextIndexAsActual;
+- (void)setPreviousIndexAsActual;
 
 - (NSUInteger)count;
 

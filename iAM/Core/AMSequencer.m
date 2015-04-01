@@ -104,6 +104,7 @@
     _mainSequence.arrayDelegate = self;
 
     [self updateComponents];
+    [_sequencerDelegate sequenceHasChanged];
 }
 
 - (AMSequence *)getSequence {

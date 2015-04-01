@@ -7,7 +7,7 @@
 #import "AMBar.h"
 #import "AMMutableArray.h"
 
-@protocol AMStaveMechanicalDelegate <NSObject>
+@protocol AMStaveDelegate <NSObject>
 
 @required
 
@@ -17,7 +17,7 @@
 
 @interface AMStave : AMMutableArray
 
-@property (nonatomic, weak) id <AMStaveMechanicalDelegate> delegate;
+@property (nonatomic, weak) id <AMStaveDelegate> delegate;
 
 @property (nonatomic) NSInteger maxTempo;
 @property (nonatomic) NSInteger minTempo;
@@ -29,5 +29,7 @@
 - (NSInteger)getTempo;
 
 - (void)tapTempo;
+
+- (void)addBar;
 
 @end

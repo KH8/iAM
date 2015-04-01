@@ -28,9 +28,7 @@ NSUInteger const minTempo = 60;
 - (id)initWithSubComponents{
     self = [self init];
     if (self) {
-        AMBar *newBar = [[AMBar alloc] init];
-        [newBar configureDefault];
-        [self addObject:newBar];
+        [self addBar];
     }
     return self;
 }
@@ -66,6 +64,12 @@ NSUInteger const minTempo = 60;
     
     NSNumber *newTempo = @(60000.0f / intervalSinceLastTapInMilliseconds.floatValue);
     [self setTempo:newTempo.integerValue];
+}
+
+- (void)addBar{
+    AMBar *newBar = [[AMBar alloc] init];
+    [newBar configureDefault];
+    [self addObject:newBar];
 }
 
 @end

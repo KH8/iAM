@@ -33,8 +33,6 @@
     [self loadToolBar];
     [self loadBackgroundAudioSession];
     [self loadIcons];
-    [self updatePageControl];
-    [self updateSettingsButton];
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
@@ -48,9 +46,7 @@
     AMSequencerSingleton *sequencerSingleton = [AMSequencerSingleton sharedSequencer];
     _mainSequencer = sequencerSingleton.sequencer;
     _mainSequencer.sequencerDelegate = self;
-    _mainSequence = _mainSequencer.getSequence;
-    _mainStave = _mainSequencer.getStave;
-    _mainStave.visualPageViewDelegate = self;
+    [self updateComponents];
 }
 
 - (void)loadCollectionViewController{
@@ -120,15 +116,13 @@
 
 - (IBAction)onAddPageEvent:(id)sender {
     [_mainStave addBar];
-    [_mainSequencer synchronizeParameters];
 }
 
 - (void)onRemovePage:(UILongPressGestureRecognizer*)sender {
     if (sender.state == UIGestureRecognizerStateEnded) {
     }
     else if (sender.state == UIGestureRecognizerStateBegan){
-        [_mainStave removeActualBar];
-        [_mainSequencer synchronizeParameters];
+        [_mainStave removeActualObject];
     }
 }
 
@@ -145,11 +139,41 @@
 }
 
 - (IBAction)onPreviousStep:(id)sender {
-    [_mainSequence setOneStepBackward];
+    [_mainSequence setNextIndexAsActual];
 }
 
 - (IBAction)onNextStep:(id)sender {
-    [_mainSequence setOneStepForward];
+    [_mainSequence setPreviousIndexAsActual];
+}
+
+- (void)replaceObjectInToolBarAtIndex: (NSInteger)anIndex
+                           withObject: (NSObject*)anObject{
+    NSMutableArray *toolbarItems = [[NSMutableArray alloc] init];
+    for (NSObject *item in _bottomToolBar.items) {
+        [toolbarItems addObject:item];
+    }
+    toolbarItems[(NSUInteger) anIndex] = anObject;
+    _bottomToolBar.items = toolbarItems;
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if([segue.identifier isEqualToString:@"sw_popover"]){
+        AMPopoverViewController *popoverViewController = (AMPopoverViewController *)segue.destinationViewController;
+        popoverViewController.actuallySelectedSequencer = _mainSequencer;
+        popoverViewController.delegate = self;
+    }
+}
+
+- (void)pickedValuesHaveBeenChanged{
+    [self updateSettingsButton];
+}
+
+- (void)arrayHasBeenChanged {
+    [self updateComponents];
+}
+
+- (void)selectionHasBeenChanged {
+    [self updateComponents];
 }
 
 - (void)sequenceHasStarted {
@@ -166,50 +190,29 @@
     [self replaceObjectInToolBarAtIndex:2 withObject:_temporaryPlayButton];
 }
 
-- (void)stepHasBeenChanged {
-    _mainStave = _mainSequencer.getStave;
-    _mainStave.visualPageViewDelegate = self;
-    [self barHasBeenChanged];
+- (void)sequenceHasChanged {
+    [self updateComponents];
 }
 
-- (void)replaceObjectInToolBarAtIndex: (NSInteger)anIndex
-                           withObject: (NSObject*)anObject{
-    NSMutableArray *toolbarItems = [[NSMutableArray alloc] init];
-    for (NSObject *item in _bottomToolBar.items) {
-        [toolbarItems addObject:item];
-    }
-    toolbarItems[(NSUInteger) anIndex] = anObject;
-    _bottomToolBar.items = toolbarItems;
-}
-
-- (void)barHasBeenChanged {
+- (void)updateComponents{
+    _mainSequence = _mainSequencer.getSequence;
+    _mainSequence.arrayDelegate = self;
     _mainStave = _mainSequencer.getStave;
-    _mainStave.visualPageViewDelegate = self;
+    _mainStave.arrayDelegate = self;
+
     [self updatePageControl];
     [self updateSettingsButton];
+
     [_collectionViewController reloadData];
 }
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
-    if([segue.identifier isEqualToString:@"sw_popover"]){
-        AMPopoverViewController *popoverViewController = (AMPopoverViewController *)segue.destinationViewController;
-        popoverViewController.actuallySelectedSequencer = _mainSequencer;
-        popoverViewController.delegate = self;
-    }
-}
-
-- (void)pickedValuesHaveBeenChanged{
-    [self updateSettingsButton];
-    [_mainSequencer synchronizeParameters];
-}
-
 - (void)updateSettingsButton{
-    AMBar *bar = _mainStave.getActualBar;
+    AMBar *bar = (AMBar *)_mainStave.getActualObject;
     NSString *newTitle = [NSString stringWithFormat:@"%ld:%ld x%ld %ld BPM",
-                          (long)bar.getSignatureNumerator,
-                          (long)bar.getSignatureDenominator,
-                          (long)bar.getDensity,
-                          (long)_mainStave.getTempo];
+                                                    (long)bar.getSignatureNumerator,
+                                                    (long)bar.getSignatureDenominator,
+                                                    (long)bar.getDensity,
+                                                    (long)_mainStave.getTempo];
     _temporarySettingsButton = [[UIBarButtonItem alloc] initWithTitle:newTitle
                                                                 style:UIBarButtonItemStylePlain
                                                                target:self
@@ -218,8 +221,9 @@
 }
 
 - (void)updatePageControl {
-    _pageControl.numberOfPages = _mainStave.getSize;
+    _pageControl.numberOfPages = _mainStave.count;
     _pageControl.currentPage = _mainStave.getActualIndex;
 }
+
 
 @end

@@ -87,6 +87,12 @@
     [self setActualIndex:_actualIndex];
 }
 
+- (void)setPreviousIndexAsActual{
+    _actualIndex--;
+    if(_actualIndex < 0) _actualIndex = _baseArray.count - 1;
+    [self setActualIndex:_actualIndex];
+}
+
 - (NSUInteger)count{
     return [_baseArray count];
 }

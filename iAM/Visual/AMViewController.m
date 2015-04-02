@@ -9,6 +9,7 @@
 #import "AMViewController.h"
 #import "SWRevealViewController.h"
 #import "AMSequencerSingleton.h"
+#import "AppDelegate.h"
 #import <AVFoundation/AVFoundation.h>
 
 @interface AMViewController () {
@@ -102,11 +103,17 @@
     if(_mainSequencer.isRunning){
         [[AVAudioSession sharedInstance] setActive: YES error: nil];
         [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
+        [self saveConfiguration];
     }
     else{
         [[AVAudioSession sharedInstance] setActive: NO error: nil];
         [[UIApplication sharedApplication] endReceivingRemoteControlEvents];
     }
+}
+
+- (void)saveConfiguration{
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    [appDelegate saveContext];
 }
 
 - (IBAction)onClearEvent:(id)sender {

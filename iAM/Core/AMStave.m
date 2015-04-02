@@ -36,6 +36,7 @@ NSUInteger const minTempo = 60;
 - (id)init {
     self = [super init];
     if (self) {
+        _staveDelegates = [NSHashTable weakObjectsHashTable];
         [self initBasicParameters];
     }
     return self;

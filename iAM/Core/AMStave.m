@@ -10,12 +10,28 @@
 @property (nonatomic) NSInteger tempo;
 @property (nonatomic) NSDate *lastTapTime;
 
+@property (nonatomic, strong) NSHashTable *staveDelegates;
+
 @end
 
 @implementation AMStave
 
 NSUInteger const maxTempo = 300;
 NSUInteger const minTempo = 60;
+
+- (void)addStaveDelegate: (id<AMStaveDelegate>)delegate{
+    [_staveDelegates addObject: delegate];
+}
+
+- (void)removeStaveDelegate: (id<AMStaveDelegate>)delegate{
+    [_staveDelegates removeObject: delegate];
+}
+
+- (void)delegateTempoHasBeenChanged{
+    for (id<AMStaveDelegate> delegate in _staveDelegates) {
+        [delegate tempoHasBeenChanged];
+    }
+}
 
 - (id)init {
     self = [super init];
@@ -42,7 +58,7 @@ NSUInteger const minTempo = 60;
 
 - (void)setTempo:(NSInteger)aTempo {
     _tempo = aTempo;
-    [_delegate tempoHasBeenChanged];
+    [self delegateTempoHasBeenChanged];
 }
 
 - (NSInteger)getTempo {

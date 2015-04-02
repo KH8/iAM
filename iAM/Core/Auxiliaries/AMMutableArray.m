@@ -13,6 +13,8 @@
 @property (nonatomic) NSUInteger actualIndex;
 @property NSMutableArray *baseArray;
 
+@property (nonatomic, strong) NSHashTable *arrayDelegates;
+
 @end
 
 @implementation AMMutableArray
@@ -20,9 +22,30 @@
 - (id)init{
     self = [super init];
     if (self) {
+        _arrayDelegates = [NSHashTable weakObjectsHashTable];
         _baseArray = [[NSMutableArray alloc] init];
     }
     return self;
+}
+
+- (void)addArrayDelegate: (id<AMMutableArrayDelegate>)delegate{
+    [_arrayDelegates addObject: delegate];
+}
+
+- (void)removeArrayDelegate: (id<AMMutableArrayDelegate>)delegate{
+    [_arrayDelegates removeObject: delegate];
+}
+
+- (void)delegateArrayHasBeenChanged{
+    for (id<AMMutableArrayDelegate> delegate in _arrayDelegates) {
+        [delegate arrayHasBeenChanged];
+    }
+}
+
+- (void)delegateSelectionHasBeenChanged{
+    for (id<AMMutableArrayDelegate> delegate in _arrayDelegates) {
+        [delegate selectionHasBeenChanged];
+    }
 }
 
 - (void)addObject:(NSObject*)newObject{
@@ -35,7 +58,7 @@
 
 - (void)addObject:(NSObject*)newObject atIndex:(NSUInteger)anIndex{
     [_baseArray insertObject:newObject atIndex:anIndex];
-    [_arrayDelegate arrayHasBeenChanged];
+    [self delegateArrayHasBeenChanged];
 }
 
 - (void)removeActualObject{
@@ -47,10 +70,10 @@
         return;
     }
     [_baseArray removeObjectAtIndex:anIndex];
-    [_arrayDelegate arrayHasBeenChanged];
     if(anIndex == _actualIndex){
         [self setNextIndexAsActual];
     }
+    [self delegateArrayHasBeenChanged];
 }
 
 - (NSInteger)getActualIndex{
@@ -73,7 +96,7 @@
         return;
     }
     _actualIndex = anIndex;
-    [_arrayDelegate selectionHasBeenChanged];
+    [self delegateSelectionHasBeenChanged];
 }
 
 - (void)setFirstIndexAsActual{

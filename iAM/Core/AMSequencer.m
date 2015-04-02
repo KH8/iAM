@@ -101,7 +101,7 @@
     }
 
     _mainSequence = newSequence;
-    _mainSequence.arrayDelegate = self;
+    [_mainSequence addArrayDelegate:self];
 
     [self updateComponents];
     [_sequencerDelegate sequenceHasChanged];
@@ -150,7 +150,7 @@
 - (void)incrementActualBarIndex {
     _actualBarIndex++;
     if(_actualBarIndex == _mainStave.count) {
-        [_mainSequence setNextIndexAsActual];
+        [_mainSequence getNextStep];
         _actualBarIndex = 0;
     }
     else{
@@ -237,8 +237,8 @@
     _actualStep = (AMSequenceStep *)_mainSequence.getActualObject;
 
     _mainStave = _actualStep.getStave;
-    _mainStave.delegate = self;
-    [_mainStave setFirstIndexAsActual];
+    [_mainStave addStaveDelegate:self];
+    [_mainStave addArrayDelegate:self];
 
     _actualBar = (AMBar *)_mainStave.getActualObject;
     [self updateTimerInterval];

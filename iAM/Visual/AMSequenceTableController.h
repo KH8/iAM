@@ -11,7 +11,7 @@
 #import "AMSequencer.h"
 #import "AMSequenceStep.h"
 
-@interface AMSequenceTableController : UIViewController <UITableViewDataSource, UITableViewDelegate, AMMutableArrayDelegate, AMSequenceStepDelegate>
+@interface AMSequenceTableController : UIViewController <UITableViewDataSource, UITableViewDelegate, AMMutableArrayDelegate, AMSequenceStepDelegate, AMStaveDelegate>
 
 @property (weak, nonatomic) IBOutlet UIToolbar *bottomToolBar;
 

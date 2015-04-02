@@ -196,9 +196,9 @@
 
 - (void)updateComponents{
     _mainSequence = _mainSequencer.getSequence;
-    _mainSequence.arrayDelegate = self;
+    [_mainSequence addArrayDelegate:self];
     _mainStave = _mainSequencer.getStave;
-    _mainStave.arrayDelegate = self;
+    [_mainStave addArrayDelegate:self];
 
     [self updatePageControl];
     [self updateSettingsButton];

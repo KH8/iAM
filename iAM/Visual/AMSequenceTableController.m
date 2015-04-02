@@ -42,9 +42,8 @@ static NSString * const reuseIdentifier = @"mySequenceStepCell";
     AMSequencerSingleton *sequencerSingleton = [AMSequencerSingleton sharedSequencer];
     _mainSequencer = sequencerSingleton.sequencer;
     _mainSequence = [_mainSequencer getSequence];
-    _mainSequence.arrayDelegate = self;
-    AMSequenceStep *step = (AMSequenceStep *)_mainSequence.getActualObject;
-    step.delegate = self;
+    [_mainSequence addArrayDelegate:self];
+    [self updateComponents];
 }
 
 - (void)initBottomToolBar{
@@ -147,6 +146,10 @@ didDeselectRowAtIndexPath:(NSIndexPath *)indexPath{
     [step decrementLoop];
 }
 
+- (void)tempoHasBeenChanged{
+    [self updateComponents];
+}
+
 - (void)arrayHasBeenChanged {
     [self updateComponents];
 }
@@ -160,6 +163,11 @@ didDeselectRowAtIndexPath:(NSIndexPath *)indexPath{
 }
 
 - (void)updateComponents{
+    AMSequenceStep *step = (AMSequenceStep *)_mainSequence.getActualObject;
+    step.delegate = self;
+    AMStave *stave = step.getStave;
+    [stave addArrayDelegate:self];
+    [stave addStaveDelegate:self];
     [self reloadView];
     [self changeIndexSelected:(NSUInteger) _mainSequence.getActualIndex];
     [self stepLoopCounterUpdate];

@@ -23,7 +23,7 @@
 
 - (void)loadPickers{
     AMStave *stave = _actuallySelectedSequencer.getStave;
-    stave.delegate = self;
+    [stave addStaveDelegate:self];
     AMBar *bar = (AMBar *)stave.getActualObject;
     NSArray *signatureNumeratorPickerData = [self createRangeOfValuesStartingFrom:bar.minSignature
                                                                             upTo:bar.getSignatureDenominator];

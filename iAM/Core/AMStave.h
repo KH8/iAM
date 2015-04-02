@@ -17,7 +17,8 @@
 
 @interface AMStave : AMMutableArray
 
-@property (nonatomic, weak) id <AMStaveDelegate> delegate;
+- (void) addStaveDelegate: (id<AMStaveDelegate>)delegate;
+- (void) removeStaveDelegate: (id<AMStaveDelegate>)delegate;
 
 @property (nonatomic) NSInteger maxTempo;
 @property (nonatomic) NSInteger minTempo;

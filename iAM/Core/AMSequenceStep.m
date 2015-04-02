@@ -123,7 +123,7 @@
 }
 
 - (NSInteger)stepTypeToInteger:(StepType)stepType{
-    switch (_stepType)
+    switch (stepType)
     {
         case PLAY_ONCE:
             return 1;

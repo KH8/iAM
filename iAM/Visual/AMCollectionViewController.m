@@ -104,9 +104,9 @@ static NSString * const reuseIdentifier = @"myCell";
 
 - (void)updateComponents{
     AMSequence *sequence = _mainSequencer.getSequence;
-    sequence.arrayDelegate = self;
+    [sequence addArrayDelegate:self];
     _mainStave = _mainSequencer.getStave;
-    _mainStave.arrayDelegate = self;
+    [_mainStave addArrayDelegate:self];
     _actualBar = (AMBar *)_mainStave.getActualObject;
     _actualBar.delegate = self;
 }

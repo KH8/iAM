@@ -71,6 +71,7 @@
             _actualStepLoopCounter++;
             if(_actualStepLoopCounter == actualStep.getNumberOfLoops){
                 [self setNextIndexAsActual];
+                _actualStepLoopCounter = 0;
                 break;
             }
             break;

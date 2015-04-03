@@ -204,6 +204,7 @@
 - (void)updateComponents{
     _mainSequence = _mainSequencer.getSequence;
     [_mainSequence addArrayDelegate:self];
+    
     _mainStave = _mainSequencer.getStave;
     [_mainStave addArrayDelegate:self];
 

@@ -101,13 +101,13 @@
 
 - (void)setFirstIndexAsActual{
     _actualIndex = 0;
-    [self setActualIndex:_actualIndex];
+    [self setIndexAsActual:_actualIndex];
 }
 
 - (void)setNextIndexAsActual{
     _actualIndex++;
     if(_actualIndex >= _baseArray.count) _actualIndex = 0;
-    [self setActualIndex:_actualIndex];
+    [self setIndexAsActual:_actualIndex];
 }
 
 - (void)setPreviousIndexAsActual{
@@ -117,7 +117,7 @@
     else{
         _actualIndex--;
     }
-    [self setActualIndex:_actualIndex];
+    [self setIndexAsActual:_actualIndex];
 }
 
 - (NSUInteger)count{

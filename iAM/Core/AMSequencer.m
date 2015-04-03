@@ -6,6 +6,7 @@
 #import "AMSequencer.h"
 #import "AMNote.h"
 #import "AMPlayer.h"
+#import "AMMutableArrayResponder.h"
 
 @interface AMSequencer ()
 
@@ -19,6 +20,9 @@
 @property AMSequenceStep *actualStep;
 @property AMStave *mainStave;
 @property AMBar *actualBar;
+
+@property AMMutableArrayResponder *mainSequenceArrayResponder;
+@property AMMutableArrayResponder *mainStaveArrayResponder;
 
 @property NSArray *arrayOfPlayers;
 
@@ -35,12 +39,22 @@
     self = [super init];
     if (self) {
         _debug = NO;
+        [self initResponders];
         [self initPlayers];
         [self initBasicParameters];
         [self initTimer];
         [self initRunner];
     }
     return self;
+}
+
+- (void)initResponders{
+    _mainSequenceArrayResponder = [[AMMutableArrayResponder alloc] initWithArrayHasChangedAction:@selector(sequenceArrayHasBeenChanged)
+                                                                    andSelectionHasChangedAction:@selector(sequenceSelectionHasBeenChanged)
+                                                                                       andTarget:self];
+    _mainStaveArrayResponder = [[AMMutableArrayResponder alloc] initWithArrayHasChangedAction:@selector(staveArrayHasBeenChanged)
+                                                                 andSelectionHasChangedAction:@selector(staveSelectionHasBeenChanged)
+                                                                                    andTarget:self];
 }
 
 - (void)initPlayers{
@@ -101,7 +115,7 @@
     }
 
     _mainSequence = newSequence;
-    [_mainSequence addArrayDelegate:self];
+    [_mainSequence addArrayDelegate:_mainSequenceArrayResponder];
 
     [self updateComponents];
     [_sequencerDelegate sequenceHasChanged];
@@ -225,21 +239,30 @@
     [self updateTimerInterval];
 }
 
-- (void)arrayHasBeenChanged {
+- (void)sequenceArrayHasBeenChanged {
 
 }
 
-- (void)selectionHasBeenChanged {
+- (void)sequenceSelectionHasBeenChanged {
+    [_mainStave setFirstIndexAsActual];
+    [self updateComponents];
+}
+
+- (void)staveArrayHasBeenChanged {
+
+}
+
+- (void)staveSelectionHasBeenChanged {
     [self updateComponents];
 }
 
 - (void)updateComponents{
     _actualStep = (AMSequenceStep *)_mainSequence.getActualObject;
-
     _mainStave = _actualStep.getStave;
-    [_mainStave addStaveDelegate:self];
-    [_mainStave addArrayDelegate:self];
 
+    [_mainStave addStaveDelegate:self];
+    [_mainStave addArrayDelegate:_mainStaveArrayResponder];
+    
     _actualBar = (AMBar *)_mainStave.getActualObject;
     [self updateTimerInterval];
 }

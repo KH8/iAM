@@ -1,34 +1,37 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6751" systemVersion="14C1514" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
-    <entity name="Bar" representedClassName="Bar" syncable="YES">
+    <entity name="CDBar" representedClassName="CDBar" syncable="YES">
         <attribute name="barDensity" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="barId" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="barSigDenominator" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="barSigNumerator" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
-        <relationship name="barNotes" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Note" inverseName="bar" inverseEntity="Note" syncable="YES"/>
-        <relationship name="step" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Step" inverseName="stepBars" inverseEntity="Step" syncable="YES"/>
+        <relationship name="barNotes" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="CDNote" inverseName="bar" inverseEntity="CDNote" syncable="YES"/>
+        <relationship name="step" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="CDStep" inverseName="stepBars" inverseEntity="CDStep" syncable="YES"/>
     </entity>
-    <entity name="Note" representedClassName="Note" syncable="YES">
+    <entity name="CDNote" representedClassName="CDNote" syncable="YES">
         <attribute name="noteCoordLine" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="noteCoordPos" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
-        <relationship name="bar" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Bar" inverseName="barNotes" inverseEntity="Bar" syncable="YES"/>
+        <relationship name="bar" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="CDBar" inverseName="barNotes" inverseEntity="CDBar" syncable="YES"/>
     </entity>
-    <entity name="Sequence" representedClassName="Sequence" syncable="YES">
+    <entity name="CDSequence" representedClassName="CDSequence" syncable="YES">
         <attribute name="sequenceCreationDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="sequenceId" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="sequenceName" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="sequenceSteps" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Step" inverseName="sequence" inverseEntity="Step" syncable="YES"/>
+        <relationship name="sequenceSteps" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="CDStep" inverseName="sequence" inverseEntity="CDStep" syncable="YES"/>
     </entity>
-    <entity name="Step" representedClassName="Step" syncable="YES">
+    <entity name="CDStep" representedClassName="CDStep" syncable="YES">
+        <attribute name="stepId" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="stepName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="stepNumberOfLoops" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="stepTempo" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="stepType" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
-        <relationship name="sequence" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Sequence" inverseName="sequenceSteps" inverseEntity="Sequence" syncable="YES"/>
-        <relationship name="stepBars" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Bar" inverseName="step" inverseEntity="Bar" syncable="YES"/>
+        <relationship name="sequence" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="CDSequence" inverseName="sequenceSteps" inverseEntity="CDSequence" syncable="YES"/>
+        <relationship name="stepBars" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="CDBar" inverseName="step" inverseEntity="CDBar" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Bar" positionX="-1730" positionY="-1080" width="128" height="30"/>
-        <element name="Note" positionX="-1512" positionY="-1080" width="128" height="88"/>
-        <element name="Sequence" positionX="-2160" positionY="-1078" width="126" height="88"/>
-        <element name="Step" positionX="-1946" positionY="-1080" width="128" height="30"/>
+        <element name="CDBar" positionX="-1730" positionY="-1080" width="128" height="133"/>
+        <element name="CDNote" positionX="-1512" positionY="-1080" width="128" height="88"/>
+        <element name="CDSequence" positionX="-2160" positionY="-1078" width="126" height="103"/>
+        <element name="CDStep" positionX="-1946" positionY="-1080" width="128" height="148"/>
     </elements>
 </model>

@@ -137,8 +137,6 @@
 - (void)playNotes {
     if(_runningState){
         [self playTheRow];
-        /*[self performSelectorInBackground:@selector(playTheRow)
-                               withObject:nil];*/
         [self incrementActualNoteIndex];
     }
     else{
@@ -149,8 +147,6 @@
 
 - (void)clearNotes {
     [self clearTheRow];
-    /*[self performSelectorInBackground:@selector(clearTheRow)
-                           withObject:nil];*/
 }
 
 - (void)incrementActualNoteIndex {
@@ -165,6 +161,7 @@
     _actualBarIndex++;
     if(_actualBarIndex == _mainStave.count) {
         [_mainSequence getNextStep];
+        [_mainStave setFirstIndexAsActual];
         _actualBarIndex = 0;
     }
     else{
@@ -239,6 +236,10 @@
     [self updateTimerInterval];
 }
 
+- (void)signatureHasBeenChanged {
+    [self updateTimerInterval];
+}
+
 - (void)sequenceArrayHasBeenChanged {
 
 }
@@ -264,6 +265,8 @@
     [_mainStave addArrayDelegate:_mainStaveArrayResponder];
     
     _actualBar = (AMBar *)_mainStave.getActualObject;
+    [_actualBar addBarDelegate:self];
+    
     [self updateTimerInterval];
 }
 

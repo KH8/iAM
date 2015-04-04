@@ -18,7 +18,7 @@
 
 @end
 
-@interface AMSequencer : NSObject <AMStaveDelegate>
+@interface AMSequencer : NSObject <AMStaveDelegate, AMBarDelegate>
 
 @property (nonatomic, weak) id <AMSequencerDelegate> sequencerDelegate;
 

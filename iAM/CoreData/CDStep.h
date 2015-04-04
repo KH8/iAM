@@ -2,7 +2,7 @@
 //  CDStep.h
 //  iAM
 //
-//  Created by Krzysztof Reczek on 28.03.2015.
+//  Created by Krzysztof Reczek on 04.04.2015.
 //  Copyright (c) 2015 H@E. All rights reserved.
 //
 
@@ -15,8 +15,9 @@
 
 @property (nonatomic, retain) NSString * stepName;
 @property (nonatomic, retain) NSNumber * stepNumberOfLoops;
-@property (nonatomic, retain) NSNumber * stepType;
 @property (nonatomic, retain) NSNumber * stepTempo;
+@property (nonatomic, retain) NSNumber * stepType;
+@property (nonatomic, retain) NSNumber * stepId;
 @property (nonatomic, retain) CDSequence *sequence;
 @property (nonatomic, retain) NSSet *stepBars;
 @end

@@ -24,12 +24,16 @@
     }
     
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Sequence"
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"CDSequence"
                                               inManagedObjectContext:context];
     [fetchRequest setEntity:entity];
     NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:&error];
-    for (CDSequence *sequence in fetchedObjects) {
-        [array addObject:[self getSequenceFromCoreData:sequence]];
+    for (NSInteger i=0; i<fetchedObjects.count; i++) {
+        for (CDSequence *sequence in fetchedObjects) {
+            if(sequence.sequenceId.integerValue == i){
+                [array addObject:[self getSequenceFromCoreData:sequence]];
+            }
+        }
     }
     
     return array;
@@ -39,8 +43,12 @@
     AMSequence *newSequence = [[AMSequence alloc] init];
     [newSequence setName:sequence.sequenceName];
     [newSequence setCreationDate:sequence.sequenceCreationDate];
-    for (CDStep *step in sequence.sequenceSteps) {
-        [newSequence addObject:[self getStepFromCoreData:step]];
+    for (NSInteger i=0; i<sequence.sequenceSteps.count; i++) {
+        for (CDStep *step in sequence.sequenceSteps) {
+            if(step.stepId.integerValue == i){
+                [newSequence addObject:[self getStepFromCoreData:step]];
+            }
+        }
     }
     return newSequence;
 }
@@ -53,9 +61,13 @@
     [newStep setNumberOfLoops:[step.stepNumberOfLoops integerValue]];
     AMStave *newStave = [[AMStave alloc] init];
     [newStep setStave:newStave];
-    for (CDBar *bar in step.stepBars) {
-        [newStave setTempo:[step.stepTempo integerValue]];
-        [newStave addObject:[self getBarFromCoreData:bar]];
+    for (NSInteger i=0; i<step.stepBars.count; i++) {
+        for (CDBar *bar in step.stepBars) {
+            if(bar.barId.integerValue == i){
+                [newStave setTempo:[step.stepTempo integerValue]];
+                [newStave addObject:[self getBarFromCoreData:bar]];
+            }
+        }
     }
     return newStep;
 }
@@ -76,8 +88,10 @@
 
 - (void)getCoreDataFromActualConfiguration:(AMMutableArray*)configuration
                                  inContext:(NSManagedObjectContext*)context{
-    for (AMSequence *sequence in configuration) {
-        [self getCoreDataFromSequence:sequence inContext:context];
+    for (NSInteger i=0; i<configuration.count; i++) {
+        [self getCoreDataFromSequence:configuration[i]
+                            withIndex:i
+                            inContext:context];
     }
     NSError *error;
     if (![context save:&error]) {
@@ -86,13 +100,16 @@
 }
 
 - (void)getCoreDataFromSequence:(AMSequence*)sequence
-                             inContext:(NSManagedObjectContext*)context{
-    CDSequence *newSequence = [NSEntityDescription insertNewObjectForEntityForName:@"Sequence"
+                      withIndex:(NSInteger)index
+                      inContext:(NSManagedObjectContext*)context{
+    CDSequence *newSequence = [NSEntityDescription insertNewObjectForEntityForName:@"CDSequence"
                                                             inManagedObjectContext:context];
+    newSequence.sequenceId = [[NSNumber alloc] initWithInteger:index];
     newSequence.sequenceName = sequence.getName;
     newSequence.sequenceCreationDate = sequence.getCreationDate;
-    for (AMSequenceStep *step in sequence) {
-        CDStep *newStep = [self getCoreDataFromStep:step
+    for (NSInteger i=0; i<sequence.count; i++) {
+        CDStep *newStep = [self getCoreDataFromStep:sequence[i]
+                                          withIndex:i
                                           inContext:context];
         newStep.sequence = newSequence;
         [newSequence addSequenceStepsObject:newStep];
@@ -100,17 +117,20 @@
 }
 
 - (CDStep*)getCoreDataFromStep:(AMSequenceStep*)step
+                     withIndex:(NSInteger)index
                      inContext:(NSManagedObjectContext*)context{
-    CDStep *newStep = [NSEntityDescription insertNewObjectForEntityForName:@"Step"
+    CDStep *newStep = [NSEntityDescription insertNewObjectForEntityForName:@"CDStep"
                                                             inManagedObjectContext:context];
+    newStep.stepId = [[NSNumber alloc] initWithInteger:index];
     newStep.stepName = step.getName;
     newStep.stepNumberOfLoops = [[NSNumber alloc] initWithInteger:step.getNumberOfLoops];
     NSInteger stepTypeInteger = [step stepTypeToInteger:[step getStepType]];
     newStep.stepType = [[NSNumber alloc] initWithInteger:stepTypeInteger];
     AMStave *stave = step.getStave;
     newStep.stepTempo = [[NSNumber alloc] initWithInteger:stave.getTempo];
-    for (AMBar *bar in stave) {
-        CDBar *newBar = [self getCoreDataFromBar:bar
+    for (NSInteger i=0; i<stave.count; i++) {
+        CDBar *newBar = [self getCoreDataFromBar:stave[i]
+                                       withIndex:i
                                        inContext:context];
         newBar.step = newStep;
         [newStep addStepBarsObject:newBar];
@@ -119,9 +139,11 @@
 }
 
 - (CDBar*)getCoreDataFromBar:(AMBar*)bar
+                   withIndex:(NSInteger)index
                  inContext:(NSManagedObjectContext*)context{
-    CDBar *newBar = [NSEntityDescription insertNewObjectForEntityForName:@"Bar"
+    CDBar *newBar = [NSEntityDescription insertNewObjectForEntityForName:@"CDBar"
                                                   inManagedObjectContext:context];
+    newBar.barId = [[NSNumber alloc] initWithInteger:index];
     newBar.barDensity = [[NSNumber alloc] initWithInteger:bar.getDensity];
     newBar.barSigNumerator = [[NSNumber alloc] initWithInteger:bar.getSignatureNumerator];
     newBar.barSigDenominator = [[NSNumber alloc] initWithInteger:bar.getSignatureDenominator];
@@ -130,7 +152,7 @@
         NSInteger noteIndex = 0;
         for (AMNote *note in line) {
             if(note.isSelected){
-                CDNote *newNote = [NSEntityDescription insertNewObjectForEntityForName:@"Note"
+                CDNote *newNote = [NSEntityDescription insertNewObjectForEntityForName:@"CDNote"
                                                                 inManagedObjectContext:context];
                 newNote.noteCoordLine = [[NSNumber alloc] initWithInteger:lineIndex];
                 newNote.noteCoordPos = [[NSNumber alloc] initWithInteger:noteIndex];

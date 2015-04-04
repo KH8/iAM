@@ -35,7 +35,7 @@
     }
     
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Sequence"
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"CDSequence"
                                               inManagedObjectContext:context];
     [fetchRequest setEntity:entity];
     NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:&error];
@@ -53,29 +53,32 @@
 }
 
 - (void)initCoreDataEntitiesInContext: (NSManagedObjectContext*)context{
-    CDSequence *sequence = [NSEntityDescription insertNewObjectForEntityForName:@"Sequence"
+    CDSequence *sequence = [NSEntityDescription insertNewObjectForEntityForName:@"CDSequence"
                                                        inManagedObjectContext:context];
     sequence.sequenceName = @"NEW SEQUENCE";
     sequence.sequenceCreationDate = [NSDate date];
+    sequence.sequenceId = @0;
     
-    CDStep *step = [NSEntityDescription insertNewObjectForEntityForName:@"Step"
+    CDStep *step = [NSEntityDescription insertNewObjectForEntityForName:@"CDStep"
                                                inManagedObjectContext:context];
     step.stepName = @"NEW STEP";
     step.stepNumberOfLoops = @0;
     step.stepType = @3;
     step.stepTempo = @140;
+    step.stepId = @0;
     step.sequence = sequence;
     [sequence addSequenceStepsObject:step];
     
-    CDBar *bar = [NSEntityDescription insertNewObjectForEntityForName:@"Bar"
+    CDBar *bar = [NSEntityDescription insertNewObjectForEntityForName:@"CDBar"
                                              inManagedObjectContext:context];
     bar.barDensity = @4;
     bar.barSigNumerator = @4;
     bar.barSigDenominator = @4;
+    bar.barId = @0;
     bar.step = step;
     [step addStepBarsObject:bar];
     
-    CDNote *note = [NSEntityDescription insertNewObjectForEntityForName:@"Note"
+    CDNote *note = [NSEntityDescription insertNewObjectForEntityForName:@"CDNote"
                                                  inManagedObjectContext:context];
     note.noteCoordLine = @0;
     note.noteCoordPos = @0;
@@ -131,7 +134,7 @@
 - (void)clearContext{
     NSManagedObjectContext *context = [self managedObjectContext];
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-    [fetchRequest setEntity:[NSEntityDescription entityForName:@"Sequence" inManagedObjectContext:context]];
+    [fetchRequest setEntity:[NSEntityDescription entityForName:@"CDSequence" inManagedObjectContext:context]];
     NSArray * result = [context executeFetchRequest:fetchRequest error:nil];
     for (id sequence in result)
         [context deleteObject:sequence];

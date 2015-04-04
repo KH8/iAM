@@ -108,7 +108,7 @@ static NSString * const reuseIdentifier = @"myCell";
     _mainStave = _mainSequencer.getStave;
     [_mainStave addArrayDelegate:self];
     _actualBar = (AMBar *)_mainStave.getActualObject;
-    _actualBar.delegate = self;
+    [_actualBar addBarDelegate:self];
 }
 
 - (void)reloadData{

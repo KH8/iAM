@@ -2,7 +2,7 @@
 //  CDSequence.h
 //  iAM
 //
-//  Created by Krzysztof Reczek on 28.03.2015.
+//  Created by Krzysztof Reczek on 04.04.2015.
 //  Copyright (c) 2015 H@E. All rights reserved.
 //
 
@@ -15,6 +15,7 @@
 
 @property (nonatomic, retain) NSDate * sequenceCreationDate;
 @property (nonatomic, retain) NSString * sequenceName;
+@property (nonatomic, retain) NSNumber * sequenceId;
 @property (nonatomic, retain) NSSet *sequenceSteps;
 @end
 

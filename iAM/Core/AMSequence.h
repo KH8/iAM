@@ -26,4 +26,7 @@
 
 - (void)addStep;
 
+- (void)setOneStepForward;
+- (void)setOneStepBackward;
+
 @end

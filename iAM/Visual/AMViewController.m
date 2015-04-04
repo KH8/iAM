@@ -146,11 +146,11 @@
 }
 
 - (IBAction)onPreviousStep:(id)sender {
-    [_mainSequence setNextIndexAsActual];
+    [_mainSequence setOneStepBackward];
 }
 
 - (IBAction)onNextStep:(id)sender {
-    [_mainSequence setPreviousIndexAsActual];
+    [_mainSequence setOneStepForward];
 }
 
 - (void)replaceObjectInToolBarAtIndex: (NSInteger)anIndex

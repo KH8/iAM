@@ -20,6 +20,8 @@
 @property (nonatomic) NSInteger signatureDenominator;
 @property (nonatomic) NSInteger density;
 
+@property (nonatomic, strong) NSHashTable *barDelegates;
+
 @end
 
 @implementation AMBar
@@ -33,9 +35,24 @@ NSUInteger const minDensity = 4;
 NSUInteger const maxSignature = 32;
 NSUInteger const minSignature = 1;
 
+- (void)addBarDelegate: (id<AMBarDelegate>)delegate{
+    [_barDelegates addObject: delegate];
+}
+
+- (void)removeBarDelegate: (id<AMBarDelegate>)delegate{
+    [_barDelegates removeObject: delegate];
+}
+
+- (void)delegateSignatureHasBeenChanged{
+    for (id<AMBarDelegate> delegate in _barDelegates) {
+        [delegate signatureHasBeenChanged];
+    }
+}
+
 - (id)init {
     self = [super init];
     if (self) {
+        _barDelegates = [NSHashTable weakObjectsHashTable];
         [self initBasicParameters];
     }
     return self;
@@ -116,9 +133,7 @@ NSUInteger const minSignature = 1;
 
 - (void)setSignatureNumerator: (NSInteger)aSignatureNumerator{
     _signatureNumerator = aSignatureNumerator;
-    [_delegate signatureHasBeenChanged];
-    [_staveDelegate signatureHasBeenChanged];
-
+    [self delegateSignatureHasBeenChanged];
 }
 
 - (NSInteger)getSignatureNumerator{
@@ -126,8 +141,7 @@ NSUInteger const minSignature = 1;
 
 - (void)setSignatureDenominator: (NSInteger)aSignatureDenominator{
     _signatureDenominator = aSignatureDenominator;
-    [_delegate signatureHasBeenChanged];
-    [_staveDelegate signatureHasBeenChanged];
+    [self delegateSignatureHasBeenChanged];
 }
 
 - (NSInteger)getSignatureDenominator{
@@ -137,8 +151,7 @@ NSUInteger const minSignature = 1;
 - (void)setDensity:(NSInteger)aDensity {
     _density = aDensity;
     [self updateMajorNotes];
-    [_delegate signatureHasBeenChanged];
-    [_staveDelegate signatureHasBeenChanged];
+    [self delegateSignatureHasBeenChanged];
 }
 
 - (NSInteger)getDensity {

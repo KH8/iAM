@@ -2,7 +2,7 @@
 //  CDBar.h
 //  iAM
 //
-//  Created by Krzysztof Reczek on 28.03.2015.
+//  Created by Krzysztof Reczek on 04.04.2015.
 //  Copyright (c) 2015 H@E. All rights reserved.
 //
 
@@ -16,6 +16,7 @@
 @property (nonatomic, retain) NSNumber * barDensity;
 @property (nonatomic, retain) NSNumber * barSigDenominator;
 @property (nonatomic, retain) NSNumber * barSigNumerator;
+@property (nonatomic, retain) NSNumber * barId;
 @property (nonatomic, retain) NSSet *barNotes;
 @property (nonatomic, retain) CDStep *step;
 @end

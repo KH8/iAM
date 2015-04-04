@@ -86,4 +86,14 @@
     [self addObject:sequenceStep];
 }
 
+- (void)setOneStepForward{
+    [self setNextIndexAsActual];
+    _actualStepLoopCounter = 0;
+}
+
+- (void)setOneStepBackward{
+    [self setPreviousIndexAsActual];
+    _actualStepLoopCounter = 0;
+}
+
 @end

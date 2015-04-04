@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@protocol AMBarVisualDelegate <NSObject>
+@protocol AMBarDelegate <NSObject>
 
 @required
 
@@ -18,8 +18,8 @@
 
 @interface AMBar : NSMutableArray
 
-@property (nonatomic, weak) id <AMBarVisualDelegate> delegate;
-@property (nonatomic, weak) id <AMBarVisualDelegate> staveDelegate;
+- (void) addBarDelegate: (id<AMBarDelegate>)delegate;
+- (void) removeBarDelegate: (id<AMBarDelegate>)delegate;
 
 @property (nonatomic) NSInteger maxDensity;
 @property (nonatomic) NSInteger minDensity;

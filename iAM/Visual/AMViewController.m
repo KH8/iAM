@@ -46,7 +46,7 @@
 - (void)loadMainObjects{
     AMSequencerSingleton *sequencerSingleton = [AMSequencerSingleton sharedSequencer];
     _mainSequencer = sequencerSingleton.sequencer;
-    _mainSequencer.sequencerDelegate = self;
+    [_mainSequencer addSequencerDelegate:self];
     [self updateComponents];
 }
 

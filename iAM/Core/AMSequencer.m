@@ -31,14 +31,43 @@
 @property NSInteger actualNoteIndex;
 @property NSInteger actualBarIndex;
 
+@property (nonatomic, strong) NSHashTable *sequencerDelegates;
+
 @end
 
 @implementation AMSequencer
+
+- (void)addSequencerDelegate: (id<AMSequencerDelegate>)delegate{
+    [_sequencerDelegates addObject: delegate];
+}
+
+- (void)removeSequencerDelegate: (id<AMSequencerDelegate>)delegate{
+    [_sequencerDelegates removeObject: delegate];
+}
+
+- (void)delegateSequencerHasStarted{
+    for (id<AMSequencerDelegate> delegate in _sequencerDelegates) {
+        [delegate sequenceHasStarted];
+    }
+}
+
+- (void)delegateSequencerHasStopped{
+    for (id<AMSequencerDelegate> delegate in _sequencerDelegates) {
+        [delegate sequenceHasStopped];
+    }
+}
+
+- (void)delegateSequenceHasChanged{
+    for (id<AMSequencerDelegate> delegate in _sequencerDelegates) {
+        [delegate sequenceHasChanged];
+    }
+}
 
 - (id)init {
     self = [super init];
     if (self) {
         _debug = NO;
+        _sequencerDelegates = [NSHashTable weakObjectsHashTable];
         [self initResponders];
         [self initPlayers];
         [self initBasicParameters];
@@ -90,10 +119,10 @@
     _runningState = !_runningState;
     if(_runningState) {
         [_mainStave setFirstIndexAsActual];
-        [_sequencerDelegate sequenceHasStarted];
+        [self delegateSequencerHasStarted];
     }
     else {
-        [_sequencerDelegate sequenceHasStopped];
+        [self delegateSequencerHasStopped];
     }
 }
 
@@ -118,7 +147,7 @@
     [_mainSequence addArrayDelegate:_mainSequenceArrayResponder];
 
     [self updateComponents];
-    [_sequencerDelegate sequenceHasChanged];
+    [self delegateSequenceHasChanged];
 }
 
 - (AMSequence *)getSequence {

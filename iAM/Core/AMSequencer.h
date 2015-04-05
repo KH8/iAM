@@ -20,7 +20,8 @@
 
 @interface AMSequencer : NSObject <AMStaveDelegate, AMBarDelegate>
 
-@property (nonatomic, weak) id <AMSequencerDelegate> sequencerDelegate;
+- (void) addSequencerDelegate: (id<AMSequencerDelegate>)delegate;
+- (void) removeSequencerDelegate: (id<AMSequencerDelegate>)delegate;
 
 - (id)init;
 - (void)killBackgroundThread;

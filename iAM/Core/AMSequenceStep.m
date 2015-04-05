@@ -16,9 +16,25 @@
 @property AMStave *mainStave;
 @property (nonatomic) NSInteger numberOfLoops;
 
+@property (nonatomic, strong) NSHashTable *stepDelegates;
+
 @end
 
 @implementation AMSequenceStep
+
+- (void)addStepDelegate: (id<AMSequenceStepDelegate>)delegate{
+    [_stepDelegates addObject: delegate];
+}
+
+- (void)removeStepDelegate: (id<AMSequenceStepDelegate>)delegate{
+    [_stepDelegates removeObject: delegate];
+}
+
+- (void)delegateStepPropertyHasBeenChanged{
+    for (id<AMSequenceStepDelegate> delegate in _stepDelegates) {
+        [delegate sequenceStepPropertiesHasBeenChanged];
+    }
+}
 
 - (id)init {
     self = [super init];
@@ -26,6 +42,7 @@
         _name = @"NEW STEP";
         _stepType = INFINITE_LOOP;
         _numberOfLoops = 1;
+        _stepDelegates = [NSHashTable weakObjectsHashTable];
     }
     return self;
 }
@@ -41,7 +58,7 @@
 
 - (void)setStave:(AMStave *)stave{
     _mainStave = stave;
-    [_delegate sequenceStepPropertiesHasBeenChanged];
+    [self delegateStepPropertyHasBeenChanged];
 }
 
 - (AMStave*)getStave{
@@ -67,7 +84,7 @@
 
 - (void)setStepType:(StepType)stepType{
     _stepType = stepType;
-    [_delegate sequenceStepPropertiesHasBeenChanged];
+    [self delegateStepPropertyHasBeenChanged];
 }
 
 - (StepType)getStepType{
@@ -103,7 +120,7 @@
 
 - (void)incrementLoop{
     _numberOfLoops++;
-    [_delegate sequenceStepPropertiesHasBeenChanged];
+    [self delegateStepPropertyHasBeenChanged];
 }
 
 - (void)decrementLoop{
@@ -111,7 +128,7 @@
         return;
     }
     _numberOfLoops--;
-    [_delegate sequenceStepPropertiesHasBeenChanged];
+    [self delegateStepPropertyHasBeenChanged];
 }
 
 - (void)setNumberOfLoops:(NSInteger)numberOfLoops{

@@ -19,7 +19,8 @@
 
 @interface AMSequenceStep : NSObject
 
-@property (nonatomic, weak) id <AMSequenceStepDelegate> delegate;
+- (void) addStepDelegate: (id<AMSequenceStepDelegate>)delegate;
+- (void) removeStepDelegate: (id<AMSequenceStepDelegate>)delegate;
 
 typedef enum{
     PLAY_ONCE,

@@ -129,7 +129,7 @@ didDeselectRowAtIndexPath:(NSIndexPath *)indexPath{
 - (IBAction)onAddStep:(id)sender{
     [_mainSequence addStep];
     AMSequenceStep *step = (AMSequenceStep *)_mainSequence.getActualObject;
-    step.delegate = self;
+    [step addStepDelegate:self];
 }
 
 - (IBAction)onDeleteStep:(id)sender{
@@ -164,7 +164,7 @@ didDeselectRowAtIndexPath:(NSIndexPath *)indexPath{
 
 - (void)updateComponents{
     AMSequenceStep *step = (AMSequenceStep *)_mainSequence.getActualObject;
-    step.delegate = self;
+    [step addStepDelegate:self];
     AMStave *stave = step.getStave;
     [stave addArrayDelegate:self];
     [stave addStaveDelegate:self];

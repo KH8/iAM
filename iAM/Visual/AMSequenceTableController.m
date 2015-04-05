@@ -42,8 +42,6 @@ static NSString * const reuseIdentifier = @"mySequenceStepCell";
     AMSequencerSingleton *sequencerSingleton = [AMSequencerSingleton sharedSequencer];
     _mainSequencer = sequencerSingleton.sequencer;
     [_mainSequencer addSequencerDelegate:self];
-    _mainSequence = [_mainSequencer getSequence];
-    [_mainSequence addArrayDelegate:self];
     [self updateComponents];
 }
 
@@ -176,6 +174,8 @@ didDeselectRowAtIndexPath:(NSIndexPath *)indexPath{
 }
 
 - (void)updateComponents{
+    _mainSequence = [_mainSequencer getSequence];
+    [_mainSequence addArrayDelegate:self];
     AMSequenceStep *step = (AMSequenceStep *)_mainSequence.getActualObject;
     [step addStepDelegate:self];
     AMStave *stave = step.getStave;

@@ -70,7 +70,8 @@ titleForHeaderInSection:(NSInteger)section{
 - (void)tableView:(UITableView *)tableView
 didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    AMSequence *sequenceSelected = _arrayOfSequences[indexPath.row];
+    [_arrayOfSequences setIndexAsActual:indexPath.row];
+    AMSequence *sequenceSelected = (AMSequence*)_arrayOfSequences.getActualObject;
     [_sequencer setSequence:sequenceSelected];
 }
 

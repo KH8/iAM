@@ -7,9 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AMSequence.h"
 
-@interface AMSequenceMenuTableViewCell : UITableViewCell
+@interface AMSequenceMenuTableViewCell : UITableViewCell <UITextFieldDelegate>
 
-@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+@property (weak, nonatomic) IBOutlet UITextField *titleLabel;
+@property (weak, nonatomic) IBOutlet UILabel *detailLabel;
+
+- (void)assignSequence: (AMSequence*)aSequence;
 
 @end

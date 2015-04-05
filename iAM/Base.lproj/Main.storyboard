@@ -198,30 +198,40 @@
                                 <color key="separatorColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="sectionIndexBackgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="myMenuStepCell" textLabel="V0f-Ez-S0p" detailTextLabel="LSS-29-rKV" style="IBUITableViewCellStyleSubtitle" id="XQ2-0a-wTK" customClass="AMSequenceMenuTableViewCell">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="myMenuStepCell" id="XQ2-0a-wTK" customClass="AMSequenceMenuTableViewCell">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="XQ2-0a-wTK" id="z1P-vV-xRV">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="V0f-Ez-S0p">
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Title" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FVl-12-sUi">
+                                                    <rect key="frame" x="10" y="5" width="35" height="20"/>
+                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                    <connections>
+                                                        <action selector="textFiledEditingChanged:" destination="XQ2-0a-wTK" eventType="editingChanged" id="g6r-yd-zr2"/>
+                                                    </connections>
+                                                </textField>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MII-XG-HPC">
+                                                    <rect key="frame" x="10" y="23.5" width="26" height="12"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="LSS-29-rKV">
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="MII-XG-HPC" firstAttribute="leading" secondItem="z1P-vV-xRV" secondAttribute="leading" constant="10" id="MR8-gR-eWE"/>
+                                                <constraint firstItem="FVl-12-sUi" firstAttribute="top" secondItem="z1P-vV-xRV" secondAttribute="top" constant="5" id="OhV-9M-OVv"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="MII-XG-HPC" secondAttribute="bottom" id="VxQ-XG-1pa"/>
+                                                <constraint firstItem="FVl-12-sUi" firstAttribute="leading" secondItem="z1P-vV-xRV" secondAttribute="leading" constant="10" id="f3W-d5-LVQ"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         <color key="tintColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
-                                            <outlet property="titleLabel" destination="V0f-Ez-S0p" id="hSn-rW-Hia"/>
+                                            <outlet property="detailLabel" destination="MII-XG-HPC" id="Iqi-tI-UAU"/>
+                                            <outlet property="titleLabel" destination="FVl-12-sUi" id="e9v-mX-eom"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

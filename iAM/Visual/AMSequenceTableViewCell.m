@@ -21,7 +21,7 @@
     [self adjustTextFieldsFrame];
 }
 
-- (void)setSelectionMarkerVisible{
+- (void)setSelectionMarkerVisible {
     _selectionImageView.image = [[UIImage imageNamed:@"selected.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
     _selectionImageView.contentMode = UIViewContentModeScaleAspectFit;
     _selectionImageView.tintColor = [UIColor orangeColor];
@@ -37,14 +37,14 @@
     }
 }
 
-- (void)assignSequenceStep: (AMSequenceStep*)aStep{
+- (void)assignSequenceStep: (AMSequenceStep*)aStep {
     _sequenceStep = aStep;
     _stepTitle.text = _sequenceStep.getName;
     _stepSubtitle.text = _sequenceStep.getDescription;
     [self setAccessoryButton:_sequenceStep];
 }
 
-- (void)setAccessoryButton: (AMSequenceStep*)aStep{
+- (void)setAccessoryButton: (AMSequenceStep*)aStep {
     UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(30, 30, 30, 30)];
     switch (aStep.getStepType)
     {
@@ -68,7 +68,7 @@
     self.accessoryView = button;
 }
 
-- (void)changeStepType{
+- (void)changeStepType {
     [_sequenceStep setNextStepType];
     [self setAccessoryButton:_sequenceStep];
 }

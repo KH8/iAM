@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AMMenuTableViewCell : UITableViewCell
+@interface AMSequenceMenuTableViewCell : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 

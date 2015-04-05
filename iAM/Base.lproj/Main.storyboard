@@ -180,10 +180,10 @@
             </objects>
             <point key="canvasLocation" x="-883" y="-1005"/>
         </scene>
-        <!--Menu Table View Controller-->
+        <!--Sequence Menu Table View Controller-->
         <scene sceneID="Uuy-n9-qtT">
             <objects>
-                <viewController id="VYX-gv-vDf" customClass="AMMenuTableViewController" sceneMemberID="viewController">
+                <viewController id="VYX-gv-vDf" customClass="AMSequenceMenuTableViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="40l-bq-yOq"/>
                         <viewControllerLayoutGuide type="bottom" id="BTg-4X-bTc"/>
@@ -198,7 +198,7 @@
                                 <color key="separatorColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="sectionIndexBackgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="myMenuStepCell" textLabel="V0f-Ez-S0p" detailTextLabel="LSS-29-rKV" style="IBUITableViewCellStyleSubtitle" id="XQ2-0a-wTK" customClass="AMMenuTableViewCell">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="myMenuStepCell" textLabel="V0f-Ez-S0p" detailTextLabel="LSS-29-rKV" style="IBUITableViewCellStyleSubtitle" id="XQ2-0a-wTK" customClass="AMSequenceMenuTableViewCell">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="XQ2-0a-wTK" id="z1P-vV-xRV">
@@ -807,7 +807,7 @@ written by: Krzysztof Reczek</string>
         <image name="settings.png" width="120" height="120"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="eFA-hQ-eRV"/>
+        <segue reference="zkT-HV-92U"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
 </document>

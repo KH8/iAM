@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "AMNavigationViewController.h"
 
-@interface AMMenuTableViewController : AMNavigationViewController <UITableViewDataSource, UITableViewDelegate>
+@interface AMSequenceMenuTableViewController : AMNavigationViewController <UITableViewDataSource, UITableViewDelegate>
 
 @end

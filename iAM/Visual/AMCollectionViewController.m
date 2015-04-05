@@ -31,6 +31,7 @@ static NSString * const reuseIdentifier = @"myCell";
     if (self) {
         _collectionView = aCollectionView;
         _mainSequencer = aSequencer;
+        [_mainSequencer addSequencerDelegate:self];
         [self updateComponents];
     }
     return self;
@@ -98,6 +99,19 @@ static NSString * const reuseIdentifier = @"myCell";
 }
 
 - (void)selectionHasBeenChanged {
+    [self updateComponents];
+    [self reloadData];
+}
+
+- (void)sequenceHasStarted {
+
+}
+
+- (void)sequenceHasStopped {
+
+}
+
+- (void)sequenceHasChanged {
     [self updateComponents];
     [self reloadData];
 }

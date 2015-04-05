@@ -34,13 +34,14 @@ static NSString * const reuseIdentifier = @"mySequenceStepCell";
     [super viewDidLoad];
     [self initSequence];
     [self initBottomToolBar];
-    [self changeIndexSelected:0];
+    [self updateIndexSelected];
     [self stepLoopCounterUpdate];
 }
 
 - (void)initSequence{
     AMSequencerSingleton *sequencerSingleton = [AMSequencerSingleton sharedSequencer];
     _mainSequencer = sequencerSingleton.sequencer;
+    [_mainSequencer addSequencerDelegate:self];
     _mainSequence = [_mainSequencer getSequence];
     [_mainSequence addArrayDelegate:self];
     [self updateComponents];
@@ -162,6 +163,18 @@ didDeselectRowAtIndexPath:(NSIndexPath *)indexPath{
     [self updateComponents];
 }
 
+- (void)sequenceHasStarted {
+
+}
+
+- (void)sequenceHasStopped {
+
+}
+
+- (void)sequenceHasChanged {
+    [self updateComponents];
+}
+
 - (void)updateComponents{
     AMSequenceStep *step = (AMSequenceStep *)_mainSequence.getActualObject;
     [step addStepDelegate:self];
@@ -169,12 +182,12 @@ didDeselectRowAtIndexPath:(NSIndexPath *)indexPath{
     [stave addArrayDelegate:self];
     [stave addStaveDelegate:self];
     [self reloadView];
-    [self changeIndexSelected:(NSUInteger) _mainSequence.getActualIndex];
+    [self updateIndexSelected];
     [self stepLoopCounterUpdate];
 }
 
-- (void)changeIndexSelected: (NSUInteger)newIndex {
-    [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:newIndex
+- (void)updateIndexSelected {
+    [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:_mainSequence.getActualIndex
                                                             inSection:0]
                                 animated:NO
                           scrollPosition:UITableViewScrollPositionNone];
@@ -240,5 +253,6 @@ didDeselectRowAtIndexPath:(NSIndexPath *)indexPath{
                               scrollPosition:UITableViewScrollPositionNone];
     });
 }
+
 
 @end

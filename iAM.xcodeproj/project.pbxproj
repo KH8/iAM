@@ -16,7 +16,7 @@
 		A41641911A65DC5C00E3E228 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A41641901A65DC5C00E3E228 /* AVFoundation.framework */; };
 		A41C08EB1A927435006F0F06 /* AMSequenceTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = A41C08EA1A927435006F0F06 /* AMSequenceTableController.m */; };
 		A41C08EE1A9279F7006F0F06 /* AMSequenceTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A41C08ED1A9279F7006F0F06 /* AMSequenceTableViewCell.m */; };
-		A41C08F11A92803B006F0F06 /* AMMenuTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A41C08F01A92803B006F0F06 /* AMMenuTableViewController.m */; };
+		A41C08F11A92803B006F0F06 /* AMSequenceMenuTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A41C08F01A92803B006F0F06 /* AMSequenceMenuTableViewController.m */; };
 		A41E3CA61A9D1057004C7675 /* AMSequencerSingleton.m in Sources */ = {isa = PBXBuildFile; fileRef = A41E3CA51A9D1057004C7675 /* AMSequencerSingleton.m */; };
 		A427C9F11A7D141D0003FB21 /* AMPopoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A427C9F01A7D141D0003FB21 /* AMPopoverViewController.m */; };
 		A44492061A9E7CE4008CEB8E /* add.png in Resources */ = {isa = PBXBuildFile; fileRef = A44492041A9E7CE4008CEB8E /* add.png */; };
@@ -49,7 +49,7 @@
 		A4A705EF1AA50E3400A911C6 /* decloop.png in Resources */ = {isa = PBXBuildFile; fileRef = A4A705ED1AA50E3400A911C6 /* decloop.png */; };
 		A4A705F01AA50E3400A911C6 /* incloop.png in Resources */ = {isa = PBXBuildFile; fileRef = A4A705EE1AA50E3400A911C6 /* incloop.png */; };
 		A4AA2B4B1AC5FD9B0076FDF6 /* AMDataMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = A4AA2B4A1AC5FD9B0076FDF6 /* AMDataMapper.m */; };
-		A4B4CDB61ABEEBB400615051 /* AMMenuTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A4B4CDB51ABEEBB400615051 /* AMMenuTableViewCell.m */; };
+		A4B4CDB61ABEEBB400615051 /* AMSequenceMenuTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A4B4CDB51ABEEBB400615051 /* AMSequenceMenuTableViewCell.m */; };
 		A4C47C1A1A8BB68E002CF325 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A4C47C191A8BB68E002CF325 /* Images.xcassets */; };
 		A4DDA2B61AA8F8B8006B9F33 /* spot.png in Resources */ = {isa = PBXBuildFile; fileRef = A4DDA2B51AA8F8B8006B9F33 /* spot.png */; };
 		A4DDA2B81AA8FB57006B9F33 /* selected.png in Resources */ = {isa = PBXBuildFile; fileRef = A4DDA2B71AA8FB57006B9F33 /* selected.png */; };
@@ -89,8 +89,8 @@
 		A41C08EA1A927435006F0F06 /* AMSequenceTableController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMSequenceTableController.m; sourceTree = "<group>"; };
 		A41C08EC1A9279F7006F0F06 /* AMSequenceTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMSequenceTableViewCell.h; sourceTree = "<group>"; };
 		A41C08ED1A9279F7006F0F06 /* AMSequenceTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMSequenceTableViewCell.m; sourceTree = "<group>"; };
-		A41C08EF1A92803B006F0F06 /* AMMenuTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMMenuTableViewController.h; sourceTree = "<group>"; };
-		A41C08F01A92803B006F0F06 /* AMMenuTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMMenuTableViewController.m; sourceTree = "<group>"; };
+		A41C08EF1A92803B006F0F06 /* AMSequenceMenuTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMSequenceMenuTableViewController.h; sourceTree = "<group>"; };
+		A41C08F01A92803B006F0F06 /* AMSequenceMenuTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMSequenceMenuTableViewController.m; sourceTree = "<group>"; };
 		A41E3CA41A9D1057004C7675 /* AMSequencerSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMSequencerSingleton.h; path = Core/AMSequencerSingleton.h; sourceTree = "<group>"; };
 		A41E3CA51A9D1057004C7675 /* AMSequencerSingleton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMSequencerSingleton.m; path = Core/AMSequencerSingleton.m; sourceTree = "<group>"; };
 		A427C9EF1A7D141D0003FB21 /* AMPopoverViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMPopoverViewController.h; sourceTree = "<group>"; };
@@ -143,8 +143,8 @@
 		A4A705EE1AA50E3400A911C6 /* incloop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = incloop.png; path = Icons/incloop.png; sourceTree = "<group>"; };
 		A4AA2B491AC5FD9B0076FDF6 /* AMDataMapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMDataMapper.h; path = CoreData/AMDataMapper.h; sourceTree = "<group>"; };
 		A4AA2B4A1AC5FD9B0076FDF6 /* AMDataMapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMDataMapper.m; path = CoreData/AMDataMapper.m; sourceTree = "<group>"; };
-		A4B4CDB41ABEEBB400615051 /* AMMenuTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMMenuTableViewCell.h; sourceTree = "<group>"; };
-		A4B4CDB51ABEEBB400615051 /* AMMenuTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMMenuTableViewCell.m; sourceTree = "<group>"; };
+		A4B4CDB41ABEEBB400615051 /* AMSequenceMenuTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMSequenceMenuTableViewCell.h; sourceTree = "<group>"; };
+		A4B4CDB51ABEEBB400615051 /* AMSequenceMenuTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMSequenceMenuTableViewCell.m; sourceTree = "<group>"; };
 		A4C47C191A8BB68E002CF325 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		A4DDA2B51AA8F8B8006B9F33 /* spot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = spot.png; path = Icons/spot.png; sourceTree = "<group>"; };
 		A4DDA2B71AA8FB57006B9F33 /* selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = selected.png; path = Icons/selected.png; sourceTree = "<group>"; };
@@ -195,10 +195,10 @@
 				A41C08EA1A927435006F0F06 /* AMSequenceTableController.m */,
 				A41C08EC1A9279F7006F0F06 /* AMSequenceTableViewCell.h */,
 				A41C08ED1A9279F7006F0F06 /* AMSequenceTableViewCell.m */,
-				A41C08EF1A92803B006F0F06 /* AMMenuTableViewController.h */,
-				A41C08F01A92803B006F0F06 /* AMMenuTableViewController.m */,
-				A4B4CDB41ABEEBB400615051 /* AMMenuTableViewCell.h */,
-				A4B4CDB51ABEEBB400615051 /* AMMenuTableViewCell.m */,
+				A41C08EF1A92803B006F0F06 /* AMSequenceMenuTableViewController.h */,
+				A41C08F01A92803B006F0F06 /* AMSequenceMenuTableViewController.m */,
+				A4B4CDB41ABEEBB400615051 /* AMSequenceMenuTableViewCell.h */,
+				A4B4CDB51ABEEBB400615051 /* AMSequenceMenuTableViewCell.m */,
 				A46069011AC74E0E00E9377F /* AMNavigationViewController.h */,
 				A46069021AC74E0E00E9377F /* AMNavigationViewController.m */,
 			);
@@ -494,10 +494,10 @@
 				8F0B34AA1C650F6EBD78FA56 /* AMSequencer.m in Sources */,
 				A41C08EB1A927435006F0F06 /* AMSequenceTableController.m in Sources */,
 				A4A4B2B01AC0C4F00099A746 /* AMDataModel.xcdatamodeld in Sources */,
-				A41C08F11A92803B006F0F06 /* AMMenuTableViewController.m in Sources */,
+				A41C08F11A92803B006F0F06 /* AMSequenceMenuTableViewController.m in Sources */,
 				8F0B7BBFD13CA2A424283225 /* AMCollectionViewCell.m in Sources */,
 				A4A0CD861AD084E600618B1F /* CDSequence.m in Sources */,
-				A4B4CDB61ABEEBB400615051 /* AMMenuTableViewCell.m in Sources */,
+				A4B4CDB61ABEEBB400615051 /* AMSequenceMenuTableViewCell.m in Sources */,
 				A41E3CA61A9D1057004C7675 /* AMSequencerSingleton.m in Sources */,
 				8F081AD4F297441F7B21E453 /* AMViewController.m in Sources */,
 				A4A132A51A95287400D6E2F1 /* AMSequenceStep.m in Sources */,

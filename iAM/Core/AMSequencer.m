@@ -31,6 +31,8 @@
 @property NSInteger actualNoteIndex;
 @property NSInteger actualBarIndex;
 
+@property bool incrementActualBarIndexFlag;
+
 @property (nonatomic, strong) NSHashTable *sequencerDelegates;
 
 @end
@@ -159,6 +161,10 @@
         NSLog(@"Interval: %f", [_auxTimeStamp timeIntervalSinceNow]);
         _auxTimeStamp = [NSDate date];
     }
+    if(_incrementActualBarIndexFlag){
+        [self incrementActualBarIndex];
+        _incrementActualBarIndexFlag = false;
+    }
     [self clearNotes];
     [self playNotes];
 }
@@ -181,7 +187,7 @@
 - (void)incrementActualNoteIndex {
     _actualNoteIndex++;
     if(_actualNoteIndex == _actualBar.getLengthToBePlayed) {
-        [self incrementActualBarIndex];
+        _incrementActualBarIndexFlag = true;
         _actualNoteIndex = 0;
     }
 }

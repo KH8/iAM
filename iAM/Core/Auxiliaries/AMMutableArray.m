@@ -73,6 +73,7 @@
     if(anIndex == _actualIndex){
         [self setNextIndexAsActual];
     }
+    [self delegateSelectionHasBeenChanged];
     [self delegateArrayHasBeenChanged];
 }
 

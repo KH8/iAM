@@ -295,12 +295,12 @@
             </objects>
             <point key="canvasLocation" x="-163" y="1271"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Properties Table View Controller-->
         <scene sceneID="ndp-8W-CXz">
             <objects>
-                <tableViewController id="3jw-zo-k6R" sceneMemberID="viewController">
+                <tableViewController id="3jw-zo-k6R" customClass="AMPropertiesTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="SAR-Md-kyy">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="separatorColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -354,11 +354,20 @@
                             <outlet property="delegate" destination="3jw-zo-k6R" id="mdt-TP-ea4"/>
                         </connections>
                     </tableView>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <navigationItem key="navigationItem" id="glS-80-XJe">
+                        <barButtonItem key="leftBarButtonItem" title="Item" id="qVe-k9-gnl">
+                            <color key="tintColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" translucent="NO" prompted="NO"/>
+                    <connections>
+                        <outlet property="navigationBarItem" destination="glS-80-XJe" id="GPo-Ub-qru"/>
+                        <outlet property="sideMenuButton" destination="qVe-k9-gnl" id="18v-4O-XoW"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bUw-3K-QeL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-883" y="1271"/>
+            <point key="canvasLocation" x="-883" y="2043"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="N5x-HU-r0s">
@@ -400,7 +409,7 @@
                                             <attributedString key="attributedTitle"/>
                                         </state>
                                         <connections>
-                                            <segue destination="3jw-zo-k6R" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="Gch-nw-yTX"/>
+                                            <segue destination="vEE-Gh-JTF" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="Gch-nw-yTX"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Eh0-EG-bf7">
@@ -808,6 +817,27 @@ written by: Krzysztof Reczek</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="V8G-iz-lDb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="574" y="1271"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="4o0-Me-mbP">
+            <objects>
+                <navigationController id="vEE-Gh-JTF" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" translucent="NO" prompted="NO"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="V4u-8Q-jI8">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="barTintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="3jw-zo-k6R" kind="relationship" relationship="rootViewController" id="mvf-uN-1M0"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Yop-6m-cCq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-883" y="1271"/>
         </scene>
     </scenes>
     <resources>

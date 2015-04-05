@@ -36,6 +36,7 @@
 		A45F0D531A5C6515008673FC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A45F0D511A5C6515008673FC /* Main.storyboard */; };
 		A45F0D581A5C6515008673FC /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = A45F0D561A5C6515008673FC /* LaunchScreen.xib */; };
 		A45F0D641A5C6515008673FC /* iAMTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A45F0D631A5C6515008673FC /* iAMTests.m */; };
+		A45F60B21AD1C30900954D2F /* AMPropertiesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A45F60B11AD1C30900954D2F /* AMPropertiesTableViewController.m */; };
 		A46069031AC74E0E00E9377F /* AMNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A46069021AC74E0E00E9377F /* AMNavigationViewController.m */; };
 		A49FDBC11AB0F208008D5595 /* menu.png in Resources */ = {isa = PBXBuildFile; fileRef = A49FDBC01AB0F208008D5595 /* menu.png */; };
 		A4A0CD841AD084E600618B1F /* CDBar.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A0CD7D1AD084E600618B1F /* CDBar.m */; };
@@ -121,6 +122,8 @@
 		A45F0D5D1A5C6515008673FC /* iAMTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iAMTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A45F0D621A5C6515008673FC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A45F0D631A5C6515008673FC /* iAMTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iAMTests.m; sourceTree = "<group>"; };
+		A45F60B01AD1C30900954D2F /* AMPropertiesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMPropertiesTableViewController.h; sourceTree = "<group>"; };
+		A45F60B11AD1C30900954D2F /* AMPropertiesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMPropertiesTableViewController.m; sourceTree = "<group>"; };
 		A46069011AC74E0E00E9377F /* AMNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMNavigationViewController.h; sourceTree = "<group>"; };
 		A46069021AC74E0E00E9377F /* AMNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMNavigationViewController.m; sourceTree = "<group>"; };
 		A49FDBC01AB0F208008D5595 /* menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = menu.png; path = Icons/menu.png; sourceTree = "<group>"; };
@@ -201,6 +204,8 @@
 				A4B4CDB51ABEEBB400615051 /* AMSequenceMenuTableViewCell.m */,
 				A46069011AC74E0E00E9377F /* AMNavigationViewController.h */,
 				A46069021AC74E0E00E9377F /* AMNavigationViewController.m */,
+				A45F60B01AD1C30900954D2F /* AMPropertiesTableViewController.h */,
+				A45F60B11AD1C30900954D2F /* AMPropertiesTableViewController.m */,
 			);
 			path = Visual;
 			sourceTree = "<group>";
@@ -507,6 +512,7 @@
 				A46069031AC74E0E00E9377F /* AMNavigationViewController.m in Sources */,
 				A4A0CD871AD084E600618B1F /* CDStep.m in Sources */,
 				A4F24F8B1ABC914F00BF47C3 /* AMMutableArray.m in Sources */,
+				A45F60B21AD1C30900954D2F /* AMPropertiesTableViewController.m in Sources */,
 				A4A132A81A9528A800D6E2F1 /* AMSequence.m in Sources */,
 				A4AA2B4B1AC5FD9B0076FDF6 /* AMDataMapper.m in Sources */,
 				A4A4D2391A928C95006CB6CE /* AMStave.m in Sources */,

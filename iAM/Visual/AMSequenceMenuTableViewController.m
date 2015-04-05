@@ -28,7 +28,7 @@ static NSString * const reuseIdentifier = @"myMenuStepCell";
     [self updateIndexSelected];
 }
 
-- (void)loadMainObjects{
+- (void)loadMainObjects {
     AMSequencerSingleton *sequencerSingleton = [AMSequencerSingleton sharedSequencer];
     _arrayOfSequences = sequencerSingleton.arrayOfSequences;
     _sequencer = sequencerSingleton.sequencer;
@@ -56,21 +56,18 @@ static NSString * const reuseIdentifier = @"myMenuStepCell";
     if(indexPath.row == 0){
         cell.textLabel.textColor = [UIColor orangeColor];
     }
-    
     return cell;
 }
 
 - (NSString *)tableView:(UITableView *)tableView
-titleForHeaderInSection:(NSInteger)section{
+titleForHeaderInSection:(NSInteger)section {
     return @"";
 }
 
 - (void)tableView:(UITableView *)tableView
-didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
+didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [_arrayOfSequences setIndexAsActual:indexPath.row];
-    AMSequence *sequenceSelected = (AMSequence*)_arrayOfSequences.getActualObject;
-    [_sequencer setSequence:sequenceSelected];
+    [self updateComponents];
 }
 
 - (IBAction)onAddAction:(id)sender {
@@ -84,6 +81,12 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath
     [_arrayOfSequences removeActualObject];
     [_tableView reloadData];
     [self updateIndexSelected];
+    [self updateComponents];
+}
+
+- (void)updateComponents{
+    AMSequence *sequenceSelected = (AMSequence*)_arrayOfSequences.getActualObject;
+    [_sequencer setSequence:sequenceSelected];
 }
 
 - (void)updateIndexSelected {

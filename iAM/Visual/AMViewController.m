@@ -137,7 +137,8 @@
     if(_mainSequencer.isRunning){
         [_mainSequencer startStop];
     }
-    AMStave *stave = _mainSequencer.getStave;
+    AMSequenceStep *sequenceStep = (AMSequenceStep *)_mainSequence.getActualObject;
+    AMStave *stave = sequenceStep.getStave;
     [stave setIndexAsActual:(NSUInteger) _pageControl.currentPage];
 }
 
@@ -205,7 +206,8 @@
     _mainSequence = _mainSequencer.getSequence;
     [_mainSequence addArrayDelegate:self];
     
-    _mainStave = _mainSequencer.getStave;
+    AMSequenceStep *sequenceStep = (AMSequenceStep *)_mainSequence.getActualObject;
+    _mainStave = sequenceStep.getStave;
     [_mainStave addArrayDelegate:self];
 
     [self updatePageControl];

@@ -22,7 +22,7 @@
 }
 
 - (void)loadPickers{
-    AMStave *stave = _actuallySelectedSequencer.getStave;
+    AMStave *stave = [self getStave];
     [stave addStaveDelegate:self];
     AMBar *bar = (AMBar *)stave.getActualObject;
     NSArray *signatureNumeratorPickerData = [self createRangeOfValuesStartingFrom:bar.minSignature
@@ -74,12 +74,12 @@
 }
 
 - (IBAction)onTapTempo:(id)sender {
-    AMStave *stave = _actuallySelectedSequencer.getStave;
+    AMStave *stave = [self getStave];
     [stave tapTempo];
 }
 
 - (void)pickerSelectionHasChanged{
-    AMStave *stave = _actuallySelectedSequencer.getStave;
+    AMStave *stave = [self getStave];
     [self tempoHasBeenChanged:stave];
     AMBar *bar = (AMBar *)stave.getActualObject;
     [self signatureDenominatorHasBeenChanged:bar];
@@ -121,10 +121,16 @@
 }
 
 - (void)tempoHasBeenChanged{
-    AMStave *stave = _actuallySelectedSequencer.getStave;
+    AMStave *stave = [self getStave];
     NSNumber *newTempo = [[NSNumber alloc] initWithInteger:stave.getTempo];
     [_tempoPickerController setActualValue:newTempo];
     [_delegate pickedValuesHaveBeenChanged];
+}
+
+- (AMStave*)getStave{
+    AMSequence *sequence = _actuallySelectedSequencer.getSequence;
+    AMSequenceStep *sequenceStep = (AMSequenceStep *)sequence.getActualObject;
+    return sequenceStep.getStave;
 }
 
 @end

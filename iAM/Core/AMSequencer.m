@@ -136,10 +136,6 @@
     [_actualBar clear];
 }
 
-- (AMStave *)getStave {
-    return _mainStave;
-}
-
 - (void)setSequence:(AMSequence *)newSequence{
     if(_runningState){
         [self startStop];

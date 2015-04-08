@@ -26,6 +26,7 @@
 
 - (void)addObject:(NSObject*)newObject;
 - (void)addObject:(NSObject*)newObject atIndex:(NSUInteger)anIndex;
+- (void)addObjectAtTheEnd:(NSObject*)newObject;
 
 - (void)removeActualObject;
 - (void)removeObjectAtIndex:(NSUInteger)anIndex;

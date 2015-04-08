@@ -61,6 +61,10 @@
     [self delegateArrayHasBeenChanged];
 }
 
+- (void)addObjectAtTheEnd:(NSObject*)newObject{
+    [self addObject:newObject atIndex:_baseArray.count];
+}
+
 - (void)removeActualObject{
     [self removeObjectAtIndex:_actualIndex];
 }

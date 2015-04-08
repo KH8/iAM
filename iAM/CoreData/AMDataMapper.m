@@ -31,7 +31,8 @@
     for (NSInteger i=0; i<fetchedObjects.count; i++) {
         for (CDSequence *sequence in fetchedObjects) {
             if(sequence.sequenceId.integerValue == i){
-                [array addObject:[self getSequenceFromCoreData:sequence]];
+                [array addObjectAtTheEnd:[self getSequenceFromCoreData:sequence]];
+                break;
             }
         }
     }
@@ -46,7 +47,8 @@
     for (NSInteger i=0; i<sequence.sequenceSteps.count; i++) {
         for (CDStep *step in sequence.sequenceSteps) {
             if(step.stepId.integerValue == i){
-                [newSequence addObject:[self getStepFromCoreData:step]];
+                [newSequence addObjectAtTheEnd:[self getStepFromCoreData:step]];
+                break;
             }
         }
     }
@@ -61,11 +63,12 @@
     [newStep setNumberOfLoops:[step.stepNumberOfLoops integerValue]];
     AMStave *newStave = [[AMStave alloc] init];
     [newStep setStave:newStave];
+    [newStave setTempo:[step.stepTempo integerValue]];
     for (NSInteger i=0; i<step.stepBars.count; i++) {
         for (CDBar *bar in step.stepBars) {
             if(bar.barId.integerValue == i){
-                [newStave setTempo:[step.stepTempo integerValue]];
-                [newStave addObject:[self getBarFromCoreData:bar]];
+                [newStave addObjectAtTheEnd:[self getBarFromCoreData:bar]];
+                break;
             }
         }
     }

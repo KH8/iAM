@@ -305,12 +305,22 @@
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="separatorColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <sections>
-                            <tableViewSection headerTitle="GENERAL" id="HNh-Fx-hCE">
+                            <tableViewSection headerTitle="Volume" id="HNh-Fx-hCE">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="O6U-hM-H13">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="O6U-hM-H13" id="7x9-4i-6eb">
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="r7V-6i-YGz">
+                                                    <rect key="frame" x="8" y="7" width="584" height="31"/>
+                                                </slider>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="r7V-6i-YGz" secondAttribute="trailing" constant="10" id="W0a-yy-7JV"/>
+                                                <constraint firstItem="r7V-6i-YGz" firstAttribute="leading" secondItem="7x9-4i-6eb" secondAttribute="leading" constant="10" id="b52-sn-cPv"/>
+                                                <constraint firstAttribute="centerY" secondItem="r7V-6i-YGz" secondAttribute="centerY" id="iRH-ER-LuR"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                     </tableViewCell>
@@ -621,13 +631,22 @@
                         <viewControllerLayoutGuide type="top" id="xTc-KQ-AEl"/>
                         <viewControllerLayoutGuide type="bottom" id="mJB-qH-SCf"/>
                     </layoutGuides>
-                    <view key="view" clipsSubviews="YES" alpha="0.84999999999999998" contentMode="scaleToFill" id="tyE-74-eos">
+                    <view key="view" clipsSubviews="YES" contentMode="scaleToFill" id="tyE-74-eos">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view alpha="0.84999999999999998" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GXz-Pf-LpU">
+                            <visualEffectView opaque="NO" alpha="0.84999999999999998" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sws-2I-aX3">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="KeA-zm-XZj">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                </view>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
+                                <vibrancyEffect>
+                                    <blurEffect style="dark"/>
+                                </vibrancyEffect>
+                            </visualEffectView>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GXz-Pf-LpU"/>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CRn-gj-ty1">
                                 <rect key="frame" x="0.0" y="45" width="600" height="60"/>
                                 <constraints>
@@ -735,14 +754,17 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
                         <constraints>
+                            <constraint firstItem="Sws-2I-aX3" firstAttribute="top" secondItem="tyE-74-eos" secondAttribute="top" id="Evn-A7-oz9"/>
                             <constraint firstAttribute="trailing" secondItem="CRn-gj-ty1" secondAttribute="trailing" id="Q9Q-uc-uFr"/>
                             <constraint firstItem="mJB-qH-SCf" firstAttribute="top" secondItem="4Sn-Mq-EaF" secondAttribute="bottom" constant="75" id="VjM-rl-XWI"/>
                             <constraint firstAttribute="centerX" secondItem="4Sn-Mq-EaF" secondAttribute="centerX" id="WMy-jC-AbN"/>
                             <constraint firstItem="CRn-gj-ty1" firstAttribute="leading" secondItem="tyE-74-eos" secondAttribute="leading" id="gSJ-Bo-ALX"/>
+                            <constraint firstItem="mJB-qH-SCf" firstAttribute="top" secondItem="Sws-2I-aX3" secondAttribute="bottom" id="hKy-bJ-5Tt"/>
+                            <constraint firstAttribute="trailing" secondItem="Sws-2I-aX3" secondAttribute="trailing" id="jnY-hf-bxz"/>
                             <constraint firstItem="4Sn-Mq-EaF" firstAttribute="top" secondItem="CRn-gj-ty1" secondAttribute="bottom" constant="-15" id="okB-D8-Uy3"/>
+                            <constraint firstItem="Sws-2I-aX3" firstAttribute="leading" secondItem="tyE-74-eos" secondAttribute="leading" id="qJF-hF-HPl"/>
                             <constraint firstItem="CRn-gj-ty1" firstAttribute="top" secondItem="xTc-KQ-AEl" secondAttribute="bottom" constant="25" id="x5K-p0-bay"/>
                         </constraints>
                         <connections>

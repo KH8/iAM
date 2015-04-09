@@ -13,6 +13,7 @@
 #import "CDSequence.h"
 #import "CDNote.h"
 #import "CDBar.h"
+#import "CDSelections.h"
 
 @interface AppDelegate ()
 
@@ -41,21 +42,23 @@
     [fetchRequest setEntity:entity];
     NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:&error];
     if(fetchedObjects.count == 0){
-        [self initCoreDataEntitiesInContext:context];
+        [self clearContext];
+        [self initSequenceCoreDataEntitiesInContext:context];
+        [self initSelectionsCoreDataEntitiesInContext:context];
         [context executeFetchRequest:fetchRequest error:&error];
     }
     
     AMDataMapper *dataMapper = [[AMDataMapper alloc] init];
     AMSequencerSingleton *sequencerSingleton = [AMSequencerSingleton sharedSequencer];
     sequencerSingleton.arrayOfSequences = [dataMapper getActualConfigurationFromContext:context];
-    [sequencerSingleton.sequencer setSequence:sequencerSingleton.arrayOfSequences[0]];
+    [sequencerSingleton.sequencer setSequence:(AMSequence *)sequencerSingleton.arrayOfSequences.getActualObject];
 
     [self setupAppearance];
     
     return YES;
 }
 
-- (void)initCoreDataEntitiesInContext: (NSManagedObjectContext*)context{
+- (void)initSequenceCoreDataEntitiesInContext: (NSManagedObjectContext*)context{
     CDSequence *sequence = [NSEntityDescription insertNewObjectForEntityForName:@"CDSequence"
                                                        inManagedObjectContext:context];
     sequence.sequenceName = @"NEW SEQUENCE";
@@ -87,6 +90,19 @@
     note.noteCoordPos = @0;
     note.bar = bar;
     [bar addBarNotesObject:note];
+    
+    NSError *error;
+    if (![context save:&error]) {
+        NSLog(@"Core data error occured: %@", [error localizedDescription]);
+    }
+}
+
+- (void)initSelectionsCoreDataEntitiesInContext: (NSManagedObjectContext*)context{
+    CDSelections *selections = [NSEntityDescription insertNewObjectForEntityForName:@"CDSelections"
+                                                             inManagedObjectContext:context];
+    selections.barSelected = @0;
+    selections.stepSelected = @0;
+    selections.sequenceSelected = @0;
     
     NSError *error;
     if (![context save:&error]) {
@@ -143,9 +159,14 @@
 }
 
 - (void)clearContext{
+    [self clearContextWithEntity:@"CDSequence"];
+    [self clearContextWithEntity:@"CDSelections"];
+}
+
+- (void)clearContextWithEntity:(NSString*)entityString{
     NSManagedObjectContext *context = [self managedObjectContext];
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-    [fetchRequest setEntity:[NSEntityDescription entityForName:@"CDSequence" inManagedObjectContext:context]];
+    [fetchRequest setEntity:[NSEntityDescription entityForName:entityString inManagedObjectContext:context]];
     NSArray * result = [context executeFetchRequest:fetchRequest error:nil];
     for (id sequence in result)
         [context deleteObject:sequence];

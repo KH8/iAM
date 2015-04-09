@@ -13,6 +13,11 @@
         <attribute name="noteCoordPos" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <relationship name="bar" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="CDBar" inverseName="barNotes" inverseEntity="CDBar" syncable="YES"/>
     </entity>
+    <entity name="CDSelections" representedClassName="CDSelections" syncable="YES">
+        <attribute name="barSelected" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="sequenceSelected" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="stepSelected" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+    </entity>
     <entity name="CDSequence" representedClassName="CDSequence" syncable="YES">
         <attribute name="sequenceCreationDate" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="sequenceId" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
@@ -33,5 +38,6 @@
         <element name="CDNote" positionX="-1512" positionY="-1080" width="128" height="88"/>
         <element name="CDSequence" positionX="-2160" positionY="-1078" width="126" height="103"/>
         <element name="CDStep" positionX="-1946" positionY="-1080" width="128" height="148"/>
+        <element name="CDSelections" positionX="-2160" positionY="-873" width="128" height="88"/>
     </elements>
 </model>

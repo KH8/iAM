@@ -7,11 +7,12 @@
 //
 
 #import "AMDataMapper.h"
+#import "AMNote.h"
 #import "CDStep.h"
 #import "CDSequence.h"
 #import "CDNote.h"
 #import "CDBar.h"
-#import "AMNote.h"
+#import "CDSelections.h"
 
 @implementation AMDataMapper
 
@@ -37,7 +38,34 @@
         }
     }
     
+    [self setActualSelectionsInConfiguration:array
+                                 FromContext:context];
+    
     return array;
+}
+
+- (void)setActualSelectionsInConfiguration:(AMMutableArray*)configuration
+                               FromContext:(NSManagedObjectContext*)context{
+    NSError *error;
+    if (![context save:&error]) {
+        NSLog(@"Core data error occured: %@", [error localizedDescription]);
+    }
+    
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"CDSelections"
+                                              inManagedObjectContext:context];
+    [fetchRequest setEntity:entity];
+    NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:&error];
+    CDSelections *selections = fetchedObjects[0];
+    
+    [configuration setIndexAsActual:selections.sequenceSelected.integerValue];
+    
+    AMSequence *selectedSequence = (AMSequence *)configuration.getActualObject;
+    [selectedSequence setIndexAsActual:selections.stepSelected.integerValue];
+    
+    AMSequenceStep *selectedStep = (AMSequenceStep *)selectedSequence.getActualObject;
+    AMStave *selectedStave = selectedStep.getStave;
+    [selectedStave setIndexAsActual:selections.barSelected.integerValue];
 }
 
 - (AMSequence*)getSequenceFromCoreData:(CDSequence*)sequence{
@@ -96,10 +124,28 @@
                             withIndex:i
                             inContext:context];
     }
+    
+    [self getCoreDataFromActualSelections:configuration
+                                inContext:context];
+    
     NSError *error;
     if (![context save:&error]) {
         NSLog(@"Core data error occured: %@", [error localizedDescription]);
     }
+}
+
+- (void)getCoreDataFromActualSelections:(AMMutableArray*)configuration
+                              inContext:(NSManagedObjectContext*)context{
+    CDSelections *selections = [NSEntityDescription insertNewObjectForEntityForName:@"CDSelections"
+                                                             inManagedObjectContext:context];
+    selections.sequenceSelected = [[NSNumber alloc] initWithInteger:configuration.getActualIndex];
+    
+    AMSequence *selectedSequence = (AMSequence *)configuration.getActualObject;
+    selections.stepSelected = [[NSNumber alloc] initWithInteger:selectedSequence.getActualIndex];
+    
+    AMSequenceStep *selectedStep = (AMSequenceStep*)selectedSequence.getActualObject;
+    AMStave *selectedStave = selectedStep.getStave;
+    selections.barSelected = [[NSNumber alloc] initWithInteger:selectedStave.getActualIndex];
 }
 
 - (void)getCoreDataFromSequence:(AMSequence*)sequence

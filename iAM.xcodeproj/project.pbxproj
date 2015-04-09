@@ -12,7 +12,6 @@
 		8F081AD4F297441F7B21E453 /* AMViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F04E6D9B4037B610C133F34 /* AMViewController.m */; };
 		8F0B34AA1C650F6EBD78FA56 /* AMSequencer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F0763D2246B340EEC482E45 /* AMSequencer.m */; };
 		8F0B7BBFD13CA2A424283225 /* AMCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F0B1F4FAA5303D5E98B0847 /* AMCollectionViewCell.m */; };
-		8F0DADE480AEF3C2EE965FB2 /* AMMutableArrayResponder.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F0B985D27B276666B094CC5 /* AMMutableArrayResponder.m */; };
 		A41641911A65DC5C00E3E228 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A41641901A65DC5C00E3E228 /* AVFoundation.framework */; };
 		A41C08EB1A927435006F0F06 /* AMSequenceTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = A41C08EA1A927435006F0F06 /* AMSequenceTableController.m */; };
 		A41C08EE1A9279F7006F0F06 /* AMSequenceTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A41C08ED1A9279F7006F0F06 /* AMSequenceTableViewCell.m */; };
@@ -38,6 +37,11 @@
 		A45F0D641A5C6515008673FC /* iAMTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A45F0D631A5C6515008673FC /* iAMTests.m */; };
 		A45F60B21AD1C30900954D2F /* AMPropertiesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A45F60B11AD1C30900954D2F /* AMPropertiesTableViewController.m */; };
 		A46069031AC74E0E00E9377F /* AMNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A46069021AC74E0E00E9377F /* AMNavigationViewController.m */; };
+		A49A5A701AD718B3000B0080 /* speakerCalm.png in Resources */ = {isa = PBXBuildFile; fileRef = A49A5A6E1AD718B3000B0080 /* speakerCalm.png */; };
+		A49A5A711AD718B3000B0080 /* speakerLoud.png in Resources */ = {isa = PBXBuildFile; fileRef = A49A5A6F1AD718B3000B0080 /* speakerLoud.png */; };
+		A49A5A741AD718D9000B0080 /* AMMutableArrayResponder.m in Sources */ = {isa = PBXBuildFile; fileRef = A49A5A731AD718D9000B0080 /* AMMutableArrayResponder.m */; };
+		A49A5A771AD71A56000B0080 /* AMVolumeSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = A49A5A761AD71A56000B0080 /* AMVolumeSlider.m */; };
+		A49A5A791AD72290000B0080 /* details.png in Resources */ = {isa = PBXBuildFile; fileRef = A49A5A781AD72290000B0080 /* details.png */; };
 		A49FDBC11AB0F208008D5595 /* menu.png in Resources */ = {isa = PBXBuildFile; fileRef = A49FDBC01AB0F208008D5595 /* menu.png */; };
 		A4A0CD841AD084E600618B1F /* CDBar.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A0CD7D1AD084E600618B1F /* CDBar.m */; };
 		A4A0CD851AD084E600618B1F /* CDNote.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A0CD7F1AD084E600618B1F /* CDNote.m */; };
@@ -74,13 +78,11 @@
 
 /* Begin PBXFileReference section */
 		8F0232E7F6F389A4CECE670C /* AMSequencer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMSequencer.h; path = Core/AMSequencer.h; sourceTree = "<group>"; };
-		8F028BA98BD843E5AF1B4B51 /* AMMutableArrayResponder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMMutableArrayResponder.h; sourceTree = "<group>"; };
 		8F04E6D9B4037B610C133F34 /* AMViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMViewController.m; sourceTree = "<group>"; };
 		8F0763D2246B340EEC482E45 /* AMSequencer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMSequencer.m; path = Core/AMSequencer.m; sourceTree = "<group>"; };
 		8F0AD5A2B8400C3F3D22A86A /* AMCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMCollectionViewCell.h; sourceTree = "<group>"; };
 		8F0AE1AC2BDFCA960D899F80 /* AMPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMPlayer.m; path = Core/AMPlayer.m; sourceTree = "<group>"; };
 		8F0B1F4FAA5303D5E98B0847 /* AMCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMCollectionViewCell.m; sourceTree = "<group>"; };
-		8F0B985D27B276666B094CC5 /* AMMutableArrayResponder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMMutableArrayResponder.m; sourceTree = "<group>"; };
 		8F0CFF565E646A31B3FE79A7 /* AMPickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMPickerController.h; sourceTree = "<group>"; };
 		8F0D8E3934B282764EF13D8A /* AMViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMViewController.h; sourceTree = "<group>"; };
 		8F0DA14C9FCAE3399B86B93B /* AMPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMPlayer.h; path = Core/AMPlayer.h; sourceTree = "<group>"; };
@@ -126,6 +128,13 @@
 		A45F60B11AD1C30900954D2F /* AMPropertiesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMPropertiesTableViewController.m; sourceTree = "<group>"; };
 		A46069011AC74E0E00E9377F /* AMNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMNavigationViewController.h; sourceTree = "<group>"; };
 		A46069021AC74E0E00E9377F /* AMNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMNavigationViewController.m; sourceTree = "<group>"; };
+		A49A5A6E1AD718B3000B0080 /* speakerCalm.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = speakerCalm.png; path = Icons/speakerCalm.png; sourceTree = "<group>"; };
+		A49A5A6F1AD718B3000B0080 /* speakerLoud.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = speakerLoud.png; path = Icons/speakerLoud.png; sourceTree = "<group>"; };
+		A49A5A721AD718D9000B0080 /* AMMutableArrayResponder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMMutableArrayResponder.h; path = Core/Auxiliaries/AMMutableArrayResponder.h; sourceTree = "<group>"; };
+		A49A5A731AD718D9000B0080 /* AMMutableArrayResponder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMMutableArrayResponder.m; path = Core/Auxiliaries/AMMutableArrayResponder.m; sourceTree = "<group>"; };
+		A49A5A751AD71A56000B0080 /* AMVolumeSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMVolumeSlider.h; sourceTree = "<group>"; };
+		A49A5A761AD71A56000B0080 /* AMVolumeSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMVolumeSlider.m; sourceTree = "<group>"; };
+		A49A5A781AD72290000B0080 /* details.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = details.png; path = Icons/details.png; sourceTree = "<group>"; };
 		A49FDBC01AB0F208008D5595 /* menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = menu.png; path = Icons/menu.png; sourceTree = "<group>"; };
 		A4A0CD7C1AD084E600618B1F /* CDBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDBar.h; path = CoreData/CDBar.h; sourceTree = "<group>"; };
 		A4A0CD7D1AD084E600618B1F /* CDBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CDBar.m; path = CoreData/CDBar.m; sourceTree = "<group>"; };
@@ -206,6 +215,8 @@
 				A46069021AC74E0E00E9377F /* AMNavigationViewController.m */,
 				A45F60B01AD1C30900954D2F /* AMPropertiesTableViewController.h */,
 				A45F60B11AD1C30900954D2F /* AMPropertiesTableViewController.m */,
+				A49A5A751AD71A56000B0080 /* AMVolumeSlider.h */,
+				A49A5A761AD71A56000B0080 /* AMVolumeSlider.m */,
 			);
 			path = Visual;
 			sourceTree = "<group>";
@@ -318,6 +329,9 @@
 		A49A749F1A9A86FB006BC3C7 /* Icons */ = {
 			isa = PBXGroup;
 			children = (
+				A49A5A781AD72290000B0080 /* details.png */,
+				A49A5A6E1AD718B3000B0080 /* speakerCalm.png */,
+				A49A5A6F1AD718B3000B0080 /* speakerLoud.png */,
 				A4E7B61F1AB745E200D7D357 /* about.png */,
 				A4E7B6201AB745E200D7D357 /* grid.png */,
 				A4E7B6211AB745E200D7D357 /* list.png */,
@@ -358,10 +372,10 @@
 		A4F24F881ABC90F500BF47C3 /* Auxiliaries */ = {
 			isa = PBXGroup;
 			children = (
+				A49A5A721AD718D9000B0080 /* AMMutableArrayResponder.h */,
+				A49A5A731AD718D9000B0080 /* AMMutableArrayResponder.m */,
 				A4F24F891ABC914F00BF47C3 /* AMMutableArray.h */,
 				A4F24F8A1ABC914F00BF47C3 /* AMMutableArray.m */,
-				8F0B985D27B276666B094CC5 /* AMMutableArrayResponder.m */,
-				8F028BA98BD843E5AF1B4B51 /* AMMutableArrayResponder.h */,
 			);
 			name = Auxiliaries;
 			sourceTree = "<group>";
@@ -458,16 +472,19 @@
 				A45F0D581A5C6515008673FC /* LaunchScreen.xib in Resources */,
 				A4DDA2B81AA8FB57006B9F33 /* selected.png in Resources */,
 				A4DDA2BA1AA9079D006B9F33 /* icon.png in Resources */,
+				A49A5A711AD718B3000B0080 /* speakerLoud.png in Resources */,
 				A450036E1A9BD73B008F4B6A /* seq3.png in Resources */,
 				A4A705F01AA50E3400A911C6 /* incloop.png in Resources */,
 				A44492061A9E7CE4008CEB8E /* add.png in Resources */,
 				A44804B21A686E430094BA1F /* lowStickSound.aif in Resources */,
 				A44492071A9E7CE4008CEB8E /* delete.png in Resources */,
+				A49A5A791AD72290000B0080 /* details.png in Resources */,
 				A4E7B6251AB745E200D7D357 /* list.png in Resources */,
 				A4E7B6231AB745E200D7D357 /* about.png in Resources */,
 				A4E7B6241AB745E200D7D357 /* grid.png in Resources */,
 				A4C47C1A1A8BB68E002CF325 /* Images.xcassets in Resources */,
 				A4E7B6261AB745E200D7D357 /* settings.png in Resources */,
+				A49A5A701AD718B3000B0080 /* speakerCalm.png in Resources */,
 				A44804B11A686E430094BA1F /* highStickSound.aif in Resources */,
 				A44804B31A686E430094BA1F /* tickSound.aif in Resources */,
 				A4DDA2B61AA8F8B8006B9F33 /* spot.png in Resources */,
@@ -517,9 +534,10 @@
 				A4AA2B4B1AC5FD9B0076FDF6 /* AMDataMapper.m in Sources */,
 				A4A4D2391A928C95006CB6CE /* AMStave.m in Sources */,
 				8F03D778486C6AEEDE7E8BA1 /* AMPlayer.m in Sources */,
+				A49A5A741AD718D9000B0080 /* AMMutableArrayResponder.m in Sources */,
 				8F014B76B26DA38094740698 /* AMPickerController.m in Sources */,
 				A41C08EE1A9279F7006F0F06 /* AMSequenceTableViewCell.m in Sources */,
-				8F0DADE480AEF3C2EE965FB2 /* AMMutableArrayResponder.m in Sources */,
+				A49A5A771AD71A56000B0080 /* AMVolumeSlider.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

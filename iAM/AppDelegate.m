@@ -8,6 +8,7 @@
 
 #import "AMSequencerSingleton.h"
 #import "AMDataMapper.h"
+#import "AMVolumeSlider.h"
 #import "CDStep.h"
 #import "CDSequence.h"
 #import "CDNote.h"
@@ -49,6 +50,8 @@
     sequencerSingleton.arrayOfSequences = [dataMapper getActualConfigurationFromContext:context];
     [sequencerSingleton.sequencer setSequence:sequencerSingleton.arrayOfSequences[0]];
 
+    [self setupAppearance];
+    
     return YES;
 }
 
@@ -89,6 +92,14 @@
     if (![context save:&error]) {
         NSLog(@"Core data error occured: %@", [error localizedDescription]);
     }
+}
+
+-(void)setupAppearance {
+    UIImage *minImage = [[UIImage imageNamed:@"speakerCalm.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    UIImage *maxImage = [[UIImage imageNamed:@"speakerLoud.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    
+    [[AMVolumeSlider appearance] setMinimumValueImage:minImage];
+    [[AMVolumeSlider appearance] setMaximumValueImage:maxImage];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

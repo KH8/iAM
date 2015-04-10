@@ -65,7 +65,7 @@
     
     AMSequenceStep *selectedStep = (AMSequenceStep *)selectedSequence.getActualObject;
     AMStave *selectedStave = selectedStep.getStave;
-    [selectedStave setIndexAsActual:selections.barSelected.integerValue];
+    [selectedStave setIndexAsActual:0];
 }
 
 - (AMSequence*)getSequenceFromCoreData:(CDSequence*)sequence{

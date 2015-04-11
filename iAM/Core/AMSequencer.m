@@ -89,11 +89,11 @@
 }
 
 - (void)initPlayers{
-    AMPlayer *amPlayer0 = [[AMPlayer alloc] initWithFile:@"tickSound"
+    AMPlayer *amPlayer0 = [[AMPlayer alloc] initWithFile:@"artificialHigh1"
                                                   ofType:@"aif"];
-    AMPlayer *amPlayer1 = [[AMPlayer alloc] initWithFile:@"highStickSound"
+    AMPlayer *amPlayer1 = [[AMPlayer alloc] initWithFile:@"artificialLow1"
                                                   ofType:@"aif"];
-    AMPlayer *amPlayer2 = [[AMPlayer alloc] initWithFile:@"lowStickSound"
+    AMPlayer *amPlayer2 = [[AMPlayer alloc] initWithFile:@"artificialLow2"
                                                   ofType:@"aif"];
     _arrayOfPlayers = @[amPlayer0,amPlayer1,amPlayer2];
 }

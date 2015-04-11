@@ -20,9 +20,6 @@
 		A427C9F11A7D141D0003FB21 /* AMPopoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A427C9F01A7D141D0003FB21 /* AMPopoverViewController.m */; };
 		A44492061A9E7CE4008CEB8E /* add.png in Resources */ = {isa = PBXBuildFile; fileRef = A44492041A9E7CE4008CEB8E /* add.png */; };
 		A44492071A9E7CE4008CEB8E /* delete.png in Resources */ = {isa = PBXBuildFile; fileRef = A44492051A9E7CE4008CEB8E /* delete.png */; };
-		A44804B11A686E430094BA1F /* highStickSound.aif in Resources */ = {isa = PBXBuildFile; fileRef = A44804AE1A686E430094BA1F /* highStickSound.aif */; };
-		A44804B21A686E430094BA1F /* lowStickSound.aif in Resources */ = {isa = PBXBuildFile; fileRef = A44804AF1A686E430094BA1F /* lowStickSound.aif */; };
-		A44804B31A686E430094BA1F /* tickSound.aif in Resources */ = {isa = PBXBuildFile; fileRef = A44804B01A686E430094BA1F /* tickSound.aif */; };
 		A44910791A5F396E00E8C6DB /* AMBar.m in Sources */ = {isa = PBXBuildFile; fileRef = A44910781A5F396E00E8C6DB /* AMBar.m */; };
 		A449107C1A5F3A1200E8C6DB /* AMNote.m in Sources */ = {isa = PBXBuildFile; fileRef = A449107B1A5F3A1200E8C6DB /* AMNote.m */; };
 		A44A3C731A7BF1E800B3B4DC /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A44A3C721A7BF1E800B3B4DC /* SWRevealViewController.m */; };
@@ -57,6 +54,19 @@
 		A4AA2B4B1AC5FD9B0076FDF6 /* AMDataMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = A4AA2B4A1AC5FD9B0076FDF6 /* AMDataMapper.m */; };
 		A4B4CDB61ABEEBB400615051 /* AMSequenceMenuTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A4B4CDB51ABEEBB400615051 /* AMSequenceMenuTableViewCell.m */; };
 		A4C47C1A1A8BB68E002CF325 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A4C47C191A8BB68E002CF325 /* Images.xcassets */; };
+		A4CB2BDD1AD9C2E8007D2584 /* artificialHigh1.aif in Resources */ = {isa = PBXBuildFile; fileRef = A4CB2BD01AD9C2E8007D2584 /* artificialHigh1.aif */; };
+		A4CB2BDE1AD9C2E8007D2584 /* artificialHigh2.aif in Resources */ = {isa = PBXBuildFile; fileRef = A4CB2BD11AD9C2E8007D2584 /* artificialHigh2.aif */; };
+		A4CB2BDF1AD9C2E8007D2584 /* artificialLow1.aif in Resources */ = {isa = PBXBuildFile; fileRef = A4CB2BD21AD9C2E8007D2584 /* artificialLow1.aif */; };
+		A4CB2BE01AD9C2E8007D2584 /* artificialLow2.aif in Resources */ = {isa = PBXBuildFile; fileRef = A4CB2BD31AD9C2E8007D2584 /* artificialLow2.aif */; };
+		A4CB2BE11AD9C2E8007D2584 /* click1.aif in Resources */ = {isa = PBXBuildFile; fileRef = A4CB2BD41AD9C2E8007D2584 /* click1.aif */; };
+		A4CB2BE21AD9C2E8007D2584 /* click2.aif in Resources */ = {isa = PBXBuildFile; fileRef = A4CB2BD51AD9C2E8007D2584 /* click2.aif */; };
+		A4CB2BE31AD9C2E8007D2584 /* clockTick1.aif in Resources */ = {isa = PBXBuildFile; fileRef = A4CB2BD61AD9C2E8007D2584 /* clockTick1.aif */; };
+		A4CB2BE41AD9C2E8007D2584 /* clockTick2.aif in Resources */ = {isa = PBXBuildFile; fileRef = A4CB2BD71AD9C2E8007D2584 /* clockTick2.aif */; };
+		A4CB2BE51AD9C2E8007D2584 /* natural1.aif in Resources */ = {isa = PBXBuildFile; fileRef = A4CB2BD81AD9C2E8007D2584 /* natural1.aif */; };
+		A4CB2BE61AD9C2E8007D2584 /* natural2.aif in Resources */ = {isa = PBXBuildFile; fileRef = A4CB2BD91AD9C2E8007D2584 /* natural2.aif */; };
+		A4CB2BE71AD9C2E8007D2584 /* natural3.aif in Resources */ = {isa = PBXBuildFile; fileRef = A4CB2BDA1AD9C2E8007D2584 /* natural3.aif */; };
+		A4CB2BE81AD9C2E8007D2584 /* stickHigh.aif in Resources */ = {isa = PBXBuildFile; fileRef = A4CB2BDB1AD9C2E8007D2584 /* stickHigh.aif */; };
+		A4CB2BE91AD9C2E8007D2584 /* stickLow.aif in Resources */ = {isa = PBXBuildFile; fileRef = A4CB2BDC1AD9C2E8007D2584 /* stickLow.aif */; };
 		A4DDA2B61AA8F8B8006B9F33 /* spot.png in Resources */ = {isa = PBXBuildFile; fileRef = A4DDA2B51AA8F8B8006B9F33 /* spot.png */; };
 		A4DDA2B81AA8FB57006B9F33 /* selected.png in Resources */ = {isa = PBXBuildFile; fileRef = A4DDA2B71AA8FB57006B9F33 /* selected.png */; };
 		A4DDA2BA1AA9079D006B9F33 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = A4DDA2B91AA9079D006B9F33 /* icon.png */; };
@@ -102,9 +112,6 @@
 		A427C9F01A7D141D0003FB21 /* AMPopoverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMPopoverViewController.m; sourceTree = "<group>"; };
 		A44492041A9E7CE4008CEB8E /* add.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = add.png; path = Icons/add.png; sourceTree = "<group>"; };
 		A44492051A9E7CE4008CEB8E /* delete.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = delete.png; path = Icons/delete.png; sourceTree = "<group>"; };
-		A44804AE1A686E430094BA1F /* highStickSound.aif */ = {isa = PBXFileReference; lastKnownFileType = file; name = highStickSound.aif; path = Core/Sounds/highStickSound.aif; sourceTree = "<group>"; };
-		A44804AF1A686E430094BA1F /* lowStickSound.aif */ = {isa = PBXFileReference; lastKnownFileType = file; name = lowStickSound.aif; path = Core/Sounds/lowStickSound.aif; sourceTree = "<group>"; };
-		A44804B01A686E430094BA1F /* tickSound.aif */ = {isa = PBXFileReference; lastKnownFileType = file; name = tickSound.aif; path = Core/Sounds/tickSound.aif; sourceTree = "<group>"; };
 		A44910771A5F396E00E8C6DB /* AMBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMBar.h; path = Core/AMBar.h; sourceTree = "<group>"; };
 		A44910781A5F396E00E8C6DB /* AMBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMBar.m; path = Core/AMBar.m; sourceTree = "<group>"; };
 		A449107A1A5F3A1200E8C6DB /* AMNote.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMNote.h; path = Core/AMNote.h; sourceTree = "<group>"; };
@@ -162,6 +169,19 @@
 		A4B4CDB41ABEEBB400615051 /* AMSequenceMenuTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMSequenceMenuTableViewCell.h; sourceTree = "<group>"; };
 		A4B4CDB51ABEEBB400615051 /* AMSequenceMenuTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMSequenceMenuTableViewCell.m; sourceTree = "<group>"; };
 		A4C47C191A8BB68E002CF325 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		A4CB2BD01AD9C2E8007D2584 /* artificialHigh1.aif */ = {isa = PBXFileReference; lastKnownFileType = file; name = artificialHigh1.aif; path = Core/Sounds/artificialHigh1.aif; sourceTree = "<group>"; };
+		A4CB2BD11AD9C2E8007D2584 /* artificialHigh2.aif */ = {isa = PBXFileReference; lastKnownFileType = file; name = artificialHigh2.aif; path = Core/Sounds/artificialHigh2.aif; sourceTree = "<group>"; };
+		A4CB2BD21AD9C2E8007D2584 /* artificialLow1.aif */ = {isa = PBXFileReference; lastKnownFileType = file; name = artificialLow1.aif; path = Core/Sounds/artificialLow1.aif; sourceTree = "<group>"; };
+		A4CB2BD31AD9C2E8007D2584 /* artificialLow2.aif */ = {isa = PBXFileReference; lastKnownFileType = file; name = artificialLow2.aif; path = Core/Sounds/artificialLow2.aif; sourceTree = "<group>"; };
+		A4CB2BD41AD9C2E8007D2584 /* click1.aif */ = {isa = PBXFileReference; lastKnownFileType = file; name = click1.aif; path = Core/Sounds/click1.aif; sourceTree = "<group>"; };
+		A4CB2BD51AD9C2E8007D2584 /* click2.aif */ = {isa = PBXFileReference; lastKnownFileType = file; name = click2.aif; path = Core/Sounds/click2.aif; sourceTree = "<group>"; };
+		A4CB2BD61AD9C2E8007D2584 /* clockTick1.aif */ = {isa = PBXFileReference; lastKnownFileType = file; name = clockTick1.aif; path = Core/Sounds/clockTick1.aif; sourceTree = "<group>"; };
+		A4CB2BD71AD9C2E8007D2584 /* clockTick2.aif */ = {isa = PBXFileReference; lastKnownFileType = file; name = clockTick2.aif; path = Core/Sounds/clockTick2.aif; sourceTree = "<group>"; };
+		A4CB2BD81AD9C2E8007D2584 /* natural1.aif */ = {isa = PBXFileReference; lastKnownFileType = file; name = natural1.aif; path = Core/Sounds/natural1.aif; sourceTree = "<group>"; };
+		A4CB2BD91AD9C2E8007D2584 /* natural2.aif */ = {isa = PBXFileReference; lastKnownFileType = file; name = natural2.aif; path = Core/Sounds/natural2.aif; sourceTree = "<group>"; };
+		A4CB2BDA1AD9C2E8007D2584 /* natural3.aif */ = {isa = PBXFileReference; lastKnownFileType = file; name = natural3.aif; path = Core/Sounds/natural3.aif; sourceTree = "<group>"; };
+		A4CB2BDB1AD9C2E8007D2584 /* stickHigh.aif */ = {isa = PBXFileReference; lastKnownFileType = file; name = stickHigh.aif; path = Core/Sounds/stickHigh.aif; sourceTree = "<group>"; };
+		A4CB2BDC1AD9C2E8007D2584 /* stickLow.aif */ = {isa = PBXFileReference; lastKnownFileType = file; name = stickLow.aif; path = Core/Sounds/stickLow.aif; sourceTree = "<group>"; };
 		A4DDA2B51AA8F8B8006B9F33 /* spot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = spot.png; path = Icons/spot.png; sourceTree = "<group>"; };
 		A4DDA2B71AA8FB57006B9F33 /* selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = selected.png; path = Icons/selected.png; sourceTree = "<group>"; };
 		A4DDA2B91AA9079D006B9F33 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon.png; path = Icons/icon.png; sourceTree = "<group>"; };
@@ -230,9 +250,19 @@
 		8F026D41013513503897B9C8 /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
-				A44804AE1A686E430094BA1F /* highStickSound.aif */,
-				A44804AF1A686E430094BA1F /* lowStickSound.aif */,
-				A44804B01A686E430094BA1F /* tickSound.aif */,
+				A4CB2BD01AD9C2E8007D2584 /* artificialHigh1.aif */,
+				A4CB2BD11AD9C2E8007D2584 /* artificialHigh2.aif */,
+				A4CB2BD21AD9C2E8007D2584 /* artificialLow1.aif */,
+				A4CB2BD31AD9C2E8007D2584 /* artificialLow2.aif */,
+				A4CB2BD41AD9C2E8007D2584 /* click1.aif */,
+				A4CB2BD51AD9C2E8007D2584 /* click2.aif */,
+				A4CB2BD61AD9C2E8007D2584 /* clockTick1.aif */,
+				A4CB2BD71AD9C2E8007D2584 /* clockTick2.aif */,
+				A4CB2BD81AD9C2E8007D2584 /* natural1.aif */,
+				A4CB2BD91AD9C2E8007D2584 /* natural2.aif */,
+				A4CB2BDA1AD9C2E8007D2584 /* natural3.aif */,
+				A4CB2BDB1AD9C2E8007D2584 /* stickHigh.aif */,
+				A4CB2BDC1AD9C2E8007D2584 /* stickLow.aif */,
 			);
 			name = Sounds;
 			sourceTree = "<group>";
@@ -476,27 +506,37 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A4CB2BE31AD9C2E8007D2584 /* clockTick1.aif in Resources */,
 				A4A705EF1AA50E3400A911C6 /* decloop.png in Resources */,
+				A4CB2BE51AD9C2E8007D2584 /* natural1.aif in Resources */,
 				A45F0D531A5C6515008673FC /* Main.storyboard in Resources */,
+				A4CB2BE01AD9C2E8007D2584 /* artificialLow2.aif in Resources */,
+				A4CB2BDD1AD9C2E8007D2584 /* artificialHigh1.aif in Resources */,
 				A49FDBC11AB0F208008D5595 /* menu.png in Resources */,
 				A45F0D581A5C6515008673FC /* LaunchScreen.xib in Resources */,
+				A4CB2BE41AD9C2E8007D2584 /* clockTick2.aif in Resources */,
 				A4DDA2B81AA8FB57006B9F33 /* selected.png in Resources */,
+				A4CB2BE61AD9C2E8007D2584 /* natural2.aif in Resources */,
+				A4CB2BE81AD9C2E8007D2584 /* stickHigh.aif in Resources */,
+				A4CB2BE11AD9C2E8007D2584 /* click1.aif in Resources */,
 				A4DDA2BA1AA9079D006B9F33 /* icon.png in Resources */,
 				A49A5A711AD718B3000B0080 /* speakerLoud.png in Resources */,
 				A450036E1A9BD73B008F4B6A /* seq3.png in Resources */,
 				A4A705F01AA50E3400A911C6 /* incloop.png in Resources */,
 				A44492061A9E7CE4008CEB8E /* add.png in Resources */,
-				A44804B21A686E430094BA1F /* lowStickSound.aif in Resources */,
+				A4CB2BDE1AD9C2E8007D2584 /* artificialHigh2.aif in Resources */,
 				A44492071A9E7CE4008CEB8E /* delete.png in Resources */,
 				A49A5A791AD72290000B0080 /* details.png in Resources */,
+				A4CB2BE71AD9C2E8007D2584 /* natural3.aif in Resources */,
 				A4E7B6251AB745E200D7D357 /* list.png in Resources */,
 				A4E7B6231AB745E200D7D357 /* about.png in Resources */,
 				A4E7B6241AB745E200D7D357 /* grid.png in Resources */,
 				A4C47C1A1A8BB68E002CF325 /* Images.xcassets in Resources */,
 				A4E7B6261AB745E200D7D357 /* settings.png in Resources */,
+				A4CB2BDF1AD9C2E8007D2584 /* artificialLow1.aif in Resources */,
+				A4CB2BE21AD9C2E8007D2584 /* click2.aif in Resources */,
 				A49A5A701AD718B3000B0080 /* speakerCalm.png in Resources */,
-				A44804B11A686E430094BA1F /* highStickSound.aif in Resources */,
-				A44804B31A686E430094BA1F /* tickSound.aif in Resources */,
+				A4CB2BE91AD9C2E8007D2584 /* stickLow.aif in Resources */,
 				A4DDA2B61AA8F8B8006B9F33 /* spot.png in Resources */,
 				A450036D1A9BD73B008F4B6A /* seq2.png in Resources */,
 				A450036C1A9BD73B008F4B6A /* seq1.png in Resources */,

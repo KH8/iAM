@@ -60,6 +60,7 @@
 		A4DDA2B61AA8F8B8006B9F33 /* spot.png in Resources */ = {isa = PBXBuildFile; fileRef = A4DDA2B51AA8F8B8006B9F33 /* spot.png */; };
 		A4DDA2B81AA8FB57006B9F33 /* selected.png in Resources */ = {isa = PBXBuildFile; fileRef = A4DDA2B71AA8FB57006B9F33 /* selected.png */; };
 		A4DDA2BA1AA9079D006B9F33 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = A4DDA2B91AA9079D006B9F33 /* icon.png */; };
+		A4E459911AD9BA3000CC7C8A /* CDConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = A4E459901AD9BA3000CC7C8A /* CDConfiguration.m */; };
 		A4E7B6231AB745E200D7D357 /* about.png in Resources */ = {isa = PBXBuildFile; fileRef = A4E7B61F1AB745E200D7D357 /* about.png */; };
 		A4E7B6241AB745E200D7D357 /* grid.png in Resources */ = {isa = PBXBuildFile; fileRef = A4E7B6201AB745E200D7D357 /* grid.png */; };
 		A4E7B6251AB745E200D7D357 /* list.png in Resources */ = {isa = PBXBuildFile; fileRef = A4E7B6211AB745E200D7D357 /* list.png */; };
@@ -164,6 +165,8 @@
 		A4DDA2B51AA8F8B8006B9F33 /* spot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = spot.png; path = Icons/spot.png; sourceTree = "<group>"; };
 		A4DDA2B71AA8FB57006B9F33 /* selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = selected.png; path = Icons/selected.png; sourceTree = "<group>"; };
 		A4DDA2B91AA9079D006B9F33 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon.png; path = Icons/icon.png; sourceTree = "<group>"; };
+		A4E4598F1AD9BA3000CC7C8A /* CDConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDConfiguration.h; sourceTree = "<group>"; };
+		A4E459901AD9BA3000CC7C8A /* CDConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDConfiguration.m; sourceTree = "<group>"; };
 		A4E7B61F1AB745E200D7D357 /* about.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = about.png; path = Icons/about.png; sourceTree = "<group>"; };
 		A4E7B6201AB745E200D7D357 /* grid.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = grid.png; path = Icons/grid.png; sourceTree = "<group>"; };
 		A4E7B6211AB745E200D7D357 /* list.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = list.png; path = Icons/list.png; sourceTree = "<group>"; };
@@ -370,6 +373,8 @@
 				A49A5A7B1AD7264D000B0080 /* CDSelections.m */,
 				A4AA2B491AC5FD9B0076FDF6 /* AMDataMapper.h */,
 				A4AA2B4A1AC5FD9B0076FDF6 /* AMDataMapper.m */,
+				A4E4598F1AD9BA3000CC7C8A /* CDConfiguration.h */,
+				A4E459901AD9BA3000CC7C8A /* CDConfiguration.m */,
 			);
 			name = CoreData;
 			sourceTree = "<group>";
@@ -540,6 +545,7 @@
 				A4AA2B4B1AC5FD9B0076FDF6 /* AMDataMapper.m in Sources */,
 				A4A4D2391A928C95006CB6CE /* AMStave.m in Sources */,
 				8F03D778486C6AEEDE7E8BA1 /* AMPlayer.m in Sources */,
+				A4E459911AD9BA3000CC7C8A /* CDConfiguration.m in Sources */,
 				A49A5A741AD718D9000B0080 /* AMMutableArrayResponder.m in Sources */,
 				8F014B76B26DA38094740698 /* AMPickerController.m in Sources */,
 				A41C08EE1A9279F7006F0F06 /* AMSequenceTableViewCell.m in Sources */,

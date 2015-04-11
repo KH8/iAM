@@ -10,7 +10,17 @@
 
 - (id)initWithFile: (NSString*)aFileName
             ofType: (NSString*)aFileType;
+
 - (void)playSound;
 - (void)stopSound;
+
+- (void)setSoundName:(NSString*)newName;
+- (NSString*)getSoundName;
+
+- (void)setGeneralVolumeFactor:(NSNumber*)volume;
+- (NSNumber*)getGeneralVolumeFactor;
+
+- (void)setVolumeFactor:(NSNumber*)volume;
+- (NSNumber*)getVolumeFactor;
 
 @end

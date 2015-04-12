@@ -76,6 +76,8 @@
 		A4E7B6251AB745E200D7D357 /* list.png in Resources */ = {isa = PBXBuildFile; fileRef = A4E7B6211AB745E200D7D357 /* list.png */; };
 		A4E7B6261AB745E200D7D357 /* settings.png in Resources */ = {isa = PBXBuildFile; fileRef = A4E7B6221AB745E200D7D357 /* settings.png */; };
 		A4E7D9B51ADAF3C000B01BCD /* AMSoundsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4E7D9B41ADAF3C000B01BCD /* AMSoundsTableViewController.m */; };
+		A4E7D9B81ADAF8A300B01BCD /* AMSoundTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A4E7D9B71ADAF8A300B01BCD /* AMSoundTableViewCell.m */; };
+		A4E7D9BA1ADB01C900B01BCD /* selectedLeft.png in Resources */ = {isa = PBXBuildFile; fileRef = A4E7D9B91ADB01C900B01BCD /* selectedLeft.png */; };
 		A4F24F8B1ABC914F00BF47C3 /* AMMutableArray.m in Sources */ = {isa = PBXBuildFile; fileRef = A4F24F8A1ABC914F00BF47C3 /* AMMutableArray.m */; };
 /* End PBXBuildFile section */
 
@@ -194,6 +196,9 @@
 		A4E7B6221AB745E200D7D357 /* settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = settings.png; path = Icons/settings.png; sourceTree = "<group>"; };
 		A4E7D9B31ADAF3C000B01BCD /* AMSoundsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMSoundsTableViewController.h; sourceTree = "<group>"; };
 		A4E7D9B41ADAF3C000B01BCD /* AMSoundsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMSoundsTableViewController.m; sourceTree = "<group>"; };
+		A4E7D9B61ADAF8A300B01BCD /* AMSoundTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMSoundTableViewCell.h; sourceTree = "<group>"; };
+		A4E7D9B71ADAF8A300B01BCD /* AMSoundTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMSoundTableViewCell.m; sourceTree = "<group>"; };
+		A4E7D9B91ADB01C900B01BCD /* selectedLeft.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = selectedLeft.png; path = Icons/selectedLeft.png; sourceTree = "<group>"; };
 		A4F24F891ABC914F00BF47C3 /* AMMutableArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMMutableArray.h; path = Core/Auxiliaries/AMMutableArray.h; sourceTree = "<group>"; };
 		A4F24F8A1ABC914F00BF47C3 /* AMMutableArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMMutableArray.m; path = Core/Auxiliaries/AMMutableArray.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -248,6 +253,8 @@
 				A49A5A761AD71A56000B0080 /* AMVolumeSlider.m */,
 				A4E7D9B31ADAF3C000B01BCD /* AMSoundsTableViewController.h */,
 				A4E7D9B41ADAF3C000B01BCD /* AMSoundsTableViewController.m */,
+				A4E7D9B61ADAF8A300B01BCD /* AMSoundTableViewCell.h */,
+				A4E7D9B71ADAF8A300B01BCD /* AMSoundTableViewCell.m */,
 			);
 			path = Visual;
 			sourceTree = "<group>";
@@ -370,6 +377,7 @@
 		A49A749F1A9A86FB006BC3C7 /* Icons */ = {
 			isa = PBXGroup;
 			children = (
+				A4E7D9B91ADB01C900B01BCD /* selectedLeft.png */,
 				A49A5A781AD72290000B0080 /* details.png */,
 				A49A5A6E1AD718B3000B0080 /* speakerCalm.png */,
 				A49A5A6F1AD718B3000B0080 /* speakerLoud.png */,
@@ -378,7 +386,6 @@
 				A4E7B6211AB745E200D7D357 /* list.png */,
 				A4E7B6221AB745E200D7D357 /* settings.png */,
 				A49FDBC01AB0F208008D5595 /* menu.png */,
-				A4DDA2B91AA9079D006B9F33 /* icon.png */,
 				A4DDA2B71AA8FB57006B9F33 /* selected.png */,
 				A4DDA2B51AA8F8B8006B9F33 /* spot.png */,
 				A4A705ED1AA50E3400A911C6 /* decloop.png */,
@@ -386,6 +393,7 @@
 				A44492041A9E7CE4008CEB8E /* add.png */,
 				A44492051A9E7CE4008CEB8E /* delete.png */,
 				A45003691A9BD73B008F4B6A /* seq1.png */,
+				A4DDA2B91AA9079D006B9F33 /* icon.png */,
 				A450036A1A9BD73B008F4B6A /* seq2.png */,
 				A450036B1A9BD73B008F4B6A /* seq3.png */,
 			);
@@ -531,6 +539,7 @@
 				A44492061A9E7CE4008CEB8E /* add.png in Resources */,
 				A4CB2BDE1AD9C2E8007D2584 /* artificialHigh2.aif in Resources */,
 				A44492071A9E7CE4008CEB8E /* delete.png in Resources */,
+				A4E7D9BA1ADB01C900B01BCD /* selectedLeft.png in Resources */,
 				A49A5A791AD72290000B0080 /* details.png in Resources */,
 				A4CB2BE71AD9C2E8007D2584 /* natural3.aif in Resources */,
 				A4E7B6251AB745E200D7D357 /* list.png in Resources */,
@@ -562,6 +571,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A4E7D9B81ADAF8A300B01BCD /* AMSoundTableViewCell.m in Sources */,
 				A427C9F11A7D141D0003FB21 /* AMPopoverViewController.m in Sources */,
 				A44A3C731A7BF1E800B3B4DC /* SWRevealViewController.m in Sources */,
 				A45F0D4D1A5C6515008673FC /* AppDelegate.m in Sources */,

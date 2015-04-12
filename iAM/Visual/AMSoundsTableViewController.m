@@ -7,10 +7,11 @@
 //
 
 #import "AMSoundsTableViewController.h"
+#import "AMSoundTableViewCell.h"
 
 @interface AMSoundsTableViewController ()
 
-@property NSMutableDictionary *dictionaryOfSounds;
+@property AMMutableArray *arrayOfSounds;
 
 @end
 
@@ -19,24 +20,38 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self initDictionaryOfSounds];
+    [self updateIndexSelected];
 }
 
 - (void)initDictionaryOfSounds{
-    _dictionaryOfSounds = [[NSMutableDictionary alloc] init];
+    _arrayOfSounds = [[AMMutableArray alloc] init];
     
-    [_dictionaryOfSounds setObject:@"artificialHigh1" forKey:@"ARTIFICIAL HIGH 1"];
-    [_dictionaryOfSounds setObject:@"artificialHigh2" forKey:@"ARTIFICIAL HIGH 2"];
-    [_dictionaryOfSounds setObject:@"artificialLow1" forKey:@"ARTIFICIAL LOW 1"];
-    [_dictionaryOfSounds setObject:@"artificialLow2" forKey:@"ARTIFICIAL LOW 2"];
-    [_dictionaryOfSounds setObject:@"click1" forKey:@"CLICK 1"];
-    [_dictionaryOfSounds setObject:@"click2" forKey:@"CLICK 2"];
-    [_dictionaryOfSounds setObject:@"clockTick1" forKey:@"CLOCK TICK 1"];
-    [_dictionaryOfSounds setObject:@"clockTick2" forKey:@"CLOCK TICK 2"];
-    [_dictionaryOfSounds setObject:@"natural1" forKey:@"NATURAL 1"];
-    [_dictionaryOfSounds setObject:@"natural2" forKey:@"NATURAL 2"];
-    [_dictionaryOfSounds setObject:@"natural3" forKey:@"NATURAL 3"];
-    [_dictionaryOfSounds setObject:@"stickHigh" forKey:@"STICK HIGH"];
-    [_dictionaryOfSounds setObject:@"stickLow" forKey:@"STICK LOW"];
+    [_arrayOfSounds addObjectAtTheEnd:@"artificialHigh1"];
+    [_arrayOfSounds addObjectAtTheEnd:@"ARTIFICIAL HIGH 1"];
+    [_arrayOfSounds addObjectAtTheEnd:@"artificialHigh2"];
+    [_arrayOfSounds addObjectAtTheEnd:@"ARTIFICIAL HIGH 2"];
+    [_arrayOfSounds addObjectAtTheEnd:@"artificialLow1"];
+    [_arrayOfSounds addObjectAtTheEnd:@"ARTIFICIAL LOW 1"];
+    [_arrayOfSounds addObjectAtTheEnd:@"artificialLow2"];
+    [_arrayOfSounds addObjectAtTheEnd:@"ARTIFICIAL LOW 2"];
+    [_arrayOfSounds addObjectAtTheEnd:@"click1"];
+    [_arrayOfSounds addObjectAtTheEnd:@"CLICK 1"];
+    [_arrayOfSounds addObjectAtTheEnd:@"click2"];
+    [_arrayOfSounds addObjectAtTheEnd:@"CLICK 2"];
+    [_arrayOfSounds addObjectAtTheEnd:@"clockTick1"];
+    [_arrayOfSounds addObjectAtTheEnd:@"CLOCK TICK 1"];
+    [_arrayOfSounds addObjectAtTheEnd:@"clockTick2"];
+    [_arrayOfSounds addObjectAtTheEnd:@"CLOCK TICK 2"];
+    [_arrayOfSounds addObjectAtTheEnd:@"natural1"];
+    [_arrayOfSounds addObjectAtTheEnd:@"NATURAL 1"];
+    [_arrayOfSounds addObjectAtTheEnd:@"natural2"];
+    [_arrayOfSounds addObjectAtTheEnd:@"NATURAL 2"];
+    [_arrayOfSounds addObjectAtTheEnd:@"natural3"];
+    [_arrayOfSounds addObjectAtTheEnd:@"NATURAL 3"];
+    [_arrayOfSounds addObjectAtTheEnd:@"stickHigh"];
+    [_arrayOfSounds addObjectAtTheEnd:@"STICK HIGH"];
+    [_arrayOfSounds addObjectAtTheEnd:@"stickLow"];
+    [_arrayOfSounds addObjectAtTheEnd:@"STICK LOW"];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -49,21 +64,40 @@
     return 1;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return _dictionaryOfSounds.count;
+- (NSInteger)tableView:(UITableView *)tableView
+ numberOfRowsInSection:(NSInteger)section {
+    return 13;
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"soundCell" forIndexPath:indexPath];
+- (void)tableView:(UITableView *)tableView
+didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [_arrayOfSounds setIndexAsActual:indexPath.row];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView
+         cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    AMSoundTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"soundCell"
+                                                            forIndexPath:indexPath];
+    [cell assignSoundKey:_arrayOfSounds[2*indexPath.row+1]];
+    [cell assignSoundValue:_arrayOfSounds[2*indexPath.row]];
     return cell;
 }
 
-- (NSString*)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
+- (NSString*)tableView:(UITableView *)tableView
+titleForHeaderInSection:(NSInteger)section{
     return @"SOUNDS";
 }
 
-- (NSString*)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section{
+- (NSString*)tableView:(UITableView *)tableView
+titleForFooterInSection:(NSInteger)section{
     return @"Select one sound to be applied to the track.";
+}
+
+- (void)updateIndexSelected {
+    [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:_arrayOfSounds.getActualIndex
+                                                            inSection:0]
+                                animated:NO
+                          scrollPosition:UITableViewScrollPositionNone];
 }
 
 @end

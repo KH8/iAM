@@ -75,6 +75,7 @@
 		A4E7B6241AB745E200D7D357 /* grid.png in Resources */ = {isa = PBXBuildFile; fileRef = A4E7B6201AB745E200D7D357 /* grid.png */; };
 		A4E7B6251AB745E200D7D357 /* list.png in Resources */ = {isa = PBXBuildFile; fileRef = A4E7B6211AB745E200D7D357 /* list.png */; };
 		A4E7B6261AB745E200D7D357 /* settings.png in Resources */ = {isa = PBXBuildFile; fileRef = A4E7B6221AB745E200D7D357 /* settings.png */; };
+		A4E7D9B51ADAF3C000B01BCD /* AMSoundsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4E7D9B41ADAF3C000B01BCD /* AMSoundsTableViewController.m */; };
 		A4F24F8B1ABC914F00BF47C3 /* AMMutableArray.m in Sources */ = {isa = PBXBuildFile; fileRef = A4F24F8A1ABC914F00BF47C3 /* AMMutableArray.m */; };
 /* End PBXBuildFile section */
 
@@ -191,6 +192,8 @@
 		A4E7B6201AB745E200D7D357 /* grid.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = grid.png; path = Icons/grid.png; sourceTree = "<group>"; };
 		A4E7B6211AB745E200D7D357 /* list.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = list.png; path = Icons/list.png; sourceTree = "<group>"; };
 		A4E7B6221AB745E200D7D357 /* settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = settings.png; path = Icons/settings.png; sourceTree = "<group>"; };
+		A4E7D9B31ADAF3C000B01BCD /* AMSoundsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMSoundsTableViewController.h; sourceTree = "<group>"; };
+		A4E7D9B41ADAF3C000B01BCD /* AMSoundsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMSoundsTableViewController.m; sourceTree = "<group>"; };
 		A4F24F891ABC914F00BF47C3 /* AMMutableArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMMutableArray.h; path = Core/Auxiliaries/AMMutableArray.h; sourceTree = "<group>"; };
 		A4F24F8A1ABC914F00BF47C3 /* AMMutableArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMMutableArray.m; path = Core/Auxiliaries/AMMutableArray.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -243,6 +246,8 @@
 				A45F60B11AD1C30900954D2F /* AMPropertiesTableViewController.m */,
 				A49A5A751AD71A56000B0080 /* AMVolumeSlider.h */,
 				A49A5A761AD71A56000B0080 /* AMVolumeSlider.m */,
+				A4E7D9B31ADAF3C000B01BCD /* AMSoundsTableViewController.h */,
+				A4E7D9B41ADAF3C000B01BCD /* AMSoundsTableViewController.m */,
 			);
 			path = Visual;
 			sourceTree = "<group>";
@@ -576,6 +581,7 @@
 				A4A132A51A95287400D6E2F1 /* AMSequenceStep.m in Sources */,
 				A45A3D6E1A71B4DF00039934 /* AMCollectionViewController.m in Sources */,
 				A4A0CD841AD084E600618B1F /* CDBar.m in Sources */,
+				A4E7D9B51ADAF3C000B01BCD /* AMSoundsTableViewController.m in Sources */,
 				A4A0CD851AD084E600618B1F /* CDNote.m in Sources */,
 				A46069031AC74E0E00E9377F /* AMNavigationViewController.m in Sources */,
 				A4A0CD871AD084E600618B1F /* CDStep.m in Sources */,

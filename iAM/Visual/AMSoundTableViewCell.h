@@ -8,10 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "AMSequenceStep.h"
+#import "AMPlayer.h"
 
 @interface AMSoundTableViewCell : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UILabel *soundTitle;
+
+- (void)assignPlayer:(AMPlayer*)player;
 
 - (void)assignSoundKey: (NSString*)key;
 - (void)assignSoundValue: (NSString*)value;

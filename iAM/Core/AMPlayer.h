@@ -8,14 +8,17 @@
 
 @interface AMPlayer : NSObject
 
-- (id)initWithFile: (NSString*)aFileName
-            ofType: (NSString*)aFileType;
+- (id)initWithFile: (NSString *)aFileName
+            andKey: (NSString *)aFileKey
+            ofType: (NSString *)aFileType;
 
 - (void)playSound;
 - (void)stopSound;
 
-- (void)setSoundName:(NSString*)newName;
+- (void)setSoundName:(NSString*)newName
+             withKey:(NSString*)newKey;
 - (NSString*)getSoundName;
+- (NSString*)getSoundKey;
 
 - (void)setGeneralVolumeFactor:(NSNumber*)volume;
 - (NSNumber*)getGeneralVolumeFactor;

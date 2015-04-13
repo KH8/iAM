@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AMPlayer.h"
 
-@interface AMSoundsTableViewController : UITableViewController
+@interface AMSoundsTableViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate>
+
+- (void)assignPlayer:(AMPlayer*)player;
 
 @end

@@ -12,6 +12,7 @@
 @interface AMSoundsTableViewController ()
 
 @property AMMutableArray *arrayOfSounds;
+@property AMPlayer *amPlayer;
 
 @end
 
@@ -20,7 +21,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self initDictionaryOfSounds];
-    [self updateIndexSelected];
 }
 
 - (void)initDictionaryOfSounds{
@@ -54,6 +54,10 @@
     [_arrayOfSounds addObjectAtTheEnd:@"STICK LOW"];
 }
 
+- (void)assignPlayer:(AMPlayer*)player{
+    _amPlayer = player;
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
@@ -80,6 +84,12 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
                                                             forIndexPath:indexPath];
     [cell assignSoundKey:_arrayOfSounds[2*indexPath.row+1]];
     [cell assignSoundValue:_arrayOfSounds[2*indexPath.row]];
+    [cell assignPlayer:_amPlayer];
+    
+    /*if([_amPlayer getSoundKey] == _arrayOfSounds[2*indexPath.row+1]){
+        [cell setSelected:YES animated:NO];
+    }*/
+    
     return cell;
 }
 
@@ -93,11 +103,5 @@ titleForFooterInSection:(NSInteger)section{
     return @"Select one sound to be applied to the track.";
 }
 
-- (void)updateIndexSelected {
-    [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:_arrayOfSounds.getActualIndex
-                                                            inSection:0]
-                                animated:NO
-                          scrollPosition:UITableViewScrollPositionNone];
-}
 
 @end

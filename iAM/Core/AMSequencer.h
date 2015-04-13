@@ -33,4 +33,6 @@
 - (void)setSequence:(AMSequence *)newSequence;
 - (AMSequence *)getSequence;
 
+- (NSArray*)getArrayOfPlayers;
+
 @end

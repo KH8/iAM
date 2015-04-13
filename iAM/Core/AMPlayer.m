@@ -11,6 +11,7 @@
 @property AVAudioPlayer *audioPlayer;
 
 @property NSString *fileName;
+@property NSString *fileKey;
 @property NSString *fileType;
 
 @property (nonatomic) NSNumber *generalVolumeFactor;
@@ -20,12 +21,14 @@
 
 @implementation AMPlayer
 
-- (id)initWithFile:(NSString *)aFileName
-            ofType: (NSString*)aFileType{
+- (id)initWithFile: (NSString *)aFileName
+            andKey: (NSString *)aFileKey
+            ofType: (NSString *)aFileType{
     self = [super init];
     if (self)
     {
         _fileName = aFileName;
+        _fileKey = aFileKey;
         _fileType = aFileType;
         _generalVolumeFactor = [[NSNumber alloc] initWithFloat:0.9];
         _volumeFactor = [[NSNumber alloc] initWithFloat:0.9];
@@ -53,12 +56,18 @@
     _audioPlayer = nil;
 }
 
-- (void)setSoundName:(NSString*)newName{
+- (void)setSoundName:(NSString*)newName
+             withKey:(NSString*)newKey{
     _fileName = newName;
+    _fileKey = newKey;
 }
 
 - (NSString*)getSoundName{
     return _fileName;
+}
+
+- (NSString*)getSoundKey{
+    return _fileKey;
 }
 
 - (void)setGeneralVolumeFactor:(NSNumber*)volume{

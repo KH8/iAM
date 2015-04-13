@@ -90,10 +90,13 @@
 
 - (void)initPlayers{
     AMPlayer *amPlayer0 = [[AMPlayer alloc] initWithFile:@"artificialHigh1"
+                                                  andKey:@"ARTIFICIAL HIGH 1"
                                                   ofType:@"aif"];
     AMPlayer *amPlayer1 = [[AMPlayer alloc] initWithFile:@"artificialLow1"
+                                                  andKey:@"ARTIFICIAL LOW 1"
                                                   ofType:@"aif"];
     AMPlayer *amPlayer2 = [[AMPlayer alloc] initWithFile:@"artificialLow2"
+                                                  andKey:@"ARTIFICIAL LOW 2"
                                                   ofType:@"aif"];
     _arrayOfPlayers = @[amPlayer0,amPlayer1,amPlayer2];
 }
@@ -150,6 +153,10 @@
 
 - (AMSequence *)getSequence {
     return _mainSequence;
+}
+
+- (NSArray*)getArrayOfPlayers{
+    return _arrayOfPlayers;
 }
 
 - (void)onTick {

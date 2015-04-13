@@ -22,7 +22,6 @@
 @implementation AMSoundTableViewCell
 
 - (void)awakeFromNib {
-    self.selectionStyle = UITableViewCellSelectionStyleNone;
 }
 
 - (void)setSelectionMarkerVisible {
@@ -43,7 +42,12 @@
 }
 
 - (void) playSound {
+    [_amPlayer setSoundName:_value withKey:_key];
     [_amPlayer playSound];
+}
+
+- (void)assignPlayer:(AMPlayer*)player{
+    _amPlayer = player;
 }
 
 - (void)assignSoundKey: (NSString*)key{
@@ -53,8 +57,6 @@
 
 - (void)assignSoundValue: (NSString*)value{
     _value = value;
-    _amPlayer = [[AMPlayer alloc] initWithFile:_value
-                                        ofType:@"aif"];
 }
 
 - (NSString*)getValue{

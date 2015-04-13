@@ -445,7 +445,7 @@
                                                     </constraints>
                                                     <state key="normal" title="Button" image="details.png"/>
                                                     <connections>
-                                                        <segue destination="kee-6o-asG" kind="show" id="lyY-cL-eTX"/>
+                                                        <segue destination="kee-6o-asG" kind="show" identifier="sw_track1" id="lyY-cL-eTX"/>
                                                     </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LOW COWBELL" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HPE-yE-lCq">
@@ -511,7 +511,7 @@
                                                     </constraints>
                                                     <state key="normal" title="Button" image="details.png"/>
                                                     <connections>
-                                                        <segue destination="kee-6o-asG" kind="show" id="TkD-Ko-VTP"/>
+                                                        <segue destination="kee-6o-asG" kind="show" identifier="sw_track2" id="TkD-Ko-VTP"/>
                                                     </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LOW STICK" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9d1-ZO-uUa">
@@ -577,7 +577,7 @@
                                                     </constraints>
                                                     <state key="normal" title="Button" image="details.png"/>
                                                     <connections>
-                                                        <segue destination="kee-6o-asG" kind="show" id="5DO-Gs-QnJ"/>
+                                                        <segue destination="kee-6o-asG" kind="show" identifier="sw_track3" id="5DO-Gs-QnJ"/>
                                                     </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HIGH STICK" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KMZ-bq-5Pj">
@@ -641,6 +641,9 @@
                     <connections>
                         <outlet property="navigationBarItem" destination="glS-80-XJe" id="GPo-Ub-qru"/>
                         <outlet property="sideMenuButton" destination="qVe-k9-gnl" id="18v-4O-XoW"/>
+                        <outlet property="track1SoundLabel" destination="HPE-yE-lCq" id="lch-P4-IYj"/>
+                        <outlet property="track2SoundLabel" destination="9d1-ZO-uUa" id="U65-Ov-bIo"/>
+                        <outlet property="track3SoundLabel" destination="KMZ-bq-5Pj" id="hyO-K5-qk6"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bUw-3K-QeL" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1141,7 +1144,7 @@ written by: Krzysztof Reczek</string>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="separatorColor" white="0.10000000000000001" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="soundCell" id="pGq-Ap-eUB" customClass="AMSoundTableViewCell">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="soundCell" id="pGq-Ap-eUB" customClass="AMSoundTableViewCell">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pGq-Ap-eUB" id="3gX-92-Tee">
                                     <autoresizingMask key="autoresizingMask"/>

@@ -27,7 +27,8 @@
     _selectionImageView.tintColor = [UIColor orangeColor];
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
+- (void)setSelected:(BOOL)selected
+           animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
     [_stepTitle resignFirstResponder];
     

@@ -115,8 +115,7 @@ static NSString * const reuseIdentifier = @"mySequenceStepCell";
 }
 
 - (void)tableView:(UITableView *)tableView
-didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
+didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [_mainSequence setIndexAsActual:(NSUInteger) indexPath.row];
 }
 

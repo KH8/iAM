@@ -13,6 +13,7 @@
 
 @property AMMutableArray *arrayOfSounds;
 @property AMPlayer *amPlayer;
+@property NSIndexPath *indexSelected;
 
 @end
 
@@ -21,6 +22,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self initDictionaryOfSounds];
+    [self initIndexSelection];
 }
 
 - (void)initDictionaryOfSounds{
@@ -54,6 +56,14 @@
     [_arrayOfSounds addObjectAtTheEnd:@"STICK LOW"];
 }
 
+- (void)initIndexSelection{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.tableView selectRowAtIndexPath:_indexSelected
+                                    animated:NO
+                              scrollPosition:UITableViewScrollPositionNone];
+    });
+}
+
 - (void)assignPlayer:(AMPlayer*)player{
     _amPlayer = player;
 }
@@ -73,24 +83,32 @@
     return 13;
 }
 
+- (UITableViewCell *)tableView:(UITableView *)tableView
+         cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    AMSoundTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"soundCell"
+                                                            forIndexPath:indexPath];
+    NSString *key = _arrayOfSounds[2*indexPath.row+1];
+    NSString *value = _arrayOfSounds[2*indexPath.row];
+    
+    [cell assignSoundKey:key];
+    [cell assignSoundValue:value];
+    [cell assignPlayer:_amPlayer];
+    
+    if([[_amPlayer getSoundKey] isEqualToString:key]){
+        _indexSelected = indexPath;
+    }
+    
+    return cell;
+}
+
 - (void)tableView:(UITableView *)tableView
 didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [_arrayOfSounds setIndexAsActual:indexPath.row];
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView
-         cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    AMSoundTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"soundCell"
-                                                            forIndexPath:indexPath];
-    [cell assignSoundKey:_arrayOfSounds[2*indexPath.row+1]];
-    [cell assignSoundValue:_arrayOfSounds[2*indexPath.row]];
-    [cell assignPlayer:_amPlayer];
+- (void)tableView:(UITableView *)tableView
+didDeselectRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    /*if([_amPlayer getSoundKey] == _arrayOfSounds[2*indexPath.row+1]){
-        [cell setSelected:YES animated:NO];
-    }*/
-    
-    return cell;
 }
 
 - (NSString*)tableView:(UITableView *)tableView

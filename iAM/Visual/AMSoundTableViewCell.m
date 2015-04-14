@@ -34,6 +34,7 @@
 - (void)setSelected:(BOOL)selected
            animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
+    
     _selectionImageView.tintColor = [UIColor blackColor];
     if(self.isSelected){
         [self setSelectionMarkerVisible];

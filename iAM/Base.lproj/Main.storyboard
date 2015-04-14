@@ -319,6 +319,9 @@
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="30" id="dbh-MC-6r8"/>
                                                     </constraints>
+                                                    <connections>
+                                                        <action selector="generalTrackVolumeChanged:" destination="3jw-zo-k6R" eventType="valueChanged" id="h2p-3T-CQD"/>
+                                                    </connections>
                                                 </slider>
                                             </subviews>
                                             <constraints>
@@ -416,6 +419,9 @@
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="30" id="XKM-P9-Drl"/>
                                                     </constraints>
+                                                    <connections>
+                                                        <action selector="track1VolumeChanged:" destination="3jw-zo-k6R" eventType="valueChanged" id="xKd-dY-0u5"/>
+                                                    </connections>
                                                 </slider>
                                             </subviews>
                                             <constraints>
@@ -482,6 +488,9 @@
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="30" id="Dcu-Wk-Bw6"/>
                                                     </constraints>
+                                                    <connections>
+                                                        <action selector="track2VolumeChanged:" destination="3jw-zo-k6R" eventType="valueChanged" id="w95-lj-whV"/>
+                                                    </connections>
                                                 </slider>
                                             </subviews>
                                             <constraints>
@@ -548,6 +557,9 @@
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="30" id="rai-1S-ejO"/>
                                                     </constraints>
+                                                    <connections>
+                                                        <action selector="track3VolumeChanged:" destination="3jw-zo-k6R" eventType="valueChanged" id="ZrO-Z2-r4H"/>
+                                                    </connections>
                                                 </slider>
                                             </subviews>
                                             <constraints>
@@ -639,10 +651,14 @@
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" translucent="NO" prompted="NO"/>
                     <connections>
+                        <outlet property="generalSlider" destination="r7V-6i-YGz" id="CkE-Ig-vQM"/>
                         <outlet property="navigationBarItem" destination="glS-80-XJe" id="GPo-Ub-qru"/>
                         <outlet property="sideMenuButton" destination="qVe-k9-gnl" id="18v-4O-XoW"/>
+                        <outlet property="track1Slider" destination="Ihd-rd-iue" id="kcZ-rx-Fum"/>
                         <outlet property="track1SoundLabel" destination="HPE-yE-lCq" id="lch-P4-IYj"/>
+                        <outlet property="track2Slider" destination="ghi-za-kSV" id="Egu-Me-DLv"/>
                         <outlet property="track2SoundLabel" destination="9d1-ZO-uUa" id="U65-Ov-bIo"/>
+                        <outlet property="track3Slider" destination="qIA-BK-Pl2" id="QGd-26-c45"/>
                         <outlet property="track3SoundLabel" destination="KMZ-bq-5Pj" id="hyO-K5-qk6"/>
                     </connections>
                 </tableViewController>

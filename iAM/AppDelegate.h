@@ -21,5 +21,8 @@
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;
 
+- (void)setGlobalTintColor:(UIColor*)color;
+- (void)setGlobalColorTheme:(bool)isDark;
+
 @end
 

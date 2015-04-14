@@ -18,10 +18,12 @@
 
 @interface AppDelegate ()
 
+@property (nonatomic) UIColor *globalTintColor;
+@property (nonatomic) bool darkColorTheme;
+
 @end
 
 @implementation AppDelegate
-
 
 @synthesize window;
 
@@ -58,6 +60,8 @@
     [sequencer setSequence:(AMSequence *)sequencerSingleton.arrayOfSequences.getActualObject];
     [dataMapper getConfigurationOfSequencer:sequencer fronContext:context];
 
+    [self setGlobalTintColor:[UIColor orangeColor]];
+    [self setGlobalColorTheme:YES];
     [self setupAppearance];
     
     return YES;
@@ -135,14 +139,22 @@
     }
 }
 
--(void)setupAppearance {
+- (void)setGlobalTintColor:(UIColor*)color{
+    _globalTintColor = color;
+}
+
+- (void)setGlobalColorTheme:(bool)isDark{
+    _darkColorTheme = isDark;
+}
+
+- (void)setupAppearance {
     UIImage *minImage = [[UIImage imageNamed:@"speakerCalm.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
     UIImage *maxImage = [[UIImage imageNamed:@"speakerLoud.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
     
     [[AMVolumeSlider appearance] setMinimumValueImage:minImage];
     [[AMVolumeSlider appearance] setMaximumValueImage:maxImage];
     
-    UIColor *globalColor = [UIColor orangeColor];
+    UIColor *globalColor = _globalTintColor;
     
     [[UIView appearance] setTintColor:globalColor];
     [[UIPageControl appearance] setCurrentPageIndicatorTintColor:globalColor];

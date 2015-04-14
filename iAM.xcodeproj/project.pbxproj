@@ -282,6 +282,7 @@
 		A44910761A5F38EF00E8C6DB /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				8F026D41013513503897B9C8 /* Sounds */,
 				A4F24F881ABC90F500BF47C3 /* Auxiliaries */,
 				A41E3CA41A9D1057004C7675 /* AMSequencerSingleton.h */,
 				A41E3CA51A9D1057004C7675 /* AMSequencerSingleton.m */,
@@ -299,7 +300,6 @@
 				A4A132A71A9528A800D6E2F1 /* AMSequence.m */,
 				A4A132A31A95287400D6E2F1 /* AMSequenceStep.h */,
 				A4A132A41A95287400D6E2F1 /* AMSequenceStep.m */,
-				8F026D41013513503897B9C8 /* Sounds */,
 			);
 			name = Core;
 			sourceTree = "<group>";

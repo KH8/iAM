@@ -30,8 +30,8 @@
         _fileName = aFileName;
         _fileKey = aFileKey;
         _fileType = aFileType;
-        _generalVolumeFactor = [[NSNumber alloc] initWithFloat:0.9];
-        _volumeFactor = [[NSNumber alloc] initWithFloat:0.9];
+        _generalVolumeFactor = [[NSNumber alloc] initWithFloat:0.95];
+        _volumeFactor = [[NSNumber alloc] initWithFloat:0.95];
     }
     return self;
 }

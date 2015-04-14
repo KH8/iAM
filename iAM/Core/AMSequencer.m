@@ -10,8 +10,6 @@
 
 @interface AMSequencer ()
 
-@property BOOL debug;
-
 @property NSTimer *mainTimer;
 @property NSDate *auxTimeStamp;
 @property NSRunLoop *runner;
@@ -39,27 +37,27 @@
 
 @implementation AMSequencer
 
-- (void)addSequencerDelegate: (id<AMSequencerDelegate>)delegate{
+- (void)addSequencerDelegate: (id<AMSequencerDelegate>)delegate {
     [_sequencerDelegates addObject: delegate];
 }
 
-- (void)removeSequencerDelegate: (id<AMSequencerDelegate>)delegate{
+- (void)removeSequencerDelegate: (id<AMSequencerDelegate>)delegate {
     [_sequencerDelegates removeObject: delegate];
 }
 
-- (void)delegateSequencerHasStarted{
+- (void)delegateSequencerHasStarted {
     for (id<AMSequencerDelegate> delegate in _sequencerDelegates) {
         [delegate sequenceHasStarted];
     }
 }
 
-- (void)delegateSequencerHasStopped{
+- (void)delegateSequencerHasStopped {
     for (id<AMSequencerDelegate> delegate in _sequencerDelegates) {
         [delegate sequenceHasStopped];
     }
 }
 
-- (void)delegateSequenceHasChanged{
+- (void)delegateSequenceHasChanged {
     for (id<AMSequencerDelegate> delegate in _sequencerDelegates) {
         [delegate sequenceHasChanged];
     }
@@ -68,7 +66,6 @@
 - (id)init {
     self = [super init];
     if (self) {
-        _debug = NO;
         _sequencerDelegates = [NSHashTable weakObjectsHashTable];
         [self initResponders];
         [self initPlayers];
@@ -89,14 +86,14 @@
 }
 
 - (void)initPlayers{
-    AMPlayer *amPlayer0 = [[AMPlayer alloc] initWithFile:@"artificialHigh1"
-                                                  andKey:@"ARTIFICIAL HIGH 1"
+    AMPlayer *amPlayer0 = [[AMPlayer alloc] initWithFile:@""
+                                                  andKey:@""
                                                   ofType:@"aif"];
-    AMPlayer *amPlayer1 = [[AMPlayer alloc] initWithFile:@"artificialLow1"
-                                                  andKey:@"ARTIFICIAL LOW 1"
+    AMPlayer *amPlayer1 = [[AMPlayer alloc] initWithFile:@""
+                                                  andKey:@""
                                                   ofType:@"aif"];
-    AMPlayer *amPlayer2 = [[AMPlayer alloc] initWithFile:@"artificialLow2"
-                                                  andKey:@"ARTIFICIAL LOW 2"
+    AMPlayer *amPlayer2 = [[AMPlayer alloc] initWithFile:@""
+                                                  andKey:@""
                                                   ofType:@"aif"];
     _arrayOfPlayers = @[amPlayer0,amPlayer1,amPlayer2];
 }
@@ -160,16 +157,19 @@
 }
 
 - (void)onTick {
-    if(_debug){
-        NSLog(@"Interval: %f", [_auxTimeStamp timeIntervalSinceNow]);
-        _auxTimeStamp = [NSDate date];
-    }
-    if(_incrementActualBarIndexFlag){
-        [self incrementActualBarIndex];
-        _incrementActualBarIndexFlag = false;
-    }
-    [self clearNotes];
-    [self playNotes];
+    [self performSelectorInBackground:@selector(prepareForAnotherRow)
+                           withObject:nil];
+    [self performSelector:@selector(playNotes) withObject:nil afterDelay:0.01];
+}
+
+- (void)prepareForAnotherRow{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        if(_incrementActualBarIndexFlag){
+            [self incrementActualBarIndex];
+            _incrementActualBarIndexFlag = false;
+        }
+        [self clearNotes];
+    });
 }
 
 - (void)playNotes {

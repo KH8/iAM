@@ -124,10 +124,10 @@
     configuration.soundTrack2Value = @"artificialLow1";
     configuration.soundTrack3Key = @"ARTIFICIAL LOW 2";
     configuration.soundTrack3Value = @"artificialLow2";
-    configuration.volumeGeneral = @0.9;
-    configuration.volumeTrack1 = @0.9;
-    configuration.volumeTrack2 = @0.9;
-    configuration.volumeTrack3 = @0.9;
+    configuration.volumeGeneral = @0.95;
+    configuration.volumeTrack1 = @0.95;
+    configuration.volumeTrack2 = @0.95;
+    configuration.volumeTrack3 = @0.95;
     
     NSError *error;
     if (![context save:&error]) {

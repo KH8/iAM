@@ -14,6 +14,7 @@
 #import "CDNote.h"
 #import "CDBar.h"
 #import "CDSelections.h"
+#import "CDConfiguration.h"
 
 @interface AppDelegate ()
 
@@ -45,13 +46,17 @@
         [self clearContext];
         [self initSequenceCoreDataEntitiesInContext:context];
         [self initSelectionsCoreDataEntitiesInContext:context];
+        [self initConfigurationsCoreDataEntitiesInContext:context];
         [context executeFetchRequest:fetchRequest error:&error];
     }
     
     AMDataMapper *dataMapper = [[AMDataMapper alloc] init];
     AMSequencerSingleton *sequencerSingleton = [AMSequencerSingleton sharedSequencer];
     sequencerSingleton.arrayOfSequences = [dataMapper getActualConfigurationFromContext:context];
-    [sequencerSingleton.sequencer setSequence:(AMSequence *)sequencerSingleton.arrayOfSequences.getActualObject];
+    
+    AMSequencer *sequencer = sequencerSingleton.sequencer;
+    [sequencer setSequence:(AMSequence *)sequencerSingleton.arrayOfSequences.getActualObject];
+    [dataMapper getConfigurationOfSequencer:sequencer fronContext:context];
 
     [self setupAppearance];
     
@@ -110,6 +115,26 @@
     }
 }
 
+- (void)initConfigurationsCoreDataEntitiesInContext: (NSManagedObjectContext*)context{
+    CDConfiguration *configuration = [NSEntityDescription insertNewObjectForEntityForName:@"CDConfiguration"
+                                                                   inManagedObjectContext:context];
+    configuration.soundTrack1Key = @"ARTIFICIAL HIGH 1";
+    configuration.soundTrack1Value = @"artificialHigh1";
+    configuration.soundTrack2Key = @"ARTIFICIAL LOW 1";
+    configuration.soundTrack2Value = @"artificialLow1";
+    configuration.soundTrack3Key = @"ARTIFICIAL LOW 2";
+    configuration.soundTrack3Value = @"artificialLow2";
+    configuration.volumeGeneral = @0.9;
+    configuration.volumeTrack1 = @0.9;
+    configuration.volumeTrack2 = @0.9;
+    configuration.volumeTrack3 = @0.9;
+    
+    NSError *error;
+    if (![context save:&error]) {
+        NSLog(@"Core data error occured: %@", [error localizedDescription]);
+    }
+}
+
 -(void)setupAppearance {
     UIImage *minImage = [[UIImage imageNamed:@"speakerCalm.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
     UIImage *maxImage = [[UIImage imageNamed:@"speakerLoud.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
@@ -148,6 +173,8 @@
     NSManagedObjectContext *context = [self managedObjectContext];
     [dataMapper getCoreDataFromActualConfiguration:sequencerSingleton.arrayOfSequences
                                          inContext:context];
+    [dataMapper getCoreDataConfigurationOfSequencer:sequencerSingleton.sequencer
+                                          inContext:context];
     NSError *error = nil;
     NSManagedObjectContext *managedObjectContext = self.managedObjectContext;
     if (managedObjectContext != nil) {
@@ -161,6 +188,7 @@
 - (void)clearContext{
     [self clearContextWithEntity:@"CDSequence"];
     [self clearContextWithEntity:@"CDSelections"];
+    [self clearContextWithEntity:@"CDConfiguration"];
 }
 
 - (void)clearContextWithEntity:(NSString*)entityString{

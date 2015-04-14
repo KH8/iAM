@@ -12,8 +12,6 @@
 
 @interface CDConfiguration : NSManagedObject
 
-@property (nonatomic, retain) NSString * colorTheme;
-@property (nonatomic, retain) NSString * colorTint;
 @property (nonatomic, retain) NSString * soundTrack1Value;
 @property (nonatomic, retain) NSString * soundTrack2Value;
 @property (nonatomic, retain) NSString * soundTrack3Value;

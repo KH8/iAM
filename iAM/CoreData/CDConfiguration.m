@@ -11,8 +11,6 @@
 
 @implementation CDConfiguration
 
-@dynamic colorTheme;
-@dynamic colorTint;
 @dynamic soundTrack1Value;
 @dynamic soundTrack2Value;
 @dynamic soundTrack3Value;

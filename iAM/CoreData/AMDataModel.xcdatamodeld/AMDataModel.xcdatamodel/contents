@@ -11,9 +11,12 @@
     <entity name="CDConfiguration" representedClassName="CDConfiguration" syncable="YES">
         <attribute name="colorTheme" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="colorTint" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="soundTrack1" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="soundTrack2" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="soundTrack3" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="soundTrack1Key" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="soundTrack1Value" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="soundTrack2Key" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="soundTrack2Value" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="soundTrack3Key" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="soundTrack3Value" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="volumeGeneral" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
         <attribute name="volumeTrack1" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
         <attribute name="volumeTrack2" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
@@ -46,10 +49,10 @@
     </entity>
     <elements>
         <element name="CDBar" positionX="-1730" positionY="-1080" width="128" height="133"/>
+        <element name="CDConfiguration" positionX="-1944" positionY="-864" width="128" height="223"/>
         <element name="CDNote" positionX="-1512" positionY="-1080" width="128" height="88"/>
         <element name="CDSelections" positionX="-2160" positionY="-864" width="128" height="88"/>
         <element name="CDSequence" positionX="-2160" positionY="-1078" width="126" height="103"/>
         <element name="CDStep" positionX="-1944" positionY="-1080" width="128" height="148"/>
-        <element name="CDConfiguration" positionX="-1944" positionY="-864" width="128" height="178"/>
     </elements>
 </model>

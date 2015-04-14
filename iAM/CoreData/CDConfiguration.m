@@ -2,7 +2,7 @@
 //  CDConfiguration.m
 //  iAM
 //
-//  Created by Krzysztof Reczek on 11.04.2015.
+//  Created by Krzysztof Reczek on 14.04.2015.
 //  Copyright (c) 2015 H@E. All rights reserved.
 //
 
@@ -11,14 +11,17 @@
 
 @implementation CDConfiguration
 
-@dynamic soundTrack1;
-@dynamic soundTrack2;
-@dynamic soundTrack3;
+@dynamic colorTheme;
+@dynamic colorTint;
+@dynamic soundTrack1Value;
+@dynamic soundTrack2Value;
+@dynamic soundTrack3Value;
 @dynamic volumeGeneral;
 @dynamic volumeTrack1;
 @dynamic volumeTrack2;
 @dynamic volumeTrack3;
-@dynamic colorTheme;
-@dynamic colorTint;
+@dynamic soundTrack1Key;
+@dynamic soundTrack2Key;
+@dynamic soundTrack3Key;
 
 @end

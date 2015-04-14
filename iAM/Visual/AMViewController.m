@@ -82,7 +82,7 @@
 - (void)loadIcons{
     UIBarButtonItem *originalLeftButton = self.navigationItem.leftBarButtonItem;
     UIButton *face = [UIButton buttonWithType:UIButtonTypeCustom];
-    face.tintColor = [UIColor orangeColor];
+    face.tintColor = [[UIView appearance] tintColor];
     face.bounds = CGRectMake( 26, 26, 26, 26 );
     [face setImage:[[UIImage imageNamed:@"menu.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]
           forState:UIControlStateNormal];

@@ -54,7 +54,7 @@ static NSString * const reuseIdentifier = @"myMenuStepCell";
                                                                         forIndexPath:indexPath];
     [cell assignSequence:sequence];
     if(indexPath.row == 0){
-        cell.textLabel.textColor = [UIColor orangeColor];
+        cell.textLabel.textColor = [[UIView appearance] tintColor];
     }
     return cell;
 }

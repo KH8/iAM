@@ -356,9 +356,7 @@
                                                         <constraint firstAttribute="width" constant="100" id="vua-LT-5lt"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
-                                                    <state key="normal" title="ORANGE">
-                                                        <color key="titleColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    </state>
+                                                    <state key="normal" title="ORANGE"/>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -389,9 +387,7 @@
                                                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="gU7-gi-wKv"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
-                                                    <state key="normal" title="DARK">
-                                                        <color key="titleColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    </state>
+                                                    <state key="normal" title="DARK"/>
                                                 </button>
                                             </subviews>
                                             <constraints>

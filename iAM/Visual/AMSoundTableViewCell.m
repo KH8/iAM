@@ -28,7 +28,7 @@
     _selectionImageView.image = [[UIImage imageNamed:@"selectedLeft.png"]
                                  imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
     _selectionImageView.contentMode = UIViewContentModeScaleAspectFit;
-    _selectionImageView.tintColor = [UIColor orangeColor];
+    _selectionImageView.tintColor = [[UIView appearance] tintColor];
 }
 
 - (void)setSelected:(BOOL)selected

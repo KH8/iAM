@@ -19,12 +19,13 @@
 
 - (void)awakeFromNib {
     [self adjustTextFieldsFrame];
+    _stepTitle.textColor = [[UIView appearance] tintColor];
 }
 
 - (void)setSelectionMarkerVisible {
     _selectionImageView.image = [[UIImage imageNamed:@"selected.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
     _selectionImageView.contentMode = UIViewContentModeScaleAspectFit;
-    _selectionImageView.tintColor = [UIColor orangeColor];
+    _selectionImageView.tintColor = [[UIView appearance] tintColor];
 }
 
 - (void)setSelected:(BOOL)selected
@@ -64,7 +65,7 @@
     }
     [button addTarget:self action:@selector(changeStepType)
      forControlEvents:UIControlEventTouchUpInside];
-    button.tintColor = [UIColor orangeColor];
+    button.tintColor = [[UIView appearance] tintColor];
     self.accessoryType = UITableViewCellAccessoryDetailButton;
     self.accessoryView = button;
 }

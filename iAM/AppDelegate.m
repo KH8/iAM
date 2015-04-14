@@ -141,6 +141,11 @@
     
     [[AMVolumeSlider appearance] setMinimumValueImage:minImage];
     [[AMVolumeSlider appearance] setMaximumValueImage:maxImage];
+    
+    UIColor *globalColor = [UIColor orangeColor];
+    
+    [[UIView appearance] setTintColor:globalColor];
+    [[UIPageControl appearance] setCurrentPageIndicatorTintColor:globalColor];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

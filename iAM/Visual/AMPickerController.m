@@ -63,7 +63,7 @@ numberOfRowsInComponent:(NSInteger)component {
     label.text = [NSString stringWithFormat:@"%ld", (long)[pickerData[(NSUInteger) row] integerValue]];
     label.font = [UIFont systemFontOfSize:24];
     label.textAlignment = NSTextAlignmentCenter;
-    label.textColor = [UIColor orangeColor];
+    label.textColor = [[UIView appearance] tintColor];
     label.backgroundColor = [UIColor clearColor];
     [label sizeToFit];
     return label;

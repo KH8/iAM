@@ -217,18 +217,18 @@ didDeselectRowAtIndexPath:(NSIndexPath *)indexPath{
                     selector:@selector(onIncrementLoop:)
               buttonPosition:3
                         size:22
-                       color:[UIColor orangeColor]];
+                       color:[[UIView appearance] tintColor]];
     [self setBottomBarButton:_tempDecrementButton
              withPictureName:@"decloop.png"
                     selector:@selector(onDecrementLoop:)
               buttonPosition:1
                         size:22
-                       color:[UIColor orangeColor]];
+                       color:[[UIView appearance] tintColor]];
 
     AMSequenceStep *step = (AMSequenceStep *)_mainSequence.getActualObject;
     _tempLoopCountButton = [[UIBarButtonItem alloc] init];
     _tempLoopCountButton.title = [NSString stringWithFormat:@"%ld", (long)step.getNumberOfLoops];
-    _tempLoopCountButton.tintColor = [UIColor orangeColor];
+    _tempLoopCountButton.tintColor = [[UIView appearance] tintColor];
     [self replaceObjectInToolBarAtIndex:2
                              withObject:_tempLoopCountButton];
 }

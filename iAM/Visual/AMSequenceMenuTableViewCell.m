@@ -32,7 +32,7 @@
               animated:animated];
     _titleLabel.textColor = [UIColor grayColor];
     if(self.isSelected) {
-        _titleLabel.textColor = [UIColor orangeColor];
+        _titleLabel.textColor = [[UIView appearance] tintColor];
     }
 }
 

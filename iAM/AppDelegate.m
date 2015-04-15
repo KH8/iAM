@@ -14,10 +14,10 @@
 @synthesize window;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    _appearanceManager = [[AMAppearanceManager alloc] init];
-    [_appearanceManager loadContext];
     _configurationManager = [[AMConfigurationManager alloc] init];
     [_configurationManager loadContext];
+    _appearanceManager = [[AMAppearanceManager alloc] init];
+    [_appearanceManager loadContext];
     return YES;
 }
 
@@ -41,7 +41,7 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application
 {
-    [_appearanceManager saveContext];
     [_configurationManager saveContext];
+    [_appearanceManager saveContext];
 }
 @end

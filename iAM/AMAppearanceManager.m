@@ -9,6 +9,7 @@
 #import "AMAppearanceManager.h"
 #import "AMVolumeSlider.h"
 #import "AppDelegate.h"
+#import "CDAppearance.h"
 
 @interface AMAppearanceManager ()
 
@@ -28,8 +29,8 @@
     self = [super init];
     if (self) {
         [self initDictionaries];
-        _globalTintColorKey = @"ORANGE";
-        _globalColorThemeKey = @"DARK";
+        _globalTintColorKey = @"";
+        _globalColorThemeKey = @"";
     }
     return self;
 }
@@ -51,16 +52,72 @@
                       };
 }
 
+- (void)initAppearanceCoreDataEntitiesInContext: (NSManagedObjectContext*)context {
+    CDAppearance *appearance = [NSEntityDescription insertNewObjectForEntityForName:@"CDAppearance"
+                                                             inManagedObjectContext:context];
+    appearance.tintColorKey = @"ORANGE";
+    appearance.colorThemeKey = @"DARK";
+    
+    NSError *error;
+    if (![context save:&error]) {
+        NSLog(@"Core data error occured: %@", [error localizedDescription]);
+    }
+}
+
 - (void)loadContext{
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    NSManagedObjectContext *context = [[appDelegate configurationManager] managedObjectContext];
+    
+    NSError *error;
+    if (![context save:&error]) {
+        NSLog(@"Core data error occured: %@", [error localizedDescription]);
+    }
+    
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"CDAppearance"
+                                              inManagedObjectContext:context];
+    [fetchRequest setEntity:entity];
+    NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:&error];
+    if(fetchedObjects.count == 0){
+        [self clearContext];
+        [self initAppearanceCoreDataEntitiesInContext:context];
+        fetchedObjects = [context executeFetchRequest:fetchRequest error:&error];
+    }
+    CDAppearance *appearance = fetchedObjects[0];
+    
+    _globalTintColorKey = appearance.tintColorKey;
+    _globalColorThemeKey = appearance.colorThemeKey;
+    
     [self setupAppearance];
 }
 
 - (void)saveContext{
+    [self clearContext];
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    NSManagedObjectContext *context = [[appDelegate configurationManager] managedObjectContext];
+    CDAppearance *appearance = [NSEntityDescription insertNewObjectForEntityForName:@"CDAppearance"
+                                                                inManagedObjectContext:context];
+    appearance.tintColorKey = _globalTintColorKey;
+    appearance.colorThemeKey = _globalColorThemeKey;
     
+    NSError *error;
+    if (![context save:&error]) {
+        NSLog(@"Core data error occured: %@", [error localizedDescription]);
+    }
+}
+
+- (void)clearContextWithEntity:(NSString*)entityString {
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    NSManagedObjectContext *context = [[appDelegate configurationManager] managedObjectContext];
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    [fetchRequest setEntity:[NSEntityDescription entityForName:entityString inManagedObjectContext:context]];
+    NSArray * result = [context executeFetchRequest:fetchRequest error:nil];
+    for (id entity in result)
+        [context deleteObject:entity];
 }
 
 - (void)clearContext{
-    
+    [self clearContextWithEntity:@"CDAppearance"];
 }
 
 - (void)changeGlobalTintColor{

@@ -19,7 +19,7 @@
 @implementation AMDataMapper
 
 - (void)getConfigurationOfSequencer:(AMSequencer*)sequencer
-                        fronContext:(NSManagedObjectContext*)context{
+                        fromContext:(NSManagedObjectContext*)context{
     NSError *error;
     if (![context save:&error]) {
         NSLog(@"Core data error occured: %@", [error localizedDescription]);

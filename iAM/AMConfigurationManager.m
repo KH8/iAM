@@ -10,6 +10,7 @@
 #import "AMDataMapper.h"
 #import "AMSequencerSingleton.h"
 #import "AppDelegate.h"
+#import "CDAppearance.h"
 #import "CDConfiguration.h"
 #import "CDSelections.h"
 #import "CDSequence.h"
@@ -122,7 +123,7 @@
     
     AMSequencer *sequencer = sequencerSingleton.sequencer;
     [sequencer setSequence:(AMSequence *)sequencerSingleton.arrayOfSequences.getActualObject];
-    [dataMapper getConfigurationOfSequencer:sequencer fronContext:context];
+    [dataMapper getConfigurationOfSequencer:sequencer fromContext:context];
 }
 
 - (void)saveContext {
@@ -155,8 +156,8 @@
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     [fetchRequest setEntity:[NSEntityDescription entityForName:entityString inManagedObjectContext:context]];
     NSArray * result = [context executeFetchRequest:fetchRequest error:nil];
-    for (id sequence in result)
-        [context deleteObject:sequence];
+    for (id entity in result)
+        [context deleteObject:entity];
 }
 
 #pragma mark - Core Data stack

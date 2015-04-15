@@ -56,6 +56,7 @@
 		A4C47C1A1A8BB68E002CF325 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A4C47C191A8BB68E002CF325 /* Images.xcassets */; };
 		A4C59DB01ADED12200DDA9A0 /* AMConfigurationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A4C59DAF1ADED12200DDA9A0 /* AMConfigurationManager.m */; };
 		A4C59DB31ADED17600DDA9A0 /* AMAppearanceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A4C59DB21ADED17600DDA9A0 /* AMAppearanceManager.m */; };
+		A4C59DB61ADEEEB400DDA9A0 /* CDAppearance.m in Sources */ = {isa = PBXBuildFile; fileRef = A4C59DB51ADEEEB400DDA9A0 /* CDAppearance.m */; };
 		A4CB2BDD1AD9C2E8007D2584 /* artificialHigh1.aif in Resources */ = {isa = PBXBuildFile; fileRef = A4CB2BD01AD9C2E8007D2584 /* artificialHigh1.aif */; };
 		A4CB2BDE1AD9C2E8007D2584 /* artificialHigh2.aif in Resources */ = {isa = PBXBuildFile; fileRef = A4CB2BD11AD9C2E8007D2584 /* artificialHigh2.aif */; };
 		A4CB2BDF1AD9C2E8007D2584 /* artificialLow1.aif in Resources */ = {isa = PBXBuildFile; fileRef = A4CB2BD21AD9C2E8007D2584 /* artificialLow1.aif */; };
@@ -178,6 +179,8 @@
 		A4C59DAF1ADED12200DDA9A0 /* AMConfigurationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMConfigurationManager.m; sourceTree = "<group>"; };
 		A4C59DB11ADED17600DDA9A0 /* AMAppearanceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMAppearanceManager.h; sourceTree = "<group>"; };
 		A4C59DB21ADED17600DDA9A0 /* AMAppearanceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMAppearanceManager.m; sourceTree = "<group>"; };
+		A4C59DB41ADEEEB400DDA9A0 /* CDAppearance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDAppearance.h; path = CoreData/CDAppearance.h; sourceTree = "<group>"; };
+		A4C59DB51ADEEEB400DDA9A0 /* CDAppearance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CDAppearance.m; path = CoreData/CDAppearance.m; sourceTree = "<group>"; };
 		A4CB2BD01AD9C2E8007D2584 /* artificialHigh1.aif */ = {isa = PBXFileReference; lastKnownFileType = file; name = artificialHigh1.aif; path = Core/Sounds/artificialHigh1.aif; sourceTree = "<group>"; };
 		A4CB2BD11AD9C2E8007D2584 /* artificialHigh2.aif */ = {isa = PBXFileReference; lastKnownFileType = file; name = artificialHigh2.aif; path = Core/Sounds/artificialHigh2.aif; sourceTree = "<group>"; };
 		A4CB2BD21AD9C2E8007D2584 /* artificialLow1.aif */ = {isa = PBXFileReference; lastKnownFileType = file; name = artificialLow1.aif; path = Core/Sounds/artificialLow1.aif; sourceTree = "<group>"; };
@@ -428,6 +431,8 @@
 				A4AA2B491AC5FD9B0076FDF6 /* AMDataMapper.h */,
 				A4AA2B4A1AC5FD9B0076FDF6 /* AMDataMapper.m */,
 				A4A4B2AE1AC0C4F00099A746 /* AMDataModel.xcdatamodeld */,
+				A4C59DB41ADEEEB400DDA9A0 /* CDAppearance.h */,
+				A4C59DB51ADEEEB400DDA9A0 /* CDAppearance.m */,
 			);
 			name = CoreData;
 			sourceTree = "<group>";
@@ -593,6 +598,7 @@
 				8F0B34AA1C650F6EBD78FA56 /* AMSequencer.m in Sources */,
 				A41C08EB1A927435006F0F06 /* AMSequenceTableController.m in Sources */,
 				A4A4B2B01AC0C4F00099A746 /* AMDataModel.xcdatamodeld in Sources */,
+				A4C59DB61ADEEEB400DDA9A0 /* CDAppearance.m in Sources */,
 				A49A5A7C1AD7264D000B0080 /* CDSelections.m in Sources */,
 				A41C08F11A92803B006F0F06 /* AMSequenceMenuTableViewController.m in Sources */,
 				8F0B7BBFD13CA2A424283225 /* AMCollectionViewCell.m in Sources */,

@@ -799,7 +799,6 @@
                                                 </label>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Label" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pXz-Eu-HxI">
                                                     <rect key="frame" x="497" y="5" width="46" height="21"/>
-                                                    <color key="textColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
                                                     <connections>
@@ -945,7 +944,6 @@
                                 </constraints>
                                 <inset key="contentEdgeInsets" minX="-30" minY="-60" maxX="-30" maxY="-60"/>
                                 <state key="normal" title="TAP TEMPO">
-                                    <color key="titleColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -990,17 +988,6 @@
                                             <constraint firstAttribute="width" constant="60" id="hqK-fU-oPe"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                        <color key="textColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NOTE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r5C-1o-HA8">
-                                        <rect key="frame" x="141" y="297" width="28" height="21"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="21" id="Fus-rw-Xsg"/>
-                                            <constraint firstAttribute="height" constant="21" id="u9B-sl-1GJ"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                        <color key="textColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DENSITY" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dlo-2e-TSU">
@@ -1010,7 +997,6 @@
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="60" id="lIQ-kG-ByM"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                        <color key="textColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TEMPO" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gW5-tU-q9X">
@@ -1020,7 +1006,15 @@
                                             <constraint firstAttribute="height" constant="21" id="jBt-Rm-SFJ"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                        <color key="textColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NOTE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r5C-1o-HA8">
+                                        <rect key="frame" x="141" y="297" width="28" height="21"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="21" id="Fus-rw-Xsg"/>
+                                            <constraint firstAttribute="height" constant="21" id="u9B-sl-1GJ"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
@@ -1063,9 +1057,14 @@
                         </connections>
                     </view>
                     <connections>
+                        <outlet property="densityLabel" destination="dlo-2e-TSU" id="JNM-MV-TBn"/>
                         <outlet property="densityPicker" destination="8JB-Pp-4Cc" id="XTJ-ew-7LX"/>
+                        <outlet property="metricLabel" destination="3FK-P2-J7z" id="qj6-AG-YTK"/>
+                        <outlet property="noteLabel" destination="r5C-1o-HA8" id="VVJ-pR-hbs"/>
                         <outlet property="signatureDenominatorPicker" destination="rxW-8T-fOo" id="3j9-i3-eM8"/>
                         <outlet property="signatureNumeratorPicker" destination="bPl-GG-4YA" id="iri-Ag-KCp"/>
+                        <outlet property="tapTempoButton" destination="CRn-gj-ty1" id="uV0-Nz-Xa9"/>
+                        <outlet property="tempoLabel" destination="gW5-tU-q9X" id="Mlg-5S-o9P"/>
                         <outlet property="tempoPicker" destination="ibw-dR-ieT" id="UHi-O8-8tO"/>
                     </connections>
                 </viewController>

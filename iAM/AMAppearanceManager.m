@@ -46,6 +46,7 @@
                      @"RED" : [UIColor redColor],
                      @"BROWN" : [UIColor brownColor],
                      @"WHITE" : [UIColor whiteColor],
+                     @"GRAY" : [UIColor grayColor],
                      };
     _colorThemes = @{ @"DARK" : @1,
                       @"LIGHT" : @2,

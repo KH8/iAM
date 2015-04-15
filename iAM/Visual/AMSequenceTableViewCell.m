@@ -19,7 +19,7 @@
 
 - (void)awakeFromNib {
     [self adjustTextFieldsFrame];
-    _stepTitle.textColor = [[UIView appearance] tintColor];
+    [_stepTitle setTextColor:[[UIView appearance] tintColor]];
 }
 
 - (void)setSelectionMarkerVisible {
@@ -44,6 +44,7 @@
     _stepTitle.text = _sequenceStep.getName;
     _stepSubtitle.text = _sequenceStep.getDescription;
     [self setAccessoryButton:_sequenceStep];
+    [self awakeFromNib];
 }
 
 - (void)setAccessoryButton: (AMSequenceStep*)aStep {

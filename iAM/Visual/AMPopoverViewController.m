@@ -10,6 +10,12 @@
 
 @interface AMPopoverViewController ()
 
+@property (weak, nonatomic) IBOutlet UIButton *tapTempoButton;
+@property (weak, nonatomic) IBOutlet UILabel *metricLabel;
+@property (weak, nonatomic) IBOutlet UILabel *noteLabel;
+@property (weak, nonatomic) IBOutlet UILabel *densityLabel;
+@property (weak, nonatomic) IBOutlet UILabel *tempoLabel;
+
 @end
 
 @implementation AMPopoverViewController{
@@ -19,6 +25,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self loadPickers];
+    [self loadLables];
 }
 
 - (void)loadPickers{
@@ -50,6 +57,15 @@
                                                                dataArray:densityPickerData
                                                            andStartValue:@(bar.getDensity)];
     _densityPickerController.delegate = self;
+}
+
+- (void)loadLables{
+    UIColor *defaultColor = [[UIView appearance] tintColor];
+    [_tapTempoButton setTitleColor:defaultColor forState:UIControlStateNormal];
+    [_metricLabel setTextColor:defaultColor];
+    [_noteLabel setTextColor:defaultColor];
+    [_densityLabel setTextColor:defaultColor];
+    [_tempoLabel setTextColor:defaultColor];
 }
 
 - (NSMutableArray *)createRangeOfValuesStartingFrom: (NSInteger)startValue

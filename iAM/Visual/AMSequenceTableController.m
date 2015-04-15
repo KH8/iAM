@@ -38,6 +38,12 @@ static NSString * const reuseIdentifier = @"mySequenceStepCell";
     [self stepLoopCounterUpdate];
 }
 
+- (void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    [self updateComponents];
+    
+}
+
 - (void)initSequence{
     AMSequencerSingleton *sequencerSingleton = [AMSequencerSingleton sharedSequencer];
     _mainSequencer = sequencerSingleton.sequencer;

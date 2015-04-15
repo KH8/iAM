@@ -8,11 +8,15 @@
 
 #import "AMAppearanceManager.h"
 #import "AMVolumeSlider.h"
+#import "AppDelegate.h"
 
 @interface AMAppearanceManager ()
 
-@property (nonatomic) UIColor *globalTintColor;
-@property (nonatomic) NSInteger colorTheme;
+@property (nonatomic) NSString *globalTintColorKey;
+@property (nonatomic) NSString *globalColorThemeKey;
+
+@property (nonatomic) NSDictionary *tintColors;
+@property (nonatomic) NSDictionary *colorThemes;
 
 @property (nonatomic, strong) NSHashTable *staveDelegates;
 
@@ -23,10 +27,28 @@
 - (id)init {
     self = [super init];
     if (self) {
-        _globalTintColor = [UIColor orangeColor];
-        _colorTheme = 1;
+        [self initDictionaries];
+        _globalTintColorKey = @"ORANGE";
+        _globalColorThemeKey = @"DARK";
     }
     return self;
+}
+
+- (void)initDictionaries{
+    _tintColors = @{ @"ORANGE" : [UIColor orangeColor],
+                     @"YELLOW" : [UIColor yellowColor],
+                     @"GREEN" : [UIColor greenColor],
+                     @"CYAN" : [UIColor cyanColor],
+                     @"BLUE" : [UIColor blueColor],
+                     @"PURPLE" : [UIColor purpleColor],
+                     @"MAGENTA" : [UIColor magentaColor],
+                     @"RED" : [UIColor redColor],
+                     @"BROWN" : [UIColor brownColor],
+                     @"WHITE" : [UIColor whiteColor],
+                     };
+    _colorThemes = @{ @"DARK" : @1,
+                      @"LIGHT" : @2,
+                      };
 }
 
 - (void)loadContext{
@@ -41,12 +63,48 @@
     
 }
 
-- (void)setGlobalTintColor:(UIColor*)color{
-    _globalTintColor = color;
+- (void)changeGlobalTintColor{
+    NSInteger actualIndex = [self getIndexOfAKey:_globalTintColorKey
+                                    inDictionary:_tintColors];
+    actualIndex++;
+    if(actualIndex > _tintColors.count - 1) {
+        actualIndex = 0;
+    }
+    id key = [[_tintColors allKeys] objectAtIndex:actualIndex];
+    _globalTintColorKey = key;
+    [self setupAppearance];
 }
 
-- (void)setGlobalColorTheme:(NSInteger)colorTheme{
-    _colorTheme = colorTheme;
+- (NSInteger)getIndexOfAKey:(NSString*)key
+               inDictionary:(NSDictionary*)dictionary{
+    NSInteger i = 0;
+    for (NSString *particularKey in [dictionary allKeys]) {
+        if(key == particularKey){
+            return i;
+        }
+        i++;
+    }
+    return -1;
+}
+
+- (NSString*)getGlobalTintColorKey{
+    return _globalTintColorKey;
+}
+
+- (void)changeGlobalColorTheme{
+    NSInteger actualIndex = [self getIndexOfAKey:_globalColorThemeKey
+                                    inDictionary:_colorThemes];
+    actualIndex++;
+    if(actualIndex > _colorThemes.count - 1) {
+        actualIndex = 0;
+    }
+    id key = [[_colorThemes allKeys] objectAtIndex:actualIndex];
+    _globalColorThemeKey = key;
+    [self setupAppearance];
+}
+
+- (NSString*)getGlobalColorThemeKey{
+    return _globalColorThemeKey;
 }
 
 - (void)setupAppearance {
@@ -56,10 +114,11 @@
     [[AMVolumeSlider appearance] setMinimumValueImage:minImage];
     [[AMVolumeSlider appearance] setMaximumValueImage:maxImage];
     
-    UIColor *globalColor = _globalTintColor;
+    UIColor *globalColor = _tintColors[_globalTintColorKey];
     
     [[UIView appearance] setTintColor:globalColor];
     [[UIPageControl appearance] setCurrentPageIndicatorTintColor:globalColor];
+    [[UITextView appearance] setTextColor:globalColor];
 }
 
 @end

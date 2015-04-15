@@ -357,6 +357,9 @@
                                                     </constraints>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
                                                     <state key="normal" title="ORANGE"/>
+                                                    <connections>
+                                                        <action selector="changeTintColor:" destination="3jw-zo-k6R" eventType="touchUpInside" id="P6X-f3-e4s"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -388,6 +391,9 @@
                                                     </constraints>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
                                                     <state key="normal" title="DARK"/>
+                                                    <connections>
+                                                        <action selector="changeColorTheme:" destination="3jw-zo-k6R" eventType="touchUpInside" id="6Sm-mw-BUg"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -647,9 +653,11 @@
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" translucent="NO" prompted="NO"/>
                     <connections>
+                        <outlet property="colorThemeButton" destination="pjc-jF-H7g" id="8Pw-Zb-dU7"/>
                         <outlet property="generalSlider" destination="r7V-6i-YGz" id="CkE-Ig-vQM"/>
                         <outlet property="navigationBarItem" destination="glS-80-XJe" id="GPo-Ub-qru"/>
                         <outlet property="sideMenuButton" destination="qVe-k9-gnl" id="18v-4O-XoW"/>
+                        <outlet property="tintColorButton" destination="mT2-m9-Ncd" id="mg8-Ix-rOb"/>
                         <outlet property="track1Slider" destination="Ihd-rd-iue" id="kcZ-rx-Fum"/>
                         <outlet property="track1SoundLabel" destination="HPE-yE-lCq" id="lch-P4-IYj"/>
                         <outlet property="track2Slider" destination="ghi-za-kSV" id="Egu-Me-DLv"/>
@@ -1100,7 +1108,6 @@
                                 </constraints>
                                 <string key="text">Advanced Metronome
 written by: Krzysztof Reczek</string>
-                                <color key="textColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textView>

@@ -7,6 +7,7 @@
 //
 
 #import "SWRevealViewController.h"
+#import "AppDelegate.h"
 #import "AMPropertiesTableViewController.h"
 #import "AMSoundsTableViewController.h"
 #import "AMSequencerSingleton.h"
@@ -21,6 +22,9 @@
 @property (weak, nonatomic) IBOutlet AMVolumeSlider *track1Slider;
 @property (weak, nonatomic) IBOutlet AMVolumeSlider *track2Slider;
 @property (weak, nonatomic) IBOutlet AMVolumeSlider *track3Slider;
+
+@property (weak, nonatomic) IBOutlet UIButton *tintColorButton;
+@property (weak, nonatomic) IBOutlet UIButton *colorThemeButton;
 
 @property NSTimer *mainTimer;
 @property NSRunLoop *runner;
@@ -41,17 +45,18 @@
     [self loadPlayBack];
 }
 
--(void)viewDidAppear:(BOOL)animated{
+-(void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     [self loadLabels];
     [self loadSliders];
+    [self loadButtons];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
 
-- (void)loadSidebarMenu{
+- (void)loadSidebarMenu {
     SWRevealViewController *revealController = [self revealViewController];
     
     [revealController panGestureRecognizer];
@@ -61,26 +66,25 @@
     [_sideMenuButton setAction: @selector( revealToggle: )];
 }
 
-- (void)loadIcons{
-    UIBarButtonItem *originalLeftButton = _navigationBarItem.leftBarButtonItem;
+- (void)loadIcons {
     UIButton *face = [UIButton buttonWithType:UIButtonTypeCustom];
     face.tintColor = [[UIView appearance] tintColor];
     face.bounds = CGRectMake( 26, 26, 26, 26 );
     [face setImage:[[UIImage imageNamed:@"menu.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]
           forState:UIControlStateNormal];
-    [face addTarget:originalLeftButton.target
-             action:originalLeftButton.action
+    [face addTarget:self.revealViewController
+             action:@selector( revealToggle: )
    forControlEvents:UIControlEventTouchDown];
     _navigationBarItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:face];
 }
 
-- (void)loadMainObjects{
+- (void)loadMainObjects {
     AMSequencerSingleton *sequencerSingleton = [AMSequencerSingleton sharedSequencer];
     AMSequencer *sequencer = sequencerSingleton.sequencer;
     _arrayOfPlayers = sequencer.getArrayOfPlayers;
 }
 
-- (void)loadPlayBack{
+- (void)loadPlayBack {
     _playSound = NO;
     _mainTimer = [NSTimer scheduledTimerWithTimeInterval:0.5
                                                   target:self
@@ -91,36 +95,59 @@
     [_runner addTimer:_mainTimer forMode: NSRunLoopCommonModes];
 }
 
-- (void)loadLabels{
+- (void)loadLabels {
     _track1SoundLabel.text = [(AMPlayer*)_arrayOfPlayers[0] getSoundKey];
     _track2SoundLabel.text = [(AMPlayer*)_arrayOfPlayers[1] getSoundKey];
     _track3SoundLabel.text = [(AMPlayer*)_arrayOfPlayers[2] getSoundKey];
 }
 
-- (void)loadSliders{
+- (void)loadSliders {
     _generalSlider.value = [[(AMPlayer*)_arrayOfPlayers[0] getGeneralVolumeFactor] floatValue];
     _track1Slider.value = [[(AMPlayer*)_arrayOfPlayers[0] getVolumeFactor] floatValue];
     _track2Slider.value = [[(AMPlayer*)_arrayOfPlayers[1] getVolumeFactor] floatValue];
     _track3Slider.value = [[(AMPlayer*)_arrayOfPlayers[2] getVolumeFactor] floatValue];
 }
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
+- (void)loadButtons {
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    [_tintColorButton setTitle:[[appDelegate appearanceManager] getGlobalTintColorKey]
+                      forState:UIControlStateNormal];
+    [_colorThemeButton setTitle:[[appDelegate appearanceManager] getGlobalColorThemeKey]
+                       forState:UIControlStateNormal];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     UINavigationController *controller = [segue destinationViewController];
     AMSoundsTableViewController *rootController = controller.viewControllers.firstObject;
      
-    if ([[segue identifier] isEqualToString:@"sw_track1"])
-    {
+    if ([[segue identifier] isEqualToString:@"sw_track1"]) {
         [rootController assignPlayer:_arrayOfPlayers[0]];
     }
-    if ([[segue identifier] isEqualToString:@"sw_track2"])
-    {
+    if ([[segue identifier] isEqualToString:@"sw_track2"]) {
         [rootController assignPlayer:_arrayOfPlayers[1]];
     }
-    if ([[segue identifier] isEqualToString:@"sw_track3"])
-    {
+    if ([[segue identifier] isEqualToString:@"sw_track3"]) {
         [rootController assignPlayer:_arrayOfPlayers[2]];
     }
+}
+
+- (IBAction)changeTintColor:(id)sender {
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    [[appDelegate appearanceManager] changeGlobalTintColor];
+    [self refreshView];
+}
+
+
+- (IBAction)changeColorTheme:(id)sender {
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    [[appDelegate appearanceManager] changeGlobalColorTheme];
+    [self refreshView];
+}
+
+- (void)refreshView{
+    [self.tableView reloadData];
+    [self loadButtons];
+    [self loadIcons];
 }
 
 - (IBAction)generalTrackVolumeChanged:(id)sender {

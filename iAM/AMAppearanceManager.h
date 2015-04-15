@@ -17,7 +17,9 @@
 - (void)saveContext;
 - (void)clearContext;
 
-- (void)setGlobalTintColor:(UIColor*)color;
-- (void)setGlobalColorTheme:(NSInteger)colorTheme;
+- (void)changeGlobalTintColor;
+- (NSString*)getGlobalTintColorKey;
+- (void)changeGlobalColorTheme;
+- (NSString*)getGlobalColorThemeKey;
 
 @end

@@ -44,14 +44,28 @@
                                                         <userDefinedRuntimeAttribute type="boolean" keyPath="layer. masksToBounds" value="YES"/>
                                                     </userDefinedRuntimeAttributes>
                                                 </view>
+                                                <view alpha="0.10000000000000001" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bic-KN-M4N">
+                                                    <rect key="frame" x="4" y="4" width="42" height="42"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="5"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="layer. masksToBounds" value="YES"/>
+                                                    </userDefinedRuntimeAttributes>
+                                                </view>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <rect key="contentStretch" x="0.0" y="0.0" width="0.0" height="0.0"/>
                                         <constraints>
                                             <constraint firstItem="rJO-60-geH" firstAttribute="leading" secondItem="Hbc-vl-YS1" secondAttribute="leading" constant="1" id="1xu-Ws-vfF"/>
+                                            <constraint firstItem="bic-KN-M4N" firstAttribute="top" secondItem="Hbc-vl-YS1" secondAttribute="top" constant="4" id="CZ0-Y0-PWv"/>
                                             <constraint firstAttribute="bottom" secondItem="rJO-60-geH" secondAttribute="bottom" constant="1" id="TRQ-0x-mFc"/>
+                                            <constraint firstItem="bic-KN-M4N" firstAttribute="leading" secondItem="Hbc-vl-YS1" secondAttribute="leading" constant="4" id="X5H-FY-46O"/>
                                             <constraint firstAttribute="trailing" secondItem="rJO-60-geH" secondAttribute="trailing" constant="1" id="XdY-e5-7sh"/>
+                                            <constraint firstAttribute="trailing" secondItem="bic-KN-M4N" secondAttribute="trailing" constant="4" id="nU1-qZ-wtA"/>
+                                            <constraint firstAttribute="bottom" secondItem="bic-KN-M4N" secondAttribute="bottom" constant="4" id="vdm-te-N3x"/>
                                             <constraint firstItem="rJO-60-geH" firstAttribute="top" secondItem="Hbc-vl-YS1" secondAttribute="top" constant="1" id="zle-Vm-jzA"/>
                                         </constraints>
                                         <size key="customSize" width="50" height="50"/>

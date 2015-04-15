@@ -7,22 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "AMSequencer.h"
-#import "AMMutableArray.h"
+#import "AMConfigurationManager.h"
+#import "AMAppearanceManager.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 
-@property (readonly, strong, nonatomic) NSManagedObjectContext *managedObjectContext;
-@property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;
-@property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
-
-- (void)saveContext;
-- (NSURL *)applicationDocumentsDirectory;
-
-- (void)setGlobalTintColor:(UIColor*)color;
-- (void)setGlobalColorTheme:(bool)isDark;
+@property (readonly, strong, nonatomic) AMConfigurationManager *configurationManager;
+@property (readonly, strong, nonatomic) AMAppearanceManager *appearanceManager;
 
 @end
 

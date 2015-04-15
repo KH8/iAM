@@ -6,9 +6,9 @@
 //  Copyright (c) 2015 H@E. All rights reserved.
 //
 
+#import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
-#import "AMMutableArray.h"
-#import "AppDelegate.h"
+#import "AMSequencer.h"
 
 @interface AMDataMapper : NSObject
 

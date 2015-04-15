@@ -113,7 +113,7 @@
 
 - (void)saveConfiguration{
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    [appDelegate saveContext];
+    [[appDelegate configurationManager] saveContext];
 }
 
 - (IBAction)onClearEvent:(id)sender {

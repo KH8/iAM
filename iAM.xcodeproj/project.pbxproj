@@ -54,6 +54,8 @@
 		A4AA2B4B1AC5FD9B0076FDF6 /* AMDataMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = A4AA2B4A1AC5FD9B0076FDF6 /* AMDataMapper.m */; };
 		A4B4CDB61ABEEBB400615051 /* AMSequenceMenuTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A4B4CDB51ABEEBB400615051 /* AMSequenceMenuTableViewCell.m */; };
 		A4C47C1A1A8BB68E002CF325 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A4C47C191A8BB68E002CF325 /* Images.xcassets */; };
+		A4C59DB01ADED12200DDA9A0 /* AMConfigurationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A4C59DAF1ADED12200DDA9A0 /* AMConfigurationManager.m */; };
+		A4C59DB31ADED17600DDA9A0 /* AMAppearanceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A4C59DB21ADED17600DDA9A0 /* AMAppearanceManager.m */; };
 		A4CB2BDD1AD9C2E8007D2584 /* artificialHigh1.aif in Resources */ = {isa = PBXBuildFile; fileRef = A4CB2BD01AD9C2E8007D2584 /* artificialHigh1.aif */; };
 		A4CB2BDE1AD9C2E8007D2584 /* artificialHigh2.aif in Resources */ = {isa = PBXBuildFile; fileRef = A4CB2BD11AD9C2E8007D2584 /* artificialHigh2.aif */; };
 		A4CB2BDF1AD9C2E8007D2584 /* artificialLow1.aif in Resources */ = {isa = PBXBuildFile; fileRef = A4CB2BD21AD9C2E8007D2584 /* artificialLow1.aif */; };
@@ -172,6 +174,10 @@
 		A4B4CDB41ABEEBB400615051 /* AMSequenceMenuTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMSequenceMenuTableViewCell.h; sourceTree = "<group>"; };
 		A4B4CDB51ABEEBB400615051 /* AMSequenceMenuTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMSequenceMenuTableViewCell.m; sourceTree = "<group>"; };
 		A4C47C191A8BB68E002CF325 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		A4C59DAE1ADED12200DDA9A0 /* AMConfigurationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMConfigurationManager.h; sourceTree = "<group>"; };
+		A4C59DAF1ADED12200DDA9A0 /* AMConfigurationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMConfigurationManager.m; sourceTree = "<group>"; };
+		A4C59DB11ADED17600DDA9A0 /* AMAppearanceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMAppearanceManager.h; sourceTree = "<group>"; };
+		A4C59DB21ADED17600DDA9A0 /* AMAppearanceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMAppearanceManager.m; sourceTree = "<group>"; };
 		A4CB2BD01AD9C2E8007D2584 /* artificialHigh1.aif */ = {isa = PBXFileReference; lastKnownFileType = file; name = artificialHigh1.aif; path = Core/Sounds/artificialHigh1.aif; sourceTree = "<group>"; };
 		A4CB2BD11AD9C2E8007D2584 /* artificialHigh2.aif */ = {isa = PBXFileReference; lastKnownFileType = file; name = artificialHigh2.aif; path = Core/Sounds/artificialHigh2.aif; sourceTree = "<group>"; };
 		A4CB2BD21AD9C2E8007D2584 /* artificialLow1.aif */ = {isa = PBXFileReference; lastKnownFileType = file; name = artificialLow1.aif; path = Core/Sounds/artificialLow1.aif; sourceTree = "<group>"; };
@@ -340,6 +346,10 @@
 				A44910761A5F38EF00E8C6DB /* Core */,
 				A45F0D4B1A5C6515008673FC /* AppDelegate.h */,
 				A45F0D4C1A5C6515008673FC /* AppDelegate.m */,
+				A4C59DAE1ADED12200DDA9A0 /* AMConfigurationManager.h */,
+				A4C59DAF1ADED12200DDA9A0 /* AMConfigurationManager.m */,
+				A4C59DB11ADED17600DDA9A0 /* AMAppearanceManager.h */,
+				A4C59DB21ADED17600DDA9A0 /* AMAppearanceManager.m */,
 				A45F0D511A5C6515008673FC /* Main.storyboard */,
 				A45F0D561A5C6515008673FC /* LaunchScreen.xib */,
 				A45F0D471A5C6515008673FC /* Supporting Files */,
@@ -411,13 +421,13 @@
 				A4A0CD811AD084E600618B1F /* CDSequence.m */,
 				A4A0CD821AD084E600618B1F /* CDStep.h */,
 				A4A0CD831AD084E600618B1F /* CDStep.m */,
-				A4A4B2AE1AC0C4F00099A746 /* AMDataModel.xcdatamodeld */,
 				A49A5A7A1AD7264D000B0080 /* CDSelections.h */,
 				A49A5A7B1AD7264D000B0080 /* CDSelections.m */,
 				A4E417CF1ADD840E008942C5 /* CDConfiguration.h */,
 				A4E417D01ADD840E008942C5 /* CDConfiguration.m */,
 				A4AA2B491AC5FD9B0076FDF6 /* AMDataMapper.h */,
 				A4AA2B4A1AC5FD9B0076FDF6 /* AMDataMapper.m */,
+				A4A4B2AE1AC0C4F00099A746 /* AMDataModel.xcdatamodeld */,
 			);
 			name = CoreData;
 			sourceTree = "<group>";
@@ -575,6 +585,7 @@
 				A427C9F11A7D141D0003FB21 /* AMPopoverViewController.m in Sources */,
 				A44A3C731A7BF1E800B3B4DC /* SWRevealViewController.m in Sources */,
 				A45F0D4D1A5C6515008673FC /* AppDelegate.m in Sources */,
+				A4C59DB31ADED17600DDA9A0 /* AMAppearanceManager.m in Sources */,
 				A44910791A5F396E00E8C6DB /* AMBar.m in Sources */,
 				A4E417D11ADD840E008942C5 /* CDConfiguration.m in Sources */,
 				A45F0D4A1A5C6515008673FC /* main.m in Sources */,
@@ -603,6 +614,7 @@
 				A4A4D2391A928C95006CB6CE /* AMStave.m in Sources */,
 				8F03D778486C6AEEDE7E8BA1 /* AMPlayer.m in Sources */,
 				A49A5A741AD718D9000B0080 /* AMMutableArrayResponder.m in Sources */,
+				A4C59DB01ADED12200DDA9A0 /* AMConfigurationManager.m in Sources */,
 				8F014B76B26DA38094740698 /* AMPickerController.m in Sources */,
 				A41C08EE1A9279F7006F0F06 /* AMSequenceTableViewCell.m in Sources */,
 				A49A5A771AD71A56000B0080 /* AMVolumeSlider.m in Sources */,

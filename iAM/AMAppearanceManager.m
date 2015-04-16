@@ -20,6 +20,9 @@
 @property (nonatomic) NSDictionary *tintColors;
 @property (nonatomic) NSDictionary *colorThemes;
 
+@property (nonatomic) NSArray *tintColorsArray;
+@property (nonatomic) NSArray *colorThemesArray;
+
 @property (nonatomic, strong) NSHashTable *staveDelegates;
 
 @end
@@ -50,9 +53,12 @@
                      @"GRAY" : [UIColor grayColor],
                      @"BLACK" : [UIColor blackColor],
                      };
+    _tintColorsArray = [_tintColors allKeys];
     _colorThemes = @{ @"DARK" : [UIColor blackColor],
                       @"LIGHT" : [UIColor whiteColor],
+                      @"GRAPHITE" : [UIColor colorWithRed:0.15f green:0.15f blue:0.15f alpha:1.0f],
                       };
+    _colorThemesArray = [_colorThemes allKeys];
 }
 
 - (void)initAppearanceCoreDataEntitiesInContext: (NSManagedObjectContext*)context {
@@ -130,7 +136,8 @@
     if(actualIndex > _tintColors.count - 1) {
         actualIndex = 0;
     }
-    id key = [[_tintColors allKeys] objectAtIndex:actualIndex];
+    
+    id key = [_tintColorsArray objectAtIndex:actualIndex];
     _globalTintColorKey = key;
     [self setupAppearance];
 }
@@ -158,7 +165,8 @@
     if(actualIndex > _colorThemes.count - 1) {
         actualIndex = 0;
     }
-    id key = [[_colorThemes allKeys] objectAtIndex:actualIndex];
+    
+    id key = [_colorThemesArray objectAtIndex:actualIndex];
     _globalColorThemeKey = key;
     [self setupAppearance];
 }

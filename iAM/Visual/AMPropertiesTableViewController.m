@@ -48,6 +48,7 @@
 
 -(void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
+    [self loadColors];
     [self loadLabels];
     [self loadSliders];
     [self loadButtons];
@@ -99,6 +100,11 @@
     [_runner addTimer:_mainTimer forMode: NSRunLoopCommonModes];
 }
 
+- (void)loadColors{
+    [self.view setBackgroundColor:[AMView appearance].backgroundColor];
+    [self.navigationController.navigationBar setBarTintColor:[AMView appearance].backgroundColor];
+}
+
 - (void)loadLabels {
     _track1SoundLabel.text = [(AMPlayer*)_arrayOfPlayers[0] getSoundKey];
     _track2SoundLabel.text = [(AMPlayer*)_arrayOfPlayers[1] getSoundKey];
@@ -148,10 +154,18 @@
     [self refreshView];
 }
 
+- (IBAction)reset:(id)sender {
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    [[appDelegate configurationManager] clearContext];
+    [[appDelegate appearanceManager] clearContext];
+    [[appDelegate configurationManager] loadContext];
+    [[appDelegate appearanceManager] loadContext];
+    [self refreshView];
+}
+
 - (void)refreshView{
     [self.tableView reloadData];
-    [self.view setBackgroundColor:[AMView appearance].backgroundColor];
-    [self.navigationController.navigationBar setBarTintColor:[AMView appearance].backgroundColor];
+    [self loadColors];
     [self loadButtons];
     [self loadIcons];
 }

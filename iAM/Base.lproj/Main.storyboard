@@ -257,12 +257,14 @@
                                 <items>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="oLZ-qg-z7X"/>
                                     <barButtonItem title="Item" systemItem="trash" id="9ex-By-6c7">
+                                        <inset key="imageInsets" minX="-60" minY="-60" maxX="-60" maxY="-60"/>
                                         <connections>
                                             <action selector="onDeleteAction:" destination="VYX-gv-vDf" id="rq7-yR-suK"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem width="20" style="plain" systemItem="fixedSpace" id="UJ7-vb-XA9"/>
                                     <barButtonItem systemItem="add" id="dQ9-UK-qeh">
+                                        <inset key="imageInsets" minX="-60" minY="-60" maxX="-60" maxY="-60"/>
                                         <connections>
                                             <action selector="onAddAction:" destination="VYX-gv-vDf" id="KaH-gH-XfD"/>
                                         </connections>
@@ -275,7 +277,9 @@
                                 <color key="barTintColor" white="0.90000000000000002" alpha="1" colorSpace="calibratedWhite"/>
                                 <items>
                                     <navigationItem id="8IU-Rz-1uh">
-                                        <barButtonItem key="leftBarButtonItem" title="Item" style="plain" id="XL1-4B-JsO"/>
+                                        <barButtonItem key="leftBarButtonItem" title="Item" style="plain" id="XL1-4B-JsO">
+                                            <inset key="imageInsets" minX="-60" minY="-60" maxX="-60" maxY="-60"/>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -357,13 +361,14 @@
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mT2-m9-Ncd">
+                                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mT2-m9-Ncd">
                                                     <rect key="frame" x="480" y="9" width="100" height="26"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="100" id="vua-LT-5lt"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
+                                                    <inset key="contentEdgeInsets" minX="-60" minY="-60" maxX="0.0" maxY="-60"/>
                                                     <state key="normal" title="ORANGE"/>
                                                     <connections>
                                                         <action selector="changeTintColor:" destination="3jw-zo-k6R" eventType="touchUpInside" id="P6X-f3-e4s"/>
@@ -390,7 +395,7 @@
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pjc-jF-H7g">
+                                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pjc-jF-H7g">
                                                     <rect key="frame" x="480" y="8" width="100" height="26"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <constraints>
@@ -398,6 +403,7 @@
                                                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="gU7-gi-wKv"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
+                                                    <inset key="contentEdgeInsets" minX="-60" minY="-60" maxX="0.0" maxY="-60"/>
                                                     <state key="normal" title="DARK"/>
                                                     <connections>
                                                         <action selector="changeColorTheme:" destination="3jw-zo-k6R" eventType="touchUpInside" id="6Sm-mw-BUg"/>
@@ -631,12 +637,16 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ekE-ls-WDB" id="siw-XJ-eOk">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q9N-Oc-VIy">
+                                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q9N-Oc-VIy">
                                                     <rect key="frame" x="16" y="8.5" width="39" height="27"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <inset key="contentEdgeInsets" minX="0.0" minY="-60" maxX="-60" maxY="-60"/>
                                                     <state key="normal" title="RESET">
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="reset:" destination="3jw-zo-k6R" eventType="touchUpInside" id="ogT-f3-CHc"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -656,6 +666,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="glS-80-XJe">
                         <barButtonItem key="leftBarButtonItem" title="Item" id="qVe-k9-gnl">
+                            <inset key="imageInsets" minX="-60" minY="-60" maxX="-60" maxY="-60"/>
                             <color key="tintColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         </barButtonItem>
                     </navigationItem>
@@ -804,7 +815,7 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SoH-Jh-0hG">
                                                     <rect key="frame" x="197" y="22" width="26" height="12"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Label" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pXz-Eu-HxI">
@@ -1098,7 +1109,9 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                 <items>
                                     <navigationItem id="CYX-jQ-YOL">
-                                        <barButtonItem key="leftBarButtonItem" title="Item" style="plain" id="kWw-7b-acO"/>
+                                        <barButtonItem key="leftBarButtonItem" title="Item" style="plain" id="kWw-7b-acO">
+                                            <inset key="imageInsets" minX="-60" minY="-60" maxX="-60" maxY="-60"/>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>

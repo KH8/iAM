@@ -60,6 +60,9 @@
 - (void)loadSidebarMenu{
     SWRevealViewController *revealController = [self revealViewController];
     
+    [revealController setRightViewRevealWidth:280];
+    [revealController setRightViewRevealOverdraw:60];
+    
     [revealController panGestureRecognizer];
     [revealController tapGestureRecognizer];
     

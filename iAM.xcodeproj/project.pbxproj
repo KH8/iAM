@@ -34,6 +34,7 @@
 		A45F0D641A5C6515008673FC /* iAMTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A45F0D631A5C6515008673FC /* iAMTests.m */; };
 		A45F60B21AD1C30900954D2F /* AMPropertiesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A45F60B11AD1C30900954D2F /* AMPropertiesTableViewController.m */; };
 		A46069031AC74E0E00E9377F /* AMNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A46069021AC74E0E00E9377F /* AMNavigationViewController.m */; };
+		A477F93B1AE05E4400812C4A /* AMView.m in Sources */ = {isa = PBXBuildFile; fileRef = A477F93A1AE05E4400812C4A /* AMView.m */; };
 		A49A5A701AD718B3000B0080 /* speakerCalm.png in Resources */ = {isa = PBXBuildFile; fileRef = A49A5A6E1AD718B3000B0080 /* speakerCalm.png */; };
 		A49A5A711AD718B3000B0080 /* speakerLoud.png in Resources */ = {isa = PBXBuildFile; fileRef = A49A5A6F1AD718B3000B0080 /* speakerLoud.png */; };
 		A49A5A741AD718D9000B0080 /* AMMutableArrayResponder.m in Sources */ = {isa = PBXBuildFile; fileRef = A49A5A731AD718D9000B0080 /* AMMutableArrayResponder.m */; };
@@ -143,6 +144,8 @@
 		A45F60B11AD1C30900954D2F /* AMPropertiesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMPropertiesTableViewController.m; sourceTree = "<group>"; };
 		A46069011AC74E0E00E9377F /* AMNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMNavigationViewController.h; sourceTree = "<group>"; };
 		A46069021AC74E0E00E9377F /* AMNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMNavigationViewController.m; sourceTree = "<group>"; };
+		A477F9391AE05E4400812C4A /* AMView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMView.h; sourceTree = "<group>"; };
+		A477F93A1AE05E4400812C4A /* AMView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMView.m; sourceTree = "<group>"; };
 		A49A5A6E1AD718B3000B0080 /* speakerCalm.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = speakerCalm.png; path = Icons/speakerCalm.png; sourceTree = "<group>"; };
 		A49A5A6F1AD718B3000B0080 /* speakerLoud.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = speakerLoud.png; path = Icons/speakerLoud.png; sourceTree = "<group>"; };
 		A49A5A721AD718D9000B0080 /* AMMutableArrayResponder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMMutableArrayResponder.h; path = Core/Auxiliaries/AMMutableArrayResponder.h; sourceTree = "<group>"; };
@@ -264,6 +267,8 @@
 				A4E7D9B41ADAF3C000B01BCD /* AMSoundsTableViewController.m */,
 				A4E7D9B61ADAF8A300B01BCD /* AMSoundTableViewCell.h */,
 				A4E7D9B71ADAF8A300B01BCD /* AMSoundTableViewCell.m */,
+				A477F9391AE05E4400812C4A /* AMView.h */,
+				A477F93A1AE05E4400812C4A /* AMView.m */,
 			);
 			path = Visual;
 			sourceTree = "<group>";
@@ -597,6 +602,7 @@
 				A449107C1A5F3A1200E8C6DB /* AMNote.m in Sources */,
 				8F0B34AA1C650F6EBD78FA56 /* AMSequencer.m in Sources */,
 				A41C08EB1A927435006F0F06 /* AMSequenceTableController.m in Sources */,
+				A477F93B1AE05E4400812C4A /* AMView.m in Sources */,
 				A4A4B2B01AC0C4F00099A746 /* AMDataModel.xcdatamodeld in Sources */,
 				A4C59DB61ADEEEB400DDA9A0 /* CDAppearance.m in Sources */,
 				A49A5A7C1AD7264D000B0080 /* CDSelections.m in Sources */,

@@ -8,6 +8,7 @@
 
 #import "AMAppearanceManager.h"
 #import "AMVolumeSlider.h"
+#import "AMView.h"
 #import "AppDelegate.h"
 #import "CDAppearance.h"
 
@@ -47,9 +48,10 @@
                      @"BROWN" : [UIColor brownColor],
                      @"WHITE" : [UIColor whiteColor],
                      @"GRAY" : [UIColor grayColor],
+                     @"BLACK" : [UIColor blackColor],
                      };
-    _colorThemes = @{ @"DARK" : @1,
-                      @"LIGHT" : @2,
+    _colorThemes = @{ @"DARK" : [UIColor blackColor],
+                      @"LIGHT" : [UIColor whiteColor],
                       };
 }
 
@@ -177,6 +179,15 @@
     [[UIView appearance] setTintColor:globalColor];
     [[UIPageControl appearance] setCurrentPageIndicatorTintColor:globalColor];
     [[UITextView appearance] setTextColor:globalColor];
+    
+    UIColor *globalColorTheme = _colorThemes[_globalColorThemeKey];
+    
+    [[AMView appearance] setBackgroundColor:globalColorTheme];
+    [[UITableView appearance] setBackgroundColor:globalColorTheme];
+    [[UICollectionView appearance] setBackgroundColor:globalColorTheme];
+    [[UIVisualEffectView appearance] setBackgroundColor:globalColorTheme];
+    [[UINavigationBar appearance] setBarTintColor:globalColorTheme];
+    [[UIToolbar appearance] setBarTintColor:globalColorTheme];
 }
 
 @end

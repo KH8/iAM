@@ -12,6 +12,7 @@
 #import "AMSoundsTableViewController.h"
 #import "AMSequencerSingleton.h"
 #import "AMVolumeSlider.h"
+#import "AMView.h"
 
 @interface AMPropertiesTableViewController ()
 
@@ -58,6 +59,9 @@
 
 - (void)loadSidebarMenu {
     SWRevealViewController *revealController = [self revealViewController];
+    
+    [revealController setRightViewRevealWidth:0];
+    [revealController setRightViewRevealOverdraw:0];
     
     [revealController panGestureRecognizer];
     [revealController tapGestureRecognizer];
@@ -146,6 +150,8 @@
 
 - (void)refreshView{
     [self.tableView reloadData];
+    [self.view setBackgroundColor:[AMView appearance].backgroundColor];
+    [self.navigationController.navigationBar setBarTintColor:[AMView appearance].backgroundColor];
     [self loadButtons];
     [self loadIcons];
 }

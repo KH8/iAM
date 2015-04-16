@@ -361,14 +361,13 @@
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mT2-m9-Ncd">
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mT2-m9-Ncd">
                                                     <rect key="frame" x="480" y="9" width="100" height="26"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="100" id="vua-LT-5lt"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
-                                                    <inset key="contentEdgeInsets" minX="-60" minY="-60" maxX="0.0" maxY="-60"/>
                                                     <state key="normal" title="ORANGE"/>
                                                     <connections>
                                                         <action selector="changeTintColor:" destination="3jw-zo-k6R" eventType="touchUpInside" id="P6X-f3-e4s"/>
@@ -395,7 +394,7 @@
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pjc-jF-H7g">
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pjc-jF-H7g">
                                                     <rect key="frame" x="480" y="8" width="100" height="26"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <constraints>
@@ -403,7 +402,6 @@
                                                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="gU7-gi-wKv"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
-                                                    <inset key="contentEdgeInsets" minX="-60" minY="-60" maxX="0.0" maxY="-60"/>
                                                     <state key="normal" title="DARK"/>
                                                     <connections>
                                                         <action selector="changeColorTheme:" destination="3jw-zo-k6R" eventType="touchUpInside" id="6Sm-mw-BUg"/>
@@ -637,10 +635,9 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ekE-ls-WDB" id="siw-XJ-eOk">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q9N-Oc-VIy">
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q9N-Oc-VIy">
                                                     <rect key="frame" x="16" y="8.5" width="39" height="27"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                    <inset key="contentEdgeInsets" minX="0.0" minY="-60" maxX="-60" maxY="-60"/>
                                                     <state key="normal" title="RESET">
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
@@ -1204,7 +1201,6 @@ written by: Krzysztof Reczek</string>
                                         <constraint firstAttribute="centerY" secondItem="mr4-Im-aM7" secondAttribute="centerY" id="mTA-Ka-6ym"/>
                                     </constraints>
                                 </tableViewCellContentView>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="selectionImageView" destination="mr4-Im-aM7" id="AiP-vi-m9Y"/>
                                     <outlet property="soundTitle" destination="Ljp-TK-FHQ" id="ZMC-Gv-jKd"/>

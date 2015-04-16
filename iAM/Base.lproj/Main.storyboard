@@ -328,6 +328,7 @@
                                             <subviews>
                                                 <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.80000000000000004" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="r7V-6i-YGz" customClass="AMVolumeSlider">
                                                     <rect key="frame" x="8" y="7" width="574" height="31"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="30" id="dbh-MC-6r8"/>
                                                     </constraints>
@@ -430,6 +431,7 @@
                                             <subviews>
                                                 <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.80000001192092896" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Ihd-rd-iue" customClass="AMVolumeSlider">
                                                     <rect key="frame" x="8" y="7" width="574" height="31"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="30" id="XKM-P9-Drl"/>
                                                     </constraints>
@@ -499,6 +501,7 @@
                                             <subviews>
                                                 <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.80000001192092896" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="ghi-za-kSV" customClass="AMVolumeSlider">
                                                     <rect key="frame" x="8" y="7" width="574" height="31"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="30" id="Dcu-Wk-Bw6"/>
                                                     </constraints>
@@ -568,6 +571,7 @@
                                             <subviews>
                                                 <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.80000001192092896" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="qIA-BK-Pl2" customClass="AMVolumeSlider">
                                                     <rect key="frame" x="8" y="7" width="574" height="31"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="30" id="rai-1S-ejO"/>
                                                     </constraints>
@@ -1168,11 +1172,12 @@ written by: Krzysztof Reczek</string>
         <scene sceneID="nOQ-xh-Szt">
             <objects>
                 <tableViewController id="cRX-SY-RYs" customClass="AMSoundsTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="0u5-R6-fK5">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" allowsSelectionDuringEditing="YES" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="0u5-R6-fK5">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="936"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <color key="separatorColor" white="0.10000000000000001" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="soundCell" id="pGq-Ap-eUB" customClass="AMSoundTableViewCell">
                                 <autoresizingMask key="autoresizingMask"/>
@@ -1201,6 +1206,7 @@ written by: Krzysztof Reczek</string>
                                         <constraint firstAttribute="centerY" secondItem="mr4-Im-aM7" secondAttribute="centerY" id="mTA-Ka-6ym"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="selectionImageView" destination="mr4-Im-aM7" id="AiP-vi-m9Y"/>
                                     <outlet property="soundTitle" destination="Ljp-TK-FHQ" id="ZMC-Gv-jKd"/>
@@ -1214,6 +1220,7 @@ written by: Krzysztof Reczek</string>
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="ogZ-AN-Y9I"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3mU-vN-Tqr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

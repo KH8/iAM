@@ -151,7 +151,7 @@
 		A49A5A721AD718D9000B0080 /* AMMutableArrayResponder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMMutableArrayResponder.h; path = Core/Auxiliaries/AMMutableArrayResponder.h; sourceTree = "<group>"; };
 		A49A5A731AD718D9000B0080 /* AMMutableArrayResponder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMMutableArrayResponder.m; path = Core/Auxiliaries/AMMutableArrayResponder.m; sourceTree = "<group>"; };
 		A49A5A751AD71A56000B0080 /* AMVolumeSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMVolumeSlider.h; sourceTree = "<group>"; };
-		A49A5A761AD71A56000B0080 /* AMVolumeSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMVolumeSlider.m; sourceTree = "<group>"; };
+		A49A5A761AD71A56000B0080 /* AMVolumeSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.c.objc; path = AMVolumeSlider.m; sourceTree = "<group>"; tabWidth = 4; };
 		A49A5A781AD72290000B0080 /* details.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = details.png; path = Icons/details.png; sourceTree = "<group>"; };
 		A49A5A7A1AD7264D000B0080 /* CDSelections.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDSelections.h; path = CoreData/CDSelections.h; sourceTree = "<group>"; };
 		A49A5A7B1AD7264D000B0080 /* CDSelections.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CDSelections.m; path = CoreData/CDSelections.m; sourceTree = "<group>"; };

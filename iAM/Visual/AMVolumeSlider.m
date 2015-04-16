@@ -10,7 +10,7 @@
 
 @implementation AMVolumeSlider
 
-- (CGRect)maximumValueImageRectForBounds:(CGRect)bounds {
+/*- (CGRect)maximumValueImageRectForBounds:(CGRect)bounds {
     CGRect r = [super maximumValueImageRectForBounds:bounds];
     r.size.height = 30;
     r.size.width = 30;
@@ -26,6 +26,6 @@
     r.origin.x += 0;
     r.origin.y += 46;
     return r;
-}
+}*/
 
 @end

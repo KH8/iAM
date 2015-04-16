@@ -8,6 +8,7 @@
 
 #import "AMSoundsTableViewController.h"
 #import "AMSoundTableViewCell.h"
+#import "AMView.h"
 
 @interface AMSoundsTableViewController ()
 
@@ -23,6 +24,10 @@
     [super viewDidLoad];
     [self initDictionaryOfSounds];
     [self initIndexSelection];
+}
+
+- (void)viewDidAppear:(BOOL)animated{
+    [self.navigationController.navigationBar setBarTintColor:[AMView appearance].backgroundColor];
 }
 
 - (void)initDictionaryOfSounds{

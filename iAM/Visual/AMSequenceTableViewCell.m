@@ -19,7 +19,6 @@
 @implementation AMSequenceTableViewCell
 
 - (void)awakeFromNib {
-    [self adjustTextFieldsFrame];
     [_stepTitle setTextColor:[[UIView appearance] tintColor]];
 }
 
@@ -82,7 +81,6 @@
 }
 
 - (IBAction)textFieldEditingChanged:(id)sender {
-    [self adjustTextFieldsFrameWhileEditing];
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
@@ -92,21 +90,5 @@
 
 - (void)textFieldDidEndEditing:(UITextField *)textField {
     [_sequenceStep setName:_stepTitle.text];
-    [self adjustTextFieldsFrame];
 }
-
-- (void)adjustTextFieldsFrame {
-    CGFloat fixedWidth = _stepTitle.frame.size.width;
-    CGSize newSize = [_stepTitle sizeThatFits:CGSizeMake(fixedWidth, 160.0)];
-    CGRect newFrame = CGRectMake(newSize.width, newSize.height, 160.0, newSize.height);
-    _stepTitle.frame = newFrame;
-}
-
-- (void)adjustTextFieldsFrameWhileEditing {
-    CGRect newFrame = _stepTitle.frame;
-    newFrame.size = CGSizeMake(284.0, _stepTitle.frame.size.height);
-    newFrame.origin.x = 0.0;
-    _stepTitle.frame = newFrame;
-}
-
 @end

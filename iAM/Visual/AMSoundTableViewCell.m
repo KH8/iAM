@@ -8,6 +8,7 @@
 
 #import "AMSoundTableViewCell.h"
 #import "AMPlayer.h"
+#import "AMView.h"
 
 @interface AMSoundTableViewCell ()
 
@@ -35,7 +36,7 @@
            animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
     
-    _selectionImageView.tintColor = [UIColor blackColor];
+    _selectionImageView.tintColor = [[AMView appearance] backgroundColor];
     if(self.isSelected){
         [self setSelectionMarkerVisible];
         [self playSound];

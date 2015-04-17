@@ -328,7 +328,6 @@
                                             <subviews>
                                                 <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.80000000000000004" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="r7V-6i-YGz" customClass="AMVolumeSlider">
                                                     <rect key="frame" x="8" y="7" width="574" height="31"/>
-                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="30" id="dbh-MC-6r8"/>
                                                     </constraints>

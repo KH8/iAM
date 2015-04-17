@@ -7,6 +7,7 @@
 //
 
 #import "AMSequenceTableViewCell.h"
+#import "AMView.h"
 
 @interface AMSequenceTableViewCell ()
 
@@ -33,7 +34,7 @@
     [super setSelected:selected animated:animated];
     [_stepTitle resignFirstResponder];
     
-    _selectionImageView.tintColor = [UIColor blackColor];
+    _selectionImageView.tintColor = [[AMView appearance] backgroundColor];;
     if(self.isSelected){
         [self setSelectionMarkerVisible];
     }

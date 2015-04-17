@@ -176,11 +176,11 @@
 }
 
 - (void)setupAppearance {
-    /*UIImage *minImage = [[UIImage imageNamed:@"speakerCalm.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    UIImage *minImage = [[UIImage imageNamed:@"speakerCalm.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
     UIImage *maxImage = [[UIImage imageNamed:@"speakerLoud.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
     
     [[AMVolumeSlider appearance] setMinimumValueImage:minImage];
-    [[AMVolumeSlider appearance] setMaximumValueImage:maxImage];*/
+    [[AMVolumeSlider appearance] setMaximumValueImage:maxImage];
     
     UIColor *globalColor = _tintColors[_globalTintColorKey];
     

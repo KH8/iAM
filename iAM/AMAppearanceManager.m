@@ -194,7 +194,6 @@
     [[UITableView appearance] setBackgroundColor:globalColorTheme];
     [[UICollectionView appearance] setBackgroundColor:globalColorTheme];
     [[UIVisualEffectView appearance] setBackgroundColor:globalColorTheme];
-    [[UIImageView appearance] setBackgroundColor:globalColorTheme];
     [[UINavigationBar appearance] setBarTintColor:globalColorTheme];
     [[UIBarButtonItem appearance] setTintColor:globalColorTheme];
     [[UIToolbar appearance] setBarTintColor:globalColorTheme];

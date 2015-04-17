@@ -187,6 +187,7 @@
     [[UIView appearance] setTintColor:globalColor];
     [[UIPageControl appearance] setCurrentPageIndicatorTintColor:globalColor];
     [[UITextView appearance] setTextColor:globalColor];
+    [[UINavigationBar appearance] setTintColor:globalColor];
     
     UIColor *globalColorTheme = _colorThemes[_globalColorThemeKey];
     
@@ -195,7 +196,6 @@
     [[UICollectionView appearance] setBackgroundColor:globalColorTheme];
     [[UIVisualEffectView appearance] setBackgroundColor:globalColorTheme];
     [[UINavigationBar appearance] setBarTintColor:globalColorTheme];
-    [[UIBarButtonItem appearance] setTintColor:globalColorTheme];
     [[UIToolbar appearance] setBarTintColor:globalColorTheme];
 }
 

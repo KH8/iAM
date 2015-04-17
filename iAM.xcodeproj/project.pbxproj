@@ -41,6 +41,7 @@
 		A49A5A771AD71A56000B0080 /* AMVolumeSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = A49A5A761AD71A56000B0080 /* AMVolumeSlider.m */; };
 		A49A5A791AD72290000B0080 /* details.png in Resources */ = {isa = PBXBuildFile; fileRef = A49A5A781AD72290000B0080 /* details.png */; };
 		A49A5A7C1AD7264D000B0080 /* CDSelections.m in Sources */ = {isa = PBXBuildFile; fileRef = A49A5A7B1AD7264D000B0080 /* CDSelections.m */; };
+		A49EE0001AE1647100B7D38F /* back.png in Resources */ = {isa = PBXBuildFile; fileRef = A49EDFFF1AE1647100B7D38F /* back.png */; };
 		A49FDBC11AB0F208008D5595 /* menu.png in Resources */ = {isa = PBXBuildFile; fileRef = A49FDBC01AB0F208008D5595 /* menu.png */; };
 		A4A0CD841AD084E600618B1F /* CDBar.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A0CD7D1AD084E600618B1F /* CDBar.m */; };
 		A4A0CD851AD084E600618B1F /* CDNote.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A0CD7F1AD084E600618B1F /* CDNote.m */; };
@@ -155,6 +156,7 @@
 		A49A5A781AD72290000B0080 /* details.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = details.png; path = Icons/details.png; sourceTree = "<group>"; };
 		A49A5A7A1AD7264D000B0080 /* CDSelections.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDSelections.h; path = CoreData/CDSelections.h; sourceTree = "<group>"; };
 		A49A5A7B1AD7264D000B0080 /* CDSelections.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CDSelections.m; path = CoreData/CDSelections.m; sourceTree = "<group>"; };
+		A49EDFFF1AE1647100B7D38F /* back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = back.png; path = Icons/back.png; sourceTree = "<group>"; };
 		A49FDBC01AB0F208008D5595 /* menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = menu.png; path = Icons/menu.png; sourceTree = "<group>"; };
 		A4A0CD7C1AD084E600618B1F /* CDBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDBar.h; path = CoreData/CDBar.h; sourceTree = "<group>"; };
 		A4A0CD7D1AD084E600618B1F /* CDBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CDBar.m; path = CoreData/CDBar.m; sourceTree = "<group>"; };
@@ -395,6 +397,7 @@
 		A49A749F1A9A86FB006BC3C7 /* Icons */ = {
 			isa = PBXGroup;
 			children = (
+				A49EDFFF1AE1647100B7D38F /* back.png */,
 				A4E7D9B91ADB01C900B01BCD /* selectedLeft.png */,
 				A49A5A781AD72290000B0080 /* details.png */,
 				A49A5A6E1AD718B3000B0080 /* speakerCalm.png */,
@@ -559,6 +562,7 @@
 				A44492061A9E7CE4008CEB8E /* add.png in Resources */,
 				A4CB2BDE1AD9C2E8007D2584 /* artificialHigh2.aif in Resources */,
 				A44492071A9E7CE4008CEB8E /* delete.png in Resources */,
+				A49EE0001AE1647100B7D38F /* back.png in Resources */,
 				A4E7D9BA1ADB01C900B01BCD /* selectedLeft.png in Resources */,
 				A49A5A791AD72290000B0080 /* details.png in Resources */,
 				A4CB2BE71AD9C2E8007D2584 /* natural3.aif in Resources */,

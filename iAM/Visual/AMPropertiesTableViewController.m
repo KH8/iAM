@@ -12,7 +12,6 @@
 #import "AMSoundsTableViewController.h"
 #import "AMSequencerSingleton.h"
 #import "AMVolumeSlider.h"
-#import "AMView.h"
 
 @interface AMPropertiesTableViewController ()
 
@@ -101,8 +100,13 @@
 }
 
 - (void)loadColors{
-    [self.view setBackgroundColor:[AMView appearance].backgroundColor];
-    [self.navigationController.navigationBar setBarTintColor:[AMView appearance].backgroundColor];
+    UIColor *backgrounColor = [UINavigationBar appearance].barTintColor;
+    [self.view setBackgroundColor:backgrounColor];
+    [self.navigationController.navigationBar setBarTintColor:backgrounColor];
+    UIColor *tintColor = [UINavigationBar appearance].tintColor;
+    [self.navigationController.navigationBar setTintColor:tintColor];
+    [self.navigationController.navigationItem.backBarButtonItem setTintColor:tintColor];
+    [[self.navigationController.navigationBar.subviews lastObject] setTintColor:tintColor];
 }
 
 - (void)loadLabels {
@@ -129,7 +133,7 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     UINavigationController *controller = [segue destinationViewController];
     AMSoundsTableViewController *rootController = controller.viewControllers.firstObject;
-     
+    
     if ([[segue identifier] isEqualToString:@"sw_track1"]) {
         [rootController assignPlayer:_arrayOfPlayers[0]];
     }

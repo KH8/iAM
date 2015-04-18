@@ -24,8 +24,9 @@
 }
 
 - (void)loadButtons {
-    [_resetButton.titleLabel setTextColor:[UIView appearance].tintColor];
-    [_cancelButtom.titleLabel setTextColor:[UIView appearance].tintColor];
+    UIColor *defaultColor = [[UIView appearance] tintColor];
+    [_resetButton setTitleColor:defaultColor forState:UIControlStateNormal];
+    [_cancelButtom setTitleColor:defaultColor forState:UIControlStateNormal];
 }
 
 - (void)didReceiveMemoryWarning {

@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AMConfirmationViewController.h"
 
-@interface AMPropertiesTableViewController : UITableViewController
+@interface AMPropertiesTableViewController : UITableViewController <AMConfirmationViewControllerProtocol>
 
 @property (weak, nonatomic) IBOutlet UINavigationItem *navigationBarItem;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *sideMenuButton;

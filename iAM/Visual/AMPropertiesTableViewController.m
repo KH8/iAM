@@ -132,6 +132,8 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if([segue.identifier isEqualToString:@"sw_confirm"]){
+        AMConfirmationViewController *confirmationViewController = (AMConfirmationViewController *)segue.destinationViewController;
+        confirmationViewController.delegate = self;
         return;
     }
     

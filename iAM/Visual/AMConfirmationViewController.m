@@ -11,8 +11,7 @@
 
 @interface AMConfirmationViewController ()
 
-@property (weak, nonatomic) IBOutlet UIButton *resetButton;
-@property (weak, nonatomic) IBOutlet UIButton *cancelButtom;
+@property (weak, nonatomic) IBOutlet UITextView *textView;
 
 @end
 
@@ -20,13 +19,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self loadButtons];
+    [self loadColors];
 }
 
-- (void)loadButtons {
-    UIColor *defaultColor = [[UIView appearance] tintColor];
-    [_resetButton setTitleColor:defaultColor forState:UIControlStateNormal];
-    [_cancelButtom setTitleColor:defaultColor forState:UIControlStateNormal];
+- (void)loadColors{
+    [_textView setTextColor:[UIColor lightGrayColor]];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -35,6 +32,7 @@
 
 - (IBAction)resetClicked:(id)sender {
     [self reset];
+    [_delegate refreshView];
     [self closeView];
 }
 

@@ -8,6 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol AMConfirmationViewControllerProtocol <NSObject>
+
+@required
+
+- (void)refreshView;
+
+@end
+
 @interface AMConfirmationViewController : UIViewController
+
+@property (nonatomic, weak) id <AMConfirmationViewControllerProtocol> delegate;
 
 @end

@@ -81,6 +81,7 @@
 }
 
 - (IBAction)textFieldEditingChanged:(id)sender {
+    [self adjustTextFieldsFrameWhileEditing];
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
@@ -90,5 +91,21 @@
 
 - (void)textFieldDidEndEditing:(UITextField *)textField {
     [_sequenceStep setName:_stepTitle.text];
+    [self adjustTextFieldsFrame];
 }
+
+- (void)adjustTextFieldsFrame {
+    CGFloat fixedWidth = _stepTitle.frame.size.width;
+    CGSize newSize = [_stepTitle sizeThatFits:CGSizeMake(fixedWidth, 160.0)];
+    CGRect newFrame = CGRectMake(newSize.width, newSize.height, 160.0, newSize.height);
+    _stepTitle.frame = newFrame;
+}
+
+- (void)adjustTextFieldsFrameWhileEditing {
+    CGRect frame = _stepTitle.frame;
+    frame.size.width = 215.0;
+    frame.origin.x = 10.0;
+    _stepTitle.frame = frame;
+}
+
 @end

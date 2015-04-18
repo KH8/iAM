@@ -27,6 +27,7 @@
 		A450036D1A9BD73B008F4B6A /* seq2.png in Resources */ = {isa = PBXBuildFile; fileRef = A450036A1A9BD73B008F4B6A /* seq2.png */; };
 		A450036E1A9BD73B008F4B6A /* seq3.png in Resources */ = {isa = PBXBuildFile; fileRef = A450036B1A9BD73B008F4B6A /* seq3.png */; };
 		A45A3D6E1A71B4DF00039934 /* AMCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A45A3D6D1A71B4DF00039934 /* AMCollectionViewController.m */; };
+		A45DCF561AE288F200B4E174 /* AMConfirmationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A45DCF551AE288F200B4E174 /* AMConfirmationViewController.m */; };
 		A45F0D4A1A5C6515008673FC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A45F0D491A5C6515008673FC /* main.m */; };
 		A45F0D4D1A5C6515008673FC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A45F0D4C1A5C6515008673FC /* AppDelegate.m */; };
 		A45F0D531A5C6515008673FC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A45F0D511A5C6515008673FC /* Main.storyboard */; };
@@ -131,6 +132,8 @@
 		A450036B1A9BD73B008F4B6A /* seq3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = seq3.png; path = Icons/seq3.png; sourceTree = "<group>"; };
 		A45A3D6C1A71B4DF00039934 /* AMCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMCollectionViewController.h; sourceTree = "<group>"; };
 		A45A3D6D1A71B4DF00039934 /* AMCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMCollectionViewController.m; sourceTree = "<group>"; };
+		A45DCF541AE288F200B4E174 /* AMConfirmationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMConfirmationViewController.h; sourceTree = "<group>"; };
+		A45DCF551AE288F200B4E174 /* AMConfirmationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMConfirmationViewController.m; sourceTree = "<group>"; };
 		A45F0D441A5C6515008673FC /* iAM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iAM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A45F0D481A5C6515008673FC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A45F0D491A5C6515008673FC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -271,6 +274,8 @@
 				A4E7D9B71ADAF8A300B01BCD /* AMSoundTableViewCell.m */,
 				A477F9391AE05E4400812C4A /* AMView.h */,
 				A477F93A1AE05E4400812C4A /* AMView.m */,
+				A45DCF541AE288F200B4E174 /* AMConfirmationViewController.h */,
+				A45DCF551AE288F200B4E174 /* AMConfirmationViewController.m */,
 			);
 			path = Visual;
 			sourceTree = "<group>";
@@ -626,6 +631,7 @@
 				A4F24F8B1ABC914F00BF47C3 /* AMMutableArray.m in Sources */,
 				A45F60B21AD1C30900954D2F /* AMPropertiesTableViewController.m in Sources */,
 				A4A132A81A9528A800D6E2F1 /* AMSequence.m in Sources */,
+				A45DCF561AE288F200B4E174 /* AMConfirmationViewController.m in Sources */,
 				A4AA2B4B1AC5FD9B0076FDF6 /* AMDataMapper.m in Sources */,
 				A4A4D2391A928C95006CB6CE /* AMStave.m in Sources */,
 				8F03D778486C6AEEDE7E8BA1 /* AMPlayer.m in Sources */,

@@ -131,6 +131,10 @@
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if([segue.identifier isEqualToString:@"sw_confirm"]){
+        return;
+    }
+    
     UINavigationController *controller = [segue destinationViewController];
     AMSoundsTableViewController *rootController = controller.viewControllers.firstObject;
     
@@ -159,12 +163,7 @@
 }
 
 - (IBAction)reset:(id)sender {
-    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    [[appDelegate configurationManager] clearContext];
-    [[appDelegate appearanceManager] clearContext];
-    [[appDelegate configurationManager] loadContext];
-    [[appDelegate appearanceManager] loadContext];
-    [self refreshView];
+    [self performSegueWithIdentifier: @"sw_confirm" sender: self];
 }
 
 - (void)refreshView{

@@ -35,11 +35,6 @@
 }
 
 - (void)onTick{
-    if(![_interval isEqualToNumber:_actualInterval]){
-        _actualInterval = [[NSNumber alloc] initWithFloat:_interval.floatValue];
-        [_mainTimer invalidate];
-        _mainTimer = [self createTimer];
-    }
     [_target performSelector:_selector];
 }
 
@@ -62,6 +57,11 @@
 
 - (void)changeIntervalTime:(NSNumber*)intervalTime{
     _interval = intervalTime;
+    if(![_interval isEqualToNumber:_actualInterval]){
+        _actualInterval = [[NSNumber alloc] initWithFloat:_interval.floatValue];
+        [_mainTimer invalidate];
+        _mainTimer = [self createTimer];
+    }
 }
 
 @end

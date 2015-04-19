@@ -25,8 +25,7 @@
             andKey: (NSString *)aFileKey
             ofType: (NSString *)aFileType{
     self = [super init];
-    if (self)
-    {
+    if (self) {
         _fileName = aFileName;
         _fileKey = aFileKey;
         _fileType = aFileType;
@@ -36,7 +35,7 @@
     return self;
 }
 
-- (void) initAudioPlayer{
+- (void) initAudioPlayer {
     NSBundle *mainBundle = [NSBundle mainBundle];
     NSString *filePath = [mainBundle pathForResource:_fileName ofType:_fileType];
     NSData *fileData = [NSData dataWithContentsOfFile:filePath];

@@ -25,11 +25,12 @@
 @property NSArray *arrayOfPlayers;
 
 @property bool runningState;
+@property bool runTheLoop;
 
 @property NSInteger actualNoteIndex;
 @property NSInteger actualBarIndex;
 
-@property bool incrementActualBarIndexFlag;
+@property NSNumber *interval;
 
 @property (nonatomic, strong) NSHashTable *sequencerDelegates;
 
@@ -120,6 +121,7 @@
 - (void)startStop {
     _runningState = !_runningState;
     if(_runningState) {
+        _runTheLoop = YES;
         [_mainStave setFirstIndexAsActual];
         [self delegateSequencerHasStarted];
     }
@@ -152,30 +154,24 @@
     return _mainSequence;
 }
 
-- (NSArray*)getArrayOfPlayers{
+- (NSArray*)getArrayOfPlayers {
     return _arrayOfPlayers;
 }
 
 - (void)onTick {
-    [self performSelectorInBackground:@selector(prepareForAnotherRow)
-                           withObject:nil];
-    [self performSelector:@selector(playNotes) withObject:nil afterDelay:0.01];
-}
-
-- (void)prepareForAnotherRow{
-    dispatch_async(dispatch_get_main_queue(), ^{
-        if(_incrementActualBarIndexFlag){
-            [self incrementActualBarIndex];
-            _incrementActualBarIndexFlag = false;
-        }
-        [self clearNotes];
-    });
+    [self performSelector:@selector(playNotes)];
 }
 
 - (void)playNotes {
-    if(_runningState){
-        [self playTheRow];
+    if(_runTheLoop) {
+        [self clearTheRow];
+        if(!_runningState){
+            _runTheLoop = false;
+            return;
+        }
         [self incrementActualNoteIndex];
+        [self playTheRow];
+        _actualNoteIndex++;
     }
     else{
         _actualNoteIndex = 0;
@@ -183,21 +179,16 @@
     }
 }
 
-- (void)clearNotes {
-    [self clearTheRow];
-}
-
 - (void)incrementActualNoteIndex {
-    _actualNoteIndex++;
-    if(_actualNoteIndex == _actualBar.getLengthToBePlayed) {
-        _incrementActualBarIndexFlag = true;
+    if(_actualNoteIndex >= _actualBar.getLengthToBePlayed) {
+        [self incrementActualBarIndex];
         _actualNoteIndex = 0;
     }
 }
 
 - (void)incrementActualBarIndex {
     _actualBarIndex++;
-    if(_actualBarIndex == _mainStave.count) {
+    if(_actualBarIndex >= _mainStave.count) {
         [_mainSequence getNextStep];
         [_mainStave setFirstIndexAsActual];
         _actualBarIndex = 0;
@@ -265,9 +256,12 @@
 }
 
 - (NSTimer*)setTimerWithInterval: (NSNumber*)interval{
-    return [NSTimer scheduledTimerWithTimeInterval:interval.floatValue
-                                                  target:self selector:@selector(onTick)
-                                                userInfo:nil repeats:YES];
+    _interval = interval;
+    return [NSTimer scheduledTimerWithTimeInterval:_interval.floatValue
+                                            target:self
+                                          selector:@selector(onTick)
+                                          userInfo:nil
+                                           repeats:YES];
 }
 
 - (void)tempoHasBeenChanged {

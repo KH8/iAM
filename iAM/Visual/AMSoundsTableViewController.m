@@ -8,6 +8,7 @@
 
 #import "AMSoundsTableViewController.h"
 #import "AMSoundTableViewCell.h"
+#import "SWRevealViewController.h"
 
 @interface AMSoundsTableViewController ()
 
@@ -23,6 +24,15 @@
     [super viewDidLoad];
     [self initDictionaryOfSounds];
     [self initIndexSelection];
+    [self loadSizes];
+}
+
+- (void)loadSizes {
+    SWRevealViewController *revealController = [self revealViewController];
+    [revealController setRearViewRevealWidth:0];
+    [revealController setRearViewRevealOverdraw:0];
+    [revealController setRightViewRevealWidth:0];
+    [revealController setRightViewRevealOverdraw:0];
 }
 
 - (void)initDictionaryOfSounds{

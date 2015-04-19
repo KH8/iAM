@@ -39,14 +39,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self loadSidebarMenu];
-    [self loadIcons];
     [self loadMainObjects];
     [self loadPlayBack];
 }
 
 -(void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
+    [self loadSidebarMenu];
+    [self loadIcons];
     [self loadColors];
     [self loadLabels];
     [self loadSliders];
@@ -59,6 +59,10 @@
 
 - (void)loadSidebarMenu {
     SWRevealViewController *revealController = [self revealViewController];
+    
+    float menuWindowSize = [UIScreen mainScreen].bounds.size.height / 6.0;
+    [revealController setRearViewRevealWidth:menuWindowSize + 5];
+    [revealController setRearViewRevealOverdraw:menuWindowSize + 20];
     
     [revealController setRightViewRevealWidth:0];
     [revealController setRightViewRevealOverdraw:0];

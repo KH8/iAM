@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="23J-3V-BDE">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -709,84 +710,97 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ENG-p6-cSa">
-                                <rect key="frame" x="0.0" y="202.5" width="40" height="195"/>
+                                <rect key="frame" x="0.0" y="20" width="97" height="580"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="e04-f2-D8m">
-                                        <rect key="frame" x="5" y="150" width="30" height="30"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ils-N0-Adv">
+                                        <rect key="frame" x="0.0" y="120" width="97" height="340"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="e04-f2-D8m">
+                                                <rect key="frame" x="8" y="266" width="81" height="81"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="e04-f2-D8m" secondAttribute="height" multiplier="1:1" id="S1W-y2-v5m"/>
+                                                </constraints>
+                                                <color key="tintColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <state key="normal" image="about.png">
+                                                    <attributedString key="attributedTitle"/>
+                                                </state>
+                                                <connections>
+                                                    <segue destination="2gp-qd-vNc" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="VNw-SZ-wLC"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Eh0-EG-bf7">
+                                                <rect key="frame" x="8" y="94" width="81" height="81"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="Eh0-EG-bf7" secondAttribute="height" multiplier="1:1" id="bnw-0J-tVL"/>
+                                                </constraints>
+                                                <color key="tintColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <state key="normal" image="list.png">
+                                                    <attributedString key="attributedTitle"/>
+                                                </state>
+                                                <connections>
+                                                    <segue destination="VYX-gv-vDf" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="GXg-O2-hfG"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Gxg-ug-BE5">
+                                                <rect key="frame" x="8" y="8" width="81" height="81"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="Gxg-ug-BE5" secondAttribute="height" multiplier="1:1" id="vUf-8L-cIV"/>
+                                                </constraints>
+                                                <color key="tintColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <state key="normal" image="grid.png">
+                                                    <attributedString key="attributedTitle"/>
+                                                </state>
+                                                <connections>
+                                                    <segue destination="usW-4H-ZPN" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="zkT-HV-92U"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="g5H-tA-nWi">
+                                                <rect key="frame" x="8" y="180" width="81" height="81"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="g5H-tA-nWi" secondAttribute="height" multiplier="1:1" id="5q8-Se-d6D"/>
+                                                </constraints>
+                                                <color key="tintColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <state key="normal" image="settings.png">
+                                                    <attributedString key="attributedTitle"/>
+                                                </state>
+                                                <connections>
+                                                    <segue destination="vEE-Gh-JTF" kind="custom" identifier="sw_properties" customClass="SWRevealViewControllerSeguePushController" id="Gch-nw-yTX"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="DJ9-MI-pVv"/>
-                                            <constraint firstAttribute="width" constant="30" id="nvf-2Q-b1F"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="e04-f2-D8m" secondAttribute="trailing" id="4lT-fw-Xpd"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="Gxg-ug-BE5" secondAttribute="trailing" id="6Rt-Mh-ZFq"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="g5H-tA-nWi" secondAttribute="trailing" id="QPv-Im-DbS"/>
+                                            <constraint firstItem="e04-f2-D8m" firstAttribute="top" secondItem="g5H-tA-nWi" secondAttribute="bottom" constant="5" id="T7W-0m-LAu"/>
+                                            <constraint firstAttribute="width" secondItem="Ils-N0-Adv" secondAttribute="height" multiplier="57:200" id="aBz-8N-WJy"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="Eh0-EG-bf7" secondAttribute="trailing" id="bq0-dr-yuh"/>
+                                            <constraint firstItem="g5H-tA-nWi" firstAttribute="top" secondItem="Eh0-EG-bf7" secondAttribute="bottom" constant="5" id="cIv-57-cEJ"/>
+                                            <constraint firstItem="Eh0-EG-bf7" firstAttribute="top" secondItem="Gxg-ug-BE5" secondAttribute="bottom" constant="5" id="cy0-MW-Dte"/>
+                                            <constraint firstItem="Gxg-ug-BE5" firstAttribute="top" secondItem="Ils-N0-Adv" secondAttribute="topMargin" id="jiN-3z-h1Y"/>
+                                            <constraint firstItem="e04-f2-D8m" firstAttribute="leading" secondItem="Ils-N0-Adv" secondAttribute="leadingMargin" id="mBY-WK-ztu"/>
+                                            <constraint firstItem="Gxg-ug-BE5" firstAttribute="leading" secondItem="Ils-N0-Adv" secondAttribute="leadingMargin" id="mNi-0V-SHW"/>
+                                            <constraint firstItem="g5H-tA-nWi" firstAttribute="leading" secondItem="Ils-N0-Adv" secondAttribute="leadingMargin" id="mlg-Fi-2Lv"/>
+                                            <constraint firstItem="Eh0-EG-bf7" firstAttribute="leading" secondItem="Ils-N0-Adv" secondAttribute="leadingMargin" id="uFQ-qx-w2P"/>
                                         </constraints>
-                                        <color key="tintColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <state key="normal" image="about.png">
-                                            <attributedString key="attributedTitle"/>
-                                        </state>
-                                        <connections>
-                                            <segue destination="2gp-qd-vNc" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="VNw-SZ-wLC"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="g5H-tA-nWi">
-                                        <rect key="frame" x="5" y="105" width="30" height="30"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="30" id="O02-tT-Z6X"/>
-                                            <constraint firstAttribute="height" constant="30" id="bMM-RK-ZT8"/>
-                                        </constraints>
-                                        <color key="tintColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <state key="normal" image="settings.png">
-                                            <attributedString key="attributedTitle"/>
-                                        </state>
-                                        <connections>
-                                            <segue destination="vEE-Gh-JTF" kind="custom" identifier="sw_properties" customClass="SWRevealViewControllerSeguePushController" id="Gch-nw-yTX"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Eh0-EG-bf7">
-                                        <rect key="frame" x="5" y="60" width="30" height="30"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="0Hv-0h-K2O"/>
-                                            <constraint firstAttribute="width" constant="30" id="HqH-2P-QBw"/>
-                                        </constraints>
-                                        <color key="tintColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <state key="normal" image="list.png">
-                                            <attributedString key="attributedTitle"/>
-                                        </state>
-                                        <connections>
-                                            <segue destination="VYX-gv-vDf" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="GXg-O2-hfG"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Gxg-ug-BE5">
-                                        <rect key="frame" x="5" y="15" width="30" height="30"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="30" id="ls3-y9-dJU"/>
-                                            <constraint firstAttribute="height" constant="30" id="wQJ-Ar-yru"/>
-                                        </constraints>
-                                        <color key="tintColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <state key="normal" image="grid.png">
-                                            <attributedString key="attributedTitle"/>
-                                        </state>
-                                        <connections>
-                                            <segue destination="usW-4H-ZPN" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="zkT-HV-92U"/>
-                                        </connections>
-                                    </button>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="centerX" secondItem="g5H-tA-nWi" secondAttribute="centerX" id="39L-Ay-qgE"/>
-                                    <constraint firstItem="e04-f2-D8m" firstAttribute="top" secondItem="g5H-tA-nWi" secondAttribute="bottom" constant="15" id="3pN-Ou-tug"/>
-                                    <constraint firstAttribute="centerX" secondItem="Gxg-ug-BE5" secondAttribute="centerX" id="66n-qM-Q57"/>
-                                    <constraint firstAttribute="height" constant="195" id="BsH-91-NCv"/>
-                                    <constraint firstItem="Gxg-ug-BE5" firstAttribute="top" secondItem="ENG-p6-cSa" secondAttribute="top" constant="15" id="Jla-je-hRf"/>
-                                    <constraint firstItem="Eh0-EG-bf7" firstAttribute="top" secondItem="Gxg-ug-BE5" secondAttribute="bottom" constant="15" id="RK1-wC-mUt"/>
-                                    <constraint firstAttribute="centerX" secondItem="e04-f2-D8m" secondAttribute="centerX" id="WbZ-pH-jyf"/>
-                                    <constraint firstAttribute="centerX" secondItem="Eh0-EG-bf7" secondAttribute="centerX" id="aOB-yU-Ggt"/>
-                                    <constraint firstAttribute="width" constant="40" id="bKi-Ke-Dfh"/>
-                                    <constraint firstAttribute="bottom" secondItem="e04-f2-D8m" secondAttribute="bottom" constant="15" id="fAN-K5-xEA"/>
+                                    <constraint firstItem="Ils-N0-Adv" firstAttribute="leading" secondItem="ENG-p6-cSa" secondAttribute="leading" id="46m-Nk-itv"/>
+                                    <constraint firstAttribute="width" secondItem="ENG-p6-cSa" secondAttribute="height" multiplier="1:6" id="Cgk-u0-h2w"/>
+                                    <constraint firstItem="Ils-N0-Adv" firstAttribute="leading" secondItem="ENG-p6-cSa" secondAttribute="leading" id="He9-FX-4fX"/>
+                                    <constraint firstAttribute="trailing" secondItem="Ils-N0-Adv" secondAttribute="trailing" id="WVI-le-NQw"/>
+                                    <constraint firstAttribute="centerY" secondItem="Ils-N0-Adv" secondAttribute="centerY" id="jGS-2a-2WG"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="ENG-p6-cSa" firstAttribute="top" secondItem="kOv-5P-v7P" secondAttribute="bottom" id="3iu-hd-btc"/>
                             <constraint firstItem="ENG-p6-cSa" firstAttribute="leading" secondItem="JD9-D1-QTV" secondAttribute="leading" id="7OA-6V-xpw"/>
-                            <constraint firstAttribute="centerY" secondItem="ENG-p6-cSa" secondAttribute="centerY" id="TxG-0C-7cY"/>
+                            <constraint firstItem="LH8-cI-gSH" firstAttribute="top" secondItem="ENG-p6-cSa" secondAttribute="bottom" id="S19-j2-7Ap"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -802,7 +816,7 @@
                         <viewControllerLayoutGuide type="top" id="gVw-Mf-HHu"/>
                         <viewControllerLayoutGuide type="bottom" id="9Z8-QA-9oI"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="KEY-nn-oKE">
+                    <view key="view" contentMode="scaleToFill" id="KEY-nn-oKE" customClass="AMView">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>

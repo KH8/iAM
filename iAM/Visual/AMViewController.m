@@ -60,6 +60,10 @@
 - (void)loadSidebarMenu{
     SWRevealViewController *revealController = [self revealViewController];
     
+    float menuWindowSize = [UIScreen mainScreen].bounds.size.height / 6.0;
+    [revealController setRearViewRevealWidth:menuWindowSize + 5];
+    [revealController setRearViewRevealOverdraw:menuWindowSize + 20];
+    
     [revealController setRightViewRevealWidth:280];
     [revealController setRightViewRevealOverdraw:60];
     

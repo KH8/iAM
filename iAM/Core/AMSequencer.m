@@ -7,12 +7,11 @@
 #import "AMNote.h"
 #import "AMPlayer.h"
 #import "AMMutableArrayResponder.h"
+#import "AMRunner.h"
 
 @interface AMSequencer ()
 
-@property NSTimer *mainTimer;
-@property NSDate *auxTimeStamp;
-@property NSRunLoop *runner;
+@property AMRunner *mainRunner;
 
 @property AMSequence *mainSequence;
 @property AMSequenceStep *actualStep;
@@ -29,8 +28,6 @@
 
 @property NSInteger actualNoteIndex;
 @property NSInteger actualBarIndex;
-
-@property NSNumber *interval;
 
 @property (nonatomic, strong) NSHashTable *sequencerDelegates;
 
@@ -71,7 +68,6 @@
         [self initResponders];
         [self initPlayers];
         [self initBasicParameters];
-        [self initTimer];
         [self initRunner];
     }
     return self;
@@ -104,14 +100,8 @@
     _actualBarIndex = 0;
 }
 
-- (void)initTimer {
-    _auxTimeStamp = [NSDate date];
-    _mainTimer = [self setTimerWithInterval:@1];
-}
-
 - (void)initRunner {
-    _runner = [NSRunLoop currentRunLoop];
-    [_runner addTimer:_mainTimer forMode: NSRunLoopCommonModes];
+    _mainRunner = [[AMRunner alloc] initWithTickAction:@selector(onTick) andTarget:self];
 }
 
 - (void)killBackgroundThread{
@@ -242,28 +232,6 @@
     }
 }
 
-- (void)updateTimerInterval{
-    [_mainTimer invalidate];
-    _mainTimer = [self getTimer];
-}
-
-- (NSTimer*)getTimer{
-    NSNumber *intervalBetweenBeatsInSeconds = @(60.0f / _mainStave.getTempo);
-    NSNumber *actualIntervalInGrid = @(intervalBetweenBeatsInSeconds.floatValue / _actualBar.getDensity);
-    NSNumber *denominatorFactor = @(_actualBar.getSignatureDenominator / 4.0);
-    NSNumber *actualIntervalAdequateToSignatureDenominator = @(actualIntervalInGrid.floatValue / denominatorFactor.floatValue);
-    return [self setTimerWithInterval:actualIntervalAdequateToSignatureDenominator];
-}
-
-- (NSTimer*)setTimerWithInterval: (NSNumber*)interval{
-    _interval = interval;
-    return [NSTimer scheduledTimerWithTimeInterval:_interval.floatValue
-                                            target:self
-                                          selector:@selector(onTick)
-                                          userInfo:nil
-                                           repeats:YES];
-}
-
 - (void)tempoHasBeenChanged {
     [self updateTimerInterval];
 }
@@ -300,6 +268,19 @@
     [_actualBar addBarDelegate:self];
     
     [self updateTimerInterval];
+}
+
+- (void)updateTimerInterval{
+    NSNumber *interval = [self computeTimeInterval];
+    [_mainRunner changeIntervalTime:interval];
+}
+
+- (NSNumber*)computeTimeInterval{
+    NSNumber *intervalBetweenBeatsInSeconds = @(60.0f / _mainStave.getTempo);
+    NSNumber *actualIntervalInGrid = @(intervalBetweenBeatsInSeconds.floatValue / _actualBar.getDensity);
+    NSNumber *denominatorFactor = @(_actualBar.getSignatureDenominator / 4.0);
+    NSNumber *actualIntervalAdequateToSignatureDenominator = @(actualIntervalInGrid.floatValue / denominatorFactor.floatValue);
+    return actualIntervalAdequateToSignatureDenominator;
 }
 
 @end

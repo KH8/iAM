@@ -7,6 +7,7 @@
 //
 
 #import "AMSequence.h"
+#import "AMConfig.h"
 
 @interface AMSequence()
 
@@ -21,7 +22,7 @@
 @implementation AMSequence
 
 - (id)init {
-    self = [super init];
+    self = [super initWithMaxCount:[AMConfig maxStepCount]];
     if (self) {
         _name = @"NEW SEQUENCE";
         [self setCreationDate:[NSDate date]];

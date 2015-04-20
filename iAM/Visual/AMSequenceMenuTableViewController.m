@@ -31,6 +31,7 @@ static NSString * const reuseIdentifier = @"myMenuStepCell";
 - (void)loadMainObjects {
     AMSequencerSingleton *sequencerSingleton = [AMSequencerSingleton sharedSequencer];
     _arrayOfSequences = sequencerSingleton.arrayOfSequences;
+    [_arrayOfSequences addArrayDelegate:self];
     _sequencer = sequencerSingleton.sequencer;
 }
 
@@ -82,6 +83,16 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [_tableView reloadData];
     [self updateIndexSelected];
     [self updateComponents];
+}
+
+- (void)arrayHasBeenChanged {
+}
+
+- (void)selectionHasBeenChanged {
+}
+
+- (void)maxCountExceeded {
+    //TODO!
 }
 
 - (void)updateComponents{

@@ -162,6 +162,10 @@ didDeselectRowAtIndexPath:(NSIndexPath *)indexPath{
     [self updateComponents];
 }
 
+- (void)maxCountExceeded {
+    //TODO!
+}
+
 - (void)sequenceStepPropertiesHasBeenChanged{
     [self updateComponents];
 }

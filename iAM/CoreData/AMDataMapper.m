@@ -9,6 +9,7 @@
 #import "AMDataMapper.h"
 #import "AMNote.h"
 #import "AMPlayer.h"
+#import "AMConfig.h"
 #import "CDStep.h"
 #import "CDSequence.h"
 #import "CDNote.h"
@@ -54,7 +55,7 @@
 }
 
 - (AMMutableArray*)getActualConfigurationFromContext:(NSManagedObjectContext*)context{
-    AMMutableArray *array = [[AMMutableArray alloc] init];
+    AMMutableArray *array = [[AMMutableArray alloc] initWithMaxCount:[AMConfig maxSequenceCount]];
     
     NSError *error;
     if (![context save:&error]) {

@@ -4,6 +4,7 @@
 //
 
 #import "AMStave.h"
+#import "AMConfig.h"
 
 @interface AMStave ()
 
@@ -34,7 +35,7 @@ NSUInteger const minTempo = 60;
 }
 
 - (id)init {
-    self = [super init];
+    self = [super initWithMaxCount:[AMConfig maxBarCount]];
     if (self) {
         _staveDelegates = [NSHashTable weakObjectsHashTable];
         [self initBasicParameters];

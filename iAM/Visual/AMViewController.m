@@ -192,6 +192,10 @@
     [self updateComponents];
 }
 
+- (void)maxCountExceeded {
+    //TODO!
+}
+
 - (void)sequenceHasStarted {
     _temporaryPlayButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemPause
                                                                          target:self

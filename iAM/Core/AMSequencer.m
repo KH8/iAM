@@ -76,9 +76,11 @@
 - (void)initResponders{
     _mainSequenceArrayResponder = [[AMMutableArrayResponder alloc] initWithArrayHasChangedAction:@selector(sequenceArrayHasBeenChanged)
                                                                     andSelectionHasChangedAction:@selector(sequenceSelectionHasBeenChanged)
+                                                                       andMaxCountExceededAction:@selector(sequenceMaxCountExceeded)
                                                                                        andTarget:self];
     _mainStaveArrayResponder = [[AMMutableArrayResponder alloc] initWithArrayHasChangedAction:@selector(staveArrayHasBeenChanged)
                                                                  andSelectionHasChangedAction:@selector(staveSelectionHasBeenChanged)
+                                                                    andMaxCountExceededAction:@selector(staveMaxCountExceeded)
                                                                                     andTarget:self];
 }
 
@@ -249,12 +251,20 @@
     [self updateComponents];
 }
 
+- (void)sequenceMaxCountExceeded {
+    
+}
+
 - (void)staveArrayHasBeenChanged {
 
 }
 
 - (void)staveSelectionHasBeenChanged {
     [self updateComponents];
+}
+
+- (void)staveMaxCountExceeded {
+    
 }
 
 - (void)updateComponents{

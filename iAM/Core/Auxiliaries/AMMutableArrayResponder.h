@@ -11,6 +11,7 @@
 
 - (id)initWithArrayHasChangedAction:(SEL)arrayHasChangedSelector
        andSelectionHasChangedAction:(SEL)selectionHasChangedSelector
+          andMaxCountExceededAction:(SEL)maxCountExceededSelector
                           andTarget:(id)target;
 
 @end

@@ -10,6 +10,8 @@
 
 @interface AMMutableArray ()
 
+@property int maxCount;
+
 @property (nonatomic) NSUInteger actualIndex;
 @property NSMutableArray *baseArray;
 
@@ -19,9 +21,10 @@
 
 @implementation AMMutableArray
 
-- (id)init{
+- (id)initWithMaxCount:(int)maxCount{
     self = [super init];
     if (self) {
+        _maxCount = maxCount;
         _arrayDelegates = [NSHashTable weakObjectsHashTable];
         _baseArray = [[NSMutableArray alloc] init];
     }
@@ -48,6 +51,12 @@
     }
 }
 
+- (void)delegateMaxCountExceeded{
+    for (id<AMMutableArrayDelegate> delegate in _arrayDelegates) {
+        [delegate maxCountExceeded];
+    }
+}
+
 - (void)addObject:(NSObject*)newObject{
     NSUInteger newIndex = 0;
     if(_baseArray.count != 0){
@@ -57,6 +66,10 @@
 }
 
 - (void)addObject:(NSObject*)newObject atIndex:(NSUInteger)anIndex{
+    if(_baseArray.count == _maxCount){
+        [self delegateMaxCountExceeded];
+        return;
+    }
     [_baseArray insertObject:newObject atIndex:anIndex];
     [self delegateArrayHasBeenChanged];
 }

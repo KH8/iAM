@@ -36,7 +36,7 @@
 }
 
 - (void)initDictionaryOfSounds{
-    _arrayOfSounds = [[AMMutableArray alloc] init];
+    _arrayOfSounds = [[AMMutableArray alloc] initWithMaxCount:26];
     
     [_arrayOfSounds addObjectAtTheEnd:@"artificialHigh1"];
     [_arrayOfSounds addObjectAtTheEnd:@"ARTIFICIAL HIGH 1"];

@@ -103,6 +103,10 @@ static NSString * const reuseIdentifier = @"myCell";
     [self reloadData];
 }
 
+- (void)maxCountExceeded {
+    
+}
+
 - (void)sequenceHasStarted {
 
 }

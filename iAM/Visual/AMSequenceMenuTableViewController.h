@@ -8,7 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "AMNavigationViewController.h"
+#import "AMMutableArray.h"
 
-@interface AMSequenceMenuTableViewController : AMNavigationViewController <UITableViewDataSource, UITableViewDelegate>
+@interface AMSequenceMenuTableViewController : AMNavigationViewController <UITableViewDataSource, UITableViewDelegate, AMMutableArrayDelegate>
 
 @end

@@ -21,6 +21,7 @@
 		A442FA2F1AE42A5400EB7791 /* AMRunner.m in Sources */ = {isa = PBXBuildFile; fileRef = A442FA2E1AE42A5400EB7791 /* AMRunner.m */; };
 		A44492061A9E7CE4008CEB8E /* add.png in Resources */ = {isa = PBXBuildFile; fileRef = A44492041A9E7CE4008CEB8E /* add.png */; };
 		A44492071A9E7CE4008CEB8E /* delete.png in Resources */ = {isa = PBXBuildFile; fileRef = A44492051A9E7CE4008CEB8E /* delete.png */; };
+		A445BAC81AE59BAC000CF7D7 /* AMConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = A445BAC71AE59BAC000CF7D7 /* AMConfig.m */; };
 		A44910791A5F396E00E8C6DB /* AMBar.m in Sources */ = {isa = PBXBuildFile; fileRef = A44910781A5F396E00E8C6DB /* AMBar.m */; };
 		A449107C1A5F3A1200E8C6DB /* AMNote.m in Sources */ = {isa = PBXBuildFile; fileRef = A449107B1A5F3A1200E8C6DB /* AMNote.m */; };
 		A44A3C731A7BF1E800B3B4DC /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A44A3C721A7BF1E800B3B4DC /* SWRevealViewController.m */; };
@@ -124,6 +125,8 @@
 		A442FA2E1AE42A5400EB7791 /* AMRunner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMRunner.m; path = Core/AMRunner.m; sourceTree = "<group>"; };
 		A44492041A9E7CE4008CEB8E /* add.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = add.png; path = Icons/add.png; sourceTree = "<group>"; };
 		A44492051A9E7CE4008CEB8E /* delete.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = delete.png; path = Icons/delete.png; sourceTree = "<group>"; };
+		A445BAC61AE59BAC000CF7D7 /* AMConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMConfig.h; sourceTree = "<group>"; };
+		A445BAC71AE59BAC000CF7D7 /* AMConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMConfig.m; sourceTree = "<group>"; };
 		A44910771A5F396E00E8C6DB /* AMBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMBar.h; path = Core/AMBar.h; sourceTree = "<group>"; };
 		A44910781A5F396E00E8C6DB /* AMBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMBar.m; path = Core/AMBar.m; sourceTree = "<group>"; };
 		A449107A1A5F3A1200E8C6DB /* AMNote.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMNote.h; path = Core/AMNote.h; sourceTree = "<group>"; };
@@ -366,6 +369,8 @@
 				A44910761A5F38EF00E8C6DB /* Core */,
 				A45F0D4B1A5C6515008673FC /* AppDelegate.h */,
 				A45F0D4C1A5C6515008673FC /* AppDelegate.m */,
+				A445BAC61AE59BAC000CF7D7 /* AMConfig.h */,
+				A445BAC71AE59BAC000CF7D7 /* AMConfig.m */,
 				A4C59DAE1ADED12200DDA9A0 /* AMConfigurationManager.h */,
 				A4C59DAF1ADED12200DDA9A0 /* AMConfigurationManager.m */,
 				A4C59DB11ADED17600DDA9A0 /* AMAppearanceManager.h */,
@@ -618,6 +623,7 @@
 				A41C08EB1A927435006F0F06 /* AMSequenceTableController.m in Sources */,
 				A477F93B1AE05E4400812C4A /* AMView.m in Sources */,
 				A4A4B2B01AC0C4F00099A746 /* AMDataModel.xcdatamodeld in Sources */,
+				A445BAC81AE59BAC000CF7D7 /* AMConfig.m in Sources */,
 				A4C59DB61ADEEEB400DDA9A0 /* CDAppearance.m in Sources */,
 				A49A5A7C1AD7264D000B0080 /* CDSelections.m in Sources */,
 				A41C08F11A92803B006F0F06 /* AMSequenceMenuTableViewController.m in Sources */,

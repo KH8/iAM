@@ -14,12 +14,13 @@
 
 - (void)arrayHasBeenChanged;
 - (void)selectionHasBeenChanged;
+- (void)maxCountExceeded;
 
 @end
 
 @interface AMMutableArray : NSObject
 
-- (id)init;
+- (id)initWithMaxCount:(int)maxCount;
 
 - (void) addArrayDelegate: (id<AMMutableArrayDelegate>)delegate;
 - (void) removeArrayDelegate: (id<AMMutableArrayDelegate>)delegate;

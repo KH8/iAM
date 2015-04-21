@@ -8,13 +8,13 @@
 
 #import "AMConfig.h"
 
-static NSString *appName = @"tickGrid LTD";
+static NSString *appName = @"iAM LTD";
 static NSString *version = @"v0.9.0";
 
-static int maxBarCount = 4;
-static int maxStepCount = 3;
-static int maxSequenceCount = 1;
-static bool isSoundChangeAllowed = NO;
+static int maxBarCount = 16;
+static int maxStepCount = 32;
+static int maxSequenceCount = 64;
+static bool isSoundChangeAllowed = YES;
 
 
 @implementation AMConfig
@@ -57,7 +57,7 @@ static bool isSoundChangeAllowed = NO;
 
 + (NSString*)stepCountExceeded{
     return [NSString stringWithFormat:@"%@\n%@ [ %@ %@ ] %@ %d %@.\n%@",
-            @"Maximum number of bars exceeded.",
+            @"Maximum number of steps exceeded.",
             @"This version of application",
             appName,
             version,
@@ -69,7 +69,7 @@ static bool isSoundChangeAllowed = NO;
 
 + (NSString*)sequenceCountExceeded{
     return [NSString stringWithFormat:@"%@\n%@ [ %@ %@ ] %@ %d %@.\n%@",
-            @"Maximum number of bars exceeded.",
+            @"Maximum number of sequences exceeded.",
             @"This version of application",
             appName,
             version,

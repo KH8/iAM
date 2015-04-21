@@ -25,6 +25,7 @@
     [self initDictionaryOfSounds];
     [self initIndexSelection];
     [self initSizes];
+    [self initColors];
 }
 
 - (void)initSizes {
@@ -33,6 +34,11 @@
     [revealController setRearViewRevealOverdraw:0];
     [revealController setRightViewRevealWidth:0];
     [revealController setRightViewRevealOverdraw:0];
+}
+
+- (void)initColors {
+    UIColor *backgrounColor = [UINavigationBar appearance].barTintColor;
+    [self.view setBackgroundColor:backgrounColor];
 }
 
 - (void)initDictionaryOfSounds{

@@ -1,5 +1,3 @@
-
-
 .idea*
 
 *.xcbkptlist
@@ -11,3 +9,18 @@ grafika/
 iAM.xcodeproj/project.xcworkspace/xcuserdata/H8.xcuserdatad/UserInterfaceState.xcuserstate
 
 *.xcuserstate
+iAM.plist
+tickGrid.plist
+tickGrid LTD.plist
+tickGrid LTD/*
+tickGrid/*
+
+iAM.xcodeproj/xcuserdata/H8.xcuserdatad/xcschemes/*
+
+tickGrid/tickGrid.plist
+
+tickGrid/AMConfig.m
+
+tickGrid LTD/AMConfig.m
+
+iAM/Info.plist

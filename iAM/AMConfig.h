@@ -21,5 +21,6 @@
 + (NSString*)barCountExceeded;
 + (NSString*)stepCountExceeded;
 + (NSString*)sequenceCountExceeded;
++ (NSString*)soundChangeNotAllowed;
 
 @end

@@ -10,8 +10,10 @@
 #import "AppDelegate.h"
 #import "AMPropertiesTableViewController.h"
 #import "AMSoundsTableViewController.h"
+#import "AMPopupViewController.h"
 #import "AMSequencerSingleton.h"
 #import "AMVolumeSlider.h"
+#import "AMConfig.h"
 
 @interface AMPropertiesTableViewController ()
 
@@ -134,10 +136,42 @@
                        forState:UIControlStateNormal];
 }
 
+- (IBAction)assignSoundToTrack1:(id)sender {
+    if([self isSoundAssignmentAllowed]){
+        [self performSegueWithIdentifier: @"sw_track1" sender: self];
+    }
+}
+
+- (IBAction)assignSoundToTrack2:(id)sender {
+    if([self isSoundAssignmentAllowed]){
+        [self performSegueWithIdentifier: @"sw_track2" sender: self];
+    }
+}
+
+- (IBAction)assignSoundToTrack3:(id)sender {
+    if([self isSoundAssignmentAllowed]){
+        [self performSegueWithIdentifier: @"sw_track3" sender: self];
+    }
+}
+
+- (BOOL)isSoundAssignmentAllowed{
+    if(![AMConfig isSoundChangeAllowed]){
+        [self performSegueWithIdentifier: @"sw_sounds_popup" sender: self];
+        return NO;
+    }
+    return YES;
+}
+
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if([segue.identifier isEqualToString:@"sw_confirm"]){
         AMConfirmationViewController *confirmationViewController = (AMConfirmationViewController *)segue.destinationViewController;
         confirmationViewController.delegate = self;
+        return;
+    }
+    
+    if([segue.identifier isEqualToString:@"sw_sounds_popup"]){
+        AMPopupViewController *popupViewController = (AMPopupViewController *)segue.destinationViewController;
+        [popupViewController setText:[AMConfig soundChangeNotAllowed]];
         return;
     }
     

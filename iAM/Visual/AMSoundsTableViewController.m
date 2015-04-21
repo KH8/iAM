@@ -24,10 +24,10 @@
     [super viewDidLoad];
     [self initDictionaryOfSounds];
     [self initIndexSelection];
-    [self loadSizes];
+    [self initSizes];
 }
 
-- (void)loadSizes {
+- (void)initSizes {
     SWRevealViewController *revealController = [self revealViewController];
     [revealController setRearViewRevealWidth:0];
     [revealController setRearViewRevealOverdraw:0];

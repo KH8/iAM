@@ -163,7 +163,7 @@
                         <outlet property="pageControl" destination="Odp-23-gs5" id="wrC-K3-wcn"/>
                         <outlet property="sideMenuButton" destination="iNB-dB-j6p" id="g1l-NZ-Xrv"/>
                         <segue destination="Fdi-8I-min" kind="presentation" identifier="sw_popover" modalPresentationStyle="overFullScreen" modalTransitionStyle="coverVertical" id="7Qk-9f-4Ap"/>
-                        <segue destination="5t2-d4-3oA" kind="presentation" identifier="sw_bar_popup" modalPresentationStyle="fullScreen" modalTransitionStyle="coverVertical" id="HdI-RE-NKN"/>
+                        <segue destination="5t2-d4-3oA" kind="presentation" identifier="sw_bar_popup" modalPresentationStyle="overFullScreen" modalTransitionStyle="coverVertical" id="HdI-RE-NKN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lD3-VX-VHG" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -303,7 +303,7 @@
                         <outlet property="navigationBarItem" destination="8IU-Rz-1uh" id="9sD-Kq-e2x"/>
                         <outlet property="sideMenuButton" destination="XL1-4B-JsO" id="qnA-HH-ssz"/>
                         <outlet property="tableView" destination="lw6-5y-do4" id="cEd-VE-Jpm"/>
-                        <segue destination="5t2-d4-3oA" kind="presentation" identifier="sw_sequence_popup" modalPresentationStyle="fullScreen" modalTransitionStyle="coverVertical" id="iUZ-gW-D26"/>
+                        <segue destination="5t2-d4-3oA" kind="presentation" identifier="sw_sequence_popup" modalPresentationStyle="overFullScreen" modalTransitionStyle="coverVertical" id="iUZ-gW-D26"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b1l-8r-LsT" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -471,7 +471,7 @@
                                                     </constraints>
                                                     <state key="normal" title="Button" image="details.png"/>
                                                     <connections>
-                                                        <segue destination="kee-6o-asG" kind="show" identifier="sw_track1" id="lyY-cL-eTX"/>
+                                                        <action selector="assignSoundToTrack1:" destination="3jw-zo-k6R" eventType="touchUpInside" id="vtG-BC-UKD"/>
                                                     </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LOW COWBELL" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HPE-yE-lCq">
@@ -541,7 +541,7 @@
                                                     </constraints>
                                                     <state key="normal" title="Button" image="details.png"/>
                                                     <connections>
-                                                        <segue destination="kee-6o-asG" kind="show" identifier="sw_track2" id="TkD-Ko-VTP"/>
+                                                        <action selector="assignSoundToTrack2:" destination="3jw-zo-k6R" eventType="touchUpInside" id="Pgr-3e-CnX"/>
                                                     </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LOW STICK" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9d1-ZO-uUa">
@@ -598,7 +598,13 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SOUND" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Lz-2m-Jxc">
-                                                    <rect key="frame" x="16" y="15" width="44" height="14.5"/>
+                                                    <rect key="frame" x="16" y="14" width="44" height="15"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HIGH STICK" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KMZ-bq-5Pj">
+                                                    <rect key="frame" x="480" y="14" width="70" height="15"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
@@ -611,15 +617,9 @@
                                                     </constraints>
                                                     <state key="normal" title="Button" image="details.png"/>
                                                     <connections>
-                                                        <segue destination="kee-6o-asG" kind="show" identifier="sw_track3" id="5DO-Gs-QnJ"/>
+                                                        <action selector="assignSoundToTrack3:" destination="3jw-zo-k6R" eventType="touchUpInside" id="OV1-qD-yGG"/>
                                                     </connections>
                                                 </button>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HIGH STICK" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KMZ-bq-5Pj">
-                                                    <rect key="frame" x="480" y="15" width="69.5" height="14.5"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="centerY" secondItem="KMZ-bq-5Pj" secondAttribute="centerY" id="MLv-xV-SoY"/>
@@ -693,6 +693,10 @@
                         <outlet property="track3Slider" destination="qIA-BK-Pl2" id="QGd-26-c45"/>
                         <outlet property="track3SoundLabel" destination="KMZ-bq-5Pj" id="hyO-K5-qk6"/>
                         <segue destination="hEN-7r-qKy" kind="presentation" identifier="sw_confirm" modalPresentationStyle="overFullScreen" modalTransitionStyle="coverVertical" id="vFl-po-kvb"/>
+                        <segue destination="5t2-d4-3oA" kind="presentation" identifier="sw_sounds_popup" modalPresentationStyle="overFullScreen" modalTransitionStyle="coverVertical" id="A2U-uw-7qt"/>
+                        <segue destination="kee-6o-asG" kind="show" identifier="sw_track1" id="6qv-rm-zBs"/>
+                        <segue destination="kee-6o-asG" kind="show" identifier="sw_track2" id="jo9-6A-6k1"/>
+                        <segue destination="kee-6o-asG" kind="show" identifier="sw_track3" id="lm7-pw-MVk"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bUw-3K-QeL" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -930,7 +934,7 @@
                     <connections>
                         <outlet property="bottomToolBar" destination="z4s-zD-Gpo" id="713-90-6ZC"/>
                         <outlet property="tableView" destination="IhR-XU-bF7" id="Gmi-Lk-3lR"/>
-                        <segue destination="5t2-d4-3oA" kind="presentation" identifier="sw_step_popup" modalPresentationStyle="fullScreen" modalTransitionStyle="coverVertical" id="6PM-r0-x4R"/>
+                        <segue destination="5t2-d4-3oA" kind="presentation" identifier="sw_step_popup" modalPresentationStyle="overFullScreen" modalTransitionStyle="coverVertical" id="6PM-r0-x4R"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OUB-9k-CU7" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1057,6 +1061,7 @@
                                         </constraints>
                                     </pickerView>
                                 </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="3FK-P2-J7z" firstAttribute="centerX" secondItem="bPl-GG-4YA" secondAttribute="centerX" id="7MO-eo-WYa"/>
                                     <constraint firstItem="gW5-tU-q9X" firstAttribute="top" secondItem="ibw-dR-ieT" secondAttribute="bottom" constant="-2" id="8up-C1-vsP"/>
@@ -1256,6 +1261,7 @@
                                                 <textInputTraits key="textInputTraits"/>
                                             </textView>
                                         </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstItem="dRX-II-KmZ" firstAttribute="leading" secondItem="BbJ-hY-ri1" secondAttribute="leading" id="5Cx-WX-UJ7"/>
                                             <constraint firstAttribute="bottom" secondItem="dRX-II-KmZ" secondAttribute="bottom" id="C13-I3-Cbh"/>
@@ -1443,6 +1449,7 @@ written by: Krzysztof Reczek</string>
         <scene sceneID="p1v-tX-hPD">
             <objects>
                 <navigationController id="kee-6o-asG" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="x3u-nu-k5g"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="600" height="1000"/>
@@ -1468,8 +1475,8 @@ written by: Krzysztof Reczek</string>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="zkT-HV-92U"/>
-        <segue reference="lyY-cL-eTX"/>
-        <segue reference="6PM-r0-x4R"/>
+        <segue reference="lm7-pw-MVk"/>
+        <segue reference="iUZ-gW-D26"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
 </document>

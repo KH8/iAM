@@ -79,4 +79,15 @@ static bool isSoundChangeAllowed = NO;
             @"Consider upgrade to the regular version."];
 }
 
+
++ (NSString*)soundChangeNotAllowed{
+    return [NSString stringWithFormat:@"%@\n%@ [ %@ %@ ] %@\n%@",
+            @"Sound assignment cannot be changed.",
+            @"This version of application",
+            appName,
+            version,
+            @"is limited.",
+            @"Consider upgrade to the regular version."];
+}
+
 @end

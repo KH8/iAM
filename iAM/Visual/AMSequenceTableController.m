@@ -9,11 +9,17 @@
 #import "AMSequenceTableController.h"
 #import "AMSequenceTableViewCell.h"
 #import "AMSequencerSingleton.h"
+#import "AMPopupViewController.h"
+#import "AMMutableArrayResponder.h"
+#import "AMConfig.h"
 
 @interface AMSequenceTableController ()
 
 @property AMSequencer *mainSequencer;
 @property AMSequence *mainSequence;
+
+@property AMMutableArrayResponder *mainSequenceArrayResponder;
+@property AMMutableArrayResponder *mainStaveArrayResponder;
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
@@ -32,6 +38,7 @@ static NSString * const reuseIdentifier = @"mySequenceStepCell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self initResponders];
     [self initSequence];
     [self initBottomToolBar];
     [self updateIndexSelected];
@@ -42,6 +49,17 @@ static NSString * const reuseIdentifier = @"mySequenceStepCell";
     [super viewDidAppear:animated];
     [self updateComponents];
     
+}
+
+- (void)initResponders{
+    _mainSequenceArrayResponder = [[AMMutableArrayResponder alloc] initWithArrayHasChangedAction:@selector(sequenceArrayHasBeenChanged)
+                                                                    andSelectionHasChangedAction:@selector(sequenceSelectionHasBeenChanged)
+                                                                       andMaxCountExceededAction:@selector(sequenceMaxCountExceeded)
+                                                                                       andTarget:self];
+    _mainStaveArrayResponder = [[AMMutableArrayResponder alloc] initWithArrayHasChangedAction:@selector(staveArrayHasBeenChanged)
+                                                                 andSelectionHasChangedAction:@selector(staveSelectionHasBeenChanged)
+                                                                    andMaxCountExceededAction:@selector(staveMaxCountExceeded)
+                                                                                    andTarget:self];
 }
 
 - (void)initSequence{
@@ -154,16 +172,29 @@ didDeselectRowAtIndexPath:(NSIndexPath *)indexPath{
     [self updateComponents];
 }
 
-- (void)arrayHasBeenChanged {
+- (void)staveArrayHasBeenChanged {
     [self updateComponents];
 }
 
-- (void)selectionHasBeenChanged {
+- (void)staveSelectionHasBeenChanged {
     [self updateComponents];
 }
 
-- (void)maxCountExceeded {
-    //TODO!
+- (void)staveMaxCountExceeded {
+}
+
+- (void)sequenceArrayHasBeenChanged {
+    [self updateComponents];
+}
+
+- (void)sequenceSelectionHasBeenChanged {
+    [self updateComponents];
+}
+
+- (void)sequenceMaxCountExceeded {
+    if(_mainSequence.count >= [AMConfig maxStepCount]){
+        [self performSegueWithIdentifier: @"sw_step_popup" sender: self];
+    }
 }
 
 - (void)sequenceStepPropertiesHasBeenChanged{
@@ -184,11 +215,11 @@ didDeselectRowAtIndexPath:(NSIndexPath *)indexPath{
 
 - (void)updateComponents{
     _mainSequence = [_mainSequencer getSequence];
-    [_mainSequence addArrayDelegate:self];
+    [_mainSequence addArrayDelegate:_mainSequenceArrayResponder];
     AMSequenceStep *step = (AMSequenceStep *)_mainSequence.getActualObject;
     [step addStepDelegate:self];
     AMStave *stave = step.getStave;
-    [stave addArrayDelegate:self];
+    [stave addArrayDelegate:_mainStaveArrayResponder];
     [stave addStaveDelegate:self];
     [self reloadView];
     [self updateIndexSelected];
@@ -263,5 +294,11 @@ didDeselectRowAtIndexPath:(NSIndexPath *)indexPath{
     });
 }
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if([segue.identifier isEqualToString:@"sw_step_popup"]){
+        AMPopupViewController *popupViewController = (AMPopupViewController *)segue.destinationViewController;
+        [popupViewController setText:[AMConfig stepCountExceeded]];
+    }
+}
 
 @end

@@ -6,11 +6,14 @@
 //  Copyright (c) 2015 H@E. All rights reserved.
 //
 
-#import "AMViewController.h"
-#import "SWRevealViewController.h"
-#import "AMSequencerSingleton.h"
-#import "AppDelegate.h"
 #import <AVFoundation/AVFoundation.h>
+#import "SWRevealViewController.h"
+#import "AppDelegate.h"
+#import "AMViewController.h"
+#import "AMSequencerSingleton.h"
+#import "AMPopupViewController.h"
+#import "AMConfig.h"
+#import "AMMutableArrayResponder.h"
 
 @interface AMViewController () {
 }
@@ -22,12 +25,16 @@
 @property UIBarButtonItem *temporaryPlayButton;
 @property UIBarButtonItem *temporarySettingsButton;
 
+@property AMMutableArrayResponder *mainSequenceArrayResponder;
+@property AMMutableArrayResponder *mainStaveArrayResponder;
+
 @end
 
 @implementation AMViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self loadResponders];
     [self loadMainObjects];
     [self loadCollectionViewController];
     [self loadSidebarMenu];
@@ -41,6 +48,17 @@
         [_mainSequencer startStop];
         [_mainSequencer killBackgroundThread];
     }
+}
+
+- (void)loadResponders{
+    _mainSequenceArrayResponder = [[AMMutableArrayResponder alloc] initWithArrayHasChangedAction:@selector(sequenceArrayHasBeenChanged)
+                                                                    andSelectionHasChangedAction:@selector(sequenceSelectionHasBeenChanged)
+                                                                       andMaxCountExceededAction:@selector(sequenceMaxCountExceeded)
+                                                                                       andTarget:self];
+    _mainStaveArrayResponder = [[AMMutableArrayResponder alloc] initWithArrayHasChangedAction:@selector(staveArrayHasBeenChanged)
+                                                                 andSelectionHasChangedAction:@selector(staveSelectionHasBeenChanged)
+                                                                    andMaxCountExceededAction:@selector(staveMaxCountExceeded)
+                                                                                    andTarget:self];
 }
 
 - (void)loadMainObjects{
@@ -178,22 +196,40 @@
         popoverViewController.actuallySelectedSequencer = _mainSequencer;
         popoverViewController.delegate = self;
     }
+    if([segue.identifier isEqualToString:@"sw_bar_popup"]){
+        AMPopupViewController *popupViewController = (AMPopupViewController *)segue.destinationViewController;
+        [popupViewController setText:[AMConfig barCountExceeded]];
+    }
 }
 
 - (void)pickedValuesHaveBeenChanged{
     [self updateSettingsButton];
 }
 
-- (void)arrayHasBeenChanged {
+- (void)staveArrayHasBeenChanged {
     [self updateComponents];
 }
 
-- (void)selectionHasBeenChanged {
+- (void)staveSelectionHasBeenChanged {
     [self updateComponents];
 }
 
-- (void)maxCountExceeded {
-    //TODO!
+- (void)staveMaxCountExceeded {
+    if(_mainStave.count >= [AMConfig maxBarCount]){
+        [self performSegueWithIdentifier: @"sw_bar_popup" sender: self];
+    }
+}
+
+- (void)sequenceArrayHasBeenChanged {
+    [self updateComponents];
+}
+
+- (void)sequenceSelectionHasBeenChanged {
+    [self updateComponents];
+}
+
+- (void)sequenceMaxCountExceeded {
+    
 }
 
 - (void)sequenceHasStarted {
@@ -216,11 +252,11 @@
 
 - (void)updateComponents{
     _mainSequence = _mainSequencer.getSequence;
-    [_mainSequence addArrayDelegate:self];
+    [_mainSequence addArrayDelegate:_mainSequenceArrayResponder];
     
     AMSequenceStep *sequenceStep = (AMSequenceStep *)_mainSequence.getActualObject;
     _mainStave = sequenceStep.getStave;
-    [_mainStave addArrayDelegate:self];
+    [_mainStave addArrayDelegate:_mainStaveArrayResponder];
 
     [self updatePageControl];
     [self updateSettingsButton];

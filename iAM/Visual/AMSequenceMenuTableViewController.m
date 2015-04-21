@@ -9,6 +9,8 @@
 #import "AMSequenceMenuTableViewController.h"
 #import "AMSequenceMenuTableViewCell.h"
 #import "AMSequencerSingleton.h"
+#import "AMPopupViewController.h"
+#import "AMConfig.h"
 
 @interface AMSequenceMenuTableViewController ()
 
@@ -92,7 +94,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 }
 
 - (void)maxCountExceeded {
-    //TODO!
+    [self performSegueWithIdentifier: @"sw_sequence_popup" sender: self];
 }
 
 - (void)updateComponents{
@@ -105,6 +107,13 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
                                                             inSection:0]
                                 animated:NO
                           scrollPosition:UITableViewScrollPositionNone];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if([segue.identifier isEqualToString:@"sw_sequence_popup"]){
+        AMPopupViewController *popupViewController = (AMPopupViewController *)segue.destinationViewController;
+        [popupViewController setText:[AMConfig sequenceCountExceeded]];
+    }
 }
 
 @end

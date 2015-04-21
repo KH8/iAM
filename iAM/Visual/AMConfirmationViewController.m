@@ -36,7 +36,7 @@
     [self closeView];
 }
 
-- (IBAction)cancelClicked:(id)sender {
+- (IBAction)swipedDown:(id)sender {
     [self closeView];
 }
 

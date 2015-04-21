@@ -18,4 +18,8 @@
 + (int)maxSequenceCount;
 + (bool)isSoundChangeAllowed;
 
++ (NSString*)barCountExceeded;
++ (NSString*)stepCountExceeded;
++ (NSString*)sequenceCountExceeded;
+
 @end

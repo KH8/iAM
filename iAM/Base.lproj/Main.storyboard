@@ -156,6 +156,8 @@
                             <inset key="imageInsets" minX="-30" minY="-30" maxX="0.0" maxY="-30"/>
                         </barButtonItem>
                     </navigationItem>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="600" height="600"/>
                     <connections>
                         <outlet property="bottomToolBar" destination="6nd-hL-bKe" id="5kB-ee-BfX"/>
                         <outlet property="collectionView" destination="seQ-A1-cWb" id="RGC-JP-FJm"/>
@@ -946,6 +948,8 @@
             <objects>
                 <navigationController id="usW-4H-ZPN" sceneMemberID="viewController">
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="600" height="600"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="Giy-HF-nL4">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -970,7 +974,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <visualEffectView opaque="NO" alpha="0.84999999999999998" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Sws-2I-aX3">
+                            <visualEffectView opaque="NO" alpha="0.84999999999999998" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sws-2I-aX3">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="KeA-zm-XZj">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
@@ -1085,17 +1089,23 @@
                         </subviews>
                         <gestureRecognizers/>
                         <constraints>
+                            <constraint firstItem="Sws-2I-aX3" firstAttribute="top" secondItem="tyE-74-eos" secondAttribute="top" id="2gQ-3z-BsI"/>
                             <constraint firstAttribute="trailing" secondItem="CRn-gj-ty1" secondAttribute="trailing" id="Q9Q-uc-uFr"/>
                             <constraint firstItem="mJB-qH-SCf" firstAttribute="top" secondItem="4Sn-Mq-EaF" secondAttribute="bottom" constant="75" id="VjM-rl-XWI"/>
                             <constraint firstAttribute="centerX" secondItem="4Sn-Mq-EaF" secondAttribute="centerX" id="WMy-jC-AbN"/>
+                            <constraint firstItem="mJB-qH-SCf" firstAttribute="top" secondItem="Sws-2I-aX3" secondAttribute="bottom" id="fhx-LL-wjf"/>
                             <constraint firstItem="CRn-gj-ty1" firstAttribute="leading" secondItem="tyE-74-eos" secondAttribute="leading" id="gSJ-Bo-ALX"/>
                             <constraint firstItem="4Sn-Mq-EaF" firstAttribute="top" secondItem="CRn-gj-ty1" secondAttribute="bottom" constant="-15" id="okB-D8-Uy3"/>
+                            <constraint firstAttribute="trailing" secondItem="Sws-2I-aX3" secondAttribute="trailing" id="qXQ-Ky-VHz"/>
+                            <constraint firstItem="Sws-2I-aX3" firstAttribute="leading" secondItem="tyE-74-eos" secondAttribute="leading" id="uXV-2G-uBy"/>
                             <constraint firstItem="CRn-gj-ty1" firstAttribute="top" secondItem="xTc-KQ-AEl" secondAttribute="bottom" constant="25" id="x5K-p0-bay"/>
                         </constraints>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="QgY-36-7io" appends="YES" id="F4I-Se-OTX"/>
                         </connections>
                     </view>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="600" height="600"/>
                     <connections>
                         <outlet property="densityLabel" destination="dlo-2e-TSU" id="JNM-MV-TBn"/>
                         <outlet property="densityPicker" destination="8JB-Pp-4Cc" id="XTJ-ew-7LX"/>
@@ -1129,7 +1139,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <visualEffectView opaque="NO" alpha="0.85000002384185791" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mpX-ah-RsI">
+                            <visualEffectView opaque="NO" alpha="0.85000002384185791" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mpX-ah-RsI">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Ns1-9r-LaR">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
@@ -1202,6 +1212,10 @@
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="mWS-IM-Plu" secondAttribute="trailing" id="6Ei-Vp-BS6"/>
+                            <constraint firstAttribute="trailing" secondItem="mpX-ah-RsI" secondAttribute="trailing" id="b8T-MJ-hEZ"/>
+                            <constraint firstItem="mpX-ah-RsI" firstAttribute="top" secondItem="a3h-sO-asc" secondAttribute="top" id="cJ4-bP-6cY"/>
+                            <constraint firstItem="mpX-ah-RsI" firstAttribute="leading" secondItem="a3h-sO-asc" secondAttribute="leading" id="fdd-mK-PGZ"/>
+                            <constraint firstItem="LQw-JN-7OK" firstAttribute="top" secondItem="mpX-ah-RsI" secondAttribute="bottom" id="gs8-QK-9Mw"/>
                             <constraint firstItem="mWS-IM-Plu" firstAttribute="leading" secondItem="a3h-sO-asc" secondAttribute="leading" id="m8i-UY-eQn"/>
                             <constraint firstItem="mWS-IM-Plu" firstAttribute="top" secondItem="a3h-sO-asc" secondAttribute="top" id="o6d-sI-eHo"/>
                             <constraint firstItem="LQw-JN-7OK" firstAttribute="top" secondItem="mWS-IM-Plu" secondAttribute="bottom" id="yNZ-iv-6xJ"/>
@@ -1210,6 +1224,8 @@
                             <outletCollection property="gestureRecognizers" destination="x41-Pc-v41" appends="YES" id="b3l-8I-cPm"/>
                         </connections>
                     </view>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="600" height="600"/>
                     <connections>
                         <outlet property="textView" destination="LlR-lX-nSd" id="vvj-SF-DXh"/>
                     </connections>
@@ -1235,7 +1251,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <visualEffectView opaque="NO" alpha="0.85000002384185791" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aoe-RM-jYf">
+                            <visualEffectView opaque="NO" alpha="0.85000002384185791" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aoe-RM-jYf">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Wc1-1v-fb5">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
@@ -1293,14 +1309,20 @@
                         </subviews>
                         <gestureRecognizers/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="aoe-RM-jYf" secondAttribute="trailing" id="1jh-L3-m0Y"/>
                             <constraint firstItem="FUL-LW-0XE" firstAttribute="top" secondItem="5NG-1I-fvX" secondAttribute="bottom" id="6P1-EP-IpV"/>
                             <constraint firstItem="5NG-1I-fvX" firstAttribute="leading" secondItem="NGH-4J-5Yw" secondAttribute="leading" id="7Rp-bD-LRg"/>
+                            <constraint firstItem="aoe-RM-jYf" firstAttribute="top" secondItem="NGH-4J-5Yw" secondAttribute="top" id="Edi-ay-55d"/>
                             <constraint firstAttribute="trailing" secondItem="5NG-1I-fvX" secondAttribute="trailing" id="TcI-89-gzW"/>
+                            <constraint firstItem="aoe-RM-jYf" firstAttribute="leading" secondItem="NGH-4J-5Yw" secondAttribute="leading" id="UdK-66-6jT"/>
                             <constraint firstAttribute="centerX" secondItem="tvk-ml-QnZ" secondAttribute="centerX" id="WP1-0l-bfK"/>
                             <constraint firstItem="FUL-LW-0XE" firstAttribute="top" secondItem="tvk-ml-QnZ" secondAttribute="bottom" constant="10" id="ars-ra-mjt"/>
+                            <constraint firstItem="FUL-LW-0XE" firstAttribute="top" secondItem="aoe-RM-jYf" secondAttribute="bottom" id="fTC-jz-C5p"/>
                             <constraint firstItem="5NG-1I-fvX" firstAttribute="top" secondItem="NGH-4J-5Yw" secondAttribute="top" id="zzE-pY-dLk"/>
                         </constraints>
                     </view>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="600" height="600"/>
                     <connections>
                         <outlet property="textView" destination="dRX-II-KmZ" id="4Mr-xV-N84"/>
                     </connections>
@@ -1475,8 +1497,8 @@ written by: Krzysztof Reczek</string>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="zkT-HV-92U"/>
+        <segue reference="6PM-r0-x4R"/>
         <segue reference="lm7-pw-MVk"/>
-        <segue reference="iUZ-gW-D26"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
 </document>

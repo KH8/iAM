@@ -22,5 +22,6 @@
 + (NSString*)stepCountExceeded;
 + (NSString*)sequenceCountExceeded;
 + (NSString*)soundChangeNotAllowed;
++ (NSString*)appDescription;
 
 @end

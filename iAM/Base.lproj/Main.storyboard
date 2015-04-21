@@ -1270,7 +1270,7 @@
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dRX-II-KmZ">
                                                 <rect key="frame" x="0.0" y="0.0" width="400" height="70"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                <string key="text">&lt;text to replace&gt;
+                                                <string key="text">&lt;text to be replaced&gt;
 </string>
                                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
@@ -1336,10 +1336,10 @@
             </objects>
             <point key="canvasLocation" x="574" y="-1005"/>
         </scene>
-        <!--Navigation View Controller-->
+        <!--About View Controller-->
         <scene sceneID="dkW-Jd-WXd">
             <objects>
-                <viewController id="2gp-qd-vNc" customClass="AMNavigationViewController" sceneMemberID="viewController">
+                <viewController id="2gp-qd-vNc" customClass="AMAboutViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="cW5-uG-s8b"/>
                         <viewControllerLayoutGuide type="bottom" id="7cf-x4-pEQ"/>
@@ -1358,15 +1358,13 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BvG-bL-2pO">
-                                <rect key="frame" x="180" y="270" width="240" height="60"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="&lt;text to be replaced&gt;" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BvG-bL-2pO">
+                                <rect key="frame" x="180" y="240" width="240" height="120"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="70B-7u-MgU"/>
+                                    <constraint firstAttribute="height" constant="120" id="70B-7u-MgU"/>
                                     <constraint firstAttribute="width" constant="240" id="noH-DA-t4S"/>
                                 </constraints>
-                                <string key="text">Advanced Metronome
-written by: Krzysztof Reczek</string>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textView>
@@ -1381,6 +1379,7 @@ written by: Krzysztof Reczek</string>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="descriptionText" destination="BvG-bL-2pO" id="I8p-47-LoD"/>
                         <outlet property="navigationBarItem" destination="CYX-jQ-YOL" id="DDL-Vv-BcL"/>
                         <outlet property="sideMenuButton" destination="kWw-7b-acO" id="Ynf-qZ-dOg"/>
                     </connections>

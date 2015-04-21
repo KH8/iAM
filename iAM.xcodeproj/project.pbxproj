@@ -18,6 +18,9 @@
 		A41C08F11A92803B006F0F06 /* AMSequenceMenuTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A41C08F01A92803B006F0F06 /* AMSequenceMenuTableViewController.m */; };
 		A41E3CA61A9D1057004C7675 /* AMSequencerSingleton.m in Sources */ = {isa = PBXBuildFile; fileRef = A41E3CA51A9D1057004C7675 /* AMSequencerSingleton.m */; };
 		A427C9F11A7D141D0003FB21 /* AMPopoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A427C9F01A7D141D0003FB21 /* AMPopoverViewController.m */; };
+		A43E331F1AE6F49F00F4F6CC /* AMAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A43E331E1AE6F49F00F4F6CC /* AMAboutViewController.m */; };
+		A43E33201AE6F70B00F4F6CC /* AMAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A43E331E1AE6F49F00F4F6CC /* AMAboutViewController.m */; };
+		A43E33211AE6F70B00F4F6CC /* AMAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A43E331E1AE6F49F00F4F6CC /* AMAboutViewController.m */; };
 		A442FA2F1AE42A5400EB7791 /* AMRunner.m in Sources */ = {isa = PBXBuildFile; fileRef = A442FA2E1AE42A5400EB7791 /* AMRunner.m */; };
 		A44492061A9E7CE4008CEB8E /* add.png in Resources */ = {isa = PBXBuildFile; fileRef = A44492041A9E7CE4008CEB8E /* add.png */; };
 		A44492071A9E7CE4008CEB8E /* delete.png in Resources */ = {isa = PBXBuildFile; fileRef = A44492051A9E7CE4008CEB8E /* delete.png */; };
@@ -284,6 +287,8 @@
 		A41E3CA51A9D1057004C7675 /* AMSequencerSingleton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMSequencerSingleton.m; path = Core/AMSequencerSingleton.m; sourceTree = "<group>"; };
 		A427C9EF1A7D141D0003FB21 /* AMPopoverViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMPopoverViewController.h; sourceTree = "<group>"; };
 		A427C9F01A7D141D0003FB21 /* AMPopoverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMPopoverViewController.m; sourceTree = "<group>"; };
+		A43E331D1AE6F49F00F4F6CC /* AMAboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMAboutViewController.h; sourceTree = "<group>"; };
+		A43E331E1AE6F49F00F4F6CC /* AMAboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMAboutViewController.m; sourceTree = "<group>"; };
 		A442FA2D1AE42A5400EB7791 /* AMRunner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMRunner.h; path = Core/AMRunner.h; sourceTree = "<group>"; };
 		A442FA2E1AE42A5400EB7791 /* AMRunner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMRunner.m; path = Core/AMRunner.m; sourceTree = "<group>"; };
 		A44492041A9E7CE4008CEB8E /* add.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = add.png; path = Icons/add.png; sourceTree = "<group>"; };
@@ -471,6 +476,8 @@
 				A45DCF551AE288F200B4E174 /* AMConfirmationViewController.m */,
 				A4C7EC961AE6C90900428B68 /* AMPopupViewController.h */,
 				A4C7EC971AE6C90900428B68 /* AMPopupViewController.m */,
+				A43E331D1AE6F49F00F4F6CC /* AMAboutViewController.h */,
+				A43E331E1AE6F49F00F4F6CC /* AMAboutViewController.m */,
 			);
 			path = Visual;
 			sourceTree = "<group>";
@@ -989,6 +996,7 @@
 				A4AA2B4B1AC5FD9B0076FDF6 /* AMDataMapper.m in Sources */,
 				A4A4D2391A928C95006CB6CE /* AMStave.m in Sources */,
 				8F03D778486C6AEEDE7E8BA1 /* AMPlayer.m in Sources */,
+				A43E331F1AE6F49F00F4F6CC /* AMAboutViewController.m in Sources */,
 				A49A5A741AD718D9000B0080 /* AMMutableArrayResponder.m in Sources */,
 				A4C59DB01ADED12200DDA9A0 /* AMConfigurationManager.m in Sources */,
 				8F014B76B26DA38094740698 /* AMPickerController.m in Sources */,
@@ -1047,6 +1055,7 @@
 				A4C7ECBE1AE6EA3F00428B68 /* AMDataMapper.m in Sources */,
 				A4C7ECBF1AE6EA3F00428B68 /* AMStave.m in Sources */,
 				A4C7ECC01AE6EA3F00428B68 /* AMPlayer.m in Sources */,
+				A43E33201AE6F70B00F4F6CC /* AMAboutViewController.m in Sources */,
 				A4C7ECC11AE6EA3F00428B68 /* AMMutableArrayResponder.m in Sources */,
 				A4C7ECC21AE6EA3F00428B68 /* AMConfigurationManager.m in Sources */,
 				A4C7ECC31AE6EA3F00428B68 /* AMPickerController.m in Sources */,
@@ -1097,6 +1106,7 @@
 				A4FB77A41AE6ED17003BC801 /* AMDataMapper.m in Sources */,
 				A4FB77A51AE6ED17003BC801 /* AMStave.m in Sources */,
 				A4FB77A61AE6ED17003BC801 /* AMPlayer.m in Sources */,
+				A43E33211AE6F70B00F4F6CC /* AMAboutViewController.m in Sources */,
 				A4FB77A71AE6ED17003BC801 /* AMMutableArrayResponder.m in Sources */,
 				A4FB77A81AE6ED17003BC801 /* AMConfigurationManager.m in Sources */,
 				A4FB77A91AE6ED17003BC801 /* AMPickerController.m in Sources */,

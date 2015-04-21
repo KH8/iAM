@@ -30,6 +30,7 @@
 - (void)loadText{
     _textView.text = _text;
     _textView.textAlignment = NSTextAlignmentCenter;
+    [_textView sizeToFit];
 }
 
 - (void)loadColors{

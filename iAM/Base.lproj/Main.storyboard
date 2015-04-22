@@ -172,6 +172,14 @@
             </objects>
             <point key="canvasLocation" x="574" y="-254"/>
         </scene>
+        <!--Page View Controller-->
+        <scene sceneID="srM-sf-uTE">
+            <objects>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="pageCurl" navigationOrientation="horizontal" spineLocation="min" id="gjU-7q-UgF" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CcU-Cv-deK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1633" y="-1005"/>
+        </scene>
         <!--Reveal View Controller-->
         <scene sceneID="gCq-ec-8eB">
             <objects>
@@ -1495,9 +1503,9 @@
         <image name="settings.png" width="120" height="120"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="zkT-HV-92U"/>
-        <segue reference="6PM-r0-x4R"/>
+        <segue reference="eFA-hQ-eRV"/>
         <segue reference="lm7-pw-MVk"/>
+        <segue reference="A2U-uw-7qt"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
 </document>

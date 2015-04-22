@@ -98,6 +98,7 @@
     _globalColorThemeKey = appearance.colorThemeKey;
     
     [self setupAppearance];
+    [self setupAppearanceOnce];
 }
 
 - (void)saveContext{
@@ -176,14 +177,7 @@
 }
 
 - (void)setupAppearance {
-    UIImage *minImage = [[UIImage imageNamed:@"speakerCalm.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
-    UIImage *maxImage = [[UIImage imageNamed:@"speakerLoud.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
-    
-    [[AMVolumeSlider appearance] setMinimumValueImage:minImage];
-    [[AMVolumeSlider appearance] setMaximumValueImage:maxImage];
-    
     UIColor *globalColor = _tintColors[_globalTintColorKey];
-    
     [[UIView appearance] setTintColor:globalColor];
     [[UIPageControl appearance] setCurrentPageIndicatorTintColor:globalColor];
     [[UITextView appearance] setTextColor:globalColor];
@@ -197,6 +191,14 @@
     [[UIVisualEffectView appearance] setBackgroundColor:globalColorTheme];
     [[UINavigationBar appearance] setBarTintColor:globalColorTheme];
     [[UIToolbar appearance] setBarTintColor:globalColorTheme];
+}
+
+- (void)setupAppearanceOnce {
+    UIImage *minImage = [[UIImage imageNamed:@"speakerCalm.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    UIImage *maxImage = [[UIImage imageNamed:@"speakerLoud.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    
+    [[AMVolumeSlider appearance] setMinimumValueImage:minImage];
+    [[AMVolumeSlider appearance] setMaximumValueImage:maxImage];
 }
 
 @end

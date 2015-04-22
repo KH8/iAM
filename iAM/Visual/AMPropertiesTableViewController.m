@@ -17,6 +17,8 @@
 
 @interface AMPropertiesTableViewController ()
 
+@property AppDelegate *appDelegate;
+
 @property (weak, nonatomic) IBOutlet UILabel *track1SoundLabel;
 @property (weak, nonatomic) IBOutlet UILabel *track2SoundLabel;
 @property (weak, nonatomic) IBOutlet UILabel *track3SoundLabel;
@@ -41,6 +43,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self loadAppDelegate];
     [self loadMainObjects];
     [self loadPlayBack];
 }
@@ -88,6 +91,10 @@
     _navigationBarItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:face];
 }
 
+- (void)loadAppDelegate{
+    _appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+}
+
 - (void)loadMainObjects {
     AMSequencerSingleton *sequencerSingleton = [AMSequencerSingleton sharedSequencer];
     AMSequencer *sequencer = sequencerSingleton.sequencer;
@@ -129,10 +136,9 @@
 }
 
 - (void)loadButtons {
-    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    [_tintColorButton setTitle:[[appDelegate appearanceManager] getGlobalTintColorKey]
+    [_tintColorButton setTitle:[[_appDelegate appearanceManager] getGlobalTintColorKey]
                       forState:UIControlStateNormal];
-    [_colorThemeButton setTitle:[[appDelegate appearanceManager] getGlobalColorThemeKey]
+    [_colorThemeButton setTitle:[[_appDelegate appearanceManager] getGlobalColorThemeKey]
                        forState:UIControlStateNormal];
 }
 
@@ -190,15 +196,13 @@
 }
 
 - (IBAction)changeTintColor:(id)sender {
-    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    [[appDelegate appearanceManager] changeGlobalTintColor];
+    [[_appDelegate appearanceManager] changeGlobalTintColor];
     [self refreshView];
 }
 
 
 - (IBAction)changeColorTheme:(id)sender {
-    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    [[appDelegate appearanceManager] changeGlobalColorTheme];
+    [[_appDelegate appearanceManager] changeGlobalColorTheme];
     [self refreshView];
 }
 

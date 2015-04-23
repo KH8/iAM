@@ -238,6 +238,10 @@
     [self updateTimerInterval];
 }
 
+- (void)tempoHasBeenTapped {
+    _actualNoteIndex = 0;
+}
+
 - (void)signatureHasBeenChanged {
     [self updateTimerInterval];
 }

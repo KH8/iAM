@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="23J-3V-BDE">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vKD-mF-dDR">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
@@ -15,7 +15,7 @@
                         <viewControllerLayoutGuide type="bottom" id="sw7-6B-i6c"/>
                     </layoutGuides>
                     <view key="view" opaque="NO" contentMode="scaleToFill" id="1Er-fy-ePC">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
+                        <rect key="frame" x="0.0" y="44" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView autoresizesSubviews="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" bounces="NO" alwaysBounceHorizontal="YES" showsVerticalScrollIndicator="NO" indicatorStyle="black" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="seQ-A1-cWb">
@@ -172,13 +172,69 @@
             </objects>
             <point key="canvasLocation" x="574" y="-254"/>
         </scene>
+        <!--Start View Controller-->
+        <scene sceneID="PT4-nR-K1q">
+            <objects>
+                <viewController id="vKD-mF-dDR" customClass="AMStartViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="XOH-gp-aPU"/>
+                        <viewControllerLayoutGuide type="bottom" id="ehO-nR-hl7"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="YbQ-sD-IVT">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                    </view>
+                    <connections>
+                        <segue destination="23J-3V-BDE" kind="presentation" identifier="sw_skip" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="TIP-R1-KcY"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iWb-Ol-ZqU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1612" y="-1005"/>
+        </scene>
         <!--Page View Controller-->
         <scene sceneID="srM-sf-uTE">
             <objects>
-                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="pageCurl" navigationOrientation="horizontal" spineLocation="min" id="gjU-7q-UgF" sceneMemberID="viewController"/>
+                <pageViewController storyboardIdentifier="AMPageViewController" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="gjU-7q-UgF" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CcU-Cv-deK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1633" y="-1005"/>
+            <point key="canvasLocation" x="-1612" y="-254"/>
+        </scene>
+        <!--Page Content View Controller-->
+        <scene sceneID="BQK-ql-ELm">
+            <objects>
+                <viewController storyboardIdentifier="AMPageContentViewController" id="sYU-Su-Dlm" customClass="AMPageContentViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="3gr-BD-p3v"/>
+                        <viewControllerLayoutGuide type="bottom" id="rzB-zA-pBv"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="LPv-8V-vNc">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fDI-BC-4W9">
+                                <rect key="frame" x="0.0" y="20" width="600" height="338"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="fDI-BC-4W9" secondAttribute="height" multiplier="192:108" id="d6a-aQ-9l5"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="fDI-BC-4W9" firstAttribute="top" secondItem="3gr-BD-p3v" secondAttribute="bottom" id="989-5A-b3W"/>
+                            <constraint firstAttribute="centerX" secondItem="fDI-BC-4W9" secondAttribute="centerX" id="JQ8-xS-dVg"/>
+                            <constraint firstItem="fDI-BC-4W9" firstAttribute="leading" secondItem="LPv-8V-vNc" secondAttribute="leading" id="NST-NB-uE6"/>
+                            <constraint firstAttribute="trailing" secondItem="fDI-BC-4W9" secondAttribute="trailing" id="xSF-YJ-tki"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="backgroundImageView" destination="fDI-BC-4W9" id="jeN-J1-e9z"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wAL-qO-1LL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1612" y="497"/>
         </scene>
         <!--Reveal View Controller-->
         <scene sceneID="gCq-ec-8eB">
@@ -192,6 +248,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     </view>
+                    <navigationItem key="navigationItem" id="gdv-jC-v7M"/>
                     <connections>
                         <segue destination="9xo-7Y-GEb" kind="custom" identifier="sw_right" customClass="SWRevealViewControllerSegueSetController" id="hPo-no-mgL"/>
                         <segue destination="usW-4H-ZPN" kind="custom" identifier="sw_front" customClass="SWRevealViewControllerSegueSetController" id="eFA-hQ-eRV"/>
@@ -325,7 +382,7 @@
             <objects>
                 <tableViewController id="3jw-zo-k6R" customClass="AMPropertiesTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="SAR-Md-kyy">
-                        <rect key="frame" x="0.0" y="64" width="600" height="936"/>
+                        <rect key="frame" x="0.0" y="44" width="600" height="936"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="separatorColor" white="0.10000000000000001" alpha="1" colorSpace="calibratedWhite"/>
@@ -1422,7 +1479,7 @@
             <objects>
                 <tableViewController id="cRX-SY-RYs" customClass="AMSoundsTableViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" allowsSelectionDuringEditing="YES" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="0u5-R6-fK5">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="936"/>
+                        <rect key="frame" x="0.0" y="44" width="600" height="936"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <color key="separatorColor" white="0.10000000000000001" alpha="1" colorSpace="calibratedWhite"/>
@@ -1503,9 +1560,9 @@
         <image name="settings.png" width="120" height="120"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="eFA-hQ-eRV"/>
+        <segue reference="zkT-HV-92U"/>
+        <segue reference="HdI-RE-NKN"/>
         <segue reference="lm7-pw-MVk"/>
-        <segue reference="A2U-uw-7qt"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
 </document>

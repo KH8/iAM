@@ -12,6 +12,7 @@
 @required
 
 - (void)tempoHasBeenChanged;
+- (void)tempoHasBeenTapped;
 
 @end
 

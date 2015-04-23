@@ -16,6 +16,7 @@ tickGrid LTD*
 tickGrid*
 
 iAM.xcodeproj/xcuserdata/H8.xcuserdatad/xcschemes*
+iAM/Visual/Images/
 
 tickGrid/tickGrid.plist
 
@@ -24,3 +25,5 @@ tickGrid/AMConfig.m
 tickGrid LTD/AMConfig.m
 
 iAM/Info.plist
+
+.gitignore

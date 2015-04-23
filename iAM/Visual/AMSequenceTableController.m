@@ -172,6 +172,9 @@ didDeselectRowAtIndexPath:(NSIndexPath *)indexPath{
     [self updateComponents];
 }
 
+- (void)tempoHasBeenTapped{
+}
+
 - (void)staveArrayHasBeenChanged {
     [self updateComponents];
 }

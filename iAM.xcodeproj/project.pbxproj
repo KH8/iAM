@@ -18,6 +18,16 @@
 		A41C08F11A92803B006F0F06 /* AMSequenceMenuTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A41C08F01A92803B006F0F06 /* AMSequenceMenuTableViewController.m */; };
 		A41E3CA61A9D1057004C7675 /* AMSequencerSingleton.m in Sources */ = {isa = PBXBuildFile; fileRef = A41E3CA51A9D1057004C7675 /* AMSequencerSingleton.m */; };
 		A427C9F11A7D141D0003FB21 /* AMPopoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A427C9F01A7D141D0003FB21 /* AMPopoverViewController.m */; };
+		A43135011AE9866B001A4D4B /* tutorial_1.png in Resources */ = {isa = PBXBuildFile; fileRef = A4A6C5901AE9723700E488BC /* tutorial_1.png */; };
+		A43135021AE9866C001A4D4B /* tutorial_1.png in Resources */ = {isa = PBXBuildFile; fileRef = A4A6C5901AE9723700E488BC /* tutorial_1.png */; };
+		A43135031AE98671001A4D4B /* tutorial_2.png in Resources */ = {isa = PBXBuildFile; fileRef = A4A6C5911AE9723700E488BC /* tutorial_2.png */; };
+		A43135041AE98671001A4D4B /* tutorial_3.png in Resources */ = {isa = PBXBuildFile; fileRef = A4A6C5921AE9723700E488BC /* tutorial_3.png */; };
+		A43135051AE98671001A4D4B /* tutorial_4.png in Resources */ = {isa = PBXBuildFile; fileRef = A4A6C5931AE9723700E488BC /* tutorial_4.png */; };
+		A43135061AE98671001A4D4B /* tutorial_5.png in Resources */ = {isa = PBXBuildFile; fileRef = A4A6C5941AE9723700E488BC /* tutorial_5.png */; };
+		A43135071AE98672001A4D4B /* tutorial_2.png in Resources */ = {isa = PBXBuildFile; fileRef = A4A6C5911AE9723700E488BC /* tutorial_2.png */; };
+		A43135081AE98672001A4D4B /* tutorial_3.png in Resources */ = {isa = PBXBuildFile; fileRef = A4A6C5921AE9723700E488BC /* tutorial_3.png */; };
+		A43135091AE98672001A4D4B /* tutorial_4.png in Resources */ = {isa = PBXBuildFile; fileRef = A4A6C5931AE9723700E488BC /* tutorial_4.png */; };
+		A431350A1AE98672001A4D4B /* tutorial_5.png in Resources */ = {isa = PBXBuildFile; fileRef = A4A6C5941AE9723700E488BC /* tutorial_5.png */; };
 		A43E331F1AE6F49F00F4F6CC /* AMAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A43E331E1AE6F49F00F4F6CC /* AMAboutViewController.m */; };
 		A43E33201AE6F70B00F4F6CC /* AMAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A43E331E1AE6F49F00F4F6CC /* AMAboutViewController.m */; };
 		A43E33211AE6F70B00F4F6CC /* AMAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A43E331E1AE6F49F00F4F6CC /* AMAboutViewController.m */; };
@@ -57,6 +67,17 @@
 		A4A132A81A9528A800D6E2F1 /* AMSequence.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A132A71A9528A800D6E2F1 /* AMSequence.m */; };
 		A4A4B2B01AC0C4F00099A746 /* AMDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A4A4B2AE1AC0C4F00099A746 /* AMDataModel.xcdatamodeld */; };
 		A4A4D2391A928C95006CB6CE /* AMStave.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A4D2381A928C95006CB6CE /* AMStave.m */; };
+		A4A6C58E1AE971B000E488BC /* AMPageContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A6C58D1AE971B000E488BC /* AMPageContentViewController.m */; };
+		A4A6C5951AE9723700E488BC /* tutorial_1.png in Resources */ = {isa = PBXBuildFile; fileRef = A4A6C5901AE9723700E488BC /* tutorial_1.png */; };
+		A4A6C5961AE9723700E488BC /* tutorial_2.png in Resources */ = {isa = PBXBuildFile; fileRef = A4A6C5911AE9723700E488BC /* tutorial_2.png */; };
+		A4A6C5971AE9723700E488BC /* tutorial_3.png in Resources */ = {isa = PBXBuildFile; fileRef = A4A6C5921AE9723700E488BC /* tutorial_3.png */; };
+		A4A6C5981AE9723700E488BC /* tutorial_4.png in Resources */ = {isa = PBXBuildFile; fileRef = A4A6C5931AE9723700E488BC /* tutorial_4.png */; };
+		A4A6C5991AE9723700E488BC /* tutorial_5.png in Resources */ = {isa = PBXBuildFile; fileRef = A4A6C5941AE9723700E488BC /* tutorial_5.png */; };
+		A4A6C59C1AE9733200E488BC /* AMPageContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A6C58D1AE971B000E488BC /* AMPageContentViewController.m */; };
+		A4A6C59D1AE9733200E488BC /* AMPageContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A6C58D1AE971B000E488BC /* AMPageContentViewController.m */; };
+		A4A6C5A01AE9777600E488BC /* AMStartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A6C59F1AE9777600E488BC /* AMStartViewController.m */; };
+		A4A6C5A11AE978AB00E488BC /* AMStartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A6C59F1AE9777600E488BC /* AMStartViewController.m */; };
+		A4A6C5A21AE978AB00E488BC /* AMStartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A6C59F1AE9777600E488BC /* AMStartViewController.m */; };
 		A4A705EF1AA50E3400A911C6 /* decloop.png in Resources */ = {isa = PBXBuildFile; fileRef = A4A705ED1AA50E3400A911C6 /* decloop.png */; };
 		A4A705F01AA50E3400A911C6 /* incloop.png in Resources */ = {isa = PBXBuildFile; fileRef = A4A705EE1AA50E3400A911C6 /* incloop.png */; };
 		A4AA2B4B1AC5FD9B0076FDF6 /* AMDataMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = A4AA2B4A1AC5FD9B0076FDF6 /* AMDataMapper.m */; };
@@ -350,6 +371,15 @@
 		A4A4B2AF1AC0C4F00099A746 /* AMDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AMDataModel.xcdatamodel; sourceTree = "<group>"; };
 		A4A4D2371A928C95006CB6CE /* AMStave.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMStave.h; path = Core/AMStave.h; sourceTree = "<group>"; };
 		A4A4D2381A928C95006CB6CE /* AMStave.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMStave.m; path = Core/AMStave.m; sourceTree = "<group>"; };
+		A4A6C58C1AE971B000E488BC /* AMPageContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMPageContentViewController.h; sourceTree = "<group>"; };
+		A4A6C58D1AE971B000E488BC /* AMPageContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMPageContentViewController.m; sourceTree = "<group>"; };
+		A4A6C5901AE9723700E488BC /* tutorial_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tutorial_1.png; path = Images/tutorial_1.png; sourceTree = "<group>"; };
+		A4A6C5911AE9723700E488BC /* tutorial_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tutorial_2.png; path = Images/tutorial_2.png; sourceTree = "<group>"; };
+		A4A6C5921AE9723700E488BC /* tutorial_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tutorial_3.png; path = Images/tutorial_3.png; sourceTree = "<group>"; };
+		A4A6C5931AE9723700E488BC /* tutorial_4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tutorial_4.png; path = Images/tutorial_4.png; sourceTree = "<group>"; };
+		A4A6C5941AE9723700E488BC /* tutorial_5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tutorial_5.png; path = Images/tutorial_5.png; sourceTree = "<group>"; };
+		A4A6C59E1AE9777600E488BC /* AMStartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMStartViewController.h; sourceTree = "<group>"; };
+		A4A6C59F1AE9777600E488BC /* AMStartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMStartViewController.m; sourceTree = "<group>"; };
 		A4A705ED1AA50E3400A911C6 /* decloop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = decloop.png; path = Icons/decloop.png; sourceTree = "<group>"; };
 		A4A705EE1AA50E3400A911C6 /* incloop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = incloop.png; path = Icons/incloop.png; sourceTree = "<group>"; };
 		A4AA2B491AC5FD9B0076FDF6 /* AMDataMapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMDataMapper.h; path = CoreData/AMDataMapper.h; sourceTree = "<group>"; };
@@ -440,6 +470,7 @@
 		8F01C9F7EDEB97C2F2D72BE8 /* Visual */ = {
 			isa = PBXGroup;
 			children = (
+				A4A6C58F1AE9722600E488BC /* Images */,
 				A49A749F1A9A86FB006BC3C7 /* Icons */,
 				A44A3C701A7BF1E800B3B4DC /* SWRevealViewController */,
 				8F0D8E3934B282764EF13D8A /* AMViewController.h */,
@@ -478,6 +509,10 @@
 				A4C7EC971AE6C90900428B68 /* AMPopupViewController.m */,
 				A43E331D1AE6F49F00F4F6CC /* AMAboutViewController.h */,
 				A43E331E1AE6F49F00F4F6CC /* AMAboutViewController.m */,
+				A4A6C58C1AE971B000E488BC /* AMPageContentViewController.h */,
+				A4A6C58D1AE971B000E488BC /* AMPageContentViewController.m */,
+				A4A6C59E1AE9777600E488BC /* AMStartViewController.h */,
+				A4A6C59F1AE9777600E488BC /* AMStartViewController.m */,
 			);
 			path = Visual;
 			sourceTree = "<group>";
@@ -660,6 +695,18 @@
 			name = CoreData;
 			sourceTree = "<group>";
 		};
+		A4A6C58F1AE9722600E488BC /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				A4A6C5901AE9723700E488BC /* tutorial_1.png */,
+				A4A6C5911AE9723700E488BC /* tutorial_2.png */,
+				A4A6C5921AE9723700E488BC /* tutorial_3.png */,
+				A4A6C5931AE9723700E488BC /* tutorial_4.png */,
+				A4A6C5941AE9723700E488BC /* tutorial_5.png */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
 		A4F24F881ABC90F500BF47C3 /* Auxiliaries */ = {
 			isa = PBXGroup;
 			children = (
@@ -819,6 +866,7 @@
 			files = (
 				A4CB2BE31AD9C2E8007D2584 /* clockTick1.aif in Resources */,
 				A4A705EF1AA50E3400A911C6 /* decloop.png in Resources */,
+				A4A6C5981AE9723700E488BC /* tutorial_4.png in Resources */,
 				A4CB2BE51AD9C2E8007D2584 /* natural1.aif in Resources */,
 				A45F0D531A5C6515008673FC /* Main.storyboard in Resources */,
 				A4CB2BE01AD9C2E8007D2584 /* artificialLow2.aif in Resources */,
@@ -828,8 +876,11 @@
 				A4CB2BE41AD9C2E8007D2584 /* clockTick2.aif in Resources */,
 				A4DDA2B81AA8FB57006B9F33 /* selected.png in Resources */,
 				A4CB2BE61AD9C2E8007D2584 /* natural2.aif in Resources */,
+				A4A6C5951AE9723700E488BC /* tutorial_1.png in Resources */,
 				A4CCA7501AE6F04100AB4F7C /* tickGrid LTD.plist in Resources */,
 				A4CB2BE81AD9C2E8007D2584 /* stickHigh.aif in Resources */,
+				A4A6C5961AE9723700E488BC /* tutorial_2.png in Resources */,
+				A4A6C5991AE9723700E488BC /* tutorial_5.png in Resources */,
 				A4CB2BE11AD9C2E8007D2584 /* click1.aif in Resources */,
 				A4DDA2BA1AA9079D006B9F33 /* icon.png in Resources */,
 				A49A5A711AD718B3000B0080 /* speakerLoud.png in Resources */,
@@ -846,6 +897,7 @@
 				A4E7B6231AB745E200D7D357 /* about.png in Resources */,
 				A4E7B6241AB745E200D7D357 /* grid.png in Resources */,
 				A4C47C1A1A8BB68E002CF325 /* Images.xcassets in Resources */,
+				A4A6C5971AE9723700E488BC /* tutorial_3.png in Resources */,
 				A4CCA74E1AE6F03900AB4F7C /* tickGrid.plist in Resources */,
 				A4E7B6261AB745E200D7D357 /* settings.png in Resources */,
 				A4CB2BDF1AD9C2E8007D2584 /* artificialLow1.aif in Resources */,
@@ -875,6 +927,7 @@
 				A4C7ECCC1AE6EA3F00428B68 /* Main.storyboard in Resources */,
 				A4C7ECCD1AE6EA3F00428B68 /* artificialLow2.aif in Resources */,
 				A4C7ECCE1AE6EA3F00428B68 /* artificialHigh1.aif in Resources */,
+				A43135011AE9866B001A4D4B /* tutorial_1.png in Resources */,
 				A4C7ECCF1AE6EA3F00428B68 /* menu.png in Resources */,
 				A4C7ECD01AE6EA3F00428B68 /* LaunchScreen.xib in Resources */,
 				A4C7ECD11AE6EA3F00428B68 /* clockTick2.aif in Resources */,
@@ -882,6 +935,8 @@
 				A4C7ECD31AE6EA3F00428B68 /* natural2.aif in Resources */,
 				A4C7ECD41AE6EA3F00428B68 /* stickHigh.aif in Resources */,
 				A4C7ECD51AE6EA3F00428B68 /* click1.aif in Resources */,
+				A43135031AE98671001A4D4B /* tutorial_2.png in Resources */,
+				A43135041AE98671001A4D4B /* tutorial_3.png in Resources */,
 				A4C7ECD61AE6EA3F00428B68 /* icon.png in Resources */,
 				A4C7ECD71AE6EA3F00428B68 /* speakerLoud.png in Resources */,
 				A4C7ECD81AE6EA3F00428B68 /* seq3.png in Resources */,
@@ -890,6 +945,7 @@
 				A4C7ECDB1AE6EA3F00428B68 /* artificialHigh2.aif in Resources */,
 				A4C7ECDC1AE6EA3F00428B68 /* delete.png in Resources */,
 				A4C7ECDD1AE6EA3F00428B68 /* back.png in Resources */,
+				A43135051AE98671001A4D4B /* tutorial_4.png in Resources */,
 				A4C7ECDE1AE6EA3F00428B68 /* selectedLeft.png in Resources */,
 				A4C7ECDF1AE6EA3F00428B68 /* details.png in Resources */,
 				A4C7ECE01AE6EA3F00428B68 /* natural3.aif in Resources */,
@@ -899,6 +955,7 @@
 				A4C7ECE41AE6EA3F00428B68 /* Images.xcassets in Resources */,
 				A4C7ECE51AE6EA3F00428B68 /* settings.png in Resources */,
 				A4C7ECE61AE6EA3F00428B68 /* artificialLow1.aif in Resources */,
+				A43135061AE98671001A4D4B /* tutorial_5.png in Resources */,
 				A4C7ECE71AE6EA3F00428B68 /* click2.aif in Resources */,
 				A4C7ECE81AE6EA3F00428B68 /* speakerCalm.png in Resources */,
 				A4C7ECE91AE6EA3F00428B68 /* stickLow.aif in Resources */,
@@ -918,6 +975,7 @@
 				A4FB77B21AE6ED17003BC801 /* Main.storyboard in Resources */,
 				A4FB77B31AE6ED17003BC801 /* artificialLow2.aif in Resources */,
 				A4FB77B41AE6ED17003BC801 /* artificialHigh1.aif in Resources */,
+				A43135021AE9866C001A4D4B /* tutorial_1.png in Resources */,
 				A4FB77B51AE6ED17003BC801 /* menu.png in Resources */,
 				A4FB77B61AE6ED17003BC801 /* LaunchScreen.xib in Resources */,
 				A4FB77B71AE6ED17003BC801 /* clockTick2.aif in Resources */,
@@ -925,6 +983,8 @@
 				A4FB77B91AE6ED17003BC801 /* natural2.aif in Resources */,
 				A4FB77BA1AE6ED17003BC801 /* stickHigh.aif in Resources */,
 				A4FB77BB1AE6ED17003BC801 /* click1.aif in Resources */,
+				A43135071AE98672001A4D4B /* tutorial_2.png in Resources */,
+				A43135081AE98672001A4D4B /* tutorial_3.png in Resources */,
 				A4FB77BC1AE6ED17003BC801 /* icon.png in Resources */,
 				A4FB77BD1AE6ED17003BC801 /* speakerLoud.png in Resources */,
 				A4FB77BE1AE6ED17003BC801 /* seq3.png in Resources */,
@@ -933,6 +993,7 @@
 				A4FB77C11AE6ED17003BC801 /* artificialHigh2.aif in Resources */,
 				A4FB77C21AE6ED17003BC801 /* delete.png in Resources */,
 				A4FB77C31AE6ED17003BC801 /* back.png in Resources */,
+				A43135091AE98672001A4D4B /* tutorial_4.png in Resources */,
 				A4FB77C41AE6ED17003BC801 /* selectedLeft.png in Resources */,
 				A4FB77C51AE6ED17003BC801 /* details.png in Resources */,
 				A4FB77C61AE6ED17003BC801 /* natural3.aif in Resources */,
@@ -942,6 +1003,7 @@
 				A4FB77CA1AE6ED17003BC801 /* Images.xcassets in Resources */,
 				A4FB77CB1AE6ED17003BC801 /* settings.png in Resources */,
 				A4FB77CC1AE6ED17003BC801 /* artificialLow1.aif in Resources */,
+				A431350A1AE98672001A4D4B /* tutorial_5.png in Resources */,
 				A4FB77CD1AE6ED17003BC801 /* click2.aif in Resources */,
 				A4FB77CE1AE6ED17003BC801 /* speakerCalm.png in Resources */,
 				A4FB77CF1AE6ED17003BC801 /* stickLow.aif in Resources */,
@@ -966,6 +1028,7 @@
 				A44910791A5F396E00E8C6DB /* AMBar.m in Sources */,
 				A4E417D11ADD840E008942C5 /* CDConfiguration.m in Sources */,
 				A45F0D4A1A5C6515008673FC /* main.m in Sources */,
+				A4A6C5A01AE9777600E488BC /* AMStartViewController.m in Sources */,
 				A449107C1A5F3A1200E8C6DB /* AMNote.m in Sources */,
 				8F0B34AA1C650F6EBD78FA56 /* AMSequencer.m in Sources */,
 				A41C08EB1A927435006F0F06 /* AMSequenceTableController.m in Sources */,
@@ -998,6 +1061,7 @@
 				8F03D778486C6AEEDE7E8BA1 /* AMPlayer.m in Sources */,
 				A43E331F1AE6F49F00F4F6CC /* AMAboutViewController.m in Sources */,
 				A49A5A741AD718D9000B0080 /* AMMutableArrayResponder.m in Sources */,
+				A4A6C58E1AE971B000E488BC /* AMPageContentViewController.m in Sources */,
 				A4C59DB01ADED12200DDA9A0 /* AMConfigurationManager.m in Sources */,
 				8F014B76B26DA38094740698 /* AMPickerController.m in Sources */,
 				A41C08EE1A9279F7006F0F06 /* AMSequenceTableViewCell.m in Sources */,
@@ -1036,6 +1100,7 @@
 				A4C7ECAC1AE6EA3F00428B68 /* AMCollectionViewCell.m in Sources */,
 				A4FB777B1AE6ECAA003BC801 /* AMConfig.m in Sources */,
 				A4C7ECAD1AE6EA3F00428B68 /* AMRunner.m in Sources */,
+				A4A6C5A11AE978AB00E488BC /* AMStartViewController.m in Sources */,
 				A4C7ECAE1AE6EA3F00428B68 /* CDSequence.m in Sources */,
 				A4C7ECAF1AE6EA3F00428B68 /* AMSequenceMenuTableViewCell.m in Sources */,
 				A4C7ECB01AE6EA3F00428B68 /* AMSequencerSingleton.m in Sources */,
@@ -1057,6 +1122,7 @@
 				A4C7ECC01AE6EA3F00428B68 /* AMPlayer.m in Sources */,
 				A43E33201AE6F70B00F4F6CC /* AMAboutViewController.m in Sources */,
 				A4C7ECC11AE6EA3F00428B68 /* AMMutableArrayResponder.m in Sources */,
+				A4A6C59C1AE9733200E488BC /* AMPageContentViewController.m in Sources */,
 				A4C7ECC21AE6EA3F00428B68 /* AMConfigurationManager.m in Sources */,
 				A4C7ECC31AE6EA3F00428B68 /* AMPickerController.m in Sources */,
 				A4C7ECC41AE6EA3F00428B68 /* AMSequenceTableViewCell.m in Sources */,
@@ -1087,6 +1153,7 @@
 				A4FB77901AE6ED17003BC801 /* AMSequenceMenuTableViewController.m in Sources */,
 				A4FB77911AE6ED17003BC801 /* AMCollectionViewCell.m in Sources */,
 				A4FB77931AE6ED17003BC801 /* AMRunner.m in Sources */,
+				A4A6C5A21AE978AB00E488BC /* AMStartViewController.m in Sources */,
 				A4FB77941AE6ED17003BC801 /* CDSequence.m in Sources */,
 				A4FB77951AE6ED17003BC801 /* AMSequenceMenuTableViewCell.m in Sources */,
 				A4FB77961AE6ED17003BC801 /* AMSequencerSingleton.m in Sources */,
@@ -1108,6 +1175,7 @@
 				A4FB77A61AE6ED17003BC801 /* AMPlayer.m in Sources */,
 				A43E33211AE6F70B00F4F6CC /* AMAboutViewController.m in Sources */,
 				A4FB77A71AE6ED17003BC801 /* AMMutableArrayResponder.m in Sources */,
+				A4A6C59D1AE9733200E488BC /* AMPageContentViewController.m in Sources */,
 				A4FB77A81AE6ED17003BC801 /* AMConfigurationManager.m in Sources */,
 				A4FB77A91AE6ED17003BC801 /* AMPickerController.m in Sources */,
 				A4FB77AA1AE6ED17003BC801 /* AMSequenceTableViewCell.m in Sources */,

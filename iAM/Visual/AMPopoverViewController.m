@@ -136,11 +136,14 @@
     [stave setTempo:valuePicked];
 }
 
-- (void)tempoHasBeenChanged{
+- (void)tempoHasBeenChanged {
     AMStave *stave = [self getStave];
     NSNumber *newTempo = [[NSNumber alloc] initWithInteger:stave.getTempo];
     [_tempoPickerController setActualValue:newTempo];
     [_delegate pickedValuesHaveBeenChanged];
+}
+
+- (void)tempoHasBeenTapped {
 }
 
 - (AMStave*)getStave{

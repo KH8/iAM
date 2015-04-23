@@ -34,6 +34,12 @@ NSUInteger const minTempo = 60;
     }
 }
 
+- (void)delegateTempoHasBeenTapped{
+    for (id<AMStaveDelegate> delegate in _staveDelegates) {
+        [delegate tempoHasBeenTapped];
+    }
+}
+
 - (id)init {
     self = [super initWithMaxCount:[AMConfig maxBarCount]];
     if (self) {
@@ -82,6 +88,7 @@ NSUInteger const minTempo = 60;
     
     NSNumber *newTempo = @(60000.0f / intervalSinceLastTapInMilliseconds.floatValue);
     [self setTempo:newTempo.integerValue];
+    [self delegateTempoHasBeenTapped];
 }
 
 - (void)addBar{

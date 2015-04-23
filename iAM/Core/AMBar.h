@@ -45,6 +45,5 @@
 - (NSInteger)getLengthToBePlayed;
 
 - (void)clear;
-- (void)clearTriggerMarkers;
 
 @end

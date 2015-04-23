@@ -23,8 +23,6 @@
 @property (nonatomic) NSArray *tintColorsArray;
 @property (nonatomic) NSArray *colorThemesArray;
 
-@property (nonatomic, strong) NSHashTable *staveDelegates;
-
 @end
 
 @implementation AMAppearanceManager
@@ -138,7 +136,7 @@
         actualIndex = 0;
     }
     
-    id key = [_tintColorsArray objectAtIndex:actualIndex];
+    id key = _tintColorsArray[(NSUInteger) actualIndex];
     _globalTintColorKey = key;
     [self setupAppearance];
 }
@@ -167,7 +165,7 @@
         actualIndex = 0;
     }
     
-    id key = [_colorThemesArray objectAtIndex:actualIndex];
+    id key = _colorThemesArray[(NSUInteger) actualIndex];
     _globalColorThemeKey = key;
     [self setupAppearance];
 }

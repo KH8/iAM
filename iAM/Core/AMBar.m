@@ -172,12 +172,4 @@ NSUInteger const minSignature = 1;
     }
 }
 
-- (void)clearTriggerMarkers{
-    for (NSMutableArray *line in _mainArray) {
-        for (AMNote *note in line) {
-            [note changeTriggerMarker:NO];
-        }
-    }
-}
-
 @end

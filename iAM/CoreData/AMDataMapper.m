@@ -95,11 +95,11 @@
     [fetchRequest setEntity:entity];
     NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:&error];
     CDSelections *selections = fetchedObjects[0];
-    
-    [configuration setIndexAsActual:selections.sequenceSelected.integerValue];
+
+    [configuration setIndexAsActual:(NSUInteger) selections.sequenceSelected.integerValue];
     
     AMSequence *selectedSequence = (AMSequence *)configuration.getActualObject;
-    [selectedSequence setIndexAsActual:selections.stepSelected.integerValue];
+    [selectedSequence setIndexAsActual:(NSUInteger) selections.stepSelected.integerValue];
     
     AMSequenceStep *selectedStep = (AMSequenceStep *)selectedSequence.getActualObject;
     AMStave *selectedStave = selectedStep.getStave;
@@ -158,7 +158,7 @@
 - (void)getCoreDataFromActualConfiguration:(AMMutableArray*)configuration
                                  inContext:(NSManagedObjectContext*)context{
     for (NSInteger i=0; i<configuration.count; i++) {
-        [self getCoreDataFromSequence:configuration[i]
+        [self getCoreDataFromSequence:configuration[(NSUInteger) i]
                             withIndex:i
                             inContext:context];
     }
@@ -219,7 +219,7 @@
     newSequence.sequenceName = sequence.getName;
     newSequence.sequenceCreationDate = sequence.getCreationDate;
     for (NSInteger i=0; i<sequence.count; i++) {
-        CDStep *newStep = [self getCoreDataFromStep:sequence[i]
+        CDStep *newStep = [self getCoreDataFromStep:sequence[(NSUInteger) i]
                                           withIndex:i
                                           inContext:context];
         newStep.sequence = newSequence;
@@ -240,7 +240,7 @@
     AMStave *stave = step.getStave;
     newStep.stepTempo = [[NSNumber alloc] initWithInteger:stave.getTempo];
     for (NSInteger i=0; i<stave.count; i++) {
-        CDBar *newBar = [self getCoreDataFromBar:stave[i]
+        CDBar *newBar = [self getCoreDataFromBar:stave[(NSUInteger) i]
                                        withIndex:i
                                        inContext:context];
         newBar.step = newStep;

@@ -33,15 +33,21 @@
 }
 
 - (void)arrayHasBeenChanged {
-    [_target performSelector:_arrayHasChangedSelector];
+    if ([_target respondsToSelector:@selector(performSelector:)]) {
+        [_target performSelector:_arrayHasChangedSelector];
+    }
 }
 
 - (void)selectionHasBeenChanged {
-    [_target performSelector:_selectionHasChangedSelector];
+    if ([_target respondsToSelector:@selector(performSelector:)]) {
+        [_target performSelector:_selectionHasChangedSelector];
+    }
 }
 
 - (void)maxCountExceeded {
-    [_target performSelector:_maxCountExceededSelector];
+    if ([_target respondsToSelector:@selector(performSelector:)]) {
+        [_target performSelector:_maxCountExceededSelector];
+    }
 }
 
 @end

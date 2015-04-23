@@ -35,7 +35,9 @@
 }
 
 - (void)onTick{
-    [_target performSelector:_selector];
+    if ([_target respondsToSelector:@selector(performSelector:)]) {
+        [_target performSelector:_selector];
+    }
 }
 
 - (void)initParameters{

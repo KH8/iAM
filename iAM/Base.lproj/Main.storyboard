@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vKD-mF-dDR">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vKD-mF-dDR">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -183,9 +183,36 @@
                     <view key="view" contentMode="scaleToFill" id="YbQ-sD-IVT">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lyd-pp-S7Q">
+                                <rect key="frame" x="533" y="565" width="47" height="30"/>
+                                <state key="normal" title="START">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="startButtonPressed:" destination="vKD-mF-dDR" eventType="touchUpInside" id="NMm-VJ-fwU"/>
+                                </connections>
+                            </button>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="qv4-0T-1tY">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="37"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="pageIndicatorTintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="currentPageIndicatorTintColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </pageControl>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="qv4-0T-1tY" secondAttribute="centerX" id="JYe-sP-Db8"/>
+                            <constraint firstAttribute="trailing" secondItem="Lyd-pp-S7Q" secondAttribute="trailing" constant="20" id="SBX-sJ-YeE"/>
+                            <constraint firstItem="qv4-0T-1tY" firstAttribute="top" secondItem="YbQ-sD-IVT" secondAttribute="top" id="ZAf-c8-OZZ"/>
+                            <constraint firstAttribute="trailing" secondItem="qv4-0T-1tY" secondAttribute="trailing" id="qoo-N7-Tkp"/>
+                            <constraint firstItem="ehO-nR-hl7" firstAttribute="top" secondItem="Lyd-pp-S7Q" secondAttribute="bottom" constant="5" id="vTx-3c-1KQ"/>
+                            <constraint firstItem="qv4-0T-1tY" firstAttribute="leading" secondItem="YbQ-sD-IVT" secondAttribute="leading" id="xi5-TH-GT7"/>
+                        </constraints>
                     </view>
                     <connections>
+                        <outlet property="pageControl" destination="qv4-0T-1tY" id="IWM-8z-g9X"/>
+                        <outlet property="startButton" destination="Lyd-pp-S7Q" id="emE-ZW-1e4"/>
                         <segue destination="23J-3V-BDE" kind="presentation" identifier="sw_skip" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="TIP-R1-KcY"/>
                     </connections>
                 </viewController>
@@ -220,7 +247,7 @@
                                 </constraints>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="fDI-BC-4W9" firstAttribute="top" secondItem="3gr-BD-p3v" secondAttribute="bottom" id="989-5A-b3W"/>
                             <constraint firstAttribute="centerX" secondItem="fDI-BC-4W9" secondAttribute="centerX" id="JQ8-xS-dVg"/>

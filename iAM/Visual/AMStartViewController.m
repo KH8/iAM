@@ -11,6 +11,9 @@
 
 @interface AMStartViewController ()
 
+@property (weak, nonatomic) IBOutlet UIPageControl *pageControl;
+@property (weak, nonatomic) IBOutlet UIButton *startButton;
+
 @end
 
 @implementation AMStartViewController
@@ -19,7 +22,6 @@
     [super viewDidLoad];
     [self initData];
     [self initComponents];
-    [self initButton];
 }
 
 - (void)viewDidAppear:(BOOL)animated{
@@ -45,29 +47,15 @@
                                    animated:NO
                                  completion:nil];
     
-    _pageViewController.view.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
-    [_pageViewController.view setBackgroundColor:[UIColor blackColor]];
+    _pageViewController.view.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height + 100);
+    [_pageViewController.view setBackgroundColor:[UIColor clearColor]];
     
     [self addChildViewController:_pageViewController];
     [self.view addSubview:_pageViewController.view];
     [self.pageViewController didMoveToParentViewController:self];
-}
-
-- (void)initButton {
-    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-    button.tintColor = [[UIView appearance] tintColor];
     
-    CGRect viewFrame = self.view.frame;
-    button.frame = CGRectMake( viewFrame.size.width - 70, viewFrame.size.height - 30, 60, 20 );
-    
-    [button setTitle:@"START" forState:UIControlStateNormal];
-    button.titleLabel.font = [UIFont systemFontOfSize:14];
-    [button setTitleColor:[UIColor orangeColor] forState:UIControlStateNormal];
-    [button addTarget:self
-               action:@selector(skipScreen)
-     forControlEvents:UIControlEventTouchDown];
-    
-    [self.view addSubview:button];
+    [self.view bringSubviewToFront:_pageControl];
+    [self.view bringSubviewToFront:_startButton];
 }
 
 - (void)skipScreen {
@@ -78,8 +66,11 @@
     [super didReceiveMemoryWarning];
 }
 
-- (AMPageContentViewController *)viewControllerAtIndex:(NSUInteger)index
-{
+- (IBAction)startButtonPressed:(id)sender {
+    [self skipScreen];
+}
+
+- (AMPageContentViewController *)viewControllerAtIndex:(NSUInteger)index {
     if (([_pageImages count] == 0) || (index >= [_pageImages count])) {
         return nil;
     }
@@ -92,8 +83,7 @@
 }
 
 - (UIViewController *)pageViewController:(UIPageViewController *)pageViewController
-      viewControllerBeforeViewController:(UIViewController *)viewController
-{
+      viewControllerBeforeViewController:(UIViewController *)viewController {
     NSUInteger index = ((AMPageContentViewController*) viewController).pageIndex;
     
     if ((index == 0) || (index == NSNotFound)) {
@@ -101,32 +91,30 @@
     }
     
     index--;
+    
     return [self viewControllerAtIndex:index];
 }
 
 - (UIViewController *)pageViewController:(UIPageViewController *)pageViewController
-       viewControllerAfterViewController:(UIViewController *)viewController
-{
+       viewControllerAfterViewController:(UIViewController *)viewController {
     NSUInteger index = ((AMPageContentViewController*) viewController).pageIndex;
     
-    if (index == NSNotFound) {
+    if ((index == NSNotFound) || (index == [_pageImages count])) {
         return nil;
     }
     
     index++;
-    if (index == [_pageImages count]) {
-        return nil;
-    }
+    
     return [self viewControllerAtIndex:index];
 }
 
-- (NSInteger)presentationCountForPageViewController:(UIPageViewController *)pageViewController
-{
+- (NSInteger)presentationCountForPageViewController:(UIPageViewController *)pageViewController {
+    _pageControl.numberOfPages = [_pageImages count];
     return [_pageImages count];
 }
 
-- (NSInteger)presentationIndexForPageViewController:(UIPageViewController *)pageViewController
-{
+- (NSInteger)presentationIndexForPageViewController:(UIPageViewController *)pageViewController{
+    
     return 0;
 }
 

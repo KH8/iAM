@@ -54,7 +54,7 @@
 }
 
 - (void)initRunnerWithTimer:(NSTimer*)timer{
-    [[NSRunLoop currentRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
+    [[NSRunLoop currentRunLoop] addTimer:timer forMode:NSDefaultRunLoopMode];
 }
 
 - (void)changeIntervalTime:(NSNumber*)intervalTime{

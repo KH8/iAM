@@ -38,6 +38,7 @@
 
 - (void)initComponents{
     _pageViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"AMPageViewController"];
+    _pageViewController.delegate = self;
     _pageViewController.dataSource = self;
     
     AMPageContentViewController *startingViewController = [self viewControllerAtIndex:0];
@@ -116,6 +117,14 @@
 - (NSInteger)presentationIndexForPageViewController:(UIPageViewController *)pageViewController{
     
     return 0;
+}
+
+- (void)pageViewController:(UIPageViewController *)pvc didFinishAnimating:(BOOL)finished previousViewControllers:(NSArray *)previousViewControllers transitionCompleted:(BOOL)completed {
+    if (!completed) {
+        return;
+    }
+    AMPageContentViewController *pageContentViewController = (AMPageContentViewController*)pvc.viewControllers[0];
+    _pageControl.currentPage = pageContentViewController.pageIndex;
 }
 
 @end

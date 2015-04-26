@@ -13,6 +13,8 @@
 
 @property (weak, nonatomic) IBOutlet UIPageControl *pageControl;
 @property (weak, nonatomic) IBOutlet UIButton *startButton;
+@property (weak, nonatomic) IBOutlet UISwitch *showTutorialSwitch;
+@property (weak, nonatomic) IBOutlet UILabel *showTutorialLabel;
 
 @end
 
@@ -57,6 +59,8 @@
     
     [self.view bringSubviewToFront:_pageControl];
     [self.view bringSubviewToFront:_startButton];
+    [self.view bringSubviewToFront:_showTutorialSwitch];
+    [self.view bringSubviewToFront:_showTutorialLabel];
 }
 
 - (void)skipScreen {

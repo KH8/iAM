@@ -87,7 +87,7 @@
         return;
     }
     [_baseArray removeObjectAtIndex:anIndex];
-    if(anIndex == _actualIndex){
+    if(anIndex >= _baseArray.count){
         [self setNextIndexAsActual];
     }
     [self delegateSelectionHasBeenChanged];

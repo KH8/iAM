@@ -185,7 +185,8 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lyd-pp-S7Q">
-                                <rect key="frame" x="533" y="565" width="47" height="30"/>
+                                <rect key="frame" x="536" y="566" width="44" height="29"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <state key="normal" title="START">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -199,19 +200,35 @@
                                 <color key="pageIndicatorTintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="currentPageIndicatorTintColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </pageControl>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ezz-bk-f5e">
+                                <rect key="frame" x="20" y="564" width="51" height="31"/>
+                                <color key="onTintColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </switch>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Show tutorial." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lC5-jy-5XQ">
+                                <rect key="frame" x="79" y="585" width="52" height="10"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="8"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="ehO-nR-hl7" firstAttribute="top" secondItem="Ezz-bk-f5e" secondAttribute="bottom" constant="5" id="HYV-U8-VWZ"/>
                             <constraint firstAttribute="centerX" secondItem="qv4-0T-1tY" secondAttribute="centerX" id="JYe-sP-Db8"/>
+                            <constraint firstItem="ehO-nR-hl7" firstAttribute="top" secondItem="lC5-jy-5XQ" secondAttribute="bottom" constant="5" id="L9c-md-fKK"/>
+                            <constraint firstItem="lC5-jy-5XQ" firstAttribute="leading" secondItem="Ezz-bk-f5e" secondAttribute="trailing" constant="10" id="RTH-Fp-zae"/>
                             <constraint firstAttribute="trailing" secondItem="Lyd-pp-S7Q" secondAttribute="trailing" constant="20" id="SBX-sJ-YeE"/>
                             <constraint firstItem="qv4-0T-1tY" firstAttribute="top" secondItem="YbQ-sD-IVT" secondAttribute="top" id="ZAf-c8-OZZ"/>
                             <constraint firstAttribute="trailing" secondItem="qv4-0T-1tY" secondAttribute="trailing" id="qoo-N7-Tkp"/>
                             <constraint firstItem="ehO-nR-hl7" firstAttribute="top" secondItem="Lyd-pp-S7Q" secondAttribute="bottom" constant="5" id="vTx-3c-1KQ"/>
                             <constraint firstItem="qv4-0T-1tY" firstAttribute="leading" secondItem="YbQ-sD-IVT" secondAttribute="leading" id="xi5-TH-GT7"/>
+                            <constraint firstItem="Ezz-bk-f5e" firstAttribute="leading" secondItem="YbQ-sD-IVT" secondAttribute="leading" constant="20" id="yMC-0H-JJm"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="pageControl" destination="qv4-0T-1tY" id="IWM-8z-g9X"/>
+                        <outlet property="showTutorialLabel" destination="lC5-jy-5XQ" id="330-Vy-oY6"/>
+                        <outlet property="showTutorialSwitch" destination="Ezz-bk-f5e" id="GW6-wk-J3i"/>
                         <outlet property="startButton" destination="Lyd-pp-S7Q" id="emE-ZW-1e4"/>
                         <segue destination="23J-3V-BDE" kind="presentation" identifier="sw_skip" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="TIP-R1-KcY"/>
                     </connections>

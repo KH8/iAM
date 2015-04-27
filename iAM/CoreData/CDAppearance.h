@@ -2,8 +2,8 @@
 //  CDAppearance.h
 //  iAM
 //
-//  Created by Krzysztof Reczek on 15.04.2015.
-//  Copyright (c) 2015 H@E. All rights reserved.
+//  Created by Krzysztof Reczek on 27.04.2015.
+//  Copyright (c) 2015 miscApps. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
@@ -12,7 +12,8 @@
 
 @interface CDAppearance : NSManagedObject
 
-@property (nonatomic, retain) NSString * tintColorKey;
 @property (nonatomic, retain) NSString * colorThemeKey;
+@property (nonatomic, retain) NSString * tintColorKey;
+@property (nonatomic, retain) NSNumber * showTutorial;
 
 @end

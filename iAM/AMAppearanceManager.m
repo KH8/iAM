@@ -23,6 +23,8 @@
 @property (nonatomic) NSArray *tintColorsArray;
 @property (nonatomic) NSArray *colorThemesArray;
 
+@property (nonatomic) BOOL showTutorial;
+
 @end
 
 @implementation AMAppearanceManager
@@ -64,6 +66,7 @@
                                                              inManagedObjectContext:context];
     appearance.tintColorKey = @"ORANGE";
     appearance.colorThemeKey = @"DARK";
+    appearance.showTutorial = @YES;
     
     NSError *error;
     if (![context save:&error]) {
@@ -94,6 +97,7 @@
     
     _globalTintColorKey = appearance.tintColorKey;
     _globalColorThemeKey = appearance.colorThemeKey;
+    _showTutorial = appearance.showTutorial.boolValue;
     
     [self setupAppearance];
     [self setupAppearanceOnce];
@@ -107,6 +111,7 @@
                                                                 inManagedObjectContext:context];
     appearance.tintColorKey = _globalTintColorKey;
     appearance.colorThemeKey = _globalColorThemeKey;
+    appearance.showTutorial = [[NSNumber alloc] initWithBool:_showTutorial];
     
     NSError *error;
     if (![context save:&error]) {
@@ -172,6 +177,14 @@
 
 - (NSString*)getGlobalColorThemeKey{
     return _globalColorThemeKey;
+}
+
+- (void)setShowTutorial:(BOOL)value{
+    _showTutorial = value;
+}
+
+- (BOOL)getShowTutorial{
+    return  _showTutorial;
 }
 
 - (void)setupAppearance {

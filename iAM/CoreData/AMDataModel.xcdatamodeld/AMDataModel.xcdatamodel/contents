@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="7549" systemVersion="14D131" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="7549" systemVersion="14D136" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="CDAppearance" representedClassName="CDAppearance" syncable="YES">
         <attribute name="colorThemeKey" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="showTutorial" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="tintColorKey" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <entity name="CDBar" representedClassName="CDBar" syncable="YES">
@@ -50,12 +51,12 @@
         <relationship name="stepBars" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="CDBar" inverseName="step" inverseEntity="CDBar" syncable="YES"/>
     </entity>
     <elements>
+        <element name="CDAppearance" positionX="-1730" positionY="-864" width="128" height="90"/>
         <element name="CDBar" positionX="-1730" positionY="-1080" width="128" height="133"/>
-        <element name="CDConfiguration" positionX="-1944" positionY="-864" width="128" height="193"/>
+        <element name="CDConfiguration" positionX="-1944" positionY="-864" width="128" height="195"/>
         <element name="CDNote" positionX="-1512" positionY="-1080" width="128" height="88"/>
         <element name="CDSelections" positionX="-2160" positionY="-864" width="128" height="88"/>
         <element name="CDSequence" positionX="-2160" positionY="-1078" width="126" height="103"/>
         <element name="CDStep" positionX="-1944" positionY="-1080" width="128" height="148"/>
-        <element name="CDAppearance" positionX="-1730" positionY="-864" width="128" height="73"/>
     </elements>
 </model>

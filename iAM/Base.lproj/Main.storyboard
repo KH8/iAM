@@ -185,9 +185,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lyd-pp-S7Q">
-                                <rect key="frame" x="536" y="566" width="44" height="29"/>
+                                <rect key="frame" x="531" y="566" width="49" height="29"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <state key="normal" title="START">
+                                <state key="normal" title="SKIP IT">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -206,6 +206,9 @@
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ezz-bk-f5e">
                                 <rect key="frame" x="20" y="564" width="51" height="31"/>
                                 <color key="onTintColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="showTutorialSwitchStateChanged:" destination="vKD-mF-dDR" eventType="valueChanged" id="9Sa-gW-5bQ"/>
+                                </connections>
                             </switch>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Show tutorial." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lC5-jy-5XQ">
                                 <rect key="frame" x="79" y="585" width="52" height="10"/>

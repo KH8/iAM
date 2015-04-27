@@ -8,6 +8,7 @@
 
 #import "AMStartViewController.h"
 #import "AMPageContentViewController.h"
+#import "AppDelegate.h"
 
 @interface AMStartViewController ()
 
@@ -16,22 +17,36 @@
 @property (weak, nonatomic) IBOutlet UISwitch *showTutorialSwitch;
 @property (weak, nonatomic) IBOutlet UILabel *showTutorialLabel;
 
+@property BOOL viewShouldBeSkipped;
+
 @end
 
 @implementation AMStartViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self initGlobalSettings];
+    
+}
+
+- (void)viewDidAppear:(BOOL)animated{
+    if(_viewShouldBeSkipped){
+        [self skipScreen];
+        return;
+    }
+    [_showTutorialSwitch setOn:YES];
     [self initData];
     [self initComponents];
 }
 
-- (void)viewDidAppear:(BOOL)animated{
-    //[self skipScreen];
+- (void)initGlobalSettings{
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    _viewShouldBeSkipped = !appDelegate.appearanceManager.getShowTutorial;
 }
 
 - (void)initData{
-    _pageImages = @[@"tutorial_1.png",
+    _pageImages = @[@"tutorial_0.png",
+                    @"tutorial_1.png",
                     @"tutorial_2.png",
                     @"tutorial_3.png",
                     @"tutorial_4.png",
@@ -58,9 +73,6 @@
     [self.pageViewController didMoveToParentViewController:self];
     
     [self.view bringSubviewToFront:_pageControl];
-    [self.view bringSubviewToFront:_startButton];
-    [self.view bringSubviewToFront:_showTutorialSwitch];
-    [self.view bringSubviewToFront:_showTutorialLabel];
 }
 
 - (void)skipScreen {
@@ -73,6 +85,11 @@
 
 - (IBAction)startButtonPressed:(id)sender {
     [self skipScreen];
+}
+
+- (IBAction)showTutorialSwitchStateChanged:(id)sender {
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    [appDelegate.appearanceManager setShowTutorial:_showTutorialSwitch.state];
 }
 
 - (AMPageContentViewController *)viewControllerAtIndex:(NSUInteger)index {
@@ -129,6 +146,10 @@
     }
     AMPageContentViewController *pageContentViewController = (AMPageContentViewController*)pvc.viewControllers[0];
     _pageControl.currentPage = pageContentViewController.pageIndex;
+    
+    [self.view bringSubviewToFront:_showTutorialSwitch];
+    [self.view bringSubviewToFront:_showTutorialLabel];
+    [self.view bringSubviewToFront:_startButton];
 }
 
 - (IBAction)onPageSelectionHasChanged:(id)sender {

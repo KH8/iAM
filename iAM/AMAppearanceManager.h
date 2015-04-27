@@ -22,4 +22,7 @@
 - (void)changeGlobalColorTheme;
 - (NSString*)getGlobalColorThemeKey;
 
+- (void)setShowTutorial:(BOOL)value;
+- (BOOL)getShowTutorial;
+
 @end

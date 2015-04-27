@@ -46,13 +46,13 @@
     [self loadAppDelegate];
     [self loadMainObjects];
     [self loadPlayBack];
+    [self loadColors];
 }
 
 -(void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     [self loadSidebarMenu];
     [self loadIcons];
-    [self loadColors];
     [self loadLabels];
     [self loadSliders];
     [self loadButtons];

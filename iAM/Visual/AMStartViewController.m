@@ -131,4 +131,9 @@
     _pageControl.currentPage = pageContentViewController.pageIndex;
 }
 
+- (IBAction)onPageSelectionHasChanged:(id)sender {
+    AMPageContentViewController *pageContentViewController = (AMPageContentViewController*)_pageViewController.viewControllers[0];
+    _pageControl.currentPage = pageContentViewController.pageIndex;
+}
+
 @end

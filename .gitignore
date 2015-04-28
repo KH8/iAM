@@ -11,8 +11,8 @@ iAM.xcodeproj/project.xcworkspace/xcuserdata/H8.xcuserdatad/UserInterfaceState.x
 *.xcuserstate
 iAM.plist
 tickGrid.plist
-tickGrid LTD.plist
-tickGrid LTD*
+tickGrid Lite.plist
+tickGrid Lite*
 tickGrid*
 
 iAM.xcodeproj/xcuserdata/H8.xcuserdatad/xcschemes*
@@ -22,7 +22,7 @@ tickGrid/tickGrid.plist
 
 tickGrid/AMConfig.m
 
-tickGrid LTD/AMConfig.m
+tickGrid Lite/AMConfig.m
 
 iAM/Info.plist
 

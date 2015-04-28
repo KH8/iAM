@@ -43,7 +43,6 @@
 		A450036E1A9BD73B008F4B6A /* seq3.png in Resources */ = {isa = PBXBuildFile; fileRef = A450036B1A9BD73B008F4B6A /* seq3.png */; };
 		A452FC041AEEDE7C008DFACD /* tutorial_0.png in Resources */ = {isa = PBXBuildFile; fileRef = A452FC031AEEDE7C008DFACD /* tutorial_0.png */; };
 		A452FC051AEEDE9C008DFACD /* tutorial_0.png in Resources */ = {isa = PBXBuildFile; fileRef = A452FC031AEEDE7C008DFACD /* tutorial_0.png */; };
-		A452FC061AEEDE9C008DFACD /* tutorial_0.png in Resources */ = {isa = PBXBuildFile; fileRef = A452FC031AEEDE7C008DFACD /* tutorial_0.png */; };
 		A452FC131AEEE5BA008DFACD /* CDConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = A452FC121AEEE5BA008DFACD /* CDConfiguration.m */; };
 		A452FC141AEEE5BA008DFACD /* CDConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = A452FC121AEEE5BA008DFACD /* CDConfiguration.m */; };
 		A452FC151AEEE5BA008DFACD /* CDConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = A452FC121AEEE5BA008DFACD /* CDConfiguration.m */; };
@@ -60,6 +59,9 @@
 		A45F60B21AD1C30900954D2F /* AMPropertiesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A45F60B11AD1C30900954D2F /* AMPropertiesTableViewController.m */; };
 		A46069031AC74E0E00E9377F /* AMNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A46069021AC74E0E00E9377F /* AMNavigationViewController.m */; };
 		A477F93B1AE05E4400812C4A /* AMView.m in Sources */ = {isa = PBXBuildFile; fileRef = A477F93A1AE05E4400812C4A /* AMView.m */; };
+		A481D1A61AEFF6A5008EAE05 /* tutorial_0.png in Resources */ = {isa = PBXBuildFile; fileRef = A481D1A51AEFF6A5008EAE05 /* tutorial_0.png */; };
+		A481D1A91AEFF6B9008EAE05 /* AMConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = A481D1A71AEFF6B9008EAE05 /* AMConfig.m */; };
+		A481D1AA1AEFF6B9008EAE05 /* tickGrid Lite.plist in Resources */ = {isa = PBXBuildFile; fileRef = A481D1A81AEFF6B9008EAE05 /* tickGrid Lite.plist */; };
 		A49A5A701AD718B3000B0080 /* speakerCalm.png in Resources */ = {isa = PBXBuildFile; fileRef = A49A5A6E1AD718B3000B0080 /* speakerCalm.png */; };
 		A49A5A711AD718B3000B0080 /* speakerLoud.png in Resources */ = {isa = PBXBuildFile; fileRef = A49A5A6F1AD718B3000B0080 /* speakerLoud.png */; };
 		A49A5A741AD718D9000B0080 /* AMMutableArrayResponder.m in Sources */ = {isa = PBXBuildFile; fileRef = A49A5A731AD718D9000B0080 /* AMMutableArrayResponder.m */; };
@@ -186,7 +188,6 @@
 		A4CB2BE81AD9C2E8007D2584 /* stickHigh.aif in Resources */ = {isa = PBXBuildFile; fileRef = A4CB2BDB1AD9C2E8007D2584 /* stickHigh.aif */; };
 		A4CB2BE91AD9C2E8007D2584 /* stickLow.aif in Resources */ = {isa = PBXBuildFile; fileRef = A4CB2BDC1AD9C2E8007D2584 /* stickLow.aif */; };
 		A4CCA74E1AE6F03900AB4F7C /* tickGrid.plist in Resources */ = {isa = PBXBuildFile; fileRef = A4CCA74D1AE6F03900AB4F7C /* tickGrid.plist */; };
-		A4CCA7501AE6F04100AB4F7C /* tickGrid LTD.plist in Resources */ = {isa = PBXBuildFile; fileRef = A4CCA74F1AE6F04100AB4F7C /* tickGrid LTD.plist */; };
 		A4DDA2B61AA8F8B8006B9F33 /* spot.png in Resources */ = {isa = PBXBuildFile; fileRef = A4DDA2B51AA8F8B8006B9F33 /* spot.png */; };
 		A4DDA2B81AA8FB57006B9F33 /* selected.png in Resources */ = {isa = PBXBuildFile; fileRef = A4DDA2B71AA8FB57006B9F33 /* selected.png */; };
 		A4DDA2BA1AA9079D006B9F33 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = A4DDA2B91AA9079D006B9F33 /* icon.png */; };
@@ -276,7 +277,6 @@
 		A4FB77D01AE6ED17003BC801 /* spot.png in Resources */ = {isa = PBXBuildFile; fileRef = A4DDA2B51AA8F8B8006B9F33 /* spot.png */; };
 		A4FB77D11AE6ED17003BC801 /* seq2.png in Resources */ = {isa = PBXBuildFile; fileRef = A450036A1A9BD73B008F4B6A /* seq2.png */; };
 		A4FB77D21AE6ED17003BC801 /* seq1.png in Resources */ = {isa = PBXBuildFile; fileRef = A45003691A9BD73B008F4B6A /* seq1.png */; };
-		A4FB77DA1AE6EDBC003BC801 /* AMConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = A4FB77D81AE6EDBA003BC801 /* AMConfig.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -353,6 +353,9 @@
 		A46069021AC74E0E00E9377F /* AMNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMNavigationViewController.m; sourceTree = "<group>"; };
 		A477F9391AE05E4400812C4A /* AMView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMView.h; sourceTree = "<group>"; };
 		A477F93A1AE05E4400812C4A /* AMView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMView.m; sourceTree = "<group>"; };
+		A481D1A51AEFF6A5008EAE05 /* tutorial_0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tutorial_0.png; path = "tickGrid Lite/Visual/Images/tutorial_0.png"; sourceTree = "<group>"; };
+		A481D1A71AEFF6B9008EAE05 /* AMConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMConfig.m; path = "tickGrid Lite/AMConfig.m"; sourceTree = "<group>"; };
+		A481D1A81AEFF6B9008EAE05 /* tickGrid Lite.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "tickGrid Lite.plist"; path = "tickGrid Lite/tickGrid Lite.plist"; sourceTree = "<group>"; };
 		A49A5A6E1AD718B3000B0080 /* speakerCalm.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = speakerCalm.png; path = Icons/speakerCalm.png; sourceTree = "<group>"; };
 		A49A5A6F1AD718B3000B0080 /* speakerLoud.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = speakerLoud.png; path = Icons/speakerLoud.png; sourceTree = "<group>"; };
 		A49A5A721AD718D9000B0080 /* AMMutableArrayResponder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMMutableArrayResponder.h; path = Core/Auxiliaries/AMMutableArrayResponder.h; sourceTree = "<group>"; };
@@ -416,7 +419,6 @@
 		A4CB2BDB1AD9C2E8007D2584 /* stickHigh.aif */ = {isa = PBXFileReference; lastKnownFileType = file; name = stickHigh.aif; path = Core/Sounds/stickHigh.aif; sourceTree = "<group>"; };
 		A4CB2BDC1AD9C2E8007D2584 /* stickLow.aif */ = {isa = PBXFileReference; lastKnownFileType = file; name = stickLow.aif; path = Core/Sounds/stickLow.aif; sourceTree = "<group>"; };
 		A4CCA74D1AE6F03900AB4F7C /* tickGrid.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = tickGrid.plist; path = tickGrid/tickGrid.plist; sourceTree = "<group>"; };
-		A4CCA74F1AE6F04100AB4F7C /* tickGrid LTD.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "tickGrid LTD.plist"; path = "tickGrid LTD/tickGrid LTD.plist"; sourceTree = "<group>"; };
 		A4DDA2B51AA8F8B8006B9F33 /* spot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = spot.png; path = Icons/spot.png; sourceTree = "<group>"; };
 		A4DDA2B71AA8FB57006B9F33 /* selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = selected.png; path = Icons/selected.png; sourceTree = "<group>"; };
 		A4DDA2B91AA9079D006B9F33 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon.png; path = Icons/icon.png; sourceTree = "<group>"; };
@@ -433,7 +435,6 @@
 		A4F24F8A1ABC914F00BF47C3 /* AMMutableArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMMutableArray.m; path = Core/Auxiliaries/AMMutableArray.m; sourceTree = "<group>"; };
 		A4FB77771AE6EC9F003BC801 /* AMConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMConfig.m; path = tickGrid/AMConfig.m; sourceTree = "<group>"; };
 		A4FB77D61AE6ED17003BC801 /* tickGrid LTD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "tickGrid LTD.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		A4FB77D81AE6EDBA003BC801 /* AMConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMConfig.m; path = "tickGrid LTD/AMConfig.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -583,7 +584,7 @@
 				A41641901A65DC5C00E3E228 /* AVFoundation.framework */,
 				A45F0D461A5C6515008673FC /* iAM */,
 				A4FB77751AE6EC4C003BC801 /* tickGrid */,
-				A4FB77761AE6EC57003BC801 /* tickGrid LTD */,
+				A481D1A41AEFF67D008EAE05 /* tickGrid Lite */,
 				A45F0D601A5C6515008673FC /* iAMTests */,
 				A45F0D451A5C6515008673FC /* Products */,
 			);
@@ -646,6 +647,32 @@
 				A45F0D621A5C6515008673FC /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A481D19E1AEFF52F008EAE05 /* Visual */ = {
+			isa = PBXGroup;
+			children = (
+				A481D19F1AEFF53B008EAE05 /* Images */,
+			);
+			name = Visual;
+			sourceTree = "<group>";
+		};
+		A481D19F1AEFF53B008EAE05 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				A481D1A51AEFF6A5008EAE05 /* tutorial_0.png */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
+		A481D1A41AEFF67D008EAE05 /* tickGrid Lite */ = {
+			isa = PBXGroup;
+			children = (
+				A481D1A71AEFF6B9008EAE05 /* AMConfig.m */,
+				A481D1A81AEFF6B9008EAE05 /* tickGrid Lite.plist */,
+				A481D19E1AEFF52F008EAE05 /* Visual */,
+			);
+			name = "tickGrid Lite";
 			sourceTree = "<group>";
 		};
 		A49A749F1A9A86FB006BC3C7 /* Icons */ = {
@@ -730,15 +757,6 @@
 				A4FB77771AE6EC9F003BC801 /* AMConfig.m */,
 			);
 			name = tickGrid;
-			sourceTree = "<group>";
-		};
-		A4FB77761AE6EC57003BC801 /* tickGrid LTD */ = {
-			isa = PBXGroup;
-			children = (
-				A4CCA74F1AE6F04100AB4F7C /* tickGrid LTD.plist */,
-				A4FB77D81AE6EDBA003BC801 /* AMConfig.m */,
-			);
-			name = "tickGrid LTD";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -883,7 +901,6 @@
 				A4DDA2B81AA8FB57006B9F33 /* selected.png in Resources */,
 				A4CB2BE61AD9C2E8007D2584 /* natural2.aif in Resources */,
 				A4A6C5951AE9723700E488BC /* tutorial_1.png in Resources */,
-				A4CCA7501AE6F04100AB4F7C /* tickGrid LTD.plist in Resources */,
 				A4CB2BE81AD9C2E8007D2584 /* stickHigh.aif in Resources */,
 				A4A6C5961AE9723700E488BC /* tutorial_2.png in Resources */,
 				A4A6C5991AE9723700E488BC /* tutorial_5.png in Resources */,
@@ -994,7 +1011,7 @@
 				A43135081AE98672001A4D4B /* tutorial_3.png in Resources */,
 				A4FB77BC1AE6ED17003BC801 /* icon.png in Resources */,
 				A4FB77BD1AE6ED17003BC801 /* speakerLoud.png in Resources */,
-				A452FC061AEEDE9C008DFACD /* tutorial_0.png in Resources */,
+				A481D1A61AEFF6A5008EAE05 /* tutorial_0.png in Resources */,
 				A4FB77BE1AE6ED17003BC801 /* seq3.png in Resources */,
 				A4FB77BF1AE6ED17003BC801 /* incloop.png in Resources */,
 				A4FB77C01AE6ED17003BC801 /* add.png in Resources */,
@@ -1006,6 +1023,7 @@
 				A4FB77C51AE6ED17003BC801 /* details.png in Resources */,
 				A4FB77C61AE6ED17003BC801 /* natural3.aif in Resources */,
 				A4FB77C71AE6ED17003BC801 /* list.png in Resources */,
+				A481D1AA1AEFF6B9008EAE05 /* tickGrid Lite.plist in Resources */,
 				A4FB77C81AE6ED17003BC801 /* about.png in Resources */,
 				A4FB77C91AE6ED17003BC801 /* grid.png in Resources */,
 				A4FB77CA1AE6ED17003BC801 /* Images.xcassets in Resources */,
@@ -1145,7 +1163,6 @@
 				A452FC241AEEE6A2008DFACD /* CDAppearance.m in Sources */,
 				A4FB77811AE6ED17003BC801 /* AMSoundTableViewCell.m in Sources */,
 				A452FC151AEEE5BA008DFACD /* CDConfiguration.m in Sources */,
-				A4FB77DA1AE6EDBC003BC801 /* AMConfig.m in Sources */,
 				A4FB77821AE6ED17003BC801 /* AMPopoverViewController.m in Sources */,
 				A4FB77831AE6ED17003BC801 /* SWRevealViewController.m in Sources */,
 				A4FB77841AE6ED17003BC801 /* AppDelegate.m in Sources */,
@@ -1156,6 +1173,7 @@
 				A4FB778A1AE6ED17003BC801 /* AMSequencer.m in Sources */,
 				A4FB778B1AE6ED17003BC801 /* AMSequenceTableController.m in Sources */,
 				A4FB778C1AE6ED17003BC801 /* AMView.m in Sources */,
+				A481D1A91AEFF6B9008EAE05 /* AMConfig.m in Sources */,
 				A4FB778D1AE6ED17003BC801 /* AMDataModel.xcdatamodeld in Sources */,
 				A4FB778F1AE6ED17003BC801 /* CDSelections.m in Sources */,
 				A4FB77901AE6ED17003BC801 /* AMSequenceMenuTableViewController.m in Sources */,
@@ -1393,7 +1411,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				INFOPLIST_FILE = "$(SRCROOT)/tickGrid LTD/tickGrid LTD.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/tickGrid Lite/tickGrid Lite.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "tickGrid LTD";
 				SWIFT_OBJC_BRIDGING_HEADER = "iAM/iAM-Bridging-Header.h";
@@ -1407,7 +1425,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				INFOPLIST_FILE = "$(SRCROOT)/tickGrid LTD/tickGrid LTD.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/tickGrid Lite/tickGrid Lite.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "tickGrid LTD";
 				SWIFT_OBJC_BRIDGING_HEADER = "iAM/iAM-Bridging-Header.h";

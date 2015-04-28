@@ -62,6 +62,9 @@
 		A481D1A61AEFF6A5008EAE05 /* tutorial_0.png in Resources */ = {isa = PBXBuildFile; fileRef = A481D1A51AEFF6A5008EAE05 /* tutorial_0.png */; };
 		A481D1A91AEFF6B9008EAE05 /* AMConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = A481D1A71AEFF6B9008EAE05 /* AMConfig.m */; };
 		A481D1AA1AEFF6B9008EAE05 /* tickGrid Lite.plist in Resources */ = {isa = PBXBuildFile; fileRef = A481D1A81AEFF6B9008EAE05 /* tickGrid Lite.plist */; };
+		A481D1AE1AEFF92C008EAE05 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A4C47C191A8BB68E002CF325 /* Images.xcassets */; };
+		A481D1AF1AEFF92C008EAE05 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A4C47C191A8BB68E002CF325 /* Images.xcassets */; };
+		A481D1B11AEFF96A008EAE05 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A481D1B01AEFF96A008EAE05 /* Images.xcassets */; };
 		A49A5A701AD718B3000B0080 /* speakerCalm.png in Resources */ = {isa = PBXBuildFile; fileRef = A49A5A6E1AD718B3000B0080 /* speakerCalm.png */; };
 		A49A5A711AD718B3000B0080 /* speakerLoud.png in Resources */ = {isa = PBXBuildFile; fileRef = A49A5A6F1AD718B3000B0080 /* speakerLoud.png */; };
 		A49A5A741AD718D9000B0080 /* AMMutableArrayResponder.m in Sources */ = {isa = PBXBuildFile; fileRef = A49A5A731AD718D9000B0080 /* AMMutableArrayResponder.m */; };
@@ -93,7 +96,6 @@
 		A4A705F01AA50E3400A911C6 /* incloop.png in Resources */ = {isa = PBXBuildFile; fileRef = A4A705EE1AA50E3400A911C6 /* incloop.png */; };
 		A4AA2B4B1AC5FD9B0076FDF6 /* AMDataMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = A4AA2B4A1AC5FD9B0076FDF6 /* AMDataMapper.m */; };
 		A4B4CDB61ABEEBB400615051 /* AMSequenceMenuTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A4B4CDB51ABEEBB400615051 /* AMSequenceMenuTableViewCell.m */; };
-		A4C47C1A1A8BB68E002CF325 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A4C47C191A8BB68E002CF325 /* Images.xcassets */; };
 		A4C59DB01ADED12200DDA9A0 /* AMConfigurationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A4C59DAF1ADED12200DDA9A0 /* AMConfigurationManager.m */; };
 		A4C59DB31ADED17600DDA9A0 /* AMAppearanceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A4C59DB21ADED17600DDA9A0 /* AMAppearanceManager.m */; };
 		A4C7EC981AE6C90900428B68 /* AMPopupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4C7EC971AE6C90900428B68 /* AMPopupViewController.m */; };
@@ -165,7 +167,6 @@
 		A4C7ECE11AE6EA3F00428B68 /* list.png in Resources */ = {isa = PBXBuildFile; fileRef = A4E7B6211AB745E200D7D357 /* list.png */; };
 		A4C7ECE21AE6EA3F00428B68 /* about.png in Resources */ = {isa = PBXBuildFile; fileRef = A4E7B61F1AB745E200D7D357 /* about.png */; };
 		A4C7ECE31AE6EA3F00428B68 /* grid.png in Resources */ = {isa = PBXBuildFile; fileRef = A4E7B6201AB745E200D7D357 /* grid.png */; };
-		A4C7ECE41AE6EA3F00428B68 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A4C47C191A8BB68E002CF325 /* Images.xcassets */; };
 		A4C7ECE51AE6EA3F00428B68 /* settings.png in Resources */ = {isa = PBXBuildFile; fileRef = A4E7B6221AB745E200D7D357 /* settings.png */; };
 		A4C7ECE61AE6EA3F00428B68 /* artificialLow1.aif in Resources */ = {isa = PBXBuildFile; fileRef = A4CB2BD21AD9C2E8007D2584 /* artificialLow1.aif */; };
 		A4C7ECE71AE6EA3F00428B68 /* click2.aif in Resources */ = {isa = PBXBuildFile; fileRef = A4CB2BD51AD9C2E8007D2584 /* click2.aif */; };
@@ -268,7 +269,6 @@
 		A4FB77C71AE6ED17003BC801 /* list.png in Resources */ = {isa = PBXBuildFile; fileRef = A4E7B6211AB745E200D7D357 /* list.png */; };
 		A4FB77C81AE6ED17003BC801 /* about.png in Resources */ = {isa = PBXBuildFile; fileRef = A4E7B61F1AB745E200D7D357 /* about.png */; };
 		A4FB77C91AE6ED17003BC801 /* grid.png in Resources */ = {isa = PBXBuildFile; fileRef = A4E7B6201AB745E200D7D357 /* grid.png */; };
-		A4FB77CA1AE6ED17003BC801 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A4C47C191A8BB68E002CF325 /* Images.xcassets */; };
 		A4FB77CB1AE6ED17003BC801 /* settings.png in Resources */ = {isa = PBXBuildFile; fileRef = A4E7B6221AB745E200D7D357 /* settings.png */; };
 		A4FB77CC1AE6ED17003BC801 /* artificialLow1.aif in Resources */ = {isa = PBXBuildFile; fileRef = A4CB2BD21AD9C2E8007D2584 /* artificialLow1.aif */; };
 		A4FB77CD1AE6ED17003BC801 /* click2.aif in Resources */ = {isa = PBXBuildFile; fileRef = A4CB2BD51AD9C2E8007D2584 /* click2.aif */; };
@@ -356,6 +356,7 @@
 		A481D1A51AEFF6A5008EAE05 /* tutorial_0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tutorial_0.png; path = "tickGrid Lite/Visual/Images/tutorial_0.png"; sourceTree = "<group>"; };
 		A481D1A71AEFF6B9008EAE05 /* AMConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMConfig.m; path = "tickGrid Lite/AMConfig.m"; sourceTree = "<group>"; };
 		A481D1A81AEFF6B9008EAE05 /* tickGrid Lite.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "tickGrid Lite.plist"; path = "tickGrid Lite/tickGrid Lite.plist"; sourceTree = "<group>"; };
+		A481D1B01AEFF96A008EAE05 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = "tickGrid Lite/Images.xcassets"; sourceTree = "<group>"; };
 		A49A5A6E1AD718B3000B0080 /* speakerCalm.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = speakerCalm.png; path = Icons/speakerCalm.png; sourceTree = "<group>"; };
 		A49A5A6F1AD718B3000B0080 /* speakerLoud.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = speakerLoud.png; path = Icons/speakerLoud.png; sourceTree = "<group>"; };
 		A49A5A721AD718D9000B0080 /* AMMutableArrayResponder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMMutableArrayResponder.h; path = Core/Auxiliaries/AMMutableArrayResponder.h; sourceTree = "<group>"; };
@@ -671,6 +672,7 @@
 				A481D1A81AEFF6B9008EAE05 /* tickGrid Lite.plist */,
 				A481D1A71AEFF6B9008EAE05 /* AMConfig.m */,
 				A481D19E1AEFF52F008EAE05 /* Visual */,
+				A481D1B01AEFF96A008EAE05 /* Images.xcassets */,
 			);
 			name = "tickGrid Lite";
 			sourceTree = "<group>";
@@ -911,6 +913,7 @@
 				A4A705F01AA50E3400A911C6 /* incloop.png in Resources */,
 				A44492061A9E7CE4008CEB8E /* add.png in Resources */,
 				A4CB2BDE1AD9C2E8007D2584 /* artificialHigh2.aif in Resources */,
+				A481D1AF1AEFF92C008EAE05 /* Images.xcassets in Resources */,
 				A44492071A9E7CE4008CEB8E /* delete.png in Resources */,
 				A49EE0001AE1647100B7D38F /* back.png in Resources */,
 				A4E7D9BA1ADB01C900B01BCD /* selectedLeft.png in Resources */,
@@ -919,7 +922,6 @@
 				A4E7B6251AB745E200D7D357 /* list.png in Resources */,
 				A4E7B6231AB745E200D7D357 /* about.png in Resources */,
 				A4E7B6241AB745E200D7D357 /* grid.png in Resources */,
-				A4C47C1A1A8BB68E002CF325 /* Images.xcassets in Resources */,
 				A4A6C5971AE9723700E488BC /* tutorial_3.png in Resources */,
 				A4CCA74E1AE6F03900AB4F7C /* tickGrid.plist in Resources */,
 				A4E7B6261AB745E200D7D357 /* settings.png in Resources */,
@@ -953,6 +955,7 @@
 				A43135011AE9866B001A4D4B /* tutorial_1.png in Resources */,
 				A4C7ECCF1AE6EA3F00428B68 /* menu.png in Resources */,
 				A4C7ECD01AE6EA3F00428B68 /* LaunchScreen.xib in Resources */,
+				A481D1AE1AEFF92C008EAE05 /* Images.xcassets in Resources */,
 				A4C7ECD11AE6EA3F00428B68 /* clockTick2.aif in Resources */,
 				A4C7ECD21AE6EA3F00428B68 /* selected.png in Resources */,
 				A4C7ECD31AE6EA3F00428B68 /* natural2.aif in Resources */,
@@ -976,7 +979,6 @@
 				A4C7ECE11AE6EA3F00428B68 /* list.png in Resources */,
 				A4C7ECE21AE6EA3F00428B68 /* about.png in Resources */,
 				A4C7ECE31AE6EA3F00428B68 /* grid.png in Resources */,
-				A4C7ECE41AE6EA3F00428B68 /* Images.xcassets in Resources */,
 				A4C7ECE51AE6EA3F00428B68 /* settings.png in Resources */,
 				A4C7ECE61AE6EA3F00428B68 /* artificialLow1.aif in Resources */,
 				A43135061AE98671001A4D4B /* tutorial_5.png in Resources */,
@@ -1017,6 +1019,7 @@
 				A4FB77C01AE6ED17003BC801 /* add.png in Resources */,
 				A4FB77C11AE6ED17003BC801 /* artificialHigh2.aif in Resources */,
 				A4FB77C21AE6ED17003BC801 /* delete.png in Resources */,
+				A481D1B11AEFF96A008EAE05 /* Images.xcassets in Resources */,
 				A4FB77C31AE6ED17003BC801 /* back.png in Resources */,
 				A43135091AE98672001A4D4B /* tutorial_4.png in Resources */,
 				A4FB77C41AE6ED17003BC801 /* selectedLeft.png in Resources */,
@@ -1026,7 +1029,6 @@
 				A481D1AA1AEFF6B9008EAE05 /* tickGrid Lite.plist in Resources */,
 				A4FB77C81AE6ED17003BC801 /* about.png in Resources */,
 				A4FB77C91AE6ED17003BC801 /* grid.png in Resources */,
-				A4FB77CA1AE6ED17003BC801 /* Images.xcassets in Resources */,
 				A4FB77CB1AE6ED17003BC801 /* settings.png in Resources */,
 				A4FB77CC1AE6ED17003BC801 /* artificialLow1.aif in Resources */,
 				A431350A1AE98672001A4D4B /* tutorial_5.png in Resources */,

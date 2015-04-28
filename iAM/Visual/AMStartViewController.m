@@ -72,7 +72,12 @@
     [self.view addSubview:_pageViewController.view];
     [self.pageViewController didMoveToParentViewController:self];
     
+    [self hideComponents];
+    
     [self.view bringSubviewToFront:_pageControl];
+    [self.view bringSubviewToFront:_showTutorialSwitch];
+    [self.view bringSubviewToFront:_showTutorialLabel];
+    [self.view bringSubviewToFront:_startButton];
 }
 
 - (void)skipScreen {
@@ -147,16 +152,34 @@
     AMPageContentViewController *pageContentViewController = (AMPageContentViewController*)pvc.viewControllers[0];
     _pageControl.currentPage = pageContentViewController.pageIndex;
     
-    if(pageContentViewController.pageIndex != 5) return;
-    
-    [self.view bringSubviewToFront:_showTutorialSwitch];
-    [self.view bringSubviewToFront:_showTutorialLabel];
-    [self.view bringSubviewToFront:_startButton];
+    if(pageContentViewController.pageIndex != 5) {
+        [self hideComponents];
+        return;
+    }
+    [self showComponents];
 }
 
 - (IBAction)onPageSelectionHasChanged:(id)sender {
     AMPageContentViewController *pageContentViewController = (AMPageContentViewController*)_pageViewController.viewControllers[0];
     _pageControl.currentPage = pageContentViewController.pageIndex;
+}
+
+- (void)hideComponents{
+    _showTutorialSwitch.userInteractionEnabled = NO;
+    _showTutorialSwitch.alpha = 0;
+    _showTutorialLabel.userInteractionEnabled = NO;
+    _showTutorialLabel.alpha = 0;
+    _startButton.userInteractionEnabled = NO;
+    _startButton.alpha = 0;
+}
+
+- (void)showComponents{
+    _showTutorialSwitch.userInteractionEnabled = YES;
+    _showTutorialSwitch.alpha = 1;
+    _showTutorialLabel.userInteractionEnabled = YES;
+    _showTutorialLabel.alpha = 1;
+    _startButton.userInteractionEnabled = YES;
+    _startButton.alpha = 1;
 }
 
 @end

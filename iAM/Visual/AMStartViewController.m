@@ -147,6 +147,8 @@
     AMPageContentViewController *pageContentViewController = (AMPageContentViewController*)pvc.viewControllers[0];
     _pageControl.currentPage = pageContentViewController.pageIndex;
     
+    if(pageContentViewController.pageIndex != 5) return;
+    
     [self.view bringSubviewToFront:_showTutorialSwitch];
     [self.view bringSubviewToFront:_showTutorialLabel];
     [self.view bringSubviewToFront:_startButton];

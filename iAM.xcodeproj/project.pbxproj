@@ -668,8 +668,8 @@
 		A481D1A41AEFF67D008EAE05 /* tickGrid Lite */ = {
 			isa = PBXGroup;
 			children = (
-				A481D1A71AEFF6B9008EAE05 /* AMConfig.m */,
 				A481D1A81AEFF6B9008EAE05 /* tickGrid Lite.plist */,
+				A481D1A71AEFF6B9008EAE05 /* AMConfig.m */,
 				A481D19E1AEFF52F008EAE05 /* Visual */,
 			);
 			name = "tickGrid Lite";

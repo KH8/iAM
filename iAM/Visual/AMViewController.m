@@ -24,6 +24,7 @@
 @property AMStave *mainStave;
 @property UIBarButtonItem *temporaryPlayButton;
 @property UIBarButtonItem *temporarySettingsButton;
+@property UIBarButtonItem *temporaryEraserButton;
 
 @property AMMutableArrayResponder *mainSequenceArrayResponder;
 @property AMMutableArrayResponder *mainStaveArrayResponder;
@@ -78,7 +79,7 @@
 - (void)loadSidebarMenu{
     SWRevealViewController *revealController = [self revealViewController];
     
-    float menuWindowSize = [UIScreen mainScreen].bounds.size.height / 7.0;
+    float menuWindowSize = (float) ([UIScreen mainScreen].bounds.size.height / 7.0);
     [revealController setRearViewRevealWidth:menuWindowSize + 5];
     [revealController setRearViewRevealOverdraw:menuWindowSize + 20];
     
@@ -95,9 +96,12 @@
 }
 
 - (void)loadToolBar{
-    UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc]initWithTarget:self
-                                                                                           action:@selector(onRemovePage:)];
-    [[_bottomToolBar subviews][6] addGestureRecognizer:longPress];
+    [self setBottomBarButton:_temporaryEraserButton
+             withPictureName:@"eraser.png"
+                    selector:@selector(onClearEvent:)
+              buttonPosition:8
+                        size:30
+                       color:[UIColor orangeColor]];
 }
 
 - (void)loadBackgroundAudioSession{
@@ -115,6 +119,28 @@
              action:originalLeftButton.action
    forControlEvents:UIControlEventTouchDown];
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:face];
+}
+
+- (void)setBottomBarButton: (UIBarButtonItem *)button
+           withPictureName: (NSString *)pictureName
+                  selector: (SEL)selector
+            buttonPosition: (NSUInteger)position
+                      size: (NSInteger)size
+                     color: (UIColor*)color{
+    UIImage *faceImage = [[UIImage imageNamed:pictureName]
+                          imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    
+    UIButton *face = [UIButton buttonWithType:UIButtonTypeCustom];
+    face.tintColor = color;
+    face.bounds = CGRectMake( size, size, size, size );
+    [face setImage:faceImage
+          forState:UIControlStateNormal];
+    [face addTarget:self
+             action:selector
+   forControlEvents:UIControlEventTouchDown];
+    
+    button = [[UIBarButtonItem alloc] initWithCustomView:face];
+    [self replaceObjectInToolBarAtIndex:position withObject:button];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -151,12 +177,8 @@
     [_mainStave addBar];
 }
 
-- (void)onRemovePage:(UILongPressGestureRecognizer*)sender {
-    if (sender.state == UIGestureRecognizerStateEnded) {
-    }
-    else if (sender.state == UIGestureRecognizerStateBegan){
-        [_mainStave removeActualObject];
-    }
+- (IBAction)onRemovePage:(id)sender {
+    [_mainStave removeActualObject];
 }
 
 - (IBAction)onPageSelectionHasChangedEvent:(id)sender {

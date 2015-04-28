@@ -89,14 +89,14 @@
                                             <action selector="onPreviousStep:" destination="Cpc-Be-Cbd" id="bfp-Po-1T3"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem width="20" style="plain" systemItem="fixedSpace" id="hef-ZL-SyR"/>
+                                    <barButtonItem width="15" style="plain" systemItem="fixedSpace" id="hef-ZL-SyR"/>
                                     <barButtonItem systemItem="play" id="7aK-c8-lKa">
                                         <inset key="imageInsets" minX="-30" minY="-30" maxX="-30" maxY="-30"/>
                                         <connections>
                                             <action selector="onPlayButtonTouchedEvent:" destination="Cpc-Be-Cbd" id="Lth-Df-kCD"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem width="20" style="plain" systemItem="fixedSpace" id="um2-YR-dZo"/>
+                                    <barButtonItem width="15" style="plain" systemItem="fixedSpace" id="um2-YR-dZo"/>
                                     <barButtonItem systemItem="fastForward" id="Iwv-d9-lZd">
                                         <inset key="imageInsets" minX="-30" minY="-30" maxX="-30" maxY="-30"/>
                                         <connections>
@@ -111,13 +111,15 @@
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem systemItem="flexibleSpace" id="X7t-Zq-2uN"/>
+                                    <barButtonItem title="Eraser" id="1k6-Eq-0nX"/>
+                                    <barButtonItem width="15" style="plain" systemItem="fixedSpace" id="X2n-kh-Fbo"/>
                                     <barButtonItem systemItem="trash" id="M9b-Tf-Auf">
                                         <inset key="imageInsets" minX="-30" minY="-30" maxX="-30" maxY="-30"/>
                                         <connections>
-                                            <action selector="onClearEvent:" destination="Cpc-Be-Cbd" id="8wH-84-zfP"/>
+                                            <action selector="onRemovePage:" destination="Cpc-Be-Cbd" id="I0x-Zm-wp8"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem width="20" style="plain" systemItem="fixedSpace" id="NIr-2D-ojA"/>
+                                    <barButtonItem width="15" style="plain" systemItem="fixedSpace" id="NIr-2D-ojA"/>
                                     <barButtonItem systemItem="add" id="dGK-4e-c4c">
                                         <inset key="imageInsets" minX="-30" minY="-30" maxX="-30" maxY="-30"/>
                                         <connections>
@@ -1611,7 +1613,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="zkT-HV-92U"/>
-        <segue reference="A2U-uw-7qt"/>
+        <segue reference="HdI-RE-NKN"/>
         <segue reference="lm7-pw-MVk"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>

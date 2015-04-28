@@ -26,7 +26,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self initGlobalSettings];
-    
+    [self hideComponents];
 }
 
 - (void)viewDidAppear:(BOOL)animated{
@@ -71,8 +71,6 @@
     [self addChildViewController:_pageViewController];
     [self.view addSubview:_pageViewController.view];
     [self.pageViewController didMoveToParentViewController:self];
-    
-    [self hideComponents];
     
     [self.view bringSubviewToFront:_pageControl];
     [self.view bringSubviewToFront:_showTutorialSwitch];

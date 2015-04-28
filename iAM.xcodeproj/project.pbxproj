@@ -71,6 +71,9 @@
 		A49A5A771AD71A56000B0080 /* AMVolumeSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = A49A5A761AD71A56000B0080 /* AMVolumeSlider.m */; };
 		A49A5A791AD72290000B0080 /* details.png in Resources */ = {isa = PBXBuildFile; fileRef = A49A5A781AD72290000B0080 /* details.png */; };
 		A49A5A7C1AD7264D000B0080 /* CDSelections.m in Sources */ = {isa = PBXBuildFile; fileRef = A49A5A7B1AD7264D000B0080 /* CDSelections.m */; };
+		A49D27571AF03B1900F89DC9 /* eraser.png in Resources */ = {isa = PBXBuildFile; fileRef = A49D27561AF03B1900F89DC9 /* eraser.png */; };
+		A49D27581AF03B1900F89DC9 /* eraser.png in Resources */ = {isa = PBXBuildFile; fileRef = A49D27561AF03B1900F89DC9 /* eraser.png */; };
+		A49D27591AF03B1900F89DC9 /* eraser.png in Resources */ = {isa = PBXBuildFile; fileRef = A49D27561AF03B1900F89DC9 /* eraser.png */; };
 		A49EE0001AE1647100B7D38F /* back.png in Resources */ = {isa = PBXBuildFile; fileRef = A49EDFFF1AE1647100B7D38F /* back.png */; };
 		A49FDBC11AB0F208008D5595 /* menu.png in Resources */ = {isa = PBXBuildFile; fileRef = A49FDBC01AB0F208008D5595 /* menu.png */; };
 		A4A0CD841AD084E600618B1F /* CDBar.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A0CD7D1AD084E600618B1F /* CDBar.m */; };
@@ -366,6 +369,7 @@
 		A49A5A781AD72290000B0080 /* details.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = details.png; path = Icons/details.png; sourceTree = "<group>"; };
 		A49A5A7A1AD7264D000B0080 /* CDSelections.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDSelections.h; path = CoreData/CDSelections.h; sourceTree = "<group>"; };
 		A49A5A7B1AD7264D000B0080 /* CDSelections.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CDSelections.m; path = CoreData/CDSelections.m; sourceTree = "<group>"; };
+		A49D27561AF03B1900F89DC9 /* eraser.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = eraser.png; path = Icons/eraser.png; sourceTree = "<group>"; };
 		A49EDFFF1AE1647100B7D38F /* back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = back.png; path = Icons/back.png; sourceTree = "<group>"; };
 		A49FDBC01AB0F208008D5595 /* menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = menu.png; path = Icons/menu.png; sourceTree = "<group>"; };
 		A4A0CD7C1AD084E600618B1F /* CDBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDBar.h; path = CoreData/CDBar.h; sourceTree = "<group>"; };
@@ -680,6 +684,7 @@
 		A49A749F1A9A86FB006BC3C7 /* Icons */ = {
 			isa = PBXGroup;
 			children = (
+				A49D27561AF03B1900F89DC9 /* eraser.png */,
 				A49EDFFF1AE1647100B7D38F /* back.png */,
 				A4E7D9B91ADB01C900B01BCD /* selectedLeft.png */,
 				A49A5A781AD72290000B0080 /* details.png */,
@@ -912,6 +917,7 @@
 				A450036E1A9BD73B008F4B6A /* seq3.png in Resources */,
 				A4A705F01AA50E3400A911C6 /* incloop.png in Resources */,
 				A44492061A9E7CE4008CEB8E /* add.png in Resources */,
+				A49D27571AF03B1900F89DC9 /* eraser.png in Resources */,
 				A4CB2BDE1AD9C2E8007D2584 /* artificialHigh2.aif in Resources */,
 				A481D1AF1AEFF92C008EAE05 /* Images.xcassets in Resources */,
 				A44492071A9E7CE4008CEB8E /* delete.png in Resources */,
@@ -984,6 +990,7 @@
 				A43135061AE98671001A4D4B /* tutorial_5.png in Resources */,
 				A4C7ECE71AE6EA3F00428B68 /* click2.aif in Resources */,
 				A4C7ECE81AE6EA3F00428B68 /* speakerCalm.png in Resources */,
+				A49D27581AF03B1900F89DC9 /* eraser.png in Resources */,
 				A4C7ECE91AE6EA3F00428B68 /* stickLow.aif in Resources */,
 				A4C7ECEA1AE6EA3F00428B68 /* spot.png in Resources */,
 				A4C7ECEB1AE6EA3F00428B68 /* seq2.png in Resources */,
@@ -1018,6 +1025,7 @@
 				A4FB77BF1AE6ED17003BC801 /* incloop.png in Resources */,
 				A4FB77C01AE6ED17003BC801 /* add.png in Resources */,
 				A4FB77C11AE6ED17003BC801 /* artificialHigh2.aif in Resources */,
+				A49D27591AF03B1900F89DC9 /* eraser.png in Resources */,
 				A4FB77C21AE6ED17003BC801 /* delete.png in Resources */,
 				A481D1B11AEFF96A008EAE05 /* Images.xcassets in Resources */,
 				A4FB77C31AE6ED17003BC801 /* back.png in Resources */,

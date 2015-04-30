@@ -12,6 +12,7 @@
 @interface AMAboutViewController ()
 
 @property (weak, nonatomic) IBOutlet UITextView *descriptionText;
+@property (weak, nonatomic) IBOutlet UIImageView *logoView;
 
 @end
 
@@ -19,12 +20,17 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self loadLogo];
     [self loadText];
     [self loadColors];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
+}
+
+- (void)loadLogo{
+    [_logoView setImage:[[UIImage imageNamed:@"logo.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
 }
 
 - (void)loadText{
@@ -34,7 +40,7 @@
 }
 
 - (void)loadColors{
-    [_descriptionText setTextColor:[[UIView appearance] tintColor]];
+    [_descriptionText setTextColor:[UIColor lightGrayColor]];
 }
 
 @end

@@ -186,18 +186,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lyd-pp-S7Q">
-                                <rect key="frame" x="536" y="566" width="44" height="29"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <state key="normal" title="START">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="startButtonPressed:" destination="vKD-mF-dDR" eventType="touchUpInside" id="NMm-VJ-fwU"/>
-                                </connections>
-                            </button>
                             <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="qv4-0T-1tY">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="37"/>
+                                <rect key="frame" x="281" y="0.0" width="39" height="37"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="pageIndicatorTintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="currentPageIndicatorTintColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -206,31 +196,39 @@
                                 </connections>
                             </pageControl>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ezz-bk-f5e">
-                                <rect key="frame" x="20" y="564" width="51" height="31"/>
+                                <rect key="frame" x="15" y="564" width="51" height="31"/>
                                 <color key="onTintColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <action selector="showTutorialSwitchStateChanged:" destination="vKD-mF-dDR" eventType="valueChanged" id="9Sa-gW-5bQ"/>
                                 </connections>
                             </switch>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Show tutorial." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lC5-jy-5XQ">
-                                <rect key="frame" x="79" y="585" width="52" height="10"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="8"/>
+                                <rect key="frame" x="69" y="583" width="65" height="12"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lyd-pp-S7Q">
+                                <rect key="frame" x="525" y="564" width="60" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="START">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="startButtonPressed:" destination="vKD-mF-dDR" eventType="touchUpInside" id="NMm-VJ-fwU"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="ehO-nR-hl7" firstAttribute="top" secondItem="Ezz-bk-f5e" secondAttribute="bottom" constant="5" id="HYV-U8-VWZ"/>
+                            <constraint firstItem="ehO-nR-hl7" firstAttribute="top" secondItem="lC5-jy-5XQ" secondAttribute="bottom" constant="5" id="1lO-1k-epD"/>
+                            <constraint firstItem="lC5-jy-5XQ" firstAttribute="leading" secondItem="Ezz-bk-f5e" secondAttribute="trailing" constant="5" id="Fvl-RJ-KTc"/>
+                            <constraint firstItem="ehO-nR-hl7" firstAttribute="top" secondItem="Lyd-pp-S7Q" secondAttribute="bottom" id="Hmt-8L-fke"/>
                             <constraint firstAttribute="centerX" secondItem="qv4-0T-1tY" secondAttribute="centerX" id="JYe-sP-Db8"/>
-                            <constraint firstItem="ehO-nR-hl7" firstAttribute="top" secondItem="lC5-jy-5XQ" secondAttribute="bottom" constant="5" id="L9c-md-fKK"/>
-                            <constraint firstItem="lC5-jy-5XQ" firstAttribute="leading" secondItem="Ezz-bk-f5e" secondAttribute="trailing" constant="10" id="RTH-Fp-zae"/>
-                            <constraint firstAttribute="trailing" secondItem="Lyd-pp-S7Q" secondAttribute="trailing" constant="20" id="SBX-sJ-YeE"/>
+                            <constraint firstItem="Ezz-bk-f5e" firstAttribute="leading" secondItem="YbQ-sD-IVT" secondAttribute="leading" constant="15" id="UmY-Ye-Ny7"/>
+                            <constraint firstAttribute="trailing" secondItem="Lyd-pp-S7Q" secondAttribute="trailing" constant="15" id="VWw-8Q-ANr"/>
                             <constraint firstItem="qv4-0T-1tY" firstAttribute="top" secondItem="YbQ-sD-IVT" secondAttribute="top" id="ZAf-c8-OZZ"/>
-                            <constraint firstAttribute="trailing" secondItem="qv4-0T-1tY" secondAttribute="trailing" id="qoo-N7-Tkp"/>
-                            <constraint firstItem="ehO-nR-hl7" firstAttribute="top" secondItem="Lyd-pp-S7Q" secondAttribute="bottom" constant="5" id="vTx-3c-1KQ"/>
-                            <constraint firstItem="qv4-0T-1tY" firstAttribute="leading" secondItem="YbQ-sD-IVT" secondAttribute="leading" id="xi5-TH-GT7"/>
-                            <constraint firstItem="Ezz-bk-f5e" firstAttribute="leading" secondItem="YbQ-sD-IVT" secondAttribute="leading" constant="20" id="yMC-0H-JJm"/>
+                            <constraint firstItem="ehO-nR-hl7" firstAttribute="top" secondItem="Ezz-bk-f5e" secondAttribute="bottom" constant="5" id="lBp-Pe-gPh"/>
                         </constraints>
                     </view>
                     <connections>
@@ -1476,10 +1474,10 @@
                                 </items>
                             </navigationBar>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="&lt;text to be replaced&gt;" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BvG-bL-2pO">
-                                <rect key="frame" x="180" y="240" width="240" height="120"/>
+                                <rect key="frame" x="180" y="230" width="240" height="140"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="120" id="70B-7u-MgU"/>
+                                    <constraint firstAttribute="height" constant="140" id="70B-7u-MgU"/>
                                     <constraint firstAttribute="width" constant="240" id="noH-DA-t4S"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>

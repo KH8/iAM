@@ -37,6 +37,6 @@
         </view>
     </objects>
     <resources>
-        <image name="tutorial_0.png" width="1920" height="1080"/>
+        <image name="tutorial_0.png" width="3840" height="2160"/>
     </resources>
 </document>

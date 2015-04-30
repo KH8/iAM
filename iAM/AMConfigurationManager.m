@@ -50,17 +50,42 @@
     bar.step = step;
     [step addStepBarsObject:bar];
     
-    CDNote *note = [NSEntityDescription insertNewObjectForEntityForName:@"CDNote"
-                                                 inManagedObjectContext:context];
-    note.noteCoordLine = @0;
-    note.noteCoordPos = @0;
-    note.bar = bar;
-    [bar addBarNotesObject:note];
+    [self initNoteInLine:0
+               aPosition:0
+                   inBar:bar
+               inContext:context];
+    
+    [self initNoteInLine:0
+               aPosition:4
+                   inBar:bar
+               inContext:context];
+    
+    [self initNoteInLine:0
+               aPosition:8
+                   inBar:bar
+               inContext:context];
+    
+    [self initNoteInLine:0
+               aPosition:12
+                   inBar:bar
+               inContext:context];
     
     NSError *error;
     if (![context save:&error]) {
         NSLog(@"Core data error occured: %@", [error localizedDescription]);
     }
+}
+
+- (void)initNoteInLine: (int)lineIndex
+             aPosition: (int)positionIndex
+                 inBar: (CDBar*)bar
+             inContext: (NSManagedObjectContext*)context {
+    CDNote *note = [NSEntityDescription insertNewObjectForEntityForName:@"CDNote"
+                                                 inManagedObjectContext:context];
+    note.noteCoordLine = [[NSNumber alloc] initWithInt:lineIndex];
+    note.noteCoordPos = [[NSNumber alloc] initWithInt:positionIndex];
+    note.bar = bar;
+    [bar addBarNotesObject:note];
 }
 
 - (void)initSelectionsCoreDataEntitiesInContext: (NSManagedObjectContext*)context {

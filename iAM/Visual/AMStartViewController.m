@@ -49,8 +49,7 @@
                     @"tutorial_1.png",
                     @"tutorial_2.png",
                     @"tutorial_3.png",
-                    @"tutorial_4.png",
-                    @"tutorial_5.png"];
+                    @"tutorial_4.png"];
 }
 
 - (void)initComponents{
@@ -150,7 +149,7 @@
     AMPageContentViewController *pageContentViewController = (AMPageContentViewController*)pvc.viewControllers[0];
     _pageControl.currentPage = pageContentViewController.pageIndex;
     
-    if(pageContentViewController.pageIndex != 5) {
+    if(pageContentViewController.pageIndex != 4) {
         [self hideComponents];
         return;
     }

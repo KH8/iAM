@@ -440,7 +440,7 @@
 		A4F24F891ABC914F00BF47C3 /* AMMutableArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMMutableArray.h; path = Core/Auxiliaries/AMMutableArray.h; sourceTree = "<group>"; };
 		A4F24F8A1ABC914F00BF47C3 /* AMMutableArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMMutableArray.m; path = Core/Auxiliaries/AMMutableArray.m; sourceTree = "<group>"; };
 		A4FB77771AE6EC9F003BC801 /* AMConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMConfig.m; path = tickGrid/AMConfig.m; sourceTree = "<group>"; };
-		A4FB77D61AE6ED17003BC801 /* tickGrid LTD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "tickGrid LTD.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A4FB77D61AE6ED17003BC801 /* tickGrid Lite.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "tickGrid Lite.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -602,7 +602,7 @@
 				A45F0D441A5C6515008673FC /* iAM.app */,
 				A45F0D5D1A5C6515008673FC /* iAMTests.xctest */,
 				A4C7ECF01AE6EA3F00428B68 /* tickGrid.app */,
-				A4FB77D61AE6ED17003BC801 /* tickGrid LTD.app */,
+				A4FB77D61AE6ED17003BC801 /* tickGrid Lite.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -837,7 +837,7 @@
 			);
 			name = "tickGrid Lite";
 			productName = iAM;
-			productReference = A4FB77D61AE6ED17003BC801 /* tickGrid LTD.app */;
+			productReference = A4FB77D61AE6ED17003BC801 /* tickGrid Lite.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -1425,7 +1425,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = "$(SRCROOT)/tickGrid Lite/tickGrid Lite.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "tickGrid LTD";
+				PRODUCT_NAME = "tickGrid Lite";
 				SWIFT_OBJC_BRIDGING_HEADER = "iAM/iAM-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -1439,7 +1439,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = "$(SRCROOT)/tickGrid Lite/tickGrid Lite.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "tickGrid LTD";
+				PRODUCT_NAME = "tickGrid Lite";
 				SWIFT_OBJC_BRIDGING_HEADER = "iAM/iAM-Bridging-Header.h";
 			};
 			name = Release;

@@ -151,7 +151,7 @@
 }
 
 - (void)onTick {
-    [self performSelector:@selector(playNotes)];
+    [self playNotes];
 }
 
 - (void)playNotes {

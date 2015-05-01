@@ -113,8 +113,8 @@
 - (void)startStop {
     _runningState = !_runningState;
     if(_runningState) {
-        _runTheLoop = YES;
         [_mainStave setFirstIndexAsActual];
+        _runTheLoop = YES;
         [self delegateSequencerHasStarted];
     }
     else {
@@ -151,7 +151,7 @@
 }
 
 - (void)onTick {
-    [self playNotes];
+    [self performSelector:@selector(playNotes)];
 }
 
 - (void)playNotes {
@@ -164,7 +164,7 @@
         [self playTheRow];
         [self incrementActualNoteIndex];
     }
-    else{
+    else {
         _actualNoteIndex = 0;
         _actualBarIndex = 0;
     }
@@ -226,10 +226,10 @@
     NSUInteger j = 0;
     for (NSMutableArray *line in aStave) {
         AMNote *note = line[aPosition];
-        [note changeTriggerMarker:NO];
         if(note.isPlaying){
             [_arrayOfPlayers[j] stopSound];
         }
+        [note changeTriggerMarker:NO];
         j++;
     }
 }

@@ -47,15 +47,15 @@
     while (true) {
         _tickDateMarker = [NSDate date];
         [_target performSelectorOnMainThread:_selector withObject:nil waitUntilDone:NO];
-        if(![_interval isEqualToNumber:_actualInterval]){
-            _actualInterval = [[NSNumber alloc] initWithFloat:_interval.floatValue];
-        }
         [NSThread sleepForTimeInterval:_actualInterval.floatValue - [_tickDateMarker timeIntervalSinceNow]];
     }
 }
 
 - (void)changeIntervalTime:(NSNumber*)intervalTime{
     _interval = intervalTime;
+    if(![_interval isEqualToNumber:_actualInterval]){
+        _actualInterval = [[NSNumber alloc] initWithFloat:_interval.floatValue];
+    }
 }
 
 @end

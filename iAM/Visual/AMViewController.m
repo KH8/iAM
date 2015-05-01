@@ -14,6 +14,7 @@
 #import "AMPopupViewController.h"
 #import "AMConfig.h"
 #import "AMMutableArrayResponder.h"
+#import "AMPlayer.h"
 
 @interface AMViewController () {
 }
@@ -40,8 +41,19 @@
     [self loadCollectionViewController];
     [self loadSidebarMenu];
     [self loadToolBar];
-    [self loadBackgroundAudioSession];
     [self loadIcons];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryMultiRoute error:nil];
+    [[AVAudioSession sharedInstance] setActive: YES error: nil];
+    [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
+    [self initAudioSession];
+}
+
+- (void)initAudioSession {
+    AMPlayer *testPlayer = [[AMPlayer alloc] initWithFile:@"click1" andKey:@"" ofType:@"aif"];
+    [testPlayer playSound];
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
@@ -49,6 +61,9 @@
         [_mainSequencer startStop];
         [_mainSequencer killBackgroundThread];
     }
+    [NSThread sleepForTimeInterval:0.2];
+    [[AVAudioSession sharedInstance] setActive: NO error: nil];
+    [[UIApplication sharedApplication] endReceivingRemoteControlEvents];
 }
 
 - (void)loadResponders{
@@ -104,10 +119,6 @@
                        color:[UIColor orangeColor]];
 }
 
-- (void)loadBackgroundAudioSession{
-    [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryMultiRoute error:nil];
-}
-
 - (void)loadIcons{
     UIBarButtonItem *originalLeftButton = self.navigationItem.leftBarButtonItem;
     UIButton *face = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -150,16 +161,8 @@
 }
 
 - (IBAction)onPlayButtonTouchedEvent:(id)sender {
-    [_mainSequencer startStop];
-    if(_mainSequencer.isRunning){
-        [[AVAudioSession sharedInstance] setActive: YES error: nil];
-        [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
-    }
-    else{
-        [[AVAudioSession sharedInstance] setActive: NO error: nil];
-        [[UIApplication sharedApplication] endReceivingRemoteControlEvents];
-    }
     [self saveConfiguration];
+    [_mainSequencer startStop];
 }
 
 - (void)saveConfiguration{
@@ -304,6 +307,5 @@
     _pageControl.numberOfPages = _mainStave.count;
     _pageControl.currentPage = _mainStave.getActualIndex;
 }
-
 
 @end

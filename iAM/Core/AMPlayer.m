@@ -29,13 +29,13 @@
         _fileName = aFileName;
         _fileKey = aFileKey;
         _fileType = aFileType;
-        _generalVolumeFactor = [[NSNumber alloc] initWithFloat:0.95];
-        _volumeFactor = [[NSNumber alloc] initWithFloat:0.95];
+        _generalVolumeFactor = [[NSNumber alloc] initWithFloat:0.0];
+        _volumeFactor = [[NSNumber alloc] initWithFloat:0.0];
     }
     return self;
 }
 
-- (void) initAudioPlayer {
+- (void)initAudioPlayer {
     NSBundle *mainBundle = [NSBundle mainBundle];
     NSString *filePath = [mainBundle pathForResource:_fileName ofType:_fileType];
     NSData *fileData = [NSData dataWithContentsOfFile:filePath];
@@ -52,7 +52,7 @@
 
 - (void) stopSound {
     [_audioPlayer stop];
-    _audioPlayer = nil;
+     _audioPlayer = nil;
 }
 
 - (void)setSoundName:(NSString*)newName

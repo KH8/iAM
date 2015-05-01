@@ -11,7 +11,7 @@
             <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tutorial_0.png" translatesAutoresizingMaskIntoConstraints="NO" id="zgD-z1-inM">
+                <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launch.png" translatesAutoresizingMaskIntoConstraints="NO" id="zgD-z1-inM">
                     <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
                     <accessibility key="accessibilityConfiguration">
                         <accessibilityTraits key="traits" none="YES"/>
@@ -37,6 +37,6 @@
         </view>
     </objects>
     <resources>
-        <image name="tutorial_0.png" width="3840" height="2160"/>
+        <image name="launch.png" width="1920" height="1080"/>
     </resources>
 </document>

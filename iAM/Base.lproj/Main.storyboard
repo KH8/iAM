@@ -1616,7 +1616,7 @@
         <image name="details.png" width="120" height="120"/>
         <image name="grid.png" width="120" height="120"/>
         <image name="list.png" width="120" height="120"/>
-        <image name="logo.png" width="1344" height="540"/>
+        <image name="logo.png" width="1344" height="648"/>
         <image name="settings.png" width="120" height="120"/>
     </resources>
     <inferredMetricsTieBreakers>

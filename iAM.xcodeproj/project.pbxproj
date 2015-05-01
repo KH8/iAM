@@ -724,13 +724,13 @@
 				A4A0CD831AD084E600618B1F /* CDStep.m */,
 				A49A5A7A1AD7264D000B0080 /* CDSelections.h */,
 				A49A5A7B1AD7264D000B0080 /* CDSelections.m */,
-				A4AA2B491AC5FD9B0076FDF6 /* AMDataMapper.h */,
-				A4AA2B4A1AC5FD9B0076FDF6 /* AMDataMapper.m */,
-				A4A4B2AE1AC0C4F00099A746 /* AMDataModel.xcdatamodeld */,
 				A452FC111AEEE5BA008DFACD /* CDConfiguration.h */,
 				A452FC121AEEE5BA008DFACD /* CDConfiguration.m */,
 				A452FC201AEEE6A2008DFACD /* CDAppearance.h */,
 				A452FC211AEEE6A2008DFACD /* CDAppearance.m */,
+				A4AA2B491AC5FD9B0076FDF6 /* AMDataMapper.h */,
+				A4AA2B4A1AC5FD9B0076FDF6 /* AMDataMapper.m */,
+				A4A4B2AE1AC0C4F00099A746 /* AMDataModel.xcdatamodeld */,
 			);
 			name = CoreData;
 			sourceTree = "<group>";

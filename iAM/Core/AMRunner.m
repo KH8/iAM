@@ -10,12 +10,13 @@
 
 @interface AMRunner ()
 
-@property NSTimer *mainTimer;
 @property SEL selector;
 @property id target;
 
 @property NSNumber *interval;
 @property NSNumber *actualInterval;
+
+@property NSThread *thread;
 
 @end
 
@@ -27,17 +28,9 @@
         _selector = selector;
         _target = target;
         [self initParameters];
-        
-        _mainTimer = [self createTimer];
-        [self initRunnerWithTimer:_mainTimer];
+        [self initRunner];
     }
     return self;
-}
-
-- (void)onTick{
-    if ([_target respondsToSelector:@selector(performSelector:)]) {
-        [_target performSelector:_selector];
-    }
 }
 
 - (void)initParameters{
@@ -45,25 +38,22 @@
     _actualInterval = [[NSNumber alloc] initWithFloat:_interval.floatValue];
 }
 
-- (NSTimer*)createTimer{
-    return [NSTimer scheduledTimerWithTimeInterval:_actualInterval.floatValue
-                                            target:self
-                                          selector:@selector(onTick)
-                                          userInfo:nil
-                                           repeats:YES];
+- (void)initRunner{
+    [NSThread detachNewThreadSelector:@selector(runBackground) toTarget:self withObject:nil];
 }
 
-- (void)initRunnerWithTimer:(NSTimer*)timer{
-    [[NSRunLoop currentRunLoop] addTimer:timer forMode:NSDefaultRunLoopMode];
+- (void)runBackground{
+    while (true) {
+        [_target performSelectorOnMainThread:_selector withObject:nil waitUntilDone:YES];
+        if(![_interval isEqualToNumber:_actualInterval]){
+            _actualInterval = [[NSNumber alloc] initWithFloat:_interval.floatValue];
+        }
+        [NSThread sleepForTimeInterval:_actualInterval.floatValue];
+    }
 }
 
 - (void)changeIntervalTime:(NSNumber*)intervalTime{
     _interval = intervalTime;
-    if(![_interval isEqualToNumber:_actualInterval]){
-        _actualInterval = [[NSNumber alloc] initWithFloat:_interval.floatValue];
-        [_mainTimer invalidate];
-        _mainTimer = [self createTimer];
-    }
 }
 
 @end

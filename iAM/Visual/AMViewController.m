@@ -42,10 +42,10 @@
     [self loadSidebarMenu];
     [self loadToolBar];
     [self loadIcons];
+    [self loadAudioSession];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
-    [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryMultiRoute error:nil];
     [[AVAudioSession sharedInstance] setActive: YES error: nil];
     [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
     [self initAudioSession];
@@ -152,6 +152,10 @@
     
     button = [[UIBarButtonItem alloc] initWithCustomView:face];
     [self replaceObjectInToolBarAtIndex:position withObject:button];
+}
+
+- (void)loadAudioSession{
+    [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryMultiRoute error:nil];
 }
 
 - (void)didReceiveMemoryWarning {

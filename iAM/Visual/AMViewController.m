@@ -154,12 +154,12 @@
     if(_mainSequencer.isRunning){
         [[AVAudioSession sharedInstance] setActive: YES error: nil];
         [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
-        [self saveConfiguration];
     }
     else{
         [[AVAudioSession sharedInstance] setActive: NO error: nil];
         [[UIApplication sharedApplication] endReceivingRemoteControlEvents];
     }
+    [self saveConfiguration];
 }
 
 - (void)saveConfiguration{

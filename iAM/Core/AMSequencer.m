@@ -161,9 +161,8 @@
             _runTheLoop = false;
             return;
         }
-        [self incrementActualNoteIndex];
         [self playTheRow];
-        _actualNoteIndex++;
+        [self incrementActualNoteIndex];
     }
     else{
         _actualNoteIndex = 0;
@@ -172,6 +171,7 @@
 }
 
 - (void)incrementActualNoteIndex {
+    _actualNoteIndex++;
     if(_actualNoteIndex >= _actualBar.getLengthToBePlayed) {
         [self incrementActualBarIndex];
         _actualNoteIndex = 0;

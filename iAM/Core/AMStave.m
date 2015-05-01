@@ -17,7 +17,7 @@
 
 @implementation AMStave
 
-NSUInteger const maxTempo = 300;
+NSUInteger const maxTempo = 280;
 NSUInteger const minTempo = 60;
 
 - (void)addStaveDelegate: (id<AMStaveDelegate>)delegate{

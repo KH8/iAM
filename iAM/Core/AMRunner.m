@@ -15,6 +15,7 @@
 
 @property NSNumber *interval;
 @property NSNumber *actualInterval;
+@property NSDate *tickDateMarker;
 
 @property NSThread *thread;
 
@@ -44,11 +45,12 @@
 
 - (void)runBackground{
     while (true) {
-        [_target performSelectorOnMainThread:_selector withObject:nil waitUntilDone:YES];
+        _tickDateMarker = [NSDate date];
+        [_target performSelectorOnMainThread:_selector withObject:nil waitUntilDone:NO];
         if(![_interval isEqualToNumber:_actualInterval]){
             _actualInterval = [[NSNumber alloc] initWithFloat:_interval.floatValue];
         }
-        [NSThread sleepForTimeInterval:_actualInterval.floatValue];
+        [NSThread sleepForTimeInterval:_actualInterval.floatValue - [_tickDateMarker timeIntervalSinceNow]];
     }
 }
 

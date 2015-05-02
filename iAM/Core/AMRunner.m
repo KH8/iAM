@@ -21,6 +21,9 @@
 
 @end
 
+float INIT_INTERVAL = 1.0F;
+float SHORTEST_INTERVAL = 0.01F;
+
 @implementation AMRunner
 
 - (id)initWithTickAction:(SEL)selector andTarget:(id)target{
@@ -35,7 +38,7 @@
 }
 
 - (void)initParameters{
-    _interval = [[NSNumber alloc] initWithFloat:1.0F];
+    _interval = [[NSNumber alloc] initWithFloat:INIT_INTERVAL];
     _actualInterval = [[NSNumber alloc] initWithFloat:_interval.floatValue];
 }
 
@@ -47,15 +50,18 @@
     while (true) {
         _tickDateMarker = [NSDate date];
         [_target performSelectorOnMainThread:_selector withObject:nil waitUntilDone:NO];
-        if(![_interval isEqualToNumber:_actualInterval]){
-            _actualInterval = [[NSNumber alloc] initWithFloat:_interval.floatValue];
-        }
         [NSThread sleepForTimeInterval:_actualInterval.floatValue - [_tickDateMarker timeIntervalSinceNow]];
     }
 }
 
 - (void)changeIntervalTime:(NSNumber*)intervalTime{
+    if(intervalTime.floatValue < SHORTEST_INTERVAL){
+        return;
+    }
     _interval = intervalTime;
+    if(![_interval isEqualToNumber:_actualInterval]){
+        _actualInterval = [[NSNumber alloc] initWithFloat:_interval.floatValue];
+    }
 }
 
 @end

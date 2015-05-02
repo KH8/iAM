@@ -10,12 +10,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "iAM/Core/AMRunner.m"
-            timestampString = "452205452.683062"
+            timestampString = "452248248.324761"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "53"
-            endingLineNumber = "53"
-            landmarkName = "-runBackground"
+            startingLineNumber = "59"
+            endingLineNumber = "59"
+            landmarkName = "-changeIntervalTime:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

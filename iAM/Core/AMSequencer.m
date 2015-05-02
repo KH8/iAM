@@ -226,9 +226,6 @@
     NSUInteger j = 0;
     for (NSMutableArray *line in aStave) {
         AMNote *note = line[aPosition];
-        if(note.isPlaying){
-            [_arrayOfPlayers[j] stopSound];
-        }
         [note changeTriggerMarker:NO];
         j++;
     }

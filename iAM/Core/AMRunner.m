@@ -23,6 +23,7 @@
 
 const float INIT_INTERVAL = 1.0F;
 const float SHORTEST_INTERVAL = 0.05F;
+const float INTERVAL_OFFSET = 0.003F;
 
 @implementation AMRunner
 
@@ -47,10 +48,13 @@ const float SHORTEST_INTERVAL = 0.05F;
 }
 
 - (void)runBackground{
+    _tickDateMarker = [NSDate date];
+    
     while (true) {
-        _tickDateMarker = [NSDate date];
         [_target performSelectorOnMainThread:_selector withObject:nil waitUntilDone:NO];
-        [NSThread sleepForTimeInterval:_actualInterval.floatValue - [_tickDateMarker timeIntervalSinceNow]];
+        [NSThread sleepForTimeInterval:_actualInterval.floatValue - [_tickDateMarker timeIntervalSinceNow] - INTERVAL_OFFSET];
+        NSLog(@"%f", [_tickDateMarker timeIntervalSinceNow]);
+        _tickDateMarker = [NSDate date];
     }
 }
 
@@ -61,6 +65,7 @@ const float SHORTEST_INTERVAL = 0.05F;
     else{
         _interval = intervalTime;
     }
+    
     if(![_interval isEqualToNumber:_actualInterval]){
         _actualInterval = [[NSNumber alloc] initWithFloat:_interval.floatValue];
     }

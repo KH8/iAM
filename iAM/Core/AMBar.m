@@ -32,7 +32,7 @@ NSUInteger const defaultNumberOfNotesPerLine = 128;
 NSUInteger const maxDensity = 1;
 NSUInteger const minDensity = 4;
 
-NSUInteger const maxSignature = 32;
+NSUInteger const maxSignature = 16;
 NSUInteger const minSignature = 1;
 
 - (void)addBarDelegate: (id<AMBarDelegate>)delegate{

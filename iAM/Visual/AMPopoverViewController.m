@@ -39,7 +39,7 @@
                                                                        andStartValue:@(bar.getSignatureNumerator)];
     _signatureNumeratorPickerController.delegate = self;
     
-    NSArray *sinatureDenominatorPickerData = @[@1, @2, @4, @8, @16, @32];
+    NSArray *sinatureDenominatorPickerData = @[@1, @2, @4, @8, @16];
     _signatureDenominatorPickerController = [[AMPickerController alloc] initWithPicker:_signatureDenominatorPicker
                                                                              dataArray:sinatureDenominatorPickerData
                                                                          andStartValue:@(bar.getSignatureDenominator)];

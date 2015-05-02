@@ -21,8 +21,8 @@
 
 @end
 
-float INIT_INTERVAL = 1.0F;
-float SHORTEST_INTERVAL = 0.01F;
+const float INIT_INTERVAL = 1.0F;
+const float SHORTEST_INTERVAL = 0.05F;
 
 @implementation AMRunner
 
@@ -56,9 +56,11 @@ float SHORTEST_INTERVAL = 0.01F;
 
 - (void)changeIntervalTime:(NSNumber*)intervalTime{
     if(intervalTime.floatValue < SHORTEST_INTERVAL){
-        return;
+        _interval = [[NSNumber alloc] initWithFloat:SHORTEST_INTERVAL];
     }
-    _interval = intervalTime;
+    else{
+        _interval = intervalTime;
+    }
     if(![_interval isEqualToNumber:_actualInterval]){
         _actualInterval = [[NSNumber alloc] initWithFloat:_interval.floatValue];
     }

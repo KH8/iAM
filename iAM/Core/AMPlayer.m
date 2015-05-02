@@ -43,6 +43,7 @@
     _audioPlayer = nil;
     _audioPlayer = [[AVAudioPlayer alloc] initWithData:fileData error:&error];
     [_audioPlayer setVolume:_generalVolumeFactor.floatValue * _volumeFactor.floatValue];
+    _audioPlayer.delegate = nil;
 }
 
 - (void) playSound {

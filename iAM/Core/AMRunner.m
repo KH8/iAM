@@ -53,7 +53,6 @@ const float INTERVAL_OFFSET = 0.003F;
     while (true) {
         [_target performSelectorOnMainThread:_selector withObject:nil waitUntilDone:NO];
         [NSThread sleepForTimeInterval:_actualInterval.floatValue - [_tickDateMarker timeIntervalSinceNow] - INTERVAL_OFFSET];
-        NSLog(@"%f", [_tickDateMarker timeIntervalSinceNow]);
         _tickDateMarker = [NSDate date];
     }
 }

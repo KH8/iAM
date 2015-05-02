@@ -16,6 +16,8 @@
 #import "AMMutableArrayResponder.h"
 #import "AMPlayer.h"
 
+@import MediaPlayer;
+
 @interface AMViewController () {
 }
 
@@ -29,6 +31,8 @@
 
 @property AMMutableArrayResponder *mainSequenceArrayResponder;
 @property AMMutableArrayResponder *mainStaveArrayResponder;
+
+@property MPNowPlayingInfoCenter* nowPlayingInfo;
 
 @end
 
@@ -46,8 +50,10 @@
 }
 
 - (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
     [[AVAudioSession sharedInstance] setActive: YES error: nil];
     [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
+    [self becomeFirstResponder];
     [self initAudioSession];
 }
 
@@ -64,6 +70,8 @@
     [NSThread sleepForTimeInterval:0.2];
     [[AVAudioSession sharedInstance] setActive: NO error: nil];
     [[UIApplication sharedApplication] endReceivingRemoteControlEvents];
+    [self resignFirstResponder];
+    [super viewDidDisappear:animated];
 }
 
 - (void)loadResponders{
@@ -156,6 +164,7 @@
 
 - (void)loadAudioSession{
     [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryMultiRoute error:nil];
+    [MPNowPlayingInfoCenter defaultCenter].nowPlayingInfo=[NSDictionary dictionaryWithObject:@1.0f forKey:MPNowPlayingInfoPropertyPlaybackRate];
 }
 
 - (void)didReceiveMemoryWarning {

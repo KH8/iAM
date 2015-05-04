@@ -522,7 +522,7 @@
                                 </cells>
                             </tableViewSection>
                             <tableViewSection headerTitle="Customize" id="G57-S6-EaP">
-                                <string key="footerTitle">Do not spend too much time playing with the customization. Play your instrument.
+                                <string key="footerTitle">Do not spend too much time on customizing the application. Simply focus on playing your instrument.
 </string>
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="n0J-s6-qzl">
@@ -1256,10 +1256,17 @@
                                     <constraint firstAttribute="centerY" secondItem="ibw-dR-ieT" secondAttribute="centerY" constant="1.5" id="zpG-5Q-HJX"/>
                                 </constraints>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swipe down to close the popup." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dhg-ZA-pK9">
+                                <rect key="frame" x="232" y="579" width="137" height="11"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="9"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="Sws-2I-aX3" firstAttribute="top" secondItem="tyE-74-eos" secondAttribute="top" id="2gQ-3z-BsI"/>
+                            <constraint firstAttribute="centerX" secondItem="Dhg-ZA-pK9" secondAttribute="centerX" id="7Bp-Of-6iB"/>
                             <constraint firstAttribute="trailing" secondItem="CRn-gj-ty1" secondAttribute="trailing" id="Q9Q-uc-uFr"/>
                             <constraint firstItem="mJB-qH-SCf" firstAttribute="top" secondItem="4Sn-Mq-EaF" secondAttribute="bottom" constant="75" id="VjM-rl-XWI"/>
                             <constraint firstAttribute="centerX" secondItem="4Sn-Mq-EaF" secondAttribute="centerX" id="WMy-jC-AbN"/>
@@ -1268,6 +1275,7 @@
                             <constraint firstItem="4Sn-Mq-EaF" firstAttribute="top" secondItem="CRn-gj-ty1" secondAttribute="bottom" constant="-15" id="okB-D8-Uy3"/>
                             <constraint firstAttribute="trailing" secondItem="Sws-2I-aX3" secondAttribute="trailing" id="qXQ-Ky-VHz"/>
                             <constraint firstItem="Sws-2I-aX3" firstAttribute="leading" secondItem="tyE-74-eos" secondAttribute="leading" id="uXV-2G-uBy"/>
+                            <constraint firstItem="mJB-qH-SCf" firstAttribute="top" secondItem="Dhg-ZA-pK9" secondAttribute="bottom" constant="10" id="weT-1D-ooo"/>
                             <constraint firstItem="CRn-gj-ty1" firstAttribute="top" secondItem="xTc-KQ-AEl" secondAttribute="bottom" constant="25" id="x5K-p0-bay"/>
                         </constraints>
                         <connections>
@@ -1676,10 +1684,10 @@
         <image name="settings.png" width="120" height="120"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="2P6-UK-2cK"/>
         <segue reference="zkT-HV-92U"/>
-        <segue reference="HdI-RE-NKN"/>
+        <segue reference="2P6-UK-2cK"/>
         <segue reference="lm7-pw-MVk"/>
+        <segue reference="A2U-uw-7qt"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
 </document>

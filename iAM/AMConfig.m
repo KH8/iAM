@@ -49,7 +49,7 @@ static bool isSoundChangeAllowed = YES;
 
 + (NSString*)barCountExceeded{
     return [NSString stringWithFormat:@"%@\n%@ [ %@ %@ ] %@ %d %@.\n%@",
-            @"Maximum number of bars exceeded.",
+            @"The limit of bar has been reached.",
             @"This version of application",
             appName,
             version,
@@ -61,7 +61,7 @@ static bool isSoundChangeAllowed = YES;
 
 + (NSString*)stepCountExceeded{
     return [NSString stringWithFormat:@"%@\n%@ [ %@ %@ ] %@ %d %@.\n%@",
-            @"Maximum number of steps exceeded.",
+            @"The limit of steps has been reached.",
             @"This version of application",
             appName,
             version,
@@ -73,7 +73,7 @@ static bool isSoundChangeAllowed = YES;
 
 + (NSString*)sequenceCountExceeded{
     return [NSString stringWithFormat:@"%@\n%@ [ %@ %@ ] %@ %d %@.\n%@",
-            @"Maximum number of sequences exceeded.",
+            @"The limit of sequences has been reached.",
             @"This version of application",
             appName,
             version,

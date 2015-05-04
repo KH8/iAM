@@ -134,7 +134,7 @@ titleForHeaderInSection:(NSInteger)section{
 
 - (NSString*)tableView:(UITableView *)tableView
 titleForFooterInSection:(NSInteger)section{
-    return @"Select one sound to be applied to the track.";
+    return @"Select one sound that will be applied to the track.";
 }
 
 

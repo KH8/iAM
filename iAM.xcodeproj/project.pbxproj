@@ -60,7 +60,6 @@
 		A477F93B1AE05E4400812C4A /* AMView.m in Sources */ = {isa = PBXBuildFile; fileRef = A477F93A1AE05E4400812C4A /* AMView.m */; };
 		A481D1A61AEFF6A5008EAE05 /* tutorial_0.png in Resources */ = {isa = PBXBuildFile; fileRef = A481D1A51AEFF6A5008EAE05 /* tutorial_0.png */; };
 		A481D1A91AEFF6B9008EAE05 /* AMConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = A481D1A71AEFF6B9008EAE05 /* AMConfig.m */; };
-		A481D1AA1AEFF6B9008EAE05 /* tickGrid Lite.plist in Resources */ = {isa = PBXBuildFile; fileRef = A481D1A81AEFF6B9008EAE05 /* tickGrid Lite.plist */; };
 		A481D1AE1AEFF92C008EAE05 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A4C47C191A8BB68E002CF325 /* Images.xcassets */; };
 		A481D1AF1AEFF92C008EAE05 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A4C47C191A8BB68E002CF325 /* Images.xcassets */; };
 		A481D1B11AEFF96A008EAE05 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A481D1B01AEFF96A008EAE05 /* Images.xcassets */; };
@@ -89,7 +88,6 @@
 		A4A686E31AF2B85D00FD2B7C /* tutorial_4.png in Resources */ = {isa = PBXBuildFile; fileRef = A4A686E11AF2B85D00FD2B7C /* tutorial_4.png */; };
 		A4A686E41AF2B85D00FD2B7C /* tutorial_4.png in Resources */ = {isa = PBXBuildFile; fileRef = A4A686E11AF2B85D00FD2B7C /* tutorial_4.png */; };
 		A4A686E51AF2C0F000FD2B7C /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = A4A686DA1AF2ACF200FD2B7C /* logo.png */; };
-		A4A686E61AF2C14500FD2B7C /* tickGrid.plist in Resources */ = {isa = PBXBuildFile; fileRef = A4CCA74D1AE6F03900AB4F7C /* tickGrid.plist */; };
 		A4A6C58E1AE971B000E488BC /* AMPageContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A6C58D1AE971B000E488BC /* AMPageContentViewController.m */; };
 		A4A6C5951AE9723700E488BC /* tutorial_1.png in Resources */ = {isa = PBXBuildFile; fileRef = A4A6C5901AE9723700E488BC /* tutorial_1.png */; };
 		A4A6C5961AE9723700E488BC /* tutorial_2.png in Resources */ = {isa = PBXBuildFile; fileRef = A4A6C5911AE9723700E488BC /* tutorial_2.png */; };
@@ -853,7 +851,7 @@
 		A45F0D3C1A5C6515008673FC /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0610;
+				LastUpgradeCheck = 0630;
 				ORGANIZATIONNAME = miscApps;
 				TargetAttributes = {
 					A45F0D431A5C6515008673FC = {
@@ -991,7 +989,6 @@
 				A4C7ECDD1AE6EA3F00428B68 /* back.png in Resources */,
 				A4C7ECDE1AE6EA3F00428B68 /* selectedLeft.png in Resources */,
 				A4C7ECDF1AE6EA3F00428B68 /* details.png in Resources */,
-				A4A686E61AF2C14500FD2B7C /* tickGrid.plist in Resources */,
 				A4C7ECE01AE6EA3F00428B68 /* natural3.aif in Resources */,
 				A4C7ECE11AE6EA3F00428B68 /* list.png in Resources */,
 				A4C7ECE21AE6EA3F00428B68 /* about.png in Resources */,
@@ -1047,7 +1044,6 @@
 				A4FB77C51AE6ED17003BC801 /* details.png in Resources */,
 				A4FB77C61AE6ED17003BC801 /* natural3.aif in Resources */,
 				A4FB77C71AE6ED17003BC801 /* list.png in Resources */,
-				A481D1AA1AEFF6B9008EAE05 /* tickGrid Lite.plist in Resources */,
 				A4FB77C81AE6ED17003BC801 /* about.png in Resources */,
 				A4FB77C91AE6ED17003BC801 /* grid.png in Resources */,
 				A4FB77CB1AE6ED17003BC801 /* settings.png in Resources */,

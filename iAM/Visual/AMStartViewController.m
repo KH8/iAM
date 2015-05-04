@@ -34,6 +34,7 @@
         [self skipScreen];
         return;
     }
+    [super viewDidAppear:animated];
     [_showTutorialSwitch setOn:YES];
     [self initData];
     [self initComponents];

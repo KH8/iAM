@@ -17,6 +17,7 @@
 + (int)maxStepCount;
 + (int)maxSequenceCount;
 + (bool)isSoundChangeAllowed;
++ (bool)shouldAdBeDisplayed;
 
 + (NSString*)barCountExceeded;
 + (NSString*)stepCountExceeded;

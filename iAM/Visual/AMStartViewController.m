@@ -9,6 +9,7 @@
 #import "AMStartViewController.h"
 #import "AMPageContentViewController.h"
 #import "AppDelegate.h"
+#import "AMConfig.h"
 
 @interface AMStartViewController ()
 
@@ -18,6 +19,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *showTutorialLabel;
 
 @property BOOL viewShouldBeSkipped;
+@property BOOL adShouldBeSkipped;
 
 @end
 
@@ -43,6 +45,7 @@
 - (void)initGlobalSettings{
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     _viewShouldBeSkipped = !appDelegate.appearanceManager.getShowTutorial;
+    _adShouldBeSkipped = [AMConfig shouldAdBeDisplayed];
 }
 
 - (void)initData{
@@ -72,6 +75,12 @@
     [self.view addSubview:_pageViewController.view];
     [self.pageViewController didMoveToParentViewController:self];
     
+    UIColor *tutorialTintColor = [UIColor orangeColor];
+    [_pageControl setTintColor:tutorialTintColor];
+    [_pageControl setCurrentPageIndicatorTintColor:tutorialTintColor];
+    [_showTutorialSwitch setTintColor:tutorialTintColor];
+    [_startButton setTintColor:tutorialTintColor];
+    
     [self.view bringSubviewToFront:_pageControl];
     [self.view bringSubviewToFront:_showTutorialSwitch];
     [self.view bringSubviewToFront:_showTutorialLabel];
@@ -79,7 +88,11 @@
 }
 
 - (void)skipScreen {
-    [self performSegueWithIdentifier: @"sw_skip" sender: self];
+    if(_adShouldBeSkipped){
+        [self performSegueWithIdentifier: @"sw_skip" sender: self];
+        return;
+    }
+    [self performSegueWithIdentifier: @"sw_ad" sender: self];
 }
 
 - (void)didReceiveMemoryWarning {

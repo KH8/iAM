@@ -106,6 +106,9 @@
 		A4AF6C921AF7EADC00B709A5 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4AF6C911AF7EADC00B709A5 /* iAd.framework */; };
 		A4AF6C931AF7EAED00B709A5 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4AF6C911AF7EADC00B709A5 /* iAd.framework */; };
 		A4AF6C941AF7EAF300B709A5 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4AF6C911AF7EADC00B709A5 /* iAd.framework */; };
+		A4B045261AF7F7A000A72BB6 /* ad.png in Resources */ = {isa = PBXBuildFile; fileRef = A4B045251AF7F7A000A72BB6 /* ad.png */; };
+		A4B045271AF7F7A300A72BB6 /* ad.png in Resources */ = {isa = PBXBuildFile; fileRef = A4B045251AF7F7A000A72BB6 /* ad.png */; };
+		A4B045281AF7F7A300A72BB6 /* ad.png in Resources */ = {isa = PBXBuildFile; fileRef = A4B045251AF7F7A000A72BB6 /* ad.png */; };
 		A4B4CDB61ABEEBB400615051 /* AMSequenceMenuTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A4B4CDB51ABEEBB400615051 /* AMSequenceMenuTableViewCell.m */; };
 		A4C59DB01ADED12200DDA9A0 /* AMConfigurationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A4C59DAF1ADED12200DDA9A0 /* AMConfigurationManager.m */; };
 		A4C59DB31ADED17600DDA9A0 /* AMAppearanceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A4C59DB21ADED17600DDA9A0 /* AMAppearanceManager.m */; };
@@ -413,6 +416,7 @@
 		A4AA2B491AC5FD9B0076FDF6 /* AMDataMapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMDataMapper.h; path = CoreData/AMDataMapper.h; sourceTree = "<group>"; };
 		A4AA2B4A1AC5FD9B0076FDF6 /* AMDataMapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMDataMapper.m; path = CoreData/AMDataMapper.m; sourceTree = "<group>"; };
 		A4AF6C911AF7EADC00B709A5 /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
+		A4B045251AF7F7A000A72BB6 /* ad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ad.png; path = Images/ad.png; sourceTree = "<group>"; };
 		A4B4CDB41ABEEBB400615051 /* AMSequenceMenuTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMSequenceMenuTableViewCell.h; sourceTree = "<group>"; };
 		A4B4CDB51ABEEBB400615051 /* AMSequenceMenuTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMSequenceMenuTableViewCell.m; sourceTree = "<group>"; };
 		A4C47C191A8BB68E002CF325 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -757,6 +761,7 @@
 		A4A6C58F1AE9722600E488BC /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				A4B045251AF7F7A000A72BB6 /* ad.png */,
 				A403E4421AF3C077000F4DCC /* launch.png */,
 				A4A686D71AF2ACDE00FD2B7C /* logo.png */,
 				A452FC031AEEDE7C008DFACD /* tutorial_0.png */,
@@ -926,6 +931,7 @@
 				A452FC041AEEDE7C008DFACD /* tutorial_0.png in Resources */,
 				A45F0D581A5C6515008673FC /* LaunchScreen.xib in Resources */,
 				A4CB2BE41AD9C2E8007D2584 /* clockTick2.aif in Resources */,
+				A4B045261AF7F7A000A72BB6 /* ad.png in Resources */,
 				A4A686D81AF2ACDE00FD2B7C /* logo.png in Resources */,
 				A4DDA2B81AA8FB57006B9F33 /* selected.png in Resources */,
 				A4CB2BE61AD9C2E8007D2584 /* natural2.aif in Resources */,
@@ -984,6 +990,7 @@
 				A4C7ECCF1AE6EA3F00428B68 /* menu.png in Resources */,
 				A4C7ECD01AE6EA3F00428B68 /* LaunchScreen.xib in Resources */,
 				A481D1AE1AEFF92C008EAE05 /* Images.xcassets in Resources */,
+				A4B045271AF7F7A300A72BB6 /* ad.png in Resources */,
 				A4C7ECD11AE6EA3F00428B68 /* clockTick2.aif in Resources */,
 				A4C7ECD21AE6EA3F00428B68 /* selected.png in Resources */,
 				A4C7ECD31AE6EA3F00428B68 /* natural2.aif in Resources */,
@@ -1035,6 +1042,7 @@
 				A4FB77B51AE6ED17003BC801 /* menu.png in Resources */,
 				A4FB77B61AE6ED17003BC801 /* LaunchScreen.xib in Resources */,
 				A4FB77B71AE6ED17003BC801 /* clockTick2.aif in Resources */,
+				A4B045281AF7F7A300A72BB6 /* ad.png in Resources */,
 				A4FB77B81AE6ED17003BC801 /* selected.png in Resources */,
 				A4FB77B91AE6ED17003BC801 /* natural2.aif in Resources */,
 				A4FB77BA1AE6ED17003BC801 /* stickHigh.aif in Resources */,

@@ -43,6 +43,10 @@ static bool isSoundChangeAllowed = YES;
     return isSoundChangeAllowed;
 }
 
++ (bool)shouldAdBeDisplayed{
+    return YES;
+}
+
 + (NSString*)barCountExceeded{
     return [NSString stringWithFormat:@"%@\n%@ [ %@ %@ ] %@ %d %@.\n%@",
             @"Maximum number of bars exceeded.",

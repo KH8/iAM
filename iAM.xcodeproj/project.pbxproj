@@ -15,6 +15,9 @@
 		A403E4431AF3C077000F4DCC /* launch.png in Resources */ = {isa = PBXBuildFile; fileRef = A403E4421AF3C077000F4DCC /* launch.png */; };
 		A403E4441AF3C077000F4DCC /* launch.png in Resources */ = {isa = PBXBuildFile; fileRef = A403E4421AF3C077000F4DCC /* launch.png */; };
 		A403E4461AF3C095000F4DCC /* launch.png in Resources */ = {isa = PBXBuildFile; fileRef = A403E4451AF3C095000F4DCC /* launch.png */; };
+		A41483701AF7EBC4006307D4 /* AMAdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A414836F1AF7EBC4006307D4 /* AMAdViewController.m */; };
+		A41483711AF7EBC4006307D4 /* AMAdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A414836F1AF7EBC4006307D4 /* AMAdViewController.m */; };
+		A41483721AF7EBC4006307D4 /* AMAdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A414836F1AF7EBC4006307D4 /* AMAdViewController.m */; };
 		A41641911A65DC5C00E3E228 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A41641901A65DC5C00E3E228 /* AVFoundation.framework */; };
 		A41C08EB1A927435006F0F06 /* AMSequenceTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = A41C08EA1A927435006F0F06 /* AMSequenceTableController.m */; };
 		A41C08EE1A9279F7006F0F06 /* AMSequenceTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A41C08ED1A9279F7006F0F06 /* AMSequenceTableViewCell.m */; };
@@ -100,6 +103,9 @@
 		A4A705EF1AA50E3400A911C6 /* decloop.png in Resources */ = {isa = PBXBuildFile; fileRef = A4A705ED1AA50E3400A911C6 /* decloop.png */; };
 		A4A705F01AA50E3400A911C6 /* incloop.png in Resources */ = {isa = PBXBuildFile; fileRef = A4A705EE1AA50E3400A911C6 /* incloop.png */; };
 		A4AA2B4B1AC5FD9B0076FDF6 /* AMDataMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = A4AA2B4A1AC5FD9B0076FDF6 /* AMDataMapper.m */; };
+		A4AF6C921AF7EADC00B709A5 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4AF6C911AF7EADC00B709A5 /* iAd.framework */; };
+		A4AF6C931AF7EAED00B709A5 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4AF6C911AF7EADC00B709A5 /* iAd.framework */; };
+		A4AF6C941AF7EAF300B709A5 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4AF6C911AF7EADC00B709A5 /* iAd.framework */; };
 		A4B4CDB61ABEEBB400615051 /* AMSequenceMenuTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A4B4CDB51ABEEBB400615051 /* AMSequenceMenuTableViewCell.m */; };
 		A4C59DB01ADED12200DDA9A0 /* AMConfigurationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A4C59DAF1ADED12200DDA9A0 /* AMConfigurationManager.m */; };
 		A4C59DB31ADED17600DDA9A0 /* AMAppearanceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A4C59DB21ADED17600DDA9A0 /* AMAppearanceManager.m */; };
@@ -306,6 +312,8 @@
 		8F0F37B35BC39D2D480297F5 /* AMPickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMPickerController.m; sourceTree = "<group>"; };
 		A403E4421AF3C077000F4DCC /* launch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = launch.png; path = Images/launch.png; sourceTree = "<group>"; };
 		A403E4451AF3C095000F4DCC /* launch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = launch.png; path = "tickGrid Lite/Visual/Images/launch.png"; sourceTree = "<group>"; };
+		A414836E1AF7EBC4006307D4 /* AMAdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMAdViewController.h; sourceTree = "<group>"; };
+		A414836F1AF7EBC4006307D4 /* AMAdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMAdViewController.m; sourceTree = "<group>"; };
 		A41641901A65DC5C00E3E228 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		A41C08E91A927435006F0F06 /* AMSequenceTableController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMSequenceTableController.h; sourceTree = "<group>"; };
 		A41C08EA1A927435006F0F06 /* AMSequenceTableController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMSequenceTableController.m; sourceTree = "<group>"; };
@@ -404,6 +412,7 @@
 		A4A705EE1AA50E3400A911C6 /* incloop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = incloop.png; path = Icons/incloop.png; sourceTree = "<group>"; };
 		A4AA2B491AC5FD9B0076FDF6 /* AMDataMapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMDataMapper.h; path = CoreData/AMDataMapper.h; sourceTree = "<group>"; };
 		A4AA2B4A1AC5FD9B0076FDF6 /* AMDataMapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMDataMapper.m; path = CoreData/AMDataMapper.m; sourceTree = "<group>"; };
+		A4AF6C911AF7EADC00B709A5 /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
 		A4B4CDB41ABEEBB400615051 /* AMSequenceMenuTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMSequenceMenuTableViewCell.h; sourceTree = "<group>"; };
 		A4B4CDB51ABEEBB400615051 /* AMSequenceMenuTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMSequenceMenuTableViewCell.m; sourceTree = "<group>"; };
 		A4C47C191A8BB68E002CF325 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -451,6 +460,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A4AF6C921AF7EADC00B709A5 /* iAd.framework in Frameworks */,
 				A41641911A65DC5C00E3E228 /* AVFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -466,6 +476,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A4AF6C931AF7EAED00B709A5 /* iAd.framework in Frameworks */,
 				A4C7ECC71AE6EA3F00428B68 /* AVFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -474,6 +485,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A4AF6C941AF7EAF300B709A5 /* iAd.framework in Frameworks */,
 				A4FB77AD1AE6ED17003BC801 /* AVFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -527,6 +539,8 @@
 				A4A6C58D1AE971B000E488BC /* AMPageContentViewController.m */,
 				A4A6C59E1AE9777600E488BC /* AMStartViewController.h */,
 				A4A6C59F1AE9777600E488BC /* AMStartViewController.m */,
+				A414836E1AF7EBC4006307D4 /* AMAdViewController.h */,
+				A414836F1AF7EBC4006307D4 /* AMAdViewController.m */,
 			);
 			path = Visual;
 			sourceTree = "<group>";
@@ -590,6 +604,7 @@
 		A45F0D3B1A5C6515008673FC = {
 			isa = PBXGroup;
 			children = (
+				A4AF6C911AF7EADC00B709A5 /* iAd.framework */,
 				A41641901A65DC5C00E3E228 /* AVFoundation.framework */,
 				A45F0D461A5C6515008673FC /* iAM */,
 				A4FB77751AE6EC4C003BC801 /* tickGrid */,
@@ -1082,6 +1097,7 @@
 				A445BAC81AE59BAC000CF7D7 /* AMConfig.m in Sources */,
 				A49A5A7C1AD7264D000B0080 /* CDSelections.m in Sources */,
 				A41C08F11A92803B006F0F06 /* AMSequenceMenuTableViewController.m in Sources */,
+				A41483701AF7EBC4006307D4 /* AMAdViewController.m in Sources */,
 				8F0B7BBFD13CA2A424283225 /* AMCollectionViewCell.m in Sources */,
 				A442FA2F1AE42A5400EB7791 /* AMRunner.m in Sources */,
 				A4A0CD861AD084E600618B1F /* CDSequence.m in Sources */,
@@ -1143,6 +1159,7 @@
 				A4C7ECAB1AE6EA3F00428B68 /* AMSequenceMenuTableViewController.m in Sources */,
 				A4C7ECAC1AE6EA3F00428B68 /* AMCollectionViewCell.m in Sources */,
 				A4FB777B1AE6ECAA003BC801 /* AMConfig.m in Sources */,
+				A41483711AF7EBC4006307D4 /* AMAdViewController.m in Sources */,
 				A4C7ECAD1AE6EA3F00428B68 /* AMRunner.m in Sources */,
 				A4A6C5A11AE978AB00E488BC /* AMStartViewController.m in Sources */,
 				A4C7ECAE1AE6EA3F00428B68 /* CDSequence.m in Sources */,
@@ -1196,6 +1213,7 @@
 				A4FB778F1AE6ED17003BC801 /* CDSelections.m in Sources */,
 				A4FB77901AE6ED17003BC801 /* AMSequenceMenuTableViewController.m in Sources */,
 				A4FB77911AE6ED17003BC801 /* AMCollectionViewCell.m in Sources */,
+				A41483721AF7EBC4006307D4 /* AMAdViewController.m in Sources */,
 				A4FB77931AE6ED17003BC801 /* AMRunner.m in Sources */,
 				A4A6C5A21AE978AB00E488BC /* AMStartViewController.m in Sources */,
 				A4FB77941AE6ED17003BC801 /* CDSequence.m in Sources */,

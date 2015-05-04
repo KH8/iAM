@@ -212,6 +212,7 @@
                                 <rect key="frame" x="525" y="564" width="60" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="START">
+                                    <color key="titleColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -237,9 +238,49 @@
                         <outlet property="showTutorialSwitch" destination="Ezz-bk-f5e" id="GW6-wk-J3i"/>
                         <outlet property="startButton" destination="Lyd-pp-S7Q" id="emE-ZW-1e4"/>
                         <segue destination="23J-3V-BDE" kind="presentation" identifier="sw_skip" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="TIP-R1-KcY"/>
+                        <segue destination="Zaw-IE-bZ1" kind="presentation" identifier="sw_ad" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="Qv4-zQ-4zu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iWb-Ol-ZqU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2339" y="-1005"/>
+        </scene>
+        <!--Ad View Controller-->
+        <scene sceneID="zgj-hm-0TD">
+            <objects>
+                <viewController id="Zaw-IE-bZ1" customClass="AMAdViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="qfv-G6-VPZ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wGc-da-pwe"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="IIG-vS-3KV">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <adBannerView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" adType="mediumRect" translatesAutoresizingMaskIntoConstraints="NO" id="LBb-el-CE6">
+                                <rect key="frame" x="150" y="175" width="300" height="250"/>
+                            </adBannerView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dei-9W-NjH">
+                                <rect key="frame" x="278" y="564" width="44" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="SKIP">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="wGc-da-pwe" firstAttribute="top" secondItem="dei-9W-NjH" secondAttribute="bottom" id="8G7-0H-igh"/>
+                            <constraint firstAttribute="centerX" secondItem="LBb-el-CE6" secondAttribute="centerX" id="A0X-Xa-Zff"/>
+                            <constraint firstAttribute="centerX" secondItem="dei-9W-NjH" secondAttribute="centerX" id="Axw-Wc-7Vq"/>
+                            <constraint firstAttribute="centerY" secondItem="LBb-el-CE6" secondAttribute="centerY" id="TCz-Md-8lW"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <segue destination="23J-3V-BDE" kind="presentation" identifier="sw_skip" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="2P6-UK-2cK"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vbd-Hr-kHm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1612" y="-1005"/>
         </scene>
@@ -1621,8 +1662,9 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="zkT-HV-92U"/>
-        <segue reference="HdI-RE-NKN"/>
+        <segue reference="2P6-UK-2cK"/>
         <segue reference="lm7-pw-MVk"/>
+        <segue reference="HdI-RE-NKN"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
 </document>

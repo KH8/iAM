@@ -14,22 +14,22 @@
 
 @required
 
-- (void) pickedValuesHaveBeenChanged;
+- (void)pickedValuesHaveBeenChanged;
 
 @end
 
 @interface AMPopoverViewController : UIViewController <AMPickerControllerDelegate, AMStaveDelegate>
 
-@property (nonatomic, weak) id <AMPopoverViewControllerDelegate> delegate;
+@property(nonatomic, weak) id <AMPopoverViewControllerDelegate> delegate;
 
 @property AMPickerController *signatureNumeratorPickerController;
 @property AMPickerController *signatureDenominatorPickerController;
 @property AMPickerController *densityPickerController;
 @property AMPickerController *tempoPickerController;
-@property (weak, nonatomic) IBOutlet UIPickerView *signatureNumeratorPicker;
-@property (weak, nonatomic) IBOutlet UIPickerView *signatureDenominatorPicker;
-@property (weak, nonatomic) IBOutlet UIPickerView *densityPicker;
-@property (weak, nonatomic) IBOutlet UIPickerView *tempoPicker;
+@property(weak, nonatomic) IBOutlet UIPickerView *signatureNumeratorPicker;
+@property(weak, nonatomic) IBOutlet UIPickerView *signatureDenominatorPicker;
+@property(weak, nonatomic) IBOutlet UIPickerView *densityPicker;
+@property(weak, nonatomic) IBOutlet UIPickerView *tempoPicker;
 @property AMSequencer *actuallySelectedSequencer;
 
 @end

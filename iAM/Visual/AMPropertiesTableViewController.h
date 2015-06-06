@@ -11,7 +11,7 @@
 
 @interface AMPropertiesTableViewController : UITableViewController <AMConfirmationViewControllerProtocol>
 
-@property (weak, nonatomic) IBOutlet UINavigationItem *navigationBarItem;
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *sideMenuButton;
+@property(weak, nonatomic) IBOutlet UINavigationItem *navigationBarItem;
+@property(weak, nonatomic) IBOutlet UIBarButtonItem *sideMenuButton;
 
 @end

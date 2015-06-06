@@ -13,6 +13,6 @@
 
 @interface AMSequenceTableController : UIViewController <UITableViewDataSource, UITableViewDelegate, AMSequencerDelegate, AMSequenceStepDelegate, AMStaveDelegate>
 
-@property (weak, nonatomic) IBOutlet UIToolbar *bottomToolBar;
+@property(weak, nonatomic) IBOutlet UIToolbar *bottomToolBar;
 
 @end

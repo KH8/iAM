@@ -12,12 +12,14 @@
 
 @interface AMSoundTableViewCell : UITableViewCell
 
-@property (weak, nonatomic) IBOutlet UILabel *soundTitle;
+@property(weak, nonatomic) IBOutlet UILabel *soundTitle;
 
-- (void)assignPlayer:(AMPlayer*)player;
+- (void)assignPlayer:(AMPlayer *)player;
 
-- (void)assignSoundKey: (NSString*)key;
-- (void)assignSoundValue: (NSString*)value;
-- (NSString*)getValue;
+- (void)assignSoundKey:(NSString *)key;
+
+- (void)assignSoundValue:(NSString *)value;
+
+- (NSString *)getValue;
 
 @end

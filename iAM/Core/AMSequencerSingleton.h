@@ -12,8 +12,8 @@
     AMMutableArray *arrayOfSequences;
 }
 
-@property (nonatomic, retain) AMSequencer *sequencer;
-@property (nonatomic, retain) AMMutableArray *arrayOfSequences;
+@property(nonatomic, retain) AMSequencer *sequencer;
+@property(nonatomic, retain) AMMutableArray *arrayOfSequences;
 
 + (id)sharedSequencer;
 

@@ -11,7 +11,7 @@
 
 @interface AMConfirmationViewController ()
 
-@property (weak, nonatomic) IBOutlet UITextView *textView;
+@property(weak, nonatomic) IBOutlet UITextView *textView;
 
 @end
 
@@ -22,7 +22,7 @@
     [self loadColors];
 }
 
-- (void)loadColors{
+- (void)loadColors {
     [_textView setTextColor:[UIColor lightGrayColor]];
 }
 
@@ -40,15 +40,15 @@
     [self closeView];
 }
 
-- (void)reset{
-    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+- (void)reset {
+    AppDelegate *appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
     [[appDelegate configurationManager] clearContext];
     [[appDelegate appearanceManager] clearContext];
     [[appDelegate configurationManager] loadContext];
     [[appDelegate appearanceManager] loadContext];
 }
 
-- (void)closeView{
+- (void)closeView {
     [self dismissViewControllerAnimated:YES
                              completion:nil];
 }

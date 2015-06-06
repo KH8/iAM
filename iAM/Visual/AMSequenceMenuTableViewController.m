@@ -14,7 +14,7 @@
 
 @interface AMSequenceMenuTableViewController ()
 
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property(weak, nonatomic) IBOutlet UITableView *tableView;
 @property AMMutableArray *arrayOfSequences;
 @property AMSequencer *sequencer;
 
@@ -22,7 +22,7 @@
 
 @implementation AMSequenceMenuTableViewController
 
-static NSString * const reuseIdentifier = @"myMenuStepCell";
+static NSString *const reuseIdentifier = @"myMenuStepCell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -56,7 +56,7 @@ static NSString * const reuseIdentifier = @"myMenuStepCell";
     AMSequenceMenuTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier
                                                                         forIndexPath:indexPath];
     [cell assignSequence:sequence];
-    if(indexPath.row == 0){
+    if (indexPath.row == 0) {
         cell.textLabel.textColor = [[UIView appearance] tintColor];
     }
     return cell;
@@ -67,7 +67,7 @@ titleForHeaderInSection:(NSInteger)section {
     return @"";
 }
 
-- (void)tableView:(UITableView *)tableView
+- (void)      tableView:(UITableView *)tableView
 didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [_arrayOfSequences setIndexAsActual:indexPath.row];
     [self updateComponents];
@@ -94,11 +94,11 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 }
 
 - (void)maxCountExceeded {
-    [self performSegueWithIdentifier: @"sw_sequence_popup" sender: self];
+    [self performSegueWithIdentifier:@"sw_sequence_popup" sender:self];
 }
 
-- (void)updateComponents{
-    AMSequence *sequenceSelected = (AMSequence*)_arrayOfSequences.getActualObject;
+- (void)updateComponents {
+    AMSequence *sequenceSelected = (AMSequence *) _arrayOfSequences.getActualObject;
     [_sequencer setSequence:sequenceSelected];
 }
 
@@ -109,9 +109,9 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
                           scrollPosition:UITableViewScrollPositionNone];
 }
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
-    if([segue.identifier isEqualToString:@"sw_sequence_popup"]){
-        AMPopupViewController *popupViewController = (AMPopupViewController *)segue.destinationViewController;
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"sw_sequence_popup"]) {
+        AMPopupViewController *popupViewController = (AMPopupViewController *) segue.destinationViewController;
         [popupViewController setText:[AMConfig sequenceCountExceeded]];
     }
 }

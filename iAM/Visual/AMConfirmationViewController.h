@@ -18,6 +18,6 @@
 
 @interface AMConfirmationViewController : UIViewController
 
-@property (nonatomic, weak) id <AMConfirmationViewControllerProtocol> delegate;
+@property(nonatomic, weak) id <AMConfirmationViewControllerProtocol> delegate;
 
 @end

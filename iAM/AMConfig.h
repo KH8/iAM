@@ -10,19 +10,28 @@
 
 @interface AMConfig : NSObject
 
-+ (NSString*)appName;
-+ (NSString*)version;
++ (NSString *)appName;
+
++ (NSString *)version;
 
 + (int)maxBarCount;
+
 + (int)maxStepCount;
+
 + (int)maxSequenceCount;
+
 + (bool)isSoundChangeAllowed;
+
 + (bool)shouldAdBeDisplayed;
 
-+ (NSString*)barCountExceeded;
-+ (NSString*)stepCountExceeded;
-+ (NSString*)sequenceCountExceeded;
-+ (NSString*)soundChangeNotAllowed;
-+ (NSString*)appDescription;
++ (NSString *)barCountExceeded;
+
++ (NSString *)stepCountExceeded;
+
++ (NSString *)sequenceCountExceeded;
+
++ (NSString *)soundChangeNotAllowed;
+
++ (NSString *)appDescription;
 
 @end

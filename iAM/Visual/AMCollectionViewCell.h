@@ -11,8 +11,10 @@
 
 @interface AMCollectionViewCell : UICollectionViewCell <AMNoteDelegate>
 
-- (void)setNoteAssigned: (AMNote*)aNote;
+- (void)setNoteAssigned:(AMNote *)aNote;
+
 - (void)reloadCell;
+
 - (void)touch;
 
 @end

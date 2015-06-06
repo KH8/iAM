@@ -20,8 +20,8 @@
 
 - (id)initWithArrayHasChangedAction:(SEL)arrayHasChangedSelector
        andSelectionHasChangedAction:(SEL)selectionHasChangedSelector
-        andMaxCountExceededAction:(SEL)maxCountExceededSelector
-                          andTarget:(id)target{
+          andMaxCountExceededAction:(SEL)maxCountExceededSelector
+                          andTarget:(id)target {
     self = [super init];
     if (self) {
         _arrayHasChangedSelector = arrayHasChangedSelector;

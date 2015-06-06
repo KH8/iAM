@@ -17,9 +17,9 @@
     NSNumber *actualValue;
 }
 
-- (id)initWithPicker: (UIPickerView *)aPicker
-           dataArray: (NSArray *)anArray
-       andStartValue: (NSNumber*)newValue {
+- (id)initWithPicker:(UIPickerView *)aPicker
+           dataArray:(NSArray *)anArray
+       andStartValue:(NSNumber *)newValue {
     self = [super init];
     if (self) {
         _picker = aPicker;
@@ -31,14 +31,14 @@
     return self;
 }
 
-- (void)setDataArray: (NSArray*)anArray {
+- (void)setDataArray:(NSArray *)anArray {
     pickerData = anArray;
 }
 
-- (void)setActualValue: (NSNumber*)newValue {
+- (void)setActualValue:(NSNumber *)newValue {
     for (NSNumber *data in pickerData) {
-        if([data isEqualToNumber:newValue]) {
-            NSInteger anIndex=[pickerData indexOfObject:data];
+        if ([data isEqualToNumber:newValue]) {
+            NSInteger anIndex = [pickerData indexOfObject:data];
             actualValue = pickerData[(NSUInteger) anIndex];
             [_picker selectRow:anIndex inComponent:0 animated:NO];
         }
@@ -59,7 +59,7 @@ numberOfRowsInComponent:(NSInteger)component {
           forComponent:(NSInteger)component
            reusingView:(UIView *)view {
     UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 0, 0)];
-    label.text = [NSString stringWithFormat:@"%ld", (long)[pickerData[(NSUInteger) row] integerValue]];
+    label.text = [NSString stringWithFormat:@"%ld", (long) [pickerData[(NSUInteger) row] integerValue]];
     label.font = [UIFont systemFontOfSize:24];
     label.textAlignment = NSTextAlignmentCenter;
     label.textColor = [[UIView appearance] tintColor];

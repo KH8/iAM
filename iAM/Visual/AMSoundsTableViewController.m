@@ -41,9 +41,9 @@
     [self.view setBackgroundColor:backgrounColor];
 }
 
-- (void)initDictionaryOfSounds{
+- (void)initDictionaryOfSounds {
     _arrayOfSounds = [[AMMutableArray alloc] initWithMaxCount:26];
-    
+
     [_arrayOfSounds addObjectAtTheEnd:@"artificialHigh1"];
     [_arrayOfSounds addObjectAtTheEnd:@"ARTIFICIAL HIGH 1"];
     [_arrayOfSounds addObjectAtTheEnd:@"artificialHigh2"];
@@ -72,7 +72,7 @@
     [_arrayOfSounds addObjectAtTheEnd:@"STICK LOW"];
 }
 
-- (void)initIndexSelection{
+- (void)initIndexSelection {
     dispatch_async(dispatch_get_main_queue(), ^{
         [self.tableView selectRowAtIndexPath:_indexSelected
                                     animated:NO
@@ -80,7 +80,7 @@
     });
 }
 
-- (void)assignPlayer:(AMPlayer*)player{
+- (void)assignPlayer:(AMPlayer *)player {
     _amPlayer = player;
 }
 
@@ -102,38 +102,38 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView
          cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     AMSoundTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"soundCell"
-                                                            forIndexPath:indexPath];
-    NSString *key = _arrayOfSounds[2*indexPath.row+1];
-    NSString *value = _arrayOfSounds[2*indexPath.row];
-    
+                                                                 forIndexPath:indexPath];
+    NSString *key = _arrayOfSounds[2 * indexPath.row + 1];
+    NSString *value = _arrayOfSounds[2 * indexPath.row];
+
     [cell assignSoundKey:key];
     [cell assignSoundValue:value];
     [cell assignPlayer:_amPlayer];
-    
-    if([[_amPlayer getSoundKey] isEqualToString:key]){
+
+    if ([[_amPlayer getSoundKey] isEqualToString:key]) {
         _indexSelected = indexPath;
     }
-    
+
     return cell;
 }
 
-- (void)tableView:(UITableView *)tableView
+- (void)      tableView:(UITableView *)tableView
 didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [_arrayOfSounds setIndexAsActual:indexPath.row];
 }
 
-- (void)tableView:(UITableView *)tableView
-didDeselectRowAtIndexPath:(NSIndexPath *)indexPath{
-    
+- (void)        tableView:(UITableView *)tableView
+didDeselectRowAtIndexPath:(NSIndexPath *)indexPath {
+
 }
 
-- (NSString*)tableView:(UITableView *)tableView
-titleForHeaderInSection:(NSInteger)section{
+- (NSString *)tableView:(UITableView *)tableView
+titleForHeaderInSection:(NSInteger)section {
     return @"SOUNDS";
 }
 
-- (NSString*)tableView:(UITableView *)tableView
-titleForFooterInSection:(NSInteger)section{
+- (NSString *)tableView:(UITableView *)tableView
+titleForFooterInSection:(NSInteger)section {
     return @"Select one sound that will be applied to the track.";
 }
 

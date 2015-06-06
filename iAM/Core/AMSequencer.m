@@ -29,34 +29,34 @@
 @property NSInteger actualNoteIndex;
 @property NSInteger actualBarIndex;
 
-@property (nonatomic, strong) NSHashTable *sequencerDelegates;
+@property(nonatomic, strong) NSHashTable *sequencerDelegates;
 
 @end
 
 @implementation AMSequencer
 
-- (void)addSequencerDelegate: (id<AMSequencerDelegate>)delegate {
-    [_sequencerDelegates addObject: delegate];
+- (void)addSequencerDelegate:(id <AMSequencerDelegate>)delegate {
+    [_sequencerDelegates addObject:delegate];
 }
 
-- (void)removeSequencerDelegate: (id<AMSequencerDelegate>)delegate {
-    [_sequencerDelegates removeObject: delegate];
+- (void)removeSequencerDelegate:(id <AMSequencerDelegate>)delegate {
+    [_sequencerDelegates removeObject:delegate];
 }
 
 - (void)delegateSequencerHasStarted {
-    for (id<AMSequencerDelegate> delegate in _sequencerDelegates) {
+    for (id <AMSequencerDelegate> delegate in _sequencerDelegates) {
         [delegate sequenceHasStarted];
     }
 }
 
 - (void)delegateSequencerHasStopped {
-    for (id<AMSequencerDelegate> delegate in _sequencerDelegates) {
+    for (id <AMSequencerDelegate> delegate in _sequencerDelegates) {
         [delegate sequenceHasStopped];
     }
 }
 
 - (void)delegateSequenceHasChanged {
-    for (id<AMSequencerDelegate> delegate in _sequencerDelegates) {
+    for (id <AMSequencerDelegate> delegate in _sequencerDelegates) {
         [delegate sequenceHasChanged];
     }
 }
@@ -73,7 +73,7 @@
     return self;
 }
 
-- (void)initResponders{
+- (void)initResponders {
     _mainSequenceArrayResponder = [[AMMutableArrayResponder alloc] initWithArrayHasChangedAction:@selector(sequenceArrayHasBeenChanged)
                                                                     andSelectionHasChangedAction:@selector(sequenceSelectionHasBeenChanged)
                                                                        andMaxCountExceededAction:@selector(sequenceMaxCountExceeded)
@@ -84,7 +84,7 @@
                                                                                     andTarget:self];
 }
 
-- (void)initPlayers{
+- (void)initPlayers {
     AMPlayer *amPlayer0 = [[AMPlayer alloc] initWithFile:@""
                                                   andKey:@""
                                                   ofType:@"aif"];
@@ -94,7 +94,7 @@
     AMPlayer *amPlayer2 = [[AMPlayer alloc] initWithFile:@""
                                                   andKey:@""
                                                   ofType:@"aif"];
-    _arrayOfPlayers = @[amPlayer0,amPlayer1,amPlayer2];
+    _arrayOfPlayers = @[amPlayer0, amPlayer1, amPlayer2];
 }
 
 - (void)initBasicParameters {
@@ -106,13 +106,13 @@
     _mainRunner = [[AMRunner alloc] initWithTickAction:@selector(onTick) andTarget:self];
 }
 
-- (void)killBackgroundThread{
+- (void)killBackgroundThread {
     _runningState = NO;
 }
 
 - (void)startStop {
     _runningState = !_runningState;
-    if(_runningState) {
+    if (_runningState) {
         [_mainStave setFirstIndexAsActual];
         _runTheLoop = YES;
         [self delegateSequencerHasStarted];
@@ -130,8 +130,8 @@
     [_actualBar clear];
 }
 
-- (void)setSequence:(AMSequence *)newSequence{
-    if(_runningState){
+- (void)setSequence:(AMSequence *)newSequence {
+    if (_runningState) {
         [self startStop];
     }
 
@@ -146,7 +146,7 @@
     return _mainSequence;
 }
 
-- (NSArray*)getArrayOfPlayers {
+- (NSArray *)getArrayOfPlayers {
     return _arrayOfPlayers;
 }
 
@@ -155,9 +155,9 @@
 }
 
 - (void)playNotes {
-    if(_runTheLoop) {
+    if (_runTheLoop) {
         [self clearTheRow];
-        if(!_runningState){
+        if (!_runningState) {
             _runTheLoop = false;
             return;
         }
@@ -172,7 +172,7 @@
 
 - (void)incrementActualNoteIndex {
     _actualNoteIndex++;
-    if(_actualNoteIndex >= _actualBar.getLengthToBePlayed) {
+    if (_actualNoteIndex >= _actualBar.getLengthToBePlayed) {
         [self incrementActualBarIndex];
         _actualNoteIndex = 0;
     }
@@ -180,12 +180,12 @@
 
 - (void)incrementActualBarIndex {
     _actualBarIndex++;
-    if(_actualBarIndex >= _mainStave.count) {
+    if (_actualBarIndex >= _mainStave.count) {
         [_mainSequence getNextStep];
         [_mainStave setFirstIndexAsActual];
         _actualBarIndex = 0;
     }
-    else{
+    else {
         [_mainStave setNextIndexAsActual];
     }
 }
@@ -208,21 +208,21 @@
     return index * incrementValue;
 }
 
-- (void)handlePlayOnStave: (AMBar *)aStave
-         atPosition: (NSUInteger)aPosition {
+- (void)handlePlayOnStave:(AMBar *)aStave
+               atPosition:(NSUInteger)aPosition {
     NSUInteger j = 0;
     for (NSMutableArray *line in aStave) {
         AMNote *note = line[aPosition];
         [note trigger];
-        if(note.isPlaying){
+        if (note.isPlaying) {
             [_arrayOfPlayers[j] playSound];
         }
         j++;
     }
 }
 
-- (void)handleStopOnStave: (AMBar *)aStave
-               atPosition: (NSUInteger)aPosition {
+- (void)handleStopOnStave:(AMBar *)aStave
+               atPosition:(NSUInteger)aPosition {
     NSUInteger j = 0;
     for (NSMutableArray *line in aStave) {
         AMNote *note = line[aPosition];
@@ -253,7 +253,7 @@
 }
 
 - (void)sequenceMaxCountExceeded {
-    
+
 }
 
 - (void)staveArrayHasBeenChanged {
@@ -265,28 +265,28 @@
 }
 
 - (void)staveMaxCountExceeded {
-    
+
 }
 
-- (void)updateComponents{
-    _actualStep = (AMSequenceStep *)_mainSequence.getActualObject;
+- (void)updateComponents {
+    _actualStep = (AMSequenceStep *) _mainSequence.getActualObject;
     _mainStave = _actualStep.getStave;
 
     [_mainStave addStaveDelegate:self];
     [_mainStave addArrayDelegate:_mainStaveArrayResponder];
-    
-    _actualBar = (AMBar *)_mainStave.getActualObject;
+
+    _actualBar = (AMBar *) _mainStave.getActualObject;
     [_actualBar addBarDelegate:self];
-    
+
     [self updateTimerInterval];
 }
 
-- (void)updateTimerInterval{
+- (void)updateTimerInterval {
     NSNumber *interval = [self computeTimeInterval];
     [_mainRunner changeIntervalTime:interval];
 }
 
-- (NSNumber*)computeTimeInterval{
+- (NSNumber *)computeTimeInterval {
     NSNumber *intervalBetweenBeatsInSeconds = @(60.0f / _mainStave.getTempo);
     NSNumber *actualIntervalInGrid = @(intervalBetweenBeatsInSeconds.floatValue / _actualBar.getDensity);
     NSNumber *denominatorFactor = @(_actualBar.getSignatureDenominator / 4.0);

@@ -25,24 +25,24 @@
     [super didReceiveMemoryWarning];
 }
 
-- (void)loadSidebarMenu{
+- (void)loadSidebarMenu {
     SWRevealViewController *revealController = [self revealViewController];
-    
+
     [revealController setRightViewRevealWidth:0];
     [revealController setRightViewRevealOverdraw:0];
-    
+
     [revealController panGestureRecognizer];
     [revealController tapGestureRecognizer];
-    
-    [_sideMenuButton setTarget: self.revealViewController];
-    [_sideMenuButton setAction: @selector( revealToggle: )];
+
+    [_sideMenuButton setTarget:self.revealViewController];
+    [_sideMenuButton setAction:@selector(revealToggle:)];
 }
 
-- (void)loadIcons{
+- (void)loadIcons {
     UIBarButtonItem *originalLeftButton = _navigationBarItem.leftBarButtonItem;
     UIButton *face = [UIButton buttonWithType:UIButtonTypeCustom];
     face.tintColor = [[UIView appearance] tintColor];
-    face.bounds = CGRectMake( 26, 26, 26, 26 );
+    face.bounds = CGRectMake(26, 26, 26, 26);
     [face setImage:[[UIImage imageNamed:@"menu.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]
           forState:UIControlStateNormal];
     [face addTarget:originalLeftButton.target

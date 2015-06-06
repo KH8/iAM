@@ -14,16 +14,16 @@
 @property NSString *fileKey;
 @property NSString *fileType;
 
-@property (nonatomic) NSNumber *generalVolumeFactor;
-@property (nonatomic) NSNumber *volumeFactor;
+@property(nonatomic) NSNumber *generalVolumeFactor;
+@property(nonatomic) NSNumber *volumeFactor;
 
 @end
 
 @implementation AMPlayer
 
-- (id)initWithFile: (NSString *)aFileName
-            andKey: (NSString *)aFileKey
-            ofType: (NSString *)aFileType{
+- (id)initWithFile:(NSString *)aFileName
+            andKey:(NSString *)aFileKey
+            ofType:(NSString *)aFileType {
     self = [super init];
     if (self) {
         _fileName = aFileName;
@@ -46,43 +46,43 @@
     _audioPlayer.delegate = nil;
 }
 
-- (void) playSound {
+- (void)playSound {
     [self initAudioPlayer];
     [_audioPlayer play];
 }
 
-- (void) stopSound {
+- (void)stopSound {
     [_audioPlayer stop];
-     _audioPlayer = nil;
+    _audioPlayer = nil;
 }
 
-- (void)setSoundName:(NSString*)newName
-             withKey:(NSString*)newKey{
+- (void)setSoundName:(NSString *)newName
+             withKey:(NSString *)newKey {
     _fileName = newName;
     _fileKey = newKey;
 }
 
-- (NSString*)getSoundName{
+- (NSString *)getSoundName {
     return _fileName;
 }
 
-- (NSString*)getSoundKey{
+- (NSString *)getSoundKey {
     return _fileKey;
 }
 
-- (void)setGeneralVolumeFactor:(NSNumber*)volume{
+- (void)setGeneralVolumeFactor:(NSNumber *)volume {
     _generalVolumeFactor = volume;
 }
 
-- (NSNumber*)getGeneralVolumeFactor{
+- (NSNumber *)getGeneralVolumeFactor {
     return _generalVolumeFactor;;
 }
 
-- (void)setVolumeFactor:(NSNumber*)volume{
+- (void)setVolumeFactor:(NSNumber *)volume {
     _volumeFactor = volume;
 }
 
-- (NSNumber*)getVolumeFactor{
+- (NSNumber *)getVolumeFactor {
     return _volumeFactor;
 }
 

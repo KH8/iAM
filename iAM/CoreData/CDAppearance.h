@@ -12,8 +12,8 @@
 
 @interface CDAppearance : NSManagedObject
 
-@property (nonatomic, retain) NSString * colorThemeKey;
-@property (nonatomic, retain) NSString * tintColorKey;
-@property (nonatomic, retain) NSNumber * showTutorial;
+@property(nonatomic, retain) NSString *colorThemeKey;
+@property(nonatomic, retain) NSString *tintColorKey;
+@property(nonatomic, retain) NSNumber *showTutorial;
 
 @end

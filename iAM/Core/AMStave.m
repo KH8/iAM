@@ -8,10 +8,10 @@
 
 @interface AMStave ()
 
-@property (nonatomic) NSInteger tempo;
-@property (nonatomic) NSDate *lastTapTime;
+@property(nonatomic) NSInteger tempo;
+@property(nonatomic) NSDate *lastTapTime;
 
-@property (nonatomic, strong) NSHashTable *staveDelegates;
+@property(nonatomic, strong) NSHashTable *staveDelegates;
 
 @end
 
@@ -20,22 +20,22 @@
 NSUInteger const maxTempo = 280;
 NSUInteger const minTempo = 60;
 
-- (void)addStaveDelegate: (id<AMStaveDelegate>)delegate{
-    [_staveDelegates addObject: delegate];
+- (void)addStaveDelegate:(id <AMStaveDelegate>)delegate {
+    [_staveDelegates addObject:delegate];
 }
 
-- (void)removeStaveDelegate: (id<AMStaveDelegate>)delegate{
-    [_staveDelegates removeObject: delegate];
+- (void)removeStaveDelegate:(id <AMStaveDelegate>)delegate {
+    [_staveDelegates removeObject:delegate];
 }
 
-- (void)delegateTempoHasBeenChanged{
-    for (id<AMStaveDelegate> delegate in _staveDelegates) {
+- (void)delegateTempoHasBeenChanged {
+    for (id <AMStaveDelegate> delegate in _staveDelegates) {
         [delegate tempoHasBeenChanged];
     }
 }
 
-- (void)delegateTempoHasBeenTapped{
-    for (id<AMStaveDelegate> delegate in _staveDelegates) {
+- (void)delegateTempoHasBeenTapped {
+    for (id <AMStaveDelegate> delegate in _staveDelegates) {
         [delegate tempoHasBeenTapped];
     }
 }
@@ -49,7 +49,7 @@ NSUInteger const minTempo = 60;
     return self;
 }
 
-- (id)initWithSubComponents{
+- (id)initWithSubComponents {
     self = [self init];
     if (self) {
         [self addBar];
@@ -78,20 +78,20 @@ NSUInteger const minTempo = 60;
     NSTimeInterval executionTime = [actualTapTime timeIntervalSinceDate:_lastTapTime];
     _lastTapTime = actualTapTime;
     NSNumber *intervalSinceLastTapInMilliseconds = @(executionTime * 1000.0f);
-    
-    if(intervalSinceLastTapInMilliseconds.floatValue > 1000.0f){
+
+    if (intervalSinceLastTapInMilliseconds.floatValue > 1000.0f) {
         return;
     }
-    if(intervalSinceLastTapInMilliseconds.floatValue < 200.0f){
+    if (intervalSinceLastTapInMilliseconds.floatValue < 200.0f) {
         return;
     }
-    
+
     NSNumber *newTempo = @(60000.0f / intervalSinceLastTapInMilliseconds.floatValue);
     [self setTempo:newTempo.integerValue];
     [self delegateTempoHasBeenTapped];
 }
 
-- (void)addBar{
+- (void)addBar {
     AMBar *newBar = [[AMBar alloc] init];
     [newBar configureDefault];
     [self addObject:newBar];

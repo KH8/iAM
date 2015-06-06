@@ -10,16 +10,16 @@
 
 @interface AMPopoverViewController ()
 
-@property (weak, nonatomic) IBOutlet UIButton *tapTempoButton;
-@property (weak, nonatomic) IBOutlet UILabel *metricLabel;
-@property (weak, nonatomic) IBOutlet UILabel *noteLabel;
-@property (weak, nonatomic) IBOutlet UILabel *densityLabel;
-@property (weak, nonatomic) IBOutlet UILabel *tempoLabel;
+@property(weak, nonatomic) IBOutlet UIButton *tapTempoButton;
+@property(weak, nonatomic) IBOutlet UILabel *metricLabel;
+@property(weak, nonatomic) IBOutlet UILabel *noteLabel;
+@property(weak, nonatomic) IBOutlet UILabel *densityLabel;
+@property(weak, nonatomic) IBOutlet UILabel *tempoLabel;
 
 @end
 
-@implementation AMPopoverViewController{
-    
+@implementation AMPopoverViewController {
+
 }
 
 - (void)viewDidLoad {
@@ -28,38 +28,38 @@
     [self loadLables];
 }
 
-- (void)loadPickers{
+- (void)loadPickers {
     AMStave *stave = [self getStave];
     [stave addStaveDelegate:self];
-    AMBar *bar = (AMBar *)stave.getActualObject;
+    AMBar *bar = (AMBar *) stave.getActualObject;
     NSArray *signatureNumeratorPickerData = [self createRangeOfValuesStartingFrom:bar.minSignature
-                                                                            upTo:bar.getSignatureDenominator];
+                                                                             upTo:bar.getSignatureDenominator];
     _signatureNumeratorPickerController = [[AMPickerController alloc] initWithPicker:_signatureNumeratorPicker
                                                                            dataArray:signatureNumeratorPickerData
                                                                        andStartValue:@(bar.getSignatureNumerator)];
     _signatureNumeratorPickerController.delegate = self;
-    
+
     NSArray *sinatureDenominatorPickerData = @[@1, @2, @4, @8, @16];
     _signatureDenominatorPickerController = [[AMPickerController alloc] initWithPicker:_signatureDenominatorPicker
                                                                              dataArray:sinatureDenominatorPickerData
                                                                          andStartValue:@(bar.getSignatureDenominator)];
     _signatureDenominatorPickerController.delegate = self;
-    
+
     NSArray *tempoPickerData = [self createRangeOfValuesStartingFrom:stave.minTempo
                                                                 upTo:stave.maxTempo];
     _tempoPickerController = [[AMPickerController alloc] initWithPicker:_tempoPicker
                                                               dataArray:tempoPickerData
                                                           andStartValue:@(stave.getTempo)];
     _tempoPickerController.delegate = self;
-    
+
     NSArray *densityPickerData = @[@1, @2, @4];
     _densityPickerController = [[AMPickerController alloc] initWithPicker:_densityPicker
-                                                               dataArray:densityPickerData
-                                                           andStartValue:@(bar.getDensity)];
+                                                                dataArray:densityPickerData
+                                                            andStartValue:@(bar.getDensity)];
     _densityPickerController.delegate = self;
 }
 
-- (void)loadLables{
+- (void)loadLables {
     UIColor *defaultColor = [[UIView appearance] tintColor];
     [_tapTempoButton setTitleColor:defaultColor forState:UIControlStateNormal];
     [_metricLabel setTextColor:defaultColor];
@@ -68,11 +68,10 @@
     [_tempoLabel setTextColor:defaultColor];
 }
 
-- (NSMutableArray *)createRangeOfValuesStartingFrom: (NSInteger)startValue
-                                               upTo: (NSInteger)endValue{
+- (NSMutableArray *)createRangeOfValuesStartingFrom:(NSInteger)startValue
+                                               upTo:(NSInteger)endValue {
     NSMutableArray *anArray = [[NSMutableArray alloc] init];
-    for (NSInteger i = startValue; i <= endValue; i++)
-    {
+    for (NSInteger i = startValue; i <= endValue; i++) {
         [anArray addObject:@(i)];
     }
     return anArray;
@@ -86,7 +85,7 @@
 
 - (IBAction)gesturePerformed:(id)sender {
     [self dismissViewControllerAnimated:YES
-                             completion: nil];
+                             completion:nil];
 }
 
 - (IBAction)onTapTempo:(id)sender {
@@ -94,45 +93,45 @@
     [stave tapTempo];
 }
 
-- (void)pickerSelectionHasChanged{
+- (void)pickerSelectionHasChanged {
     AMStave *stave = [self getStave];
     [self tempoHasBeenChanged:stave];
-    AMBar *bar = (AMBar *)stave.getActualObject;
+    AMBar *bar = (AMBar *) stave.getActualObject;
     [self signatureDenominatorHasBeenChanged:bar];
     [self signatureNumeratorHasBeenChanged:bar];
     [self densityHasBeenChanged:bar];
     [_delegate pickedValuesHaveBeenChanged];
 }
 
-- (void)signatureNumeratorHasBeenChanged:(AMBar*)bar {
+- (void)signatureNumeratorHasBeenChanged:(AMBar *)bar {
     NSInteger valuePicked = [_signatureNumeratorPickerController getActualPickerValue];
     NSInteger newSignatureDenominator = [_signatureDenominatorPickerController getActualPickerValue];
-    if(valuePicked > newSignatureDenominator){
+    if (valuePicked > newSignatureDenominator) {
         valuePicked = newSignatureDenominator;
     }
-    if([bar getSignatureNumerator] == valuePicked) return;
+    if ([bar getSignatureNumerator] == valuePicked) return;
     [bar setSignatureNumerator:valuePicked];
 }
 
-- (void)signatureDenominatorHasBeenChanged:(AMBar*)bar {
+- (void)signatureDenominatorHasBeenChanged:(AMBar *)bar {
     NSInteger valuePicked = [_signatureDenominatorPickerController getActualPickerValue];
-    if([bar getSignatureDenominator] == valuePicked) return;
+    if ([bar getSignatureDenominator] == valuePicked) return;
     [bar setSignatureDenominator:valuePicked];
     NSArray *signatureNumeratorPickerData = [self createRangeOfValuesStartingFrom:bar.minSignature
-                                                                            upTo:bar.getSignatureDenominator];
+                                                                             upTo:bar.getSignatureDenominator];
     [_signatureNumeratorPickerController setDataArray:signatureNumeratorPickerData];
     [_signatureNumeratorPicker reloadAllComponents];
 }
 
-- (void)densityHasBeenChanged:(AMBar*)bar {
+- (void)densityHasBeenChanged:(AMBar *)bar {
     NSInteger valuePicked = [_densityPickerController getActualPickerValue];
-    if([bar getDensity] == valuePicked) return;
+    if ([bar getDensity] == valuePicked) return;
     [bar setDensity:valuePicked];
 }
 
-- (void)tempoHasBeenChanged:(AMStave*)stave {
+- (void)tempoHasBeenChanged:(AMStave *)stave {
     NSInteger valuePicked = [_tempoPickerController getActualPickerValue];
-    if([stave getTempo] == valuePicked) return;
+    if ([stave getTempo] == valuePicked) return;
     [stave setTempo:valuePicked];
 }
 
@@ -146,9 +145,9 @@
 - (void)tempoHasBeenTapped {
 }
 
-- (AMStave*)getStave{
+- (AMStave *)getStave {
     AMSequence *sequence = _actuallySelectedSequencer.getSequence;
-    AMSequenceStep *sequenceStep = (AMSequenceStep *)sequence.getActualObject;
+    AMSequenceStep *sequenceStep = (AMSequenceStep *) sequence.getActualObject;
     return sequenceStep.getStave;
 }
 

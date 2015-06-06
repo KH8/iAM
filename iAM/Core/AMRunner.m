@@ -27,7 +27,7 @@ const float INTERVAL_OFFSET = 0.003F;
 
 @implementation AMRunner
 
-- (id)initWithTickAction:(SEL)selector andTarget:(id)target{
+- (id)initWithTickAction:(SEL)selector andTarget:(id)target {
     self = [super init];
     if (self) {
         _selector = selector;
@@ -38,18 +38,18 @@ const float INTERVAL_OFFSET = 0.003F;
     return self;
 }
 
-- (void)initParameters{
+- (void)initParameters {
     _interval = [[NSNumber alloc] initWithFloat:INIT_INTERVAL];
     _actualInterval = [[NSNumber alloc] initWithFloat:_interval.floatValue];
 }
 
-- (void)initRunner{
+- (void)initRunner {
     [NSThread detachNewThreadSelector:@selector(runBackground) toTarget:self withObject:nil];
 }
 
-- (void)runBackground{
+- (void)runBackground {
     _tickDateMarker = [NSDate date];
-    
+
     while (true) {
         [_target performSelectorOnMainThread:_selector withObject:nil waitUntilDone:NO];
         [NSThread sleepForTimeInterval:_actualInterval.floatValue - [_tickDateMarker timeIntervalSinceNow] - INTERVAL_OFFSET];
@@ -57,15 +57,15 @@ const float INTERVAL_OFFSET = 0.003F;
     }
 }
 
-- (void)changeIntervalTime:(NSNumber*)intervalTime{
-    if(intervalTime.floatValue < SHORTEST_INTERVAL){
+- (void)changeIntervalTime:(NSNumber *)intervalTime {
+    if (intervalTime.floatValue < SHORTEST_INTERVAL) {
         _interval = [[NSNumber alloc] initWithFloat:SHORTEST_INTERVAL];
     }
-    else{
+    else {
         _interval = intervalTime;
     }
-    
-    if(![_interval isEqualToNumber:_actualInterval]){
+
+    if (![_interval isEqualToNumber:_actualInterval]) {
         _actualInterval = [[NSNumber alloc] initWithFloat:_interval.floatValue];
     }
 }

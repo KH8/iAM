@@ -13,8 +13,8 @@
 
 @interface CDNote : NSManagedObject
 
-@property (nonatomic, retain) NSNumber * noteCoordLine;
-@property (nonatomic, retain) NSNumber * noteCoordPos;
-@property (nonatomic, retain) CDBar *bar;
+@property(nonatomic, retain) NSNumber *noteCoordLine;
+@property(nonatomic, retain) NSNumber *noteCoordPos;
+@property(nonatomic, retain) CDBar *bar;
 
 @end

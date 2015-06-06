@@ -11,6 +11,7 @@
 @interface AMRunner : NSObject
 
 - (id)initWithTickAction:(SEL)selector andTarget:(id)target;
-- (void)changeIntervalTime:(NSNumber*)intervalTime;
+
+- (void)changeIntervalTime:(NSNumber *)intervalTime;
 
 @end

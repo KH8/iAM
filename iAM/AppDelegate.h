@@ -12,10 +12,10 @@
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
-@property (strong, nonatomic) UIWindow *window;
+@property(strong, nonatomic) UIWindow *window;
 
-@property (readonly, strong, nonatomic) AMConfigurationManager *configurationManager;
-@property (readonly, strong, nonatomic) AMAppearanceManager *appearanceManager;
+@property(readonly, strong, nonatomic) AMConfigurationManager *configurationManager;
+@property(readonly, strong, nonatomic) AMAppearanceManager *appearanceManager;
 
 @end
 

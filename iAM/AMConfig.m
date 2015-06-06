@@ -19,89 +19,89 @@ static bool isSoundChangeAllowed = YES;
 
 @implementation AMConfig
 
-+ (NSString*)appName{
++ (NSString *)appName {
     return appName;
 }
 
-+ (NSString*)version{
++ (NSString *)version {
     return version;
 }
 
-+ (int)maxBarCount{
++ (int)maxBarCount {
     return maxBarCount;
 }
 
-+ (int)maxStepCount{
++ (int)maxStepCount {
     return maxStepCount;
 }
 
-+ (int)maxSequenceCount{
++ (int)maxSequenceCount {
     return maxSequenceCount;
 }
 
-+ (bool)isSoundChangeAllowed{
++ (bool)isSoundChangeAllowed {
     return isSoundChangeAllowed;
 }
 
-+ (bool)shouldAdBeDisplayed{
++ (bool)shouldAdBeDisplayed {
     return YES;
 }
 
-+ (NSString*)barCountExceeded{
++ (NSString *)barCountExceeded {
     return [NSString stringWithFormat:@"%@\n%@ [ %@ %@ ] %@ %d %@.\n%@",
-            @"The limit of bar has been reached.",
-            @"This version of application",
-            appName,
-            version,
-            @"is limited to",
-            maxBarCount,
-            @"bars",
-            @"Consider upgrade to the regular version."];
+                                      @"The limit of bar has been reached.",
+                                      @"This version of application",
+                                      appName,
+                                      version,
+                                      @"is limited to",
+                                      maxBarCount,
+                                      @"bars",
+                                      @"Consider upgrade to the regular version."];
 }
 
-+ (NSString*)stepCountExceeded{
++ (NSString *)stepCountExceeded {
     return [NSString stringWithFormat:@"%@\n%@ [ %@ %@ ] %@ %d %@.\n%@",
-            @"The limit of steps has been reached.",
-            @"This version of application",
-            appName,
-            version,
-            @"is limited to",
-            maxStepCount,
-            @"steps",
-            @"Consider upgrade to the regular version."];
+                                      @"The limit of steps has been reached.",
+                                      @"This version of application",
+                                      appName,
+                                      version,
+                                      @"is limited to",
+                                      maxStepCount,
+                                      @"steps",
+                                      @"Consider upgrade to the regular version."];
 }
 
-+ (NSString*)sequenceCountExceeded{
++ (NSString *)sequenceCountExceeded {
     return [NSString stringWithFormat:@"%@\n%@ [ %@ %@ ] %@ %d %@.\n%@",
-            @"The limit of sequences has been reached.",
-            @"This version of application",
-            appName,
-            version,
-            @"is limited to",
-            maxSequenceCount,
-            @"sequence",
-            @"Consider upgrade to the regular version."];
+                                      @"The limit of sequences has been reached.",
+                                      @"This version of application",
+                                      appName,
+                                      version,
+                                      @"is limited to",
+                                      maxSequenceCount,
+                                      @"sequence",
+                                      @"Consider upgrade to the regular version."];
 }
 
 
-+ (NSString*)soundChangeNotAllowed{
++ (NSString *)soundChangeNotAllowed {
     return [NSString stringWithFormat:@"%@\n%@ [ %@ %@ ] %@\n%@",
-            @"Sound assignment cannot be changed.",
-            @"This version of application",
-            appName,
-            version,
-            @"is limited.",
-            @"Consider upgrade to the regular version."];
+                                      @"Sound assignment cannot be changed.",
+                                      @"This version of application",
+                                      appName,
+                                      version,
+                                      @"is limited.",
+                                      @"Consider upgrade to the regular version."];
 }
 
-+ (NSString*)appDescription{
++ (NSString *)appDescription {
     return [NSString stringWithFormat:@"%@ %@\n%@\n[ %@ ]\n\n%@\n%@\n",
-            appName,
-            version,
-            @"Advanced Metronome",
-            @"This version is limited. Consider upgrade to the regular one.",
-            @"designed and written by: Krzysztof Reczek",
-            @"reczek.krzysztof@gmail.com"];
+                                      appName,
+                                      version,
+                                      @"Advanced Metronome",
+                                      @"This version is limited. Consider upgrade to the regular one.",
+                                      @"designed and written by: Krzysztof Reczek",
+                                      @"reczek.krzysztof@gmail.com"];
 }
 
 @end

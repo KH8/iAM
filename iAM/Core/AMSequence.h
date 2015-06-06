@@ -13,20 +13,25 @@
 @interface AMSequence : AMMutableArray
 
 - (id)init;
+
 - (id)initWithSubComponents;
 
-- (void)setName:(NSString*)newName;
-- (NSString*)getName;
+- (void)setName:(NSString *)newName;
 
-- (void)setCreationDate:(NSDate*)date;
-- (NSDate*)getCreationDate;
-- (NSString*)getCreationDateString;
+- (NSString *)getName;
 
-- (AMSequenceStep*)getNextStep;
+- (void)setCreationDate:(NSDate *)date;
+
+- (NSDate *)getCreationDate;
+
+- (NSString *)getCreationDateString;
+
+- (AMSequenceStep *)getNextStep;
 
 - (void)addStep;
 
 - (void)setOneStepForward;
+
 - (void)setOneStepBackward;
 
 @end

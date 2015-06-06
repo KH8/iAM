@@ -13,17 +13,20 @@
 
 @interface CDSequence : NSManagedObject
 
-@property (nonatomic, retain) NSDate * sequenceCreationDate;
-@property (nonatomic, retain) NSString * sequenceName;
-@property (nonatomic, retain) NSNumber * sequenceId;
-@property (nonatomic, retain) NSSet *sequenceSteps;
+@property(nonatomic, retain) NSDate *sequenceCreationDate;
+@property(nonatomic, retain) NSString *sequenceName;
+@property(nonatomic, retain) NSNumber *sequenceId;
+@property(nonatomic, retain) NSSet *sequenceSteps;
 @end
 
 @interface CDSequence (CoreDataGeneratedAccessors)
 
 - (void)addSequenceStepsObject:(CDStep *)value;
+
 - (void)removeSequenceStepsObject:(CDStep *)value;
+
 - (void)addSequenceSteps:(NSSet *)values;
+
 - (void)removeSequenceSteps:(NSSet *)values;
 
 @end

@@ -24,13 +24,13 @@
 @synthesize managedObjectModel = _managedObjectModel;
 @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
 
-- (void)initSequenceCoreDataEntitiesInContext: (NSManagedObjectContext*)context {
+- (void)initSequenceCoreDataEntitiesInContext:(NSManagedObjectContext *)context {
     CDSequence *sequence = [NSEntityDescription insertNewObjectForEntityForName:@"CDSequence"
                                                          inManagedObjectContext:context];
     sequence.sequenceName = @"NEW SEQUENCE";
     sequence.sequenceCreationDate = [NSDate date];
     sequence.sequenceId = @0;
-    
+
     CDStep *step = [NSEntityDescription insertNewObjectForEntityForName:@"CDStep"
                                                  inManagedObjectContext:context];
     step.stepName = @"NEW STEP";
@@ -40,7 +40,7 @@
     step.stepId = @0;
     step.sequence = sequence;
     [sequence addSequenceStepsObject:step];
-    
+
     CDBar *bar = [NSEntityDescription insertNewObjectForEntityForName:@"CDBar"
                                                inManagedObjectContext:context];
     bar.barDensity = @4;
@@ -49,37 +49,37 @@
     bar.barId = @0;
     bar.step = step;
     [step addStepBarsObject:bar];
-    
+
     [self initNoteInLine:0
                aPosition:0
                    inBar:bar
                inContext:context];
-    
+
     [self initNoteInLine:0
                aPosition:4
                    inBar:bar
                inContext:context];
-    
+
     [self initNoteInLine:0
                aPosition:8
                    inBar:bar
                inContext:context];
-    
+
     [self initNoteInLine:0
                aPosition:12
                    inBar:bar
                inContext:context];
-    
+
     NSError *error;
     if (![context save:&error]) {
         NSLog(@"Core data error occured: %@", [error localizedDescription]);
     }
 }
 
-- (void)initNoteInLine: (int)lineIndex
-             aPosition: (int)positionIndex
-                 inBar: (CDBar*)bar
-             inContext: (NSManagedObjectContext*)context {
+- (void)initNoteInLine:(int)lineIndex
+             aPosition:(int)positionIndex
+                 inBar:(CDBar *)bar
+             inContext:(NSManagedObjectContext *)context {
     CDNote *note = [NSEntityDescription insertNewObjectForEntityForName:@"CDNote"
                                                  inManagedObjectContext:context];
     note.noteCoordLine = [[NSNumber alloc] initWithInt:lineIndex];
@@ -88,20 +88,20 @@
     [bar addBarNotesObject:note];
 }
 
-- (void)initSelectionsCoreDataEntitiesInContext: (NSManagedObjectContext*)context {
+- (void)initSelectionsCoreDataEntitiesInContext:(NSManagedObjectContext *)context {
     CDSelections *selections = [NSEntityDescription insertNewObjectForEntityForName:@"CDSelections"
                                                              inManagedObjectContext:context];
     selections.barSelected = @0;
     selections.stepSelected = @0;
     selections.sequenceSelected = @0;
-    
+
     NSError *error;
     if (![context save:&error]) {
         NSLog(@"Core data error occured: %@", [error localizedDescription]);
     }
 }
 
-- (void)initConfigurationsCoreDataEntitiesInContext: (NSManagedObjectContext*)context {
+- (void)initConfigurationsCoreDataEntitiesInContext:(NSManagedObjectContext *)context {
     CDConfiguration *configuration = [NSEntityDescription insertNewObjectForEntityForName:@"CDConfiguration"
                                                                    inManagedObjectContext:context];
     configuration.soundTrack1Key = @"ARTIFICIAL HIGH 1";
@@ -114,7 +114,7 @@
     configuration.volumeTrack1 = @0.95;
     configuration.volumeTrack2 = @0.95;
     configuration.volumeTrack3 = @0.95;
-    
+
     NSError *error;
     if (![context save:&error]) {
         NSLog(@"Core data error occured: %@", [error localizedDescription]);
@@ -123,31 +123,31 @@
 
 - (void)loadContext {
     NSManagedObjectContext *context = [self managedObjectContext];
-    
+
     NSError *error;
     if (![context save:&error]) {
         NSLog(@"Core data error occured: %@", [error localizedDescription]);
     }
-    
+
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"CDSequence"
                                               inManagedObjectContext:context];
     [fetchRequest setEntity:entity];
     NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:&error];
-    if(fetchedObjects.count == 0){
+    if (fetchedObjects.count == 0) {
         [self clearContext];
         [self initSequenceCoreDataEntitiesInContext:context];
         [self initSelectionsCoreDataEntitiesInContext:context];
         [self initConfigurationsCoreDataEntitiesInContext:context];
         [context executeFetchRequest:fetchRequest error:&error];
     }
-    
+
     AMDataMapper *dataMapper = [[AMDataMapper alloc] init];
     AMSequencerSingleton *sequencerSingleton = [AMSequencerSingleton sharedSequencer];
     sequencerSingleton.arrayOfSequences = [dataMapper getActualConfigurationFromContext:context];
-    
+
     AMSequencer *sequencer = sequencerSingleton.sequencer;
-    [sequencer setSequence:(AMSequence *)sequencerSingleton.arrayOfSequences.getActualObject];
+    [sequencer setSequence:(AMSequence *) sequencerSingleton.arrayOfSequences.getActualObject];
     [dataMapper getConfigurationOfSequencer:sequencer fromContext:context];
 }
 
@@ -176,11 +176,11 @@
     [self clearContextWithEntity:@"CDConfiguration"];
 }
 
-- (void)clearContextWithEntity:(NSString*)entityString {
+- (void)clearContextWithEntity:(NSString *)entityString {
     NSManagedObjectContext *context = [self managedObjectContext];
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     [fetchRequest setEntity:[NSEntityDescription entityForName:entityString inManagedObjectContext:context]];
-    NSArray * result = [context executeFetchRequest:fetchRequest error:nil];
+    NSArray *result = [context executeFetchRequest:fetchRequest error:nil];
     for (id entity in result)
         [context deleteObject:entity];
 }
@@ -189,12 +189,11 @@
 
 // Returns the managed object context for the application.
 // If the context doesn't already exist, it is created and bound to the persistent store coordinator for the application.
-- (NSManagedObjectContext *)managedObjectContext
-{
+- (NSManagedObjectContext *)managedObjectContext {
     if (_managedObjectContext != nil) {
         return _managedObjectContext;
     }
-    
+
     NSPersistentStoreCoordinator *coordinator = [self persistentStoreCoordinator];
     if (coordinator != nil) {
         _managedObjectContext = [[NSManagedObjectContext alloc] init];
@@ -205,8 +204,7 @@
 
 // Returns the managed object model for the application.
 // If the model doesn't already exist, it is created from the application's model.
-- (NSManagedObjectModel *)managedObjectModel
-{
+- (NSManagedObjectModel *)managedObjectModel {
     if (_managedObjectModel != nil) {
         return _managedObjectModel;
     }
@@ -217,29 +215,27 @@
 
 // Returns the persistent store coordinator for the application.
 // If the coordinator doesn't already exist, it is created and the application's store added to it.
-- (NSPersistentStoreCoordinator *)persistentStoreCoordinator
-{
+- (NSPersistentStoreCoordinator *)persistentStoreCoordinator {
     if (_persistentStoreCoordinator != nil) {
         return _persistentStoreCoordinator;
     }
-    
+
     NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"AMDataModel.sqlite"];
-    
+
     NSError *error = nil;
     _persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self managedObjectModel]];
     if (![_persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:nil error:&error]) {
         NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
         abort();
     }
-    
+
     return _persistentStoreCoordinator;
 }
 
 #pragma mark - Application's Documents directory
 
 // Returns the URL to the application's Documents directory.
-- (NSURL *)applicationDocumentsDirectory
-{
+- (NSURL *)applicationDocumentsDirectory {
     return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
 }
 

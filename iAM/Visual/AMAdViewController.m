@@ -8,14 +8,13 @@
 
 #import "AMAdViewController.h"
 
-@interface AMAdViewController ()
-{
+@interface AMAdViewController () {
     BOOL _bannerIsVisible;
     BOOL _swipeEnabled;
     ADBannerView *_adBannerTop;
 }
 
-@property (weak, nonatomic) IBOutlet UILabel *timerLabel;
+@property(weak, nonatomic) IBOutlet UILabel *timerLabel;
 
 @end
 
@@ -35,19 +34,19 @@
     [NSThread detachNewThreadSelector:@selector(runBackground) toTarget:self withObject:nil];
 }
 
-- (void)runBackground{
+- (void)runBackground {
     _swipeEnabled = NO;
     int i = 10;
-    
+
     while (!_swipeEnabled) {
         dispatch_async(dispatch_get_main_queue(), ^{
             _timerLabel.text = [NSString stringWithFormat:@"Wait %d seconds.", i];
         });
-        
+
         [NSThread sleepForTimeInterval:1.0F];
         i--;
-        
-        if(i<0){
+
+        if (i < 0) {
             _timerLabel.text = @"Swipe to continue.";
             _swipeEnabled = YES;
         }
@@ -64,8 +63,8 @@
 }
 
 - (IBAction)swipedToTheRight:(id)sender {
-    if(_swipeEnabled){
-        [self performSegueWithIdentifier: @"sw_skip" sender: self];
+    if (_swipeEnabled) {
+        [self performSegueWithIdentifier:@"sw_skip" sender:self];
     }
 }
 

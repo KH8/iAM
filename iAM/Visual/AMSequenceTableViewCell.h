@@ -11,9 +11,9 @@
 
 @interface AMSequenceTableViewCell : UITableViewCell
 
-@property (weak, nonatomic) IBOutlet UITextField *stepTitle;
-@property (weak, nonatomic) IBOutlet UILabel *stepSubtitle;
+@property(weak, nonatomic) IBOutlet UITextField *stepTitle;
+@property(weak, nonatomic) IBOutlet UILabel *stepSubtitle;
 
-- (void)assignSequenceStep: (AMSequenceStep*)aStep;
+- (void)assignSequenceStep:(AMSequenceStep *)aStep;
 
 @end

@@ -12,22 +12,26 @@
 @required
 
 - (void)tempoHasBeenChanged;
+
 - (void)tempoHasBeenTapped;
 
 @end
 
 @interface AMStave : AMMutableArray
 
-- (void) addStaveDelegate: (id<AMStaveDelegate>)delegate;
-- (void) removeStaveDelegate: (id<AMStaveDelegate>)delegate;
+- (void)addStaveDelegate:(id <AMStaveDelegate>)delegate;
 
-@property (nonatomic) NSInteger maxTempo;
-@property (nonatomic) NSInteger minTempo;
+- (void)removeStaveDelegate:(id <AMStaveDelegate>)delegate;
+
+@property(nonatomic) NSInteger maxTempo;
+@property(nonatomic) NSInteger minTempo;
 
 - (id)init;
+
 - (id)initWithSubComponents;
 
-- (void)setTempo: (NSInteger)aTempo;
+- (void)setTempo:(NSInteger)aTempo;
+
 - (NSInteger)getTempo;
 
 - (void)tapTempo;

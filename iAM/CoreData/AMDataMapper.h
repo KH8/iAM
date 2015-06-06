@@ -12,13 +12,15 @@
 
 @interface AMDataMapper : NSObject
 
-- (void)getConfigurationOfSequencer:(AMSequencer*)sequencer
-                        fromContext:(NSManagedObjectContext*)context;
-- (AMMutableArray*)getActualConfigurationFromContext:(NSManagedObjectContext*)context;
+- (void)getConfigurationOfSequencer:(AMSequencer *)sequencer
+                        fromContext:(NSManagedObjectContext *)context;
 
-- (void)getCoreDataConfigurationOfSequencer:(AMSequencer*)sequencer
-                                  inContext:(NSManagedObjectContext*)context;
-- (void)getCoreDataFromActualConfiguration:(AMMutableArray*)configuration
-                                 inContext:(NSManagedObjectContext*)context;
-    
+- (AMMutableArray *)getActualConfigurationFromContext:(NSManagedObjectContext *)context;
+
+- (void)getCoreDataConfigurationOfSequencer:(AMSequencer *)sequencer
+                                  inContext:(NSManagedObjectContext *)context;
+
+- (void)getCoreDataFromActualConfiguration:(AMMutableArray *)configuration
+                                 inContext:(NSManagedObjectContext *)context;
+
 @end

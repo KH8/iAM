@@ -14,15 +14,21 @@
 - (id)init;
 
 - (void)loadContext;
+
 - (void)saveContext;
+
 - (void)clearContext;
 
 - (void)changeGlobalTintColor;
-- (NSString*)getGlobalTintColorKey;
+
+- (NSString *)getGlobalTintColorKey;
+
 - (void)changeGlobalColorTheme;
-- (NSString*)getGlobalColorThemeKey;
+
+- (NSString *)getGlobalColorThemeKey;
 
 - (void)setShowTutorial:(BOOL)value;
+
 - (BOOL)getShowTutorial;
 
 @end

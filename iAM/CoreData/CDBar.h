@@ -13,19 +13,22 @@
 
 @interface CDBar : NSManagedObject
 
-@property (nonatomic, retain) NSNumber * barDensity;
-@property (nonatomic, retain) NSNumber * barSigDenominator;
-@property (nonatomic, retain) NSNumber * barSigNumerator;
-@property (nonatomic, retain) NSNumber * barId;
-@property (nonatomic, retain) NSSet *barNotes;
-@property (nonatomic, retain) CDStep *step;
+@property(nonatomic, retain) NSNumber *barDensity;
+@property(nonatomic, retain) NSNumber *barSigDenominator;
+@property(nonatomic, retain) NSNumber *barSigNumerator;
+@property(nonatomic, retain) NSNumber *barId;
+@property(nonatomic, retain) NSSet *barNotes;
+@property(nonatomic, retain) CDStep *step;
 @end
 
 @interface CDBar (CoreDataGeneratedAccessors)
 
 - (void)addBarNotesObject:(CDNote *)value;
+
 - (void)removeBarNotesObject:(CDNote *)value;
+
 - (void)addBarNotes:(NSSet *)values;
+
 - (void)removeBarNotes:(NSSet *)values;
 
 @end

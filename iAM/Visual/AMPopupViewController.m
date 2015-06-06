@@ -10,8 +10,8 @@
 
 @interface AMPopupViewController ()
 
-@property (nonatomic) NSString *text;
-@property (weak, nonatomic) IBOutlet UITextView *textView;
+@property(nonatomic) NSString *text;
+@property(weak, nonatomic) IBOutlet UITextView *textView;
 
 @end
 
@@ -23,17 +23,17 @@
     [self loadColors];
 }
 
-- (void)viewDidAppear:(BOOL)animated{
+- (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
 }
 
-- (void)loadText{
+- (void)loadText {
     _textView.text = _text;
     _textView.textAlignment = NSTextAlignmentCenter;
     [_textView sizeToFit];
 }
 
-- (void)loadColors{
+- (void)loadColors {
     [_textView setTextColor:[UIColor lightGrayColor]];
 }
 
@@ -41,7 +41,7 @@
     [super didReceiveMemoryWarning];
 }
 
-- (void)setText:(NSString*)text{
+- (void)setText:(NSString *)text {
     _text = text;
 }
 

@@ -9,24 +9,26 @@
 
 @required
 
-- (void) pickerSelectionHasChanged;
+- (void)pickerSelectionHasChanged;
 
 @end
 
-@interface AMPickerController : NSObject <UIPickerViewDataSource, UIPickerViewDelegate>
-{
+@interface AMPickerController : NSObject <UIPickerViewDataSource, UIPickerViewDelegate> {
     // Delegate to respond back
     id <AMPickerControllerDelegate> _delegate;
 
 }
 
-@property (nonatomic,strong) id delegate;
+@property(nonatomic, strong) id delegate;
 
-- (id)initWithPicker: (UIPickerView *)aPicker
-          dataArray: (NSArray*)anArray
-      andStartValue: (NSNumber*)newValue;
-- (void)setDataArray: (NSArray*)anArray;
-- (void)setActualValue: (NSNumber*)newValue;
+- (id)initWithPicker:(UIPickerView *)aPicker
+           dataArray:(NSArray *)anArray
+       andStartValue:(NSNumber *)newValue;
+
+- (void)setDataArray:(NSArray *)anArray;
+
+- (void)setActualValue:(NSNumber *)newValue;
+
 - (NSInteger)getActualPickerValue;
 
 @end

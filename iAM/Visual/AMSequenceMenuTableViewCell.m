@@ -20,7 +20,7 @@
     _titleLabel.delegate = self;
 }
 
-- (void)assignSequence: (AMSequence*)aSequence {
+- (void)assignSequence:(AMSequence *)aSequence {
     _sequence = aSequence;
     _titleLabel.text = _sequence.getName;
     _detailLabel.text = [NSString stringWithFormat:@"CREATED: %@", _sequence.getCreationDateString];
@@ -31,7 +31,7 @@
     [super setSelected:selected
               animated:animated];
     _titleLabel.textColor = [UIColor grayColor];
-    if(self.isSelected) {
+    if (self.isSelected) {
         _titleLabel.textColor = [[UIView appearance] tintColor];
     }
 }

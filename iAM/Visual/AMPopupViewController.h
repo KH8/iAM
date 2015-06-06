@@ -10,6 +10,6 @@
 
 @interface AMPopupViewController : UIViewController
 
-- (void)setText:(NSString*)text;
+- (void)setText:(NSString *)text;
 
 @end

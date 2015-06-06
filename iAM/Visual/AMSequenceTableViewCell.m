@@ -12,7 +12,7 @@
 @interface AMSequenceTableViewCell ()
 
 @property AMSequenceStep *sequenceStep;
-@property (weak, nonatomic) IBOutlet UIImageView *selectionImageView;
+@property(weak, nonatomic) IBOutlet UIImageView *selectionImageView;
 
 @end
 
@@ -32,14 +32,14 @@
            animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
     [_stepTitle resignFirstResponder];
-    
+
     _selectionImageView.tintColor = [[AMView appearance] backgroundColor];;
-    if(self.isSelected){
+    if (self.isSelected) {
         [self setSelectionMarkerVisible];
     }
 }
 
-- (void)assignSequenceStep: (AMSequenceStep*)aStep {
+- (void)assignSequenceStep:(AMSequenceStep *)aStep {
     _sequenceStep = aStep;
     _stepTitle.text = _sequenceStep.getName;
     _stepSubtitle.text = _sequenceStep.getDescription;
@@ -47,10 +47,9 @@
     [self awakeFromNib];
 }
 
-- (void)setAccessoryButton: (AMSequenceStep*)aStep {
+- (void)setAccessoryButton:(AMSequenceStep *)aStep {
     UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(30, 30, 30, 30)];
-    switch (aStep.getStepType)
-    {
+    switch (aStep.getStepType) {
         case PLAY_ONCE:
             [button setImage:[[UIImage imageNamed:@"seq1.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]
                     forState:UIControlStateNormal];
@@ -76,7 +75,7 @@
     [self setAccessoryButton:_sequenceStep];
 }
 
-- (AMSequenceStep*)getStepAssigned {
+- (AMSequenceStep *)getStepAssigned {
     return _sequenceStep;
 }
 

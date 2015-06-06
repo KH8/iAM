@@ -18,30 +18,39 @@
 
 @interface AMBar : NSMutableArray
 
-- (void) addBarDelegate: (id<AMBarDelegate>)delegate;
-- (void) removeBarDelegate: (id<AMBarDelegate>)delegate;
+- (void)addBarDelegate:(id <AMBarDelegate>)delegate;
 
-@property (nonatomic) NSInteger maxDensity;
-@property (nonatomic) NSInteger minDensity;
+- (void)removeBarDelegate:(id <AMBarDelegate>)delegate;
 
-@property (nonatomic) NSInteger maxSignature;
-@property (nonatomic) NSInteger minSignature;
+@property(nonatomic) NSInteger maxDensity;
+@property(nonatomic) NSInteger minDensity;
+
+@property(nonatomic) NSInteger maxSignature;
+@property(nonatomic) NSInteger minSignature;
 
 - (id)init;
 
 - (void)configureDefault;
-- (void)configureCustomWithNumberOfLines: (NSUInteger*)aNumberOfLines
-                    numberOfNotesPerLine: (NSUInteger*)aNumberOfNotesPerLine;
+
+- (void)configureCustomWithNumberOfLines:(NSUInteger *)aNumberOfLines
+                    numberOfNotesPerLine:(NSUInteger *)aNumberOfNotesPerLine;
 
 - (NSInteger)getNumberOfLines;
-- (NSMutableArray *)getLineAtIndex: (NSUInteger)index;
 
-- (void)setSignatureNumerator: (NSInteger)aSignatureNumerator;
+- (NSMutableArray *)getLineAtIndex:(NSUInteger)index;
+
+- (void)setSignatureNumerator:(NSInteger)aSignatureNumerator;
+
 - (NSInteger)getSignatureNumerator;
-- (void)setSignatureDenominator: (NSInteger)aSignatureDenominator;
+
+- (void)setSignatureDenominator:(NSInteger)aSignatureDenominator;
+
 - (NSInteger)getSignatureDenominator;
-- (void)setDensity: (NSInteger)aDensity;
+
+- (void)setDensity:(NSInteger)aDensity;
+
 - (NSInteger)getDensity;
+
 - (NSInteger)getLengthToBePlayed;
 
 - (void)clear;

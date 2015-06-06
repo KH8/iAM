@@ -11,6 +11,6 @@
 
 @interface AMSoundsTableViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate>
 
-- (void)assignPlayer:(AMPlayer*)player;
+- (void)assignPlayer:(AMPlayer *)player;
 
 @end

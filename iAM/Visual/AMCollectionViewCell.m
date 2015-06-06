@@ -8,10 +8,10 @@
 
 #import "AMCollectionViewCell.h"
 
-@interface AMCollectionViewCell()
+@interface AMCollectionViewCell ()
 
-@property (weak, nonatomic) AMNote *noteAssigned;
-@property (weak, nonatomic) IBOutlet UIView *rectangleView;
+@property(weak, nonatomic) AMNote *noteAssigned;
+@property(weak, nonatomic) IBOutlet UIView *rectangleView;
 
 @end
 
@@ -25,10 +25,10 @@
 
 - (void)reloadCell {
     UIColor *color = [[UIColor lightGrayColor] colorWithAlphaComponent:0.7F];
-    if(_noteAssigned.isMajorNote) color = [[UIColor lightGrayColor] colorWithAlphaComponent:0.4F];
-    if(_noteAssigned.isSelected) color = [[[UIView appearance] tintColor] colorWithAlphaComponent:1.0F];
-    if(_noteAssigned.isPlaying) color = [[UIColor whiteColor] colorWithAlphaComponent:0.5F];
-    if(_noteAssigned.isTriggered) color = [color colorWithAlphaComponent:0.8F];
+    if (_noteAssigned.isMajorNote) color = [[UIColor lightGrayColor] colorWithAlphaComponent:0.4F];
+    if (_noteAssigned.isSelected) color = [[[UIView appearance] tintColor] colorWithAlphaComponent:1.0F];
+    if (_noteAssigned.isPlaying) color = [[UIColor whiteColor] colorWithAlphaComponent:0.5F];
+    if (_noteAssigned.isTriggered) color = [color colorWithAlphaComponent:0.8F];
     _rectangleView.backgroundColor = color;
 }
 

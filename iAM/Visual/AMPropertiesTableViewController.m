@@ -19,16 +19,16 @@
 
 @property AppDelegate *appDelegate;
 
-@property (weak, nonatomic) IBOutlet UILabel *track1SoundLabel;
-@property (weak, nonatomic) IBOutlet UILabel *track2SoundLabel;
-@property (weak, nonatomic) IBOutlet UILabel *track3SoundLabel;
-@property (weak, nonatomic) IBOutlet AMVolumeSlider *generalSlider;
-@property (weak, nonatomic) IBOutlet AMVolumeSlider *track1Slider;
-@property (weak, nonatomic) IBOutlet AMVolumeSlider *track2Slider;
-@property (weak, nonatomic) IBOutlet AMVolumeSlider *track3Slider;
+@property(weak, nonatomic) IBOutlet UILabel *track1SoundLabel;
+@property(weak, nonatomic) IBOutlet UILabel *track2SoundLabel;
+@property(weak, nonatomic) IBOutlet UILabel *track3SoundLabel;
+@property(weak, nonatomic) IBOutlet AMVolumeSlider *generalSlider;
+@property(weak, nonatomic) IBOutlet AMVolumeSlider *track1Slider;
+@property(weak, nonatomic) IBOutlet AMVolumeSlider *track2Slider;
+@property(weak, nonatomic) IBOutlet AMVolumeSlider *track3Slider;
 
-@property (weak, nonatomic) IBOutlet UIButton *tintColorButton;
-@property (weak, nonatomic) IBOutlet UIButton *colorThemeButton;
+@property(weak, nonatomic) IBOutlet UIButton *tintColorButton;
+@property(weak, nonatomic) IBOutlet UIButton *colorThemeButton;
 
 @property NSTimer *mainTimer;
 @property NSRunLoop *runner;
@@ -49,7 +49,7 @@
     [self loadColors];
 }
 
--(void)viewDidAppear:(BOOL)animated {
+- (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     [self loadSidebarMenu];
     [self loadIcons];
@@ -64,35 +64,35 @@
 
 - (void)loadSidebarMenu {
     SWRevealViewController *revealController = [self revealViewController];
-    
+
     float menuWindowSize = (float) ([UIScreen mainScreen].bounds.size.height / 7.0);
     [revealController setRearViewRevealWidth:menuWindowSize + 5];
     [revealController setRearViewRevealOverdraw:menuWindowSize + 20];
-    
+
     [revealController setRightViewRevealWidth:0];
     [revealController setRightViewRevealOverdraw:0];
-    
+
     [revealController panGestureRecognizer];
     [revealController tapGestureRecognizer];
-    
-    [_sideMenuButton setTarget: self.revealViewController];
-    [_sideMenuButton setAction: @selector( revealToggle: )];
+
+    [_sideMenuButton setTarget:self.revealViewController];
+    [_sideMenuButton setAction:@selector(revealToggle:)];
 }
 
 - (void)loadIcons {
     UIButton *face = [UIButton buttonWithType:UIButtonTypeCustom];
     face.tintColor = [[UIView appearance] tintColor];
-    face.bounds = CGRectMake( 26, 26, 26, 26 );
+    face.bounds = CGRectMake(26, 26, 26, 26);
     [face setImage:[[UIImage imageNamed:@"menu.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]
           forState:UIControlStateNormal];
     [face addTarget:self.revealViewController
-             action:@selector( revealToggle: )
+             action:@selector(revealToggle:)
    forControlEvents:UIControlEventTouchDown];
     _navigationBarItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:face];
 }
 
-- (void)loadAppDelegate{
-    _appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+- (void)loadAppDelegate {
+    _appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
 }
 
 - (void)loadMainObjects {
@@ -109,10 +109,10 @@
                                                 userInfo:nil
                                                  repeats:YES];
     _runner = [NSRunLoop currentRunLoop];
-    [_runner addTimer:_mainTimer forMode: NSRunLoopCommonModes];
+    [_runner addTimer:_mainTimer forMode:NSRunLoopCommonModes];
 }
 
-- (void)loadColors{
+- (void)loadColors {
     UIColor *backgrounColor = [UINavigationBar appearance].barTintColor;
     [self.view setBackgroundColor:backgrounColor];
     [self.navigationController.navigationBar setBarTintColor:backgrounColor];
@@ -123,16 +123,16 @@
 }
 
 - (void)loadLabels {
-    _track1SoundLabel.text = [(AMPlayer*)_arrayOfPlayers[0] getSoundKey];
-    _track2SoundLabel.text = [(AMPlayer*)_arrayOfPlayers[1] getSoundKey];
-    _track3SoundLabel.text = [(AMPlayer*)_arrayOfPlayers[2] getSoundKey];
+    _track1SoundLabel.text = [(AMPlayer *) _arrayOfPlayers[0] getSoundKey];
+    _track2SoundLabel.text = [(AMPlayer *) _arrayOfPlayers[1] getSoundKey];
+    _track3SoundLabel.text = [(AMPlayer *) _arrayOfPlayers[2] getSoundKey];
 }
 
 - (void)loadSliders {
-    _generalSlider.value = [[(AMPlayer*)_arrayOfPlayers[0] getGeneralVolumeFactor] floatValue];
-    _track1Slider.value = [[(AMPlayer*)_arrayOfPlayers[0] getVolumeFactor] floatValue];
-    _track2Slider.value = [[(AMPlayer*)_arrayOfPlayers[1] getVolumeFactor] floatValue];
-    _track3Slider.value = [[(AMPlayer*)_arrayOfPlayers[2] getVolumeFactor] floatValue];
+    _generalSlider.value = [[(AMPlayer *) _arrayOfPlayers[0] getGeneralVolumeFactor] floatValue];
+    _track1Slider.value = [[(AMPlayer *) _arrayOfPlayers[0] getVolumeFactor] floatValue];
+    _track2Slider.value = [[(AMPlayer *) _arrayOfPlayers[1] getVolumeFactor] floatValue];
+    _track3Slider.value = [[(AMPlayer *) _arrayOfPlayers[2] getVolumeFactor] floatValue];
 }
 
 - (void)loadButtons {
@@ -143,47 +143,47 @@
 }
 
 - (IBAction)assignSoundToTrack1:(id)sender {
-    if([self isSoundAssignmentAllowed]){
-        [self performSegueWithIdentifier: @"sw_track1" sender: self];
+    if ([self isSoundAssignmentAllowed]) {
+        [self performSegueWithIdentifier:@"sw_track1" sender:self];
     }
 }
 
 - (IBAction)assignSoundToTrack2:(id)sender {
-    if([self isSoundAssignmentAllowed]){
-        [self performSegueWithIdentifier: @"sw_track2" sender: self];
+    if ([self isSoundAssignmentAllowed]) {
+        [self performSegueWithIdentifier:@"sw_track2" sender:self];
     }
 }
 
 - (IBAction)assignSoundToTrack3:(id)sender {
-    if([self isSoundAssignmentAllowed]){
-        [self performSegueWithIdentifier: @"sw_track3" sender: self];
+    if ([self isSoundAssignmentAllowed]) {
+        [self performSegueWithIdentifier:@"sw_track3" sender:self];
     }
 }
 
-- (BOOL)isSoundAssignmentAllowed{
-    if(![AMConfig isSoundChangeAllowed]){
-        [self performSegueWithIdentifier: @"sw_sounds_popup" sender: self];
+- (BOOL)isSoundAssignmentAllowed {
+    if (![AMConfig isSoundChangeAllowed]) {
+        [self performSegueWithIdentifier:@"sw_sounds_popup" sender:self];
         return NO;
     }
     return YES;
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if([segue.identifier isEqualToString:@"sw_confirm"]){
-        AMConfirmationViewController *confirmationViewController = (AMConfirmationViewController *)segue.destinationViewController;
+    if ([segue.identifier isEqualToString:@"sw_confirm"]) {
+        AMConfirmationViewController *confirmationViewController = (AMConfirmationViewController *) segue.destinationViewController;
         confirmationViewController.delegate = self;
         return;
     }
-    
-    if([segue.identifier isEqualToString:@"sw_sounds_popup"]){
-        AMPopupViewController *popupViewController = (AMPopupViewController *)segue.destinationViewController;
+
+    if ([segue.identifier isEqualToString:@"sw_sounds_popup"]) {
+        AMPopupViewController *popupViewController = (AMPopupViewController *) segue.destinationViewController;
         [popupViewController setText:[AMConfig soundChangeNotAllowed]];
         return;
     }
-    
+
     UINavigationController *controller = [segue destinationViewController];
     AMSoundsTableViewController *rootController = controller.viewControllers.firstObject;
-    
+
     if ([[segue identifier] isEqualToString:@"sw_track1"]) {
         [rootController assignPlayer:_arrayOfPlayers[0]];
     }
@@ -207,10 +207,10 @@
 }
 
 - (IBAction)reset:(id)sender {
-    [self performSegueWithIdentifier: @"sw_confirm" sender: self];
+    [self performSegueWithIdentifier:@"sw_confirm" sender:self];
 }
 
-- (void)refreshView{
+- (void)refreshView {
     [self.tableView reloadData];
     [self loadColors];
     [self loadButtons];
@@ -218,36 +218,36 @@
 }
 
 - (IBAction)generalTrackVolumeChanged:(id)sender {
-    [(AMPlayer*)_arrayOfPlayers[0] setGeneralVolumeFactor:[[NSNumber alloc] initWithFloat:_generalSlider.value]];
-    [(AMPlayer*)_arrayOfPlayers[1] setGeneralVolumeFactor:[[NSNumber alloc] initWithFloat:_generalSlider.value]];
-    [(AMPlayer*)_arrayOfPlayers[2] setGeneralVolumeFactor:[[NSNumber alloc] initWithFloat:_generalSlider.value]];
-    _player = (AMPlayer*)_arrayOfPlayers[0];
+    [(AMPlayer *) _arrayOfPlayers[0] setGeneralVolumeFactor:[[NSNumber alloc] initWithFloat:_generalSlider.value]];
+    [(AMPlayer *) _arrayOfPlayers[1] setGeneralVolumeFactor:[[NSNumber alloc] initWithFloat:_generalSlider.value]];
+    [(AMPlayer *) _arrayOfPlayers[2] setGeneralVolumeFactor:[[NSNumber alloc] initWithFloat:_generalSlider.value]];
+    _player = (AMPlayer *) _arrayOfPlayers[0];
     _playSound = YES;
 }
 
 - (IBAction)track1VolumeChanged:(id)sender {
-    [self trackVolumeChanged:(AMPlayer*)_arrayOfPlayers[0]
+    [self trackVolumeChanged:(AMPlayer *) _arrayOfPlayers[0]
                    withValue:_track1Slider.value];
 }
 
 - (IBAction)track2VolumeChanged:(id)sender {
-    [self trackVolumeChanged:(AMPlayer*)_arrayOfPlayers[1]
+    [self trackVolumeChanged:(AMPlayer *) _arrayOfPlayers[1]
                    withValue:_track2Slider.value];
 }
 
 - (IBAction)track3VolumeChanged:(id)sender {
-    [self trackVolumeChanged:(AMPlayer*)_arrayOfPlayers[2]
+    [self trackVolumeChanged:(AMPlayer *) _arrayOfPlayers[2]
                    withValue:_track3Slider.value];
 }
 
-- (void)trackVolumeChanged:(AMPlayer*)player withValue:(float)volume{
+- (void)trackVolumeChanged:(AMPlayer *)player withValue:(float)volume {
     [player setVolumeFactor:[[NSNumber alloc] initWithFloat:volume]];
     _player = player;
     _playSound = YES;
 }
 
 - (void)onTick {
-    if(_playSound){
+    if (_playSound) {
         _playSound = NO;
         [_player playSound];
     }

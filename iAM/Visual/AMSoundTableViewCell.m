@@ -14,7 +14,7 @@
 
 @property NSString *key;
 @property NSString *value;
-@property (weak, nonatomic) IBOutlet UIImageView *selectionImageView;
+@property(weak, nonatomic) IBOutlet UIImageView *selectionImageView;
 
 @property AMPlayer *amPlayer;
 
@@ -27,7 +27,7 @@
 
 - (void)setSelectionMarkerVisible {
     _selectionImageView.image = [[UIImage imageNamed:@"selectedLeft.png"]
-                                 imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+            imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
     _selectionImageView.contentMode = UIViewContentModeScaleAspectFit;
     _selectionImageView.tintColor = [[UIView appearance] tintColor];
 }
@@ -35,33 +35,33 @@
 - (void)setSelected:(BOOL)selected
            animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
-    
+
     _selectionImageView.tintColor = [[AMView appearance] backgroundColor];
-    if(self.isSelected){
+    if (self.isSelected) {
         [self setSelectionMarkerVisible];
         [self playSound];
     }
 }
 
-- (void) playSound {
+- (void)playSound {
     [_amPlayer setSoundName:_value withKey:_key];
     [_amPlayer playSound];
 }
 
-- (void)assignPlayer:(AMPlayer*)player{
+- (void)assignPlayer:(AMPlayer *)player {
     _amPlayer = player;
 }
 
-- (void)assignSoundKey: (NSString*)key{
+- (void)assignSoundKey:(NSString *)key {
     _key = key;
     _soundTitle.text = key;
 }
 
-- (void)assignSoundValue: (NSString*)value{
+- (void)assignSoundValue:(NSString *)value {
     _value = value;
 }
 
-- (NSString*)getValue{
+- (NSString *)getValue {
     return _value;
 }
 

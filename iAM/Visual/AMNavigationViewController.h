@@ -10,7 +10,7 @@
 
 @interface AMNavigationViewController : UIViewController
 
-@property (weak, nonatomic) IBOutlet UINavigationItem *navigationBarItem;
-@property (strong, nonatomic) IBOutlet UIBarButtonItem *sideMenuButton;
+@property(weak, nonatomic) IBOutlet UINavigationItem *navigationBarItem;
+@property(strong, nonatomic) IBOutlet UIBarButtonItem *sideMenuButton;
 
 @end

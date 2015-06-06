@@ -14,8 +14,10 @@
 @interface AMCollectionViewController : NSObject <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, AMMutableArrayDelegate, AMSequencerDelegate, AMBarDelegate>
 
 - (id)initWithCollectionView:(UICollectionView *)aCollectionView
-                andSequencer: (AMSequencer *)aSequencer;
+                andSequencer:(AMSequencer *)aSequencer;
+
 - (void)dealloc;
+
 - (void)reloadData;
 
 @end

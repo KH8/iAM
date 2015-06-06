@@ -9,11 +9,11 @@
 #import "AMSequence.h"
 #import "AMConfig.h"
 
-@interface AMSequence()
+@interface AMSequence ()
 
-@property (nonatomic) NSString *name;
-@property (nonatomic) NSDate *creationDate;
-@property (nonatomic) NSString *creationDateString;
+@property(nonatomic) NSString *name;
+@property(nonatomic) NSDate *creationDate;
+@property(nonatomic) NSString *creationDateString;
 
 @property NSInteger actualStepLoopCounter;
 
@@ -31,7 +31,7 @@
     return self;
 }
 
-- (id)initWithSubComponents{
+- (id)initWithSubComponents {
     self = [self init];
     if (self) {
         [self addStep];
@@ -39,38 +39,38 @@
     return self;
 }
 
-- (void)setName:(NSString*)newName{
+- (void)setName:(NSString *)newName {
     _name = newName;
 }
 
-- (NSString*)getName{
+- (NSString *)getName {
     return _name;
 }
 
-- (void)setCreationDate:(NSDate*)date{
+- (void)setCreationDate:(NSDate *)date {
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"dd-MM-yyyy HH:mm"];
     _creationDate = date;
     _creationDateString = [formatter stringFromDate:_creationDate];
 }
 
-- (NSDate*)getCreationDate{
+- (NSDate *)getCreationDate {
     return _creationDate;
 }
 
-- (NSString*)getCreationDateString{
+- (NSString *)getCreationDateString {
     return _creationDateString;
 }
 
-- (AMSequenceStep*)getNextStep{
-    AMSequenceStep *actualStep = (AMSequenceStep *)[self getActualObject];
+- (AMSequenceStep *)getNextStep {
+    AMSequenceStep *actualStep = (AMSequenceStep *) [self getActualObject];
     switch (actualStep.getStepType) {
         case PLAY_ONCE:
             [self setNextIndexAsActual];
             break;
         case REPEAT:
             _actualStepLoopCounter++;
-            if(_actualStepLoopCounter == actualStep.getNumberOfLoops){
+            if (_actualStepLoopCounter == actualStep.getNumberOfLoops) {
                 [self setNextIndexAsActual];
                 _actualStepLoopCounter = 0;
                 break;
@@ -79,20 +79,20 @@
         case INFINITE_LOOP:
             break;
     }
-    return (AMSequenceStep *)[self getActualObject];
+    return (AMSequenceStep *) [self getActualObject];
 }
 
-- (void)addStep{
+- (void)addStep {
     AMSequenceStep *sequenceStep = [[AMSequenceStep alloc] initWithSubComponents];
     [self addObject:sequenceStep];
 }
 
-- (void)setOneStepForward{
+- (void)setOneStepForward {
     [self setNextIndexAsActual];
     _actualStepLoopCounter = 0;
 }
 
-- (void)setOneStepBackward{
+- (void)setOneStepBackward {
     [self setPreviousIndexAsActual];
     _actualStepLoopCounter = 0;
 }

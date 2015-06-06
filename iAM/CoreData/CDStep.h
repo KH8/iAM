@@ -13,20 +13,23 @@
 
 @interface CDStep : NSManagedObject
 
-@property (nonatomic, retain) NSString * stepName;
-@property (nonatomic, retain) NSNumber * stepNumberOfLoops;
-@property (nonatomic, retain) NSNumber * stepTempo;
-@property (nonatomic, retain) NSNumber * stepType;
-@property (nonatomic, retain) NSNumber * stepId;
-@property (nonatomic, retain) CDSequence *sequence;
-@property (nonatomic, retain) NSSet *stepBars;
+@property(nonatomic, retain) NSString *stepName;
+@property(nonatomic, retain) NSNumber *stepNumberOfLoops;
+@property(nonatomic, retain) NSNumber *stepTempo;
+@property(nonatomic, retain) NSNumber *stepType;
+@property(nonatomic, retain) NSNumber *stepId;
+@property(nonatomic, retain) CDSequence *sequence;
+@property(nonatomic, retain) NSSet *stepBars;
 @end
 
 @interface CDStep (CoreDataGeneratedAccessors)
 
 - (void)addStepBarsObject:(CDBar *)value;
+
 - (void)removeStepBarsObject:(CDBar *)value;
+
 - (void)addStepBars:(NSSet *)values;
+
 - (void)removeStepBars:(NSSet *)values;
 
 @end

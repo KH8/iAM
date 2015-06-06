@@ -10,7 +10,7 @@
 
 @interface AMPageContentViewController : UIViewController
 
-@property (weak, nonatomic) IBOutlet UIImageView *backgroundImageView;
+@property(weak, nonatomic) IBOutlet UIImageView *backgroundImageView;
 
 @property NSUInteger pageIndex;
 @property NSString *imageFile;

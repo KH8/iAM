@@ -12,8 +12,8 @@
 
 @interface CDSelections : NSManagedObject
 
-@property (nonatomic, retain) NSNumber * sequenceSelected;
-@property (nonatomic, retain) NSNumber * stepSelected;
-@property (nonatomic, retain) NSNumber * barSelected;
+@property(nonatomic, retain) NSNumber *sequenceSelected;
+@property(nonatomic, retain) NSNumber *stepSelected;
+@property(nonatomic, retain) NSNumber *barSelected;
 
 @end

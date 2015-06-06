@@ -12,27 +12,34 @@
 
 @required
 
-- (void) sequenceHasStarted;
-- (void) sequenceHasStopped;
-- (void) sequenceHasChanged;
+- (void)sequenceHasStarted;
+
+- (void)sequenceHasStopped;
+
+- (void)sequenceHasChanged;
 
 @end
 
 @interface AMSequencer : NSObject <AMStaveDelegate, AMBarDelegate>
 
-- (void) addSequencerDelegate: (id<AMSequencerDelegate>)delegate;
-- (void) removeSequencerDelegate: (id<AMSequencerDelegate>)delegate;
+- (void)addSequencerDelegate:(id <AMSequencerDelegate>)delegate;
+
+- (void)removeSequencerDelegate:(id <AMSequencerDelegate>)delegate;
 
 - (id)init;
+
 - (void)killBackgroundThread;
 
 - (void)startStop;
+
 - (BOOL)isRunning;
+
 - (void)clear;
 
 - (void)setSequence:(AMSequence *)newSequence;
+
 - (AMSequence *)getSequence;
 
-- (NSArray*)getArrayOfPlayers;
+- (NSArray *)getArrayOfPlayers;
 
 @end

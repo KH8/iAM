@@ -10,15 +10,15 @@
 
 @interface AMNote ()
 
-@property (atomic) BOOL selectionState;
-@property (atomic) BOOL triggeredState;
-@property (atomic) BOOL majorNoteState;
+@property(atomic) BOOL selectionState;
+@property(atomic) BOOL triggeredState;
+@property(atomic) BOOL majorNoteState;
 
 @end
 
 @implementation AMNote
 
--(BOOL)isSelected {
+- (BOOL)isSelected {
     return _selectionState;
 }
 
@@ -34,7 +34,7 @@
     return _majorNoteState;
 }
 
--(void)select {
+- (void)select {
     _selectionState = !_selectionState;
     [_delegate noteStateHasBeenChanged];
 }
@@ -44,14 +44,14 @@
     [_delegate noteStateHasBeenChanged];
 }
 
-- (void)changeTriggerMarker: (BOOL)state{
-    if(_triggeredState == state) return;
+- (void)changeTriggerMarker:(BOOL)state {
+    if (_triggeredState == state) return;
     _triggeredState = state;
     [_delegate noteStateHasBeenChanged];
 }
 
-- (void)markMajorNoteState: (BOOL)state{
-    if(_majorNoteState == state) return;
+- (void)markMajorNoteState:(BOOL)state {
+    if (_majorNoteState == state) return;
     _majorNoteState = state;
     [_delegate noteStateHasBeenChanged];
 }

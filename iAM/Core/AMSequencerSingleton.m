@@ -15,7 +15,7 @@
 
 + (id)sharedSequencer {
     static AMSequencerSingleton *sharedMySequencer = nil;
-    @synchronized(self) {
+    @synchronized (self) {
         if (sharedMySequencer == nil)
             sharedMySequencer = [[self alloc] init];
     }

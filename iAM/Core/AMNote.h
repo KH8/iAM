@@ -12,23 +12,29 @@
 
 @required
 
-- (void) noteStateHasBeenChanged;
+- (void)noteStateHasBeenChanged;
 
 @end
 
 @interface AMNote : NSObject
 
 @property NSNumber *id;
-@property (nonatomic, weak) id <AMNoteDelegate> delegate;
+@property(nonatomic, weak) id <AMNoteDelegate> delegate;
 
 - (BOOL)isSelected;
+
 - (BOOL)isTriggered;
+
 - (BOOL)isPlaying;
+
 - (BOOL)isMajorNote;
 
 - (void)select;
+
 - (void)trigger;
-- (void)changeTriggerMarker: (BOOL)state;
-- (void)markMajorNoteState: (BOOL)state;
+
+- (void)changeTriggerMarker:(BOOL)state;
+
+- (void)markMajorNoteState:(BOOL)state;
 
 @end

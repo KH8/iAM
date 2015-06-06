@@ -23,10 +23,10 @@
 @implementation AMCollectionViewController {
 }
 
-static NSString * const reuseIdentifier = @"myCell";
+static NSString *const reuseIdentifier = @"myCell";
 
 - (id)initWithCollectionView:(UICollectionView *)aCollectionView
-                andSequencer: (AMSequencer *)aSequencer{
+                andSequencer:(AMSequencer *)aSequencer {
     self = [super init];
     if (self) {
         _collectionView = aCollectionView;
@@ -45,52 +45,52 @@ static NSString * const reuseIdentifier = @"myCell";
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView
-     numberOfItemsInSection:(NSInteger)section{
+     numberOfItemsInSection:(NSInteger)section {
     return [self getNumberOfRows];
 }
 
-- (UICollectionViewCell*)collectionView:(UICollectionView *)collectionView
-                 cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    AMCollectionViewCell * newCell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier
-                                                                               forIndexPath:indexPath];
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView
+                  cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    AMCollectionViewCell *newCell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier
+                                                                              forIndexPath:indexPath];
     NSUInteger numberOfLine = (NSUInteger) [self getNumberOfLine:indexPath];
-    NSMutableArray * lineOfNotes = [_actualBar getLineAtIndex: numberOfLine];
+    NSMutableArray *lineOfNotes = [_actualBar getLineAtIndex:numberOfLine];
     NSUInteger numberOfNote = (NSUInteger) [self getNumberOfNote:indexPath];
     [newCell setNoteAssigned:lineOfNotes[numberOfNote]];
     return newCell;
 }
 
-- (void)collectionView:(UICollectionView *)collectionView
-        didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
-    AMCollectionViewCell *cell = (AMCollectionViewCell*) [collectionView cellForItemAtIndexPath:indexPath];
+- (void)  collectionView:(UICollectionView *)collectionView
+didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    AMCollectionViewCell *cell = (AMCollectionViewCell *) [collectionView cellForItemAtIndexPath:indexPath];
     [cell touch];
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView
                   layout:(UICollectionViewLayout *)collectionViewLayout
-  sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
+  sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     float cellSize = (float) ((_collectionView.bounds.size.height / 3.0) - 0.1);
     return CGSizeMake(cellSize, cellSize);
 }
 
-- (NSInteger)getNumberOfRows{
+- (NSInteger)getNumberOfRows {
     return _actualBar.getNumberOfLines;
 }
 
-- (NSInteger)getNumberOfSections{
+- (NSInteger)getNumberOfSections {
     return _actualBar.getLengthToBePlayed;
 }
 
-- (NSInteger)getNumberOfLine: (NSIndexPath *)indexPath{
+- (NSInteger)getNumberOfLine:(NSIndexPath *)indexPath {
     return indexPath.row;
 }
 
-- (NSInteger)getNumberOfNote: (NSIndexPath *)indexPath{
+- (NSInteger)getNumberOfNote:(NSIndexPath *)indexPath {
     NSInteger multiplier = (NSInteger) (4.0 / _actualBar.getDensity);
     return indexPath.section * multiplier;
 }
 
-- (void)signatureHasBeenChanged{
+- (void)signatureHasBeenChanged {
     [self reloadData];
 }
 
@@ -104,7 +104,7 @@ static NSString * const reuseIdentifier = @"myCell";
 }
 
 - (void)maxCountExceeded {
-    
+
 }
 
 - (void)sequenceHasStarted {
@@ -120,17 +120,17 @@ static NSString * const reuseIdentifier = @"myCell";
     [self reloadData];
 }
 
-- (void)updateComponents{
+- (void)updateComponents {
     AMSequence *sequence = _mainSequencer.getSequence;
     [sequence addArrayDelegate:self];
-    AMSequenceStep *sequenceStep = (AMSequenceStep *)sequence.getActualObject;
+    AMSequenceStep *sequenceStep = (AMSequenceStep *) sequence.getActualObject;
     _mainStave = sequenceStep.getStave;
     [_mainStave addArrayDelegate:self];
-    _actualBar = (AMBar *)_mainStave.getActualObject;
+    _actualBar = (AMBar *) _mainStave.getActualObject;
     [_actualBar addBarDelegate:self];
 }
 
-- (void)reloadData{
+- (void)reloadData {
     [_collectionView reloadData];
 }
 

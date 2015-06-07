@@ -21,9 +21,13 @@
 
 - (void)changeGlobalTintColor;
 
+- (UIColor *)getGlobalTintColor;
+
 - (NSString *)getGlobalTintColorKey;
 
 - (void)changeGlobalColorTheme;
+
+- (UIColor *)getGlobalColorTheme;
 
 - (NSString *)getGlobalColorThemeKey;
 

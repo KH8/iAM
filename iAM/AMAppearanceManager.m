@@ -99,7 +99,6 @@
     _globalColorThemeKey = appearance.colorThemeKey;
     _showTutorial = appearance.showTutorial.boolValue;
 
-    [self setupAppearance];
     [self setupAppearanceOnce];
 }
 
@@ -143,7 +142,6 @@
 
     id key = _tintColorsArray[(NSUInteger) actualIndex];
     _globalTintColorKey = key;
-    [self setupAppearance];
 }
 
 - (NSInteger)getIndexOfAKey:(NSString *)key
@@ -156,6 +154,10 @@
         i++;
     }
     return -1;
+}
+
+- (UIColor *)getGlobalTintColor{
+    return _tintColors[_globalTintColorKey];
 }
 
 - (NSString *)getGlobalTintColorKey {
@@ -172,7 +174,10 @@
 
     id key = _colorThemesArray[(NSUInteger) actualIndex];
     _globalColorThemeKey = key;
-    [self setupAppearance];
+}
+
+- (UIColor *)getGlobalColorTheme{
+    return _colorThemes[_globalColorThemeKey];
 }
 
 - (NSString *)getGlobalColorThemeKey {
@@ -185,23 +190,6 @@
 
 - (BOOL)getShowTutorial {
     return _showTutorial;
-}
-
-- (void)setupAppearance {
-    UIColor *globalColor = _tintColors[_globalTintColorKey];
-    [[UIView appearance] setTintColor:globalColor];
-    [[UIPageControl appearance] setCurrentPageIndicatorTintColor:globalColor];
-    [[UITextView appearance] setTextColor:globalColor];
-    [[UINavigationBar appearance] setTintColor:globalColor];
-
-    UIColor *globalColorTheme = _colorThemes[_globalColorThemeKey];
-
-    [[AMView appearance] setBackgroundColor:globalColorTheme];
-    [[UITableView appearance] setBackgroundColor:globalColorTheme];
-    [[UICollectionView appearance] setBackgroundColor:globalColorTheme];
-    [[UIVisualEffectView appearance] setBackgroundColor:globalColorTheme];
-    [[UINavigationBar appearance] setBarTintColor:globalColorTheme];
-    [[UIToolbar appearance] setBarTintColor:globalColorTheme];
 }
 
 - (void)setupAppearanceOnce {

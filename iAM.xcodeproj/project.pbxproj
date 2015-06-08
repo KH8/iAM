@@ -66,6 +66,9 @@
 		A481D1AE1AEFF92C008EAE05 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A4C47C191A8BB68E002CF325 /* Images.xcassets */; };
 		A481D1AF1AEFF92C008EAE05 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A4C47C191A8BB68E002CF325 /* Images.xcassets */; };
 		A481D1B11AEFF96A008EAE05 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A481D1B01AEFF96A008EAE05 /* Images.xcassets */; };
+		A48B10F21B262FC3008B9258 /* AMApplicationDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A48B10F11B262FC3008B9258 /* AMApplicationDelegate.m */; };
+		A48B10F31B262FC3008B9258 /* AMApplicationDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A48B10F11B262FC3008B9258 /* AMApplicationDelegate.m */; };
+		A48B10F41B262FC3008B9258 /* AMApplicationDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A48B10F11B262FC3008B9258 /* AMApplicationDelegate.m */; };
 		A49A5A701AD718B3000B0080 /* speakerCalm.png in Resources */ = {isa = PBXBuildFile; fileRef = A49A5A6E1AD718B3000B0080 /* speakerCalm.png */; };
 		A49A5A711AD718B3000B0080 /* speakerLoud.png in Resources */ = {isa = PBXBuildFile; fileRef = A49A5A6F1AD718B3000B0080 /* speakerLoud.png */; };
 		A49A5A741AD718D9000B0080 /* AMMutableArrayResponder.m in Sources */ = {isa = PBXBuildFile; fileRef = A49A5A731AD718D9000B0080 /* AMMutableArrayResponder.m */; };
@@ -374,6 +377,8 @@
 		A481D1A71AEFF6B9008EAE05 /* AMConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMConfig.m; path = "tickGrid Lite/AMConfig.m"; sourceTree = "<group>"; };
 		A481D1A81AEFF6B9008EAE05 /* tickGrid Lite.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "tickGrid Lite.plist"; path = "tickGrid Lite/tickGrid Lite.plist"; sourceTree = "<group>"; };
 		A481D1B01AEFF96A008EAE05 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = "tickGrid Lite/Images.xcassets"; sourceTree = "<group>"; };
+		A48B10F01B262FC3008B9258 /* AMApplicationDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMApplicationDelegate.h; sourceTree = "<group>"; };
+		A48B10F11B262FC3008B9258 /* AMApplicationDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMApplicationDelegate.m; sourceTree = "<group>"; };
 		A49A5A6E1AD718B3000B0080 /* speakerCalm.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = speakerCalm.png; path = Icons/speakerCalm.png; sourceTree = "<group>"; };
 		A49A5A6F1AD718B3000B0080 /* speakerLoud.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = speakerLoud.png; path = Icons/speakerLoud.png; sourceTree = "<group>"; };
 		A49A5A721AD718D9000B0080 /* AMMutableArrayResponder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMMutableArrayResponder.h; path = Core/Auxiliaries/AMMutableArrayResponder.h; sourceTree = "<group>"; };
@@ -639,6 +644,8 @@
 				A45F0D4C1A5C6515008673FC /* AppDelegate.m */,
 				A445BAC61AE59BAC000CF7D7 /* AMConfig.h */,
 				A445BAC71AE59BAC000CF7D7 /* AMConfig.m */,
+				A48B10F01B262FC3008B9258 /* AMApplicationDelegate.h */,
+				A48B10F11B262FC3008B9258 /* AMApplicationDelegate.m */,
 				A4C59DAE1ADED12200DDA9A0 /* AMConfigurationManager.h */,
 				A4C59DAF1ADED12200DDA9A0 /* AMConfigurationManager.m */,
 				A4C59DB11ADED17600DDA9A0 /* AMAppearanceManager.h */,
@@ -1088,6 +1095,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A452FC221AEEE6A2008DFACD /* CDAppearance.m in Sources */,
+				A48B10F21B262FC3008B9258 /* AMApplicationDelegate.m in Sources */,
 				A4E7D9B81ADAF8A300B01BCD /* AMSoundTableViewCell.m in Sources */,
 				A452FC131AEEE5BA008DFACD /* CDConfiguration.m in Sources */,
 				A427C9F11A7D141D0003FB21 /* AMPopoverViewController.m in Sources */,
@@ -1150,6 +1158,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A452FC231AEEE6A2008DFACD /* CDAppearance.m in Sources */,
+				A48B10F31B262FC3008B9258 /* AMApplicationDelegate.m in Sources */,
 				A4C7EC9B1AE6EA3F00428B68 /* AMSoundTableViewCell.m in Sources */,
 				A452FC141AEEE5BA008DFACD /* CDConfiguration.m in Sources */,
 				A4C7EC9C1AE6EA3F00428B68 /* AMPopoverViewController.m in Sources */,
@@ -1204,6 +1213,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A452FC241AEEE6A2008DFACD /* CDAppearance.m in Sources */,
+				A48B10F41B262FC3008B9258 /* AMApplicationDelegate.m in Sources */,
 				A4FB77811AE6ED17003BC801 /* AMSoundTableViewCell.m in Sources */,
 				A452FC151AEEE5BA008DFACD /* CDConfiguration.m in Sources */,
 				A4FB77821AE6ED17003BC801 /* AMPopoverViewController.m in Sources */,

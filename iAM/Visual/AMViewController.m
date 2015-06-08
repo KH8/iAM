@@ -9,6 +9,8 @@
 #import <AVFoundation/AVFoundation.h>
 #import "SWRevealViewController.h"
 #import "AppDelegate.h"
+#import "AMAppearanceManager.h"
+#import "AMApplicationDelegate.h"
 #import "AMViewController.h"
 #import "AMSequencerSingleton.h"
 #import "AMPopupViewController.h"
@@ -104,7 +106,7 @@
 
     float menuWindowSize = (float) ([UIScreen mainScreen].bounds.size.height / 7.0);
     [revealController setRearViewRevealWidth:menuWindowSize + 5];
-    [revealController setRearViewRevealOverdraw:menuWindowSize + 20];
+    [revealController setRearViewRevealOverdraw:menuWindowSize + 5];
 
     [revealController setRightViewRevealWidth:280];
     [revealController setRightViewRevealOverdraw:60];
@@ -123,14 +125,13 @@
              withPictureName:@"eraser.png"
                     selector:@selector(onClearEvent:)
               buttonPosition:8
-                        size:30
-                       color:[UIColor orangeColor]];
+                        size:30];
 }
 
 - (void)loadIcons {
     UIBarButtonItem *originalLeftButton = self.navigationItem.leftBarButtonItem;
     UIButton *face = [UIButton buttonWithType:UIButtonTypeCustom];
-    face.tintColor = [[UIView appearance] tintColor];
+    face.tintColor = [AMAppearanceManager getGlobalTintColor];
     face.bounds = CGRectMake(26, 26, 26, 26);
     [face setImage:[[UIImage imageNamed:@"menu.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]
           forState:UIControlStateNormal];
@@ -144,13 +145,12 @@
            withPictureName:(NSString *)pictureName
                   selector:(SEL)selector
             buttonPosition:(NSUInteger)position
-                      size:(NSInteger)size
-                     color:(UIColor *)color {
+                      size:(NSInteger)size {
     UIImage *faceImage = [[UIImage imageNamed:pictureName]
             imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
 
     UIButton *face = [UIButton buttonWithType:UIButtonTypeCustom];
-    face.tintColor = color;
+    face.tintColor = [AMAppearanceManager getGlobalTintColor];
     face.bounds = CGRectMake(size, size, size, size);
     [face setImage:faceImage
           forState:UIControlStateNormal];
@@ -179,7 +179,7 @@
 }
 
 - (void)saveConfiguration {
-    AppDelegate *appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
+    AppDelegate *appDelegate = [AMApplicationDelegate getAppDelegate];
     [[appDelegate configurationManager] saveContext];
     [[appDelegate appearanceManager] saveContext];
 }

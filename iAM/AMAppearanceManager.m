@@ -8,7 +8,7 @@
 
 #import "AMAppearanceManager.h"
 #import "AMVolumeSlider.h"
-#import "AMView.h"
+#import "AMApplicationDelegate.h"
 #import "AppDelegate.h"
 #import "CDAppearance.h"
 
@@ -198,6 +198,18 @@
 
     [[AMVolumeSlider appearance] setMinimumValueImage:minImage];
     [[AMVolumeSlider appearance] setMaximumValueImage:maxImage];
+}
+
++ (UIColor *)getGlobalTintColor {
+    return [[[AMApplicationDelegate getAppDelegate] appearanceManager] getGlobalTintColor];
+}
+
++ (UIColor *)getGlobalColorTheme {
+    return [[[AMApplicationDelegate getAppDelegate] appearanceManager] getGlobalColorTheme];
+}
+
++ (BOOL)getShowTutorial {
+    return [[[AMApplicationDelegate getAppDelegate] appearanceManager] getShowTutorial];
 }
 
 @end

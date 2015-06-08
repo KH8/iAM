@@ -35,4 +35,10 @@
 
 - (BOOL)getShowTutorial;
 
++ (UIColor *)getGlobalTintColor;
+
++ (UIColor *)getGlobalColorTheme;
+
++ (BOOL)getShowTutorial;
+
 @end

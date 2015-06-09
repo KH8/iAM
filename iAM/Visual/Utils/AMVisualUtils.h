@@ -11,12 +11,11 @@
 
 @interface AMVisualUtils : NSObject
 
-+ (void)setBarButton:(UIBarButtonItem *)button
-     withPictureName:(NSString *)pictureName
-              targer:(id)target
-            selector:(SEL)selector
-               color:(UIColor *)color
-                size:(NSInteger)size;
++ (UIBarButtonItem *)createBarButton:(NSString *)pictureName
+                              targer:(id)target
+                            selector:(SEL)selector
+                               color:(UIColor *)color
+                                size:(NSInteger)size;
 
 + (void)replaceObjectInToolBar:(UIToolbar *)aToolBar
                        atIndex:(NSInteger)anIndex

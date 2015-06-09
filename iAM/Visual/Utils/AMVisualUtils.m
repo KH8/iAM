@@ -10,14 +10,12 @@
 
 @implementation AMVisualUtils
 
-+ (void)setBarButton:(UIBarButtonItem *)button
-     withPictureName:(NSString *)pictureName
-              targer:(id)target
-            selector:(SEL)selector
-               color:(UIColor *)color
-                size:(NSInteger)size {
-    UIImage *faceImage = [[UIImage imageNamed:pictureName]
-                          imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
++ (UIBarButtonItem *)createBarButton:(NSString *)pictureName
+                              targer:(id)target
+                            selector:(SEL)selector
+                               color:(UIColor *)color
+                                size:(NSInteger)size {
+    UIImage *faceImage = [[UIImage imageNamed:pictureName] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
     UIButton *face = [UIButton buttonWithType:UIButtonTypeCustom];
     
     face.tintColor = color;
@@ -28,7 +26,7 @@
              action:selector
    forControlEvents:UIControlEventTouchDown];
     
-    button = [[UIBarButtonItem alloc] initWithCustomView:face];
+    return [[UIBarButtonItem alloc] initWithCustomView:face];
 }
 
 + (void)replaceObjectInToolBar:(UIToolbar *)aToolBar

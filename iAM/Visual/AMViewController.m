@@ -123,13 +123,11 @@
 }
 
 - (void)loadToolBar {
-    _temporaryEraserButton = [[UIBarButtonItem alloc] init];
-    [AMVisualUtils setBarButton:_temporaryEraserButton
-                withPictureName:@"eraser.png"
-                         targer:self
-                       selector:@selector(onClearEvent:)
-                          color:[AMAppearanceManager getGlobalTintColor]
-                           size:30];
+    _temporaryEraserButton = [AMVisualUtils createBarButton:@"eraser.png"
+                                                     targer:self
+                                                   selector:@selector(onClearEvent:)
+                                                      color:[AMAppearanceManager getGlobalTintColor]
+                                                       size:30];
     [AMVisualUtils replaceObjectInToolBar:_bottomToolBar
                                   atIndex:8
                                withObject:_temporaryEraserButton];
@@ -137,20 +135,18 @@
 
 - (void)loadIcons {
     UIBarButtonItem *originalLeftButton = self.navigationItem.leftBarButtonItem;
-    UIButton *face = [UIButton buttonWithType:UIButtonTypeCustom];
-    face.tintColor = [AMAppearanceManager getGlobalTintColor];
-    face.bounds = CGRectMake(26, 26, 26, 26);
-    [face setImage:[[UIImage imageNamed:@"menu.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]
-          forState:UIControlStateNormal];
-    [face addTarget:originalLeftButton.target
-             action:originalLeftButton.action
-   forControlEvents:UIControlEventTouchDown];
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:face];
+    self.navigationItem.leftBarButtonItem = [AMVisualUtils createBarButton:@"menu.png"
+                                                                    targer:originalLeftButton.target
+                                                                  selector:originalLeftButton.action
+                                                                     color:[AMAppearanceManager getGlobalTintColor]
+                                                                      size:26];
 }
 
 - (void)loadAudioSession {
-    [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryMultiRoute error:nil];
-    [MPNowPlayingInfoCenter defaultCenter].nowPlayingInfo = [NSDictionary dictionaryWithObject:@1.0f forKey:MPNowPlayingInfoPropertyPlaybackRate];
+    [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryMultiRoute
+                                           error:nil];
+    [MPNowPlayingInfoCenter defaultCenter].nowPlayingInfo = [NSDictionary dictionaryWithObject:@1.0f
+                                                                                        forKey:MPNowPlayingInfoPropertyPlaybackRate];
 }
 
 - (void)loadTheme {
@@ -158,9 +154,9 @@
     UIColor *globalTintColor = [AMAppearanceManager getGlobalTintColor];
     [_bottomToolBar setTintColor:globalTintColor];
     [_bottomToolBar setBarTintColor:globalColorTheme];
+    [_pageControl setCurrentPageIndicatorTintColor:globalTintColor];
     [self.navigationController.navigationBar setTintColor:globalTintColor];
     [self.navigationController.navigationBar setBarTintColor:globalColorTheme];
-    [_pageControl setCurrentPageIndicatorTintColor:globalTintColor];
 }
 
 - (void)didReceiveMemoryWarning {

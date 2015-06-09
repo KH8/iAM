@@ -8,6 +8,7 @@
 
 #import <AVFoundation/AVFoundation.h>
 #import "SWRevealViewController.h"
+#import "Utils/AMVisualUtils.h"
 #import "AppDelegate.h"
 #import "AMAppearanceManager.h"
 #import "AMApplicationDelegate.h"
@@ -49,17 +50,18 @@
     [self loadToolBar];
     [self loadIcons];
     [self loadAudioSession];
+    [self loadTheme];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    [[AVAudioSession sharedInstance] setActive:YES error:nil];
-    [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
-    [self becomeFirstResponder];
     [self initAudioSession];
 }
 
 - (void)initAudioSession {
+    [[AVAudioSession sharedInstance] setActive:YES error:nil];
+    [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
+    [self becomeFirstResponder];
     AMPlayer *testPlayer = [[AMPlayer alloc] initWithFile:@"click1" andKey:@"" ofType:@"aif"];
     [testPlayer playSound];
 }
@@ -121,11 +123,16 @@
 }
 
 - (void)loadToolBar {
-    [self setBottomBarButton:_temporaryEraserButton
-             withPictureName:@"eraser.png"
-                    selector:@selector(onClearEvent:)
-              buttonPosition:8
-                        size:30];
+    _temporaryEraserButton = [[UIBarButtonItem alloc] init];
+    [AMVisualUtils setBarButton:_temporaryEraserButton
+                withPictureName:@"eraser.png"
+                         targer:self
+                       selector:@selector(onClearEvent:)
+                          color:[AMAppearanceManager getGlobalTintColor]
+                           size:30];
+    [AMVisualUtils replaceObjectInToolBar:_bottomToolBar
+                                  atIndex:8
+                               withObject:_temporaryEraserButton];
 }
 
 - (void)loadIcons {
@@ -141,30 +148,19 @@
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:face];
 }
 
-- (void)setBottomBarButton:(UIBarButtonItem *)button
-           withPictureName:(NSString *)pictureName
-                  selector:(SEL)selector
-            buttonPosition:(NSUInteger)position
-                      size:(NSInteger)size {
-    UIImage *faceImage = [[UIImage imageNamed:pictureName]
-            imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
-
-    UIButton *face = [UIButton buttonWithType:UIButtonTypeCustom];
-    face.tintColor = [AMAppearanceManager getGlobalTintColor];
-    face.bounds = CGRectMake(size, size, size, size);
-    [face setImage:faceImage
-          forState:UIControlStateNormal];
-    [face addTarget:self
-             action:selector
-   forControlEvents:UIControlEventTouchDown];
-
-    button = [[UIBarButtonItem alloc] initWithCustomView:face];
-    [self replaceObjectInToolBarAtIndex:position withObject:button];
-}
-
 - (void)loadAudioSession {
     [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryMultiRoute error:nil];
     [MPNowPlayingInfoCenter defaultCenter].nowPlayingInfo = [NSDictionary dictionaryWithObject:@1.0f forKey:MPNowPlayingInfoPropertyPlaybackRate];
+}
+
+- (void)loadTheme {
+    UIColor *globalColorTheme = [AMAppearanceManager getGlobalColorTheme];
+    UIColor *globalTintColor = [AMAppearanceManager getGlobalTintColor];
+    [_bottomToolBar setTintColor:globalTintColor];
+    [_bottomToolBar setBarTintColor:globalColorTheme];
+    [self.navigationController.navigationBar setTintColor:globalTintColor];
+    [self.navigationController.navigationBar setBarTintColor:globalColorTheme];
+    [_pageControl setCurrentPageIndicatorTintColor:globalTintColor];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -218,16 +214,6 @@
     [_mainSequence setOneStepForward];
 }
 
-- (void)replaceObjectInToolBarAtIndex:(NSInteger)anIndex
-                           withObject:(NSObject *)anObject {
-    NSMutableArray *toolbarItems = [[NSMutableArray alloc] init];
-    for (NSObject *item in _bottomToolBar.items) {
-        [toolbarItems addObject:item];
-    }
-    toolbarItems[(NSUInteger) anIndex] = anObject;
-    _bottomToolBar.items = toolbarItems;
-}
-
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"sw_popover"]) {
         AMPopoverViewController *popoverViewController = (AMPopoverViewController *) segue.destinationViewController;
@@ -274,14 +260,18 @@
     _temporaryPlayButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemPause
                                                                          target:self
                                                                          action:@selector(onPlayButtonTouchedEvent:)];
-    [self replaceObjectInToolBarAtIndex:2 withObject:_temporaryPlayButton];
+    [AMVisualUtils replaceObjectInToolBar:_bottomToolBar
+                                  atIndex:2
+                               withObject:_temporaryPlayButton];
 }
 
 - (void)sequenceHasStopped {
     _temporaryPlayButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemPlay
                                                                          target:self
                                                                          action:@selector(onPlayButtonTouchedEvent:)];
-    [self replaceObjectInToolBarAtIndex:2 withObject:_temporaryPlayButton];
+    [AMVisualUtils replaceObjectInToolBar:_bottomToolBar
+                                  atIndex:2
+                               withObject:_temporaryPlayButton];
 }
 
 - (void)sequenceHasChanged {
@@ -313,7 +303,9 @@
                                                                 style:UIBarButtonItemStylePlain
                                                                target:self
                                                                action:@selector(onShowSettings:)];
-    [self replaceObjectInToolBarAtIndex:6 withObject:_temporarySettingsButton];
+    [AMVisualUtils replaceObjectInToolBar:_bottomToolBar
+                                  atIndex:6
+                               withObject:_temporarySettingsButton];
 }
 
 - (void)updatePageControl {

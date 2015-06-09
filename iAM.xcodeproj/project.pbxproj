@@ -205,6 +205,9 @@
 		A4CB2BE71AD9C2E8007D2584 /* natural3.aif in Resources */ = {isa = PBXBuildFile; fileRef = A4CB2BDA1AD9C2E8007D2584 /* natural3.aif */; };
 		A4CB2BE81AD9C2E8007D2584 /* stickHigh.aif in Resources */ = {isa = PBXBuildFile; fileRef = A4CB2BDB1AD9C2E8007D2584 /* stickHigh.aif */; };
 		A4CB2BE91AD9C2E8007D2584 /* stickLow.aif in Resources */ = {isa = PBXBuildFile; fileRef = A4CB2BDC1AD9C2E8007D2584 /* stickLow.aif */; };
+		A4D59CD41B27533D00BCB697 /* AMVisualUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = A4D59CD31B27533D00BCB697 /* AMVisualUtils.m */; };
+		A4D59CD51B27533D00BCB697 /* AMVisualUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = A4D59CD31B27533D00BCB697 /* AMVisualUtils.m */; };
+		A4D59CD61B27533D00BCB697 /* AMVisualUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = A4D59CD31B27533D00BCB697 /* AMVisualUtils.m */; };
 		A4DDA2B61AA8F8B8006B9F33 /* spot.png in Resources */ = {isa = PBXBuildFile; fileRef = A4DDA2B51AA8F8B8006B9F33 /* spot.png */; };
 		A4DDA2B81AA8FB57006B9F33 /* selected.png in Resources */ = {isa = PBXBuildFile; fileRef = A4DDA2B71AA8FB57006B9F33 /* selected.png */; };
 		A4DDA2BA1AA9079D006B9F33 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = A4DDA2B91AA9079D006B9F33 /* icon.png */; };
@@ -446,6 +449,8 @@
 		A4CB2BDB1AD9C2E8007D2584 /* stickHigh.aif */ = {isa = PBXFileReference; lastKnownFileType = file; name = stickHigh.aif; path = Core/Sounds/stickHigh.aif; sourceTree = "<group>"; };
 		A4CB2BDC1AD9C2E8007D2584 /* stickLow.aif */ = {isa = PBXFileReference; lastKnownFileType = file; name = stickLow.aif; path = Core/Sounds/stickLow.aif; sourceTree = "<group>"; };
 		A4CCA74D1AE6F03900AB4F7C /* tickGrid.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = tickGrid.plist; path = tickGrid/tickGrid.plist; sourceTree = "<group>"; };
+		A4D59CD21B27533D00BCB697 /* AMVisualUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMVisualUtils.h; path = Utils/AMVisualUtils.h; sourceTree = "<group>"; };
+		A4D59CD31B27533D00BCB697 /* AMVisualUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMVisualUtils.m; path = Utils/AMVisualUtils.m; sourceTree = "<group>"; };
 		A4DDA2B51AA8F8B8006B9F33 /* spot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = spot.png; path = Icons/spot.png; sourceTree = "<group>"; };
 		A4DDA2B71AA8FB57006B9F33 /* selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = selected.png; path = Icons/selected.png; sourceTree = "<group>"; };
 		A4DDA2B91AA9079D006B9F33 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon.png; path = Icons/icon.png; sourceTree = "<group>"; };
@@ -505,6 +510,7 @@
 		8F01C9F7EDEB97C2F2D72BE8 /* Visual */ = {
 			isa = PBXGroup;
 			children = (
+				A4D59CD11B27532E00BCB697 /* Utils */,
 				A4A6C58F1AE9722600E488BC /* Images */,
 				A49A749F1A9A86FB006BC3C7 /* Icons */,
 				A44A3C701A7BF1E800B3B4DC /* SWRevealViewController */,
@@ -778,6 +784,15 @@
 				A4A686E11AF2B85D00FD2B7C /* tutorial_4.png */,
 			);
 			name = Images;
+			sourceTree = "<group>";
+		};
+		A4D59CD11B27532E00BCB697 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				A4D59CD21B27533D00BCB697 /* AMVisualUtils.h */,
+				A4D59CD31B27533D00BCB697 /* AMVisualUtils.m */,
+			);
+			name = Utils;
 			sourceTree = "<group>";
 		};
 		A4F24F881ABC90F500BF47C3 /* Auxiliaries */ = {
@@ -1142,6 +1157,7 @@
 				8F014B76B26DA38094740698 /* AMPickerController.m in Sources */,
 				A41C08EE1A9279F7006F0F06 /* AMSequenceTableViewCell.m in Sources */,
 				A49A5A771AD71A56000B0080 /* AMVolumeSlider.m in Sources */,
+				A4D59CD41B27533D00BCB697 /* AMVisualUtils.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1205,6 +1221,7 @@
 				A4C7ECC31AE6EA3F00428B68 /* AMPickerController.m in Sources */,
 				A4C7ECC41AE6EA3F00428B68 /* AMSequenceTableViewCell.m in Sources */,
 				A4C7ECC51AE6EA3F00428B68 /* AMVolumeSlider.m in Sources */,
+				A4D59CD51B27533D00BCB697 /* AMVisualUtils.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1260,6 +1277,7 @@
 				A4FB77A91AE6ED17003BC801 /* AMPickerController.m in Sources */,
 				A4FB77AA1AE6ED17003BC801 /* AMSequenceTableViewCell.m in Sources */,
 				A4FB77AB1AE6ED17003BC801 /* AMVolumeSlider.m in Sources */,
+				A4D59CD61B27533D00BCB697 /* AMVisualUtils.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

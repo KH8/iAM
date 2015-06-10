@@ -7,7 +7,6 @@
 //
 
 #import "AMSequenceMenuTableViewCell.h"
-#import "AMAppearanceManager.h"
 
 @interface AMSequenceMenuTableViewCell ()
 
@@ -33,7 +32,7 @@
               animated:animated];
     _titleLabel.textColor = [UIColor grayColor];
     if (self.isSelected) {
-        _titleLabel.textColor = [AMAppearanceManager getGlobalTintColor];
+        _titleLabel.textColor = [[UIView appearance] tintColor];
     }
 }
 

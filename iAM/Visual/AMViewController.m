@@ -107,7 +107,7 @@
     SWRevealViewController *revealController = [self revealViewController];
 
     float menuWindowSize = (float) ([UIScreen mainScreen].bounds.size.height / 7.0);
-    [revealController setRearViewRevealWidth:[UIScreen mainScreen].bounds.size.width - 50];
+    [revealController setRearViewRevealWidth:menuWindowSize + 5];
     [revealController setRearViewRevealOverdraw:menuWindowSize + 5];
 
     [revealController setRightViewRevealWidth:280];

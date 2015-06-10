@@ -7,7 +7,7 @@
 //
 
 #import "AMSequenceTableViewCell.h"
-#import "AMView.h"
+#import "AMAppearanceManager.h"
 
 @interface AMSequenceTableViewCell ()
 
@@ -19,7 +19,7 @@
 @implementation AMSequenceTableViewCell
 
 - (void)awakeFromNib {
-    [_stepTitle setTextColor:[[UIView appearance] tintColor]];
+    [_stepTitle setTextColor:[AMAppearanceManager getGlobalTintColor]];
 }
 
 - (void)setSelectionMarkerVisible {
@@ -33,7 +33,7 @@
     [super setSelected:selected animated:animated];
     [_stepTitle resignFirstResponder];
 
-    _selectionImageView.tintColor = [[AMView appearance] backgroundColor];;
+    _selectionImageView.tintColor = [AMAppearanceManager getGlobalColorTheme];;
     if (self.isSelected) {
         [self setSelectionMarkerVisible];
     }
@@ -65,7 +65,7 @@
     }
     [button addTarget:self action:@selector(changeStepType)
      forControlEvents:UIControlEventTouchUpInside];
-    button.tintColor = [[UIView appearance] tintColor];
+    button.tintColor = [AMAppearanceManager getGlobalTintColor];
     self.accessoryType = UITableViewCellAccessoryDetailButton;
     self.accessoryView = button;
 }

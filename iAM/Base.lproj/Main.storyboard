@@ -1026,28 +1026,18 @@
                                                         <outlet property="delegate" destination="WuP-nO-XxU" id="VEI-fR-Lfq"/>
                                                     </connections>
                                                 </textField>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qkj-Ao-eIy">
-                                                    <rect key="frame" x="268" y="14" width="12" height="12"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="12" id="EFz-tv-wXH"/>
-                                                        <constraint firstAttribute="width" constant="12" id="Qm3-TH-13b"/>
-                                                    </constraints>
-                                                </imageView>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <constraints>
-                                                <constraint firstAttribute="centerY" secondItem="qkj-Ao-eIy" secondAttribute="centerY" id="Cy1-Hk-py9"/>
                                                 <constraint firstAttribute="trailing" secondItem="SoH-Jh-0hG" secondAttribute="trailing" constant="10" id="DcH-F9-kyv"/>
                                                 <constraint firstAttribute="trailing" secondItem="pXz-Eu-HxI" secondAttribute="trailing" constant="10" id="FWa-c8-NaY"/>
                                                 <constraint firstAttribute="bottom" secondItem="SoH-Jh-0hG" secondAttribute="bottom" constant="5" id="RTi-op-kT6"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="qkj-Ao-eIy" secondAttribute="trailing" constant="-55" id="gSQ-73-J5H"/>
                                                 <constraint firstItem="pXz-Eu-HxI" firstAttribute="top" secondItem="AIB-5G-Bc9" secondAttribute="top" constant="5" id="nL1-Yt-SDQ"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <gestureRecognizers/>
                                         <connections>
-                                            <outlet property="selectionImageView" destination="qkj-Ao-eIy" id="kte-ee-R5i"/>
                                             <outlet property="stepSubtitle" destination="SoH-Jh-0hG" id="vaW-9x-3Ly"/>
                                             <outlet property="stepTitle" destination="pXz-Eu-HxI" id="4WD-a2-roA"/>
                                         </connections>
@@ -1611,15 +1601,8 @@
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pGq-Ap-eUB" id="3gX-92-Tee">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mr4-Im-aM7">
-                                            <rect key="frame" x="0.0" y="16" width="12" height="12"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="12" id="x7f-vA-a1O"/>
-                                                <constraint firstAttribute="height" constant="12" id="xKY-Zg-vxn"/>
-                                            </constraints>
-                                        </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LABEL" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ljp-TK-FHQ">
-                                            <rect key="frame" x="22" y="14" width="38" height="15"/>
+                                            <rect key="frame" x="16" y="14.5" width="38" height="14.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
@@ -1627,15 +1610,12 @@
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     <constraints>
-                                        <constraint firstItem="Ljp-TK-FHQ" firstAttribute="leading" secondItem="mr4-Im-aM7" secondAttribute="trailing" constant="10" id="7HP-MB-M7P"/>
+                                        <constraint firstItem="Ljp-TK-FHQ" firstAttribute="leading" secondItem="3gX-92-Tee" secondAttribute="leading" constant="16" id="83W-y9-cuA"/>
                                         <constraint firstAttribute="centerY" secondItem="Ljp-TK-FHQ" secondAttribute="centerY" id="Rlc-i4-SKZ"/>
-                                        <constraint firstItem="mr4-Im-aM7" firstAttribute="leading" secondItem="3gX-92-Tee" secondAttribute="leading" id="SlC-XU-Cvs"/>
-                                        <constraint firstAttribute="centerY" secondItem="mr4-Im-aM7" secondAttribute="centerY" id="mTA-Ka-6ym"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <connections>
-                                    <outlet property="selectionImageView" destination="mr4-Im-aM7" id="AiP-vi-m9Y"/>
                                     <outlet property="soundTitle" destination="Ljp-TK-FHQ" id="ZMC-Gv-jKd"/>
                                 </connections>
                             </tableViewCell>
@@ -1684,10 +1664,10 @@
         <image name="settings.png" width="120" height="120"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="zkT-HV-92U"/>
         <segue reference="2P6-UK-2cK"/>
+        <segue reference="zkT-HV-92U"/>
         <segue reference="lm7-pw-MVk"/>
-        <segue reference="HdI-RE-NKN"/>
+        <segue reference="A2U-uw-7qt"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
 </document>

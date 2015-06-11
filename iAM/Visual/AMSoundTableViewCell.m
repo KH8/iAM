@@ -14,7 +14,6 @@
 
 @property NSString *key;
 @property NSString *value;
-@property(weak, nonatomic) IBOutlet UIImageView *selectionImageView;
 
 @property AMPlayer *amPlayer;
 
@@ -25,20 +24,14 @@
 - (void)awakeFromNib {
 }
 
-- (void)setSelectionMarkerVisible {
-    _selectionImageView.image = [[UIImage imageNamed:@"selectedLeft.png"]
-            imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
-    _selectionImageView.contentMode = UIViewContentModeScaleAspectFit;
-    _selectionImageView.tintColor = [[UIView appearance] tintColor];
-}
-
 - (void)setSelected:(BOOL)selected
            animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
+}
 
-    _selectionImageView.tintColor = [[AMView appearance] backgroundColor];
+- (void)setSelectedWithColor:(UIColor *)color {
+    _soundTitle.textColor =  color;
     if (self.isSelected) {
-        [self setSelectionMarkerVisible];
         [self playSound];
     }
 }

@@ -7,36 +7,27 @@
 //
 
 #import "AMSequenceTableViewCell.h"
-#import "AMView.h"
+#import "AMAppearanceManager.h"
 
 @interface AMSequenceTableViewCell ()
 
 @property AMSequenceStep *sequenceStep;
-@property(weak, nonatomic) IBOutlet UIImageView *selectionImageView;
 
 @end
 
 @implementation AMSequenceTableViewCell
 
 - (void)awakeFromNib {
-    [_stepTitle setTextColor:[[UIView appearance] tintColor]];
-}
-
-- (void)setSelectionMarkerVisible {
-    _selectionImageView.image = [[UIImage imageNamed:@"selected.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
-    _selectionImageView.contentMode = UIViewContentModeScaleAspectFit;
-    _selectionImageView.tintColor = [[UIView appearance] tintColor];
 }
 
 - (void)setSelected:(BOOL)selected
            animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
-    [_stepTitle resignFirstResponder];
+}
 
-    _selectionImageView.tintColor = [[AMView appearance] backgroundColor];;
-    if (self.isSelected) {
-        [self setSelectionMarkerVisible];
-    }
+- (void)setSelectedWithColor:(UIColor *)color {
+    [_stepTitle resignFirstResponder];
+    [_stepTitle setTextColor:color];
 }
 
 - (void)assignSequenceStep:(AMSequenceStep *)aStep {
@@ -65,7 +56,7 @@
     }
     [button addTarget:self action:@selector(changeStepType)
      forControlEvents:UIControlEventTouchUpInside];
-    button.tintColor = [[UIView appearance] tintColor];
+    button.tintColor = [AMAppearanceManager getGlobalTintColor];
     self.accessoryType = UITableViewCellAccessoryDetailButton;
     self.accessoryView = button;
 }

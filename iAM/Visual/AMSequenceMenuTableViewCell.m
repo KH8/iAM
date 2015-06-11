@@ -28,12 +28,11 @@
 
 - (void)setSelected:(BOOL)selected
            animated:(BOOL)animated {
-    [super setSelected:selected
-              animated:animated];
-    _titleLabel.textColor = [UIColor grayColor];
-    if (self.isSelected) {
-        _titleLabel.textColor = [[UIView appearance] tintColor];
-    }
+    [super setSelected:selected animated:animated];
+}
+
+- (void)setSelectedWithColor:(UIColor *)color {
+    _titleLabel.textColor = color;
 }
 
 - (IBAction)textFiledEditingChanged:(id)sender {

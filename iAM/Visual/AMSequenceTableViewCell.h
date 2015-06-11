@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "AMSequenceStep.h"
+#import "Primitives/AMTableViewCell.h"
 
-@interface AMSequenceTableViewCell : UITableViewCell
+@interface AMSequenceTableViewCell : AMTableViewCell
 
 @property(weak, nonatomic) IBOutlet UITextField *stepTitle;
 @property(weak, nonatomic) IBOutlet UILabel *stepSubtitle;

@@ -7,14 +7,25 @@
 //
 
 #import "AMTableViewCell.h"
+#import "AMAppearanceManager.h"
 
 @implementation AMTableViewCell
 
 - (void)awakeFromNib {
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
+- (void)setSelected:(BOOL)selected
+           animated:(BOOL)animated {
+    [super setSelected:selected
+              animated:animated];
+    [self setSelectedWithColor:[UIColor grayColor]];
+    if (self.isSelected) {
+        [self setSelectedWithColor:[AMAppearanceManager getGlobalTintColor]];
+    }
+}
+
+- (void)setSelectedWithColor:(UIColor *)color {
+    
 }
 
 @end

@@ -10,4 +10,6 @@
 
 @interface AMTableViewCell : UITableViewCell
 
+- (void)setSelectedWithColor:(UIColor *)color;
+
 @end

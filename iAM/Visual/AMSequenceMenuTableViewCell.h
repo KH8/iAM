@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "AMSequence.h"
+#import "Primitives/AMTableViewCell.h"
 
-@interface AMSequenceMenuTableViewCell : UITableViewCell <UITextFieldDelegate>
+@interface AMSequenceMenuTableViewCell : AMTableViewCell <UITextFieldDelegate>
 
 @property(weak, nonatomic) IBOutlet UITextField *titleLabel;
 @property(weak, nonatomic) IBOutlet UILabel *detailLabel;

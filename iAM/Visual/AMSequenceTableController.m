@@ -11,6 +11,7 @@
 #import "AMSequencerSingleton.h"
 #import "AMPopupViewController.h"
 #import "AMMutableArrayResponder.h"
+#import "AMVisualUtils.h"
 #import "AMConfig.h"
 
 @interface AMSequenceTableController ()
@@ -70,49 +71,22 @@ static NSString *const reuseIdentifier = @"mySequenceStepCell";
 }
 
 - (void)initBottomToolBar {
-    [self setBottomBarButton:_tempAddButton
-             withPictureName:@"add.png"
-                    selector:@selector(onAddStep:)
-              buttonPosition:6
-                        size:30
-                       color:[UIColor darkGrayColor]];
-    [self setBottomBarButton:_tempDeleteButton
-             withPictureName:@"delete.png"
-                    selector:@selector(onDeleteStep:)
-              buttonPosition:5
-                        size:30
-                       color:[UIColor darkGrayColor]];
-}
-
-- (void)setBottomBarButton:(UIBarButtonItem *)button
-           withPictureName:(NSString *)pictureName
-                  selector:(SEL)selector
-            buttonPosition:(NSUInteger)position
-                      size:(NSInteger)size
-                     color:(UIColor *)color {
-    UIImage *faceImage = [[UIImage imageNamed:pictureName]
-            imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
-
-    UIButton *face = [UIButton buttonWithType:UIButtonTypeCustom];
-    face.tintColor = color;
-    face.bounds = CGRectMake(size, size, size, size);
-    [face setImage:faceImage
-          forState:UIControlStateNormal];
-    [face addTarget:self
-             action:selector
-   forControlEvents:UIControlEventTouchDown];
-
-    button = [[UIBarButtonItem alloc] initWithCustomView:face];
-    [self replaceObjectInToolBarAtIndex:position withObject:button];
-}
-
-- (void)replaceObjectInToolBarAtIndex:(NSInteger)anIndex withObject:(NSObject *)anObject {
-    NSMutableArray *toolbarItems = [[NSMutableArray alloc] init];
-    for (NSObject *item in _bottomToolBar.items) {
-        [toolbarItems addObject:item];
-    }
-    toolbarItems[(NSUInteger) anIndex] = anObject;
-    _bottomToolBar.items = toolbarItems;
+    _tempAddButton = [AMVisualUtils createBarButton:@"add.png"
+                                             targer:self
+                                           selector:@selector(onAddStep:)
+                                              color:[UIColor darkGrayColor]
+                                               size:30];
+    _tempDeleteButton = [AMVisualUtils createBarButton:@"delete.png"
+                                                targer:self
+                                              selector:@selector(onDeleteStep:)
+                                                 color:[UIColor darkGrayColor]
+                                                  size:30];
+    [AMVisualUtils replaceObjectInToolBar:_bottomToolBar
+                                  atIndex:6
+                               withObject:_tempAddButton];
+    [AMVisualUtils replaceObjectInToolBar:_bottomToolBar
+                                  atIndex:5
+                               withObject:_tempDeleteButton];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -256,25 +230,27 @@ didDeselectRowAtIndexPath:(NSIndexPath *)indexPath {
 }
 
 - (void)showAllLoopCountButtons {
-    [self setBottomBarButton:_tempIncrementButton
-             withPictureName:@"incloop.png"
-                    selector:@selector(onIncrementLoop:)
-              buttonPosition:3
-                        size:22
-                       color:[[UIView appearance] tintColor]];
-    [self setBottomBarButton:_tempDecrementButton
-             withPictureName:@"decloop.png"
-                    selector:@selector(onDecrementLoop:)
-              buttonPosition:1
-                        size:22
-                       color:[[UIView appearance] tintColor]];
-
+    _tempIncrementButton = [AMVisualUtils createBarButton:@"incloop.png"
+                                             targer:self
+                                           selector:@selector(onIncrementLoop:)
+                                               size:22];
+    _tempDecrementButton = [AMVisualUtils createBarButton:@"decloop.png"
+                                             targer:self
+                                           selector:@selector(onDecrementLoop:)
+                                               size:22];
     AMSequenceStep *step = (AMSequenceStep *) _mainSequence.getActualObject;
-    _tempLoopCountButton = [[UIBarButtonItem alloc] init];
-    _tempLoopCountButton.title = [NSString stringWithFormat:@"%ld", (long) step.getNumberOfLoops];
-    _tempLoopCountButton.tintColor = [[UIView appearance] tintColor];
-    [self replaceObjectInToolBarAtIndex:2
-                             withObject:_tempLoopCountButton];
+    _tempLoopCountButton = [AMVisualUtils createBarButtonWithText:[NSString stringWithFormat:@"%ld", (long) step.getNumberOfLoops]
+                                                           targer:nil
+                                                         selector:nil];
+    [AMVisualUtils replaceObjectInToolBar:_bottomToolBar
+                                  atIndex:3
+                               withObject:_tempIncrementButton];
+    [AMVisualUtils replaceObjectInToolBar:_bottomToolBar
+                                  atIndex:1
+                               withObject:_tempDecrementButton];
+    [AMVisualUtils replaceObjectInToolBar:_bottomToolBar
+                                  atIndex:2
+                               withObject:_tempLoopCountButton];
 }
 
 - (void)hideButton:(UIBarButtonItem *)button
@@ -283,8 +259,9 @@ didDeselectRowAtIndexPath:(NSIndexPath *)indexPath {
     button.style = UIBarButtonItemStylePlain;
     button.enabled = false;
     button.title = nil;
-    [self replaceObjectInToolBarAtIndex:position
-                             withObject:button];
+    [AMVisualUtils replaceObjectInToolBar:_bottomToolBar
+                                  atIndex:position
+                               withObject:button];
 }
 
 - (void)reloadView {

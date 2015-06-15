@@ -115,7 +115,6 @@
     _temporaryEraserButton = [AMVisualUtils createBarButton:@"eraser.png"
                                                      targer:self
                                                    selector:@selector(onClearEvent:)
-                                                      color:[AMAppearanceManager getGlobalTintColor]
                                                        size:30];
     [AMVisualUtils replaceObjectInToolBar:_bottomToolBar
                                   atIndex:8
@@ -127,7 +126,6 @@
     self.navigationItem.leftBarButtonItem = [AMVisualUtils createBarButton:@"menu.png"
                                                                     targer:originalLeftButton.target
                                                                   selector:originalLeftButton.action
-                                                                     color:[AMAppearanceManager getGlobalTintColor]
                                                                       size:26];
 }
 
@@ -284,10 +282,9 @@
                                                     (long) bar.getSignatureDenominator,
                                                     (long) bar.getDensity,
                                                     (long) _mainStave.getTempo];
-    _temporarySettingsButton = [[UIBarButtonItem alloc] initWithTitle:newTitle
-                                                                style:UIBarButtonItemStylePlain
-                                                               target:self
-                                                               action:@selector(onShowSettings:)];
+    _temporarySettingsButton = [AMVisualUtils createBarButtonWithText:newTitle
+                                                           targer:self
+                                                         selector:@selector(onShowSettings:)];
     [AMVisualUtils replaceObjectInToolBar:_bottomToolBar
                                   atIndex:6
                                withObject:_temporarySettingsButton];

@@ -7,8 +7,20 @@
 //
 
 #import "AMVisualUtils.h"
+#import "AMAppearanceManager.h"
 
 @implementation AMVisualUtils
+
++ (UIBarButtonItem *)createBarButton:(NSString *)pictureName
+                              targer:(id)target
+                            selector:(SEL)selector
+                                size:(NSInteger)size {
+    return [self createBarButton:pictureName
+                          targer:target
+                        selector:selector
+                           color:[AMAppearanceManager getGlobalTintColor]
+                            size:size];
+}
 
 + (UIBarButtonItem *)createBarButton:(NSString *)pictureName
                               targer:(id)target
@@ -27,6 +39,27 @@
    forControlEvents:UIControlEventTouchDown];
     
     return [[UIBarButtonItem alloc] initWithCustomView:face];
+}
+
++ (UIBarButtonItem *)createBarButtonWithText:(NSString *)text
+                                      targer:(id)target
+                                    selector:(SEL)selector {
+    return [self createBarButtonWithText:text
+                                  targer:target
+                                selector:selector
+                                   color:[AMAppearanceManager getGlobalTintColor]];
+}
+
++ (UIBarButtonItem *)createBarButtonWithText:(NSString *)text
+                                      targer:(id)target
+                                    selector:(SEL)selector
+                                       color:(UIColor *)color {
+    UIBarButtonItem *button = [[UIBarButtonItem alloc] init];
+    button.title = text;
+    button.tintColor = color;
+    button.target = target;
+    button.action = selector;
+    return button;
 }
 
 + (void)replaceObjectInToolBar:(UIToolbar *)aToolBar

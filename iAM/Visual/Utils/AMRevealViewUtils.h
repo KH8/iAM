@@ -7,7 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
+#import "SWRevealViewController.h"
 
 @interface AMRevealViewUtils : NSObject
+
++ (void)initRevealController:(SWRevealViewController *)controller
+             withRightButton:(UIBarButtonItem *)rightButton
+               andLeftButton:(UIBarButtonItem *)leftButton;
 
 @end

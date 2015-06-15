@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 H@E. All rights reserved.
 //
 
-#import "SWRevealViewController.h"
+#import "Utils/AMRevealViewUtils.h"
 #import "AppDelegate.h"
 #import "AMPropertiesTableViewController.h"
 #import "AMSoundsTableViewController.h"
@@ -64,19 +64,9 @@
 
 - (void)loadSidebarMenu {
     SWRevealViewController *revealController = [self revealViewController];
-
-    float menuWindowSize = (float) ([UIScreen mainScreen].bounds.size.height / 7.0);
-    [revealController setRearViewRevealWidth:menuWindowSize + 5];
-    [revealController setRearViewRevealOverdraw:menuWindowSize + 20];
-
-    [revealController setRightViewRevealWidth:0];
-    [revealController setRightViewRevealOverdraw:0];
-
-    [revealController panGestureRecognizer];
-    [revealController tapGestureRecognizer];
-
-    [_sideMenuButton setTarget:self.revealViewController];
-    [_sideMenuButton setAction:@selector(revealToggle:)];
+    [AMRevealViewUtils initRevealController:revealController
+                            withRightButton:nil
+                              andLeftButton:_sideMenuButton];
 }
 
 - (void)loadIcons {

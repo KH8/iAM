@@ -9,6 +9,7 @@
 #import <AVFoundation/AVFoundation.h>
 #import "SWRevealViewController.h"
 #import "Utils/AMVisualUtils.h"
+#import "Utils/AMRevealViewUtils.h"
 #import "AppDelegate.h"
 #import "AMAppearanceManager.h"
 #import "AMApplicationDelegate.h"
@@ -105,21 +106,9 @@
 
 - (void)loadSidebarMenu {
     SWRevealViewController *revealController = [self revealViewController];
-
-    float menuWindowSize = (float) ([UIScreen mainScreen].bounds.size.height / 7.0);
-    [revealController setRearViewRevealWidth:menuWindowSize + 5];
-    [revealController setRearViewRevealOverdraw:menuWindowSize + 5];
-
-    [revealController setRightViewRevealWidth:280];
-    [revealController setRightViewRevealOverdraw:60];
-
-    [revealController panGestureRecognizer];
-    [revealController tapGestureRecognizer];
-
-    [self.sideMenuButton setTarget:self.revealViewController];
-    [self.sideMenuButton setAction:@selector(revealToggle:)];
-    [self.listButton setTarget:self.revealViewController];
-    [self.listButton setAction:@selector(rightRevealToggle:)];
+    [AMRevealViewUtils initRevealController:revealController
+                            withRightButton:self.listButton
+                              andLeftButton:self.sideMenuButton];
 }
 
 - (void)loadToolBar {

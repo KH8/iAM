@@ -6,7 +6,8 @@
 //  Copyright (c) 2015 H@E. All rights reserved.
 //
 
-#import "SWRevealViewController.h"
+
+#import "AMRevealViewUtils.h"
 #import "AMNavigationViewController.h"
 
 @interface AMNavigationViewController ()
@@ -27,15 +28,9 @@
 
 - (void)loadSidebarMenu {
     SWRevealViewController *revealController = [self revealViewController];
-
-    [revealController setRightViewRevealWidth:0];
-    [revealController setRightViewRevealOverdraw:0];
-
-    [revealController panGestureRecognizer];
-    [revealController tapGestureRecognizer];
-
-    [_sideMenuButton setTarget:self.revealViewController];
-    [_sideMenuButton setAction:@selector(revealToggle:)];
+    [AMRevealViewUtils initRevealController:revealController
+                            withRightButton:nil
+                              andLeftButton:_sideMenuButton];
 }
 
 - (void)loadIcons {

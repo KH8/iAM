@@ -36,7 +36,7 @@
 
 - (void)runBackground {
     _swipeEnabled = NO;
-    int i = 10;
+    int i = 3;
 
     while (!_swipeEnabled) {
         dispatch_async(dispatch_get_main_queue(), ^{

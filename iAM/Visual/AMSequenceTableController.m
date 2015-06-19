@@ -12,6 +12,7 @@
 #import "AMPopupViewController.h"
 #import "AMMutableArrayResponder.h"
 #import "AMVisualUtils.h"
+#import "AMAppearanceManager.h"
 #import "AMConfig.h"
 
 @interface AMSequenceTableController ()
@@ -49,7 +50,7 @@ static NSString *const reuseIdentifier = @"mySequenceStepCell";
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     [self updateComponents];
-
+    [self loadTheme];
 }
 
 - (void)initResponders {
@@ -87,6 +88,11 @@ static NSString *const reuseIdentifier = @"mySequenceStepCell";
     [AMVisualUtils replaceObjectInToolBar:_bottomToolBar
                                   atIndex:5
                                withObject:_tempDeleteButton];
+    [_bottomToolBar setBarTintColor:[AMAppearanceManager getGlobalColorTheme]];
+}
+
+- (void)loadTheme {
+    [_bottomToolBar setBarTintColor:[AMAppearanceManager getGlobalColorTheme]];
 }
 
 - (void)didReceiveMemoryWarning {

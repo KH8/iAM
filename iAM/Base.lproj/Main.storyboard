@@ -372,7 +372,7 @@
                         <viewControllerLayoutGuide type="top" id="40l-bq-yOq"/>
                         <viewControllerLayoutGuide type="bottom" id="BTg-4X-bTc"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="rOZ-K1-r0N">
+                    <view key="view" contentMode="scaleToFill" id="rOZ-K1-r0N" customClass="AMView">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -472,6 +472,8 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="bottomToolBar" destination="FOk-Ok-i3h" id="WOw-bZ-N54"/>
+                        <outlet property="navigationBar" destination="2kb-eS-rew" id="7TB-69-6gX"/>
                         <outlet property="navigationBarItem" destination="8IU-Rz-1uh" id="9sD-Kq-e2x"/>
                         <outlet property="sideMenuButton" destination="XL1-4B-JsO" id="qnA-HH-ssz"/>
                         <outlet property="tableView" destination="lw6-5y-do4" id="cEd-VE-Jpm"/>
@@ -856,13 +858,17 @@
                         <outlet property="colorThemeButton" destination="pjc-jF-H7g" id="8Pw-Zb-dU7"/>
                         <outlet property="generalSlider" destination="r7V-6i-YGz" id="CkE-Ig-vQM"/>
                         <outlet property="navigationBarItem" destination="glS-80-XJe" id="GPo-Ub-qru"/>
+                        <outlet property="resetButton" destination="Q9N-Oc-VIy" id="NX8-nB-TDL"/>
                         <outlet property="sideMenuButton" destination="qVe-k9-gnl" id="18v-4O-XoW"/>
                         <outlet property="tintColorButton" destination="mT2-m9-Ncd" id="mg8-Ix-rOb"/>
                         <outlet property="track1Slider" destination="Ihd-rd-iue" id="kcZ-rx-Fum"/>
+                        <outlet property="track1SoundButton" destination="bk4-V0-waW" id="zak-wZ-QdB"/>
                         <outlet property="track1SoundLabel" destination="HPE-yE-lCq" id="lch-P4-IYj"/>
                         <outlet property="track2Slider" destination="ghi-za-kSV" id="Egu-Me-DLv"/>
+                        <outlet property="track2SoundButton" destination="43r-Kh-pKs" id="SMy-LL-DEV"/>
                         <outlet property="track2SoundLabel" destination="9d1-ZO-uUa" id="U65-Ov-bIo"/>
                         <outlet property="track3Slider" destination="qIA-BK-Pl2" id="QGd-26-c45"/>
+                        <outlet property="track3SoundButton" destination="Vvp-tF-FsJ" id="WId-3x-rln"/>
                         <outlet property="track3SoundLabel" destination="KMZ-bq-5Pj" id="hyO-K5-qk6"/>
                         <segue destination="hEN-7r-qKy" kind="presentation" identifier="sw_confirm" modalPresentationStyle="overFullScreen" modalTransitionStyle="coverVertical" id="vFl-po-kvb"/>
                         <segue destination="5t2-d4-3oA" kind="presentation" identifier="sw_sounds_popup" modalPresentationStyle="overFullScreen" modalTransitionStyle="coverVertical" id="A2U-uw-7qt"/>
@@ -875,10 +881,10 @@
             </objects>
             <point key="canvasLocation" x="-883" y="2619"/>
         </scene>
-        <!--View Controller-->
+        <!--Menu View Controller-->
         <scene sceneID="N5x-HU-r0s">
             <objects>
-                <viewController id="W0f-1P-MIG" sceneMemberID="viewController">
+                <viewController id="W0f-1P-MIG" customClass="AMMenuViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="kOv-5P-v7P"/>
                         <viewControllerLayoutGuide type="bottom" id="LH8-cI-gSH"/>
@@ -981,6 +987,12 @@
                             <constraint firstItem="LH8-cI-gSH" firstAttribute="top" secondItem="ENG-p6-cSa" secondAttribute="bottom" id="S19-j2-7Ap"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="aboutButton" destination="e04-f2-D8m" id="Sni-TT-mQW"/>
+                        <outlet property="gridButton" destination="Gxg-ug-BE5" id="Tzn-gp-aYg"/>
+                        <outlet property="listButton" destination="Eh0-EG-bf7" id="DQT-zj-uGc"/>
+                        <outlet property="propertiesButton" destination="g5H-tA-nWi" id="0yc-5g-9N2"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gOw-1G-JvD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1134,7 +1146,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <visualEffectView opaque="NO" alpha="0.84999999999999998" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sws-2I-aX3">
+                            <visualEffectView opaque="NO" alpha="0.84999999999999998" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sws-2I-aX3" customClass="AMVisualEffectView">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="KeA-zm-XZj">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
@@ -1307,7 +1319,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <visualEffectView opaque="NO" alpha="0.85000002384185791" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mpX-ah-RsI">
+                            <visualEffectView opaque="NO" alpha="0.85000002384185791" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mpX-ah-RsI" customClass="AMVisualEffectView">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Ns1-9r-LaR">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
@@ -1395,6 +1407,7 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="600" height="600"/>
                     <connections>
+                        <outlet property="confirmationButtom" destination="q4o-b5-y3L" id="23C-Ke-eXj"/>
                         <outlet property="textView" destination="LlR-lX-nSd" id="vvj-SF-DXh"/>
                     </connections>
                 </viewController>
@@ -1419,7 +1432,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <visualEffectView opaque="NO" alpha="0.85000002384185791" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aoe-RM-jYf">
+                            <visualEffectView opaque="NO" alpha="0.85000002384185791" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aoe-RM-jYf" customClass="AMVisualEffectView">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Wc1-1v-fb5">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
@@ -1557,6 +1570,7 @@
                     <connections>
                         <outlet property="descriptionText" destination="BvG-bL-2pO" id="I8p-47-LoD"/>
                         <outlet property="logoView" destination="8En-Rr-4Ft" id="4m3-Cs-fQL"/>
+                        <outlet property="navigationBar" destination="C8C-bL-Mst" id="iiU-cf-fbt"/>
                         <outlet property="navigationBarItem" destination="CYX-jQ-YOL" id="DDL-Vv-BcL"/>
                         <outlet property="sideMenuButton" destination="kWw-7b-acO" id="Ynf-qZ-dOg"/>
                     </connections>
@@ -1664,10 +1678,10 @@
         <image name="settings.png" width="120" height="120"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="2P6-UK-2cK"/>
         <segue reference="zkT-HV-92U"/>
-        <segue reference="lm7-pw-MVk"/>
+        <segue reference="2P6-UK-2cK"/>
         <segue reference="A2U-uw-7qt"/>
+        <segue reference="lm7-pw-MVk"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
 </document>

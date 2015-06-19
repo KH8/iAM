@@ -7,11 +7,13 @@
 //
 
 #import "AMConfirmationViewController.h"
+#import "AMAppearanceManager.h"
 #import "AppDelegate.h"
 
 @interface AMConfirmationViewController ()
 
 @property(weak, nonatomic) IBOutlet UITextView *textView;
+@property (weak, nonatomic) IBOutlet UIButton *confirmationButtom;
 
 @end
 
@@ -24,6 +26,7 @@
 
 - (void)loadColors {
     [_textView setTextColor:[UIColor lightGrayColor]];
+    [_confirmationButtom setTintColor:[AMAppearanceManager getGlobalTintColor]];
 }
 
 - (void)didReceiveMemoryWarning {

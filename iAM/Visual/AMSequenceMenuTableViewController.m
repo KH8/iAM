@@ -10,11 +10,15 @@
 #import "AMSequenceMenuTableViewCell.h"
 #import "AMSequencerSingleton.h"
 #import "AMPopupViewController.h"
+#import "AMAppearanceManager.h"
 #import "AMConfig.h"
 
 @interface AMSequenceMenuTableViewController ()
 
 @property(weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UINavigationBar *navigationBar;
+@property (weak, nonatomic) IBOutlet UIToolbar *bottomToolBar;
+
 @property AMMutableArray *arrayOfSequences;
 @property AMSequencer *sequencer;
 
@@ -28,6 +32,11 @@ static NSString *const reuseIdentifier = @"myMenuStepCell";
     [super viewDidLoad];
     [self loadMainObjects];
     [self updateIndexSelected];
+    [self loadTheme];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
 }
 
 - (void)loadMainObjects {
@@ -35,6 +44,15 @@ static NSString *const reuseIdentifier = @"myMenuStepCell";
     _arrayOfSequences = sequencerSingleton.arrayOfSequences;
     [_arrayOfSequences addArrayDelegate:self];
     _sequencer = sequencerSingleton.sequencer;
+}
+
+- (void)loadTheme {
+    UIColor *globalColorTheme = [AMAppearanceManager getGlobalColorTheme];
+    UIColor *globalTintColor = [AMAppearanceManager getGlobalTintColor];
+    [_bottomToolBar setTintColor:globalTintColor];
+    [_bottomToolBar setBarTintColor:globalColorTheme];
+    [_navigationBar setTintColor:globalTintColor];
+    [_navigationBar setBarTintColor:globalColorTheme];
 }
 
 - (void)didReceiveMemoryWarning {

@@ -7,6 +7,7 @@
 //
 
 #import "AMPopoverViewController.h"
+#import "AMAppearanceManager.h"
 
 @interface AMPopoverViewController ()
 
@@ -60,7 +61,7 @@
 }
 
 - (void)loadLables {
-    UIColor *defaultColor = [[UIView appearance] tintColor];
+    UIColor *defaultColor = [AMAppearanceManager getGlobalTintColor];
     [_tapTempoButton setTitleColor:defaultColor forState:UIControlStateNormal];
     [_metricLabel setTextColor:defaultColor];
     [_noteLabel setTextColor:defaultColor];

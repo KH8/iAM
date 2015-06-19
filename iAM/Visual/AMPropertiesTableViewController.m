@@ -7,12 +7,14 @@
 //
 
 #import "Utils/AMRevealViewUtils.h"
+#import "AMAppearanceManager.h"
 #import "AppDelegate.h"
 #import "AMPropertiesTableViewController.h"
 #import "AMSoundsTableViewController.h"
 #import "AMPopupViewController.h"
 #import "AMSequencerSingleton.h"
 #import "AMVolumeSlider.h"
+#import "AMVisualUtils.h"
 #import "AMConfig.h"
 
 @interface AMPropertiesTableViewController ()
@@ -26,9 +28,12 @@
 @property(weak, nonatomic) IBOutlet AMVolumeSlider *track1Slider;
 @property(weak, nonatomic) IBOutlet AMVolumeSlider *track2Slider;
 @property(weak, nonatomic) IBOutlet AMVolumeSlider *track3Slider;
-
 @property(weak, nonatomic) IBOutlet UIButton *tintColorButton;
 @property(weak, nonatomic) IBOutlet UIButton *colorThemeButton;
+@property(weak, nonatomic) IBOutlet UIButton *resetButton;
+@property(weak, nonatomic) IBOutlet UIButton *track1SoundButton;
+@property(weak, nonatomic) IBOutlet UIButton *track2SoundButton;
+@property(weak, nonatomic) IBOutlet UIButton *track3SoundButton;
 
 @property NSTimer *mainTimer;
 @property NSRunLoop *runner;
@@ -43,6 +48,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self loadSidebarMenu];
     [self loadAppDelegate];
     [self loadMainObjects];
     [self loadPlayBack];
@@ -52,7 +58,6 @@
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     [self loadSidebarMenu];
-    [self loadIcons];
     [self loadLabels];
     [self loadSliders];
     [self loadButtons];
@@ -64,21 +69,13 @@
 
 - (void)loadSidebarMenu {
     SWRevealViewController *revealController = [self revealViewController];
+    _navigationBarItem.leftBarButtonItem = [AMVisualUtils createBarButton:@"menu.png"
+                                                                   targer:self.revealViewController
+                                                                 selector:@selector(revealToggle:)
+                                                                     size:26];
     [AMRevealViewUtils initRevealController:revealController
                             withRightButton:nil
-                              andLeftButton:_sideMenuButton];
-}
-
-- (void)loadIcons {
-    UIButton *face = [UIButton buttonWithType:UIButtonTypeCustom];
-    face.tintColor = [[UIView appearance] tintColor];
-    face.bounds = CGRectMake(26, 26, 26, 26);
-    [face setImage:[[UIImage imageNamed:@"menu.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]
-          forState:UIControlStateNormal];
-    [face addTarget:self.revealViewController
-             action:@selector(revealToggle:)
-   forControlEvents:UIControlEventTouchDown];
-    _navigationBarItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:face];
+                              andLeftButton:_navigationBarItem.leftBarButtonItem];
 }
 
 - (void)loadAppDelegate {
@@ -103,13 +100,23 @@
 }
 
 - (void)loadColors {
-    UIColor *backgrounColor = [UINavigationBar appearance].barTintColor;
+    UIColor *backgrounColor = [AMAppearanceManager getGlobalColorTheme];
     [self.view setBackgroundColor:backgrounColor];
     [self.navigationController.navigationBar setBarTintColor:backgrounColor];
-    UIColor *tintColor = [UINavigationBar appearance].tintColor;
+    UIColor *tintColor = [AMAppearanceManager getGlobalTintColor];
     [self.navigationController.navigationBar setTintColor:tintColor];
     [self.navigationController.navigationItem.backBarButtonItem setTintColor:tintColor];
     [[self.navigationController.navigationBar.subviews lastObject] setTintColor:tintColor];
+    [_tintColorButton setTintColor:tintColor];
+    [_colorThemeButton setTintColor:tintColor];
+    [_resetButton setTintColor:tintColor];
+    [_generalSlider setTintColor:tintColor];
+    [_track1Slider setTintColor:tintColor];
+    [_track2Slider setTintColor:tintColor];
+    [_track3Slider setTintColor:tintColor];
+    [_track1SoundButton setTintColor:tintColor];
+    [_track2SoundButton setTintColor:tintColor];
+    [_track3SoundButton setTintColor:tintColor];
 }
 
 - (void)loadLabels {
@@ -202,9 +209,9 @@
 
 - (void)refreshView {
     [self.tableView reloadData];
+    [self loadSidebarMenu];
     [self loadColors];
     [self loadButtons];
-    [self loadIcons];
 }
 
 - (IBAction)generalTrackVolumeChanged:(id)sender {

@@ -4,6 +4,7 @@
 //
 
 #import "AMPickerController.h"
+#import "AMAppearanceManager.h"
 
 @interface AMPickerController ()
 
@@ -62,7 +63,7 @@ numberOfRowsInComponent:(NSInteger)component {
     label.text = [NSString stringWithFormat:@"%ld", (long) [pickerData[(NSUInteger) row] integerValue]];
     label.font = [UIFont systemFontOfSize:24];
     label.textAlignment = NSTextAlignmentCenter;
-    label.textColor = [[UIView appearance] tintColor];
+    label.textColor = [AMAppearanceManager getGlobalTintColor];
     label.backgroundColor = [UIColor clearColor];
     [label sizeToFit];
     return label;

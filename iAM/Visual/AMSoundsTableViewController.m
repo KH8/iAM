@@ -8,6 +8,7 @@
 
 #import "AMSoundsTableViewController.h"
 #import "AMSoundTableViewCell.h"
+#import "AMAppearanceManager.h"
 #import "SWRevealViewController.h"
 
 @interface AMSoundsTableViewController ()
@@ -37,7 +38,7 @@
 }
 
 - (void)initColors {
-    UIColor *backgrounColor = [UINavigationBar appearance].barTintColor;
+    UIColor *backgrounColor = [AMAppearanceManager getGlobalColorTheme];
     [self.view setBackgroundColor:backgrounColor];
 }
 

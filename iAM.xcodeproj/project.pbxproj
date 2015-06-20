@@ -33,6 +33,9 @@
 		A43E331F1AE6F49F00F4F6CC /* AMAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A43E331E1AE6F49F00F4F6CC /* AMAboutViewController.m */; };
 		A43E33201AE6F70B00F4F6CC /* AMAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A43E331E1AE6F49F00F4F6CC /* AMAboutViewController.m */; };
 		A43E33211AE6F70B00F4F6CC /* AMAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A43E331E1AE6F49F00F4F6CC /* AMAboutViewController.m */; };
+		A44219991B355C130063356A /* AMTrackConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = A44219981B355C130063356A /* AMTrackConfiguration.m */; };
+		A442199A1B355C130063356A /* AMTrackConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = A44219981B355C130063356A /* AMTrackConfiguration.m */; };
+		A442199B1B355C130063356A /* AMTrackConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = A44219981B355C130063356A /* AMTrackConfiguration.m */; };
 		A442FA2F1AE42A5400EB7791 /* AMRunner.m in Sources */ = {isa = PBXBuildFile; fileRef = A442FA2E1AE42A5400EB7791 /* AMRunner.m */; };
 		A44492061A9E7CE4008CEB8E /* add.png in Resources */ = {isa = PBXBuildFile; fileRef = A44492041A9E7CE4008CEB8E /* add.png */; };
 		A44492071A9E7CE4008CEB8E /* delete.png in Resources */ = {isa = PBXBuildFile; fileRef = A44492051A9E7CE4008CEB8E /* delete.png */; };
@@ -348,6 +351,8 @@
 		A427C9F01A7D141D0003FB21 /* AMPopoverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMPopoverViewController.m; sourceTree = "<group>"; };
 		A43E331D1AE6F49F00F4F6CC /* AMAboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMAboutViewController.h; sourceTree = "<group>"; };
 		A43E331E1AE6F49F00F4F6CC /* AMAboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMAboutViewController.m; sourceTree = "<group>"; };
+		A44219971B355C130063356A /* AMTrackConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMTrackConfiguration.h; path = Utils/AMTrackConfiguration.h; sourceTree = "<group>"; };
+		A44219981B355C130063356A /* AMTrackConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMTrackConfiguration.m; path = Utils/AMTrackConfiguration.m; sourceTree = "<group>"; };
 		A442FA2D1AE42A5400EB7791 /* AMRunner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMRunner.h; path = Core/AMRunner.h; sourceTree = "<group>"; };
 		A442FA2E1AE42A5400EB7791 /* AMRunner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMRunner.m; path = Core/AMRunner.m; sourceTree = "<group>"; };
 		A44492041A9E7CE4008CEB8E /* add.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = add.png; path = Icons/add.png; sourceTree = "<group>"; };
@@ -836,6 +841,8 @@
 				A4D59CD31B27533D00BCB697 /* AMVisualUtils.m */,
 				A46C81811B28E0C500605BD2 /* AMRevealViewUtils.h */,
 				A46C81821B28E0C500605BD2 /* AMRevealViewUtils.m */,
+				A44219971B355C130063356A /* AMTrackConfiguration.h */,
+				A44219981B355C130063356A /* AMTrackConfiguration.m */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -1206,6 +1213,7 @@
 				A4C59DB01ADED12200DDA9A0 /* AMConfigurationManager.m in Sources */,
 				8F014B76B26DA38094740698 /* AMPickerController.m in Sources */,
 				A41C08EE1A9279F7006F0F06 /* AMSequenceTableViewCell.m in Sources */,
+				A44219991B355C130063356A /* AMTrackConfiguration.m in Sources */,
 				A4D59CD41B27533D00BCB697 /* AMVisualUtils.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1274,6 +1282,7 @@
 				A4C7ECC21AE6EA3F00428B68 /* AMConfigurationManager.m in Sources */,
 				A4C7ECC31AE6EA3F00428B68 /* AMPickerController.m in Sources */,
 				A4C7ECC41AE6EA3F00428B68 /* AMSequenceTableViewCell.m in Sources */,
+				A442199A1B355C130063356A /* AMTrackConfiguration.m in Sources */,
 				A4D59CD51B27533D00BCB697 /* AMVisualUtils.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1334,6 +1343,7 @@
 				A4FB77A81AE6ED17003BC801 /* AMConfigurationManager.m in Sources */,
 				A4FB77A91AE6ED17003BC801 /* AMPickerController.m in Sources */,
 				A4FB77AA1AE6ED17003BC801 /* AMSequenceTableViewCell.m in Sources */,
+				A442199B1B355C130063356A /* AMTrackConfiguration.m in Sources */,
 				A4D59CD61B27533D00BCB697 /* AMVisualUtils.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

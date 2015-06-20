@@ -16,6 +16,9 @@
 - (id)initWithLabel:(UILabel *)soundLabel
              button:(UIButton *)soundButton
              slider:(AMVolumeSlider *)trackSlider
-          andPlayer:(AMPlayer *)player;
+             player:(AMPlayer *)player
+     viewController:(UIViewController *)parent
+     soundSegueName:(NSString *)segueName
+     popupSegueName:(NSString *)popupSegueName;
 
 @end

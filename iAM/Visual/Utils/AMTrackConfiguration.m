@@ -8,6 +8,7 @@
 
 #import "AMTrackConfiguration.h"
 #import "AMAppearanceManager.h"
+#import "AMConfig.h"
 
 @interface AMTrackConfiguration() {
 }
@@ -16,6 +17,10 @@
 @property(weak, nonatomic) AMVolumeSlider *slider;
 @property(weak, nonatomic) UIButton *soundButton;
 @property(weak, nonatomic) AMPlayer *player;
+@property(weak, nonatomic) UIViewController *controller;
+@property(weak, nonatomic) NSString *segueName;
+@property(weak, nonatomic) NSString *popupSegueName;
+
 
 
 @end
@@ -25,29 +30,48 @@
 - (id)initWithLabel:(UILabel *)soundLabel
              button:(UIButton *)soundButton
              slider:(AMVolumeSlider *)trackSlider
-          andPlayer:(AMPlayer *)player {
+             player:(AMPlayer *)player
+     viewController:(UIViewController *)parent
+     soundSegueName:(NSString *)segueName
+     popupSegueName:(NSString *)popupSegueName {
     self = [super init];
     if (self) {
         _soundLabel = soundLabel;
         _soundButton = soundButton;
         _slider = trackSlider;
         _player = player;
+        _segueName = segueName;
+        _popupSegueName = popupSegueName;
     }
     return self;
 }
 
-- (void)loadColors {
+- (void)loadColor {
     UIColor *tintColor = [AMAppearanceManager getGlobalTintColor];
     [_soundButton setTintColor:tintColor];
     [_slider setTintColor:tintColor];
 }
 
-- (void)loadLabels {
+- (void)loadLabel {
     _soundLabel.text = [_player getSoundKey];
 }
 
-- (void)loadSliders {
+- (void)loadSlider {
     _slider.value = [[_player getGeneralVolumeFactor] floatValue];
+}
+
+- (void)loadButton {
+    [_soundButton targetForAction:@selector(assignSoundToTrack)
+                       withSender:self];
+}
+
+- (void)assignSoundToTrack {
+    NSString *segue = _popupSegueName;
+    if ([AMConfig isSoundChangeAllowed]) {
+        segue = _segueName;
+    }
+    [_controller performSegueWithIdentifier:segue
+                                     sender:_controller];
 }
 
 @end

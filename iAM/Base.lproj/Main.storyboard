@@ -613,9 +613,6 @@
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="30" id="XKM-P9-Drl"/>
                                                     </constraints>
-                                                    <connections>
-                                                        <action selector="track1VolumeChanged:" destination="3jw-zo-k6R" eventType="valueChanged" id="xKd-dY-0u5"/>
-                                                    </connections>
                                                 </slider>
                                             </subviews>
                                             <constraints>
@@ -644,9 +641,6 @@
                                                         <constraint firstAttribute="width" constant="30" id="ttp-x0-KJA"/>
                                                     </constraints>
                                                     <state key="normal" title="Button" image="details.png"/>
-                                                    <connections>
-                                                        <action selector="assignSoundToTrack1:" destination="3jw-zo-k6R" eventType="touchUpInside" id="vtG-BC-UKD"/>
-                                                    </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LOW COWBELL" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HPE-yE-lCq">
                                                     <rect key="frame" x="459" y="15" width="90.5" height="14.5"/>
@@ -683,9 +677,6 @@
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="30" id="Dcu-Wk-Bw6"/>
                                                     </constraints>
-                                                    <connections>
-                                                        <action selector="track2VolumeChanged:" destination="3jw-zo-k6R" eventType="valueChanged" id="w95-lj-whV"/>
-                                                    </connections>
                                                 </slider>
                                             </subviews>
                                             <constraints>
@@ -714,9 +705,6 @@
                                                         <constraint firstAttribute="width" constant="30" id="aKG-5d-xVL"/>
                                                     </constraints>
                                                     <state key="normal" title="Button" image="details.png"/>
-                                                    <connections>
-                                                        <action selector="assignSoundToTrack2:" destination="3jw-zo-k6R" eventType="touchUpInside" id="Pgr-3e-CnX"/>
-                                                    </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LOW STICK" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9d1-ZO-uUa">
                                                     <rect key="frame" x="482.5" y="15" width="67" height="14.5"/>
@@ -753,9 +741,6 @@
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="30" id="rai-1S-ejO"/>
                                                     </constraints>
-                                                    <connections>
-                                                        <action selector="track3VolumeChanged:" destination="3jw-zo-k6R" eventType="valueChanged" id="ZrO-Z2-r4H"/>
-                                                    </connections>
                                                 </slider>
                                             </subviews>
                                             <constraints>
@@ -790,9 +775,6 @@
                                                         <constraint firstAttribute="width" constant="30" id="btG-Tu-T2A"/>
                                                     </constraints>
                                                     <state key="normal" title="Button" image="details.png"/>
-                                                    <connections>
-                                                        <action selector="assignSoundToTrack3:" destination="3jw-zo-k6R" eventType="touchUpInside" id="OV1-qD-yGG"/>
-                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>

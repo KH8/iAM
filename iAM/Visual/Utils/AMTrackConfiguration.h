@@ -21,4 +21,6 @@
      soundSegueName:(NSString *)segueName
      popupSegueName:(NSString *)popupSegueName;
 
+- (void)refresh;
+
 @end

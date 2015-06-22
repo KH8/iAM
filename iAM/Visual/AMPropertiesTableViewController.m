@@ -8,6 +8,7 @@
 
 #import "Utils/AMRevealViewUtils.h"
 #import "AMAppearanceManager.h"
+#import "AMTrackConfiguration.h"
 #import "AppDelegate.h"
 #import "AMPropertiesTableViewController.h"
 #import "AMSoundsTableViewController.h"
@@ -21,9 +22,6 @@
 
 @property AppDelegate *appDelegate;
 
-@property(weak, nonatomic) IBOutlet UILabel *track1SoundLabel;
-@property(weak, nonatomic) IBOutlet UILabel *track2SoundLabel;
-@property(weak, nonatomic) IBOutlet UILabel *track3SoundLabel;
 @property(weak, nonatomic) IBOutlet AMVolumeSlider *generalSlider;
 @property(weak, nonatomic) IBOutlet AMVolumeSlider *track1Slider;
 @property(weak, nonatomic) IBOutlet AMVolumeSlider *track2Slider;
@@ -34,12 +32,15 @@
 @property(weak, nonatomic) IBOutlet UIButton *track1SoundButton;
 @property(weak, nonatomic) IBOutlet UIButton *track2SoundButton;
 @property(weak, nonatomic) IBOutlet UIButton *track3SoundButton;
+@property(weak, nonatomic) IBOutlet UILabel *track1SoundLabel;
+@property(weak, nonatomic) IBOutlet UILabel *track2SoundLabel;
+@property(weak, nonatomic) IBOutlet UILabel *track3SoundLabel;
 
-@property NSTimer *mainTimer;
-@property NSRunLoop *runner;
-@property BOOL playSound;
-@property AMPlayer *player;
+@property AMTrackConfiguration *track1;
+@property AMTrackConfiguration *track2;
+@property AMTrackConfiguration *track3;
 
+@property NSDate *date;
 @property NSArray *arrayOfPlayers;
 
 @end
@@ -51,14 +52,13 @@
     [self loadSidebarMenu];
     [self loadAppDelegate];
     [self loadMainObjects];
-    [self loadPlayBack];
+    [self loadTrackConfigurations];
     [self loadColors];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     [self loadSidebarMenu];
-    [self loadLabels];
     [self loadSliders];
     [self loadButtons];
 }
@@ -86,50 +86,51 @@
     AMSequencerSingleton *sequencerSingleton = [AMSequencerSingleton sharedSequencer];
     AMSequencer *sequencer = sequencerSingleton.sequencer;
     _arrayOfPlayers = sequencer.getArrayOfPlayers;
+    _date = [NSDate date];
 }
 
-- (void)loadPlayBack {
-    _playSound = NO;
-    _mainTimer = [NSTimer scheduledTimerWithTimeInterval:0.5
-                                                  target:self
-                                                selector:@selector(onTick)
-                                                userInfo:nil
-                                                 repeats:YES];
-    _runner = [NSRunLoop currentRunLoop];
-    [_runner addTimer:_mainTimer forMode:NSRunLoopCommonModes];
+- (void)loadTrackConfigurations {
+    _track1 = [[AMTrackConfiguration alloc] initWithLabel:_track1SoundLabel
+                                                   button:_track1SoundButton
+                                                   slider:_track1Slider
+                                                   player:(AMPlayer *) _arrayOfPlayers[0]
+                                           viewController:self
+                                           soundSegueName:@"sw_track1"
+                                           popupSegueName:@"sw_sounds_popup"];
+    _track2 = [[AMTrackConfiguration alloc] initWithLabel:_track2SoundLabel
+                                                   button:_track2SoundButton
+                                                   slider:_track2Slider
+                                                   player:(AMPlayer *) _arrayOfPlayers[1]
+                                           viewController:self
+                                           soundSegueName:@"sw_track2"
+                                           popupSegueName:@"sw_sounds_popup"];
+    _track3 = [[AMTrackConfiguration alloc] initWithLabel:_track3SoundLabel
+                                                   button:_track3SoundButton
+                                                   slider:_track3Slider
+                                                   player:(AMPlayer *) _arrayOfPlayers[2]
+                                           viewController:self
+                                           soundSegueName:@"sw_track3"
+                                           popupSegueName:@"sw_sounds_popup"];
 }
 
 - (void)loadColors {
     UIColor *backgrounColor = [AMAppearanceManager getGlobalColorTheme];
     [self.view setBackgroundColor:backgrounColor];
     [self.navigationController.navigationBar setBarTintColor:backgrounColor];
+    
     UIColor *tintColor = [AMAppearanceManager getGlobalTintColor];
     [self.navigationController.navigationBar setTintColor:tintColor];
     [self.navigationController.navigationItem.backBarButtonItem setTintColor:tintColor];
     [[self.navigationController.navigationBar.subviews lastObject] setTintColor:tintColor];
+    
     [_tintColorButton setTintColor:tintColor];
     [_colorThemeButton setTintColor:tintColor];
     [_resetButton setTintColor:tintColor];
     [_generalSlider setTintColor:tintColor];
-    [_track1Slider setTintColor:tintColor];
-    [_track2Slider setTintColor:tintColor];
-    [_track3Slider setTintColor:tintColor];
-    [_track1SoundButton setTintColor:tintColor];
-    [_track2SoundButton setTintColor:tintColor];
-    [_track3SoundButton setTintColor:tintColor];
-}
-
-- (void)loadLabels {
-    _track1SoundLabel.text = [(AMPlayer *) _arrayOfPlayers[0] getSoundKey];
-    _track2SoundLabel.text = [(AMPlayer *) _arrayOfPlayers[1] getSoundKey];
-    _track3SoundLabel.text = [(AMPlayer *) _arrayOfPlayers[2] getSoundKey];
 }
 
 - (void)loadSliders {
     _generalSlider.value = [[(AMPlayer *) _arrayOfPlayers[0] getGeneralVolumeFactor] floatValue];
-    _track1Slider.value = [[(AMPlayer *) _arrayOfPlayers[0] getVolumeFactor] floatValue];
-    _track2Slider.value = [[(AMPlayer *) _arrayOfPlayers[1] getVolumeFactor] floatValue];
-    _track3Slider.value = [[(AMPlayer *) _arrayOfPlayers[2] getVolumeFactor] floatValue];
 }
 
 - (void)loadButtons {
@@ -137,32 +138,6 @@
                       forState:UIControlStateNormal];
     [_colorThemeButton setTitle:[[_appDelegate appearanceManager] getGlobalColorThemeKey]
                        forState:UIControlStateNormal];
-}
-
-- (IBAction)assignSoundToTrack1:(id)sender {
-    if ([self isSoundAssignmentAllowed]) {
-        [self performSegueWithIdentifier:@"sw_track1" sender:self];
-    }
-}
-
-- (IBAction)assignSoundToTrack2:(id)sender {
-    if ([self isSoundAssignmentAllowed]) {
-        [self performSegueWithIdentifier:@"sw_track2" sender:self];
-    }
-}
-
-- (IBAction)assignSoundToTrack3:(id)sender {
-    if ([self isSoundAssignmentAllowed]) {
-        [self performSegueWithIdentifier:@"sw_track3" sender:self];
-    }
-}
-
-- (BOOL)isSoundAssignmentAllowed {
-    if (![AMConfig isSoundChangeAllowed]) {
-        [self performSegueWithIdentifier:@"sw_sounds_popup" sender:self];
-        return NO;
-    }
-    return YES;
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
@@ -209,44 +184,32 @@
 
 - (void)refreshView {
     [self.tableView reloadData];
+    [self refreshTracks];
     [self loadSidebarMenu];
     [self loadColors];
     [self loadButtons];
+}
+
+- (void)refreshTracks {
+    [_track1 refresh];
+    [_track2 refresh];
+    [_track3 refresh];
 }
 
 - (IBAction)generalTrackVolumeChanged:(id)sender {
     [(AMPlayer *) _arrayOfPlayers[0] setGeneralVolumeFactor:[[NSNumber alloc] initWithFloat:_generalSlider.value]];
     [(AMPlayer *) _arrayOfPlayers[1] setGeneralVolumeFactor:[[NSNumber alloc] initWithFloat:_generalSlider.value]];
     [(AMPlayer *) _arrayOfPlayers[2] setGeneralVolumeFactor:[[NSNumber alloc] initWithFloat:_generalSlider.value]];
-    _player = (AMPlayer *) _arrayOfPlayers[0];
-    _playSound = YES;
+    [self playSound];
 }
 
-- (IBAction)track1VolumeChanged:(id)sender {
-    [self trackVolumeChanged:(AMPlayer *) _arrayOfPlayers[0]
-                   withValue:_track1Slider.value];
-}
-
-- (IBAction)track2VolumeChanged:(id)sender {
-    [self trackVolumeChanged:(AMPlayer *) _arrayOfPlayers[1]
-                   withValue:_track2Slider.value];
-}
-
-- (IBAction)track3VolumeChanged:(id)sender {
-    [self trackVolumeChanged:(AMPlayer *) _arrayOfPlayers[2]
-                   withValue:_track3Slider.value];
-}
-
-- (void)trackVolumeChanged:(AMPlayer *)player withValue:(float)volume {
-    [player setVolumeFactor:[[NSNumber alloc] initWithFloat:volume]];
-    _player = player;
-    _playSound = YES;
-}
-
-- (void)onTick {
-    if (_playSound) {
-        _playSound = NO;
-        [_player playSound];
+- (void)playSound {
+    AMPlayer *player = (AMPlayer *) _arrayOfPlayers[0];
+    NSDate *currentTime = [NSDate date];
+    NSTimeInterval timeDifference =  [currentTime timeIntervalSinceDate:_date];
+    if(timeDifference > 0.8) {
+        [player playSound];
+        _date = [NSDate date];
     }
 }
 

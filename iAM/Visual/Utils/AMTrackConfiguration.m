@@ -13,15 +13,14 @@
 @interface AMTrackConfiguration() {
 }
 
-@property(weak, nonatomic) UILabel *soundLabel;
-@property(weak, nonatomic) AMVolumeSlider *slider;
-@property(weak, nonatomic) UIButton *soundButton;
-@property(weak, nonatomic) AMPlayer *player;
-@property(weak, nonatomic) UIViewController *controller;
-@property(weak, nonatomic) NSString *segueName;
-@property(weak, nonatomic) NSString *popupSegueName;
-
-
+@property UILabel *soundLabel;
+@property AMVolumeSlider *slider;
+@property UIButton *soundButton;
+@property AMPlayer *player;
+@property UIViewController *controller;
+@property NSString *segueName;
+@property NSString *popupSegueName;
+@property NSDate *date;
 
 @end
 
@@ -36,14 +35,24 @@
      popupSegueName:(NSString *)popupSegueName {
     self = [super init];
     if (self) {
+        _date = [NSDate date];
         _soundLabel = soundLabel;
         _soundButton = soundButton;
         _slider = trackSlider;
         _player = player;
+        _controller = parent;
         _segueName = segueName;
         _popupSegueName = popupSegueName;
+        [self refresh];
     }
     return self;
+}
+
+- (void)refresh {
+    [self loadColor];
+    [self loadLabel];
+    [self loadSlider];
+    [self loadButton];
 }
 
 - (void)loadColor {
@@ -57,12 +66,16 @@
 }
 
 - (void)loadSlider {
-    _slider.value = [[_player getGeneralVolumeFactor] floatValue];
+    _slider.value = [[_player getVolumeFactor] floatValue];
+    [_slider addTarget:self
+                action:@selector(sliderVolumeChanged)
+      forControlEvents:UIControlEventValueChanged];
 }
 
 - (void)loadButton {
-    [_soundButton targetForAction:@selector(assignSoundToTrack)
-                       withSender:self];
+    [_soundButton addTarget:self
+                     action:@selector(assignSoundToTrack)
+           forControlEvents:UIControlEventTouchUpInside];
 }
 
 - (void)assignSoundToTrack {
@@ -72,6 +85,16 @@
     }
     [_controller performSegueWithIdentifier:segue
                                      sender:_controller];
+}
+
+- (void)sliderVolumeChanged {
+    [_player setVolumeFactor:[[NSNumber alloc] initWithFloat:_slider.value]];
+    NSDate *currentTime = [NSDate date];
+    NSTimeInterval timeDifference =  [currentTime timeIntervalSinceDate:_date];
+    if(timeDifference > 0.8) {
+        [_player playSound];
+        _date = [NSDate date];
+    }
 }
 
 @end

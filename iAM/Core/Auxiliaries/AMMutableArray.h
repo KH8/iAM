@@ -21,7 +21,7 @@
 
 @end
 
-@interface AMMutableArray : NSObject
+@interface AMMutableArray : AMClonableObject
 
 - (id)initWithMaxCount:(int)maxCount;
 

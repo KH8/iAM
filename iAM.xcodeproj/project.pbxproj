@@ -62,6 +62,9 @@
 		A452FC221AEEE6A2008DFACD /* CDAppearance.m in Sources */ = {isa = PBXBuildFile; fileRef = A452FC211AEEE6A2008DFACD /* CDAppearance.m */; };
 		A452FC231AEEE6A2008DFACD /* CDAppearance.m in Sources */ = {isa = PBXBuildFile; fileRef = A452FC211AEEE6A2008DFACD /* CDAppearance.m */; };
 		A452FC241AEEE6A2008DFACD /* CDAppearance.m in Sources */ = {isa = PBXBuildFile; fileRef = A452FC211AEEE6A2008DFACD /* CDAppearance.m */; };
+		A45A2BDC1B39C90C00FBA604 /* AMClonableString.m in Sources */ = {isa = PBXBuildFile; fileRef = A45A2BDB1B39C90C00FBA604 /* AMClonableString.m */; };
+		A45A2BDD1B39C90C00FBA604 /* AMClonableString.m in Sources */ = {isa = PBXBuildFile; fileRef = A45A2BDB1B39C90C00FBA604 /* AMClonableString.m */; };
+		A45A2BDE1B39C90C00FBA604 /* AMClonableString.m in Sources */ = {isa = PBXBuildFile; fileRef = A45A2BDB1B39C90C00FBA604 /* AMClonableString.m */; };
 		A45A3D6E1A71B4DF00039934 /* AMCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A45A3D6D1A71B4DF00039934 /* AMCollectionViewController.m */; };
 		A45DCF561AE288F200B4E174 /* AMConfirmationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A45DCF551AE288F200B4E174 /* AMConfirmationViewController.m */; };
 		A45F0D4A1A5C6515008673FC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A45F0D491A5C6515008673FC /* main.m */; };
@@ -380,6 +383,8 @@
 		A452FC121AEEE5BA008DFACD /* CDConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CDConfiguration.m; path = CoreData/CDConfiguration.m; sourceTree = "<group>"; };
 		A452FC201AEEE6A2008DFACD /* CDAppearance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDAppearance.h; path = CoreData/CDAppearance.h; sourceTree = "<group>"; };
 		A452FC211AEEE6A2008DFACD /* CDAppearance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CDAppearance.m; path = CoreData/CDAppearance.m; sourceTree = "<group>"; };
+		A45A2BDA1B39C90C00FBA604 /* AMClonableString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMClonableString.h; path = Core/Auxiliaries/AMClonableString.h; sourceTree = "<group>"; };
+		A45A2BDB1B39C90C00FBA604 /* AMClonableString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMClonableString.m; path = Core/Auxiliaries/AMClonableString.m; sourceTree = "<group>"; };
 		A45A3D6C1A71B4DF00039934 /* AMCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMCollectionViewController.h; sourceTree = "<group>"; };
 		A45A3D6D1A71B4DF00039934 /* AMCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMCollectionViewController.m; sourceTree = "<group>"; };
 		A45DCF541AE288F200B4E174 /* AMConfirmationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMConfirmationViewController.h; sourceTree = "<group>"; };
@@ -861,6 +866,8 @@
 				A4F24F8A1ABC914F00BF47C3 /* AMMutableArray.m */,
 				A441ADB61B39AE500054AF6F /* AMClonableObject.h */,
 				A441ADB71B39AE500054AF6F /* AMClonableObject.m */,
+				A45A2BDA1B39C90C00FBA604 /* AMClonableString.h */,
+				A45A2BDB1B39C90C00FBA604 /* AMClonableString.m */,
 			);
 			name = Auxiliaries;
 			sourceTree = "<group>";
@@ -1202,6 +1209,7 @@
 				A45A3D6E1A71B4DF00039934 /* AMCollectionViewController.m in Sources */,
 				A4A0CD841AD084E600618B1F /* CDBar.m in Sources */,
 				A4E7D9B51ADAF3C000B01BCD /* AMSoundsTableViewController.m in Sources */,
+				A45A2BDC1B39C90C00FBA604 /* AMClonableString.m in Sources */,
 				A4A0CD851AD084E600618B1F /* CDNote.m in Sources */,
 				A46069031AC74E0E00E9377F /* AMNavigationViewController.m in Sources */,
 				A4A0CD871AD084E600618B1F /* CDStep.m in Sources */,
@@ -1272,6 +1280,7 @@
 				A4C7ECB31AE6EA3F00428B68 /* AMCollectionViewController.m in Sources */,
 				A4C7ECB41AE6EA3F00428B68 /* CDBar.m in Sources */,
 				A4C7ECB51AE6EA3F00428B68 /* AMSoundsTableViewController.m in Sources */,
+				A45A2BDD1B39C90C00FBA604 /* AMClonableString.m in Sources */,
 				A4C7ECB61AE6EA3F00428B68 /* CDNote.m in Sources */,
 				A4C7ECB71AE6EA3F00428B68 /* AMNavigationViewController.m in Sources */,
 				A4C7ECB81AE6EA3F00428B68 /* CDStep.m in Sources */,
@@ -1334,6 +1343,7 @@
 				A4FB77991AE6ED17003BC801 /* AMCollectionViewController.m in Sources */,
 				A4FB779A1AE6ED17003BC801 /* CDBar.m in Sources */,
 				A4FB779B1AE6ED17003BC801 /* AMSoundsTableViewController.m in Sources */,
+				A45A2BDE1B39C90C00FBA604 /* AMClonableString.m in Sources */,
 				A4FB779C1AE6ED17003BC801 /* CDNote.m in Sources */,
 				A4FB779D1AE6ED17003BC801 /* AMNavigationViewController.m in Sources */,
 				A4FB779E1AE6ED17003BC801 /* CDStep.m in Sources */,

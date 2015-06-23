@@ -1,5 +1,5 @@
 //
-//  AMClonableObject.m
+//  AMClonableString.h
 //  iAM
 //
 //  Created by Krzysztof Reczek on 23.06.2015.
@@ -8,10 +8,9 @@
 
 #import "AMClonableObject.h"
 
-@implementation AMClonableObject
+@interface AMClonableString : AMClonableObject
 
-- (id)clone {
-    return [self init];
-}
+- (id)initWithString:(NSString *)string;
+- (NSString *)getValue;
 
 @end

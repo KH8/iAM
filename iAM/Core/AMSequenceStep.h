@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "AMClonableObject.h"
 #import "AMStave.h"
 
 @protocol AMSequenceStepDelegate <NSObject>
@@ -17,7 +18,7 @@
 
 @end
 
-@interface AMSequenceStep : NSObject
+@interface AMSequenceStep : AMClonableObject
 
 - (void)addStepDelegate:(id <AMSequenceStepDelegate>)delegate;
 

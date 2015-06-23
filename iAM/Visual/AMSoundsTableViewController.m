@@ -9,6 +9,7 @@
 #import "AMSoundsTableViewController.h"
 #import "AMSoundTableViewCell.h"
 #import "AMAppearanceManager.h"
+#import "AMClonableString.h"
 #import "SWRevealViewController.h"
 
 @interface AMSoundsTableViewController ()
@@ -45,32 +46,32 @@
 - (void)initDictionaryOfSounds {
     _arrayOfSounds = [[AMMutableArray alloc] initWithMaxCount:26];
 
-    [_arrayOfSounds addObjectAtTheEnd:@"artificialHigh1"];
-    [_arrayOfSounds addObjectAtTheEnd:@"ARTIFICIAL HIGH 1"];
-    [_arrayOfSounds addObjectAtTheEnd:@"artificialHigh2"];
-    [_arrayOfSounds addObjectAtTheEnd:@"ARTIFICIAL HIGH 2"];
-    [_arrayOfSounds addObjectAtTheEnd:@"artificialLow1"];
-    [_arrayOfSounds addObjectAtTheEnd:@"ARTIFICIAL LOW 1"];
-    [_arrayOfSounds addObjectAtTheEnd:@"artificialLow2"];
-    [_arrayOfSounds addObjectAtTheEnd:@"ARTIFICIAL LOW 2"];
-    [_arrayOfSounds addObjectAtTheEnd:@"click1"];
-    [_arrayOfSounds addObjectAtTheEnd:@"CLICK 1"];
-    [_arrayOfSounds addObjectAtTheEnd:@"click2"];
-    [_arrayOfSounds addObjectAtTheEnd:@"CLICK 2"];
-    [_arrayOfSounds addObjectAtTheEnd:@"clockTick1"];
-    [_arrayOfSounds addObjectAtTheEnd:@"CLOCK TICK 1"];
-    [_arrayOfSounds addObjectAtTheEnd:@"clockTick2"];
-    [_arrayOfSounds addObjectAtTheEnd:@"CLOCK TICK 2"];
-    [_arrayOfSounds addObjectAtTheEnd:@"natural1"];
-    [_arrayOfSounds addObjectAtTheEnd:@"NATURAL 1"];
-    [_arrayOfSounds addObjectAtTheEnd:@"natural2"];
-    [_arrayOfSounds addObjectAtTheEnd:@"NATURAL 2"];
-    [_arrayOfSounds addObjectAtTheEnd:@"natural3"];
-    [_arrayOfSounds addObjectAtTheEnd:@"NATURAL 3"];
-    [_arrayOfSounds addObjectAtTheEnd:@"stickHigh"];
-    [_arrayOfSounds addObjectAtTheEnd:@"STICK HIGH"];
-    [_arrayOfSounds addObjectAtTheEnd:@"stickLow"];
-    [_arrayOfSounds addObjectAtTheEnd:@"STICK LOW"];
+    [_arrayOfSounds addObjectAtTheEnd:[[AMClonableString alloc] initWithString:@"artificialHigh1"]];
+    [_arrayOfSounds addObjectAtTheEnd:[[AMClonableString alloc] initWithString:@"ARTIFICIAL HIGH 1"]];
+    [_arrayOfSounds addObjectAtTheEnd:[[AMClonableString alloc] initWithString:@"artificialHigh2"]];
+    [_arrayOfSounds addObjectAtTheEnd:[[AMClonableString alloc] initWithString:@"ARTIFICIAL HIGH 2"]];
+    [_arrayOfSounds addObjectAtTheEnd:[[AMClonableString alloc] initWithString:@"artificialLow1"]];
+    [_arrayOfSounds addObjectAtTheEnd:[[AMClonableString alloc] initWithString:@"ARTIFICIAL LOW 1"]];
+    [_arrayOfSounds addObjectAtTheEnd:[[AMClonableString alloc] initWithString:@"artificialLow2"]];
+    [_arrayOfSounds addObjectAtTheEnd:[[AMClonableString alloc] initWithString:@"ARTIFICIAL LOW 2"]];
+    [_arrayOfSounds addObjectAtTheEnd:[[AMClonableString alloc] initWithString:@"click1"]];
+    [_arrayOfSounds addObjectAtTheEnd:[[AMClonableString alloc] initWithString:@"CLICK 1"]];
+    [_arrayOfSounds addObjectAtTheEnd:[[AMClonableString alloc] initWithString:@"click2"]];
+    [_arrayOfSounds addObjectAtTheEnd:[[AMClonableString alloc] initWithString:@"CLICK 2"]];
+    [_arrayOfSounds addObjectAtTheEnd:[[AMClonableString alloc] initWithString:@"clockTick1"]];
+    [_arrayOfSounds addObjectAtTheEnd:[[AMClonableString alloc] initWithString:@"CLOCK TICK 1"]];
+    [_arrayOfSounds addObjectAtTheEnd:[[AMClonableString alloc] initWithString:@"clockTick2"]];
+    [_arrayOfSounds addObjectAtTheEnd:[[AMClonableString alloc] initWithString:@"CLOCK TICK 2"]];
+    [_arrayOfSounds addObjectAtTheEnd:[[AMClonableString alloc] initWithString:@"natural1"]];
+    [_arrayOfSounds addObjectAtTheEnd:[[AMClonableString alloc] initWithString:@"NATURAL 1"]];
+    [_arrayOfSounds addObjectAtTheEnd:[[AMClonableString alloc] initWithString:@"natural2"]];
+    [_arrayOfSounds addObjectAtTheEnd:[[AMClonableString alloc] initWithString:@"NATURAL 2"]];
+    [_arrayOfSounds addObjectAtTheEnd:[[AMClonableString alloc] initWithString:@"natural3"]];
+    [_arrayOfSounds addObjectAtTheEnd:[[AMClonableString alloc] initWithString:@"NATURAL 3"]];
+    [_arrayOfSounds addObjectAtTheEnd:[[AMClonableString alloc] initWithString:@"stickHigh"]];
+    [_arrayOfSounds addObjectAtTheEnd:[[AMClonableString alloc] initWithString:@"STICK HIGH"]];
+    [_arrayOfSounds addObjectAtTheEnd:[[AMClonableString alloc] initWithString:@"stickLow"]];
+    [_arrayOfSounds addObjectAtTheEnd:[[AMClonableString alloc] initWithString:@"STICK LOW"]];
 }
 
 - (void)initIndexSelection {

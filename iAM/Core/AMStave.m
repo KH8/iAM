@@ -97,4 +97,10 @@ NSUInteger const minTempo = 60;
     [self addObject:newBar];
 }
 
+- (id)clone {
+    AMStave *clone = [[AMStave alloc] initWithSubComponents];
+    [clone setTempo:_tempo];
+    return clone;
+}
+
 @end

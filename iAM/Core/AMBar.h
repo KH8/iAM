@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "AMMutableArray.h"
 
 @protocol AMBarDelegate <NSObject>
 
@@ -16,7 +17,7 @@
 
 @end
 
-@interface AMBar : NSMutableArray
+@interface AMBar : AMMutableArray
 
 - (void)addBarDelegate:(id <AMBarDelegate>)delegate;
 

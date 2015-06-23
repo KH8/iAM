@@ -48,7 +48,7 @@ NSUInteger const minSignature = 1;
 }
 
 - (id)init {
-    self = [super init];
+    self = [super initWithMaxCount:defaultNumberOfLines];
     if (self) {
         _barDelegates = [NSHashTable weakObjectsHashTable];
         [self initBasicParameters];
@@ -80,7 +80,7 @@ NSUInteger const minSignature = 1;
     _numberOfNotesPerLine = (int) aNumberOfNotesPerLine;
 
     for (int i = 0; i < _numberOfLines; i++) {
-        AMMutableArray *newLine = [[AMMutableArray alloc] init];
+        AMMutableArray *newLine = [[AMMutableArray alloc] initWithMaxCount:_numberOfNotesPerLine];
         for (int j = 0; j < _numberOfNotesPerLine; j++) {
             AMNote *newNote = [[AMNote alloc] init];
             newNote.id = @(i * 10 + j);
@@ -88,7 +88,6 @@ NSUInteger const minSignature = 1;
         }
         [self addObject:newLine];
     }
-
     [self updateMajorNotes];
 }
 

@@ -164,4 +164,13 @@
     }
 }
 
+- (id)clone {
+    AMSequenceStep *clone = [[AMSequenceStep alloc] init];
+    [clone setName:_name.copy];
+    [clone setStepType:_stepType];
+    [clone setNumberOfLoops:_numberOfLoops];
+    [clone setMainStave:_mainStave.clone];
+    return clone;
+}
+
 @end

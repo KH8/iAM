@@ -57,7 +57,7 @@
     }
 }
 
-- (void)addObject:(NSObject *)newObject {
+- (void)addObject:(AMClonableObject *)newObject {
     NSUInteger newIndex = 0;
     if (_baseArray.count != 0) {
         newIndex = _actualIndex + 1;
@@ -65,7 +65,7 @@
     [self addObject:newObject atIndex:newIndex];
 }
 
-- (void)addObject:(NSObject *)newObject atIndex:(NSUInteger)anIndex {
+- (void)addObject:(AMClonableObject *)newObject atIndex:(NSUInteger)anIndex {
     if (_baseArray.count == _maxCount) {
         [self delegateMaxCountExceeded];
         return;
@@ -74,7 +74,7 @@
     [self delegateArrayHasBeenChanged];
 }
 
-- (void)addObjectAtTheEnd:(NSObject *)newObject {
+- (void)addObjectAtTheEnd:(AMClonableObject *)newObject {
     [self addObject:newObject atIndex:_baseArray.count];
 }
 
@@ -94,15 +94,19 @@
     [self delegateArrayHasBeenChanged];
 }
 
+- (void)duplicateObject {
+
+}
+
 - (NSInteger)getActualIndex {
     return _actualIndex;
 }
 
-- (NSObject *)getActualObject {
+- (AMClonableObject *)getActualObject {
     return _baseArray[_actualIndex];
 }
 
-- (NSObject *)getObjectAtIndex:(NSUInteger)anIndex {
+- (AMClonableObject *)getObjectAtIndex:(NSUInteger)anIndex {
     if (anIndex >= _baseArray.count) {
         return nil;
     }

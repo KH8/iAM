@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "AMClonableObject.h"
 
 @protocol AMMutableArrayDelegate <NSObject>
 
@@ -28,21 +29,23 @@
 
 - (void)removeArrayDelegate:(id <AMMutableArrayDelegate>)delegate;
 
-- (void)addObject:(NSObject *)newObject;
+- (void)addObject:(AMClonableObject *)newObject;
 
-- (void)addObject:(NSObject *)newObject atIndex:(NSUInteger)anIndex;
+- (void)addObject:(AMClonableObject *)newObject atIndex:(NSUInteger)anIndex;
 
-- (void)addObjectAtTheEnd:(NSObject *)newObject;
+- (void)addObjectAtTheEnd:(AMClonableObject *)newObject;
 
 - (void)removeActualObject;
 
 - (void)removeObjectAtIndex:(NSUInteger)anIndex;
 
+- (void)duplicateObject;
+
 - (NSInteger)getActualIndex;
 
-- (NSObject *)getActualObject;
+- (AMClonableObject *)getActualObject;
 
-- (NSObject *)getObjectAtIndex:(NSUInteger)anIndex;
+- (AMClonableObject *)getObjectAtIndex:(NSUInteger)anIndex;
 
 - (void)setIndexAsActual:(NSUInteger)anIndex;
 

@@ -33,6 +33,9 @@
 		A43E331F1AE6F49F00F4F6CC /* AMAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A43E331E1AE6F49F00F4F6CC /* AMAboutViewController.m */; };
 		A43E33201AE6F70B00F4F6CC /* AMAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A43E331E1AE6F49F00F4F6CC /* AMAboutViewController.m */; };
 		A43E33211AE6F70B00F4F6CC /* AMAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A43E331E1AE6F49F00F4F6CC /* AMAboutViewController.m */; };
+		A441ADB81B39AE500054AF6F /* AMClonableObject.m in Sources */ = {isa = PBXBuildFile; fileRef = A441ADB71B39AE500054AF6F /* AMClonableObject.m */; };
+		A441ADB91B39AE500054AF6F /* AMClonableObject.m in Sources */ = {isa = PBXBuildFile; fileRef = A441ADB71B39AE500054AF6F /* AMClonableObject.m */; };
+		A441ADBA1B39AE500054AF6F /* AMClonableObject.m in Sources */ = {isa = PBXBuildFile; fileRef = A441ADB71B39AE500054AF6F /* AMClonableObject.m */; };
 		A44219991B355C130063356A /* AMTrackConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = A44219981B355C130063356A /* AMTrackConfiguration.m */; };
 		A442199A1B355C130063356A /* AMTrackConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = A44219981B355C130063356A /* AMTrackConfiguration.m */; };
 		A442199B1B355C130063356A /* AMTrackConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = A44219981B355C130063356A /* AMTrackConfiguration.m */; };
@@ -351,6 +354,8 @@
 		A427C9F01A7D141D0003FB21 /* AMPopoverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMPopoverViewController.m; sourceTree = "<group>"; };
 		A43E331D1AE6F49F00F4F6CC /* AMAboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMAboutViewController.h; sourceTree = "<group>"; };
 		A43E331E1AE6F49F00F4F6CC /* AMAboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMAboutViewController.m; sourceTree = "<group>"; };
+		A441ADB61B39AE500054AF6F /* AMClonableObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMClonableObject.h; path = Core/Auxiliaries/AMClonableObject.h; sourceTree = "<group>"; };
+		A441ADB71B39AE500054AF6F /* AMClonableObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMClonableObject.m; path = Core/Auxiliaries/AMClonableObject.m; sourceTree = "<group>"; };
 		A44219971B355C130063356A /* AMTrackConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMTrackConfiguration.h; path = Utils/AMTrackConfiguration.h; sourceTree = "<group>"; };
 		A44219981B355C130063356A /* AMTrackConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMTrackConfiguration.m; path = Utils/AMTrackConfiguration.m; sourceTree = "<group>"; };
 		A442FA2D1AE42A5400EB7791 /* AMRunner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMRunner.h; path = Core/AMRunner.h; sourceTree = "<group>"; };
@@ -854,6 +859,8 @@
 				A49A5A731AD718D9000B0080 /* AMMutableArrayResponder.m */,
 				A4F24F891ABC914F00BF47C3 /* AMMutableArray.h */,
 				A4F24F8A1ABC914F00BF47C3 /* AMMutableArray.m */,
+				A441ADB61B39AE500054AF6F /* AMClonableObject.h */,
+				A441ADB71B39AE500054AF6F /* AMClonableObject.m */,
 			);
 			name = Auxiliaries;
 			sourceTree = "<group>";
@@ -1173,6 +1180,7 @@
 				A45F0D4A1A5C6515008673FC /* main.m in Sources */,
 				A44E8E7D1B34BB2E0019235F /* AMVisualEffectView.m in Sources */,
 				A4A6C5A01AE9777600E488BC /* AMStartViewController.m in Sources */,
+				A441ADB81B39AE500054AF6F /* AMClonableObject.m in Sources */,
 				A46C819B1B28E19900605BD2 /* SWRevealViewController.m in Sources */,
 				A449107C1A5F3A1200E8C6DB /* AMNote.m in Sources */,
 				8F0B34AA1C650F6EBD78FA56 /* AMSequencer.m in Sources */,
@@ -1242,6 +1250,7 @@
 				A4C7ECA21AE6EA3F00428B68 /* main.m in Sources */,
 				A44E8E7E1B34BB2E0019235F /* AMVisualEffectView.m in Sources */,
 				A4C7ECA31AE6EA3F00428B68 /* AMNote.m in Sources */,
+				A441ADB91B39AE500054AF6F /* AMClonableObject.m in Sources */,
 				A46C819C1B28E19900605BD2 /* SWRevealViewController.m in Sources */,
 				A4C7ECA41AE6EA3F00428B68 /* AMSequencer.m in Sources */,
 				A4C7ECA51AE6EA3F00428B68 /* AMSequenceTableController.m in Sources */,
@@ -1303,6 +1312,7 @@
 				A4FB77881AE6ED17003BC801 /* main.m in Sources */,
 				A44E8E7F1B34BB2E0019235F /* AMVisualEffectView.m in Sources */,
 				A4FB77891AE6ED17003BC801 /* AMNote.m in Sources */,
+				A441ADBA1B39AE500054AF6F /* AMClonableObject.m in Sources */,
 				A46C819D1B28E19900605BD2 /* SWRevealViewController.m in Sources */,
 				A4FB778A1AE6ED17003BC801 /* AMSequencer.m in Sources */,
 				A4FB778B1AE6ED17003BC801 /* AMSequenceTableController.m in Sources */,

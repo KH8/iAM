@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "AMClonableObject.h"
 
 @protocol AMNoteDelegate <NSObject>
 
@@ -16,7 +17,7 @@
 
 @end
 
-@interface AMNote : NSObject
+@interface AMNote : AMClonableObject
 
 @property NSNumber *id;
 @property(nonatomic, weak) id <AMNoteDelegate> delegate;
@@ -32,6 +33,8 @@
 - (void)select;
 
 - (void)trigger;
+
+- (void)changeSelectState:(BOOL)state;
 
 - (void)changeTriggerMarker:(BOOL)state;
 

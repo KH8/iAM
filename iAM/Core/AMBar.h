@@ -38,8 +38,6 @@
 
 - (NSInteger)getNumberOfLines;
 
-- (NSMutableArray *)getLineAtIndex:(NSUInteger)index;
-
 - (void)setSignatureNumerator:(NSInteger)aSignatureNumerator;
 
 - (NSInteger)getSignatureNumerator;

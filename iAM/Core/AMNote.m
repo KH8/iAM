@@ -44,6 +44,12 @@
     [_delegate noteStateHasBeenChanged];
 }
 
+- (void)changeSelectState:(BOOL)state {
+    if (_selectionState == state) return;
+    _selectionState = state;
+    [_delegate noteStateHasBeenChanged];
+}
+
 - (void)changeTriggerMarker:(BOOL)state {
     if (_triggeredState == state) return;
     _triggeredState = state;
@@ -54,6 +60,14 @@
     if (_majorNoteState == state) return;
     _majorNoteState = state;
     [_delegate noteStateHasBeenChanged];
+}
+
+- (id)clone {
+    AMNote *clone = [[AMNote alloc] init];
+    [clone changeSelectState:_selectionState];
+    [clone changeTriggerMarker:_triggeredState];
+    [clone markMajorNoteState:_majorNoteState];
+    return clone;
 }
 
 @end

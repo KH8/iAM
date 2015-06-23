@@ -95,7 +95,8 @@
 }
 
 - (void)duplicateObject {
-
+    [self addObject:[_baseArray[_actualIndex] clone]
+            atIndex:_actualIndex];
 }
 
 - (NSInteger)getActualIndex {
@@ -156,6 +157,15 @@
 
 - (NSUInteger)countByEnumeratingWithState:(NSFastEnumerationState *)state objects:(id __unsafe_unretained[])stackbuf count:(NSUInteger)len {
     return [_baseArray countByEnumeratingWithState:state objects:stackbuf count:len];
+}
+
+- (id)clone {
+    AMMutableArray *clone = [[AMMutableArray alloc] init];
+    for (AMClonableObject *object in _baseArray) {
+        [clone addObjectAtTheEnd:[object clone]];
+    }
+    [clone setActualIndex:_actualIndex];
+    return clone;
 }
 
 @end

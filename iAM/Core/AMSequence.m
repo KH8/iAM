@@ -97,4 +97,10 @@
     _actualStepLoopCounter = 0;
 }
 
+- (id)clone {
+    AMSequence *clone = [super clone];
+    [clone setName:_name.copy];
+    return clone;
+}
+
 @end

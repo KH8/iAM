@@ -11,8 +11,6 @@
 
 @interface AMBar ()
 
-@property NSMutableArray *mainArray;
-
 @property int numberOfLines;
 @property int numberOfNotesPerLine;
 
@@ -81,23 +79,21 @@ NSUInteger const minSignature = 1;
     _numberOfLines = (int) aNumberOfLines;
     _numberOfNotesPerLine = (int) aNumberOfNotesPerLine;
 
-    _mainArray = [[NSMutableArray alloc] init];
-
     for (int i = 0; i < _numberOfLines; i++) {
-        NSMutableArray *newLine = [[NSMutableArray alloc] init];
+        AMMutableArray *newLine = [[AMMutableArray alloc] init];
         for (int j = 0; j < _numberOfNotesPerLine; j++) {
             AMNote *newNote = [[AMNote alloc] init];
             newNote.id = @(i * 10 + j);
             [newLine addObject:newNote];
         }
-        [_mainArray addObject:newLine];
+        [self addObject:newLine];
     }
 
     [self updateMajorNotes];
 }
 
 - (void)updateMajorNotes {
-    for (NSMutableArray *line in _mainArray) {
+    for (AMMutableArray *line in self) {
         int i = 0;
         for (AMNote *note in line) {
             [note markMajorNoteState:NO];
@@ -111,24 +107,6 @@ NSUInteger const minSignature = 1;
 
 - (NSInteger)getNumberOfLines {
     return [self count];
-}
-
-- (NSUInteger)count {
-    return _mainArray.count;
-}
-
-- (NSMutableArray *)getLineAtIndex:(NSUInteger)index {
-    return [self objectAtIndex:index];
-}
-
-- (id)objectAtIndex:(NSUInteger)index {
-    return _mainArray[index];
-}
-
-- (void)insertObject:(id)anObject
-             atIndex:(NSUInteger)index {
-    [_mainArray insertObject:anObject
-                     atIndex:index];
 }
 
 - (void)setSignatureNumerator:(NSInteger)aSignatureNumerator {
@@ -164,13 +142,21 @@ NSUInteger const minSignature = 1;
 }
 
 - (void)clear {
-    for (NSMutableArray *line in _mainArray) {
+    for (AMMutableArray *line in self) {
         for (AMNote *note in line) {
             if (note.isSelected) {
                 [note select];
             }
         }
     }
+}
+
+- (id)clone {
+    AMBar *clone = [super clone];
+    [clone setSignatureNumerator:_signatureNumerator];
+    [clone setSignatureDenominator:_signatureDenominator];
+    [clone setDensity:_density];
+    return clone;
 }
 
 @end

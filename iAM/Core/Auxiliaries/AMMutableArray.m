@@ -96,6 +96,14 @@
 - (void)duplicateObject {
     [self addObject:[_baseArray[_actualIndex] clone]
             atIndex:_actualIndex];
+    [self delegateArrayHasBeenChanged];
+}
+
+- (void)exchangeObjectAtIndex:(NSUInteger)sourceIndex
+            withObjectAtIndex:(NSUInteger)targetIndex {
+    [_baseArray exchangeObjectAtIndex:sourceIndex
+                    withObjectAtIndex:targetIndex];
+    [self delegateArrayHasBeenChanged];
 }
 
 - (NSInteger)getActualIndex {

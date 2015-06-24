@@ -465,6 +465,7 @@
                                 </items>
                             </navigationBar>
                         </subviews>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="2kb-eS-rew" firstAttribute="leading" secondItem="rOZ-K1-r0N" secondAttribute="leading" id="0jL-TX-4tx"/>
                             <constraint firstItem="FOk-Ok-i3h" firstAttribute="leading" secondItem="rOZ-K1-r0N" secondAttribute="leading" id="1jE-cx-AnD"/>
@@ -477,6 +478,9 @@
                             <constraint firstAttribute="trailing" secondItem="lw6-5y-do4" secondAttribute="trailing" id="sHq-1H-IeM"/>
                             <constraint firstItem="lw6-5y-do4" firstAttribute="leading" secondItem="rOZ-K1-r0N" secondAttribute="leading" id="sSf-px-vdT"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="rAJ-ro-YCY" appends="YES" id="kGE-Xu-dvo"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="bottomToolBar" destination="FOk-Ok-i3h" id="WOw-bZ-N54"/>
@@ -488,6 +492,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b1l-8r-LsT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.20000000000000001" id="rAJ-ro-YCY">
+                    <connections>
+                        <action selector="onLongPressAction:" destination="VYX-gv-vDf" id="dhN-sJ-5qZ"/>
+                    </connections>
+                </pongPressGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-163" y="1271"/>
         </scene>

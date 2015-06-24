@@ -41,6 +41,8 @@
 
 - (void)duplicateObject;
 
+- (void)exchangeObjectAtIndex:(NSUInteger)sourceIndex withObjectAtIndex:(NSUInteger)targetIndex;
+
 - (NSInteger)getActualIndex;
 
 - (AMClonableObject *)getActualObject;

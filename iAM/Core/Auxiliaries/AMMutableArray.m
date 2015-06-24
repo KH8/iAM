@@ -104,6 +104,17 @@
     [_baseArray exchangeObjectAtIndex:sourceIndex
                     withObjectAtIndex:targetIndex];
     [self delegateArrayHasBeenChanged];
+   if(_actualIndex == sourceIndex) {
+       [self setActualIndex:targetIndex];
+       return;
+    }
+    if(_actualIndex == targetIndex) {
+        if(sourceIndex < targetIndex){
+            [self setPreviousIndexAsActual];
+            return;
+        }
+        [self setNextIndexAsActual];
+    }
 }
 
 - (NSInteger)getActualIndex {

@@ -166,7 +166,7 @@
 
 - (id)clone {
     AMSequenceStep *clone = [[AMSequenceStep alloc] init];
-    [clone setName:_name.copy];
+    [clone setName:[NSString stringWithString:_name]];
     [clone setStepType:_stepType];
     [clone setNumberOfLoops:_numberOfLoops];
     [clone setMainStave:_mainStave.clone];

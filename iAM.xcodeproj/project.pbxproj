@@ -89,6 +89,9 @@
 		A46C819B1B28E19900605BD2 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A46C819A1B28E19900605BD2 /* SWRevealViewController.m */; };
 		A46C819C1B28E19900605BD2 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A46C819A1B28E19900605BD2 /* SWRevealViewController.m */; };
 		A46C819D1B28E19900605BD2 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A46C819A1B28E19900605BD2 /* SWRevealViewController.m */; };
+		A46EF42D1B3B43FF00C0BDA9 /* AMCellShiftProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = A46EF42C1B3B43FF00C0BDA9 /* AMCellShiftProvider.m */; };
+		A46EF42E1B3B43FF00C0BDA9 /* AMCellShiftProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = A46EF42C1B3B43FF00C0BDA9 /* AMCellShiftProvider.m */; };
+		A46EF42F1B3B43FF00C0BDA9 /* AMCellShiftProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = A46EF42C1B3B43FF00C0BDA9 /* AMCellShiftProvider.m */; };
 		A481D1A61AEFF6A5008EAE05 /* tutorial_0.png in Resources */ = {isa = PBXBuildFile; fileRef = A481D1A51AEFF6A5008EAE05 /* tutorial_0.png */; };
 		A481D1A91AEFF6B9008EAE05 /* AMConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = A481D1A71AEFF6B9008EAE05 /* AMConfig.m */; };
 		A481D1AE1AEFF92C008EAE05 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A4C47C191A8BB68E002CF325 /* Images.xcassets */; };
@@ -413,6 +416,8 @@
 		A46C81911B28E11900605BD2 /* AMVolumeSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMVolumeSlider.m; path = Primitives/AMVolumeSlider.m; sourceTree = "<group>"; };
 		A46C81991B28E19900605BD2 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SWRevealViewController.h; path = iAM/External/SWRevealViewController/SWRevealViewController.h; sourceTree = SOURCE_ROOT; };
 		A46C819A1B28E19900605BD2 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SWRevealViewController.m; path = iAM/External/SWRevealViewController/SWRevealViewController.m; sourceTree = SOURCE_ROOT; };
+		A46EF42B1B3B43FF00C0BDA9 /* AMCellShiftProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMCellShiftProvider.h; path = Utils/AMCellShiftProvider.h; sourceTree = "<group>"; };
+		A46EF42C1B3B43FF00C0BDA9 /* AMCellShiftProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMCellShiftProvider.m; path = Utils/AMCellShiftProvider.m; sourceTree = "<group>"; };
 		A481D1A51AEFF6A5008EAE05 /* tutorial_0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tutorial_0.png; path = "tickGrid Lite/Visual/Images/tutorial_0.png"; sourceTree = "<group>"; };
 		A481D1A71AEFF6B9008EAE05 /* AMConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMConfig.m; path = "tickGrid Lite/AMConfig.m"; sourceTree = "<group>"; };
 		A481D1A81AEFF6B9008EAE05 /* tickGrid Lite.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "tickGrid Lite.plist"; path = "tickGrid Lite/tickGrid Lite.plist"; sourceTree = "<group>"; };
@@ -853,6 +858,8 @@
 				A46C81821B28E0C500605BD2 /* AMRevealViewUtils.m */,
 				A44219971B355C130063356A /* AMTrackConfiguration.h */,
 				A44219981B355C130063356A /* AMTrackConfiguration.m */,
+				A46EF42B1B3B43FF00C0BDA9 /* AMCellShiftProvider.h */,
+				A46EF42C1B3B43FF00C0BDA9 /* AMCellShiftProvider.m */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -1206,6 +1213,7 @@
 				A41E3CA61A9D1057004C7675 /* AMSequencerSingleton.m in Sources */,
 				8F081AD4F297441F7B21E453 /* AMViewController.m in Sources */,
 				A4A132A51A95287400D6E2F1 /* AMSequenceStep.m in Sources */,
+				A46EF42D1B3B43FF00C0BDA9 /* AMCellShiftProvider.m in Sources */,
 				A45A3D6E1A71B4DF00039934 /* AMCollectionViewController.m in Sources */,
 				A4A0CD841AD084E600618B1F /* CDBar.m in Sources */,
 				A4E7D9B51ADAF3C000B01BCD /* AMSoundsTableViewController.m in Sources */,
@@ -1277,6 +1285,7 @@
 				A4C7ECB01AE6EA3F00428B68 /* AMSequencerSingleton.m in Sources */,
 				A4C7ECB11AE6EA3F00428B68 /* AMViewController.m in Sources */,
 				A4C7ECB21AE6EA3F00428B68 /* AMSequenceStep.m in Sources */,
+				A46EF42E1B3B43FF00C0BDA9 /* AMCellShiftProvider.m in Sources */,
 				A4C7ECB31AE6EA3F00428B68 /* AMCollectionViewController.m in Sources */,
 				A4C7ECB41AE6EA3F00428B68 /* CDBar.m in Sources */,
 				A4C7ECB51AE6EA3F00428B68 /* AMSoundsTableViewController.m in Sources */,
@@ -1340,6 +1349,7 @@
 				A4FB77961AE6ED17003BC801 /* AMSequencerSingleton.m in Sources */,
 				A4FB77971AE6ED17003BC801 /* AMViewController.m in Sources */,
 				A4FB77981AE6ED17003BC801 /* AMSequenceStep.m in Sources */,
+				A46EF42F1B3B43FF00C0BDA9 /* AMCellShiftProvider.m in Sources */,
 				A4FB77991AE6ED17003BC801 /* AMCollectionViewController.m in Sources */,
 				A4FB779A1AE6ED17003BC801 /* CDBar.m in Sources */,
 				A4FB779B1AE6ED17003BC801 /* AMSoundsTableViewController.m in Sources */,

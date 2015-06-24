@@ -98,7 +98,8 @@
 }
 
 - (id)clone {
-    AMSequence *clone = [super clone];
+    AMSequence *clone = [[AMSequence alloc] init];
+    [clone setBaseArray:[super clone]];
     [clone setName:_name.copy];
     [clone setCreationDate:_creationDate.copy];
     return clone;

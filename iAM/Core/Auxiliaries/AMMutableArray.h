@@ -63,4 +63,6 @@
 
 - (NSUInteger)countByEnumeratingWithState:(NSFastEnumerationState *)state objects:(id __unsafe_unretained[])stackbuf count:(NSUInteger)len;
 
+- (void)setBaseArray:(NSMutableArray *)array;
+
 @end

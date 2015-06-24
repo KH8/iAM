@@ -151,7 +151,8 @@ NSUInteger const minSignature = 1;
 }
 
 - (id)clone {
-    AMBar *clone = [super clone];
+    AMBar *clone = [[AMBar alloc] init];
+    [clone setBaseArray:[super clone]];
     [clone setSignatureNumerator:_signatureNumerator];
     [clone setSignatureDenominator:_signatureDenominator];
     [clone setDensity:_density];

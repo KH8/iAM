@@ -105,6 +105,13 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [self updateComponents];
 }
 
+- (IBAction)onDuplicateAction:(id)sender {
+    [_arrayOfSequences duplicateObject];
+    [_tableView reloadData];
+    [self updateIndexSelected];
+    [self updateComponents];
+}
+
 - (void)arrayHasBeenChanged {
 }
 

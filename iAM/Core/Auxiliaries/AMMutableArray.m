@@ -13,8 +13,7 @@
 @property int maxCount;
 
 @property(nonatomic) NSUInteger actualIndex;
-@property NSMutableArray *baseArray;
-
+@property(nonatomic) NSMutableArray *baseArray;
 @property(nonatomic, strong) NSHashTable *arrayDelegates;
 
 @end
@@ -159,8 +158,12 @@
     return [_baseArray countByEnumeratingWithState:state objects:stackbuf count:len];
 }
 
+- (void)setBaseArray:(NSMutableArray *)array {
+    _baseArray = array;
+}
+
 - (id)clone {
-    AMMutableArray *clone = [[AMMutableArray alloc] init];
+    AMMutableArray *clone = [[AMMutableArray alloc] initWithMaxCount:_maxCount];
     for (AMClonableObject *object in _baseArray) {
         [clone addObjectAtTheEnd:[object clone]];
     }

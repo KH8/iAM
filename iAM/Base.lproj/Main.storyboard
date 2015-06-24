@@ -436,11 +436,18 @@
                                             <action selector="onDeleteAction:" destination="VYX-gv-vDf" id="rq7-yR-suK"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem width="20" style="plain" systemItem="fixedSpace" id="UJ7-vb-XA9"/>
+                                    <barButtonItem width="15" style="plain" systemItem="fixedSpace" id="UJ7-vb-XA9"/>
                                     <barButtonItem systemItem="add" id="dQ9-UK-qeh">
                                         <inset key="imageInsets" minX="-60" minY="-60" maxX="-60" maxY="-60"/>
                                         <connections>
                                             <action selector="onAddAction:" destination="VYX-gv-vDf" id="KaH-gH-XfD"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem width="15" style="plain" systemItem="fixedSpace" id="Fkl-aC-XJd"/>
+                                    <barButtonItem style="done" systemItem="search" id="O3F-96-hba">
+                                        <color key="tintColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <action selector="onDuplicateAction:" destination="VYX-gv-vDf" id="UqW-W4-yAa"/>
                                         </connections>
                                     </barButtonItem>
                                 </items>
@@ -1660,9 +1667,9 @@
         <image name="settings.png" width="120" height="120"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="zkT-HV-92U"/>
         <segue reference="2P6-UK-2cK"/>
-        <segue reference="A2U-uw-7qt"/>
+        <segue reference="zkT-HV-92U"/>
+        <segue reference="iUZ-gW-D26"/>
         <segue reference="lm7-pw-MVk"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>

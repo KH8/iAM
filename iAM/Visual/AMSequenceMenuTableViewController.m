@@ -22,7 +22,6 @@
 
 @property AMMutableArray *arrayOfSequences;
 @property AMSequencer *sequencer;
-
 @property AMCellShiftProvider *cellShiftProvider;
 
 @end

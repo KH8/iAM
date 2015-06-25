@@ -12,6 +12,7 @@
 #import "AMPopupViewController.h"
 #import "AMMutableArrayResponder.h"
 #import "AMVisualUtils.h"
+#import "AMCellShiftProvider.h"
 #import "AMAppearanceManager.h"
 #import "AMConfig.h"
 
@@ -22,11 +23,17 @@
 
 @property AMMutableArrayResponder *mainSequenceArrayResponder;
 @property AMMutableArrayResponder *mainStaveArrayResponder;
+@property AMCellShiftProvider *cellShiftProvider;
 
 @property(weak, nonatomic) IBOutlet UITableView *tableView;
 
 @property UIBarButtonItem *tempDeleteButton;
 @property UIBarButtonItem *tempAddButton;
+@property UIBarButtonItem *tempDuplicateButton;
+@property UIBarButtonItem *tempEditButton;
+
+@property BOOL isEditEnabled;
+@property BOOL isLoopCountEditEnabled;
 
 @property UIBarButtonItem *tempLoopCountButton;
 @property UIBarButtonItem *tempIncrementButton;
@@ -40,8 +47,11 @@ static NSString *const reuseIdentifier = @"mySequenceStepCell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    _isEditEnabled = NO;
+    
     [self initResponders];
     [self initSequence];
+    [self initCellShiftProvider];
     [self initBottomToolBar];
     [self updateIndexSelected];
     [self stepLoopCounterUpdate];
@@ -71,24 +81,110 @@ static NSString *const reuseIdentifier = @"mySequenceStepCell";
     [self updateComponents];
 }
 
+- (void)initCellShiftProvider {
+    _cellShiftProvider = [[AMCellShiftProvider alloc] initWith:_mainSequence
+                                                    controller:self.tableView];
+}
+
 - (void)initBottomToolBar {
-    _tempAddButton = [AMVisualUtils createBarButton:@"add.png"
-                                             targer:self
-                                           selector:@selector(onAddStep:)
-                                              color:[UIColor darkGrayColor]
-                                               size:30];
-    _tempDeleteButton = [AMVisualUtils createBarButton:@"delete.png"
-                                                targer:self
-                                              selector:@selector(onDeleteStep:)
-                                                 color:[UIColor darkGrayColor]
-                                                  size:30];
-    [AMVisualUtils replaceObjectInToolBar:_bottomToolBar
-                                  atIndex:6
-                               withObject:_tempAddButton];
-    [AMVisualUtils replaceObjectInToolBar:_bottomToolBar
-                                  atIndex:5
-                               withObject:_tempDeleteButton];
     [_bottomToolBar setBarTintColor:[AMAppearanceManager getGlobalColorTheme]];
+    [AMVisualUtils clearObjectsInToolBar:_bottomToolBar];
+    
+    int index = 0;
+    UIBarButtonItem *flexibleItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace
+                                                                               target:nil
+                                                                               action:nil];
+    [AMVisualUtils replaceObjectInToolBar:_bottomToolBar
+                                  atIndex:index
+                               withObject:flexibleItem];
+    index++;
+    index = [self showLoopCountButtonsAtIndex:index];
+    index = [self showEditButtonsAtIndex:index];
+    
+    NSString *editButtonImage = @"edit.png";
+    if(_isEditEnabled) {
+        editButtonImage = @"backRound.png";
+    }
+    
+    _tempEditButton = [AMVisualUtils createBarButton:editButtonImage
+                                              targer:self
+                                            selector:@selector(onEditPressed:)
+                                               color:[UIColor darkGrayColor]
+                                                size:30];
+    [AMVisualUtils replaceObjectInToolBar:_bottomToolBar
+                                  atIndex:index
+                               withObject:_tempEditButton];
+}
+
+- (int)showLoopCountButtonsAtIndex:(int)index {
+    if(_isLoopCountEditEnabled && !_isEditEnabled) {
+        _tempIncrementButton = [AMVisualUtils createBarButton:@"incloop.png"
+                                                       targer:self
+                                                     selector:@selector(onIncrementLoop:)
+                                                         size:30];
+        _tempDecrementButton = [AMVisualUtils createBarButton:@"decloop.png"
+                                                       targer:self
+                                                     selector:@selector(onDecrementLoop:)
+                                                         size:30];
+        AMSequenceStep *step = (AMSequenceStep *) _mainSequence.getActualObject;
+        _tempLoopCountButton = [AMVisualUtils createBarButtonWithText:[NSString stringWithFormat:@"%ld", (long) step.getNumberOfLoops]
+                                                               targer:nil
+                                                             selector:nil];
+        [AMVisualUtils replaceObjectInToolBar:_bottomToolBar
+                                      atIndex:index
+                                   withObject:_tempDecrementButton];
+        index++;
+        [AMVisualUtils replaceObjectInToolBar:_bottomToolBar
+                                      atIndex:index
+                                   withObject:_tempLoopCountButton];
+        index++;
+        [AMVisualUtils replaceObjectInToolBar:_bottomToolBar
+                                      atIndex:index
+                                   withObject:_tempIncrementButton];
+        index++;
+        UIBarButtonItem *fixedItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace
+                                                                                   target:nil
+                                                                                   action:nil];
+        [fixedItem setWidth:120.0f];
+        [AMVisualUtils replaceObjectInToolBar:_bottomToolBar
+                                      atIndex:index
+                                   withObject:fixedItem];
+        index++;
+    }
+    return index;
+}
+
+- (int)showEditButtonsAtIndex:(int)index {
+    if(_isEditEnabled) {
+        _tempAddButton = [AMVisualUtils createBarButton:@"add.png"
+                                                 targer:self
+                                               selector:@selector(onAddStep:)
+                                                  color:[UIColor darkGrayColor]
+                                                   size:30];
+        _tempDeleteButton = [AMVisualUtils createBarButton:@"delete.png"
+                                                    targer:self
+                                                  selector:@selector(onDeleteStep:)
+                                                     color:[UIColor darkGrayColor]
+                                                      size:30];
+        _tempDuplicateButton = [AMVisualUtils createBarButton:@"copy.png"
+                                                       targer:self
+                                                     selector:@selector(onDuplicateStep:)
+                                                        color:[UIColor darkGrayColor]
+                                                         size:30];
+        [AMVisualUtils replaceObjectInToolBar:_bottomToolBar
+                                      atIndex:index
+                                   withObject:_tempDeleteButton];
+        index++;
+        [AMVisualUtils replaceObjectInToolBar:_bottomToolBar
+                                      atIndex:index
+                                   withObject:_tempAddButton];
+        index++;
+        [AMVisualUtils replaceObjectInToolBar:_bottomToolBar
+                                      atIndex:index
+                                   withObject:_tempDuplicateButton];
+        index++;
+    }
+    return index;
 }
 
 - (void)loadTheme {
@@ -138,6 +234,15 @@ didDeselectRowAtIndexPath:(NSIndexPath *)indexPath {
     [_mainSequence removeActualObject];
 }
 
+- (IBAction)onDuplicateStep:(id)sender {
+    [_mainSequence duplicateObject];
+}
+
+- (IBAction)onEditPressed:(id)sender {
+    _isEditEnabled = !_isEditEnabled;
+    [self initBottomToolBar];
+}
+
 - (IBAction)onIncrementLoop:(id)sender {
     AMSequenceStep *step = (AMSequenceStep *) _mainSequence.getActualObject;
     [step incrementLoop];
@@ -146,6 +251,10 @@ didDeselectRowAtIndexPath:(NSIndexPath *)indexPath {
 - (IBAction)onDecrementLoop:(id)sender {
     AMSequenceStep *step = (AMSequenceStep *) _mainSequence.getActualObject;
     [step decrementLoop];
+}
+
+- (IBAction)onLongPressed:(id)sender {
+    [_cellShiftProvider performShifting:sender];
 }
 
 - (void)tempoHasBeenChanged {
@@ -207,6 +316,7 @@ didDeselectRowAtIndexPath:(NSIndexPath *)indexPath {
     [self reloadView];
     [self updateIndexSelected];
     [self stepLoopCounterUpdate];
+    [self initBottomToolBar];
 }
 
 - (void)updateIndexSelected {
@@ -220,54 +330,10 @@ didDeselectRowAtIndexPath:(NSIndexPath *)indexPath {
     AMSequenceStep *step = (AMSequenceStep *) _mainSequence.getActualObject;
 
     if (step.getStepType == REPEAT) {
-        [self showAllLoopCountButtons];
+        _isLoopCountEditEnabled = YES;
         return;
     }
-    [self hideAllLoopCountButtons];
-}
-
-- (void)hideAllLoopCountButtons {
-    [self hideButton:_tempIncrementButton
-          atPosition:3];
-    [self hideButton:_tempDecrementButton
-          atPosition:1];
-    [self hideButton:_tempLoopCountButton
-          atPosition:2];
-}
-
-- (void)showAllLoopCountButtons {
-    _tempIncrementButton = [AMVisualUtils createBarButton:@"incloop.png"
-                                             targer:self
-                                           selector:@selector(onIncrementLoop:)
-                                               size:22];
-    _tempDecrementButton = [AMVisualUtils createBarButton:@"decloop.png"
-                                             targer:self
-                                           selector:@selector(onDecrementLoop:)
-                                               size:22];
-    AMSequenceStep *step = (AMSequenceStep *) _mainSequence.getActualObject;
-    _tempLoopCountButton = [AMVisualUtils createBarButtonWithText:[NSString stringWithFormat:@"%ld", (long) step.getNumberOfLoops]
-                                                           targer:nil
-                                                         selector:nil];
-    [AMVisualUtils replaceObjectInToolBar:_bottomToolBar
-                                  atIndex:3
-                               withObject:_tempIncrementButton];
-    [AMVisualUtils replaceObjectInToolBar:_bottomToolBar
-                                  atIndex:1
-                               withObject:_tempDecrementButton];
-    [AMVisualUtils replaceObjectInToolBar:_bottomToolBar
-                                  atIndex:2
-                               withObject:_tempLoopCountButton];
-}
-
-- (void)hideButton:(UIBarButtonItem *)button
-        atPosition:(NSUInteger)position {
-    button = [[UIBarButtonItem alloc] init];
-    button.style = UIBarButtonItemStylePlain;
-    button.enabled = false;
-    button.title = nil;
-    [AMVisualUtils replaceObjectInToolBar:_bottomToolBar
-                                  atIndex:position
-                               withObject:button];
+    _isLoopCountEditEnabled = NO;
 }
 
 - (void)reloadView {

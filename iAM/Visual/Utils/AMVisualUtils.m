@@ -73,4 +73,9 @@
     aToolBar.items = toolbarItems;
 }
 
++ (void)clearObjectsInToolBar:(UIToolbar *)aToolBar {
+    NSMutableArray *toolbarItems = [[NSMutableArray alloc] init];
+    aToolBar.items = toolbarItems;
+}
+
 @end

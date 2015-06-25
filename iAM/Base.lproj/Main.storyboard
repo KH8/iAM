@@ -1077,20 +1077,19 @@
                                     <barButtonItem systemItem="fastForward" id="mmQ-aa-Rwc">
                                         <inset key="imageInsets" minX="30" minY="30" maxX="30" maxY="30"/>
                                     </barButtonItem>
-                                    <barButtonItem width="100" style="plain" systemItem="fixedSpace" id="T3c-H1-wF6"/>
+                                    <barButtonItem width="80" style="plain" systemItem="fixedSpace" id="T3c-H1-wF6"/>
                                     <barButtonItem style="plain" systemItem="trash" id="k2J-DC-6zc">
                                         <inset key="imageInsets" minX="-30" minY="-30" maxX="-30" maxY="-30"/>
-                                        <connections>
-                                            <action selector="onDeleteStep:" destination="9xo-7Y-GEb" id="fy4-zI-WrU"/>
-                                        </connections>
                                     </barButtonItem>
                                     <barButtonItem title="Item" style="plain" systemItem="add" id="uPF-m8-4xl">
                                         <inset key="imageInsets" minX="-30" minY="-30" maxX="-30" maxY="-30"/>
                                     </barButtonItem>
+                                    <barButtonItem systemItem="refresh" id="zYo-M1-xwU"/>
                                 </items>
                                 <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                             </toolbar>
                         </subviews>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="z4s-zD-Gpo" firstAttribute="top" secondItem="IhR-XU-bF7" secondAttribute="bottom" id="2kG-Yk-J0c"/>
                             <constraint firstAttribute="trailing" secondItem="IhR-XU-bF7" secondAttribute="trailing" id="AqT-dp-sem"/>
@@ -1100,6 +1099,9 @@
                             <constraint firstItem="IhR-XU-bF7" firstAttribute="top" secondItem="KEY-nn-oKE" secondAttribute="top" id="kKL-uC-RfD"/>
                             <constraint firstAttribute="trailing" secondItem="IhR-XU-bF7" secondAttribute="trailing" id="tDM-E6-iHp"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="1eq-GS-A7E" appends="YES" id="Ad0-tS-dH7"/>
+                        </connections>
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="600" height="600"/>
@@ -1110,6 +1112,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OUB-9k-CU7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="1eq-GS-A7E">
+                    <connections>
+                        <action selector="onLongPressed:" destination="9xo-7Y-GEb" id="tgU-CU-bW3"/>
+                    </connections>
+                </pongPressGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-163" y="-1005"/>
         </scene>
@@ -1677,8 +1684,8 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="2P6-UK-2cK"/>
+        <segue reference="6PM-r0-x4R"/>
         <segue reference="zkT-HV-92U"/>
-        <segue reference="iUZ-gW-D26"/>
         <segue reference="lm7-pw-MVk"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>

@@ -35,4 +35,6 @@
                        atIndex:(NSInteger)anIndex
                     withObject:(NSObject *)anObject;
 
++ (void)clearObjectsInToolBar:(UIToolbar *)aToolBar;
+
 @end

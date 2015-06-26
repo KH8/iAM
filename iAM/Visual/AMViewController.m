@@ -127,6 +127,11 @@
                                                                     targer:originalLeftButton.target
                                                                   selector:originalLeftButton.action
                                                                       size:26];
+    UIBarButtonItem *originalRightButton = self.navigationItem.rightBarButtonItem;
+    self.navigationItem.rightBarButtonItem = [AMVisualUtils createBarButton:@"sequence.png"
+                                                                    targer:originalRightButton.target
+                                                                  selector:originalRightButton.action
+                                                                      size:26];
 }
 
 - (void)loadAudioSession {

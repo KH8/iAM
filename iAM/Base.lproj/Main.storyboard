@@ -15,7 +15,7 @@
                         <viewControllerLayoutGuide type="bottom" id="sw7-6B-i6c"/>
                     </layoutGuides>
                     <view key="view" opaque="NO" contentMode="scaleToFill" id="1Er-fy-ePC" customClass="AMView">
-                        <rect key="frame" x="0.0" y="44" width="600" height="536"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView autoresizesSubviews="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" bounces="NO" alwaysBounceHorizontal="YES" showsVerticalScrollIndicator="NO" indicatorStyle="black" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="seQ-A1-cWb">
@@ -467,6 +467,7 @@
                         <outlet property="sideMenuButton" destination="XL1-4B-JsO" id="qnA-HH-ssz"/>
                         <outlet property="tableView" destination="lw6-5y-do4" id="cEd-VE-Jpm"/>
                         <segue destination="5t2-d4-3oA" kind="presentation" identifier="sw_sequence_popup" modalPresentationStyle="overFullScreen" modalTransitionStyle="coverVertical" id="iUZ-gW-D26"/>
+                        <segue destination="23J-3V-BDE" kind="custom" identifier="sw_grid" customClass="SWRevealViewControllerSeguePushController" id="INm-Aj-d5W"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b1l-8r-LsT" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -881,7 +882,7 @@
                                                     <constraint firstAttribute="width" secondItem="e04-f2-D8m" secondAttribute="height" multiplier="1:1" id="S1W-y2-v5m"/>
                                                 </constraints>
                                                 <color key="tintColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                <state key="normal" image="about.png">
+                                                <state key="normal" image="about_r.png">
                                                     <attributedString key="attributedTitle"/>
                                                 </state>
                                                 <connections>
@@ -894,7 +895,7 @@
                                                     <constraint firstAttribute="width" secondItem="Eh0-EG-bf7" secondAttribute="height" multiplier="1:1" id="bnw-0J-tVL"/>
                                                 </constraints>
                                                 <color key="tintColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                <state key="normal" image="list.png">
+                                                <state key="normal" image="list_r.png">
                                                     <attributedString key="attributedTitle"/>
                                                 </state>
                                                 <connections>
@@ -907,7 +908,7 @@
                                                     <constraint firstAttribute="width" secondItem="Gxg-ug-BE5" secondAttribute="height" multiplier="1:1" id="vUf-8L-cIV"/>
                                                 </constraints>
                                                 <color key="tintColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                <state key="normal" image="grid.png">
+                                                <state key="normal" image="grid_r.png">
                                                     <attributedString key="attributedTitle"/>
                                                 </state>
                                                 <connections>
@@ -920,7 +921,7 @@
                                                     <constraint firstAttribute="width" secondItem="g5H-tA-nWi" secondAttribute="height" multiplier="1:1" id="5q8-Se-d6D"/>
                                                 </constraints>
                                                 <color key="tintColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                <state key="normal" image="settings.png">
+                                                <state key="normal" image="settings_r.png">
                                                     <attributedString key="attributedTitle"/>
                                                 </state>
                                                 <connections>
@@ -1631,19 +1632,19 @@
         </scene>
     </scenes>
     <resources>
-        <image name="about.png" width="120" height="120"/>
+        <image name="about_r.png" width="120" height="120"/>
         <image name="ad.png" width="1920" height="1080"/>
         <image name="details.png" width="120" height="120"/>
-        <image name="grid.png" width="120" height="120"/>
-        <image name="list.png" width="120" height="120"/>
+        <image name="grid_r.png" width="120" height="120"/>
+        <image name="list_r.png" width="120" height="120"/>
         <image name="logo.png" width="1344" height="648"/>
-        <image name="settings.png" width="120" height="120"/>
+        <image name="settings_r.png" width="120" height="120"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="2P6-UK-2cK"/>
+        <segue reference="INm-Aj-d5W"/>
         <segue reference="zkT-HV-92U"/>
-        <segue reference="iUZ-gW-D26"/>
         <segue reference="lm7-pw-MVk"/>
+        <segue reference="iUZ-gW-D26"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
 </document>

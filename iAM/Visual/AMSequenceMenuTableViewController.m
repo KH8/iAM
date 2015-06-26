@@ -45,6 +45,7 @@ static NSString *const reuseIdentifier = @"myMenuStepCell";
     [self initCellShiftProvider];
     [self initBottomToolBar];
     [self initTheme];
+    [self initButtons];
     [self updateIndexSelected];
 }
 
@@ -73,6 +74,13 @@ static NSString *const reuseIdentifier = @"myMenuStepCell";
     [_navigationBar setBarTintColor:globalColorTheme];
 }
 
+- (void)initButtons {
+    super.navigationBarItem.rightBarButtonItem = [AMVisualUtils createBarButton:@"grid.png"
+                                          targer:self
+                                        selector:@selector(onGridButtonPressedAction:)
+                                            size:26];
+}
+
 - (void)initBottomToolBar {
     _toolbarItemsArray = [[NSMutableArray alloc] init];
     UIBarButtonItem *flexibleItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace
@@ -81,9 +89,9 @@ static NSString *const reuseIdentifier = @"myMenuStepCell";
     [_toolbarItemsArray addObject:flexibleItem];
     [self showEditButtons];
     
-    NSString *editButtonImage = @"edit.png";
+    NSString *editButtonImage = @"edit_r.png";
     if(_isEditEnabled) {
-        editButtonImage = @"backRound.png";
+        editButtonImage = @"back_r.png";
     }
     
     _tempEditButton = [AMVisualUtils createBarButton:editButtonImage
@@ -97,15 +105,15 @@ static NSString *const reuseIdentifier = @"myMenuStepCell";
 
 - (void)showEditButtons{
     if(_isEditEnabled) {
-        _tempAddButton = [AMVisualUtils createBarButton:@"add.png"
+        _tempAddButton = [AMVisualUtils createBarButton:@"add_r.png"
                                                  targer:self
                                                selector:@selector(onAddAction:)
                                                    size:30];
-        _tempDeleteButton = [AMVisualUtils createBarButton:@"delete.png"
+        _tempDeleteButton = [AMVisualUtils createBarButton:@"delete_r.png"
                                                     targer:self
                                                   selector:@selector(onDeleteAction:)
                                                       size:30];
-        _tempDuplicateButton = [AMVisualUtils createBarButton:@"copy.png"
+        _tempDuplicateButton = [AMVisualUtils createBarButton:@"copy_r.png"
                                                        targer:self
                                                      selector:@selector(onDuplicateAction:)
                                                          size:30];
@@ -168,6 +176,10 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 
 - (IBAction)onLongPressAction:(id)sender {
     [_cellShiftProvider performShifting:sender];
+}
+
+- (IBAction)onGridButtonPressedAction:(id)sender {
+    [self performSegueWithIdentifier:@"sw_grid" sender:self];
 }
 
 - (void)arrayHasBeenChanged {

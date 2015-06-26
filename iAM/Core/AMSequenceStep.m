@@ -101,15 +101,12 @@
     if (_mainStave.count == 1) {
         bar = @"BAR";
     }
-    NSString *description = [NSString stringWithFormat:@"%ld %@ %ld BPM",
-                                                       (long) _mainStave.count,
-                                                       bar,
-                                                       (long) _mainStave.getTempo];
+    NSString *description = [NSString stringWithFormat:
+                             @"%ld %@ %ld BPM", (long) _mainStave.count, bar, (long) _mainStave.getTempo];
 
     if (_stepType == REPEAT) {
-        return [NSString stringWithFormat:@" %@ x%ld",
-                                          description,
-                                          (long) _numberOfLoops];
+        return [NSString stringWithFormat:
+                @" %@ x%ld", description, (long) _numberOfLoops];
     }
 
     return description;

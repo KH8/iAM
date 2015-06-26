@@ -96,9 +96,9 @@ static NSString *const reuseIdentifier = @"mySequenceStepCell";
     [self showLoopCountButtons];
     [self showEditButtons];
     
-    NSString *editButtonImage = @"edit.png";
+    NSString *editButtonImage = @"edit_r.png";
     if(_isEditEnabled) {
-        editButtonImage = @"backRound.png";
+        editButtonImage = @"back_r.png";
     }
     
     _tempEditButton = [AMVisualUtils createBarButton:editButtonImage
@@ -113,11 +113,11 @@ static NSString *const reuseIdentifier = @"mySequenceStepCell";
 
 - (void)showLoopCountButtons {
     if(_isLoopCountEditEnabled && !_isEditEnabled) {
-        _tempIncrementButton = [AMVisualUtils createBarButton:@"incloop.png"
+        _tempIncrementButton = [AMVisualUtils createBarButton:@"incloop_r.png"
                                                        targer:self
                                                      selector:@selector(onIncrementLoop:)
                                                          size:30];
-        _tempDecrementButton = [AMVisualUtils createBarButton:@"decloop.png"
+        _tempDecrementButton = [AMVisualUtils createBarButton:@"decloop_r.png"
                                                        targer:self
                                                      selector:@selector(onDecrementLoop:)
                                                          size:30];
@@ -138,17 +138,17 @@ static NSString *const reuseIdentifier = @"mySequenceStepCell";
 
 - (void)showEditButtons{
     if(_isEditEnabled) {
-        _tempAddButton = [AMVisualUtils createBarButton:@"add.png"
+        _tempAddButton = [AMVisualUtils createBarButton:@"add_r.png"
                                                  targer:self
                                                selector:@selector(onAddStep:)
                                                   color:[UIColor darkGrayColor]
                                                    size:30];
-        _tempDeleteButton = [AMVisualUtils createBarButton:@"delete.png"
+        _tempDeleteButton = [AMVisualUtils createBarButton:@"delete_r.png"
                                                     targer:self
                                                   selector:@selector(onDeleteStep:)
                                                      color:[UIColor darkGrayColor]
                                                       size:30];
-        _tempDuplicateButton = [AMVisualUtils createBarButton:@"copy.png"
+        _tempDuplicateButton = [AMVisualUtils createBarButton:@"copy_r.png"
                                                        targer:self
                                                      selector:@selector(onDuplicateStep:)
                                                         color:[UIColor darkGrayColor]

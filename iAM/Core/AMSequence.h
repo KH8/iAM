@@ -34,4 +34,6 @@
 
 - (void)setOneStepBackward;
 
+- (int)getActualLoopCount;
+
 @end

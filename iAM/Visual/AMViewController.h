@@ -13,7 +13,7 @@
 #import "AMSequencer.h"
 #import "AMNote.h"
 
-@interface AMViewController : UIViewController <AMSequencerDelegate, AMPopoverViewControllerDelegate>
+@interface AMViewController : UIViewController <AMSequencerDelegate, AMPopoverViewControllerDelegate, AMSequenceStepDelegate>
 
 @property(weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property(weak, nonatomic) IBOutlet UIPageControl *pageControl;

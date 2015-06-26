@@ -88,6 +88,10 @@
     return _stepType;
 }
 
+- (NSString *)getStepTypeName {
+    return [self stepTypeToString:_stepType];
+}
+
 - (void)setName:(NSString *)newName {
     _name = [NSString stringWithFormat:@"%@", newName];
 }
@@ -143,6 +147,19 @@
             return 3;
         default:
             return 1;
+    }
+}
+
+- (NSString *)stepTypeToString:(StepType)stepType {
+    switch (stepType) {
+        case PLAY_ONCE:
+            return @"PLAY ONCE";
+        case REPEAT:
+            return @"REPEAT";
+        case INFINITE_LOOP:
+            return @"INFINITE LOOP";
+        default:
+            return @"";
     }
 }
 

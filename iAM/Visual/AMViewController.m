@@ -25,10 +25,14 @@
 @interface AMViewController () {
 }
 
+@property (weak, nonatomic) IBOutlet UILabel *descriptionLabel;
+
 @property AMCollectionViewController *collectionViewController;
 @property AMSequencer *mainSequencer;
 @property AMSequence *mainSequence;
+@property AMSequenceStep *mainStep;
 @property AMStave *mainStave;
+
 @property UIBarButtonItem *temporarySettingsButton;
 @property UIBarButtonItem *temporaryPlayButton;
 @property UIBarButtonItem *temporaryBackwardButton;
@@ -125,6 +129,8 @@
 - (void)initBottomToolBar {
     [_bottomToolBar setBarTintColor:[AMAppearanceManager getGlobalColorTheme]];
     _toolbarItemsArray = [[NSMutableArray alloc] init];
+    
+    [self showDescriptionLabel];
     [self showAudioButtons];
     [_toolbarItemsArray addObject:[AMVisualUtils createFlexibleSpace]];
     [self showSettingButton];
@@ -143,6 +149,32 @@
     [_toolbarItemsArray addObject:_temporaryEditButton];
     [AMVisualUtils applyObjectsToToolBar:_bottomToolBar
                              fromAnArray:_toolbarItemsArray];
+}
+
+- (void)showDescriptionLabel {
+    [_descriptionLabel setText:@""];
+    if(!_isEditEnabled) {
+        NSString *squenceDescription = [NSString stringWithFormat:@"SEQ: %@",
+                                        _mainSequence.getName];
+        NSString *stepDescription = [NSString stringWithFormat:@"STEP: %@ %@",
+                                        _mainStep.getName,
+                                        _mainStep.getStepTypeName];
+        NSString *loopDescription = @"";
+        if(_mainStep.getStepType == REPEAT) {
+            loopDescription = [NSString stringWithFormat:@" %ld/%ld",
+                               (long) _mainSequence.getActualLoopCount + 1,
+                               _mainStep.getNumberOfLoops];
+        }
+        NSString *barDescription = [NSString stringWithFormat:@"BAR: %ld/%ld",
+                                     _mainStave.getActualIndex + 1,
+                                     _mainStave.count];
+        NSString *newDescription = [NSString stringWithFormat:@"%@ | %@%@ | %@",
+                                    squenceDescription,
+                                    stepDescription,
+                                    loopDescription,
+                                    barDescription];
+        [_descriptionLabel setText:newDescription];
+    }
 }
 
 - (void)showSettingButton {
@@ -244,6 +276,7 @@
     [_bottomToolBar setTintColor:globalTintColor];
     [_bottomToolBar setBarTintColor:globalColorTheme];
     [_pageControl setCurrentPageIndicatorTintColor:globalTintColor];
+    [_descriptionLabel setTextColor:[UIColor lightGrayColor]];
     [self.navigationController.navigationBar setTintColor:globalTintColor];
     [self.navigationController.navigationBar setBarTintColor:globalColorTheme];
 }
@@ -358,6 +391,10 @@
 
 }
 
+- (void)sequenceStepPropertiesHasBeenChanged {
+    [self updateComponents];
+}
+
 - (void)sequenceHasStarted {
     _temporaryPlayButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemPause
                                                                          target:self
@@ -379,6 +416,9 @@
 - (void)updateComponents {
     _mainSequence = _mainSequencer.getSequence;
     [_mainSequence addArrayDelegate:_mainSequenceArrayResponder];
+    
+    _mainStep = (AMSequenceStep *)_mainSequence.getActualObject;
+    [_mainStep addStepDelegate:self];
 
     AMSequenceStep *sequenceStep = (AMSequenceStep *) _mainSequence.getActualObject;
     _mainStave = sequenceStep.getStave;

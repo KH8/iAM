@@ -44,6 +44,8 @@ typedef enum {
 
 - (StepType)getStepType;
 
+- (NSString *)getStepTypeName;
+
 - (void)setName:(NSString *)newName;
 
 - (NSString *)getName;

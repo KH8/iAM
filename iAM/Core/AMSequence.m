@@ -82,6 +82,10 @@
     return (AMSequenceStep *) [self getActualObject];
 }
 
+- (int)getActualLoopCount {
+    return (int)_actualStepLoopCounter;
+}
+
 - (void)addStep {
     AMSequenceStep *sequenceStep = [[AMSequenceStep alloc] initWithSubComponents];
     [self addObject:sequenceStep];

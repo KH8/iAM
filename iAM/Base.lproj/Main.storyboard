@@ -84,13 +84,25 @@
                                 </constraints>
                                 <items/>
                             </toolbar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tDr-Zt-I13">
+                                <rect key="frame" x="0.0" y="492" width="600" height="15"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="15" id="JQH-1M-6gt"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="9"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="seQ-A1-cWb" firstAttribute="leading" secondItem="1Er-fy-ePC" secondAttribute="leading" id="19F-eF-Yye"/>
+                            <constraint firstItem="tDr-Zt-I13" firstAttribute="top" secondItem="seQ-A1-cWb" secondAttribute="bottom" id="45z-BO-Zll"/>
                             <constraint firstItem="6nd-hL-bKe" firstAttribute="top" secondItem="seQ-A1-cWb" secondAttribute="bottom" id="72I-ei-7Q2"/>
                             <constraint firstItem="sw7-6B-i6c" firstAttribute="top" secondItem="6nd-hL-bKe" secondAttribute="bottom" id="8X0-WY-Sab"/>
+                            <constraint firstItem="tDr-Zt-I13" firstAttribute="leading" secondItem="1Er-fy-ePC" secondAttribute="leading" id="BNI-KL-H3P"/>
                             <constraint firstAttribute="trailing" secondItem="seQ-A1-cWb" secondAttribute="trailing" id="Rbe-cr-iZ1"/>
+                            <constraint firstAttribute="trailing" secondItem="tDr-Zt-I13" secondAttribute="trailing" id="Tps-iM-N8z"/>
                             <constraint firstItem="6nd-hL-bKe" firstAttribute="leading" secondItem="1Er-fy-ePC" secondAttribute="leading" id="cOF-26-G1m"/>
                             <constraint firstItem="seQ-A1-cWb" firstAttribute="top" secondItem="6mO-t5-TNi" secondAttribute="bottom" id="mZJ-WA-wwN"/>
                             <constraint firstAttribute="trailing" secondItem="6nd-hL-bKe" secondAttribute="trailing" id="p37-qf-uvN"/>
@@ -119,6 +131,7 @@
                     <connections>
                         <outlet property="bottomToolBar" destination="6nd-hL-bKe" id="5kB-ee-BfX"/>
                         <outlet property="collectionView" destination="seQ-A1-cWb" id="RGC-JP-FJm"/>
+                        <outlet property="descriptionLabel" destination="tDr-Zt-I13" id="T80-TS-rI2"/>
                         <outlet property="listButton" destination="hpG-sj-3LD" id="q4w-z7-Bqr"/>
                         <outlet property="pageControl" destination="Odp-23-gs5" id="wrC-K3-wcn"/>
                         <outlet property="sideMenuButton" destination="iNB-dB-j6p" id="g1l-NZ-Xrv"/>

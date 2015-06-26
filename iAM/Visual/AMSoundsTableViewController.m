@@ -105,14 +105,14 @@
          cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     AMSoundTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"soundCell"
                                                                  forIndexPath:indexPath];
-    NSString *key = _arrayOfSounds[2 * indexPath.row + 1];
-    NSString *value = _arrayOfSounds[2 * indexPath.row];
+    AMClonableString *key = _arrayOfSounds[2 * indexPath.row + 1];
+    AMClonableString *value = _arrayOfSounds[2 * indexPath.row];
 
-    [cell assignSoundKey:key];
-    [cell assignSoundValue:value];
+    [cell assignSoundKey:key.getValue];
+    [cell assignSoundValue:value.getValue];
     [cell assignPlayer:_amPlayer];
 
-    if ([[_amPlayer getSoundKey] isEqualToString:key]) {
+    if ([[_amPlayer getSoundKey] isEqualToString:key.getValue]) {
         _indexSelected = indexPath;
     }
 

@@ -29,7 +29,7 @@
 }
 
 - (id)clone {
-    return [[AMClonableString alloc] initWithString:_value];
+    return [[AMClonableString alloc] initWithString:[NSString stringWithString:_value]];
 }
 
 @end

@@ -58,9 +58,7 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    [self loadSidebarMenu];
-    [self loadSliders];
-    [self loadButtons];
+    [self refreshView];
 }
 
 - (void)didReceiveMemoryWarning {

@@ -1482,25 +1482,34 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="8En-Rr-4Ft">
-                                <rect key="frame" x="-372" y="195" width="1344" height="100"/>
+                                <rect key="frame" x="-372" y="200" width="1344" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="Db1-Gl-v19"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_colored.png" translatesAutoresizingMaskIntoConstraints="NO" id="M8e-Vv-r47">
+                                <rect key="frame" x="-372" y="200" width="1344" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="de8-tQ-fnI"/>
                                 </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="C8C-bL-Mst" secondAttribute="trailing" id="Dlu-UU-Exq"/>
+                            <constraint firstAttribute="centerX" secondItem="M8e-Vv-r47" secondAttribute="centerX" id="F1w-1K-yGV"/>
                             <constraint firstAttribute="centerX" secondItem="BvG-bL-2pO" secondAttribute="centerX" id="OBk-aM-wQo"/>
-                            <constraint firstAttribute="centerX" secondItem="8En-Rr-4Ft" secondAttribute="centerX" id="ZdW-E4-FQe"/>
-                            <constraint firstItem="BvG-bL-2pO" firstAttribute="top" secondItem="8En-Rr-4Ft" secondAttribute="bottom" constant="-10" id="gTr-Wo-Ni4"/>
+                            <constraint firstAttribute="centerY" secondItem="8En-Rr-4Ft" secondAttribute="centerY" constant="50" id="TMn-ec-Tah"/>
                             <constraint firstItem="C8C-bL-Mst" firstAttribute="top" secondItem="pKQ-Cc-4YW" secondAttribute="top" id="hen-Oo-wcj"/>
                             <constraint firstItem="C8C-bL-Mst" firstAttribute="leading" secondItem="pKQ-Cc-4YW" secondAttribute="leading" id="vyf-Fb-q8M"/>
+                            <constraint firstAttribute="centerX" secondItem="8En-Rr-4Ft" secondAttribute="centerX" id="x8x-Sd-vvn"/>
+                            <constraint firstAttribute="centerY" secondItem="M8e-Vv-r47" secondAttribute="centerY" constant="50" id="y5c-dG-BvF"/>
                             <constraint firstAttribute="centerY" secondItem="BvG-bL-2pO" secondAttribute="centerY" constant="-50" id="ze6-Ze-zfo"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="descriptionText" destination="BvG-bL-2pO" id="I8p-47-LoD"/>
+                        <outlet property="logoColoredView" destination="M8e-Vv-r47" id="Zxx-hS-zdV"/>
                         <outlet property="logoView" destination="8En-Rr-4Ft" id="4m3-Cs-fQL"/>
                         <outlet property="navigationBar" destination="C8C-bL-Mst" id="iiU-cf-fbt"/>
                         <outlet property="navigationBarItem" destination="CYX-jQ-YOL" id="DDL-Vv-BcL"/>
@@ -1607,6 +1616,7 @@
         <image name="grid_r.png" width="120" height="120"/>
         <image name="list_r.png" width="120" height="120"/>
         <image name="logo.png" width="1344" height="648"/>
+        <image name="logo_colored.png" width="1344" height="648"/>
         <image name="settings_r.png" width="120" height="120"/>
     </resources>
     <inferredMetricsTieBreakers>

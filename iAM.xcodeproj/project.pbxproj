@@ -275,6 +275,9 @@
 		A4C7ECE61AE6EA3F00428B68 /* artificialLow1.aif in Resources */ = {isa = PBXBuildFile; fileRef = A4CB2BD21AD9C2E8007D2584 /* artificialLow1.aif */; };
 		A4C7ECE71AE6EA3F00428B68 /* click2.aif in Resources */ = {isa = PBXBuildFile; fileRef = A4CB2BD51AD9C2E8007D2584 /* click2.aif */; };
 		A4C7ECE91AE6EA3F00428B68 /* stickLow.aif in Resources */ = {isa = PBXBuildFile; fileRef = A4CB2BDC1AD9C2E8007D2584 /* stickLow.aif */; };
+		A4C8BA3B1B3E047600D42128 /* logo_colored.png in Resources */ = {isa = PBXBuildFile; fileRef = A4C8BA3A1B3E047600D42128 /* logo_colored.png */; };
+		A4C8BA3C1B3E047600D42128 /* logo_colored.png in Resources */ = {isa = PBXBuildFile; fileRef = A4C8BA3A1B3E047600D42128 /* logo_colored.png */; };
+		A4C8BA3D1B3E047600D42128 /* logo_colored.png in Resources */ = {isa = PBXBuildFile; fileRef = A4C8BA3A1B3E047600D42128 /* logo_colored.png */; };
 		A4CB2BDD1AD9C2E8007D2584 /* artificialHigh1.aif in Resources */ = {isa = PBXBuildFile; fileRef = A4CB2BD01AD9C2E8007D2584 /* artificialHigh1.aif */; };
 		A4CB2BDE1AD9C2E8007D2584 /* artificialHigh2.aif in Resources */ = {isa = PBXBuildFile; fileRef = A4CB2BD11AD9C2E8007D2584 /* artificialHigh2.aif */; };
 		A4CB2BDF1AD9C2E8007D2584 /* artificialLow1.aif in Resources */ = {isa = PBXBuildFile; fileRef = A4CB2BD21AD9C2E8007D2584 /* artificialLow1.aif */; };
@@ -519,6 +522,7 @@
 		A4C7EC961AE6C90900428B68 /* AMPopupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMPopupViewController.h; sourceTree = "<group>"; };
 		A4C7EC971AE6C90900428B68 /* AMPopupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMPopupViewController.m; sourceTree = "<group>"; };
 		A4C7ECF01AE6EA3F00428B68 /* tickGrid.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tickGrid.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A4C8BA3A1B3E047600D42128 /* logo_colored.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logo_colored.png; path = Images/logo_colored.png; sourceTree = "<group>"; };
 		A4CB2BD01AD9C2E8007D2584 /* artificialHigh1.aif */ = {isa = PBXFileReference; lastKnownFileType = file; name = artificialHigh1.aif; path = Core/Sounds/artificialHigh1.aif; sourceTree = "<group>"; };
 		A4CB2BD11AD9C2E8007D2584 /* artificialHigh2.aif */ = {isa = PBXFileReference; lastKnownFileType = file; name = artificialHigh2.aif; path = Core/Sounds/artificialHigh2.aif; sourceTree = "<group>"; };
 		A4CB2BD21AD9C2E8007D2584 /* artificialLow1.aif */ = {isa = PBXFileReference; lastKnownFileType = file; name = artificialLow1.aif; path = Core/Sounds/artificialLow1.aif; sourceTree = "<group>"; };
@@ -882,6 +886,7 @@
 		A4A6C58F1AE9722600E488BC /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				A4C8BA3A1B3E047600D42128 /* logo_colored.png */,
 				A4B045251AF7F7A000A72BB6 /* ad.png */,
 				A403E4421AF3C077000F4DCC /* launch.png */,
 				A4A686D71AF2ACDE00FD2B7C /* logo.png */,
@@ -1094,6 +1099,7 @@
 				A42C00BF1B3DDC4E00AB6938 /* right.png in Resources */,
 				A4CB2BE11AD9C2E8007D2584 /* click1.aif in Resources */,
 				A42C009C1B3DC41400AB6938 /* seq2.png in Resources */,
+				A4C8BA3B1B3E047600D42128 /* logo_colored.png in Resources */,
 				A4CB2BDE1AD9C2E8007D2584 /* artificialHigh2.aif in Resources */,
 				A42C005D1B3DC41400AB6938 /* about_r.png in Resources */,
 				A481D1AF1AEFF92C008EAE05 /* Images.xcassets in Resources */,
@@ -1162,6 +1168,7 @@
 				A42C00C01B3DDC4E00AB6938 /* right.png in Resources */,
 				A43135041AE98671001A4D4B /* tutorial_3.png in Resources */,
 				A42C009D1B3DC41400AB6938 /* seq2.png in Resources */,
+				A4C8BA3C1B3E047600D42128 /* logo_colored.png in Resources */,
 				A452FC051AEEDE9C008DFACD /* tutorial_0.png in Resources */,
 				A42C005E1B3DC41400AB6938 /* about_r.png in Resources */,
 				A403E4441AF3C077000F4DCC /* launch.png in Resources */,
@@ -1223,6 +1230,7 @@
 				A42C00C11B3DDC4E00AB6938 /* right.png in Resources */,
 				A43135081AE98672001A4D4B /* tutorial_3.png in Resources */,
 				A42C009E1B3DC41400AB6938 /* seq2.png in Resources */,
+				A4C8BA3D1B3E047600D42128 /* logo_colored.png in Resources */,
 				A481D1A61AEFF6A5008EAE05 /* tutorial_0.png in Resources */,
 				A42C005F1B3DC41400AB6938 /* about_r.png in Resources */,
 				A403E4461AF3C095000F4DCC /* launch.png in Resources */,

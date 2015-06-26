@@ -24,9 +24,7 @@
 @property UIBarButtonItem *tempDeleteButton;
 @property UIBarButtonItem *tempAddButton;
 @property UIBarButtonItem *tempDuplicateButton;
-@property UIBarButtonItem *tempEditButton;
 
-@property BOOL isEditEnabled;
 @property NSMutableArray *toolbarItemsArray;
 
 @property AMMutableArray *arrayOfSequences;
@@ -88,39 +86,26 @@ static NSString *const reuseIdentifier = @"myMenuStepCell";
                                                                                   action:nil];
     [_toolbarItemsArray addObject:flexibleItem];
     [self showEditButtons];
-    
-    NSString *editButtonImage = @"edit_r.png";
-    if(_isEditEnabled) {
-        editButtonImage = @"back_r.png";
-    }
-    
-    _tempEditButton = [AMVisualUtils createBarButton:editButtonImage
-                                              targer:self
-                                            selector:@selector(onEditPressed:)
-                                                size:30];
-    [_toolbarItemsArray addObject:_tempEditButton];
     [AMVisualUtils applyObjectsToToolBar:_bottomToolBar
                              fromAnArray:_toolbarItemsArray];
 }
 
 - (void)showEditButtons{
-    if(_isEditEnabled) {
-        _tempAddButton = [AMVisualUtils createBarButton:@"add_r.png"
-                                                 targer:self
-                                               selector:@selector(onAddAction:)
-                                                   size:30];
-        _tempDeleteButton = [AMVisualUtils createBarButton:@"delete_r.png"
-                                                    targer:self
-                                                  selector:@selector(onDeleteAction:)
-                                                      size:30];
-        _tempDuplicateButton = [AMVisualUtils createBarButton:@"copy_r.png"
-                                                       targer:self
-                                                     selector:@selector(onDuplicateAction:)
-                                                         size:30];
-        [_toolbarItemsArray addObject:_tempDeleteButton];
-        [_toolbarItemsArray addObject:_tempAddButton];
-        [_toolbarItemsArray addObject:_tempDuplicateButton];
-    }
+    _tempAddButton = [AMVisualUtils createBarButton:@"add_r.png"
+                                             targer:self
+                                           selector:@selector(onAddAction:)
+                                               size:30];
+    _tempDeleteButton = [AMVisualUtils createBarButton:@"delete_r.png"
+                                                targer:self
+                                              selector:@selector(onDeleteAction:)
+                                                  size:30];
+    _tempDuplicateButton = [AMVisualUtils createBarButton:@"copy_r.png"
+                                                   targer:self
+                                                 selector:@selector(onDuplicateAction:)
+                                                     size:30];
+    [_toolbarItemsArray addObject:_tempDeleteButton];
+    [_toolbarItemsArray addObject:_tempAddButton];
+    [_toolbarItemsArray addObject:_tempDuplicateButton];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -167,11 +152,6 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 
 - (IBAction)onDuplicateAction:(id)sender {
     [_arrayOfSequences duplicateObject];
-}
-
-- (IBAction)onEditPressed:(id)sender {
-    _isEditEnabled = !_isEditEnabled;
-    [self initBottomToolBar];
 }
 
 - (IBAction)onLongPressAction:(id)sender {

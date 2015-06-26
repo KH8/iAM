@@ -108,6 +108,9 @@
 		A42C00B31B3DCF2B00AB6938 /* AMNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A42C00B21B3DCF2B00AB6938 /* AMNavigationViewController.m */; };
 		A42C00B41B3DCF2B00AB6938 /* AMNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A42C00B21B3DCF2B00AB6938 /* AMNavigationViewController.m */; };
 		A42C00B51B3DCF2B00AB6938 /* AMNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A42C00B21B3DCF2B00AB6938 /* AMNavigationViewController.m */; };
+		A42C00B71B3DD1C100AB6938 /* eraser_r.png in Resources */ = {isa = PBXBuildFile; fileRef = A42C00B61B3DD1C100AB6938 /* eraser_r.png */; };
+		A42C00B81B3DD1C100AB6938 /* eraser_r.png in Resources */ = {isa = PBXBuildFile; fileRef = A42C00B61B3DD1C100AB6938 /* eraser_r.png */; };
+		A42C00B91B3DD1C100AB6938 /* eraser_r.png in Resources */ = {isa = PBXBuildFile; fileRef = A42C00B61B3DD1C100AB6938 /* eraser_r.png */; };
 		A43135011AE9866B001A4D4B /* tutorial_1.png in Resources */ = {isa = PBXBuildFile; fileRef = A4A6C5901AE9723700E488BC /* tutorial_1.png */; };
 		A43135021AE9866C001A4D4B /* tutorial_1.png in Resources */ = {isa = PBXBuildFile; fileRef = A4A6C5901AE9723700E488BC /* tutorial_1.png */; };
 		A43135031AE98671001A4D4B /* tutorial_2.png in Resources */ = {isa = PBXBuildFile; fileRef = A4A6C5911AE9723700E488BC /* tutorial_2.png */; };
@@ -405,6 +408,7 @@
 		A42C005C1B3DC41400AB6938 /* spot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = spot.png; path = Icons/spot.png; sourceTree = "<group>"; };
 		A42C00B11B3DCF2B00AB6938 /* AMNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMNavigationViewController.h; path = Primitives/AMNavigationViewController.h; sourceTree = "<group>"; };
 		A42C00B21B3DCF2B00AB6938 /* AMNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMNavigationViewController.m; path = Primitives/AMNavigationViewController.m; sourceTree = "<group>"; };
+		A42C00B61B3DD1C100AB6938 /* eraser_r.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = eraser_r.png; path = Icons/eraser_r.png; sourceTree = "<group>"; };
 		A43E331D1AE6F49F00F4F6CC /* AMAboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMAboutViewController.h; sourceTree = "<group>"; };
 		A43E331E1AE6F49F00F4F6CC /* AMAboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMAboutViewController.m; sourceTree = "<group>"; };
 		A441ADB61B39AE500054AF6F /* AMClonableObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMClonableObject.h; path = Core/Auxiliaries/AMClonableObject.h; sourceTree = "<group>"; };
@@ -809,6 +813,7 @@
 		A49A749F1A9A86FB006BC3C7 /* Icons */ = {
 			isa = PBXGroup;
 			children = (
+				A42C00B61B3DD1C100AB6938 /* eraser_r.png */,
 				A42C00411B3DC41400AB6938 /* about_r.png */,
 				A42C00421B3DC41400AB6938 /* add_r.png */,
 				A42C00431B3DC41400AB6938 /* back_r.png */,
@@ -1092,6 +1097,7 @@
 				A42C007E1B3DC41400AB6938 /* eraser.png in Resources */,
 				A42C00AE1B3DC41400AB6938 /* spot.png in Resources */,
 				A42C006F1B3DC41400AB6938 /* decloop_r.png in Resources */,
+				A42C00B71B3DD1C100AB6938 /* eraser_r.png in Resources */,
 				A42C008D1B3DC41400AB6938 /* list_r.png in Resources */,
 				A4CB2BDF1AD9C2E8007D2584 /* artificialLow1.aif in Resources */,
 				A4CB2BE21AD9C2E8007D2584 /* click2.aif in Resources */,
@@ -1157,6 +1163,7 @@
 				A42C007F1B3DC41400AB6938 /* eraser.png in Resources */,
 				A42C00AF1B3DC41400AB6938 /* spot.png in Resources */,
 				A42C00701B3DC41400AB6938 /* decloop_r.png in Resources */,
+				A42C00B81B3DD1C100AB6938 /* eraser_r.png in Resources */,
 				A42C008E1B3DC41400AB6938 /* list_r.png in Resources */,
 				A4A686E31AF2B85D00FD2B7C /* tutorial_4.png in Resources */,
 				A4C7ECE71AE6EA3F00428B68 /* click2.aif in Resources */,
@@ -1215,6 +1222,7 @@
 				A42C00801B3DC41400AB6938 /* eraser.png in Resources */,
 				A42C00B01B3DC41400AB6938 /* spot.png in Resources */,
 				A42C00711B3DC41400AB6938 /* decloop_r.png in Resources */,
+				A42C00B91B3DD1C100AB6938 /* eraser_r.png in Resources */,
 				A42C008F1B3DC41400AB6938 /* list_r.png in Resources */,
 				A4FB77CC1AE6ED17003BC801 /* artificialLow1.aif in Resources */,
 				A4FB77CD1AE6ED17003BC801 /* click2.aif in Resources */,

@@ -29,9 +29,18 @@
 @property AMSequencer *mainSequencer;
 @property AMSequence *mainSequence;
 @property AMStave *mainStave;
-@property UIBarButtonItem *temporaryPlayButton;
 @property UIBarButtonItem *temporarySettingsButton;
+@property UIBarButtonItem *temporaryPlayButton;
+@property UIBarButtonItem *temporaryBackwardButton;
+@property UIBarButtonItem *temporaryForwardButton;
 @property UIBarButtonItem *temporaryEraserButton;
+@property UIBarButtonItem *temporaryDeleteButton;
+@property UIBarButtonItem *temporaryAddButton;
+@property UIBarButtonItem *temporaryDuplicateButton;
+@property UIBarButtonItem *temporaryEditButton;
+
+@property BOOL isEditEnabled;
+@property NSMutableArray *toolbarItemsArray;
 
 @property AMMutableArrayResponder *mainSequenceArrayResponder;
 @property AMMutableArrayResponder *mainStaveArrayResponder;
@@ -44,14 +53,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self loadResponders];
-    [self loadMainObjects];
-    [self loadCollectionViewController];
-    [self loadSidebarMenu];
-    [self loadToolBar];
-    [self loadIcons];
-    [self loadAudioSession];
-    [self loadTheme];
+    [self initResponders];
+    [self initMainObjects];
+    [self initCollectionViewController];
+    [self initSidebarMenu];
+    [self initBottomToolBar];
+    [self initIcons];
+    [self initSession];
+    [self initTheme];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -79,7 +88,7 @@
     [super viewDidDisappear:animated];
 }
 
-- (void)loadResponders {
+- (void)initResponders {
     _mainSequenceArrayResponder = [[AMMutableArrayResponder alloc] initWithArrayHasChangedAction:@selector(sequenceArrayHasBeenChanged)
                                                                     andSelectionHasChangedAction:@selector(sequenceSelectionHasBeenChanged)
                                                                        andMaxCountExceededAction:@selector(sequenceMaxCountExceeded)
@@ -90,38 +99,122 @@
                                                                                     andTarget:self];
 }
 
-- (void)loadMainObjects {
+- (void)initMainObjects {
     AMSequencerSingleton *sequencerSingleton = [AMSequencerSingleton sharedSequencer];
     _mainSequencer = sequencerSingleton.sequencer;
     [_mainSequencer addSequencerDelegate:self];
     [self updateComponents];
 }
 
-- (void)loadCollectionViewController {
+- (void)initCollectionViewController {
     _collectionViewController = [[AMCollectionViewController alloc] initWithCollectionView:_collectionView
                                                                               andSequencer:_mainSequencer];
     _collectionView.delegate = _collectionViewController;
     _collectionView.dataSource = _collectionViewController;
 }
 
-- (void)loadSidebarMenu {
+- (void)initSidebarMenu {
     SWRevealViewController *revealController = [self revealViewController];
     [AMRevealViewUtils initRevealController:revealController
                             withRightButton:self.listButton
                               andLeftButton:self.sideMenuButton];
 }
 
-- (void)loadToolBar {
-    _temporaryEraserButton = [AMVisualUtils createBarButton:@"eraser.png"
-                                                     targer:self
-                                                   selector:@selector(onClearEvent:)
-                                                       size:30];
-    [AMVisualUtils replaceObjectInToolBar:_bottomToolBar
-                                  atIndex:8
-                               withObject:_temporaryEraserButton];
+- (void)initBottomToolBar {
+    [_bottomToolBar setBarTintColor:[AMAppearanceManager getGlobalColorTheme]];
+    _toolbarItemsArray = [[NSMutableArray alloc] init];
+    UIBarButtonItem *flexibleItem1 = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace
+                                                                                  target:nil
+                                                                                  action:nil];
+    UIBarButtonItem *flexibleItem2 = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace
+                                                                                   target:nil
+                                                                                   action:nil];
+    [self showAudioButtons];
+    [_toolbarItemsArray addObject:flexibleItem1];
+    [self showSettingButton];
+    [_toolbarItemsArray addObject:flexibleItem2];
+    [self showEditButtons];
+    
+    NSString *editButtonImage = @"edit.png";
+    if(_isEditEnabled) {
+        editButtonImage = @"details.png";
+    }
+    
+    _temporaryEditButton = [AMVisualUtils createBarButton:editButtonImage
+                                              targer:self
+                                            selector:@selector(onEditPressed:)
+                                                size:30];
+    [_toolbarItemsArray addObject:_temporaryEditButton];
+    [AMVisualUtils applyObjectsToToolBar:_bottomToolBar
+                             fromAnArray:_toolbarItemsArray];
 }
 
-- (void)loadIcons {
+- (void)showSettingButton {
+    if(!_isEditEnabled) {
+        AMBar *bar = (AMBar *) _mainStave.getActualObject;
+        NSString *newTitle = [NSString stringWithFormat:@"%ld:%ld x%ld %ld BPM",
+                              (long) bar.getSignatureNumerator,
+                              (long) bar.getSignatureDenominator,
+                              (long) bar.getDensity,
+                              (long) _mainStave.getTempo];
+        _temporarySettingsButton = [AMVisualUtils createBarButtonWithText:newTitle
+                                                                   targer:self
+                                                                 selector:@selector(onShowSettings:)];
+        [_toolbarItemsArray addObject:_temporarySettingsButton];
+    }
+}
+
+- (void)showAudioButtons {
+    if(_temporaryPlayButton==nil) {
+        _temporaryPlayButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemPlay
+                                                                             target:self
+                                                                             action:@selector(onPlayButtonTouchedEvent:)];
+        _temporaryBackwardButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRewind
+                                                                                 target:self
+                                                                                 action:@selector(onPreviousStep:)];
+        _temporaryForwardButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFastForward
+                                                                                target:self
+                                                                                action:@selector(onNextStep:)];
+    }
+    UIBarButtonItem *fixedItem1 = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace
+                                                                                target:nil
+                                                                                action:nil];
+    [fixedItem1 setWidth:15.0f];
+    UIBarButtonItem *fixedItem2 = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace
+                                                                                target:nil
+                                                                                action:nil];
+    [fixedItem2 setWidth:15.0f];
+    [_toolbarItemsArray addObject:_temporaryBackwardButton];
+    [_toolbarItemsArray addObject:fixedItem1];
+    [_toolbarItemsArray addObject:_temporaryPlayButton];
+    [_toolbarItemsArray addObject:fixedItem2];
+    [_toolbarItemsArray addObject:_temporaryForwardButton];
+}
+
+- (void)showEditButtons{
+    if(_isEditEnabled) {
+        _temporaryEraserButton = [AMVisualUtils createBarButton:@"eraser.png"
+                                                         targer:self
+                                                       selector:@selector(onClear:)
+                                                           size:30];
+        _temporaryDeleteButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemTrash
+                                                                               target:self
+                                                                               action:@selector(onRemovePage:)];
+        _temporaryAddButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
+                                                                            target:self
+                                                                            action:@selector(onAddPage:)];
+        _temporaryDuplicateButton = [AMVisualUtils createBarButton:@"copy.png"
+                                                       targer:self
+                                                     selector:@selector(onDuplicatePage:)
+                                                         size:30];
+        [_toolbarItemsArray addObject:_temporaryEraserButton];
+        [_toolbarItemsArray addObject:_temporaryDeleteButton];
+        [_toolbarItemsArray addObject:_temporaryAddButton];
+        [_toolbarItemsArray addObject:_temporaryDuplicateButton];
+    }
+}
+
+- (void)initIcons {
     UIBarButtonItem *originalLeftButton = self.navigationItem.leftBarButtonItem;
     self.navigationItem.leftBarButtonItem = [AMVisualUtils createBarButton:@"menu.png"
                                                                     targer:originalLeftButton.target
@@ -134,14 +227,14 @@
                                                                       size:26];
 }
 
-- (void)loadAudioSession {
+- (void)initSession {
     [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryMultiRoute
                                            error:nil];
     [MPNowPlayingInfoCenter defaultCenter].nowPlayingInfo = [NSDictionary dictionaryWithObject:@1.0f
                                                                                         forKey:MPNowPlayingInfoPropertyPlaybackRate];
 }
 
-- (void)loadTheme {
+- (void)initTheme {
     UIColor *globalColorTheme = [AMAppearanceManager getGlobalColorTheme];
     UIColor *globalTintColor = [AMAppearanceManager getGlobalTintColor];
     [_bottomToolBar setTintColor:globalTintColor];
@@ -168,17 +261,26 @@
     [[appDelegate appearanceManager] saveContext];
 }
 
-- (IBAction)onClearEvent:(id)sender {
+- (IBAction)onClear:(id)sender {
     [_mainSequencer clear];
     [_collectionViewController reloadData];
 }
 
-- (IBAction)onAddPageEvent:(id)sender {
+- (IBAction)onAddPage:(id)sender {
     [_mainStave addBar];
 }
 
 - (IBAction)onRemovePage:(id)sender {
     [_mainStave removeActualObject];
+}
+
+- (IBAction)onDuplicatePage:(id)sender {
+    [_mainStave duplicateObject];
+}
+
+- (IBAction)onEditPressed:(id)sender {
+    _isEditEnabled = !_isEditEnabled;
+    [self initBottomToolBar];
 }
 
 - (IBAction)onPageSelectionHasChangedEvent:(id)sender {
@@ -215,7 +317,7 @@
 }
 
 - (void)pickedValuesHaveBeenChanged {
-    [self updateSettingsButton];
+    [self initBottomToolBar];
 }
 
 - (void)staveArrayHasBeenChanged {
@@ -248,18 +350,14 @@
     _temporaryPlayButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemPause
                                                                          target:self
                                                                          action:@selector(onPlayButtonTouchedEvent:)];
-    [AMVisualUtils replaceObjectInToolBar:_bottomToolBar
-                                  atIndex:2
-                               withObject:_temporaryPlayButton];
+    [self initBottomToolBar];
 }
 
 - (void)sequenceHasStopped {
     _temporaryPlayButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemPlay
                                                                          target:self
                                                                          action:@selector(onPlayButtonTouchedEvent:)];
-    [AMVisualUtils replaceObjectInToolBar:_bottomToolBar
-                                  atIndex:2
-                               withObject:_temporaryPlayButton];
+    [self initBottomToolBar];
 }
 
 - (void)sequenceHasChanged {
@@ -275,24 +373,9 @@
     [_mainStave addArrayDelegate:_mainStaveArrayResponder];
 
     [self updatePageControl];
-    [self updateSettingsButton];
+    [self initBottomToolBar];
 
     [_collectionViewController reloadData];
-}
-
-- (void)updateSettingsButton {
-    AMBar *bar = (AMBar *) _mainStave.getActualObject;
-    NSString *newTitle = [NSString stringWithFormat:@"%ld:%ld x%ld %ld BPM",
-                                                    (long) bar.getSignatureNumerator,
-                                                    (long) bar.getSignatureDenominator,
-                                                    (long) bar.getDensity,
-                                                    (long) _mainStave.getTempo];
-    _temporarySettingsButton = [AMVisualUtils createBarButtonWithText:newTitle
-                                                           targer:self
-                                                         selector:@selector(onShowSettings:)];
-    [AMVisualUtils replaceObjectInToolBar:_bottomToolBar
-                                  atIndex:6
-                               withObject:_temporarySettingsButton];
 }
 
 - (void)updatePageControl {

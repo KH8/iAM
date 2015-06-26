@@ -37,4 +37,7 @@
 
 + (void)clearObjectsInToolBar:(UIToolbar *)aToolBar;
 
++ (void)applyObjectsToToolBar:(UIToolbar *)aToolBar
+                  fromAnArray:(NSMutableArray *)array;
+
 @end

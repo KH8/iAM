@@ -78,4 +78,13 @@
     aToolBar.items = toolbarItems;
 }
 
++ (void)applyObjectsToToolBar:(UIToolbar *)aToolBar
+                  fromAnArray:(NSMutableArray *)array {
+    NSMutableArray *toolbarItems = [[NSMutableArray alloc] init];
+    for (NSObject *item in array) {
+        [toolbarItems addObject:item];
+    }
+    aToolBar.items = toolbarItems;
+}
+
 @end

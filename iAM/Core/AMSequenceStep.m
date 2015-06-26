@@ -72,11 +72,9 @@
             break;
         case REPEAT:
             [self setStepType:INFINITE_LOOP];
-            _numberOfLoops = 1;
             break;
         case INFINITE_LOOP:
             [self setStepType:PLAY_ONCE];
-            _numberOfLoops = 1;
             break;
     }
 }

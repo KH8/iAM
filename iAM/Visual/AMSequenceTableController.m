@@ -31,13 +31,13 @@
 @property UIBarButtonItem *tempAddButton;
 @property UIBarButtonItem *tempDuplicateButton;
 @property UIBarButtonItem *tempEditButton;
-
-@property BOOL isEditEnabled;
-@property BOOL isLoopCountEditEnabled;
-
 @property UIBarButtonItem *tempLoopCountButton;
 @property UIBarButtonItem *tempIncrementButton;
 @property UIBarButtonItem *tempDecrementButton;
+
+@property BOOL isEditEnabled;
+@property BOOL isLoopCountEditEnabled;
+@property NSMutableArray *toolbarItemsArray;
 
 @end
 
@@ -53,14 +53,14 @@ static NSString *const reuseIdentifier = @"mySequenceStepCell";
     [self initSequence];
     [self initCellShiftProvider];
     [self initBottomToolBar];
-    [self updateIndexSelected];
     [self stepLoopCounterUpdate];
+    [self updateComponents];
+    [self updateIndexSelected];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    [self updateComponents];
-    [self loadTheme];
+    [self initTheme];
 }
 
 - (void)initResponders {
@@ -88,18 +88,13 @@ static NSString *const reuseIdentifier = @"mySequenceStepCell";
 
 - (void)initBottomToolBar {
     [_bottomToolBar setBarTintColor:[AMAppearanceManager getGlobalColorTheme]];
-    [AMVisualUtils clearObjectsInToolBar:_bottomToolBar];
-    
-    int index = 0;
+    _toolbarItemsArray = [[NSMutableArray alloc] init];
     UIBarButtonItem *flexibleItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace
                                                                                target:nil
                                                                                action:nil];
-    [AMVisualUtils replaceObjectInToolBar:_bottomToolBar
-                                  atIndex:index
-                               withObject:flexibleItem];
-    index++;
-    index = [self showLoopCountButtonsAtIndex:index];
-    index = [self showEditButtonsAtIndex:index];
+    [_toolbarItemsArray addObject:flexibleItem];
+    [self showLoopCountButtons];
+    [self showEditButtons];
     
     NSString *editButtonImage = @"edit.png";
     if(_isEditEnabled) {
@@ -111,12 +106,12 @@ static NSString *const reuseIdentifier = @"mySequenceStepCell";
                                             selector:@selector(onEditPressed:)
                                                color:[UIColor darkGrayColor]
                                                 size:30];
-    [AMVisualUtils replaceObjectInToolBar:_bottomToolBar
-                                  atIndex:index
-                               withObject:_tempEditButton];
+    [_toolbarItemsArray addObject:_tempEditButton];
+    [AMVisualUtils applyObjectsToToolBar:_bottomToolBar
+                             fromAnArray:_toolbarItemsArray];
 }
 
-- (int)showLoopCountButtonsAtIndex:(int)index {
+- (void)showLoopCountButtons {
     if(_isLoopCountEditEnabled && !_isEditEnabled) {
         _tempIncrementButton = [AMVisualUtils createBarButton:@"incloop.png"
                                                        targer:self
@@ -130,31 +125,18 @@ static NSString *const reuseIdentifier = @"mySequenceStepCell";
         _tempLoopCountButton = [AMVisualUtils createBarButtonWithText:[NSString stringWithFormat:@"%ld", (long) step.getNumberOfLoops]
                                                                targer:nil
                                                              selector:nil];
-        [AMVisualUtils replaceObjectInToolBar:_bottomToolBar
-                                      atIndex:index
-                                   withObject:_tempDecrementButton];
-        index++;
-        [AMVisualUtils replaceObjectInToolBar:_bottomToolBar
-                                      atIndex:index
-                                   withObject:_tempLoopCountButton];
-        index++;
-        [AMVisualUtils replaceObjectInToolBar:_bottomToolBar
-                                      atIndex:index
-                                   withObject:_tempIncrementButton];
-        index++;
         UIBarButtonItem *fixedItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace
                                                                                    target:nil
                                                                                    action:nil];
         [fixedItem setWidth:120.0f];
-        [AMVisualUtils replaceObjectInToolBar:_bottomToolBar
-                                      atIndex:index
-                                   withObject:fixedItem];
-        index++;
+        [_toolbarItemsArray addObject:_tempDecrementButton];
+        [_toolbarItemsArray addObject:_tempLoopCountButton];
+        [_toolbarItemsArray addObject:_tempIncrementButton];
+        [_toolbarItemsArray addObject:fixedItem];
     }
-    return index;
 }
 
-- (int)showEditButtonsAtIndex:(int)index {
+- (void)showEditButtons{
     if(_isEditEnabled) {
         _tempAddButton = [AMVisualUtils createBarButton:@"add.png"
                                                  targer:self
@@ -171,23 +153,14 @@ static NSString *const reuseIdentifier = @"mySequenceStepCell";
                                                      selector:@selector(onDuplicateStep:)
                                                         color:[UIColor darkGrayColor]
                                                          size:30];
-        [AMVisualUtils replaceObjectInToolBar:_bottomToolBar
-                                      atIndex:index
-                                   withObject:_tempDeleteButton];
-        index++;
-        [AMVisualUtils replaceObjectInToolBar:_bottomToolBar
-                                      atIndex:index
-                                   withObject:_tempAddButton];
-        index++;
-        [AMVisualUtils replaceObjectInToolBar:_bottomToolBar
-                                      atIndex:index
-                                   withObject:_tempDuplicateButton];
-        index++;
+        
+        [_toolbarItemsArray addObject:_tempDeleteButton];
+        [_toolbarItemsArray addObject:_tempAddButton];
+        [_toolbarItemsArray addObject:_tempDuplicateButton];
     }
-    return index;
 }
 
-- (void)loadTheme {
+- (void)initTheme {
     [_bottomToolBar setBarTintColor:[AMAppearanceManager getGlobalColorTheme]];
 }
 
@@ -217,6 +190,7 @@ static NSString *const reuseIdentifier = @"mySequenceStepCell";
 - (void)      tableView:(UITableView *)tableView
 didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [_mainSequence setIndexAsActual:(NSUInteger) indexPath.row];
+    [self updateComponents];
 }
 
 - (void)        tableView:(UITableView *)tableView
@@ -313,10 +287,10 @@ didDeselectRowAtIndexPath:(NSIndexPath *)indexPath {
     AMStave *stave = step.getStave;
     [stave addArrayDelegate:_mainStaveArrayResponder];
     [stave addStaveDelegate:self];
-    [self reloadView];
-    [self updateIndexSelected];
     [self stepLoopCounterUpdate];
     [self initBottomToolBar];
+    [_tableView reloadData];
+    [self updateIndexSelected];
 }
 
 - (void)updateIndexSelected {
@@ -334,16 +308,6 @@ didDeselectRowAtIndexPath:(NSIndexPath *)indexPath {
         return;
     }
     _isLoopCountEditEnabled = NO;
-}
-
-- (void)reloadView {
-    dispatch_async(dispatch_get_main_queue(), ^{
-        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        [_tableView reloadData];
-        [self.tableView selectRowAtIndexPath:indexPath
-                                    animated:NO
-                              scrollPosition:UITableViewScrollPositionNone];
-    });
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {

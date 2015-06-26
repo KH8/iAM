@@ -428,29 +428,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="3F5-BX-OBK"/>
                                 </constraints>
-                                <items>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="oLZ-qg-z7X"/>
-                                    <barButtonItem title="Item" systemItem="trash" id="9ex-By-6c7">
-                                        <inset key="imageInsets" minX="-60" minY="-60" maxX="-60" maxY="-60"/>
-                                        <connections>
-                                            <action selector="onDeleteAction:" destination="VYX-gv-vDf" id="rq7-yR-suK"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem width="15" style="plain" systemItem="fixedSpace" id="UJ7-vb-XA9"/>
-                                    <barButtonItem systemItem="add" id="dQ9-UK-qeh">
-                                        <inset key="imageInsets" minX="-60" minY="-60" maxX="-60" maxY="-60"/>
-                                        <connections>
-                                            <action selector="onAddAction:" destination="VYX-gv-vDf" id="KaH-gH-XfD"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem width="15" style="plain" systemItem="fixedSpace" id="Fkl-aC-XJd"/>
-                                    <barButtonItem style="done" systemItem="search" id="O3F-96-hba">
-                                        <color key="tintColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <connections>
-                                            <action selector="onDuplicateAction:" destination="VYX-gv-vDf" id="UqW-W4-yAa"/>
-                                        </connections>
-                                    </barButtonItem>
-                                </items>
+                                <items/>
                                 <color key="barTintColor" white="0.90000000000000002" alpha="1" colorSpace="calibratedWhite"/>
                             </toolbar>
                             <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2kb-eS-rew">
@@ -483,7 +461,7 @@
                         </connections>
                     </view>
                     <connections>
-                        <outlet property="bottomToolBar" destination="FOk-Ok-i3h" id="WOw-bZ-N54"/>
+                        <outlet property="bottomToolBar" destination="FOk-Ok-i3h" id="JKL-cz-TcG"/>
                         <outlet property="navigationBar" destination="2kb-eS-rew" id="7TB-69-6gX"/>
                         <outlet property="navigationBarItem" destination="8IU-Rz-1uh" id="9sD-Kq-e2x"/>
                         <outlet property="sideMenuButton" destination="XL1-4B-JsO" id="qnA-HH-ssz"/>
@@ -1064,28 +1042,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="2GS-GB-6tm"/>
                                 </constraints>
-                                <items>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="xfy-IG-Og2">
-                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                    </barButtonItem>
-                                    <barButtonItem systemItem="rewind" id="nHm-VA-KyE">
-                                        <inset key="imageInsets" minX="30" minY="30" maxX="30" maxY="30"/>
-                                    </barButtonItem>
-                                    <barButtonItem title="2" id="jup-Yi-TgY">
-                                        <inset key="imageInsets" minX="-30" minY="-30" maxX="-30" maxY="-30"/>
-                                    </barButtonItem>
-                                    <barButtonItem systemItem="fastForward" id="mmQ-aa-Rwc">
-                                        <inset key="imageInsets" minX="30" minY="30" maxX="30" maxY="30"/>
-                                    </barButtonItem>
-                                    <barButtonItem width="80" style="plain" systemItem="fixedSpace" id="T3c-H1-wF6"/>
-                                    <barButtonItem style="plain" systemItem="trash" id="k2J-DC-6zc">
-                                        <inset key="imageInsets" minX="-30" minY="-30" maxX="-30" maxY="-30"/>
-                                    </barButtonItem>
-                                    <barButtonItem title="Item" style="plain" systemItem="add" id="uPF-m8-4xl">
-                                        <inset key="imageInsets" minX="-30" minY="-30" maxX="-30" maxY="-30"/>
-                                    </barButtonItem>
-                                    <barButtonItem systemItem="refresh" id="zYo-M1-xwU"/>
-                                </items>
+                                <items/>
                                 <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                             </toolbar>
                         </subviews>
@@ -1112,7 +1069,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OUB-9k-CU7" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="1eq-GS-A7E">
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.20000000000000001" id="1eq-GS-A7E">
                     <connections>
                         <action selector="onLongPressed:" destination="9xo-7Y-GEb" id="tgU-CU-bW3"/>
                     </connections>
@@ -1684,8 +1641,8 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="2P6-UK-2cK"/>
-        <segue reference="6PM-r0-x4R"/>
         <segue reference="zkT-HV-92U"/>
+        <segue reference="iUZ-gW-D26"/>
         <segue reference="lm7-pw-MVk"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>

@@ -12,6 +12,7 @@
 #import "AMPopupViewController.h"
 #import "AMAppearanceManager.h"
 #import "AMCellShiftProvider.h"
+#import "AMVisualUtils.h"
 #import "AMConfig.h"
 
 @interface AMSequenceMenuTableViewController ()
@@ -19,6 +20,14 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UINavigationBar *navigationBar;
 @property (weak, nonatomic) IBOutlet UIToolbar *bottomToolBar;
+
+@property UIBarButtonItem *tempDeleteButton;
+@property UIBarButtonItem *tempAddButton;
+@property UIBarButtonItem *tempDuplicateButton;
+@property UIBarButtonItem *tempEditButton;
+
+@property BOOL isEditEnabled;
+@property NSMutableArray *toolbarItemsArray;
 
 @property AMMutableArray *arrayOfSequences;
 @property AMSequencer *sequencer;
@@ -32,35 +41,78 @@ static NSString *const reuseIdentifier = @"myMenuStepCell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self loadMainObjects];
-    [self loadCellShiftProvider];
+    [self initMainObjects];
+    [self initCellShiftProvider];
+    [self initBottomToolBar];
+    [self initTheme];
     [self updateIndexSelected];
-    [self loadTheme];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
 }
 
-- (void)loadMainObjects {
+- (void)initMainObjects {
     AMSequencerSingleton *sequencerSingleton = [AMSequencerSingleton sharedSequencer];
     _arrayOfSequences = sequencerSingleton.arrayOfSequences;
     [_arrayOfSequences addArrayDelegate:self];
     _sequencer = sequencerSingleton.sequencer;
 }
 
-- (void)loadCellShiftProvider {
+- (void)initCellShiftProvider {
     _cellShiftProvider = [[AMCellShiftProvider alloc] initWith:_arrayOfSequences
                                                     controller:self.tableView];
 }
 
-- (void)loadTheme {
+- (void)initTheme {
     UIColor *globalColorTheme = [AMAppearanceManager getGlobalColorTheme];
     UIColor *globalTintColor = [AMAppearanceManager getGlobalTintColor];
     [_bottomToolBar setTintColor:globalTintColor];
     [_bottomToolBar setBarTintColor:globalColorTheme];
     [_navigationBar setTintColor:globalTintColor];
     [_navigationBar setBarTintColor:globalColorTheme];
+}
+
+- (void)initBottomToolBar {
+    _toolbarItemsArray = [[NSMutableArray alloc] init];
+    UIBarButtonItem *flexibleItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace
+                                                                                  target:nil
+                                                                                  action:nil];
+    [_toolbarItemsArray addObject:flexibleItem];
+    [self showEditButtons];
+    
+    NSString *editButtonImage = @"edit.png";
+    if(_isEditEnabled) {
+        editButtonImage = @"backRound.png";
+    }
+    
+    _tempEditButton = [AMVisualUtils createBarButton:editButtonImage
+                                              targer:self
+                                            selector:@selector(onEditPressed:)
+                                                size:30];
+    [_toolbarItemsArray addObject:_tempEditButton];
+    [AMVisualUtils applyObjectsToToolBar:_bottomToolBar
+                             fromAnArray:_toolbarItemsArray];
+}
+
+- (void)showEditButtons{
+    if(_isEditEnabled) {
+        _tempAddButton = [AMVisualUtils createBarButton:@"add.png"
+                                                 targer:self
+                                               selector:@selector(onAddAction:)
+                                                   size:30];
+        _tempDeleteButton = [AMVisualUtils createBarButton:@"delete.png"
+                                                    targer:self
+                                                  selector:@selector(onDeleteAction:)
+                                                      size:30];
+        _tempDuplicateButton = [AMVisualUtils createBarButton:@"copy.png"
+                                                       targer:self
+                                                     selector:@selector(onDuplicateAction:)
+                                                         size:30];
+        [_toolbarItemsArray addObject:_tempDeleteButton];
+        [_toolbarItemsArray addObject:_tempAddButton];
+        [_toolbarItemsArray addObject:_tempDuplicateButton];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -82,9 +134,6 @@ static NSString *const reuseIdentifier = @"myMenuStepCell";
     AMSequenceMenuTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier
                                                                         forIndexPath:indexPath];
     [cell assignSequence:sequence];
-    if (indexPath.row == 0) {
-        cell.textLabel.textColor = [[UIView appearance] tintColor];
-    }
     return cell;
 }
 
@@ -102,22 +151,19 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 - (IBAction)onAddAction:(id)sender {
     AMSequence *newSequence = [[AMSequence alloc] initWithSubComponents];
     [_arrayOfSequences addObject:newSequence];
-    [_tableView reloadData];
-    [self updateIndexSelected];
 }
 
 - (IBAction)onDeleteAction:(id)sender {
     [_arrayOfSequences removeActualObject];
-    [_tableView reloadData];
-    [self updateIndexSelected];
-    [self updateComponents];
 }
 
 - (IBAction)onDuplicateAction:(id)sender {
     [_arrayOfSequences duplicateObject];
-    [_tableView reloadData];
-    [self updateIndexSelected];
-    [self updateComponents];
+}
+
+- (IBAction)onEditPressed:(id)sender {
+    _isEditEnabled = !_isEditEnabled;
+    [self initBottomToolBar];
 }
 
 - (IBAction)onLongPressAction:(id)sender {
@@ -125,9 +171,11 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 }
 
 - (void)arrayHasBeenChanged {
+    [self updateComponents];
 }
 
 - (void)selectionHasBeenChanged {
+    [self updateComponents];
 }
 
 - (void)maxCountExceeded {
@@ -137,6 +185,8 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 - (void)updateComponents {
     AMSequence *sequenceSelected = (AMSequence *) _arrayOfSequences.getActualObject;
     [_sequencer setSequence:sequenceSelected];
+    [_tableView reloadData];
+    [self updateIndexSelected];
 }
 
 - (void)updateIndexSelected {

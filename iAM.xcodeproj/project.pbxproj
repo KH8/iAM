@@ -111,6 +111,12 @@
 		A42C00B71B3DD1C100AB6938 /* eraser_r.png in Resources */ = {isa = PBXBuildFile; fileRef = A42C00B61B3DD1C100AB6938 /* eraser_r.png */; };
 		A42C00B81B3DD1C100AB6938 /* eraser_r.png in Resources */ = {isa = PBXBuildFile; fileRef = A42C00B61B3DD1C100AB6938 /* eraser_r.png */; };
 		A42C00B91B3DD1C100AB6938 /* eraser_r.png in Resources */ = {isa = PBXBuildFile; fileRef = A42C00B61B3DD1C100AB6938 /* eraser_r.png */; };
+		A42C00BC1B3DDC4E00AB6938 /* left.png in Resources */ = {isa = PBXBuildFile; fileRef = A42C00BA1B3DDC4E00AB6938 /* left.png */; };
+		A42C00BD1B3DDC4E00AB6938 /* left.png in Resources */ = {isa = PBXBuildFile; fileRef = A42C00BA1B3DDC4E00AB6938 /* left.png */; };
+		A42C00BE1B3DDC4E00AB6938 /* left.png in Resources */ = {isa = PBXBuildFile; fileRef = A42C00BA1B3DDC4E00AB6938 /* left.png */; };
+		A42C00BF1B3DDC4E00AB6938 /* right.png in Resources */ = {isa = PBXBuildFile; fileRef = A42C00BB1B3DDC4E00AB6938 /* right.png */; };
+		A42C00C01B3DDC4E00AB6938 /* right.png in Resources */ = {isa = PBXBuildFile; fileRef = A42C00BB1B3DDC4E00AB6938 /* right.png */; };
+		A42C00C11B3DDC4E00AB6938 /* right.png in Resources */ = {isa = PBXBuildFile; fileRef = A42C00BB1B3DDC4E00AB6938 /* right.png */; };
 		A43135011AE9866B001A4D4B /* tutorial_1.png in Resources */ = {isa = PBXBuildFile; fileRef = A4A6C5901AE9723700E488BC /* tutorial_1.png */; };
 		A43135021AE9866C001A4D4B /* tutorial_1.png in Resources */ = {isa = PBXBuildFile; fileRef = A4A6C5901AE9723700E488BC /* tutorial_1.png */; };
 		A43135031AE98671001A4D4B /* tutorial_2.png in Resources */ = {isa = PBXBuildFile; fileRef = A4A6C5911AE9723700E488BC /* tutorial_2.png */; };
@@ -409,6 +415,8 @@
 		A42C00B11B3DCF2B00AB6938 /* AMNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMNavigationViewController.h; path = Primitives/AMNavigationViewController.h; sourceTree = "<group>"; };
 		A42C00B21B3DCF2B00AB6938 /* AMNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMNavigationViewController.m; path = Primitives/AMNavigationViewController.m; sourceTree = "<group>"; };
 		A42C00B61B3DD1C100AB6938 /* eraser_r.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = eraser_r.png; path = Icons/eraser_r.png; sourceTree = "<group>"; };
+		A42C00BA1B3DDC4E00AB6938 /* left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = left.png; path = Icons/left.png; sourceTree = "<group>"; };
+		A42C00BB1B3DDC4E00AB6938 /* right.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = right.png; path = Icons/right.png; sourceTree = "<group>"; };
 		A43E331D1AE6F49F00F4F6CC /* AMAboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMAboutViewController.h; sourceTree = "<group>"; };
 		A43E331E1AE6F49F00F4F6CC /* AMAboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMAboutViewController.m; sourceTree = "<group>"; };
 		A441ADB61B39AE500054AF6F /* AMClonableObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMClonableObject.h; path = Core/Auxiliaries/AMClonableObject.h; sourceTree = "<group>"; };
@@ -813,6 +821,8 @@
 		A49A749F1A9A86FB006BC3C7 /* Icons */ = {
 			isa = PBXGroup;
 			children = (
+				A42C00BA1B3DDC4E00AB6938 /* left.png */,
+				A42C00BB1B3DDC4E00AB6938 /* right.png */,
 				A42C00B61B3DD1C100AB6938 /* eraser_r.png */,
 				A42C00411B3DC41400AB6938 /* about_r.png */,
 				A42C00421B3DC41400AB6938 /* add_r.png */,
@@ -1062,6 +1072,7 @@
 				A42C00661B3DC41400AB6938 /* back.png in Resources */,
 				A4CB2BDD1AD9C2E8007D2584 /* artificialHigh1.aif in Resources */,
 				A452FC041AEEDE7C008DFACD /* tutorial_0.png in Resources */,
+				A42C00BC1B3DDC4E00AB6938 /* left.png in Resources */,
 				A42C00751B3DC41400AB6938 /* details.png in Resources */,
 				A42C00991B3DC41400AB6938 /* seq1.png in Resources */,
 				A42C00961B3DC41400AB6938 /* selectedLeft.png in Resources */,
@@ -1080,6 +1091,7 @@
 				A4A6C5961AE9723700E488BC /* tutorial_2.png in Resources */,
 				A42C00A51B3DC41400AB6938 /* settings_r.png in Resources */,
 				A42C007B1B3DC41400AB6938 /* edit.png in Resources */,
+				A42C00BF1B3DDC4E00AB6938 /* right.png in Resources */,
 				A4CB2BE11AD9C2E8007D2584 /* click1.aif in Resources */,
 				A42C009C1B3DC41400AB6938 /* seq2.png in Resources */,
 				A4CB2BDE1AD9C2E8007D2584 /* artificialHigh2.aif in Resources */,
@@ -1128,6 +1140,7 @@
 				A42C00671B3DC41400AB6938 /* back.png in Resources */,
 				A4C7ECCE1AE6EA3F00428B68 /* artificialHigh1.aif in Resources */,
 				A43135011AE9866B001A4D4B /* tutorial_1.png in Resources */,
+				A42C00BD1B3DDC4E00AB6938 /* left.png in Resources */,
 				A42C00761B3DC41400AB6938 /* details.png in Resources */,
 				A42C009A1B3DC41400AB6938 /* seq1.png in Resources */,
 				A42C00971B3DC41400AB6938 /* selectedLeft.png in Resources */,
@@ -1146,6 +1159,7 @@
 				A43135031AE98671001A4D4B /* tutorial_2.png in Resources */,
 				A42C00A61B3DC41400AB6938 /* settings_r.png in Resources */,
 				A42C007C1B3DC41400AB6938 /* edit.png in Resources */,
+				A42C00C01B3DDC4E00AB6938 /* right.png in Resources */,
 				A43135041AE98671001A4D4B /* tutorial_3.png in Resources */,
 				A42C009D1B3DC41400AB6938 /* seq2.png in Resources */,
 				A452FC051AEEDE9C008DFACD /* tutorial_0.png in Resources */,
@@ -1187,6 +1201,7 @@
 				A42C00681B3DC41400AB6938 /* back.png in Resources */,
 				A4FB77B41AE6ED17003BC801 /* artificialHigh1.aif in Resources */,
 				A43135021AE9866C001A4D4B /* tutorial_1.png in Resources */,
+				A42C00BE1B3DDC4E00AB6938 /* left.png in Resources */,
 				A42C00771B3DC41400AB6938 /* details.png in Resources */,
 				A42C009B1B3DC41400AB6938 /* seq1.png in Resources */,
 				A42C00981B3DC41400AB6938 /* selectedLeft.png in Resources */,
@@ -1205,6 +1220,7 @@
 				A43135071AE98672001A4D4B /* tutorial_2.png in Resources */,
 				A42C00A71B3DC41400AB6938 /* settings_r.png in Resources */,
 				A42C007D1B3DC41400AB6938 /* edit.png in Resources */,
+				A42C00C11B3DDC4E00AB6938 /* right.png in Resources */,
 				A43135081AE98672001A4D4B /* tutorial_3.png in Resources */,
 				A42C009E1B3DC41400AB6938 /* seq2.png in Resources */,
 				A481D1A61AEFF6A5008EAE05 /* tutorial_0.png in Resources */,

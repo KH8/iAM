@@ -34,6 +34,8 @@
 @property UIBarButtonItem *temporaryBackwardButton;
 @property UIBarButtonItem *temporaryForwardButton;
 @property UIBarButtonItem *temporaryEraserButton;
+@property UIBarButtonItem *temporaryLeftButton;
+@property UIBarButtonItem *temporaryRightButton;
 @property UIBarButtonItem *temporaryDeleteButton;
 @property UIBarButtonItem *temporaryAddButton;
 @property UIBarButtonItem *temporaryDuplicateButton;
@@ -123,16 +125,10 @@
 - (void)initBottomToolBar {
     [_bottomToolBar setBarTintColor:[AMAppearanceManager getGlobalColorTheme]];
     _toolbarItemsArray = [[NSMutableArray alloc] init];
-    UIBarButtonItem *flexibleItem1 = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace
-                                                                                  target:nil
-                                                                                  action:nil];
-    UIBarButtonItem *flexibleItem2 = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace
-                                                                                   target:nil
-                                                                                   action:nil];
     [self showAudioButtons];
-    [_toolbarItemsArray addObject:flexibleItem1];
+    [_toolbarItemsArray addObject:[AMVisualUtils createFlexibleSpace]];
     [self showSettingButton];
-    [_toolbarItemsArray addObject:flexibleItem2];
+    [_toolbarItemsArray addObject:[AMVisualUtils createFlexibleSpace]];
     [self showEditButtons];
     
     NSString *editButtonImage = @"edit.png";
@@ -176,23 +172,23 @@
                                                                                 target:self
                                                                                 action:@selector(onNextStep:)];
     }
-    UIBarButtonItem *fixedItem1 = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace
-                                                                                target:nil
-                                                                                action:nil];
-    [fixedItem1 setWidth:15.0f];
-    UIBarButtonItem *fixedItem2 = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace
-                                                                                target:nil
-                                                                                action:nil];
-    [fixedItem2 setWidth:15.0f];
     [_toolbarItemsArray addObject:_temporaryBackwardButton];
-    [_toolbarItemsArray addObject:fixedItem1];
+    [_toolbarItemsArray addObject:[AMVisualUtils createFixedSpaceWithSize:15.0f]];
     [_toolbarItemsArray addObject:_temporaryPlayButton];
-    [_toolbarItemsArray addObject:fixedItem2];
+    [_toolbarItemsArray addObject:[AMVisualUtils createFixedSpaceWithSize:15.0f]];
     [_toolbarItemsArray addObject:_temporaryForwardButton];
 }
 
 - (void)showEditButtons{
     if(_isEditEnabled) {
+        _temporaryLeftButton = [AMVisualUtils createBarButton:@"left.png"
+                                                            targer:self
+                                                          selector:@selector(onMovePageBackward:)
+                                                              size:30];
+        _temporaryRightButton = [AMVisualUtils createBarButton:@"right.png"
+                                                            targer:self
+                                                          selector:@selector(onMovePageForward:)
+                                                              size:30];
         _temporaryEraserButton = [AMVisualUtils createBarButton:@"eraser.png"
                                                          targer:self
                                                        selector:@selector(onClear:)
@@ -207,10 +203,18 @@
                                                        targer:self
                                                      selector:@selector(onDuplicatePage:)
                                                          size:30];
+        [_toolbarItemsArray addObject:_temporaryLeftButton];
+        [_toolbarItemsArray addObject:[AMVisualUtils createFixedSpaceWithSize:10.0f]];
+        [_toolbarItemsArray addObject:_temporaryRightButton];
+        [_toolbarItemsArray addObject:[AMVisualUtils createFixedSpaceWithSize:10.0f]];
         [_toolbarItemsArray addObject:_temporaryEraserButton];
+        [_toolbarItemsArray addObject:[AMVisualUtils createFixedSpaceWithSize:10.0f]];
         [_toolbarItemsArray addObject:_temporaryDeleteButton];
+        [_toolbarItemsArray addObject:[AMVisualUtils createFixedSpaceWithSize:10.0f]];
         [_toolbarItemsArray addObject:_temporaryAddButton];
+        [_toolbarItemsArray addObject:[AMVisualUtils createFixedSpaceWithSize:10.0f]];
         [_toolbarItemsArray addObject:_temporaryDuplicateButton];
+        [_toolbarItemsArray addObject:[AMVisualUtils createFixedSpaceWithSize:10.0f]];
     }
 }
 
@@ -259,6 +263,14 @@
     AppDelegate *appDelegate = [AMApplicationDelegate getAppDelegate];
     [[appDelegate configurationManager] saveContext];
     [[appDelegate appearanceManager] saveContext];
+}
+
+- (IBAction)onMovePageBackward:(id)sender {
+    [_mainStave moveActualObjectBackward];
+}
+
+- (IBAction)onMovePageForward:(id)sender {
+    [_mainStave moveActualObjectForward];
 }
 
 - (IBAction)onClear:(id)sender {

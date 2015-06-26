@@ -81,10 +81,7 @@ static NSString *const reuseIdentifier = @"myMenuStepCell";
 
 - (void)initBottomToolBar {
     _toolbarItemsArray = [[NSMutableArray alloc] init];
-    UIBarButtonItem *flexibleItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace
-                                                                                  target:nil
-                                                                                  action:nil];
-    [_toolbarItemsArray addObject:flexibleItem];
+    [_toolbarItemsArray addObject:[AMVisualUtils createFlexibleSpace]];
     [self showEditButtons];
     [AMVisualUtils applyObjectsToToolBar:_bottomToolBar
                              fromAnArray:_toolbarItemsArray];
@@ -104,7 +101,9 @@ static NSString *const reuseIdentifier = @"myMenuStepCell";
                                                  selector:@selector(onDuplicateAction:)
                                                      size:30];
     [_toolbarItemsArray addObject:_tempDeleteButton];
+    [_toolbarItemsArray addObject:[AMVisualUtils createFixedSpaceWithSize:5.0f]];
     [_toolbarItemsArray addObject:_tempAddButton];
+    [_toolbarItemsArray addObject:[AMVisualUtils createFixedSpaceWithSize:5.0f]];
     [_toolbarItemsArray addObject:_tempDuplicateButton];
 }
 

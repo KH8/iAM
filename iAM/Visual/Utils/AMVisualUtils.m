@@ -62,6 +62,20 @@
     return button;
 }
 
++ (UIBarButtonItem *)createFlexibleSpace {
+    return [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace
+                                                         target:nil
+                                                         action:nil];
+}
+
++ (UIBarButtonItem *)createFixedSpaceWithSize:(float)value {
+    UIBarButtonItem *fixedItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace
+                                                                                       target:nil
+                                                                                       action:nil];
+    [fixedItem setWidth:value];
+    return fixedItem;
+}
+
 + (void)replaceObjectInToolBar:(UIToolbar *)aToolBar
                        atIndex:(NSInteger)anIndex
                     withObject:(NSObject *)anObject {

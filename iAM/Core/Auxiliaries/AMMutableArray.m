@@ -108,12 +108,22 @@
     }
     else if(_actualIndex == targetIndex) {
         if(sourceIndex < targetIndex){
-            [self setPreviousIndexAsActualWithoutCallback];
+            _actualIndex = [self getPreviousIndex];;
         }
         else {
-            [self setNextIndexAsActualWithoutCallback];
+            _actualIndex = [self getNextIndex];
         }
     }
+}
+
+- (void)moveActualObjectForward {
+    [self exchangeObjectAtIndex:[self getNextIndex] withObjectAtIndex:_actualIndex];
+    [self delegateSelectionHasBeenChanged];
+}
+
+- (void)moveActualObjectBackward {
+    [self exchangeObjectAtIndex:[self getPreviousIndex] withObjectAtIndex:_actualIndex];
+    [self delegateSelectionHasBeenChanged];
 }
 
 - (NSInteger)getActualIndex {
@@ -145,27 +155,31 @@
 }
 
 - (void)setNextIndexAsActual {
-    [self setNextIndexAsActualWithoutCallback];
-    [self setIndexAsActual:_actualIndex];
+    int index = [self getNextIndex];
+    [self setIndexAsActual:index];
 }
 
-- (void)setNextIndexAsActualWithoutCallback {
-    _actualIndex++;
-    if (_actualIndex >= _baseArray.count) _actualIndex = 0;
+- (int)getNextIndex {
+    int index;
+    index = (int)_actualIndex + 1;
+    if (index >= _baseArray.count) index = 0;
+    return index;
 }
 
 - (void)setPreviousIndexAsActual {
-    [self setPreviousIndexAsActualWithoutCallback];
-    [self setIndexAsActual:_actualIndex];
+    int index = [self getPreviousIndex];
+    [self setIndexAsActual:index];
 }
 
-- (void)setPreviousIndexAsActualWithoutCallback {
+- (int)getPreviousIndex {
+    int index;
     if (_actualIndex == 0) {
-        _actualIndex = _baseArray.count - 1;
+        index = (int)_baseArray.count - 1;
     }
     else {
-        _actualIndex--;
+        index = (int)_actualIndex - 1;
     }
+    return index;
 }
 
 - (NSUInteger)count {

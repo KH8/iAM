@@ -43,6 +43,10 @@
 
 - (void)exchangeObjectAtIndex:(NSUInteger)sourceIndex withObjectAtIndex:(NSUInteger)targetIndex;
 
+- (void)moveActualObjectForward;
+
+- (void)moveActualObjectBackward;
+
 - (NSInteger)getActualIndex;
 
 - (AMClonableObject *)getActualObject;

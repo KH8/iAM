@@ -31,6 +31,10 @@
                                     selector:(SEL)selector
                                        color:(UIColor *)color;
 
++ (UIBarButtonItem *)createFlexibleSpace;
+
++ (UIBarButtonItem *)createFixedSpaceWithSize:(float)value;
+
 + (void)replaceObjectInToolBar:(UIToolbar *)aToolBar
                        atIndex:(NSInteger)anIndex
                     withObject:(NSObject *)anObject;

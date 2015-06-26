@@ -54,12 +54,11 @@ static NSString *const reuseIdentifier = @"mySequenceStepCell";
     [self initCellShiftProvider];
     [self initBottomToolBar];
     [self stepLoopCounterUpdate];
-    [self updateComponents];
-    [self updateIndexSelected];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
+    [self updateComponents];
     [self initTheme];
 }
 

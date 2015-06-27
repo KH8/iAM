@@ -18,6 +18,9 @@
 
 @property(nonatomic, strong) NSHashTable *stepDelegates;
 
+@property NSDate *lastIncrementationDate;
+@property NSDate *firstIncrementationDate;
+
 @end
 
 @implementation AMSequenceStep
@@ -43,6 +46,8 @@
         _stepType = INFINITE_LOOP;
         _numberOfLoops = 1;
         _stepDelegates = [NSHashTable weakObjectsHashTable];
+        _lastIncrementationDate = [NSDate date];
+        _firstIncrementationDate = [NSDate date];
     }
     return self;
 }
@@ -117,16 +122,31 @@
 }
 
 - (void)incrementLoop {
-    _numberOfLoops++;
+    _numberOfLoops += [self getIncrementFactor];
     [self delegateStepPropertyHasBeenChanged];
 }
 
 - (void)decrementLoop {
-    if (_numberOfLoops == 1) {
-        return;
+    _numberOfLoops -= [self getIncrementFactor];
+    if (_numberOfLoops < 1) {
+        _numberOfLoops = 1;
     }
-    _numberOfLoops--;
     [self delegateStepPropertyHasBeenChanged];
+}
+
+- (int)getIncrementFactor {
+    float intervalFromFirstInc = -1.0f * [_firstIncrementationDate timeIntervalSinceNow];
+    float intervalFromLastInc = -1.0f * [_lastIncrementationDate timeIntervalSinceNow];
+    _lastIncrementationDate = [NSDate date];
+    if(intervalFromLastInc > 0.5) {
+        _firstIncrementationDate = [NSDate date];
+        return 1;
+    } else {
+        if(intervalFromFirstInc > 2.0) {
+            return 10;
+        }
+        return 1;
+    }
 }
 
 - (void)setNumberOfLoops:(NSInteger)numberOfLoops {

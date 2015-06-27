@@ -49,11 +49,11 @@ static NSString *const reuseIdentifier = @"mySequenceStepCell";
     [super viewDidLoad];
     _isEditEnabled = NO;
     
+    [self stepLoopCounterUpdate];
     [self initResponders];
     [self initSequence];
     [self initCellShiftProvider];
     [self initBottomToolBar];
-    [self stepLoopCounterUpdate];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -88,14 +88,22 @@ static NSString *const reuseIdentifier = @"mySequenceStepCell";
 - (void)initBottomToolBar {
     [_bottomToolBar setBarTintColor:[AMAppearanceManager getGlobalColorTheme]];
     _toolbarItemsArray = [[NSMutableArray alloc] init];
-    [_toolbarItemsArray addObject:[AMVisualUtils createFlexibleSpace]];
-    [self showLoopCountButtons];
-    [self showEditButtons];
+    
+    
+    UIBarButtonItem *space = [AMVisualUtils createFlexibleSpace];
+    if(_isLoopCountEditEnabled && !_isEditEnabled) {
+        float width = self.view.frame.size.width - _tableView.frame.size.width;
+        space = [AMVisualUtils createFixedSpaceWithSize:width];
+    }
     
     NSString *editButtonImage = @"edit_r.png";
     if(_isEditEnabled) {
         editButtonImage = @"back_r.png";
     }
+    
+    [_toolbarItemsArray addObject:space];
+    [self showLoopCountButtons];
+    [self showEditButtons];
     
     _tempEditButton = [AMVisualUtils createBarButton:editButtonImage
                                               targer:self
@@ -122,9 +130,11 @@ static NSString *const reuseIdentifier = @"mySequenceStepCell";
                                                                targer:nil
                                                              selector:nil];
         [_toolbarItemsArray addObject:_tempDecrementButton];
+        [_toolbarItemsArray addObject:[AMVisualUtils createFlexibleSpace]];
         [_toolbarItemsArray addObject:_tempLoopCountButton];
+        [_toolbarItemsArray addObject:[AMVisualUtils createFlexibleSpace]];
         [_toolbarItemsArray addObject:_tempIncrementButton];
-        [_toolbarItemsArray addObject:[AMVisualUtils createFixedSpaceWithSize:120.0f]];
+        [_toolbarItemsArray addObject:[AMVisualUtils createFixedSpaceWithSize:100.0f]];
     }
 }
 

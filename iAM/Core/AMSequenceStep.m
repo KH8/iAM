@@ -123,6 +123,9 @@
 
 - (void)incrementLoop {
     _numberOfLoops += [self getIncrementFactor];
+    if (_numberOfLoops > 999) {
+        _numberOfLoops = 999;
+    }
     [self delegateStepPropertyHasBeenChanged];
 }
 
@@ -138,15 +141,15 @@
     float intervalFromFirstInc = -1.0f * [_firstIncrementationDate timeIntervalSinceNow];
     float intervalFromLastInc = -1.0f * [_lastIncrementationDate timeIntervalSinceNow];
     _lastIncrementationDate = [NSDate date];
+    int value = 1;
     if(intervalFromLastInc > 0.5) {
         _firstIncrementationDate = [NSDate date];
-        return 1;
     } else {
         if(intervalFromFirstInc > 2.0) {
-            return 10;
+            value =  10;
         }
-        return 1;
     }
+    return value;
 }
 
 - (void)setNumberOfLoops:(NSInteger)numberOfLoops {

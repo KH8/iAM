@@ -145,6 +145,9 @@
     if (anIndex >= _baseArray.count) {
         return;
     }
+    if (anIndex == _actualIndex) {
+        return;
+    }
     _actualIndex = anIndex;
     [self delegateSelectionHasBeenChanged];
 }

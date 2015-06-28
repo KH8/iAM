@@ -36,14 +36,18 @@
 }
 
 - (void)initAudioPlayer {
-    NSBundle *mainBundle = [NSBundle mainBundle];
-    NSString *filePath = [mainBundle pathForResource:_fileName ofType:_fileType];
-    NSData *fileData = [NSData dataWithContentsOfFile:filePath];
-    NSError *error = nil;
-    _audioPlayer = nil;
-    _audioPlayer = [[AVAudioPlayer alloc] initWithData:fileData error:&error];
+    if(_audioPlayer == nil) {
+        NSBundle *mainBundle = [NSBundle mainBundle];
+        NSString *filePath = [mainBundle pathForResource:_fileName ofType:_fileType];
+        NSData *fileData = [NSData dataWithContentsOfFile:filePath];
+        NSError *error = nil;
+        _audioPlayer = [[AVAudioPlayer alloc] initWithData:fileData error:&error];
+        _audioPlayer.delegate = nil;
+    }
+    else {
+        [_audioPlayer stop];
+    }
     [_audioPlayer setVolume:_generalVolumeFactor.floatValue * _volumeFactor.floatValue];
-    _audioPlayer.delegate = nil;
 }
 
 - (void)playSound {
@@ -53,7 +57,6 @@
 
 - (void)stopSound {
     [_audioPlayer stop];
-    _audioPlayer = nil;
 }
 
 - (void)setSoundName:(NSString *)newName

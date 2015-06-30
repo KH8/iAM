@@ -54,6 +54,7 @@
 @property AMMutableArrayResponder *mainStaveArrayResponder;
 
 @property MPNowPlayingInfoCenter *nowPlayingInfo;
+@property MPMusicPlayerController *musicPlayer;
 
 @end
 
@@ -77,9 +78,20 @@
 }
 
 - (void)initAudioSession {
+    [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryMultiRoute
+                                           error:nil];
     [[AVAudioSession sharedInstance] setActive:YES error:nil];
     [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
+    
+    _musicPlayer = [MPMusicPlayerController applicationMusicPlayer];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(handleMusicPlayerNotification:)
+                                                 name:MPMusicPlayerControllerVolumeDidChangeNotification
+                                               object:_musicPlayer];
+    [_musicPlayer beginGeneratingPlaybackNotifications];
+    
     [self becomeFirstResponder];
+    
     AMPlayer *testPlayer = [[AMPlayer alloc] initWithFile:@"click1" andKey:@"" ofType:@"aif"];
     [testPlayer playSound];
 }
@@ -277,8 +289,6 @@
 }
 
 - (void)initSession {
-    [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryMultiRoute
-                                           error:nil];
     [self updateSession];
 }
 
@@ -286,10 +296,13 @@
     NSString *squenceDescription = [NSString stringWithFormat:@"SEQ: %@", _mainSequence.getName];
     NSNumber *rate = [NSNumber numberWithFloat:(_mainSequencer.isRunning ? 1.0f : 0.0f)];
     MPMediaItemArtwork *albumArt = [[MPMediaItemArtwork alloc] initWithImage:[UIImage imageNamed:@"icon.png"]];
+    
     NSArray *keys = [NSArray arrayWithObjects:MPMediaItemPropertyAlbumTitle, MPNowPlayingInfoPropertyPlaybackRate, MPMediaItemPropertyArtwork, nil];
     NSArray *values = [NSArray arrayWithObjects:squenceDescription, rate, albumArt, nil];
     NSDictionary *mediaInfo = [NSDictionary dictionaryWithObjects:values forKeys:keys];
-    [[MPNowPlayingInfoCenter defaultCenter] setNowPlayingInfo:mediaInfo];
+    
+    _nowPlayingInfo = [MPNowPlayingInfoCenter defaultCenter];
+    [_nowPlayingInfo setNowPlayingInfo:mediaInfo];
 }
 
 - (void)initTheme {
@@ -501,6 +514,14 @@
             break;
     }
     [self updateSession];
+}
+
+-(void)handleMusicPlayerNotification: (id)notification {
+    NSArray *arrayOfPlayers = _mainSequencer.getArrayOfPlayers;
+    float volume = [(MPMusicPlayerController*)[notification object] volume];
+    [(AMPlayer *) arrayOfPlayers[0] setGeneralVolumeFactor:[[NSNumber alloc] initWithFloat:volume]];
+    [(AMPlayer *) arrayOfPlayers[1] setGeneralVolumeFactor:[[NSNumber alloc] initWithFloat:volume]];
+    [(AMPlayer *) arrayOfPlayers[2] setGeneralVolumeFactor:[[NSNumber alloc] initWithFloat:volume]];
 }
 
 @end

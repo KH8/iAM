@@ -232,8 +232,8 @@
                                     <constraint firstAttribute="width" secondItem="4ps-Qq-RDc" secondAttribute="height" multiplier="192:108" id="3L9-zh-Y3n"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swipe to continue..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JO7-y0-x9t">
-                                <rect key="frame" x="253" y="583" width="94" height="12"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap to continue..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JO7-y0-x9t">
+                                <rect key="frame" x="259.5" y="583" width="81.5" height="12"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -249,21 +249,14 @@
                             <constraint firstItem="wGc-da-pwe" firstAttribute="top" secondItem="JO7-y0-x9t" secondAttribute="bottom" constant="5" id="y6b-31-4qi"/>
                             <constraint firstAttribute="trailing" secondItem="4ps-Qq-RDc" secondAttribute="trailing" id="zyI-9y-4gm"/>
                         </constraints>
-                        <connections>
-                            <outletCollection property="gestureRecognizers" destination="VFF-kB-hTs" appends="YES" id="Kvy-RH-OFq"/>
-                        </connections>
                     </view>
                     <connections>
+                        <outlet property="adImage" destination="4ps-Qq-RDc" id="pie-kR-F7N"/>
                         <outlet property="timerLabel" destination="JO7-y0-x9t" id="T1e-GY-Xpb"/>
                         <segue destination="23J-3V-BDE" kind="presentation" identifier="sw_skip" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="2P6-UK-2cK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vbd-Hr-kHm" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <swipeGestureRecognizer direction="left" id="VFF-kB-hTs">
-                    <connections>
-                        <action selector="swipedToTheRight:" destination="Zaw-IE-bZ1" id="bdL-Vu-eVJ"/>
-                    </connections>
-                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-1612" y="-1005"/>
         </scene>
@@ -1620,7 +1613,7 @@
         <image name="settings_r.png" width="120" height="120"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="INm-Aj-d5W"/>
+        <segue reference="2P6-UK-2cK"/>
         <segue reference="zkT-HV-92U"/>
         <segue reference="HdI-RE-NKN"/>
         <segue reference="lm7-pw-MVk"/>

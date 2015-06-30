@@ -7,14 +7,16 @@
 //
 
 #import "AMAdViewController.h"
+#import "AMAppearanceManager.h"
 
 @interface AMAdViewController () {
     BOOL _bannerIsVisible;
-    BOOL _swipeEnabled;
+    BOOL _tapEnabled;
     ADBannerView *_adBannerTop;
 }
 
 @property(weak, nonatomic) IBOutlet UILabel *timerLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *adImage;
 
 @end
 
@@ -23,6 +25,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self initBackground];
+    [self initTapRecognizer];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -34,11 +37,18 @@
     [NSThread detachNewThreadSelector:@selector(runBackground) toTarget:self withObject:nil];
 }
 
+- (void)initTapRecognizer {
+    UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapped:)];
+    singleTap.numberOfTapsRequired = 1;
+    [_adImage setUserInteractionEnabled:YES];
+    [_adImage addGestureRecognizer:singleTap];
+}
+
 - (void)runBackground {
-    _swipeEnabled = NO;
+    _tapEnabled = NO;
     int i = 3;
 
-    while (!_swipeEnabled) {
+    while (!_tapEnabled) {
         dispatch_async(dispatch_get_main_queue(), ^{
             _timerLabel.text = [NSString stringWithFormat:@"Wait %d seconds.", i];
         });
@@ -47,8 +57,8 @@
         i--;
 
         if (i < 0) {
-            _timerLabel.text = @"Swipe to continue.";
-            _swipeEnabled = YES;
+            _timerLabel.text = @"Tap to continue.";
+            _tapEnabled = YES;
         }
     }
 }
@@ -62,8 +72,8 @@
     [super didReceiveMemoryWarning];
 }
 
-- (IBAction)swipedToTheRight:(id)sender {
-    if (_swipeEnabled) {
+- (IBAction)tapped:(id)sender {
+    if (_tapEnabled) {
         [self performSegueWithIdentifier:@"sw_skip" sender:self];
     }
 }

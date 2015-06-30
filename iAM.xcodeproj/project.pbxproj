@@ -189,6 +189,9 @@
 		A48B10F41B262FC3008B9258 /* AMApplicationDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A48B10F11B262FC3008B9258 /* AMApplicationDelegate.m */; };
 		A49A5A741AD718D9000B0080 /* AMMutableArrayResponder.m in Sources */ = {isa = PBXBuildFile; fileRef = A49A5A731AD718D9000B0080 /* AMMutableArrayResponder.m */; };
 		A49A5A7C1AD7264D000B0080 /* CDSelections.m in Sources */ = {isa = PBXBuildFile; fileRef = A49A5A7B1AD7264D000B0080 /* CDSelections.m */; };
+		A49FAF401B42F4CA001A64EC /* ad_colored.png in Resources */ = {isa = PBXBuildFile; fileRef = A49FAF3F1B42F4CA001A64EC /* ad_colored.png */; };
+		A49FAF411B42F4CA001A64EC /* ad_colored.png in Resources */ = {isa = PBXBuildFile; fileRef = A49FAF3F1B42F4CA001A64EC /* ad_colored.png */; };
+		A49FAF421B42F4CA001A64EC /* ad_colored.png in Resources */ = {isa = PBXBuildFile; fileRef = A49FAF3F1B42F4CA001A64EC /* ad_colored.png */; };
 		A4A0CD841AD084E600618B1F /* CDBar.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A0CD7D1AD084E600618B1F /* CDBar.m */; };
 		A4A0CD851AD084E600618B1F /* CDNote.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A0CD7F1AD084E600618B1F /* CDNote.m */; };
 		A4A0CD861AD084E600618B1F /* CDSequence.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A0CD811AD084E600618B1F /* CDSequence.m */; };
@@ -483,6 +486,7 @@
 		A49A5A731AD718D9000B0080 /* AMMutableArrayResponder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMMutableArrayResponder.m; path = Core/Auxiliaries/AMMutableArrayResponder.m; sourceTree = "<group>"; };
 		A49A5A7A1AD7264D000B0080 /* CDSelections.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDSelections.h; path = CoreData/CDSelections.h; sourceTree = "<group>"; };
 		A49A5A7B1AD7264D000B0080 /* CDSelections.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CDSelections.m; path = CoreData/CDSelections.m; sourceTree = "<group>"; };
+		A49FAF3F1B42F4CA001A64EC /* ad_colored.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ad_colored.png; path = Images/ad_colored.png; sourceTree = "<group>"; };
 		A4A0CD7C1AD084E600618B1F /* CDBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDBar.h; path = CoreData/CDBar.h; sourceTree = "<group>"; };
 		A4A0CD7D1AD084E600618B1F /* CDBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CDBar.m; path = CoreData/CDBar.m; sourceTree = "<group>"; };
 		A4A0CD7E1AD084E600618B1F /* CDNote.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDNote.h; path = CoreData/CDNote.h; sourceTree = "<group>"; };
@@ -886,6 +890,7 @@
 		A4A6C58F1AE9722600E488BC /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				A49FAF3F1B42F4CA001A64EC /* ad_colored.png */,
 				A4C8BA3A1B3E047600D42128 /* logo_colored.png */,
 				A4B045251AF7F7A000A72BB6 /* ad.png */,
 				A403E4421AF3C077000F4DCC /* launch.png */,
@@ -1087,6 +1092,7 @@
 				A4CB2BE41AD9C2E8007D2584 /* clockTick2.aif in Resources */,
 				A4B045261AF7F7A000A72BB6 /* ad.png in Resources */,
 				A4A686D81AF2ACDE00FD2B7C /* logo.png in Resources */,
+				A49FAF401B42F4CA001A64EC /* ad_colored.png in Resources */,
 				A4CB2BE61AD9C2E8007D2584 /* natural2.aif in Resources */,
 				A42C00811B3DC41400AB6938 /* grid_r.png in Resources */,
 				A4A6C5951AE9723700E488BC /* tutorial_1.png in Resources */,
@@ -1156,6 +1162,7 @@
 				A481D1AE1AEFF92C008EAE05 /* Images.xcassets in Resources */,
 				A4B045271AF7F7A300A72BB6 /* ad.png in Resources */,
 				A4C7ECD11AE6EA3F00428B68 /* clockTick2.aif in Resources */,
+				A49FAF411B42F4CA001A64EC /* ad_colored.png in Resources */,
 				A4C7ECD31AE6EA3F00428B68 /* natural2.aif in Resources */,
 				A42C00821B3DC41400AB6938 /* grid_r.png in Resources */,
 				A4C7ECD41AE6EA3F00428B68 /* stickHigh.aif in Resources */,
@@ -1218,6 +1225,7 @@
 				A4FB77B71AE6ED17003BC801 /* clockTick2.aif in Resources */,
 				A4B045281AF7F7A300A72BB6 /* ad.png in Resources */,
 				A4FB77B91AE6ED17003BC801 /* natural2.aif in Resources */,
+				A49FAF421B42F4CA001A64EC /* ad_colored.png in Resources */,
 				A4FB77BA1AE6ED17003BC801 /* stickHigh.aif in Resources */,
 				A42C00831B3DC41400AB6938 /* grid_r.png in Resources */,
 				A4FB77BB1AE6ED17003BC801 /* click1.aif in Resources */,

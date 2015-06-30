@@ -14,6 +14,7 @@
 
 - (id)initWith:(AMMutableArray *)array
     controller:(UITableView *)tableView;
+
 - (void)performShifting:(id)sender;
 
 @end

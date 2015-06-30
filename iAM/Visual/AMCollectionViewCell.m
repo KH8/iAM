@@ -7,7 +7,6 @@
 //
 
 #import "AMCollectionViewCell.h"
-#import "AMAppearanceManager.h"
 
 @interface AMCollectionViewCell ()
 

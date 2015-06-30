@@ -38,7 +38,7 @@
 }
 
 - (void)initAudioPlayer {
-    if(_audioPlayer == nil) {
+    if (_audioPlayer == nil) {
         NSBundle *mainBundle = [NSBundle mainBundle];
         NSString *filePath = [mainBundle pathForResource:_fileName ofType:_fileType];
         NSData *fileData = [NSData dataWithContentsOfFile:filePath];

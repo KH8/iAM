@@ -7,7 +7,6 @@
 //
 
 #import "CDSequence.h"
-#import "CDStep.h"
 
 
 @implementation CDSequence

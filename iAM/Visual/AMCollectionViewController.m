@@ -54,7 +54,7 @@ static NSString *const reuseIdentifier = @"myCell";
     AMCollectionViewCell *newCell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier
                                                                               forIndexPath:indexPath];
     NSUInteger numberOfLine = (NSUInteger) [self getNumberOfLine:indexPath];
-    AMMutableArray *lineOfNotes = (AMMutableArray *)[_actualBar getObjectAtIndex:numberOfLine];
+    AMMutableArray *lineOfNotes = (AMMutableArray *) [_actualBar getObjectAtIndex:numberOfLine];
     NSUInteger numberOfNote = (NSUInteger) [self getNumberOfNote:indexPath];
     [newCell setNoteAssigned:lineOfNotes[numberOfNote]];
     return newCell;

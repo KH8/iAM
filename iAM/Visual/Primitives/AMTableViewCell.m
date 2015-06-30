@@ -25,7 +25,7 @@
 }
 
 - (void)setSelectedWithColor:(UIColor *)color {
-    
+
 }
 
 @end

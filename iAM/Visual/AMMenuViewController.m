@@ -11,10 +11,10 @@
 
 @interface AMMenuViewController ()
 
-@property (weak, nonatomic) IBOutlet UIButton *gridButton;
-@property (weak, nonatomic) IBOutlet UIButton *listButton;
-@property (weak, nonatomic) IBOutlet UIButton *propertiesButton;
-@property (weak, nonatomic) IBOutlet UIButton *aboutButton;
+@property(weak, nonatomic) IBOutlet UIButton *gridButton;
+@property(weak, nonatomic) IBOutlet UIButton *listButton;
+@property(weak, nonatomic) IBOutlet UIButton *propertiesButton;
+@property(weak, nonatomic) IBOutlet UIButton *aboutButton;
 
 @end
 

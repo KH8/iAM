@@ -29,7 +29,7 @@
                                 size:(NSInteger)size {
     UIImage *faceImage = [[UIImage imageNamed:pictureName] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
     UIButton *face = [UIButton buttonWithType:UIButtonTypeCustom];
-    
+
     face.tintColor = color;
     face.bounds = CGRectMake(size, size, size, size);
     [face setImage:faceImage
@@ -37,7 +37,7 @@
     [face addTarget:target
              action:selector
    forControlEvents:UIControlEventTouchDown];
-    
+
     return [[UIBarButtonItem alloc] initWithCustomView:face];
 }
 
@@ -70,8 +70,8 @@
 
 + (UIBarButtonItem *)createFixedSpaceWithSize:(float)value {
     UIBarButtonItem *fixedItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace
-                                                                                       target:nil
-                                                                                       action:nil];
+                                                                               target:nil
+                                                                               action:nil];
     [fixedItem setWidth:value];
     return fixedItem;
 }

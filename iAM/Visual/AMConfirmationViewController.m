@@ -8,12 +8,11 @@
 
 #import "AMConfirmationViewController.h"
 #import "AMAppearanceManager.h"
-#import "AppDelegate.h"
 
 @interface AMConfirmationViewController ()
 
 @property(weak, nonatomic) IBOutlet UITextView *textView;
-@property (weak, nonatomic) IBOutlet UIButton *confirmationButtom;
+@property(weak, nonatomic) IBOutlet UIButton *confirmationButtom;
 
 @end
 

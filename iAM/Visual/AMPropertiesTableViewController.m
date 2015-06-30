@@ -14,7 +14,6 @@
 #import "AMSoundsTableViewController.h"
 #import "AMPopupViewController.h"
 #import "AMSequencerSingleton.h"
-#import "AMVolumeSlider.h"
 #import "AMVisualUtils.h"
 #import "AMConfig.h"
 
@@ -115,12 +114,12 @@
     UIColor *backgrounColor = [AMAppearanceManager getGlobalColorTheme];
     [self.view setBackgroundColor:backgrounColor];
     [self.navigationController.navigationBar setBarTintColor:backgrounColor];
-    
+
     UIColor *tintColor = [AMAppearanceManager getGlobalTintColor];
     [self.navigationController.navigationBar setTintColor:tintColor];
     [self.navigationController.navigationItem.backBarButtonItem setTintColor:tintColor];
     [[self.navigationController.navigationBar.subviews lastObject] setTintColor:tintColor];
-    
+
     [_tintColorButton setTintColor:tintColor];
     [_colorThemeButton setTintColor:tintColor];
     [_resetButton setTintColor:tintColor];
@@ -204,8 +203,8 @@
 - (void)playSound {
     AMPlayer *player = (AMPlayer *) _arrayOfPlayers[0];
     NSDate *currentTime = [NSDate date];
-    NSTimeInterval timeDifference =  [currentTime timeIntervalSinceDate:_date];
-    if(timeDifference > 0.8) {
+    NSTimeInterval timeDifference = [currentTime timeIntervalSinceDate:_date];
+    if (timeDifference > 0.8) {
         [player playSound];
         _date = [NSDate date];
     }

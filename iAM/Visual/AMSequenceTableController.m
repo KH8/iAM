@@ -12,9 +12,6 @@
 #import "AMPopupViewController.h"
 #import "AMMutableArrayResponder.h"
 #import "AMVisualUtils.h"
-#import "AMCellShiftProvider.h"
-#import "AMAppearanceManager.h"
-#import "AMConfig.h"
 
 @interface AMSequenceTableController ()
 
@@ -48,7 +45,7 @@ static NSString *const reuseIdentifier = @"mySequenceStepCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     _isEditEnabled = NO;
-    
+
     [self stepLoopCounterUpdate];
     [self initResponders];
     [self initSequence];
@@ -88,23 +85,23 @@ static NSString *const reuseIdentifier = @"mySequenceStepCell";
 - (void)initBottomToolBar {
     [_bottomToolBar setBarTintColor:[AMAppearanceManager getGlobalColorTheme]];
     _toolbarItemsArray = [[NSMutableArray alloc] init];
-    
-    
+
+
     UIBarButtonItem *space = [AMVisualUtils createFlexibleSpace];
-    if(_isLoopCountEditEnabled && !_isEditEnabled) {
+    if (_isLoopCountEditEnabled && !_isEditEnabled) {
         float width = self.view.frame.size.width - _tableView.frame.size.width;
         space = [AMVisualUtils createFixedSpaceWithSize:width];
     }
-    
+
     NSString *editButtonImage = @"edit_r.png";
-    if(_isEditEnabled) {
+    if (_isEditEnabled) {
         editButtonImage = @"back_r.png";
     }
-    
+
     [_toolbarItemsArray addObject:space];
     [self showLoopCountButtons];
     [self showEditButtons];
-    
+
     _tempEditButton = [AMVisualUtils createBarButton:editButtonImage
                                               targer:self
                                             selector:@selector(onEditPressed:)
@@ -116,7 +113,7 @@ static NSString *const reuseIdentifier = @"mySequenceStepCell";
 }
 
 - (void)showLoopCountButtons {
-    if(_isLoopCountEditEnabled && !_isEditEnabled) {
+    if (_isLoopCountEditEnabled && !_isEditEnabled) {
         _tempIncrementButton = [AMVisualUtils createBarButton:@"incloop_r.png"
                                                        targer:self
                                                      selector:@selector(onIncrementLoop:)
@@ -138,8 +135,8 @@ static NSString *const reuseIdentifier = @"mySequenceStepCell";
     }
 }
 
-- (void)showEditButtons{
-    if(_isEditEnabled) {
+- (void)showEditButtons {
+    if (_isEditEnabled) {
         _tempAddButton = [AMVisualUtils createBarButton:@"add_r.png"
                                                  targer:self
                                                selector:@selector(onAddStep:)
@@ -155,7 +152,7 @@ static NSString *const reuseIdentifier = @"mySequenceStepCell";
                                                      selector:@selector(onDuplicateStep:)
                                                         color:[UIColor darkGrayColor]
                                                          size:30];
-        
+
         [_toolbarItemsArray addObject:_tempDeleteButton];
         [_toolbarItemsArray addObject:[AMVisualUtils createFixedSpaceWithSize:5.0f]];
         [_toolbarItemsArray addObject:_tempAddButton];

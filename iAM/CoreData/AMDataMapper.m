@@ -148,7 +148,7 @@
     [newBar setSignatureDenominator:[bar.barSigDenominator integerValue]];
     [newBar setDensity:[bar.barDensity integerValue]];
     for (CDNote *note in bar.barNotes) {
-        AMMutableArray *lineOfNotes = (AMMutableArray *)[newBar getObjectAtIndex:(NSUInteger) [note.noteCoordLine integerValue]];
+        AMMutableArray *lineOfNotes = (AMMutableArray *) [newBar getObjectAtIndex:(NSUInteger) [note.noteCoordLine integerValue]];
         AMNote *correspondingNote = lineOfNotes[(NSUInteger) [note.noteCoordPos integerValue]];
         [correspondingNote select];
     }

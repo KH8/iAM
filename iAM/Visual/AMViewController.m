@@ -11,7 +11,6 @@
 #import "Utils/AMVisualUtils.h"
 #import "Utils/AMRevealViewUtils.h"
 #import "AppDelegate.h"
-#import "AMAppearanceManager.h"
 #import "AMApplicationDelegate.h"
 #import "AMViewController.h"
 #import "AMSequencerSingleton.h"
@@ -25,7 +24,7 @@
 @interface AMViewController () {
 }
 
-@property (weak, nonatomic) IBOutlet UILabel *descriptionLabel;
+@property(weak, nonatomic) IBOutlet UILabel *descriptionLabel;
 
 @property AMCollectionViewController *collectionViewController;
 
@@ -133,16 +132,16 @@
 - (void)initBottomToolBar {
     [_bottomToolBar setBarTintColor:[AMAppearanceManager getGlobalColorTheme]];
     _toolbarItemsArray = [[NSMutableArray alloc] init];
-    
+
     [self showDescriptionLabel];
     [self showAudioButtons];
     [_toolbarItemsArray addObject:[AMVisualUtils createFlexibleSpace]];
     [self showSettingButton];
     [_toolbarItemsArray addObject:[AMVisualUtils createFlexibleSpace]];
     [self showEditButtons];
-    
+
     NSString *editButtonImage = @"edit.png";
-    if(_isEditEnabled) {
+    if (_isEditEnabled) {
         editButtonImage = @"details.png";
     } else {
         _temporaryNextButton = [AMVisualUtils createBarButton:@"next.png"
@@ -151,10 +150,10 @@
                                                          size:26];
         [_toolbarItemsArray addObject:_temporaryNextButton];
     }
-   
+
     _temporaryEditButton = [AMVisualUtils createBarButton:editButtonImage
-                                              targer:self
-                                            selector:@selector(onEditPressed:)
+                                                   targer:self
+                                                 selector:@selector(onEditPressed:)
                                                      size:30];
     [_toolbarItemsArray addObject:_temporaryEditButton];
     [AMVisualUtils applyObjectsToToolBar:_bottomToolBar
@@ -163,38 +162,38 @@
 
 - (void)showDescriptionLabel {
     [_descriptionLabel setText:@""];
-    if(!_isEditEnabled) {
+    if (!_isEditEnabled) {
         NSString *squenceDescription = [NSString stringWithFormat:@"SEQ: %@",
-                                        _mainSequence.getName];
+                                                                  _mainSequence.getName];
         NSString *stepDescription = [NSString stringWithFormat:@"STEP: %@ %@",
-                                        _mainStep.getName,
-                                        _mainStep.getStepTypeName];
+                                                               _mainStep.getName,
+                                                               _mainStep.getStepTypeName];
         NSString *loopDescription = @"";
-        if(_mainStep.getStepType == REPEAT) {
+        if (_mainStep.getStepType == REPEAT) {
             loopDescription = [NSString stringWithFormat:@" %ld/%ld",
-                               (long) _mainSequence.getActualLoopCount + 1,
-                               _mainStep.getNumberOfLoops];
+                                                         (long) _mainSequence.getActualLoopCount + 1,
+                                                         _mainStep.getNumberOfLoops];
         }
         NSString *barDescription = [NSString stringWithFormat:@"BAR: %ld/%ld",
-                                     _mainStave.getActualIndex + 1,
-                                     _mainStave.count];
+                                                              _mainStave.getActualIndex + 1,
+                                                              _mainStave.count];
         NSString *newDescription = [NSString stringWithFormat:@"%@ | %@%@ | %@",
-                                    squenceDescription,
-                                    stepDescription,
-                                    loopDescription,
-                                    barDescription];
+                                                              squenceDescription,
+                                                              stepDescription,
+                                                              loopDescription,
+                                                              barDescription];
         [_descriptionLabel setText:newDescription];
     }
 }
 
 - (void)showSettingButton {
-    if(!_isEditEnabled) {
+    if (!_isEditEnabled) {
         AMBar *bar = (AMBar *) _mainStave.getActualObject;
         NSString *newTitle = [NSString stringWithFormat:@"%ld:%ld x%ld %ld BPM",
-                              (long) bar.getSignatureNumerator,
-                              (long) bar.getSignatureDenominator,
-                              (long) bar.getDensity,
-                              (long) _mainStave.getTempo];
+                                                        (long) bar.getSignatureNumerator,
+                                                        (long) bar.getSignatureDenominator,
+                                                        (long) bar.getDensity,
+                                                        (long) _mainStave.getTempo];
         _temporarySettingsButton = [AMVisualUtils createBarButtonWithText:newTitle
                                                                    targer:self
                                                                  selector:@selector(onShowSettings:)];
@@ -203,7 +202,7 @@
 }
 
 - (void)showAudioButtons {
-    if(_temporaryPlayButton==nil) {
+    if (_temporaryPlayButton == nil) {
         _temporaryPlayButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemPlay
                                                                              target:self
                                                                              action:@selector(onPlayButtonTouchedEvent:)];
@@ -221,16 +220,16 @@
     [_toolbarItemsArray addObject:_temporaryForwardButton];
 }
 
-- (void)showEditButtons{
-    if(_isEditEnabled) {
+- (void)showEditButtons {
+    if (_isEditEnabled) {
         _temporaryLeftButton = [AMVisualUtils createBarButton:@"left.png"
-                                                            targer:self
-                                                          selector:@selector(onMovePageBackward:)
-                                                              size:30];
+                                                       targer:self
+                                                     selector:@selector(onMovePageBackward:)
+                                                         size:30];
         _temporaryRightButton = [AMVisualUtils createBarButton:@"right.png"
-                                                            targer:self
-                                                          selector:@selector(onMovePageForward:)
-                                                              size:30];
+                                                        targer:self
+                                                      selector:@selector(onMovePageForward:)
+                                                          size:30];
         _temporaryEraserButton = [AMVisualUtils createBarButton:@"eraser.png"
                                                          targer:self
                                                        selector:@selector(onClear:)
@@ -242,9 +241,9 @@
                                                                             target:self
                                                                             action:@selector(onAddPage:)];
         _temporaryDuplicateButton = [AMVisualUtils createBarButton:@"copy.png"
-                                                       targer:self
-                                                     selector:@selector(onDuplicatePage:)
-                                                         size:30];
+                                                            targer:self
+                                                          selector:@selector(onDuplicatePage:)
+                                                              size:30];
         [_toolbarItemsArray addObject:_temporaryLeftButton];
         [_toolbarItemsArray addObject:[AMVisualUtils createFixedSpaceWithSize:10.0f]];
         [_toolbarItemsArray addObject:_temporaryRightButton];
@@ -268,9 +267,9 @@
                                                                       size:26];
     UIBarButtonItem *originalRightButton = self.navigationItem.rightBarButtonItem;
     self.navigationItem.rightBarButtonItem = [AMVisualUtils createBarButton:@"sequence.png"
-                                                                    targer:originalRightButton.target
-                                                                  selector:originalRightButton.action
-                                                                      size:26];
+                                                                     targer:originalRightButton.target
+                                                                   selector:originalRightButton.action
+                                                                       size:26];
 }
 
 - (void)initSession {
@@ -373,7 +372,7 @@
     bool wasRunning = [_mainSequencer isRunning];
     AMSequence *sequenceSelected = (AMSequence *) _arrayOfSequences.getActualObject;
     [_mainSequencer setSequence:sequenceSelected];
-    if(wasRunning) {
+    if (wasRunning) {
         [_mainSequencer startStop];
     }
 }
@@ -445,8 +444,8 @@
 - (void)updateComponents {
     _mainSequence = _mainSequencer.getSequence;
     [_mainSequence addArrayDelegate:_mainSequenceArrayResponder];
-    
-    _mainStep = (AMSequenceStep *)_mainSequence.getActualObject;
+
+    _mainStep = (AMSequenceStep *) _mainSequence.getActualObject;
     [_mainStep addStepDelegate:self];
 
     AMSequenceStep *sequenceStep = (AMSequenceStep *) _mainSequence.getActualObject;

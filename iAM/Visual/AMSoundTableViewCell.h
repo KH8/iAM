@@ -16,8 +16,11 @@
 @property(weak, nonatomic) IBOutlet UILabel *soundTitle;
 
 - (void)assignPlayer:(AMPlayer *)player;
+
 - (void)assignSoundKey:(NSString *)key;
+
 - (void)assignSoundValue:(NSString *)value;
+
 - (NSString *)getValue;
 
 @end

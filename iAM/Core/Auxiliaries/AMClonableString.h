@@ -11,6 +11,7 @@
 @interface AMClonableString : AMClonableObject
 
 - (id)initWithString:(NSString *)string;
+
 - (NSString *)getValue;
 
 @end

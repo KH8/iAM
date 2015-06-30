@@ -103,11 +103,11 @@
             withObjectAtIndex:(NSUInteger)sourceIndex {
     [_baseArray exchangeObjectAtIndex:targetIndex
                     withObjectAtIndex:sourceIndex];
-   if(_actualIndex == sourceIndex) {
-       _actualIndex = targetIndex;
+    if (_actualIndex == sourceIndex) {
+        _actualIndex = targetIndex;
     }
-    else if(_actualIndex == targetIndex) {
-        if(sourceIndex < targetIndex){
+    else if (_actualIndex == targetIndex) {
+        if (sourceIndex < targetIndex) {
             _actualIndex = [self getPreviousIndex];;
         }
         else {
@@ -164,7 +164,7 @@
 
 - (int)getNextIndex {
     int index;
-    index = (int)_actualIndex + 1;
+    index = (int) _actualIndex + 1;
     if (index >= _baseArray.count) index = 0;
     return index;
 }
@@ -177,10 +177,10 @@
 - (int)getPreviousIndex {
     int index;
     if (_actualIndex == 0) {
-        index = (int)_baseArray.count - 1;
+        index = (int) _baseArray.count - 1;
     }
     else {
-        index = (int)_actualIndex - 1;
+        index = (int) _actualIndex - 1;
     }
     return index;
 }

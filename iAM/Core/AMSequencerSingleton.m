@@ -4,7 +4,6 @@
 //
 
 #import "AMSequencerSingleton.h"
-#import "AMSequencer.h"
 
 @implementation AMSequencerSingleton
 

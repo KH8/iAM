@@ -83,7 +83,7 @@
 }
 
 - (int)getActualLoopCount {
-    return (int)_actualStepLoopCounter;
+    return (int) _actualStepLoopCounter;
 }
 
 - (void)addStep {

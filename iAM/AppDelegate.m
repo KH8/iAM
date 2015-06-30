@@ -7,7 +7,6 @@
 //
 
 #import "AppDelegate.h"
-#import "CDConfiguration.h"
 
 @implementation AppDelegate
 

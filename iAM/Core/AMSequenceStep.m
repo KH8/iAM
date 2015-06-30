@@ -111,7 +111,7 @@
         bar = @"BAR";
     }
     NSString *description = [NSString stringWithFormat:
-                             @"%ld %@ %ld BPM", (long) _mainStave.count, bar, (long) _mainStave.getTempo];
+            @"%ld %@ %ld BPM", (long) _mainStave.count, bar, (long) _mainStave.getTempo];
 
     if (_stepType == REPEAT) {
         return [NSString stringWithFormat:
@@ -142,11 +142,11 @@
     float intervalFromLastInc = -1.0f * [_lastIncrementationDate timeIntervalSinceNow];
     _lastIncrementationDate = [NSDate date];
     int value = 1;
-    if(intervalFromLastInc > 0.5) {
+    if (intervalFromLastInc > 0.5) {
         _firstIncrementationDate = [NSDate date];
     } else {
-        if(intervalFromFirstInc > 2.0) {
-            value =  10;
+        if (intervalFromFirstInc > 2.0) {
+            value = 10;
         }
     }
     return value;

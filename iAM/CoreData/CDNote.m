@@ -7,7 +7,6 @@
 //
 
 #import "CDNote.h"
-#import "CDBar.h"
 
 
 @implementation CDNote

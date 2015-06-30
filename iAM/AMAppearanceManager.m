@@ -9,7 +9,6 @@
 #import "AMAppearanceManager.h"
 #import "AMVolumeSlider.h"
 #import "AMApplicationDelegate.h"
-#import "AppDelegate.h"
 #import "CDAppearance.h"
 
 @interface AMAppearanceManager ()
@@ -156,7 +155,7 @@
     return -1;
 }
 
-- (UIColor *)getGlobalTintColor{
+- (UIColor *)getGlobalTintColor {
     return _tintColors[_globalTintColorKey];
 }
 
@@ -176,7 +175,7 @@
     _globalColorThemeKey = key;
 }
 
-- (UIColor *)getGlobalColorTheme{
+- (UIColor *)getGlobalColorTheme {
     return _colorThemes[_globalColorThemeKey];
 }
 

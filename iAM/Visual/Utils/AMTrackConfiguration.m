@@ -10,7 +10,7 @@
 #import "AMAppearanceManager.h"
 #import "AMConfig.h"
 
-@interface AMTrackConfiguration() {
+@interface AMTrackConfiguration () {
 }
 
 @property UILabel *soundLabel;
@@ -90,8 +90,8 @@
 - (void)sliderVolumeChanged {
     [_player setVolumeFactor:[[NSNumber alloc] initWithFloat:_slider.value]];
     NSDate *currentTime = [NSDate date];
-    NSTimeInterval timeDifference =  [currentTime timeIntervalSinceDate:_date];
-    if(timeDifference > 0.8) {
+    NSTimeInterval timeDifference = [currentTime timeIntervalSinceDate:_date];
+    if (timeDifference > 0.8) {
         [_player playSound];
         _date = [NSDate date];
     }

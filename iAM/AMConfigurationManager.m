@@ -9,7 +9,6 @@
 #import "AMConfigurationManager.h"
 #import "AMDataMapper.h"
 #import "AMSequencerSingleton.h"
-#import "AppDelegate.h"
 #import "CDAppearance.h"
 #import "CDConfiguration.h"
 #import "CDSelections.h"

@@ -11,15 +11,12 @@
 #import "AMSequencerSingleton.h"
 #import "AMPopupViewController.h"
 #import "AMAppearanceManager.h"
-#import "AMCellShiftProvider.h"
-#import "AMVisualUtils.h"
-#import "AMConfig.h"
 
 @interface AMSequenceMenuTableViewController ()
 
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (weak, nonatomic) IBOutlet UINavigationBar *navigationBar;
-@property (weak, nonatomic) IBOutlet UIToolbar *bottomToolBar;
+@property(weak, nonatomic) IBOutlet UITableView *tableView;
+@property(weak, nonatomic) IBOutlet UINavigationBar *navigationBar;
+@property(weak, nonatomic) IBOutlet UIToolbar *bottomToolBar;
 
 @property UIBarButtonItem *tempDeleteButton;
 @property UIBarButtonItem *tempAddButton;
@@ -74,9 +71,9 @@ static NSString *const reuseIdentifier = @"myMenuStepCell";
 
 - (void)initButtons {
     super.navigationBarItem.rightBarButtonItem = [AMVisualUtils createBarButton:@"grid.png"
-                                          targer:self
-                                        selector:@selector(onGridButtonPressedAction:)
-                                            size:26];
+                                                                         targer:self
+                                                                       selector:@selector(onGridButtonPressedAction:)
+                                                                           size:26];
 }
 
 - (void)initBottomToolBar {
@@ -87,7 +84,7 @@ static NSString *const reuseIdentifier = @"myMenuStepCell";
                              fromAnArray:_toolbarItemsArray];
 }
 
-- (void)showEditButtons{
+- (void)showEditButtons {
     _tempAddButton = [AMVisualUtils createBarButton:@"add_r.png"
                                              targer:self
                                            selector:@selector(onAddAction:)

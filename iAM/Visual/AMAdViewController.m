@@ -7,7 +7,6 @@
 //
 
 #import "AMAdViewController.h"
-#import "AMAppearanceManager.h"
 
 @interface AMAdViewController () {
     BOOL _bannerIsVisible;
@@ -16,7 +15,7 @@
 }
 
 @property(weak, nonatomic) IBOutlet UILabel *timerLabel;
-@property (weak, nonatomic) IBOutlet UIImageView *adImage;
+@property(weak, nonatomic) IBOutlet UIImageView *adImage;
 
 @end
 

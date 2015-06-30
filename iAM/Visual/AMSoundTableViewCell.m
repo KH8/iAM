@@ -7,8 +7,6 @@
 //
 
 #import "AMSoundTableViewCell.h"
-#import "AMPlayer.h"
-#import "AMView.h"
 
 @interface AMSoundTableViewCell ()
 
@@ -30,7 +28,7 @@
 }
 
 - (void)setSelectedWithColor:(UIColor *)color {
-    _soundTitle.textColor =  color;
+    _soundTitle.textColor = color;
     if (self.isSelected) {
         [self playSound];
     }

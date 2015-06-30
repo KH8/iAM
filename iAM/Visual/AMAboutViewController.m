@@ -8,14 +8,13 @@
 
 #import "AMAboutViewController.h"
 #import "AMAppearanceManager.h"
-#import "AMConfig.h"
 
 @interface AMAboutViewController ()
 
 @property(weak, nonatomic) IBOutlet UITextView *descriptionText;
 @property(weak, nonatomic) IBOutlet UIImageView *logoView;
-@property (weak, nonatomic) IBOutlet UIImageView *logoColoredView;
-@property (weak, nonatomic) IBOutlet UINavigationBar *navigationBar;
+@property(weak, nonatomic) IBOutlet UIImageView *logoColoredView;
+@property(weak, nonatomic) IBOutlet UINavigationBar *navigationBar;
 
 @end
 

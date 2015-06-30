@@ -28,6 +28,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *descriptionLabel;
 
 @property AMCollectionViewController *collectionViewController;
+
+@property AMMutableArray *arrayOfSequences;
 @property AMSequencer *mainSequencer;
 @property AMSequence *mainSequence;
 @property AMSequenceStep *mainStep;
@@ -43,6 +45,7 @@
 @property UIBarButtonItem *temporaryDeleteButton;
 @property UIBarButtonItem *temporaryAddButton;
 @property UIBarButtonItem *temporaryDuplicateButton;
+@property UIBarButtonItem *temporaryNextButton;
 @property UIBarButtonItem *temporaryEditButton;
 
 @property BOOL isEditEnabled;
@@ -107,6 +110,7 @@
 
 - (void)initMainObjects {
     AMSequencerSingleton *sequencerSingleton = [AMSequencerSingleton sharedSequencer];
+    _arrayOfSequences = sequencerSingleton.arrayOfSequences;
     _mainSequencer = sequencerSingleton.sequencer;
     [_mainSequencer addSequencerDelegate:self];
     [self updateComponents];
@@ -140,12 +144,18 @@
     NSString *editButtonImage = @"edit.png";
     if(_isEditEnabled) {
         editButtonImage = @"details.png";
+    } else {
+        _temporaryNextButton = [AMVisualUtils createBarButton:@"next.png"
+                                                       targer:self
+                                                     selector:@selector(onNextStep:)
+                                                         size:26];
+        [_toolbarItemsArray addObject:_temporaryNextButton];
     }
-    
+   
     _temporaryEditButton = [AMVisualUtils createBarButton:editButtonImage
                                               targer:self
                                             selector:@selector(onEditPressed:)
-                                                size:30];
+                                                     size:30];
     [_toolbarItemsArray addObject:_temporaryEditButton];
     [AMVisualUtils applyObjectsToToolBar:_bottomToolBar
                              fromAnArray:_toolbarItemsArray];
@@ -199,10 +209,10 @@
                                                                              action:@selector(onPlayButtonTouchedEvent:)];
         _temporaryBackwardButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRewind
                                                                                  target:self
-                                                                                 action:@selector(onPreviousStep:)];
+                                                                                 action:@selector(onPreviousSequence:)];
         _temporaryForwardButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFastForward
                                                                                 target:self
-                                                                                action:@selector(onNextStep:)];
+                                                                                action:@selector(onNextSequence:)];
     }
     [_toolbarItemsArray addObject:_temporaryBackwardButton];
     [_toolbarItemsArray addObject:[AMVisualUtils createFixedSpaceWithSize:15.0f]];
@@ -347,6 +357,25 @@
 
 - (IBAction)onNextStep:(id)sender {
     [_mainSequence setOneStepForward];
+}
+
+- (IBAction)onPreviousSequence:(id)sender {
+    [_arrayOfSequences setPreviousIndexAsActual];
+    [self changeSequencer];
+}
+
+- (IBAction)onNextSequence:(id)sender {
+    [_arrayOfSequences setNextIndexAsActual];
+    [self changeSequencer];
+}
+
+- (void)changeSequencer {
+    bool wasRunning = [_mainSequencer isRunning];
+    AMSequence *sequenceSelected = (AMSequence *) _arrayOfSequences.getActualObject;
+    [_mainSequencer setSequence:sequenceSelected];
+    if(wasRunning) {
+        [_mainSequencer startStop];
+    }
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {

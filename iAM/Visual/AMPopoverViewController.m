@@ -7,6 +7,7 @@
 //
 
 #import "AMPopoverViewController.h"
+#import "AMAppearanceManager.h"
 
 @interface AMPopoverViewController ()
 

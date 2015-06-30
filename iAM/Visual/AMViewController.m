@@ -163,27 +163,31 @@
 - (void)showDescriptionLabel {
     [_descriptionLabel setText:@""];
     if (!_isEditEnabled) {
-        NSString *squenceDescription = [NSString stringWithFormat:@"SEQ: %@",
-                                                                  _mainSequence.getName];
-        NSString *stepDescription = [NSString stringWithFormat:@"STEP: %@ %@",
-                                                               _mainStep.getName,
-                                                               _mainStep.getStepTypeName];
-        NSString *loopDescription = @"";
-        if (_mainStep.getStepType == REPEAT) {
-            loopDescription = [NSString stringWithFormat:@" %ld/%ld",
-                                                         (long) _mainSequence.getActualLoopCount + 1,
-                                                         _mainStep.getNumberOfLoops];
-        }
-        NSString *barDescription = [NSString stringWithFormat:@"BAR: %ld/%ld",
-                                                              _mainStave.getActualIndex + 1,
-                                                              _mainStave.count];
-        NSString *newDescription = [NSString stringWithFormat:@"%@ | %@%@ | %@",
-                                                              squenceDescription,
-                                                              stepDescription,
-                                                              loopDescription,
-                                                              barDescription];
+        NSString *newDescription = [self getDescriptionLabel];
         [_descriptionLabel setText:newDescription];
     }
+}
+
+- (NSString *)getDescriptionLabel {
+    NSString *squenceDescription = [NSString stringWithFormat:@"SEQ: %@",
+                                    _mainSequence.getName];
+    NSString *stepDescription = [NSString stringWithFormat:@"STEP: %@ %@",
+                                 _mainStep.getName,
+                                 _mainStep.getStepTypeName];
+    NSString *loopDescription = @"";
+    if (_mainStep.getStepType == REPEAT) {
+        loopDescription = [NSString stringWithFormat:@" %ld/%ld",
+                           (long) _mainSequence.getActualLoopCount + 1,
+                           _mainStep.getNumberOfLoops];
+    }
+    NSString *barDescription = [NSString stringWithFormat:@"BAR: %ld/%ld",
+                                _mainStave.getActualIndex + 1,
+                                _mainStave.count];
+    return [NSString stringWithFormat:@"%@ | %@%@ | %@",
+            squenceDescription,
+            stepDescription,
+            loopDescription,
+            barDescription];
 }
 
 - (void)showSettingButton {
@@ -275,8 +279,17 @@
 - (void)initSession {
     [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryMultiRoute
                                            error:nil];
-    [MPNowPlayingInfoCenter defaultCenter].nowPlayingInfo = [NSDictionary dictionaryWithObject:@1.0f
-                                                                                        forKey:MPNowPlayingInfoPropertyPlaybackRate];
+    [self updateSession];
+}
+
+- (void)updateSession {
+    NSString *squenceDescription = [NSString stringWithFormat:@"SEQ: %@", _mainSequence.getName];
+    NSNumber *rate = [NSNumber numberWithFloat:(_mainSequencer.isRunning ? 1.0f : 0.0f)];
+    MPMediaItemArtwork *albumArt = [[MPMediaItemArtwork alloc] initWithImage:[UIImage imageNamed:@"icon.png"]];
+    NSArray *keys = [NSArray arrayWithObjects:MPMediaItemPropertyAlbumTitle, MPNowPlayingInfoPropertyPlaybackRate, MPMediaItemPropertyArtwork, nil];
+    NSArray *values = [NSArray arrayWithObjects:squenceDescription, rate, albumArt, nil];
+    NSDictionary *mediaInfo = [NSDictionary dictionaryWithObjects:values forKeys:keys];
+    [[MPNowPlayingInfoCenter defaultCenter] setNowPlayingInfo:mediaInfo];
 }
 
 - (void)initTheme {
@@ -428,6 +441,7 @@
                                                                          target:self
                                                                          action:@selector(onPlayButtonTouchedEvent:)];
     [self initBottomToolBar];
+    [self updateSession];
 }
 
 - (void)sequenceHasStopped {
@@ -435,6 +449,7 @@
                                                                          target:self
                                                                          action:@selector(onPlayButtonTouchedEvent:)];
     [self initBottomToolBar];
+    [self updateSession];
 }
 
 - (void)sequenceHasChanged {
@@ -454,6 +469,7 @@
 
     [self updatePageControl];
     [self initBottomToolBar];
+    [self updateSession];
 
     [_collectionViewController reloadData];
 }
@@ -461,6 +477,30 @@
 - (void)updatePageControl {
     _pageControl.numberOfPages = _mainStave.count;
     _pageControl.currentPage = _mainStave.getActualIndex;
+}
+
+- (BOOL) canBecomeFirstResponder {
+    return YES;
+}
+
+- (void) remoteControlReceivedWithEvent: (UIEvent*) event {
+    switch (event.subtype) {
+        case UIEventSubtypeRemoteControlPlay:
+            [self onPlayButtonTouchedEvent:nil];
+            break;
+        case UIEventSubtypeRemoteControlPause:
+            [self onPlayButtonTouchedEvent:nil];
+            break;
+        case UIEventSubtypeRemoteControlNextTrack:
+            [self onNextSequence:nil];
+            break;
+        case UIEventSubtypeRemoteControlPreviousTrack:
+            [self onPreviousSequence:nil];
+            break;
+        default:
+            break;
+    }
+    [self updateSession];
 }
 
 @end

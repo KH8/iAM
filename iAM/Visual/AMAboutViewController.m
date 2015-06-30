@@ -8,6 +8,7 @@
 
 #import "AMAboutViewController.h"
 #import "AMAppearanceManager.h"
+#import "AMConfig.h"
 
 @interface AMAboutViewController ()
 

@@ -4,6 +4,7 @@
 //
 
 #import "AMPickerController.h"
+#import "AMAppearanceManager.h"
 
 @interface AMPickerController ()
 

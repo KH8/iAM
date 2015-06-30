@@ -8,6 +8,7 @@
 
 #import "AMConfirmationViewController.h"
 #import "AMAppearanceManager.h"
+#import "AppDelegate.h"
 
 @interface AMConfirmationViewController ()
 

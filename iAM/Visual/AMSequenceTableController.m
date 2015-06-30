@@ -11,7 +11,10 @@
 #import "AMSequencerSingleton.h"
 #import "AMPopupViewController.h"
 #import "AMMutableArrayResponder.h"
+#import "AMAppearanceManager.h"
+#import "AMCellShiftProvider.h"
 #import "AMVisualUtils.h"
+#import "AMConfig.h"
 
 @interface AMSequenceTableController ()
 

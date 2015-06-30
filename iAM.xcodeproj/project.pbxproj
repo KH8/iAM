@@ -123,6 +123,9 @@
 		A43135041AE98671001A4D4B /* tutorial_3.png in Resources */ = {isa = PBXBuildFile; fileRef = A4A6C5921AE9723700E488BC /* tutorial_3.png */; };
 		A43135071AE98672001A4D4B /* tutorial_2.png in Resources */ = {isa = PBXBuildFile; fileRef = A4A6C5911AE9723700E488BC /* tutorial_2.png */; };
 		A43135081AE98672001A4D4B /* tutorial_3.png in Resources */ = {isa = PBXBuildFile; fileRef = A4A6C5921AE9723700E488BC /* tutorial_3.png */; };
+		A435A7A81B43259E00D62669 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = A435A7A71B43259E00D62669 /* icon.png */; };
+		A435A7A91B43259E00D62669 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = A435A7A71B43259E00D62669 /* icon.png */; };
+		A435A7AA1B43259E00D62669 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = A435A7A71B43259E00D62669 /* icon.png */; };
 		A43E331F1AE6F49F00F4F6CC /* AMAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A43E331E1AE6F49F00F4F6CC /* AMAboutViewController.m */; };
 		A43E33201AE6F70B00F4F6CC /* AMAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A43E331E1AE6F49F00F4F6CC /* AMAboutViewController.m */; };
 		A43E33211AE6F70B00F4F6CC /* AMAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A43E331E1AE6F49F00F4F6CC /* AMAboutViewController.m */; };
@@ -423,6 +426,7 @@
 		A42C00B61B3DD1C100AB6938 /* eraser_r.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = eraser_r.png; path = Icons/eraser_r.png; sourceTree = "<group>"; };
 		A42C00BA1B3DDC4E00AB6938 /* left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = left.png; path = Icons/left.png; sourceTree = "<group>"; };
 		A42C00BB1B3DDC4E00AB6938 /* right.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = right.png; path = Icons/right.png; sourceTree = "<group>"; };
+		A435A7A71B43259E00D62669 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon.png; path = Icons/icon.png; sourceTree = "<group>"; };
 		A43E331D1AE6F49F00F4F6CC /* AMAboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMAboutViewController.h; sourceTree = "<group>"; };
 		A43E331E1AE6F49F00F4F6CC /* AMAboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMAboutViewController.m; sourceTree = "<group>"; };
 		A441ADB61B39AE500054AF6F /* AMClonableObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMClonableObject.h; path = Core/Auxiliaries/AMClonableObject.h; sourceTree = "<group>"; };
@@ -829,6 +833,7 @@
 		A49A749F1A9A86FB006BC3C7 /* Icons */ = {
 			isa = PBXGroup;
 			children = (
+				A435A7A71B43259E00D62669 /* icon.png */,
 				A49FAF431B431141001A64EC /* next.png */,
 				A42C00BA1B3DDC4E00AB6938 /* left.png */,
 				A42C00BB1B3DDC4E00AB6938 /* right.png */,
@@ -1121,6 +1126,7 @@
 				A42C007E1B3DC41400AB6938 /* eraser.png in Resources */,
 				A42C00AE1B3DC41400AB6938 /* spot.png in Resources */,
 				A42C006F1B3DC41400AB6938 /* decloop_r.png in Resources */,
+				A435A7A81B43259E00D62669 /* icon.png in Resources */,
 				A42C00B71B3DD1C100AB6938 /* eraser_r.png in Resources */,
 				A42C008D1B3DC41400AB6938 /* list_r.png in Resources */,
 				A4CB2BDF1AD9C2E8007D2584 /* artificialLow1.aif in Resources */,
@@ -1191,6 +1197,7 @@
 				A42C007F1B3DC41400AB6938 /* eraser.png in Resources */,
 				A42C00AF1B3DC41400AB6938 /* spot.png in Resources */,
 				A42C00701B3DC41400AB6938 /* decloop_r.png in Resources */,
+				A435A7A91B43259E00D62669 /* icon.png in Resources */,
 				A42C00B81B3DD1C100AB6938 /* eraser_r.png in Resources */,
 				A42C008E1B3DC41400AB6938 /* list_r.png in Resources */,
 				A4A686E31AF2B85D00FD2B7C /* tutorial_4.png in Resources */,
@@ -1254,6 +1261,7 @@
 				A42C00801B3DC41400AB6938 /* eraser.png in Resources */,
 				A42C00B01B3DC41400AB6938 /* spot.png in Resources */,
 				A42C00711B3DC41400AB6938 /* decloop_r.png in Resources */,
+				A435A7AA1B43259E00D62669 /* icon.png in Resources */,
 				A42C00B91B3DD1C100AB6938 /* eraser_r.png in Resources */,
 				A42C008F1B3DC41400AB6938 /* list_r.png in Resources */,
 				A4FB77CC1AE6ED17003BC801 /* artificialLow1.aif in Resources */,

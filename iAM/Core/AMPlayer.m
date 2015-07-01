@@ -44,7 +44,6 @@
         NSData *fileData = [NSData dataWithContentsOfFile:filePath];
         NSError *error = nil;
         _audioPlayer = [[AVAudioPlayer alloc] initWithData:fileData error:&error];
-        [_audioPlayer setRate:1.0f];
         _audioPlayer.delegate = nil;
     }
     else {

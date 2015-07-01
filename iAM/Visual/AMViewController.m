@@ -85,7 +85,7 @@
     
     _musicPlayer = [MPMusicPlayerController applicationMusicPlayer];
     [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(handleMusicPlayerNotification:)
+                                             selector:@selector(handleMusicPlayerVolumeChangedNotification:)
                                                  name:MPMusicPlayerControllerVolumeDidChangeNotification
                                                object:_musicPlayer];
     [_musicPlayer beginGeneratingPlaybackNotifications];
@@ -516,7 +516,7 @@
     [self updateSession];
 }
 
--(void)handleMusicPlayerNotification: (id)notification {
+-(void)handleMusicPlayerVolumeChangedNotification: (id)notification {
     NSArray *arrayOfPlayers = _mainSequencer.getArrayOfPlayers;
     float volume = [(MPMusicPlayerController*)[notification object] volume];
     [(AMPlayer *) arrayOfPlayers[0] setGeneralVolumeFactor:[[NSNumber alloc] initWithFloat:volume]];

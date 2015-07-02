@@ -41,6 +41,7 @@
 
 @property NSDate *date;
 @property NSArray *arrayOfPlayers;
+@property AMSequencer *mainSequencer;
 
 @end
 
@@ -81,8 +82,8 @@
 
 - (void)loadMainObjects {
     AMSequencerSingleton *sequencerSingleton = [AMSequencerSingleton sharedSequencer];
-    AMSequencer *sequencer = sequencerSingleton.sequencer;
-    _arrayOfPlayers = sequencer.getArrayOfPlayers;
+    _mainSequencer = sequencerSingleton.sequencer;
+    _arrayOfPlayers = _mainSequencer.getArrayOfPlayers;
     _date = [NSDate date];
 }
 
@@ -127,7 +128,7 @@
 }
 
 - (void)loadSliders {
-    _generalSlider.value = [[(AMPlayer *) _arrayOfPlayers[0] getGeneralVolumeFactor] floatValue];
+    _generalSlider.value = [_mainSequencer getGlobalVolume];
 }
 
 - (void)loadButtons {
@@ -194,9 +195,7 @@
 }
 
 - (IBAction)generalTrackVolumeChanged:(id)sender {
-    [(AMPlayer *) _arrayOfPlayers[0] setGeneralVolumeFactor:[[NSNumber alloc] initWithFloat:_generalSlider.value]];
-    [(AMPlayer *) _arrayOfPlayers[1] setGeneralVolumeFactor:[[NSNumber alloc] initWithFloat:_generalSlider.value]];
-    [(AMPlayer *) _arrayOfPlayers[2] setGeneralVolumeFactor:[[NSNumber alloc] initWithFloat:_generalSlider.value]];
+    [_mainSequencer setGlobalVolume:_generalSlider.value];
     [self playSound];
 }
 

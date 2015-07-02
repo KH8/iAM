@@ -42,4 +42,8 @@
 
 - (NSArray *)getArrayOfPlayers;
 
+- (float)getGlobalVolume;
+
+- (void)setGlobalVolume:(float)volume;
+
 @end

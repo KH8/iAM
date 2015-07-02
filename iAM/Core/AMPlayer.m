@@ -17,7 +17,7 @@
 @property(nonatomic) NSNumber *generalVolumeFactor;
 @property(nonatomic) NSNumber *volumeFactor;
 
-//@property NSDate *date;
+@property NSDate *date;
 
 @end
 
@@ -55,9 +55,9 @@
 - (void)playSound {
     [self initAudioPlayer];
     [_audioPlayer play];
-    /*float interval = -1.0f * [_date timeIntervalSinceNow];
+    float interval = -1.0f * [_date timeIntervalSinceNow];
     NSLog([NSString stringWithFormat:@"%.05f", 60.0f / interval]);
-    _date = [NSDate date];*/
+    _date = [NSDate date];
 }
 
 - (void)stopSound {

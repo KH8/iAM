@@ -182,6 +182,12 @@
 		A46EF42D1B3B43FF00C0BDA9 /* AMCellShiftProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = A46EF42C1B3B43FF00C0BDA9 /* AMCellShiftProvider.m */; };
 		A46EF42E1B3B43FF00C0BDA9 /* AMCellShiftProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = A46EF42C1B3B43FF00C0BDA9 /* AMCellShiftProvider.m */; };
 		A46EF42F1B3B43FF00C0BDA9 /* AMCellShiftProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = A46EF42C1B3B43FF00C0BDA9 /* AMCellShiftProvider.m */; };
+		A47704E41B45CCBA00B2F3D7 /* dummy.aif in Resources */ = {isa = PBXBuildFile; fileRef = A47704E31B45CCBA00B2F3D7 /* dummy.aif */; };
+		A47704E51B45CCBA00B2F3D7 /* dummy.aif in Resources */ = {isa = PBXBuildFile; fileRef = A47704E31B45CCBA00B2F3D7 /* dummy.aif */; };
+		A47704E61B45CCBA00B2F3D7 /* dummy.aif in Resources */ = {isa = PBXBuildFile; fileRef = A47704E31B45CCBA00B2F3D7 /* dummy.aif */; };
+		A47704E91B45CEFD00B2F3D7 /* AMAudioSessionHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = A47704E81B45CEFD00B2F3D7 /* AMAudioSessionHandler.m */; };
+		A47704EA1B45CEFD00B2F3D7 /* AMAudioSessionHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = A47704E81B45CEFD00B2F3D7 /* AMAudioSessionHandler.m */; };
+		A47704EB1B45CEFD00B2F3D7 /* AMAudioSessionHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = A47704E81B45CEFD00B2F3D7 /* AMAudioSessionHandler.m */; };
 		A481D1A61AEFF6A5008EAE05 /* tutorial_0.png in Resources */ = {isa = PBXBuildFile; fileRef = A481D1A51AEFF6A5008EAE05 /* tutorial_0.png */; };
 		A481D1A91AEFF6B9008EAE05 /* AMConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = A481D1A71AEFF6B9008EAE05 /* AMConfig.m */; };
 		A481D1AE1AEFF92C008EAE05 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A4C47C191A8BB68E002CF325 /* Images.xcassets */; };
@@ -480,6 +486,9 @@
 		A46C819A1B28E19900605BD2 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SWRevealViewController.m; path = iAM/External/SWRevealViewController/SWRevealViewController.m; sourceTree = SOURCE_ROOT; };
 		A46EF42B1B3B43FF00C0BDA9 /* AMCellShiftProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMCellShiftProvider.h; path = Utils/AMCellShiftProvider.h; sourceTree = "<group>"; };
 		A46EF42C1B3B43FF00C0BDA9 /* AMCellShiftProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMCellShiftProvider.m; path = Utils/AMCellShiftProvider.m; sourceTree = "<group>"; };
+		A47704E31B45CCBA00B2F3D7 /* dummy.aif */ = {isa = PBXFileReference; lastKnownFileType = file; name = dummy.aif; path = Core/Sounds/dummy.aif; sourceTree = "<group>"; };
+		A47704E71B45CEFD00B2F3D7 /* AMAudioSessionHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMAudioSessionHandler.h; path = Core/AMAudioSessionHandler.h; sourceTree = "<group>"; };
+		A47704E81B45CEFD00B2F3D7 /* AMAudioSessionHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMAudioSessionHandler.m; path = Core/AMAudioSessionHandler.m; sourceTree = "<group>"; };
 		A481D1A51AEFF6A5008EAE05 /* tutorial_0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tutorial_0.png; path = "tickGrid Lite/Visual/Images/tutorial_0.png"; sourceTree = "<group>"; };
 		A481D1A71AEFF6B9008EAE05 /* AMConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMConfig.m; path = "tickGrid Lite/AMConfig.m"; sourceTree = "<group>"; };
 		A481D1A81AEFF6B9008EAE05 /* tickGrid Lite.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "tickGrid Lite.plist"; path = "tickGrid Lite/tickGrid Lite.plist"; sourceTree = "<group>"; };
@@ -647,6 +656,7 @@
 		8F026D41013513503897B9C8 /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
+				A47704E31B45CCBA00B2F3D7 /* dummy.aif */,
 				A4CB2BD01AD9C2E8007D2584 /* artificialHigh1.aif */,
 				A4CB2BD11AD9C2E8007D2584 /* artificialHigh2.aif */,
 				A4CB2BD21AD9C2E8007D2584 /* artificialLow1.aif */,
@@ -687,6 +697,8 @@
 				8F0AE1AC2BDFCA960D899F80 /* AMPlayer.m */,
 				A442FA2D1AE42A5400EB7791 /* AMRunner.h */,
 				A442FA2E1AE42A5400EB7791 /* AMRunner.m */,
+				A47704E71B45CEFD00B2F3D7 /* AMAudioSessionHandler.h */,
+				A47704E81B45CEFD00B2F3D7 /* AMAudioSessionHandler.m */,
 			);
 			name = Core;
 			sourceTree = "<group>";
@@ -1121,6 +1133,7 @@
 				A49FAF441B431141001A64EC /* next.png in Resources */,
 				A42C00901B3DC41400AB6938 /* menu.png in Resources */,
 				A4A6C5971AE9723700E488BC /* tutorial_3.png in Resources */,
+				A47704E41B45CCBA00B2F3D7 /* dummy.aif in Resources */,
 				A42C00841B3DC41400AB6938 /* grid.png in Resources */,
 				A42C006C1B3DC41400AB6938 /* copy.png in Resources */,
 				A42C007E1B3DC41400AB6938 /* eraser.png in Resources */,
@@ -1192,6 +1205,7 @@
 				A49FAF451B431141001A64EC /* next.png in Resources */,
 				A42C00911B3DC41400AB6938 /* menu.png in Resources */,
 				A4C7ECE61AE6EA3F00428B68 /* artificialLow1.aif in Resources */,
+				A47704E51B45CCBA00B2F3D7 /* dummy.aif in Resources */,
 				A42C00851B3DC41400AB6938 /* grid.png in Resources */,
 				A42C006D1B3DC41400AB6938 /* copy.png in Resources */,
 				A42C007F1B3DC41400AB6938 /* eraser.png in Resources */,
@@ -1256,6 +1270,7 @@
 				A49FAF461B431141001A64EC /* next.png in Resources */,
 				A42C00921B3DC41400AB6938 /* menu.png in Resources */,
 				A4FB77C61AE6ED17003BC801 /* natural3.aif in Resources */,
+				A47704E61B45CCBA00B2F3D7 /* dummy.aif in Resources */,
 				A42C00861B3DC41400AB6938 /* grid.png in Resources */,
 				A42C006E1B3DC41400AB6938 /* copy.png in Resources */,
 				A42C00801B3DC41400AB6938 /* eraser.png in Resources */,
@@ -1312,6 +1327,7 @@
 				A4A132A51A95287400D6E2F1 /* AMSequenceStep.m in Sources */,
 				A46EF42D1B3B43FF00C0BDA9 /* AMCellShiftProvider.m in Sources */,
 				A45A3D6E1A71B4DF00039934 /* AMCollectionViewController.m in Sources */,
+				A47704E91B45CEFD00B2F3D7 /* AMAudioSessionHandler.m in Sources */,
 				A4A0CD841AD084E600618B1F /* CDBar.m in Sources */,
 				A4E7D9B51ADAF3C000B01BCD /* AMSoundsTableViewController.m in Sources */,
 				A45A2BDC1B39C90C00FBA604 /* AMClonableString.m in Sources */,
@@ -1384,6 +1400,7 @@
 				A4C7ECB21AE6EA3F00428B68 /* AMSequenceStep.m in Sources */,
 				A46EF42E1B3B43FF00C0BDA9 /* AMCellShiftProvider.m in Sources */,
 				A4C7ECB31AE6EA3F00428B68 /* AMCollectionViewController.m in Sources */,
+				A47704EA1B45CEFD00B2F3D7 /* AMAudioSessionHandler.m in Sources */,
 				A4C7ECB41AE6EA3F00428B68 /* CDBar.m in Sources */,
 				A4C7ECB51AE6EA3F00428B68 /* AMSoundsTableViewController.m in Sources */,
 				A45A2BDD1B39C90C00FBA604 /* AMClonableString.m in Sources */,
@@ -1448,6 +1465,7 @@
 				A4FB77981AE6ED17003BC801 /* AMSequenceStep.m in Sources */,
 				A46EF42F1B3B43FF00C0BDA9 /* AMCellShiftProvider.m in Sources */,
 				A4FB77991AE6ED17003BC801 /* AMCollectionViewController.m in Sources */,
+				A47704EB1B45CEFD00B2F3D7 /* AMAudioSessionHandler.m in Sources */,
 				A4FB779A1AE6ED17003BC801 /* CDBar.m in Sources */,
 				A4FB779B1AE6ED17003BC801 /* AMSoundsTableViewController.m in Sources */,
 				A45A2BDE1B39C90C00FBA604 /* AMClonableString.m in Sources */,

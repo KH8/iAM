@@ -29,6 +29,7 @@
 @property NSInteger actualNoteIndex;
 @property NSInteger actualBarIndex;
 
+@property(nonatomic) float globalVolume;
 @property(nonatomic, strong) NSHashTable *sequencerDelegates;
 
 @end
@@ -148,6 +149,17 @@
 
 - (NSArray *)getArrayOfPlayers {
     return _arrayOfPlayers;
+}
+
+- (void)setGlobalVolume:(float)volume {
+    _globalVolume = volume;
+    [(AMPlayer *) _arrayOfPlayers[0] setGeneralVolumeFactor:[[NSNumber alloc] initWithFloat:_globalVolume]];
+    [(AMPlayer *) _arrayOfPlayers[1] setGeneralVolumeFactor:[[NSNumber alloc] initWithFloat:_globalVolume]];
+    [(AMPlayer *) _arrayOfPlayers[2] setGeneralVolumeFactor:[[NSNumber alloc] initWithFloat:_globalVolume]];
+}
+
+- (float)getGlobalVolume {
+    return _globalVolume;
 }
 
 - (void)onTick {

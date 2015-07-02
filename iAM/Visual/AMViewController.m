@@ -6,7 +6,6 @@
 //  Copyright (c) 2015 H@E. All rights reserved.
 //
 
-#import <AVFoundation/AVFoundation.h>
 #import "SWRevealViewController.h"
 #import "Utils/AMVisualUtils.h"
 #import "Utils/AMRevealViewUtils.h"
@@ -17,7 +16,7 @@
 #import "AMPopupViewController.h"
 #import "AMConfig.h"
 #import "AMMutableArrayResponder.h"
-#import "AMPlayer.h"
+#import "AMAudioSessionHandler.h"
 
 @import MediaPlayer;
 
@@ -53,8 +52,7 @@
 @property AMMutableArrayResponder *mainSequenceArrayResponder;
 @property AMMutableArrayResponder *mainStaveArrayResponder;
 
-@property MPNowPlayingInfoCenter *nowPlayingInfo;
-@property MPMusicPlayerController *musicPlayer;
+@property AMAudioSessionHandler *audioSessionHandler;
 
 @end
 
@@ -78,22 +76,7 @@
 }
 
 - (void)initAudioSession {
-    [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryMultiRoute
-                                           error:nil];
-    [[AVAudioSession sharedInstance] setActive:YES error:nil];
-    [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
-    
-    _musicPlayer = [MPMusicPlayerController applicationMusicPlayer];
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(handleMusicPlayerVolumeChangedNotification:)
-                                                 name:MPMusicPlayerControllerVolumeDidChangeNotification
-                                               object:_musicPlayer];
-    [_musicPlayer beginGeneratingPlaybackNotifications];
-    
-    [self becomeFirstResponder];
-    
-    AMPlayer *testPlayer = [[AMPlayer alloc] initWithFile:@"click1" andKey:@"" ofType:@"aif"];
-    [testPlayer playSound];
+    [_audioSessionHandler initAudioSession];
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
@@ -102,9 +85,7 @@
         [_mainSequencer killBackgroundThread];
     }
     [NSThread sleepForTimeInterval:0.2];
-    [[AVAudioSession sharedInstance] setActive:NO error:nil];
-    [[UIApplication sharedApplication] endReceivingRemoteControlEvents];
-    [self resignFirstResponder];
+    [_audioSessionHandler deinitAudioSession];
     [super viewDidDisappear:animated];
 }
 
@@ -289,20 +270,9 @@
 }
 
 - (void)initSession {
-    [self updateSession];
-}
-
-- (void)updateSession {
-    NSString *squenceDescription = [NSString stringWithFormat:@"SEQ: %@", _mainSequence.getName];
-    NSNumber *rate = [NSNumber numberWithFloat:(_mainSequencer.isRunning ? 1.0f : 0.0f)];
-    MPMediaItemArtwork *albumArt = [[MPMediaItemArtwork alloc] initWithImage:[UIImage imageNamed:@"icon.png"]];
-    
-    NSArray *keys = [NSArray arrayWithObjects:MPMediaItemPropertyAlbumTitle, MPNowPlayingInfoPropertyPlaybackRate, MPMediaItemPropertyArtwork, nil];
-    NSArray *values = [NSArray arrayWithObjects:squenceDescription, rate, albumArt, nil];
-    NSDictionary *mediaInfo = [NSDictionary dictionaryWithObjects:values forKeys:keys];
-    
-    _nowPlayingInfo = [MPNowPlayingInfoCenter defaultCenter];
-    [_nowPlayingInfo setNowPlayingInfo:mediaInfo];
+    _audioSessionHandler = [[AMAudioSessionHandler alloc] initWithController:self
+                                                             andSeguencer:_mainSequencer];
+    [_audioSessionHandler updateSession];
 }
 
 - (void)initTheme {
@@ -450,19 +420,19 @@
 }
 
 - (void)sequenceHasStarted {
+    [_audioSessionHandler startPlayback];
     _temporaryPlayButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemPause
                                                                          target:self
                                                                          action:@selector(onPlayButtonTouchedEvent:)];
     [self initBottomToolBar];
-    [self updateSession];
 }
 
 - (void)sequenceHasStopped {
+    [_audioSessionHandler stopPlayback];
     _temporaryPlayButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemPlay
                                                                          target:self
                                                                          action:@selector(onPlayButtonTouchedEvent:)];
     [self initBottomToolBar];
-    [self updateSession];
 }
 
 - (void)sequenceHasChanged {
@@ -482,7 +452,7 @@
 
     [self updatePageControl];
     [self initBottomToolBar];
-    [self updateSession];
+    [_audioSessionHandler updateSession];
 
     [_collectionViewController reloadData];
 }
@@ -513,15 +483,7 @@
         default:
             break;
     }
-    [self updateSession];
-}
-
--(void)handleMusicPlayerVolumeChangedNotification: (id)notification {
-    NSArray *arrayOfPlayers = _mainSequencer.getArrayOfPlayers;
-    float volume = [(MPMusicPlayerController*)[notification object] volume];
-    [(AMPlayer *) arrayOfPlayers[0] setGeneralVolumeFactor:[[NSNumber alloc] initWithFloat:volume]];
-    [(AMPlayer *) arrayOfPlayers[1] setGeneralVolumeFactor:[[NSNumber alloc] initWithFloat:volume]];
-    [(AMPlayer *) arrayOfPlayers[2] setGeneralVolumeFactor:[[NSNumber alloc] initWithFloat:volume]];
+    [_audioSessionHandler updateSession];
 }
 
 @end

@@ -14,12 +14,10 @@
 @interface AMAudioSessionHandler () {
 }
 
-@property MPNowPlayingInfoCenter *nowPlayingInfo;
-@property MPMusicPlayerController *musicPlayer;
-
 @property AMViewController *controller;
 @property AMSequencer *mainSequencer;
 @property AVAudioPlayer *dummyPlayer;
+@property MPNowPlayingInfoCenter *nowPlayingInfo;
 
 @end
 
@@ -40,14 +38,12 @@
                                            error:nil];
     [[AVAudioSession sharedInstance] setActive:YES error:nil];
     [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
-    
-    _musicPlayer = [MPMusicPlayerController applicationMusicPlayer];
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(handleMusicPlayerVolumeChangedNotification:)
-                                                 name:MPMusicPlayerControllerVolumeDidChangeNotification
-                                               object:_musicPlayer];
-    [_musicPlayer beginGeneratingPlaybackNotifications];
     [_controller becomeFirstResponder];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(volumeChanged:)
+                                                 name:@"AVSystemController_SystemVolumeDidChangeNotification"
+                                               object:nil];
     [self initPlayer];
 }
 
@@ -93,8 +89,9 @@
     [self updateSession];
 }
 
-- (void)handleMusicPlayerVolumeChangedNotification: (id)notification {
-    float volume = [(MPMusicPlayerController*)[notification object] volume];
+- (void)volumeChanged:(NSNotification *)notification
+{
+    float volume = [[[notification userInfo] objectForKey:@"AVSystemController_AudioVolumeNotificationParameter"] floatValue];
     [_mainSequencer setGlobalVolume:volume];
 }
 

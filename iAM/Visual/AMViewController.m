@@ -462,11 +462,11 @@
     _pageControl.currentPage = _mainStave.getActualIndex;
 }
 
-- (BOOL) canBecomeFirstResponder {
+- (BOOL)canBecomeFirstResponder {
     return YES;
 }
 
-- (void) remoteControlReceivedWithEvent: (UIEvent*) event {
+- (void)remoteControlReceivedWithEvent: (UIEvent*) event {
     switch (event.subtype) {
         case UIEventSubtypeRemoteControlPlay:
             [self onPlayButtonTouchedEvent:nil];

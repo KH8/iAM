@@ -84,7 +84,6 @@
         [_mainSequencer startStop];
         [_mainSequencer killBackgroundThread];
     }
-    [NSThread sleepForTimeInterval:0.2];
     [_audioSessionHandler deinitAudioSession];
     [super viewDidDisappear:animated];
 }

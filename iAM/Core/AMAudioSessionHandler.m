@@ -53,9 +53,16 @@
     NSData *fileData = [NSData dataWithContentsOfFile:filePath];
     NSError *error = nil;
     _dummyPlayer = [[AVAudioPlayer alloc] initWithData:fileData error:&error];
-    [_dummyPlayer setNumberOfLoops:1];
     [_dummyPlayer setVolume:0.0f];
+    [self initPlay];
+}
+
+- (void)initPlay {
+    
+    [_dummyPlayer setNumberOfLoops:0];
     [_dummyPlayer play];
+    [NSThread sleepForTimeInterval:0.1];
+    [_dummyPlayer stop];
 }
 
 - (void)deinitAudioSession {
@@ -70,8 +77,11 @@
     NSNumber *rate = [NSNumber numberWithFloat:(_mainSequencer.isRunning ? 1.0f : 0.0f)];
     MPMediaItemArtwork *albumArt = [[MPMediaItemArtwork alloc] initWithImage:[UIImage imageNamed:@"icon.png"]];
     
-    NSArray *keys = [NSArray arrayWithObjects:MPMediaItemPropertyAlbumTitle, MPNowPlayingInfoPropertyPlaybackRate, MPMediaItemPropertyArtwork, nil];
-    NSArray *values = [NSArray arrayWithObjects:squenceDescription, rate, albumArt, nil];
+    NSArray *keys = [NSArray arrayWithObjects:MPMediaItemPropertyAlbumTitle,
+                     MPNowPlayingInfoPropertyDefaultPlaybackRate,
+                     MPNowPlayingInfoPropertyPlaybackRate,
+                     MPMediaItemPropertyArtwork, nil];
+    NSArray *values = [NSArray arrayWithObjects:squenceDescription, @0.0f, rate, albumArt, nil];
     NSDictionary *mediaInfo = [NSDictionary dictionaryWithObjects:values forKeys:keys];
     
     _nowPlayingInfo = [MPNowPlayingInfoCenter defaultCenter];
@@ -89,8 +99,7 @@
     [self updateSession];
 }
 
-- (void)volumeChanged:(NSNotification *)notification
-{
+- (void)volumeChanged:(NSNotification *)notification {
     float volume = [[[notification userInfo] objectForKey:@"AVSystemController_AudioVolumeNotificationParameter"] floatValue];
     [_mainSequencer setGlobalVolume:volume];
 }

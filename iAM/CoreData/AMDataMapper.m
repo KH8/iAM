@@ -32,6 +32,8 @@
     [fetchRequest setEntity:entity];
     NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:&error];
     CDConfiguration *configuration = fetchedObjects[0];
+    
+    [self handleBackwardCompatibilityVers1d0:configuration];
 
     NSArray *players = [sequencer getArrayOfPlayers];
 
@@ -39,19 +41,34 @@
     [playerTrack1 setSoundName:configuration.soundTrack1Value
                        withKey:configuration.soundTrack1Key];
     [playerTrack1 setVolumeFactor:configuration.volumeTrack1];
+    [playerTrack1 setPanFactor:configuration.panTrack1];
     [playerTrack1 setGeneralVolumeFactor:configuration.volumeGeneral];
 
     AMPlayer *playerTrack2 = (AMPlayer *) players[1];
     [playerTrack2 setSoundName:configuration.soundTrack2Value
                        withKey:configuration.soundTrack2Key];
     [playerTrack2 setVolumeFactor:configuration.volumeTrack2];
+    [playerTrack2 setPanFactor:configuration.panTrack2];
     [playerTrack2 setGeneralVolumeFactor:configuration.volumeGeneral];
 
     AMPlayer *playerTrack3 = (AMPlayer *) players[2];
     [playerTrack3 setSoundName:configuration.soundTrack3Value
                        withKey:configuration.soundTrack3Key];
     [playerTrack3 setVolumeFactor:configuration.volumeTrack3];
+    [playerTrack3 setPanFactor:configuration.panTrack3];
     [playerTrack3 setGeneralVolumeFactor:configuration.volumeGeneral];
+}
+
+- (void)handleBackwardCompatibilityVers1d0:(CDConfiguration *)configuration {
+    if(configuration.panTrack1 == nil) {
+        configuration.panTrack1 = @0.5f;
+    }
+    if(configuration.panTrack2 == nil) {
+        configuration.panTrack2 = @0.5f;
+    }
+    if(configuration.panTrack3 == nil) {
+        configuration.panTrack3 = @0.5f;
+    }
 }
 
 - (AMMutableArray *)getActualConfigurationFromContext:(NSManagedObjectContext *)context {
@@ -182,16 +199,21 @@
     selections.soundTrack1Key = [playerTrack1 getSoundKey];
     selections.soundTrack1Value = [playerTrack1 getSoundName];
     selections.volumeTrack1 = [playerTrack1 getVolumeFactor];
+    selections.panTrack1 = [playerTrack1 getPanFactor];
 
     AMPlayer *playerTrack2 = (AMPlayer *) players[1];
     selections.soundTrack2Key = [playerTrack2 getSoundKey];
     selections.soundTrack2Value = [playerTrack2 getSoundName];
     selections.volumeTrack2 = [playerTrack2 getVolumeFactor];
+    selections.panTrack2 = [playerTrack2 getPanFactor];
+
 
     AMPlayer *playerTrack3 = (AMPlayer *) players[2];
     selections.soundTrack3Key = [playerTrack3 getSoundKey];
     selections.soundTrack3Value = [playerTrack3 getSoundName];
     selections.volumeTrack3 = [playerTrack3 getVolumeFactor];
+    selections.panTrack3 = [playerTrack3 getPanFactor];
+
 
     selections.volumeGeneral = [playerTrack3 getGeneralVolumeFactor];
 }

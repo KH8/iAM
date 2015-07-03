@@ -113,6 +113,9 @@
     configuration.volumeTrack1 = @0.95;
     configuration.volumeTrack2 = @0.95;
     configuration.volumeTrack3 = @0.95;
+    configuration.panTrack1 = @0.5;
+    configuration.panTrack2 = @0.5;
+    configuration.panTrack3 = @0.5;
 
     NSError *error;
     if (![context save:&error]) {
@@ -220,14 +223,19 @@
     }
 
     NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"AMDataModel.sqlite"];
-
     NSError *error = nil;
+    
     _persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self managedObjectModel]];
-    if (![_persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:nil error:&error]) {
+    if (![_persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType
+                                                   configuration:nil
+                                                             URL:storeURL
+                                                         options:@{
+                                                                   NSMigratePersistentStoresAutomaticallyOption:@YES,
+                                                                   NSInferMappingModelAutomaticallyOption:@YES}
+                                                           error:&error]) {
         NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
         abort();
     }
-
     return _persistentStoreCoordinator;
 }
 

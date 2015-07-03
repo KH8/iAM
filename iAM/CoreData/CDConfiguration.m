@@ -2,7 +2,7 @@
 //  CDConfiguration.m
 //  iAM
 //
-//  Created by Krzysztof Reczek on 27.04.2015.
+//  Created by Krzysztof Reczek on 04.07.2015.
 //  Copyright (c) 2015 miscApps. All rights reserved.
 //
 
@@ -11,6 +11,9 @@
 
 @implementation CDConfiguration
 
+@dynamic panTrack1;
+@dynamic panTrack2;
+@dynamic panTrack3;
 @dynamic soundTrack1Key;
 @dynamic soundTrack1Value;
 @dynamic soundTrack2Key;

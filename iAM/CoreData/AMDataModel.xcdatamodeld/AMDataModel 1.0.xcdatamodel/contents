@@ -14,6 +14,9 @@
         <relationship name="step" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="CDStep" inverseName="stepBars" inverseEntity="CDStep" syncable="YES"/>
     </entity>
     <entity name="CDConfiguration" representedClassName="CDConfiguration" syncable="YES">
+        <attribute name="panTrack1" optional="YES" attributeType="Float" defaultValueString="0.5" syncable="YES"/>
+        <attribute name="panTrack2" optional="YES" attributeType="Float" defaultValueString="0.5" syncable="YES"/>
+        <attribute name="panTrack3" optional="YES" attributeType="Float" defaultValueString="0.5" syncable="YES"/>
         <attribute name="soundTrack1Key" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="soundTrack1Value" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="soundTrack2Key" optional="YES" attributeType="String" syncable="YES"/>
@@ -53,7 +56,7 @@
     <elements>
         <element name="CDAppearance" positionX="-1730" positionY="-864" width="128" height="90"/>
         <element name="CDBar" positionX="-1730" positionY="-1080" width="128" height="133"/>
-        <element name="CDConfiguration" positionX="-1944" positionY="-864" width="128" height="193"/>
+        <element name="CDConfiguration" positionX="-1944" positionY="-864" width="128" height="240"/>
         <element name="CDNote" positionX="-1512" positionY="-1080" width="128" height="88"/>
         <element name="CDSelections" positionX="-2160" positionY="-864" width="128" height="88"/>
         <element name="CDSequence" positionX="-2160" positionY="-1078" width="126" height="103"/>

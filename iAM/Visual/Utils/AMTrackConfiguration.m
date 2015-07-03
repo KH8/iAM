@@ -14,12 +14,16 @@
 }
 
 @property UILabel *soundLabel;
-@property AMVolumeSlider *slider;
 @property UIButton *soundButton;
-@property AMPlayer *player;
 @property UIViewController *controller;
+
+@property AMPlayer *player;
+@property AMVolumeSlider *volumeSlider;
+@property AMVolumeSlider *panSlider;
+
 @property NSString *segueName;
 @property NSString *popupSegueName;
+
 @property NSDate *date;
 
 @end
@@ -28,7 +32,8 @@
 
 - (id)initWithLabel:(UILabel *)soundLabel
              button:(UIButton *)soundButton
-             slider:(AMVolumeSlider *)trackSlider
+       volumeSlider:(AMVolumeSlider *)volumeSlider
+          panSlider:(AMPanSlider *)panSlider
              player:(AMPlayer *)player
      viewController:(UIViewController *)parent
      soundSegueName:(NSString *)segueName
@@ -38,7 +43,8 @@
         _date = [NSDate date];
         _soundLabel = soundLabel;
         _soundButton = soundButton;
-        _slider = trackSlider;
+        _volumeSlider = volumeSlider;
+        _panSlider = panSlider;
         _player = player;
         _controller = parent;
         _segueName = segueName;
@@ -58,7 +64,9 @@
 - (void)loadColor {
     UIColor *tintColor = [AMAppearanceManager getGlobalTintColor];
     [_soundButton setTintColor:tintColor];
-    [_slider setTintColor:tintColor];
+    [_volumeSlider setTintColor:tintColor];
+    [_panSlider setTintColor:tintColor];
+    [_panSlider setMinimumTrackTintColor:[UIColor lightGrayColor]];
 }
 
 - (void)loadLabel {
@@ -66,10 +74,14 @@
 }
 
 - (void)loadSlider {
-    _slider.value = [[_player getVolumeFactor] floatValue];
-    [_slider addTarget:self
+    _volumeSlider.value = [[_player getVolumeFactor] floatValue];
+    [_volumeSlider addTarget:self
                 action:@selector(sliderVolumeChanged)
       forControlEvents:UIControlEventValueChanged];
+    _panSlider.value = [[_player getPanFactor] floatValue];
+    [_panSlider addTarget:self
+                      action:@selector(sliderPanChanged)
+            forControlEvents:UIControlEventValueChanged];
 }
 
 - (void)loadButton {
@@ -88,10 +100,19 @@
 }
 
 - (void)sliderVolumeChanged {
-    [_player setVolumeFactor:[[NSNumber alloc] initWithFloat:_slider.value]];
+    [_player setVolumeFactor:[[NSNumber alloc] initWithFloat:_volumeSlider.value]];
+    [self playSound];
+}
+
+- (void)sliderPanChanged {
+    [_player setPanFactor:[[NSNumber alloc] initWithFloat:_panSlider.value]];
+    [self playSound];
+}
+
+- (void)playSound {
     NSDate *currentTime = [NSDate date];
     NSTimeInterval timeDifference = [currentTime timeIntervalSinceDate:_date];
-    if (timeDifference > 0.8) {
+    if (timeDifference > 0.5) {
         [_player playSound];
         _date = [NSDate date];
     }

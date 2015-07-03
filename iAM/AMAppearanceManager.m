@@ -7,8 +7,9 @@
 //
 
 #import "AMAppearanceManager.h"
-#import "AMVolumeSlider.h"
 #import "AMApplicationDelegate.h"
+#import "AMVolumeSlider.h"
+#import "AMPanSlider.h"
 #import "CDAppearance.h"
 
 @interface AMAppearanceManager ()
@@ -192,11 +193,8 @@
 }
 
 - (void)setupAppearanceOnce {
-    UIImage *minImage = [[UIImage imageNamed:@"speakerCalm.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
-    UIImage *maxImage = [[UIImage imageNamed:@"speakerLoud.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
-
-    [[AMVolumeSlider appearance] setMinimumValueImage:minImage];
-    [[AMVolumeSlider appearance] setMaximumValueImage:maxImage];
+    [AMVolumeSlider initAppearance];
+    [AMPanSlider initAppearance];
 }
 
 + (UIColor *)getGlobalTintColor {

@@ -15,6 +15,7 @@
 #import "AMPopupViewController.h"
 #import "AMSequencerSingleton.h"
 #import "AMVisualUtils.h"
+#import "AMPanSlider.h"
 #import "AMConfig.h"
 
 @interface AMPropertiesTableViewController ()
@@ -22,9 +23,12 @@
 @property AppDelegate *appDelegate;
 
 @property(weak, nonatomic) IBOutlet AMVolumeSlider *generalSlider;
-@property(weak, nonatomic) IBOutlet AMVolumeSlider *track1Slider;
-@property(weak, nonatomic) IBOutlet AMVolumeSlider *track2Slider;
-@property(weak, nonatomic) IBOutlet AMVolumeSlider *track3Slider;
+@property(weak, nonatomic) IBOutlet AMVolumeSlider *track1VolumeSlider;
+@property(weak, nonatomic) IBOutlet AMVolumeSlider *track2VolumeSlider;
+@property(weak, nonatomic) IBOutlet AMVolumeSlider *track3VolumeSlider;
+@property(weak, nonatomic) IBOutlet AMPanSlider *track1PanSlider;
+@property(weak, nonatomic) IBOutlet AMPanSlider *track2PanSlider;
+@property(weak, nonatomic) IBOutlet AMPanSlider *track3PanSlider;
 @property(weak, nonatomic) IBOutlet UIButton *tintColorButton;
 @property(weak, nonatomic) IBOutlet UIButton *colorThemeButton;
 @property(weak, nonatomic) IBOutlet UIButton *resetButton;
@@ -90,21 +94,24 @@
 - (void)loadTrackConfigurations {
     _track1 = [[AMTrackConfiguration alloc] initWithLabel:_track1SoundLabel
                                                    button:_track1SoundButton
-                                                   slider:_track1Slider
+                                             volumeSlider:_track1VolumeSlider
+                                                panSlider:_track1PanSlider
                                                    player:(AMPlayer *) _arrayOfPlayers[0]
                                            viewController:self
                                            soundSegueName:@"sw_track1"
                                            popupSegueName:@"sw_sounds_popup"];
     _track2 = [[AMTrackConfiguration alloc] initWithLabel:_track2SoundLabel
                                                    button:_track2SoundButton
-                                                   slider:_track2Slider
+                                             volumeSlider:_track2VolumeSlider
+                                                panSlider:_track2PanSlider
                                                    player:(AMPlayer *) _arrayOfPlayers[1]
                                            viewController:self
                                            soundSegueName:@"sw_track2"
                                            popupSegueName:@"sw_sounds_popup"];
     _track3 = [[AMTrackConfiguration alloc] initWithLabel:_track3SoundLabel
                                                    button:_track3SoundButton
-                                                   slider:_track3Slider
+                                             volumeSlider:_track3VolumeSlider
+                                                panSlider:_track3PanSlider
                                                    player:(AMPlayer *) _arrayOfPlayers[2]
                                            viewController:self
                                            soundSegueName:@"sw_track3"

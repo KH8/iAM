@@ -58,7 +58,6 @@
 }
 
 - (void)initPlay {
-    
     [_dummyPlayer setNumberOfLoops:0];
     [_dummyPlayer play];
     [NSThread sleepForTimeInterval:0.1];

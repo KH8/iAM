@@ -31,4 +31,8 @@
 
 - (NSNumber *)getVolumeFactor;
 
+- (void)setPanFactor:(NSNumber *)pan;
+
+- (NSNumber *)getPanFactor;
+
 @end

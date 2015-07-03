@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "AMVolumeSlider.h"
+#import "AMPanSlider.h"
 #import "AMPlayer.h"
 #import <Foundation/Foundation.h>
 
@@ -15,7 +16,8 @@
 
 - (id)initWithLabel:(UILabel *)soundLabel
              button:(UIButton *)soundButton
-             slider:(AMVolumeSlider *)trackSlider
+       volumeSlider:(AMVolumeSlider *)volumeSlider
+          panSlider:(AMPanSlider *)panSlider
              player:(AMPlayer *)player
      viewController:(UIViewController *)parent
      soundSegueName:(NSString *)segueName

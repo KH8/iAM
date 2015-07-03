@@ -16,6 +16,7 @@
 
 @property(nonatomic) NSNumber *generalVolumeFactor;
 @property(nonatomic) NSNumber *volumeFactor;
+@property(nonatomic) NSNumber *panFactor;
 
 //@property NSDate *date;
 
@@ -33,6 +34,7 @@
         _fileType = aFileType;
         _generalVolumeFactor = [[NSNumber alloc] initWithFloat:0.0];
         _volumeFactor = [[NSNumber alloc] initWithFloat:0.0];
+        _panFactor = [[NSNumber alloc] initWithFloat:0.5];
     }
     return self;
 }
@@ -50,6 +52,7 @@
         [_audioPlayer stop];
     }
     [_audioPlayer setVolume:_generalVolumeFactor.floatValue * _volumeFactor.floatValue];
+    [_audioPlayer setPan:_panFactor.floatValue];
 }
 
 - (void)playSound {
@@ -92,6 +95,14 @@
 
 - (NSNumber *)getVolumeFactor {
     return _volumeFactor;
+}
+
+- (void)setPanFactor:(NSNumber *)pan {
+    _panFactor = pan;
+}
+
+- (NSNumber *)getPanFactor {
+    return _panFactor;
 }
 
 @end

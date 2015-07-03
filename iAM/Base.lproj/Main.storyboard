@@ -580,6 +580,27 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="cQW-JY-9AC">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cQW-JY-9AC" id="VUg-o6-eN6">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="ZML-ky-O2S" customClass="AMPanSlider">
+                                                    <rect key="frame" x="8" y="7" width="574" height="31"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="30" id="Z9b-Hw-DRF"/>
+                                                    </constraints>
+                                                </slider>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="ZML-ky-O2S" firstAttribute="leading" secondItem="VUg-o6-eN6" secondAttribute="leading" constant="10" id="aAg-jv-Zgc"/>
+                                                <constraint firstAttribute="centerY" secondItem="ZML-ky-O2S" secondAttribute="centerY" id="bWR-7P-Hpx"/>
+                                                <constraint firstAttribute="trailing" secondItem="ZML-ky-O2S" secondAttribute="trailing" constant="20" id="sd9-CU-743"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="6Ca-bz-QOo">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6Ca-bz-QOo" id="Egs-1O-r5a">
@@ -644,6 +665,27 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="hfd-5h-OAD">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hfd-5h-OAD" id="n3j-hS-XlN">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="8Be-kr-wpA" customClass="AMPanSlider">
+                                                    <rect key="frame" x="8" y="7" width="574" height="31"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="30" id="EFp-6d-wPg"/>
+                                                    </constraints>
+                                                </slider>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="8Be-kr-wpA" firstAttribute="leading" secondItem="n3j-hS-XlN" secondAttribute="leading" constant="10" id="Nvv-Fg-eyM"/>
+                                                <constraint firstAttribute="centerY" secondItem="8Be-kr-wpA" secondAttribute="centerY" id="Q4n-hF-db8"/>
+                                                <constraint firstAttribute="trailing" secondItem="8Be-kr-wpA" secondAttribute="trailing" constant="20" id="c7y-6b-f0m"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="TtI-Na-Qmv">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="TtI-Na-Qmv" id="ggQ-A7-onL">
@@ -704,6 +746,27 @@
                                                 <constraint firstItem="qIA-BK-Pl2" firstAttribute="leading" secondItem="HxQ-pK-gg1" secondAttribute="leading" constant="10" id="1r0-M9-z9Y"/>
                                                 <constraint firstAttribute="centerY" secondItem="qIA-BK-Pl2" secondAttribute="centerY" id="KNS-Wg-RO9"/>
                                                 <constraint firstAttribute="trailing" secondItem="qIA-BK-Pl2" secondAttribute="trailing" constant="20" id="wGg-BZ-K9F"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="IFb-tc-Pqc">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="IFb-tc-Pqc" id="0yp-g0-si8">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="kll-sm-ydf" customClass="AMPanSlider">
+                                                    <rect key="frame" x="8" y="7" width="574" height="31"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="30" id="1ow-zx-w3o"/>
+                                                    </constraints>
+                                                </slider>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="centerY" secondItem="kll-sm-ydf" secondAttribute="centerY" id="1pT-2S-VMh"/>
+                                                <constraint firstAttribute="trailing" secondItem="kll-sm-ydf" secondAttribute="trailing" constant="20" id="6bf-nS-wya"/>
+                                                <constraint firstItem="kll-sm-ydf" firstAttribute="leading" secondItem="0yp-g0-si8" secondAttribute="leading" constant="10" id="zn2-aL-y4D"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -800,15 +863,18 @@
                         <outlet property="resetButton" destination="Q9N-Oc-VIy" id="NX8-nB-TDL"/>
                         <outlet property="sideMenuButton" destination="qVe-k9-gnl" id="18v-4O-XoW"/>
                         <outlet property="tintColorButton" destination="mT2-m9-Ncd" id="mg8-Ix-rOb"/>
-                        <outlet property="track1Slider" destination="Ihd-rd-iue" id="kcZ-rx-Fum"/>
+                        <outlet property="track1PanSlider" destination="ZML-ky-O2S" id="Z5y-zQ-JoY"/>
                         <outlet property="track1SoundButton" destination="bk4-V0-waW" id="zak-wZ-QdB"/>
                         <outlet property="track1SoundLabel" destination="HPE-yE-lCq" id="lch-P4-IYj"/>
-                        <outlet property="track2Slider" destination="ghi-za-kSV" id="Egu-Me-DLv"/>
+                        <outlet property="track1VolumeSlider" destination="Ihd-rd-iue" id="1Tp-MW-6eO"/>
+                        <outlet property="track2PanSlider" destination="8Be-kr-wpA" id="bUb-GM-Rcp"/>
                         <outlet property="track2SoundButton" destination="43r-Kh-pKs" id="SMy-LL-DEV"/>
                         <outlet property="track2SoundLabel" destination="9d1-ZO-uUa" id="U65-Ov-bIo"/>
-                        <outlet property="track3Slider" destination="qIA-BK-Pl2" id="QGd-26-c45"/>
+                        <outlet property="track2VolumeSlider" destination="ghi-za-kSV" id="Dak-0h-gNd"/>
+                        <outlet property="track3PanSlider" destination="kll-sm-ydf" id="TOd-U1-vbg"/>
                         <outlet property="track3SoundButton" destination="Vvp-tF-FsJ" id="WId-3x-rln"/>
                         <outlet property="track3SoundLabel" destination="KMZ-bq-5Pj" id="hyO-K5-qk6"/>
+                        <outlet property="track3VolumeSlider" destination="qIA-BK-Pl2" id="z0o-dJ-Gbh"/>
                         <segue destination="hEN-7r-qKy" kind="presentation" identifier="sw_confirm" modalPresentationStyle="overFullScreen" modalTransitionStyle="coverVertical" id="vFl-po-kvb"/>
                         <segue destination="5t2-d4-3oA" kind="presentation" identifier="sw_sounds_popup" modalPresentationStyle="overFullScreen" modalTransitionStyle="coverVertical" id="A2U-uw-7qt"/>
                         <segue destination="kee-6o-asG" kind="show" identifier="sw_track1" id="6qv-rm-zBs"/>
@@ -1343,7 +1409,7 @@
                     </connections>
                 </swipeGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-883" y="3554"/>
+            <point key="canvasLocation" x="-883" y="3569"/>
         </scene>
         <!--Popup View Controller-->
         <scene sceneID="VVj-28-hvs">
@@ -1615,7 +1681,7 @@
     <inferredMetricsTieBreakers>
         <segue reference="2P6-UK-2cK"/>
         <segue reference="zkT-HV-92U"/>
-        <segue reference="HdI-RE-NKN"/>
+        <segue reference="A2U-uw-7qt"/>
         <segue reference="lm7-pw-MVk"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>

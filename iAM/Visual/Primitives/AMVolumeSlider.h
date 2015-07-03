@@ -10,4 +10,6 @@
 
 @interface AMVolumeSlider : UISlider
 
++ (void)initAppearance;
+
 @end

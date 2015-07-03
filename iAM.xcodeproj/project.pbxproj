@@ -145,6 +145,9 @@
 		A44E8E7D1B34BB2E0019235F /* AMVisualEffectView.m in Sources */ = {isa = PBXBuildFile; fileRef = A44E8E7C1B34BB2E0019235F /* AMVisualEffectView.m */; };
 		A44E8E7E1B34BB2E0019235F /* AMVisualEffectView.m in Sources */ = {isa = PBXBuildFile; fileRef = A44E8E7C1B34BB2E0019235F /* AMVisualEffectView.m */; };
 		A44E8E7F1B34BB2E0019235F /* AMVisualEffectView.m in Sources */ = {isa = PBXBuildFile; fileRef = A44E8E7C1B34BB2E0019235F /* AMVisualEffectView.m */; };
+		A451BB921B472600005FFEB8 /* AMPanSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = A451BB911B472600005FFEB8 /* AMPanSlider.m */; };
+		A451BB931B472600005FFEB8 /* AMPanSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = A451BB911B472600005FFEB8 /* AMPanSlider.m */; };
+		A451BB941B472600005FFEB8 /* AMPanSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = A451BB911B472600005FFEB8 /* AMPanSlider.m */; };
 		A452FC041AEEDE7C008DFACD /* tutorial_0.png in Resources */ = {isa = PBXBuildFile; fileRef = A452FC031AEEDE7C008DFACD /* tutorial_0.png */; };
 		A452FC051AEEDE9C008DFACD /* tutorial_0.png in Resources */ = {isa = PBXBuildFile; fileRef = A452FC031AEEDE7C008DFACD /* tutorial_0.png */; };
 		A452FC131AEEE5BA008DFACD /* CDConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = A452FC121AEEE5BA008DFACD /* CDConfiguration.m */; };
@@ -451,6 +454,8 @@
 		A44E8E771B34B5190019235F /* AMMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMMenuViewController.m; sourceTree = "<group>"; };
 		A44E8E7B1B34BB2E0019235F /* AMVisualEffectView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMVisualEffectView.h; path = Primitives/AMVisualEffectView.h; sourceTree = "<group>"; };
 		A44E8E7C1B34BB2E0019235F /* AMVisualEffectView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMVisualEffectView.m; path = Primitives/AMVisualEffectView.m; sourceTree = "<group>"; };
+		A451BB901B472600005FFEB8 /* AMPanSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMPanSlider.h; path = Primitives/AMPanSlider.h; sourceTree = "<group>"; };
+		A451BB911B472600005FFEB8 /* AMPanSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMPanSlider.m; path = Primitives/AMPanSlider.m; sourceTree = "<group>"; };
 		A452FC031AEEDE7C008DFACD /* tutorial_0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tutorial_0.png; path = Images/tutorial_0.png; sourceTree = "<group>"; };
 		A452FC111AEEE5BA008DFACD /* CDConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDConfiguration.h; path = CoreData/CDConfiguration.h; sourceTree = "<group>"; };
 		A452FC121AEEE5BA008DFACD /* CDConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CDConfiguration.m; path = CoreData/CDConfiguration.m; sourceTree = "<group>"; };
@@ -801,6 +806,8 @@
 				A46C817D1B28E07E00605BD2 /* AMTableViewCell.m */,
 				A44E8E7B1B34BB2E0019235F /* AMVisualEffectView.h */,
 				A44E8E7C1B34BB2E0019235F /* AMVisualEffectView.m */,
+				A451BB901B472600005FFEB8 /* AMPanSlider.h */,
+				A451BB911B472600005FFEB8 /* AMPanSlider.m */,
 			);
 			name = Primitives;
 			sourceTree = "<group>";
@@ -1308,6 +1315,7 @@
 				A4A6C5A01AE9777600E488BC /* AMStartViewController.m in Sources */,
 				A441ADB81B39AE500054AF6F /* AMClonableObject.m in Sources */,
 				A46C819B1B28E19900605BD2 /* SWRevealViewController.m in Sources */,
+				A451BB921B472600005FFEB8 /* AMPanSlider.m in Sources */,
 				A449107C1A5F3A1200E8C6DB /* AMNote.m in Sources */,
 				8F0B34AA1C650F6EBD78FA56 /* AMSequencer.m in Sources */,
 				A46C817E1B28E07E00605BD2 /* AMTableViewCell.m in Sources */,
@@ -1381,6 +1389,7 @@
 				A4C7ECA31AE6EA3F00428B68 /* AMNote.m in Sources */,
 				A441ADB91B39AE500054AF6F /* AMClonableObject.m in Sources */,
 				A46C819C1B28E19900605BD2 /* SWRevealViewController.m in Sources */,
+				A451BB931B472600005FFEB8 /* AMPanSlider.m in Sources */,
 				A4C7ECA41AE6EA3F00428B68 /* AMSequencer.m in Sources */,
 				A4C7ECA51AE6EA3F00428B68 /* AMSequenceTableController.m in Sources */,
 				A46C817F1B28E07E00605BD2 /* AMTableViewCell.m in Sources */,
@@ -1446,6 +1455,7 @@
 				A4FB77891AE6ED17003BC801 /* AMNote.m in Sources */,
 				A441ADBA1B39AE500054AF6F /* AMClonableObject.m in Sources */,
 				A46C819D1B28E19900605BD2 /* SWRevealViewController.m in Sources */,
+				A451BB941B472600005FFEB8 /* AMPanSlider.m in Sources */,
 				A4FB778A1AE6ED17003BC801 /* AMSequencer.m in Sources */,
 				A4FB778B1AE6ED17003BC801 /* AMSequenceTableController.m in Sources */,
 				A46C81801B28E07E00605BD2 /* AMTableViewCell.m in Sources */,

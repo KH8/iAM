@@ -71,6 +71,7 @@
              withKey:(NSString *)newKey {
     _fileName = newName;
     _fileKey = newKey;
+    _audioPlayer = nil;
 }
 
 - (NSString *)getSoundName {

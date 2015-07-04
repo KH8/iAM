@@ -218,11 +218,11 @@
 
 - (void)showEditButtons {
     if (_isEditEnabled) {
-        _temporaryLeftButton = [AMVisualUtils createBarButton:@"left.png"
+        _temporaryLeftButton = [AMVisualUtils createBarButton:@"left_arrow.png"
                                                        targer:self
                                                      selector:@selector(onMovePageBackward:)
                                                          size:30];
-        _temporaryRightButton = [AMVisualUtils createBarButton:@"right.png"
+        _temporaryRightButton = [AMVisualUtils createBarButton:@"right_arrow.png"
                                                         targer:self
                                                       selector:@selector(onMovePageForward:)
                                                           size:30];

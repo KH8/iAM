@@ -129,6 +129,12 @@
 		A43E331F1AE6F49F00F4F6CC /* AMAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A43E331E1AE6F49F00F4F6CC /* AMAboutViewController.m */; };
 		A43E33201AE6F70B00F4F6CC /* AMAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A43E331E1AE6F49F00F4F6CC /* AMAboutViewController.m */; };
 		A43E33211AE6F70B00F4F6CC /* AMAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A43E331E1AE6F49F00F4F6CC /* AMAboutViewController.m */; };
+		A440956D1B4875260000677E /* left_arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = A440956B1B4875260000677E /* left_arrow.png */; };
+		A440956E1B4875260000677E /* left_arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = A440956B1B4875260000677E /* left_arrow.png */; };
+		A440956F1B4875260000677E /* left_arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = A440956B1B4875260000677E /* left_arrow.png */; };
+		A44095701B4875260000677E /* right_arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = A440956C1B4875260000677E /* right_arrow.png */; };
+		A44095711B4875260000677E /* right_arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = A440956C1B4875260000677E /* right_arrow.png */; };
+		A44095721B4875260000677E /* right_arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = A440956C1B4875260000677E /* right_arrow.png */; };
 		A441ADB81B39AE500054AF6F /* AMClonableObject.m in Sources */ = {isa = PBXBuildFile; fileRef = A441ADB71B39AE500054AF6F /* AMClonableObject.m */; };
 		A441ADB91B39AE500054AF6F /* AMClonableObject.m in Sources */ = {isa = PBXBuildFile; fileRef = A441ADB71B39AE500054AF6F /* AMClonableObject.m */; };
 		A441ADBA1B39AE500054AF6F /* AMClonableObject.m in Sources */ = {isa = PBXBuildFile; fileRef = A441ADB71B39AE500054AF6F /* AMClonableObject.m */; };
@@ -438,6 +444,8 @@
 		A435A7A71B43259E00D62669 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon.png; path = Icons/icon.png; sourceTree = "<group>"; };
 		A43E331D1AE6F49F00F4F6CC /* AMAboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMAboutViewController.h; sourceTree = "<group>"; };
 		A43E331E1AE6F49F00F4F6CC /* AMAboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMAboutViewController.m; sourceTree = "<group>"; };
+		A440956B1B4875260000677E /* left_arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = left_arrow.png; path = Icons/left_arrow.png; sourceTree = "<group>"; };
+		A440956C1B4875260000677E /* right_arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = right_arrow.png; path = Icons/right_arrow.png; sourceTree = "<group>"; };
 		A441ADB61B39AE500054AF6F /* AMClonableObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMClonableObject.h; path = Core/Auxiliaries/AMClonableObject.h; sourceTree = "<group>"; };
 		A441ADB71B39AE500054AF6F /* AMClonableObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMClonableObject.m; path = Core/Auxiliaries/AMClonableObject.m; sourceTree = "<group>"; };
 		A44219971B355C130063356A /* AMTrackConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMTrackConfiguration.h; path = Utils/AMTrackConfiguration.h; sourceTree = "<group>"; };
@@ -853,6 +861,8 @@
 		A49A749F1A9A86FB006BC3C7 /* Icons */ = {
 			isa = PBXGroup;
 			children = (
+				A440956B1B4875260000677E /* left_arrow.png */,
+				A440956C1B4875260000677E /* right_arrow.png */,
 				A435A7A71B43259E00D62669 /* icon.png */,
 				A49FAF431B431141001A64EC /* next.png */,
 				A42C00BA1B3DDC4E00AB6938 /* left.png */,
@@ -1134,12 +1144,14 @@
 				A42C005D1B3DC41400AB6938 /* about_r.png in Resources */,
 				A481D1AF1AEFF92C008EAE05 /* Images.xcassets in Resources */,
 				A403E4431AF3C077000F4DCC /* launch.png in Resources */,
+				A44095701B4875260000677E /* right_arrow.png in Resources */,
 				A42C008A1B3DC41400AB6938 /* incloop_r.png in Resources */,
 				A4A686E21AF2B85D00FD2B7C /* tutorial_4.png in Resources */,
 				A42C00AB1B3DC41400AB6938 /* speakerLoud.png in Resources */,
 				A4CB2BE71AD9C2E8007D2584 /* natural3.aif in Resources */,
 				A49FAF441B431141001A64EC /* next.png in Resources */,
 				A42C00901B3DC41400AB6938 /* menu.png in Resources */,
+				A440956D1B4875260000677E /* left_arrow.png in Resources */,
 				A4A6C5971AE9723700E488BC /* tutorial_3.png in Resources */,
 				A47704E41B45CCBA00B2F3D7 /* dummy.aif in Resources */,
 				A42C00841B3DC41400AB6938 /* grid.png in Resources */,
@@ -1206,12 +1218,14 @@
 				A42C005E1B3DC41400AB6938 /* about_r.png in Resources */,
 				A403E4441AF3C077000F4DCC /* launch.png in Resources */,
 				A4C7ECDB1AE6EA3F00428B68 /* artificialHigh2.aif in Resources */,
+				A44095711B4875260000677E /* right_arrow.png in Resources */,
 				A42C008B1B3DC41400AB6938 /* incloop_r.png in Resources */,
 				A4A686D91AF2ACDE00FD2B7C /* logo.png in Resources */,
 				A42C00AC1B3DC41400AB6938 /* speakerLoud.png in Resources */,
 				A4C7ECE01AE6EA3F00428B68 /* natural3.aif in Resources */,
 				A49FAF451B431141001A64EC /* next.png in Resources */,
 				A42C00911B3DC41400AB6938 /* menu.png in Resources */,
+				A440956E1B4875260000677E /* left_arrow.png in Resources */,
 				A4C7ECE61AE6EA3F00428B68 /* artificialLow1.aif in Resources */,
 				A47704E51B45CCBA00B2F3D7 /* dummy.aif in Resources */,
 				A42C00851B3DC41400AB6938 /* grid.png in Resources */,
@@ -1271,12 +1285,14 @@
 				A42C005F1B3DC41400AB6938 /* about_r.png in Resources */,
 				A403E4461AF3C095000F4DCC /* launch.png in Resources */,
 				A4FB77C11AE6ED17003BC801 /* artificialHigh2.aif in Resources */,
+				A44095721B4875260000677E /* right_arrow.png in Resources */,
 				A42C008C1B3DC41400AB6938 /* incloop_r.png in Resources */,
 				A4A686E51AF2C0F000FD2B7C /* logo.png in Resources */,
 				A42C00AD1B3DC41400AB6938 /* speakerLoud.png in Resources */,
 				A481D1B11AEFF96A008EAE05 /* Images.xcassets in Resources */,
 				A49FAF461B431141001A64EC /* next.png in Resources */,
 				A42C00921B3DC41400AB6938 /* menu.png in Resources */,
+				A440956F1B4875260000677E /* left_arrow.png in Resources */,
 				A4FB77C61AE6ED17003BC801 /* natural3.aif in Resources */,
 				A47704E61B45CCBA00B2F3D7 /* dummy.aif in Resources */,
 				A42C00861B3DC41400AB6938 /* grid.png in Resources */,

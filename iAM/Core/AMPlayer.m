@@ -8,7 +8,10 @@
 
 @interface AMPlayer ()
 
+@property int index;
+@property NSMutableArray *players;
 @property AVAudioPlayer *audioPlayer;
+@property NSNumber *dummy;
 
 @property NSString *fileName;
 @property NSString *fileKey;
@@ -18,7 +21,7 @@
 @property(nonatomic) NSNumber *volumeFactor;
 @property(nonatomic) NSNumber *panFactor;
 
-//@property NSDate *date;
+@property NSDate *date;
 
 @end
 
@@ -29,6 +32,9 @@
             ofType:(NSString *)aFileType {
     self = [super init];
     if (self) {
+        _dummy = [[NSNumber alloc] initWithInt:-1];
+        _index = 0;
+        _players = [[NSMutableArray alloc] initWithObjects:_dummy, _dummy, _dummy, nil];
         _fileName = aFileName;
         _fileKey = aFileKey;
         _fileType = aFileType;
@@ -40,17 +46,19 @@
 }
 
 - (void)initAudioPlayer {
-    if (_audioPlayer == nil) {
+    if (_players[_index] == _dummy) {
         NSBundle *mainBundle = [NSBundle mainBundle];
         NSString *filePath = [mainBundle pathForResource:_fileName ofType:_fileType];
         NSData *fileData = [NSData dataWithContentsOfFile:filePath];
         NSError *error = nil;
         _audioPlayer = [[AVAudioPlayer alloc] initWithData:fileData error:&error];
         _audioPlayer.delegate = nil;
+        _players[_index] = _audioPlayer;
     }
     else {
-        [_audioPlayer stop];
+        [_players[_index] stop];
     }
+    _audioPlayer = _players[_index];
     [_audioPlayer setVolume:_generalVolumeFactor.floatValue * _volumeFactor.floatValue];
     [_audioPlayer setPan:_panFactor.floatValue];
 }
@@ -58,20 +66,28 @@
 - (void)playSound {
     [self initAudioPlayer];
     [_audioPlayer play];
-    /*float interval = -1.0f * [_date timeIntervalSinceNow];
+    [self incrementIndex];
+    float interval = -1.0f * [_date timeIntervalSinceNow];
     NSLog([NSString stringWithFormat:@"%.05f", 60.0f / interval]);
-    _date = [NSDate date];*/
+    _date = [NSDate date];
 }
 
 - (void)stopSound {
     [_audioPlayer stop];
 }
 
+- (void)incrementIndex {
+    _index++;
+    if(_index >= _players.count) {
+        _index = 0;
+    }
+}
+
 - (void)setSoundName:(NSString *)newName
              withKey:(NSString *)newKey {
     _fileName = newName;
     _fileKey = newKey;
-    _audioPlayer = nil;
+    _players = [[NSMutableArray alloc] initWithObjects:_dummy, _dummy, _dummy, nil];
 }
 
 - (NSString *)getSoundName {

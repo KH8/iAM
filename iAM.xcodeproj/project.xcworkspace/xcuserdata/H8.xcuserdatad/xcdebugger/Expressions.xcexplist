@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "-[AMConfigurationManager loadContext]:AMConfigurationManager.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[AMSequenceMenuTableViewController updateComponents]:AMSequenceMenuTableViewController.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[AMSequenceMenuTableViewController onDuplicateAction:]:AMSequenceMenuTableViewController.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[AMSequenceMenuTableViewController initMainObjects]:AMSequenceMenuTableViewController.m">
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>

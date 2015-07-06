@@ -99,7 +99,7 @@ NSUInteger const minTempo = 60;
 
 - (id)clone {
     AMStave *clone = [[AMStave alloc] init];
-    [clone setBaseArray:[super clone]];
+    [clone setBaseArray:[[super clone] getBaseArray]];
     [clone setTempo:_tempo];
     return clone;
 }

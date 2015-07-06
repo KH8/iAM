@@ -205,6 +205,10 @@
     _baseArray = array;
 }
 
+- (NSMutableArray *)getBaseArray {
+    return _baseArray;
+}
+
 - (id)clone {
     AMMutableArray *clone = [[AMMutableArray alloc] initWithMaxCount:_maxCount];
     for (AMClonableObject *object in _baseArray) {

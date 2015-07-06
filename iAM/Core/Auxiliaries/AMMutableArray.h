@@ -71,4 +71,6 @@
 
 - (void)setBaseArray:(NSMutableArray *)array;
 
+- (NSMutableArray *)getBaseArray;
+
 @end

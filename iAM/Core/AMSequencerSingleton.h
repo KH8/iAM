@@ -16,4 +16,5 @@
 @property(nonatomic, retain) AMMutableArray *arrayOfSequences;
 
 + (id)sharedSequencer;
+
 @end

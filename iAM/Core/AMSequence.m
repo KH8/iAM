@@ -103,7 +103,7 @@
 
 - (id)clone {
     AMSequence *clone = [[AMSequence alloc] init];
-    [clone setBaseArray:[super clone]];
+    [clone setBaseArray:[[super clone] getBaseArray]];
     [clone setName:[NSString stringWithString:_name]];
     [clone setCreationDate:[NSDate date]];
     return clone;

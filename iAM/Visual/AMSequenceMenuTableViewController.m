@@ -44,7 +44,7 @@ static NSString *const reuseIdentifier = @"myMenuStepCell";
     [self initBottomToolBar];
     [self initTheme];
     [self initButtons];
-    [self updateIndexSelected];
+    [self updateComponents];
 }
 
 - (void)viewDidAppear:(BOOL)animated {

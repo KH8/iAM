@@ -17,6 +17,7 @@
 #import "AMConfig.h"
 #import "AMMutableArrayResponder.h"
 #import "AMAudioSessionHandler.h"
+#import "AMPopupAnimator.h"
 
 @import MediaPlayer;
 
@@ -377,12 +378,28 @@
         AMPopoverViewController *popoverViewController = (AMPopoverViewController *) segue.destinationViewController;
         popoverViewController.actuallySelectedSequencer = _mainSequencer;
         popoverViewController.delegate = self;
+        popoverViewController.transitioningDelegate = self;
+        popoverViewController.modalPresentationStyle = UIModalPresentationCustom;
     }
     if ([segue.identifier isEqualToString:@"sw_bar_popup"]) {
         AMPopupViewController *popupViewController = (AMPopupViewController *) segue.destinationViewController;
         [popupViewController setText:[AMConfig barCountExceeded]];
     }
 }
+
+- (id<UIViewControllerAnimatedTransitioning>)animationControllerForPresentedController:(UIViewController *)presented
+                                                                  presentingController:(UIViewController *)presenting
+                                                                      sourceController:(UIViewController *)source {
+    AMPopupAnimator *animator = [AMPopupAnimator new];
+    animator.presenting = YES;
+    return animator;
+}
+
+- (id<UIViewControllerAnimatedTransitioning>)animationControllerForDismissedController:(UIViewController *)dismissed {
+    AMPopupAnimator *animator = [AMPopupAnimator new];
+    return animator;
+}
+
 
 - (void)pickedValuesHaveBeenChanged {
     [self initBottomToolBar];

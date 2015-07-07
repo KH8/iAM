@@ -204,6 +204,9 @@
 		A48B10F41B262FC3008B9258 /* AMApplicationDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A48B10F11B262FC3008B9258 /* AMApplicationDelegate.m */; };
 		A49A5A741AD718D9000B0080 /* AMMutableArrayResponder.m in Sources */ = {isa = PBXBuildFile; fileRef = A49A5A731AD718D9000B0080 /* AMMutableArrayResponder.m */; };
 		A49A5A7C1AD7264D000B0080 /* CDSelections.m in Sources */ = {isa = PBXBuildFile; fileRef = A49A5A7B1AD7264D000B0080 /* CDSelections.m */; };
+		A49D77751B4C78C900003AE1 /* AMPopupAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = A49D77741B4C78C900003AE1 /* AMPopupAnimator.m */; };
+		A49D77761B4C78C900003AE1 /* AMPopupAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = A49D77741B4C78C900003AE1 /* AMPopupAnimator.m */; };
+		A49D77771B4C78C900003AE1 /* AMPopupAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = A49D77741B4C78C900003AE1 /* AMPopupAnimator.m */; };
 		A49FAF441B431141001A64EC /* next.png in Resources */ = {isa = PBXBuildFile; fileRef = A49FAF431B431141001A64EC /* next.png */; };
 		A49FAF451B431141001A64EC /* next.png in Resources */ = {isa = PBXBuildFile; fileRef = A49FAF431B431141001A64EC /* next.png */; };
 		A49FAF461B431141001A64EC /* next.png in Resources */ = {isa = PBXBuildFile; fileRef = A49FAF431B431141001A64EC /* next.png */; };
@@ -510,6 +513,8 @@
 		A49A5A731AD718D9000B0080 /* AMMutableArrayResponder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMMutableArrayResponder.m; path = Core/Auxiliaries/AMMutableArrayResponder.m; sourceTree = "<group>"; };
 		A49A5A7A1AD7264D000B0080 /* CDSelections.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDSelections.h; path = CoreData/CDSelections.h; sourceTree = "<group>"; };
 		A49A5A7B1AD7264D000B0080 /* CDSelections.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CDSelections.m; path = CoreData/CDSelections.m; sourceTree = "<group>"; };
+		A49D77731B4C78C900003AE1 /* AMPopupAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMPopupAnimator.h; path = Animators/AMPopupAnimator.h; sourceTree = "<group>"; };
+		A49D77741B4C78C900003AE1 /* AMPopupAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMPopupAnimator.m; path = Animators/AMPopupAnimator.m; sourceTree = "<group>"; };
 		A49FAF431B431141001A64EC /* next.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = next.png; path = Icons/next.png; sourceTree = "<group>"; };
 		A4A0CD7C1AD084E600618B1F /* CDBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDBar.h; path = CoreData/CDBar.h; sourceTree = "<group>"; };
 		A4A0CD7D1AD084E600618B1F /* CDBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CDBar.m; path = CoreData/CDBar.m; sourceTree = "<group>"; };
@@ -621,6 +626,7 @@
 		8F01C9F7EDEB97C2F2D72BE8 /* Visual */ = {
 			isa = PBXGroup;
 			children = (
+				A49D77781B4C78D100003AE1 /* Animators */,
 				A46C817B1B28E05F00605BD2 /* Primitives */,
 				A4D59CD11B27532E00BCB697 /* Utils */,
 				A4A6C58F1AE9722600E488BC /* Images */,
@@ -897,6 +903,15 @@
 				A42C005C1B3DC41400AB6938 /* spot.png */,
 			);
 			name = Icons;
+			sourceTree = "<group>";
+		};
+		A49D77781B4C78D100003AE1 /* Animators */ = {
+			isa = PBXGroup;
+			children = (
+				A49D77731B4C78C900003AE1 /* AMPopupAnimator.h */,
+				A49D77741B4C78C900003AE1 /* AMPopupAnimator.m */,
+			);
+			name = Animators;
 			sourceTree = "<group>";
 		};
 		A4A4B2AA1AC0C4650099A746 /* CoreData */ = {
@@ -1358,6 +1373,7 @@
 				A45A2BDC1B39C90C00FBA604 /* AMClonableString.m in Sources */,
 				A4A0CD851AD084E600618B1F /* CDNote.m in Sources */,
 				A4A0CD871AD084E600618B1F /* CDStep.m in Sources */,
+				A49D77751B4C78C900003AE1 /* AMPopupAnimator.m in Sources */,
 				A4C7EC981AE6C90900428B68 /* AMPopupViewController.m in Sources */,
 				A4F24F8B1ABC914F00BF47C3 /* AMMutableArray.m in Sources */,
 				A45F60B21AD1C30900954D2F /* AMPropertiesTableViewController.m in Sources */,
@@ -1432,6 +1448,7 @@
 				A45A2BDD1B39C90C00FBA604 /* AMClonableString.m in Sources */,
 				A4C7ECB61AE6EA3F00428B68 /* CDNote.m in Sources */,
 				A4C7ECB81AE6EA3F00428B68 /* CDStep.m in Sources */,
+				A49D77761B4C78C900003AE1 /* AMPopupAnimator.m in Sources */,
 				A4C7ECB91AE6EA3F00428B68 /* AMPopupViewController.m in Sources */,
 				A4C7ECBA1AE6EA3F00428B68 /* AMMutableArray.m in Sources */,
 				A4C7ECBB1AE6EA3F00428B68 /* AMPropertiesTableViewController.m in Sources */,
@@ -1498,6 +1515,7 @@
 				A45A2BDE1B39C90C00FBA604 /* AMClonableString.m in Sources */,
 				A4FB779C1AE6ED17003BC801 /* CDNote.m in Sources */,
 				A4FB779E1AE6ED17003BC801 /* CDStep.m in Sources */,
+				A49D77771B4C78C900003AE1 /* AMPopupAnimator.m in Sources */,
 				A4FB779F1AE6ED17003BC801 /* AMPopupViewController.m in Sources */,
 				A4FB77A01AE6ED17003BC801 /* AMMutableArray.m in Sources */,
 				A4FB77A11AE6ED17003BC801 /* AMPropertiesTableViewController.m in Sources */,

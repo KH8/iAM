@@ -1470,7 +1470,7 @@
                                     <constraint firstAttribute="centerY" secondItem="BbJ-hY-ri1" secondAttribute="centerY" id="uY0-BQ-QOh"/>
                                 </constraints>
                                 <connections>
-                                    <outletCollection property="gestureRecognizers" destination="910-if-0nP" appends="YES" id="i84-OQ-Pui"/>
+                                    <outletCollection property="gestureRecognizers" destination="OD3-bk-5pg" appends="YES" id="qs5-eJ-arI"/>
                                 </connections>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swipe down to close the popup." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tvk-ml-QnZ">
@@ -1501,11 +1501,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fNH-7b-pQs" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <swipeGestureRecognizer direction="down" id="910-if-0nP">
+                <panGestureRecognizer minimumNumberOfTouches="1" id="OD3-bk-5pg">
                     <connections>
-                        <action selector="swipedDown:" destination="5t2-d4-3oA" id="DUu-An-hLD"/>
+                        <action selector="panPerformed:" destination="5t2-d4-3oA" id="TDy-Ir-12F"/>
                     </connections>
-                </swipeGestureRecognizer>
+                </panGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="574" y="-1005"/>
         </scene>

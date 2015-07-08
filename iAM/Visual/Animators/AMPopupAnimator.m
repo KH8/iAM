@@ -10,10 +10,14 @@
 
 @implementation AMPopupAnimator
 
+const float DURATION = 0.25F;
+const float INIT_ALPHA = 0.4F;
+const float FINAL_ALPHA = 1.0F;
+
 @synthesize presenting;
 
 - (NSTimeInterval)transitionDuration:(id <UIViewControllerContextTransitioning>)transitionContext {
-    return 0.3f;
+    return DURATION;
 }
 
 - (void)animateTransition:(id <UIViewControllerContextTransitioning>)transitionContext {
@@ -31,11 +35,11 @@
         startFrame.origin.y += CGRectGetHeight([[transitionContext containerView] bounds]);
         
         toViewController.view.frame = startFrame;
-        toViewController.view.alpha = 0.5f;
+        toViewController.view.alpha = INIT_ALPHA;
         
         [UIView animateWithDuration:[self transitionDuration:transitionContext] animations:^{
             toViewController.view.frame = endFrame;
-            toViewController.view.alpha = 1.0f;
+            toViewController.view.alpha = FINAL_ALPHA;
         } completion:^(BOOL finished) {
             [transitionContext completeTransition:YES];
         }];
@@ -45,7 +49,7 @@
         
         [UIView animateWithDuration:[self transitionDuration:transitionContext] animations:^{
             fromViewController.view.frame = endFrame;
-            fromViewController.view.alpha = 0.5f;
+            fromViewController.view.alpha = INIT_ALPHA;
         } completion:^(BOOL finished) {
             toViewController.view.userInteractionEnabled = YES;
             [transitionContext completeTransition:YES];
@@ -65,6 +69,8 @@
         CGRect newFrame = frame;
         newFrame.origin.y = translate.y;
         controller.view.frame = newFrame;
+        controller.view.alpha = [self getAlphaFactor:frame.size.height
+                                          inPosition:translate.y];
     }
     if(sender.state == UIGestureRecognizerStateEnded) {
         CGFloat velocity = [sender velocityInView:controller.view].y;
@@ -73,15 +79,21 @@
             [controller dismissViewControllerAnimated:YES
                                      completion:nil];
         } else {
-            [UIView animateWithDuration:0.3f
+            [UIView animateWithDuration:DURATION
                                   delay:0.0f
                                 options:UIViewAnimationOptionCurveLinear
                              animations:^{
                                  [controller.view setFrame:CGRectMake(0.0f, 0.0f, frame.size.width, frame.size.height)];
+                                 controller.view.alpha = FINAL_ALPHA;
                              }
                              completion:nil];
         }
     }
+}
+
++ (CGFloat)getAlphaFactor:(CGFloat)height
+               inPosition:(CGFloat)position {
+    return FINAL_ALPHA - ( ( position / height ) * ( FINAL_ALPHA - INIT_ALPHA ) );
 }
 
 @end

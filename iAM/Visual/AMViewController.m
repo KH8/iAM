@@ -384,6 +384,8 @@
     if ([segue.identifier isEqualToString:@"sw_bar_popup"]) {
         AMPopupViewController *popupViewController = (AMPopupViewController *) segue.destinationViewController;
         [popupViewController setText:[AMConfig barCountExceeded]];
+        popupViewController.transitioningDelegate = self;
+        popupViewController.modalPresentationStyle = UIModalPresentationCustom;
     }
 }
 

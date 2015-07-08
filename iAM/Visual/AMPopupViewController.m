@@ -7,6 +7,7 @@
 //
 
 #import "AMPopupViewController.h"
+#import "AMPopupAnimator.h"
 
 @interface AMPopupViewController ()
 
@@ -45,9 +46,9 @@
     _text = text;
 }
 
-- (IBAction)swipedDown:(id)sender {
-    [self dismissViewControllerAnimated:YES
-                             completion:nil];
+- (IBAction)panPerformed:(UIPanGestureRecognizer *)sender {
+    [AMPopupAnimator animatePanGesture:sender
+                          inController:self];
 }
 
 @end

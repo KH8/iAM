@@ -13,4 +13,7 @@
 
 @property BOOL presenting;
 
++ (void)animatePanGesture:(UIPanGestureRecognizer *)sender
+             inController:(UIViewController *)controller;
+
 @end

@@ -13,7 +13,7 @@
 @synthesize presenting;
 
 - (NSTimeInterval)transitionDuration:(id <UIViewControllerContextTransitioning>)transitionContext {
-    return 1.0f;
+    return 0.3f;
 }
 
 - (void)animateTransition:(id <UIViewControllerContextTransitioning>)transitionContext {
@@ -53,5 +53,35 @@
     }
 }
 
++ (void)animatePanGesture:(UIPanGestureRecognizer *)sender
+             inController:(UIViewController *)controller {
+    CGPoint translate = [sender translationInView:controller.view];
+    CGRect frame = controller.view.frame;
+    if(sender.state == UIGestureRecognizerStateChanged) {
+        if(translate.y < 0 ||
+           translate.y > frame.size.height) {
+            return;
+        }
+        CGRect newFrame = frame;
+        newFrame.origin.y = translate.y;
+        controller.view.frame = newFrame;
+    }
+    if(sender.state == UIGestureRecognizerStateEnded) {
+        CGFloat velocity = [sender velocityInView:controller.view].y;
+        if (velocity > 100 ||
+            translate.y > frame.size.height / 3) {
+            [controller dismissViewControllerAnimated:YES
+                                     completion:nil];
+        } else {
+            [UIView animateWithDuration:0.3f
+                                  delay:0.0f
+                                options:UIViewAnimationOptionCurveLinear
+                             animations:^{
+                                 [controller.view setFrame:CGRectMake(0.0f, 0.0f, frame.size.width, frame.size.height)];
+                             }
+                             completion:nil];
+        }
+    }
+}
 
 @end

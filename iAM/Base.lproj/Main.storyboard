@@ -1142,6 +1142,10 @@
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="KeA-zm-XZj">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <gestureRecognizers/>
+                                    <connections>
+                                        <outletCollection property="gestureRecognizers" destination="cmf-du-tZL" appends="YES" id="C8t-Sy-Ha3"/>
+                                    </connections>
                                 </view>
                                 <vibrancyEffect>
                                     <blurEffect style="dark"/>
@@ -1271,9 +1275,6 @@
                             <constraint firstItem="mJB-qH-SCf" firstAttribute="top" secondItem="Dhg-ZA-pK9" secondAttribute="bottom" constant="10" id="weT-1D-ooo"/>
                             <constraint firstItem="CRn-gj-ty1" firstAttribute="top" secondItem="xTc-KQ-AEl" secondAttribute="bottom" constant="25" id="x5K-p0-bay"/>
                         </constraints>
-                        <connections>
-                            <outletCollection property="gestureRecognizers" destination="QgY-36-7io" appends="YES" id="F4I-Se-OTX"/>
-                        </connections>
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="600" height="600"/>
@@ -1290,11 +1291,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sRX-d3-20t" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <swipeGestureRecognizer direction="down" id="QgY-36-7io">
+                <panGestureRecognizer minimumNumberOfTouches="1" id="cmf-du-tZL">
                     <connections>
-                        <action selector="gesturePerformed:" destination="Fdi-8I-min" id="hUP-J3-z23"/>
+                        <action selector="panPerformed:" destination="Fdi-8I-min" id="Kaq-5g-zAe"/>
                     </connections>
-                </swipeGestureRecognizer>
+                </panGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="574" y="497"/>
         </scene>
@@ -1679,10 +1680,10 @@
         <image name="settings_r.png" width="120" height="120"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="lm7-pw-MVk"/>
         <segue reference="TIP-R1-KcY"/>
         <segue reference="zkT-HV-92U"/>
-        <segue reference="A2U-uw-7qt"/>
+        <segue reference="HdI-RE-NKN"/>
+        <segue reference="lm7-pw-MVk"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
 </document>

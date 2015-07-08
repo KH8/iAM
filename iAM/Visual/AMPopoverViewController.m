@@ -8,6 +8,7 @@
 
 #import "AMPopoverViewController.h"
 #import "AMAppearanceManager.h"
+#import "AMPopupAnimator.h"
 
 @interface AMPopoverViewController ()
 
@@ -84,9 +85,9 @@
     _tempoPickerController = nil;
 }
 
-- (IBAction)gesturePerformed:(id)sender {
-    [self dismissViewControllerAnimated:YES
-                             completion:nil];
+- (IBAction)panPerformed:(UIPanGestureRecognizer *)sender {
+    [AMPopupAnimator animatePanGesture:sender
+                          inController:self];
 }
 
 - (IBAction)onTapTempo:(id)sender {

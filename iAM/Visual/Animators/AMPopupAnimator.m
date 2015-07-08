@@ -13,12 +13,12 @@
 @synthesize presenting;
 
 - (NSTimeInterval)transitionDuration:(id <UIViewControllerContextTransitioning>)transitionContext {
-    return 0.2f;
+    return 1.0f;
 }
 
 - (void)animateTransition:(id <UIViewControllerContextTransitioning>)transitionContext {
-    UIViewController *fromViewController = [transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
-    UIViewController *toViewController = [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
+    UIViewController *fromViewController = (UIViewController *)[transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
+    UIViewController *toViewController = (UIViewController *)[transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
     
     CGRect endFrame = fromViewController.view.frame;
     
@@ -31,7 +31,7 @@
         startFrame.origin.y += CGRectGetHeight([[transitionContext containerView] bounds]);
         
         toViewController.view.frame = startFrame;
-        toViewController.view.alpha = 0.0f;
+        toViewController.view.alpha = 0.5f;
         
         [UIView animateWithDuration:[self transitionDuration:transitionContext] animations:^{
             toViewController.view.frame = endFrame;
@@ -45,6 +45,7 @@
         
         [UIView animateWithDuration:[self transitionDuration:transitionContext] animations:^{
             fromViewController.view.frame = endFrame;
+            fromViewController.view.alpha = 0.5f;
         } completion:^(BOOL finished) {
             toViewController.view.userInteractionEnabled = YES;
             [transitionContext completeTransition:YES];

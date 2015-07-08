@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "AMPickerController.h"
+#import "AMVisualEffectView.h"
 #import "AMSequencer.h"
 
 @protocol AMPopoverViewControllerDelegate <NSObject>

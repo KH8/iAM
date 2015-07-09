@@ -46,9 +46,4 @@
     _text = text;
 }
 
-- (IBAction)panPerformed:(UIPanGestureRecognizer *)sender {
-    [AMPopupAnimator animatePanGesture:sender
-                          inController:self];
-}
-
 @end

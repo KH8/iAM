@@ -1152,9 +1152,10 @@
                                 </vibrancyEffect>
                             </visualEffectView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CRn-gj-ty1">
-                                <rect key="frame" x="0.0" y="45" width="600" height="60"/>
+                                <rect key="frame" x="200" y="45" width="200" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="X0j-Qg-8RD"/>
+                                    <constraint firstAttribute="width" constant="200" id="y6q-pL-uhA"/>
                                 </constraints>
                                 <inset key="contentEdgeInsets" minX="-30" minY="-60" maxX="-30" maxY="-60"/>
                                 <state key="normal" title="TAP TEMPO">
@@ -1254,7 +1255,7 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swipe down to close the popup." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dhg-ZA-pK9">
-                                <rect key="frame" x="232" y="579" width="137" height="11"/>
+                                <rect key="frame" x="232.5" y="579" width="136.5" height="11"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="9"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -1264,13 +1265,12 @@
                         <constraints>
                             <constraint firstItem="Sws-2I-aX3" firstAttribute="top" secondItem="tyE-74-eos" secondAttribute="top" id="2gQ-3z-BsI"/>
                             <constraint firstAttribute="centerX" secondItem="Dhg-ZA-pK9" secondAttribute="centerX" id="7Bp-Of-6iB"/>
-                            <constraint firstAttribute="trailing" secondItem="CRn-gj-ty1" secondAttribute="trailing" id="Q9Q-uc-uFr"/>
                             <constraint firstItem="mJB-qH-SCf" firstAttribute="top" secondItem="4Sn-Mq-EaF" secondAttribute="bottom" constant="75" id="VjM-rl-XWI"/>
                             <constraint firstAttribute="centerX" secondItem="4Sn-Mq-EaF" secondAttribute="centerX" id="WMy-jC-AbN"/>
                             <constraint firstItem="mJB-qH-SCf" firstAttribute="top" secondItem="Sws-2I-aX3" secondAttribute="bottom" id="fhx-LL-wjf"/>
-                            <constraint firstItem="CRn-gj-ty1" firstAttribute="leading" secondItem="tyE-74-eos" secondAttribute="leading" id="gSJ-Bo-ALX"/>
                             <constraint firstItem="4Sn-Mq-EaF" firstAttribute="top" secondItem="CRn-gj-ty1" secondAttribute="bottom" constant="-15" id="okB-D8-Uy3"/>
                             <constraint firstAttribute="trailing" secondItem="Sws-2I-aX3" secondAttribute="trailing" id="qXQ-Ky-VHz"/>
+                            <constraint firstAttribute="centerX" secondItem="CRn-gj-ty1" secondAttribute="centerX" id="qpH-S9-hx7"/>
                             <constraint firstItem="Sws-2I-aX3" firstAttribute="leading" secondItem="tyE-74-eos" secondAttribute="leading" id="uXV-2G-uBy"/>
                             <constraint firstItem="mJB-qH-SCf" firstAttribute="top" secondItem="Dhg-ZA-pK9" secondAttribute="bottom" constant="10" id="weT-1D-ooo"/>
                             <constraint firstItem="CRn-gj-ty1" firstAttribute="top" secondItem="xTc-KQ-AEl" secondAttribute="bottom" constant="25" id="x5K-p0-bay"/>
@@ -1293,7 +1293,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sRX-d3-20t" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <panGestureRecognizer minimumNumberOfTouches="1" id="cmf-du-tZL">
                     <connections>
-                        <action selector="panPerformed:" destination="Fdi-8I-min" id="Kaq-5g-zAe"/>
+                        <action selector="panPerformed:" destination="Fdi-8I-min" id="vk6-1p-IyR"/>
                     </connections>
                 </panGestureRecognizer>
             </objects>
@@ -1379,6 +1379,9 @@
                                     <constraint firstAttribute="centerY" secondItem="Hze-4h-uRT" secondAttribute="centerY" id="p8v-CQ-Run"/>
                                     <constraint firstAttribute="centerX" secondItem="Hze-4h-uRT" secondAttribute="centerX" id="pJ7-dG-4ae"/>
                                 </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="IiX-WL-xqm" appends="YES" id="hKp-QJ-Agn"/>
+                                </connections>
                             </view>
                         </subviews>
                         <gestureRecognizers/>
@@ -1392,9 +1395,6 @@
                             <constraint firstItem="mWS-IM-Plu" firstAttribute="top" secondItem="a3h-sO-asc" secondAttribute="top" id="o6d-sI-eHo"/>
                             <constraint firstItem="LQw-JN-7OK" firstAttribute="top" secondItem="mWS-IM-Plu" secondAttribute="bottom" id="yNZ-iv-6xJ"/>
                         </constraints>
-                        <connections>
-                            <outletCollection property="gestureRecognizers" destination="x41-Pc-v41" appends="YES" id="b3l-8I-cPm"/>
-                        </connections>
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="600" height="600"/>
@@ -1404,11 +1404,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FZg-nc-6Ko" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <swipeGestureRecognizer direction="down" id="x41-Pc-v41">
+                <panGestureRecognizer minimumNumberOfTouches="1" id="IiX-WL-xqm">
                     <connections>
-                        <action selector="swipedDown:" destination="hEN-7r-qKy" id="ujv-yd-CEt"/>
+                        <action selector="panPerformed:" destination="hEN-7r-qKy" id="wfa-AT-rAQ"/>
                     </connections>
-                </swipeGestureRecognizer>
+                </panGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-883" y="3569"/>
         </scene>
@@ -1503,7 +1503,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fNH-7b-pQs" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <panGestureRecognizer minimumNumberOfTouches="1" id="OD3-bk-5pg">
                     <connections>
-                        <action selector="panPerformed:" destination="5t2-d4-3oA" id="TDy-Ir-12F"/>
+                        <action selector="panPerformed:" destination="5t2-d4-3oA" id="xCt-sM-8DX"/>
                     </connections>
                 </panGestureRecognizer>
             </objects>

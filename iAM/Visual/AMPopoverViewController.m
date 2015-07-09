@@ -85,11 +85,6 @@
     _tempoPickerController = nil;
 }
 
-- (IBAction)panPerformed:(UIPanGestureRecognizer *)sender {
-    [AMPopupAnimator animatePanGesture:sender
-                          inController:self];
-}
-
 - (IBAction)onTapTempo:(id)sender {
     AMStave *stave = [self getStave];
     [stave tapTempo];

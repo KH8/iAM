@@ -39,10 +39,6 @@
     [self closeView];
 }
 
-- (IBAction)swipedDown:(id)sender {
-    [self closeView];
-}
-
 - (void)reset {
     AppDelegate *appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
     [[appDelegate configurationManager] clearContext];

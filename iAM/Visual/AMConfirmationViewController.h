@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AMOverlayViewController.h"
 
 @protocol AMConfirmationViewControllerProtocol <NSObject>
 
@@ -16,7 +17,7 @@
 
 @end
 
-@interface AMConfirmationViewController : UIViewController
+@interface AMConfirmationViewController : AMOverlayViewController
 
 @property(nonatomic, weak) id <AMConfirmationViewControllerProtocol> delegate;
 

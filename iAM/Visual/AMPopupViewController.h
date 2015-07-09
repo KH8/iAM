@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AMOverlayViewController.h"
 
-@interface AMPopupViewController : UIViewController
+@interface AMPopupViewController : AMOverlayViewController
 
 - (void)setText:(NSString *)text;
 

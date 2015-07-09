@@ -10,6 +10,7 @@
 #import "AMPickerController.h"
 #import "AMVisualEffectView.h"
 #import "AMSequencer.h"
+#import "AMOverlayViewController.h"
 
 @protocol AMPopoverViewControllerDelegate <NSObject>
 
@@ -19,7 +20,7 @@
 
 @end
 
-@interface AMPopoverViewController : UIViewController <AMPickerControllerDelegate, AMStaveDelegate>
+@interface AMPopoverViewController : AMOverlayViewController <AMPickerControllerDelegate, AMStaveDelegate>
 
 @property(nonatomic, weak) id <AMPopoverViewControllerDelegate> delegate;
 

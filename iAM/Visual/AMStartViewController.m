@@ -45,7 +45,7 @@
 - (void)initGlobalSettings {
     AppDelegate *appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
     _viewShouldBeSkipped = !appDelegate.appearanceManager.getShowTutorial;
-    _adShouldBeSkipped = [AMConfig shouldAdBeDisplayed];
+    _adShouldBeSkipped = ![AMConfig shouldAdBeDisplayed];
 }
 
 - (void)initData {
@@ -101,6 +101,11 @@
 
 - (IBAction)startButtonPressed:(id)sender {
     [self skipScreen];
+}
+
+- (IBAction)facebookTapped:(id)sender {
+    NSString *facebookLink = @"https://m.facebook.com/tickgrid";
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:facebookLink]];
 }
 
 - (IBAction)showTutorialSwitchStateChanged:(id)sender {

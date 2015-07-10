@@ -53,6 +53,10 @@
             [button setImage:[[UIImage imageNamed:@"seq3.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]
                     forState:UIControlStateNormal];
             break;
+        case TIMER_LOOP:
+            [button setImage:[[UIImage imageNamed:@"seq4.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]
+                    forState:UIControlStateNormal];
+            break;
     }
     [button addTarget:self action:@selector(changeStepType)
      forControlEvents:UIControlEventTouchUpInside];

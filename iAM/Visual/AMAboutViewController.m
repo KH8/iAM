@@ -9,12 +9,11 @@
 #import "AMAboutViewController.h"
 #import "AMAppearanceManager.h"
 #import "AMConfig.h"
+#import "AMView.h"
 
 @interface AMAboutViewController ()
 
 @property(weak, nonatomic) IBOutlet UITextView *descriptionText;
-@property(weak, nonatomic) IBOutlet UIImageView *logoView;
-@property(weak, nonatomic) IBOutlet UIImageView *logoColoredView;
 @property(weak, nonatomic) IBOutlet UINavigationBar *navigationBar;
 
 @end
@@ -23,18 +22,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self loadLogo];
     [self loadText];
     [self loadColors];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-}
-
-- (void)loadLogo {
-    [_logoView setImage:[[UIImage imageNamed:@"logo.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
-    [_logoColoredView setImage:[[UIImage imageNamed:@"logo_colored.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]];
 }
 
 - (void)loadText {
@@ -49,7 +42,11 @@
     UIColor *globalTintColor = [AMAppearanceManager getGlobalTintColor];
     [_navigationBar setTintColor:globalTintColor];
     [_navigationBar setBarTintColor:globalColorTheme];
-    [_logoColoredView setTintColor:globalTintColor];
+}
+
+- (IBAction)facebookTapped:(id)sender {
+    NSString *facebookLink = @"https://m.facebook.com/tickgrid";
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:facebookLink]];
 }
 
 @end

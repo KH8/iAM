@@ -156,7 +156,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="qv4-0T-1tY">
-                                <rect key="frame" x="300.5" y="0.0" width="0.0" height="0.0"/>
+                                <rect key="frame" x="300" y="0.0" width="0.0" height="0.0"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="pageIndicatorTintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="currentPageIndicatorTintColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -192,11 +192,11 @@
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="ehO-nR-hl7" firstAttribute="top" secondItem="lC5-jy-5XQ" secondAttribute="bottom" constant="5" id="1lO-1k-epD"/>
+                            <constraint firstAttribute="trailing" secondItem="Lyd-pp-S7Q" secondAttribute="trailing" constant="15" id="DUk-nV-HLS"/>
                             <constraint firstItem="lC5-jy-5XQ" firstAttribute="leading" secondItem="Ezz-bk-f5e" secondAttribute="trailing" constant="5" id="Fvl-RJ-KTc"/>
                             <constraint firstItem="ehO-nR-hl7" firstAttribute="top" secondItem="Lyd-pp-S7Q" secondAttribute="bottom" id="Hmt-8L-fke"/>
                             <constraint firstAttribute="centerX" secondItem="qv4-0T-1tY" secondAttribute="centerX" id="JYe-sP-Db8"/>
                             <constraint firstItem="Ezz-bk-f5e" firstAttribute="leading" secondItem="YbQ-sD-IVT" secondAttribute="leading" constant="15" id="UmY-Ye-Ny7"/>
-                            <constraint firstAttribute="trailing" secondItem="Lyd-pp-S7Q" secondAttribute="trailing" constant="15" id="VWw-8Q-ANr"/>
                             <constraint firstItem="qv4-0T-1tY" firstAttribute="top" secondItem="YbQ-sD-IVT" secondAttribute="top" id="ZAf-c8-OZZ"/>
                             <constraint firstItem="ehO-nR-hl7" firstAttribute="top" secondItem="Ezz-bk-f5e" secondAttribute="bottom" constant="5" id="lBp-Pe-gPh"/>
                         </constraints>
@@ -211,6 +211,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iWb-Ol-ZqU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="Y5t-tr-CbU">
+                    <connections>
+                        <action selector="facebookTapped:" destination="vKD-mF-dDR" id="PRw-eF-2oR"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-2339" y="-1005"/>
         </scene>
@@ -1462,19 +1467,32 @@
                                             <constraint firstAttribute="centerY" secondItem="dRX-II-KmZ" secondAttribute="centerY" id="kZL-Tv-Isd"/>
                                         </constraints>
                                     </view>
+                                    <imageView alpha="0.5" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="app-store-logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="fte-tx-Fuh">
+                                        <rect key="frame" x="220" y="512" width="160" height="60"/>
+                                        <gestureRecognizers/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="HTo-IA-rHa"/>
+                                            <constraint firstAttribute="width" constant="160" id="pD8-gc-ZQq"/>
+                                        </constraints>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="QSU-S1-gjZ" appends="YES" id="Gu7-ca-nWh"/>
+                                        </connections>
+                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <gestureRecognizers/>
                                 <constraints>
+                                    <constraint firstAttribute="centerX" secondItem="fte-tx-Fuh" secondAttribute="centerX" id="HFh-yY-1fo"/>
                                     <constraint firstAttribute="centerX" secondItem="BbJ-hY-ri1" secondAttribute="centerX" id="ICc-UG-30h"/>
                                     <constraint firstAttribute="centerY" secondItem="BbJ-hY-ri1" secondAttribute="centerY" id="uY0-BQ-QOh"/>
+                                    <constraint firstAttribute="bottomMargin" secondItem="fte-tx-Fuh" secondAttribute="bottom" constant="20" id="yUc-iY-jgC"/>
                                 </constraints>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="OD3-bk-5pg" appends="YES" id="qs5-eJ-arI"/>
                                 </connections>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swipe down to close the popup." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tvk-ml-QnZ">
-                                <rect key="frame" x="231" y="579" width="137" height="11"/>
+                                <rect key="frame" x="231" y="579" width="136.5" height="11"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="9"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -1497,6 +1515,7 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="600" height="600"/>
                     <connections>
+                        <outlet property="icon" destination="fte-tx-Fuh" id="aLV-b9-E8K"/>
                         <outlet property="textView" destination="dRX-II-KmZ" id="4Mr-xV-N84"/>
                     </connections>
                 </viewController>
@@ -1506,6 +1525,11 @@
                         <action selector="panPerformed:" destination="5t2-d4-3oA" id="xCt-sM-8DX"/>
                     </connections>
                 </panGestureRecognizer>
+                <tapGestureRecognizer id="QSU-S1-gjZ">
+                    <connections>
+                        <action selector="buttonTapped:" destination="5t2-d4-3oA" id="4w4-7f-7SK"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="574" y="-1005"/>
         </scene>
@@ -1532,7 +1556,7 @@
                                 </items>
                             </navigationBar>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="&lt;text to be replaced&gt;" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BvG-bL-2pO">
-                                <rect key="frame" x="100" y="285" width="400" height="130"/>
+                                <rect key="frame" x="100" y="235" width="400" height="130"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="130" id="70B-7u-MgU"/>
@@ -1541,42 +1565,45 @@
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="8En-Rr-4Ft">
-                                <rect key="frame" x="-372" y="200" width="1344" height="100"/>
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="facebook-logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="Hpb-yY-uOG">
+                                <rect key="frame" x="270" y="525" width="60" height="60"/>
+                                <gestureRecognizers/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="100" id="Db1-Gl-v19"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="60" id="HH4-ww-mQk"/>
+                                    <constraint firstAttribute="width" constant="60" id="T0G-bx-ED9"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="60" id="uDF-OU-1nG"/>
+                                    <constraint firstAttribute="height" constant="60" id="vru-0b-B1v"/>
                                 </constraints>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_colored.png" translatesAutoresizingMaskIntoConstraints="NO" id="M8e-Vv-r47">
-                                <rect key="frame" x="-372" y="200" width="1344" height="100"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="100" id="de8-tQ-fnI"/>
-                                </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="VbB-DD-V9D" appends="YES" id="PVs-9F-5RZ"/>
+                                </connections>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
                         <constraints>
+                            <constraint firstItem="7cf-x4-pEQ" firstAttribute="top" secondItem="Hpb-yY-uOG" secondAttribute="bottom" constant="15" id="1iO-cX-4Z2"/>
+                            <constraint firstAttribute="centerX" secondItem="Hpb-yY-uOG" secondAttribute="centerX" id="58g-7e-7zt"/>
                             <constraint firstAttribute="trailing" secondItem="C8C-bL-Mst" secondAttribute="trailing" id="Dlu-UU-Exq"/>
-                            <constraint firstAttribute="centerX" secondItem="M8e-Vv-r47" secondAttribute="centerX" id="F1w-1K-yGV"/>
                             <constraint firstAttribute="centerX" secondItem="BvG-bL-2pO" secondAttribute="centerX" id="OBk-aM-wQo"/>
-                            <constraint firstAttribute="centerY" secondItem="8En-Rr-4Ft" secondAttribute="centerY" constant="50" id="TMn-ec-Tah"/>
                             <constraint firstItem="C8C-bL-Mst" firstAttribute="top" secondItem="pKQ-Cc-4YW" secondAttribute="top" id="hen-Oo-wcj"/>
                             <constraint firstItem="C8C-bL-Mst" firstAttribute="leading" secondItem="pKQ-Cc-4YW" secondAttribute="leading" id="vyf-Fb-q8M"/>
-                            <constraint firstAttribute="centerX" secondItem="8En-Rr-4Ft" secondAttribute="centerX" id="x8x-Sd-vvn"/>
-                            <constraint firstAttribute="centerY" secondItem="M8e-Vv-r47" secondAttribute="centerY" constant="50" id="y5c-dG-BvF"/>
-                            <constraint firstAttribute="centerY" secondItem="BvG-bL-2pO" secondAttribute="centerY" constant="-50" id="ze6-Ze-zfo"/>
+                            <constraint firstAttribute="centerY" secondItem="BvG-bL-2pO" secondAttribute="centerY" id="ze6-Ze-zfo"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="descriptionText" destination="BvG-bL-2pO" id="I8p-47-LoD"/>
-                        <outlet property="logoColoredView" destination="M8e-Vv-r47" id="Zxx-hS-zdV"/>
-                        <outlet property="logoView" destination="8En-Rr-4Ft" id="4m3-Cs-fQL"/>
                         <outlet property="navigationBar" destination="C8C-bL-Mst" id="iiU-cf-fbt"/>
                         <outlet property="navigationBarItem" destination="CYX-jQ-YOL" id="DDL-Vv-BcL"/>
                         <outlet property="sideMenuButton" destination="kWw-7b-acO" id="Ynf-qZ-dOg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="V8G-iz-lDb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="VbB-DD-V9D">
+                    <connections>
+                        <action selector="facebookTapped:" destination="2gp-qd-vNc" id="lc3-v9-LFA"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="574" y="1271"/>
         </scene>
@@ -1672,11 +1699,11 @@
     <resources>
         <image name="about_r.png" width="120" height="120"/>
         <image name="ad.png" width="1920" height="1080"/>
+        <image name="app-store-logo.png" width="320" height="120"/>
         <image name="details.png" width="120" height="120"/>
+        <image name="facebook-logo.png" width="120" height="120"/>
         <image name="grid_r.png" width="120" height="120"/>
         <image name="list_r.png" width="120" height="120"/>
-        <image name="logo.png" width="1344" height="648"/>
-        <image name="logo_colored.png" width="1344" height="648"/>
         <image name="settings_r.png" width="120" height="120"/>
     </resources>
     <inferredMetricsTieBreakers>

@@ -95,13 +95,12 @@ static bool isSoundChangeAllowed = YES;
 }
 
 + (NSString *)appDescription {
-    return [NSString stringWithFormat:@"%@ %@\n%@\n[ %@ ]\n\n%@\n%@\n",
+    return [NSString stringWithFormat:@"%@ %@\n%@\n[ %@ ]\n\n%@\n",
                                       appName,
                                       version,
                                       @"Advanced Metronome",
                                       @"This version is limited. Consider upgrade to the regular one.",
-                                      @"designed and written by: Krzysztof Reczek",
-                                      @"reczek.krzysztof@gmail.com"];
+                                      @"designed and written by: Krzysztof Reczek"];
 }
 
 @end

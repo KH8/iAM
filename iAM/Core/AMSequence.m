@@ -78,6 +78,8 @@
             break;
         case INFINITE_LOOP:
             break;
+        case TIMER_LOOP:
+            break;
     }
     return (AMSequenceStep *) [self getActualObject];
 }

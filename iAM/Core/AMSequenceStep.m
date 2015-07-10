@@ -15,6 +15,7 @@
 
 @property AMStave *mainStave;
 @property(nonatomic) NSInteger numberOfLoops;
+@property(nonatomic) NSTimeInterval timeDuration;
 
 @property(nonatomic, strong) NSHashTable *stepDelegates;
 
@@ -79,6 +80,9 @@
             [self setStepType:INFINITE_LOOP];
             break;
         case INFINITE_LOOP:
+            [self setStepType:TIMER_LOOP];
+            break;
+        case TIMER_LOOP:
             [self setStepType:PLAY_ONCE];
             break;
     }
@@ -168,6 +172,8 @@
             return 2;
         case INFINITE_LOOP:
             return 3;
+        case TIMER_LOOP:
+            return 4;
         default:
             return 1;
     }
@@ -181,6 +187,8 @@
             return @"REPEAT";
         case INFINITE_LOOP:
             return @"INFINITE LOOP";
+        case TIMER_LOOP:
+            return @"TIMER LOOP";
         default:
             return @"";
     }
@@ -194,6 +202,8 @@
             return REPEAT;
         case 3:
             return INFINITE_LOOP;
+        case 4:
+            return TIMER_LOOP;
         default:
             return PLAY_ONCE;
     }

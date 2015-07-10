@@ -27,7 +27,8 @@
 typedef enum {
     PLAY_ONCE,
     REPEAT,
-    INFINITE_LOOP
+    INFINITE_LOOP,
+    TIMER_LOOP
 } StepType;
 
 - (id)init;

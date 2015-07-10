@@ -43,8 +43,7 @@ const float FINAL_ALPHA = 1.0F;
         } completion:^(BOOL finished) {
             [transitionContext completeTransition:YES];
         }];
-    }
-    else {
+    } else {
         endFrame.origin.y += CGRectGetHeight([[transitionContext containerView] bounds]);
         
         [UIView animateWithDuration:[self transitionDuration:transitionContext] animations:^{

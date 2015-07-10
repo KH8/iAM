@@ -1565,29 +1565,52 @@
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textView>
-                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="facebook-logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="Hpb-yY-uOG">
-                                <rect key="frame" x="270" y="525" width="60" height="60"/>
-                                <gestureRecognizers/>
+                            <view autoresizesSubviews="NO" alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hDh-JA-DqD" customClass="AMView">
+                                <rect key="frame" x="190" y="532" width="220" height="60"/>
+                                <subviews>
+                                    <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="facebook-logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="Hpb-yY-uOG">
+                                        <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
+                                        <gestureRecognizers/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="60" id="T0G-bx-ED9"/>
+                                            <constraint firstAttribute="height" constant="60" id="vru-0b-B1v"/>
+                                        </constraints>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="VbB-DD-V9D" appends="YES" id="PVs-9F-5RZ"/>
+                                        </connections>
+                                    </imageView>
+                                    <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="app-store-logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="8Tc-nS-8Yj">
+                                        <rect key="frame" x="60" y="0.0" width="160" height="60"/>
+                                        <gestureRecognizers/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="160" id="A4b-f2-mYl"/>
+                                            <constraint firstAttribute="height" constant="60" id="ESF-So-9ZF"/>
+                                        </constraints>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="Cuc-eJ-DFg" appends="YES" id="D2K-4U-OWm"/>
+                                        </connections>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="60" id="HH4-ww-mQk"/>
-                                    <constraint firstAttribute="width" constant="60" id="T0G-bx-ED9"/>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="60" id="uDF-OU-1nG"/>
-                                    <constraint firstAttribute="height" constant="60" id="vru-0b-B1v"/>
+                                    <constraint firstAttribute="bottom" secondItem="Hpb-yY-uOG" secondAttribute="bottom" id="GuR-bS-GvS"/>
+                                    <constraint firstAttribute="trailing" secondItem="8Tc-nS-8Yj" secondAttribute="trailing" id="HTe-FP-eps"/>
+                                    <constraint firstAttribute="width" constant="220" id="YL2-1C-Sln"/>
+                                    <constraint firstItem="Hpb-yY-uOG" firstAttribute="leading" secondItem="hDh-JA-DqD" secondAttribute="leading" id="aFL-MA-vm4"/>
+                                    <constraint firstAttribute="bottom" secondItem="8Tc-nS-8Yj" secondAttribute="bottom" id="aR0-1D-M6Z"/>
+                                    <constraint firstAttribute="height" constant="60" id="eCg-Xz-0Ob"/>
                                 </constraints>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="VbB-DD-V9D" appends="YES" id="PVs-9F-5RZ"/>
-                                </connections>
-                            </imageView>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
                         <constraints>
-                            <constraint firstItem="7cf-x4-pEQ" firstAttribute="top" secondItem="Hpb-yY-uOG" secondAttribute="bottom" constant="15" id="1iO-cX-4Z2"/>
-                            <constraint firstAttribute="centerX" secondItem="Hpb-yY-uOG" secondAttribute="centerX" id="58g-7e-7zt"/>
                             <constraint firstAttribute="trailing" secondItem="C8C-bL-Mst" secondAttribute="trailing" id="Dlu-UU-Exq"/>
                             <constraint firstAttribute="centerX" secondItem="BvG-bL-2pO" secondAttribute="centerX" id="OBk-aM-wQo"/>
+                            <constraint firstItem="7cf-x4-pEQ" firstAttribute="top" secondItem="hDh-JA-DqD" secondAttribute="bottom" constant="8" id="Qb8-cE-MA4"/>
                             <constraint firstItem="C8C-bL-Mst" firstAttribute="top" secondItem="pKQ-Cc-4YW" secondAttribute="top" id="hen-Oo-wcj"/>
                             <constraint firstItem="C8C-bL-Mst" firstAttribute="leading" secondItem="pKQ-Cc-4YW" secondAttribute="leading" id="vyf-Fb-q8M"/>
+                            <constraint firstAttribute="centerX" secondItem="hDh-JA-DqD" secondAttribute="centerX" id="xcr-Gn-CJk"/>
                             <constraint firstAttribute="centerY" secondItem="BvG-bL-2pO" secondAttribute="centerY" id="ze6-Ze-zfo"/>
                         </constraints>
                     </view>
@@ -1602,6 +1625,11 @@
                 <tapGestureRecognizer id="VbB-DD-V9D">
                     <connections>
                         <action selector="facebookTapped:" destination="2gp-qd-vNc" id="lc3-v9-LFA"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="Cuc-eJ-DFg">
+                    <connections>
+                        <action selector="appStoreTapped:" destination="2gp-qd-vNc" id="RrW-7c-RV8"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>

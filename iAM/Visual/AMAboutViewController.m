@@ -49,4 +49,9 @@
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:facebookLink]];
 }
 
+- (IBAction)appStoreTapped:(id)sender {
+    NSString *appStoreLink = @"itms-apps://itunes.apple.com/us/app/tickgrid/id991810160?l=pl&ls=1&mt=8";
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:appStoreLink]];
+}
+
 @end

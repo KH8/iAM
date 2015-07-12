@@ -46,6 +46,7 @@
         _name = @"NEW STEP";
         _stepType = INFINITE_LOOP;
         _numberOfLoops = 1;
+        _timeDuration = 1;
         _stepDelegates = [NSHashTable weakObjectsHashTable];
         _lastIncrementationDate = [NSDate date];
         _firstIncrementationDate = [NSDate date];
@@ -121,24 +122,60 @@
         return [NSString stringWithFormat:
                 @" %@ x%ld", description, (long) _numberOfLoops];
     }
+    if (_stepType == TIMER_LOOP) {
+        NSDateComponentsFormatter *dateComponentsFormatter = [[NSDateComponentsFormatter alloc] init];
+        [dateComponentsFormatter setUnitsStyle:NSDateComponentsFormatterUnitsStyleAbbreviated];
+        return [NSString stringWithFormat:
+                @" %@ for %@", description, [dateComponentsFormatter stringFromTimeInterval:_timeDuration]];
+    }
 
     return description;
 }
 
-- (void)incrementLoop {
-    _numberOfLoops += [self getIncrementFactor];
-    if (_numberOfLoops > 999) {
-        _numberOfLoops = 999;
+- (void)incrementSpecificValue {
+    if (_stepType == REPEAT) {
+        _numberOfLoops += [self getIncrementFactor];
+        if (_numberOfLoops > 999) {
+            _numberOfLoops = 999;
+        }
+    }
+    if (_stepType == TIMER_LOOP) {
+        _timeDuration += [self getIncrementFactor];
+        if (_timeDuration > 3600) {
+            _timeDuration = 3600;
+        }
     }
     [self delegateStepPropertyHasBeenChanged];
 }
 
-- (void)decrementLoop {
-    _numberOfLoops -= [self getIncrementFactor];
-    if (_numberOfLoops < 1) {
-        _numberOfLoops = 1;
+- (void)decrementSpecificValue {
+    if (_stepType == REPEAT) {
+        _numberOfLoops -= [self getIncrementFactor];
+        if (_numberOfLoops < 1) {
+            _numberOfLoops = 1;
+        }
+    }
+    if (_stepType == TIMER_LOOP) {
+        _timeDuration -= [self getIncrementFactor];
+        if (_timeDuration < 1) {
+            _timeDuration = 1;
+        }
     }
     [self delegateStepPropertyHasBeenChanged];
+}
+
+- (NSString *)getSpecificValueString {
+    if (_stepType == REPEAT) {
+        return [NSString stringWithFormat:
+                @"%ld", (long) _numberOfLoops];
+    }
+    if (_stepType == TIMER_LOOP) {
+        NSDateComponentsFormatter *dateComponentsFormatter = [[NSDateComponentsFormatter alloc] init];
+        [dateComponentsFormatter setUnitsStyle:NSDateComponentsFormatterUnitsStyleAbbreviated];
+        return [NSString stringWithFormat:
+                @"%@", [dateComponentsFormatter stringFromTimeInterval:_timeDuration]];
+    }
+    return @"";
 }
 
 - (int)getIncrementFactor {
@@ -162,6 +199,14 @@
 
 - (NSInteger)getNumberOfLoops {
     return _numberOfLoops;
+}
+
+- (void)setTimerDuration:(NSTimeInterval)timeDuration {
+    _timeDuration = timeDuration;
+}
+
+- (NSTimeInterval)getTimerDuration {
+    return _timeDuration;
 }
 
 - (NSInteger)stepTypeToInteger:(StepType)stepType {

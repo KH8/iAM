@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="7701" systemVersion="14D136" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="7701" systemVersion="14E46" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="CDAppearance" representedClassName="CDAppearance" syncable="YES">
         <attribute name="colorThemeKey" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="showTutorial" optional="YES" attributeType="Boolean" syncable="YES"/>
@@ -49,6 +49,7 @@
         <attribute name="stepName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="stepNumberOfLoops" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="stepTempo" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="stepTimeDuration" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="stepType" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <relationship name="sequence" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="CDSequence" inverseName="sequenceSteps" inverseEntity="CDSequence" syncable="YES"/>
         <relationship name="stepBars" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="CDBar" inverseName="step" inverseEntity="CDBar" syncable="YES"/>
@@ -60,6 +61,6 @@
         <element name="CDNote" positionX="-1512" positionY="-1080" width="128" height="88"/>
         <element name="CDSelections" positionX="-2160" positionY="-864" width="128" height="88"/>
         <element name="CDSequence" positionX="-2160" positionY="-1078" width="126" height="103"/>
-        <element name="CDStep" positionX="-1944" positionY="-1080" width="128" height="148"/>
+        <element name="CDStep" positionX="-1944" positionY="-1080" width="128" height="165"/>
     </elements>
 </model>

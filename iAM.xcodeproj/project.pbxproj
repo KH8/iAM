@@ -216,7 +216,6 @@
 		A4A0CD841AD084E600618B1F /* CDBar.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A0CD7D1AD084E600618B1F /* CDBar.m */; };
 		A4A0CD851AD084E600618B1F /* CDNote.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A0CD7F1AD084E600618B1F /* CDNote.m */; };
 		A4A0CD861AD084E600618B1F /* CDSequence.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A0CD811AD084E600618B1F /* CDSequence.m */; };
-		A4A0CD871AD084E600618B1F /* CDStep.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A0CD831AD084E600618B1F /* CDStep.m */; };
 		A4A132A51A95287400D6E2F1 /* AMSequenceStep.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A132A41A95287400D6E2F1 /* AMSequenceStep.m */; };
 		A4A132A81A9528A800D6E2F1 /* AMSequence.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A132A71A9528A800D6E2F1 /* AMSequence.m */; };
 		A4A4B2B01AC0C4F00099A746 /* AMDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A4A4B2AE1AC0C4F00099A746 /* AMDataModel.xcdatamodeld */; };
@@ -242,6 +241,9 @@
 		A4B045271AF7F7A300A72BB6 /* ad.png in Resources */ = {isa = PBXBuildFile; fileRef = A4B045251AF7F7A000A72BB6 /* ad.png */; };
 		A4B045281AF7F7A300A72BB6 /* ad.png in Resources */ = {isa = PBXBuildFile; fileRef = A4B045251AF7F7A000A72BB6 /* ad.png */; };
 		A4B4CDB61ABEEBB400615051 /* AMSequenceMenuTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A4B4CDB51ABEEBB400615051 /* AMSequenceMenuTableViewCell.m */; };
+		A4C5778A1B53049500213823 /* CDStep.m in Sources */ = {isa = PBXBuildFile; fileRef = A4C577891B53049500213823 /* CDStep.m */; };
+		A4C5778B1B53049500213823 /* CDStep.m in Sources */ = {isa = PBXBuildFile; fileRef = A4C577891B53049500213823 /* CDStep.m */; };
+		A4C5778C1B53049500213823 /* CDStep.m in Sources */ = {isa = PBXBuildFile; fileRef = A4C577891B53049500213823 /* CDStep.m */; };
 		A4C59DB01ADED12200DDA9A0 /* AMConfigurationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A4C59DAF1ADED12200DDA9A0 /* AMConfigurationManager.m */; };
 		A4C59DB31ADED17600DDA9A0 /* AMAppearanceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A4C59DB21ADED17600DDA9A0 /* AMAppearanceManager.m */; };
 		A4C7EC981AE6C90900428B68 /* AMPopupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4C7EC971AE6C90900428B68 /* AMPopupViewController.m */; };
@@ -268,7 +270,6 @@
 		A4C7ECB41AE6EA3F00428B68 /* CDBar.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A0CD7D1AD084E600618B1F /* CDBar.m */; };
 		A4C7ECB51AE6EA3F00428B68 /* AMSoundsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4E7D9B41ADAF3C000B01BCD /* AMSoundsTableViewController.m */; };
 		A4C7ECB61AE6EA3F00428B68 /* CDNote.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A0CD7F1AD084E600618B1F /* CDNote.m */; };
-		A4C7ECB81AE6EA3F00428B68 /* CDStep.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A0CD831AD084E600618B1F /* CDStep.m */; };
 		A4C7ECB91AE6EA3F00428B68 /* AMPopupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4C7EC971AE6C90900428B68 /* AMPopupViewController.m */; };
 		A4C7ECBA1AE6EA3F00428B68 /* AMMutableArray.m in Sources */ = {isa = PBXBuildFile; fileRef = A4F24F8A1ABC914F00BF47C3 /* AMMutableArray.m */; };
 		A4C7ECBB1AE6EA3F00428B68 /* AMPropertiesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A45F60B11AD1C30900954D2F /* AMPropertiesTableViewController.m */; };
@@ -349,7 +350,6 @@
 		A4FB779A1AE6ED17003BC801 /* CDBar.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A0CD7D1AD084E600618B1F /* CDBar.m */; };
 		A4FB779B1AE6ED17003BC801 /* AMSoundsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4E7D9B41ADAF3C000B01BCD /* AMSoundsTableViewController.m */; };
 		A4FB779C1AE6ED17003BC801 /* CDNote.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A0CD7F1AD084E600618B1F /* CDNote.m */; };
-		A4FB779E1AE6ED17003BC801 /* CDStep.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A0CD831AD084E600618B1F /* CDStep.m */; };
 		A4FB779F1AE6ED17003BC801 /* AMPopupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4C7EC971AE6C90900428B68 /* AMPopupViewController.m */; };
 		A4FB77A01AE6ED17003BC801 /* AMMutableArray.m in Sources */ = {isa = PBXBuildFile; fileRef = A4F24F8A1ABC914F00BF47C3 /* AMMutableArray.m */; };
 		A4FB77A11AE6ED17003BC801 /* AMPropertiesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A45F60B11AD1C30900954D2F /* AMPropertiesTableViewController.m */; };
@@ -531,8 +531,6 @@
 		A4A0CD7F1AD084E600618B1F /* CDNote.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CDNote.m; path = CoreData/CDNote.m; sourceTree = "<group>"; };
 		A4A0CD801AD084E600618B1F /* CDSequence.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDSequence.h; path = CoreData/CDSequence.h; sourceTree = "<group>"; };
 		A4A0CD811AD084E600618B1F /* CDSequence.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CDSequence.m; path = CoreData/CDSequence.m; sourceTree = "<group>"; };
-		A4A0CD821AD084E600618B1F /* CDStep.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDStep.h; path = CoreData/CDStep.h; sourceTree = "<group>"; };
-		A4A0CD831AD084E600618B1F /* CDStep.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CDStep.m; path = CoreData/CDStep.m; sourceTree = "<group>"; };
 		A4A132A31A95287400D6E2F1 /* AMSequenceStep.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMSequenceStep.h; path = Core/AMSequenceStep.h; sourceTree = "<group>"; };
 		A4A132A41A95287400D6E2F1 /* AMSequenceStep.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMSequenceStep.m; path = Core/AMSequenceStep.m; sourceTree = "<group>"; };
 		A4A132A61A9528A800D6E2F1 /* AMSequence.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMSequence.h; path = Core/AMSequence.h; sourceTree = "<group>"; };
@@ -556,6 +554,8 @@
 		A4B4CDB41ABEEBB400615051 /* AMSequenceMenuTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMSequenceMenuTableViewCell.h; sourceTree = "<group>"; };
 		A4B4CDB51ABEEBB400615051 /* AMSequenceMenuTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMSequenceMenuTableViewCell.m; sourceTree = "<group>"; };
 		A4C47C191A8BB68E002CF325 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		A4C577881B53049500213823 /* CDStep.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDStep.h; path = CoreData/CDStep.h; sourceTree = "<group>"; };
+		A4C577891B53049500213823 /* CDStep.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CDStep.m; path = CoreData/CDStep.m; sourceTree = "<group>"; };
 		A4C59DAE1ADED12200DDA9A0 /* AMConfigurationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMConfigurationManager.h; sourceTree = "<group>"; };
 		A4C59DAF1ADED12200DDA9A0 /* AMConfigurationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMConfigurationManager.m; sourceTree = "<group>"; };
 		A4C59DB11ADED17600DDA9A0 /* AMAppearanceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMAppearanceManager.h; sourceTree = "<group>"; };
@@ -932,14 +932,14 @@
 			children = (
 				A4A0CD7C1AD084E600618B1F /* CDBar.h */,
 				A4A0CD7D1AD084E600618B1F /* CDBar.m */,
+				A4C577881B53049500213823 /* CDStep.h */,
+				A4C577891B53049500213823 /* CDStep.m */,
 				A4FEC7931B4742D900776994 /* CDConfiguration.h */,
 				A4FEC7941B4742D900776994 /* CDConfiguration.m */,
 				A4A0CD7E1AD084E600618B1F /* CDNote.h */,
 				A4A0CD7F1AD084E600618B1F /* CDNote.m */,
 				A4A0CD801AD084E600618B1F /* CDSequence.h */,
 				A4A0CD811AD084E600618B1F /* CDSequence.m */,
-				A4A0CD821AD084E600618B1F /* CDStep.h */,
-				A4A0CD831AD084E600618B1F /* CDStep.m */,
 				A49A5A7A1AD7264D000B0080 /* CDSelections.h */,
 				A49A5A7B1AD7264D000B0080 /* CDSelections.m */,
 				A452FC201AEEE6A2008DFACD /* CDAppearance.h */,
@@ -1386,10 +1386,10 @@
 				A45A3D6E1A71B4DF00039934 /* AMCollectionViewController.m in Sources */,
 				A47704E91B45CEFD00B2F3D7 /* AMAudioSessionHandler.m in Sources */,
 				A4A0CD841AD084E600618B1F /* CDBar.m in Sources */,
+				A4C5778A1B53049500213823 /* CDStep.m in Sources */,
 				A4E7D9B51ADAF3C000B01BCD /* AMSoundsTableViewController.m in Sources */,
 				A45A2BDC1B39C90C00FBA604 /* AMClonableString.m in Sources */,
 				A4A0CD851AD084E600618B1F /* CDNote.m in Sources */,
-				A4A0CD871AD084E600618B1F /* CDStep.m in Sources */,
 				A49D77751B4C78C900003AE1 /* AMPopupAnimator.m in Sources */,
 				A4C7EC981AE6C90900428B68 /* AMPopupViewController.m in Sources */,
 				A4F24F8B1ABC914F00BF47C3 /* AMMutableArray.m in Sources */,
@@ -1462,10 +1462,10 @@
 				A4C7ECB31AE6EA3F00428B68 /* AMCollectionViewController.m in Sources */,
 				A47704EA1B45CEFD00B2F3D7 /* AMAudioSessionHandler.m in Sources */,
 				A4C7ECB41AE6EA3F00428B68 /* CDBar.m in Sources */,
+				A4C5778B1B53049500213823 /* CDStep.m in Sources */,
 				A4C7ECB51AE6EA3F00428B68 /* AMSoundsTableViewController.m in Sources */,
 				A45A2BDD1B39C90C00FBA604 /* AMClonableString.m in Sources */,
 				A4C7ECB61AE6EA3F00428B68 /* CDNote.m in Sources */,
-				A4C7ECB81AE6EA3F00428B68 /* CDStep.m in Sources */,
 				A49D77761B4C78C900003AE1 /* AMPopupAnimator.m in Sources */,
 				A4C7ECB91AE6EA3F00428B68 /* AMPopupViewController.m in Sources */,
 				A4C7ECBA1AE6EA3F00428B68 /* AMMutableArray.m in Sources */,
@@ -1530,10 +1530,10 @@
 				A4FB77991AE6ED17003BC801 /* AMCollectionViewController.m in Sources */,
 				A47704EB1B45CEFD00B2F3D7 /* AMAudioSessionHandler.m in Sources */,
 				A4FB779A1AE6ED17003BC801 /* CDBar.m in Sources */,
+				A4C5778C1B53049500213823 /* CDStep.m in Sources */,
 				A4FB779B1AE6ED17003BC801 /* AMSoundsTableViewController.m in Sources */,
 				A45A2BDE1B39C90C00FBA604 /* AMClonableString.m in Sources */,
 				A4FB779C1AE6ED17003BC801 /* CDNote.m in Sources */,
-				A4FB779E1AE6ED17003BC801 /* CDStep.m in Sources */,
 				A49D77771B4C78C900003AE1 /* AMPopupAnimator.m in Sources */,
 				A4FB779F1AE6ED17003BC801 /* AMPopupViewController.m in Sources */,
 				A4FB77A01AE6ED17003BC801 /* AMMutableArray.m in Sources */,

@@ -53,13 +53,19 @@ typedef enum {
 
 - (NSString *)getDescription;
 
-- (void)incrementLoop;
+- (void)incrementSpecificValue;
 
-- (void)decrementLoop;
+- (void)decrementSpecificValue;
+
+- (NSString *)getSpecificValueString;
 
 - (void)setNumberOfLoops:(NSInteger)numberOfLoops;
 
 - (NSInteger)getNumberOfLoops;
+
+- (void)setTimerDuration:(NSTimeInterval)timeDuration;
+
+- (NSTimeInterval)getTimerDuration;
 
 - (NSInteger)stepTypeToInteger:(StepType)stepType;
 

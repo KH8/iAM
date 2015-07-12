@@ -33,7 +33,7 @@
     NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:&error];
     CDConfiguration *configuration = fetchedObjects[0];
     
-    [self handleBackwardCompatibilityVers1d0:configuration];
+    [self handleConfigurationBackwardCompatibilityVers1d0:configuration];
 
     NSArray *players = [sequencer getArrayOfPlayers];
 
@@ -59,7 +59,7 @@
     [playerTrack3 setGeneralVolumeFactor:configuration.volumeGeneral];
 }
 
-- (void)handleBackwardCompatibilityVers1d0:(CDConfiguration *)configuration {
+- (void)handleConfigurationBackwardCompatibilityVers1d0:(CDConfiguration *)configuration {
     if(configuration.panTrack1 == nil) {
         configuration.panTrack1 = @0.5f;
     }
@@ -139,11 +139,14 @@
 }
 
 - (AMSequenceStep *)getStepFromCoreData:(CDStep *)step {
+    [self handleStepBackwardCompatibilityVers1d0:step];
+    
     AMSequenceStep *newStep = [[AMSequenceStep alloc] init];
     [newStep setName:step.stepName];
     StepType stepType = [newStep integerToStepType:[step.stepType integerValue]];
     [newStep setStepType:stepType];
     [newStep setNumberOfLoops:[step.stepNumberOfLoops integerValue]];
+    [newStep setTimerDuration:[step.stepTimeDuration doubleValue]];
     AMStave *newStave = [[AMStave alloc] init];
     [newStep setStave:newStave];
     [newStave setTempo:[step.stepTempo integerValue]];
@@ -156,6 +159,12 @@
         }
     }
     return newStep;
+}
+
+- (void)handleStepBackwardCompatibilityVers1d0:(CDStep *)step{
+    if(step.stepTimeDuration == nil) {
+        step.stepTimeDuration = @1;
+    }
 }
 
 - (AMBar *)getBarFromCoreData:(CDBar *)bar {
@@ -257,6 +266,7 @@
     newStep.stepId = [[NSNumber alloc] initWithInteger:index];
     newStep.stepName = step.getName;
     newStep.stepNumberOfLoops = [[NSNumber alloc] initWithInteger:step.getNumberOfLoops];
+    newStep.stepTimeDuration = [[NSNumber alloc] initWithDouble:step.getTimerDuration];
     NSInteger stepTypeInteger = [step stepTypeToInteger:[step getStepType]];
     newStep.stepType = [[NSNumber alloc] initWithInteger:stepTypeInteger];
     AMStave *stave = step.getStave;

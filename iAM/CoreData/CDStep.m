@@ -2,20 +2,23 @@
 //  CDStep.m
 //  iAM
 //
-//  Created by Krzysztof Reczek on 04.04.2015.
-//  Copyright (c) 2015 H@E. All rights reserved.
+//  Created by Krzysztof Reczek on 12.07.2015.
+//  Copyright (c) 2015 miscApps. All rights reserved.
 //
 
 #import "CDStep.h"
+#import "CDBar.h"
+#import "CDSequence.h"
 
 
 @implementation CDStep
 
+@dynamic stepId;
 @dynamic stepName;
 @dynamic stepNumberOfLoops;
 @dynamic stepTempo;
+@dynamic stepTimeDuration;
 @dynamic stepType;
-@dynamic stepId;
 @dynamic sequence;
 @dynamic stepBars;
 

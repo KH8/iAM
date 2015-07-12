@@ -36,7 +36,7 @@
 @property UIBarButtonItem *tempDecrementButton;
 
 @property BOOL isEditEnabled;
-@property BOOL isLoopCountEditEnabled;
+@property BOOL isSpecificEditEnabled;
 @property NSMutableArray *toolbarItemsArray;
 
 @end
@@ -91,7 +91,7 @@ static NSString *const reuseIdentifier = @"mySequenceStepCell";
 
 
     UIBarButtonItem *space = [AMVisualUtils createFlexibleSpace];
-    if (_isLoopCountEditEnabled && !_isEditEnabled) {
+    if (_isSpecificEditEnabled && !_isEditEnabled) {
         float width = self.view.frame.size.width - _tableView.frame.size.width;
         space = [AMVisualUtils createFixedSpaceWithSize:width];
     }
@@ -102,7 +102,7 @@ static NSString *const reuseIdentifier = @"mySequenceStepCell";
     }
 
     [_toolbarItemsArray addObject:space];
-    [self showLoopCountButtons];
+    [self showSpecificButtons];
     [self showEditButtons];
 
     _tempEditButton = [AMVisualUtils createBarButton:editButtonImage
@@ -115,8 +115,8 @@ static NSString *const reuseIdentifier = @"mySequenceStepCell";
                              fromAnArray:_toolbarItemsArray];
 }
 
-- (void)showLoopCountButtons {
-    if (_isLoopCountEditEnabled && !_isEditEnabled) {
+- (void)showSpecificButtons {
+    if (_isSpecificEditEnabled && !_isEditEnabled) {
         _tempIncrementButton = [AMVisualUtils createBarButton:@"incloop_r.png"
                                                        targer:self
                                                      selector:@selector(onIncrementLoop:)
@@ -126,7 +126,7 @@ static NSString *const reuseIdentifier = @"mySequenceStepCell";
                                                      selector:@selector(onDecrementLoop:)
                                                          size:30];
         AMSequenceStep *step = (AMSequenceStep *) _mainSequence.getActualObject;
-        _tempLoopCountButton = [AMVisualUtils createBarButtonWithText:[NSString stringWithFormat:@"%ld", (long) step.getNumberOfLoops]
+        _tempLoopCountButton = [AMVisualUtils createBarButtonWithText:[step getSpecificValueString]
                                                                targer:nil
                                                              selector:nil];
         [_toolbarItemsArray addObject:_tempDecrementButton];
@@ -134,7 +134,7 @@ static NSString *const reuseIdentifier = @"mySequenceStepCell";
         [_toolbarItemsArray addObject:_tempLoopCountButton];
         [_toolbarItemsArray addObject:[AMVisualUtils createFlexibleSpace]];
         [_toolbarItemsArray addObject:_tempIncrementButton];
-        [_toolbarItemsArray addObject:[AMVisualUtils createFixedSpaceWithSize:100.0f]];
+        [_toolbarItemsArray addObject:[AMVisualUtils createFixedSpaceWithSize:70.0f]];
     }
 }
 
@@ -224,12 +224,12 @@ didDeselectRowAtIndexPath:(NSIndexPath *)indexPath {
 
 - (IBAction)onIncrementLoop:(id)sender {
     AMSequenceStep *step = (AMSequenceStep *) _mainSequence.getActualObject;
-    [step incrementLoop];
+    [step incrementSpecificValue];
 }
 
 - (IBAction)onDecrementLoop:(id)sender {
     AMSequenceStep *step = (AMSequenceStep *) _mainSequence.getActualObject;
-    [step decrementLoop];
+    [step decrementSpecificValue];
 }
 
 - (IBAction)onLongPressed:(id)sender {
@@ -308,11 +308,11 @@ didDeselectRowAtIndexPath:(NSIndexPath *)indexPath {
 - (void)stepLoopCounterUpdate {
     AMSequenceStep *step = (AMSequenceStep *) _mainSequence.getActualObject;
 
-    if (step.getStepType == REPEAT) {
-        _isLoopCountEditEnabled = YES;
+    if (step.getStepType == REPEAT || step.getStepType == TIMER_LOOP) {
+        _isSpecificEditEnabled = YES;
         return;
     }
-    _isLoopCountEditEnabled = NO;
+    _isSpecificEditEnabled = NO;
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {

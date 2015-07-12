@@ -134,7 +134,7 @@ static NSString *const reuseIdentifier = @"mySequenceStepCell";
         [_toolbarItemsArray addObject:_tempLoopCountButton];
         [_toolbarItemsArray addObject:[AMVisualUtils createFlexibleSpace]];
         [_toolbarItemsArray addObject:_tempIncrementButton];
-        [_toolbarItemsArray addObject:[AMVisualUtils createFixedSpaceWithSize:70.0f]];
+        [_toolbarItemsArray addObject:[AMVisualUtils createFixedSpaceWithSize:90.0f]];
     }
 }
 

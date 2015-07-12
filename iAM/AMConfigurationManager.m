@@ -33,7 +33,8 @@
     CDStep *step = [NSEntityDescription insertNewObjectForEntityForName:@"CDStep"
                                                  inManagedObjectContext:context];
     step.stepName = @"NEW STEP";
-    step.stepNumberOfLoops = @0;
+    step.stepNumberOfLoops = @1;
+    step.stepTimeDuration = @1;
     step.stepType = @3;
     step.stepTempo = @140;
     step.stepId = @0;

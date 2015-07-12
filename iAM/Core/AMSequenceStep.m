@@ -123,10 +123,8 @@
                 @" %@ x%ld", description, (long) _numberOfLoops];
     }
     if (_stepType == TIMER_LOOP) {
-        NSDateComponentsFormatter *dateComponentsFormatter = [[NSDateComponentsFormatter alloc] init];
-        [dateComponentsFormatter setUnitsStyle:NSDateComponentsFormatterUnitsStyleAbbreviated];
         return [NSString stringWithFormat:
-                @" %@ for %@", description, [dateComponentsFormatter stringFromTimeInterval:_timeDuration]];
+                @" %@ for %@", description, [self getTimerDurationString]];
     }
 
     return description;
@@ -170,10 +168,7 @@
                 @"%ld", (long) _numberOfLoops];
     }
     if (_stepType == TIMER_LOOP) {
-        NSDateComponentsFormatter *dateComponentsFormatter = [[NSDateComponentsFormatter alloc] init];
-        [dateComponentsFormatter setUnitsStyle:NSDateComponentsFormatterUnitsStyleAbbreviated];
-        return [NSString stringWithFormat:
-                @"%@", [dateComponentsFormatter stringFromTimeInterval:_timeDuration]];
+        return [NSString stringWithFormat: @"%@", [self getTimerDurationString]];
     }
     return @"";
 }
@@ -207,6 +202,12 @@
 
 - (NSTimeInterval)getTimerDuration {
     return _timeDuration;
+}
+
+- (NSString *)getTimerDurationString {
+    return [NSString stringWithFormat:@"%02u:%02.0f",
+            (int)(_timeDuration/60),
+            fmod(_timeDuration, 60)];
 }
 
 - (NSInteger)stepTypeToInteger:(StepType)stepType {

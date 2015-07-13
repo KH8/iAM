@@ -10,7 +10,17 @@
 #import "AMSequenceStep.h"
 #import "AMMutableArray.h"
 
+@protocol AMSequenceDelegate <NSObject>
+
+@required
+
+- (void)actualValueHasBeenChanged;
+
+@end
+
 @interface AMSequence : AMMutableArray
+
+@property(nonatomic, weak) id <AMSequenceDelegate> delegate;
 
 - (id)init;
 
@@ -28,6 +38,8 @@
 
 - (AMSequenceStep *)getNextStep;
 
+- (void)reset;
+
 - (void)addStep;
 
 - (void)setOneStepForward;
@@ -35,5 +47,7 @@
 - (void)setOneStepBackward;
 
 - (int)getActualLoopCount;
+
+- (NSTimeInterval)getActualTimeInterval;
 
 @end

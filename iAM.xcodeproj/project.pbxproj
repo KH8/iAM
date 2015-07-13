@@ -188,6 +188,9 @@
 		A46CC2581B4F1E83001B7D53 /* AMOverlayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A46CC2571B4F1E83001B7D53 /* AMOverlayViewController.m */; };
 		A46CC2591B4F1E83001B7D53 /* AMOverlayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A46CC2571B4F1E83001B7D53 /* AMOverlayViewController.m */; };
 		A46CC25A1B4F1E83001B7D53 /* AMOverlayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A46CC2571B4F1E83001B7D53 /* AMOverlayViewController.m */; };
+		A46D030A1B546077008359B9 /* AMStringUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = A46D03091B546077008359B9 /* AMStringUtils.m */; };
+		A46D030B1B546077008359B9 /* AMStringUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = A46D03091B546077008359B9 /* AMStringUtils.m */; };
+		A46D030C1B546077008359B9 /* AMStringUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = A46D03091B546077008359B9 /* AMStringUtils.m */; };
 		A46EF42D1B3B43FF00C0BDA9 /* AMCellShiftProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = A46EF42C1B3B43FF00C0BDA9 /* AMCellShiftProvider.m */; };
 		A46EF42E1B3B43FF00C0BDA9 /* AMCellShiftProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = A46EF42C1B3B43FF00C0BDA9 /* AMCellShiftProvider.m */; };
 		A46EF42F1B3B43FF00C0BDA9 /* AMCellShiftProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = A46EF42C1B3B43FF00C0BDA9 /* AMCellShiftProvider.m */; };
@@ -507,6 +510,8 @@
 		A46C819A1B28E19900605BD2 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SWRevealViewController.m; path = iAM/External/SWRevealViewController/SWRevealViewController.m; sourceTree = SOURCE_ROOT; };
 		A46CC2561B4F1E83001B7D53 /* AMOverlayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMOverlayViewController.h; path = Primitives/AMOverlayViewController.h; sourceTree = "<group>"; };
 		A46CC2571B4F1E83001B7D53 /* AMOverlayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMOverlayViewController.m; path = Primitives/AMOverlayViewController.m; sourceTree = "<group>"; };
+		A46D03081B546077008359B9 /* AMStringUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMStringUtils.h; path = Core/Auxiliaries/AMStringUtils.h; sourceTree = "<group>"; };
+		A46D03091B546077008359B9 /* AMStringUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMStringUtils.m; path = Core/Auxiliaries/AMStringUtils.m; sourceTree = "<group>"; };
 		A46EF42B1B3B43FF00C0BDA9 /* AMCellShiftProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMCellShiftProvider.h; path = Utils/AMCellShiftProvider.h; sourceTree = "<group>"; };
 		A46EF42C1B3B43FF00C0BDA9 /* AMCellShiftProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMCellShiftProvider.m; path = Utils/AMCellShiftProvider.m; sourceTree = "<group>"; };
 		A47704E31B45CCBA00B2F3D7 /* dummy.aif */ = {isa = PBXFileReference; lastKnownFileType = file; name = dummy.aif; path = Core/Sounds/dummy.aif; sourceTree = "<group>"; };
@@ -985,6 +990,8 @@
 		A4F24F881ABC90F500BF47C3 /* Auxiliaries */ = {
 			isa = PBXGroup;
 			children = (
+				A46D03081B546077008359B9 /* AMStringUtils.h */,
+				A46D03091B546077008359B9 /* AMStringUtils.m */,
 				A49A5A721AD718D9000B0080 /* AMMutableArrayResponder.h */,
 				A49A5A731AD718D9000B0080 /* AMMutableArrayResponder.m */,
 				A4F24F891ABC914F00BF47C3 /* AMMutableArray.h */,
@@ -1349,6 +1356,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A46D030A1B546077008359B9 /* AMStringUtils.m in Sources */,
 				A46C81831B28E0C500605BD2 /* AMRevealViewUtils.m in Sources */,
 				A452FC221AEEE6A2008DFACD /* CDAppearance.m in Sources */,
 				A48B10F21B262FC3008B9258 /* AMApplicationDelegate.m in Sources */,
@@ -1425,6 +1433,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A46D030B1B546077008359B9 /* AMStringUtils.m in Sources */,
 				A46C81841B28E0C500605BD2 /* AMRevealViewUtils.m in Sources */,
 				A452FC231AEEE6A2008DFACD /* CDAppearance.m in Sources */,
 				A48B10F31B262FC3008B9258 /* AMApplicationDelegate.m in Sources */,
@@ -1493,6 +1502,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A46D030C1B546077008359B9 /* AMStringUtils.m in Sources */,
 				A46C81851B28E0C500605BD2 /* AMRevealViewUtils.m in Sources */,
 				A452FC241AEEE6A2008DFACD /* CDAppearance.m in Sources */,
 				A48B10F41B262FC3008B9258 /* AMApplicationDelegate.m in Sources */,

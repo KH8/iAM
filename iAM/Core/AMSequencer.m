@@ -115,6 +115,7 @@
     _runningState = !_runningState;
     if (_runningState) {
         [_mainStave setFirstIndexAsActual];
+        [_mainSequence reset];
         _runTheLoop = YES;
         [self delegateSequencerHasStarted];
     }

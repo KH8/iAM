@@ -18,6 +18,7 @@
 #import "AMMutableArrayResponder.h"
 #import "AMAudioSessionHandler.h"
 #import "AMOverlayViewController.h"
+#import "AMStringUtils.h"
 
 @import MediaPlayer;
 
@@ -172,6 +173,11 @@
         loopDescription = [NSString stringWithFormat:@" %ld/%ld",
                            (long) _mainSequence.getActualLoopCount + 1,
                            _mainStep.getNumberOfLoops];
+    }
+    if (_mainStep.getStepType == TIMER_LOOP) {
+        NSTimeInterval timedifference = _mainStep.getTimerDuration - _mainSequence.getActualTimeInterval;
+        loopDescription = [NSString stringWithFormat:@" -%@",
+                           [AMStringUtils getTimerDurationString:timedifference]];
     }
     NSString *barDescription = [NSString stringWithFormat:@"BAR: %ld/%ld",
                                 _mainStave.getActualIndex + 1,
@@ -442,9 +448,14 @@
     [self updateComponents];
 }
 
+- (void)actualValueHasBeenChanged {
+    [self initBottomToolBar];
+}
+
 - (void)updateComponents {
     _mainSequence = _mainSequencer.getSequence;
     [_mainSequence addArrayDelegate:_mainSequenceArrayResponder];
+    [_mainSequence setDelegate:self];
 
     _mainStep = (AMSequenceStep *) _mainSequence.getActualObject;
     [_mainStep addStepDelegate:self];

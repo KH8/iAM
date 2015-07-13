@@ -7,6 +7,7 @@
 //
 
 #import "AMSequenceStep.h"
+#import "AMStringUtils.h"
 
 @interface AMSequenceStep ()
 
@@ -124,7 +125,9 @@
     }
     if (_stepType == TIMER_LOOP) {
         return [NSString stringWithFormat:
-                @" %@ for %@", description, [self getTimerDurationString]];
+                @" %@ for %@",
+                description,
+                [AMStringUtils getTimerDurationString:[self getTimerDuration]]];
     }
 
     return description;
@@ -168,7 +171,8 @@
                 @"%ld", (long) _numberOfLoops];
     }
     if (_stepType == TIMER_LOOP) {
-        return [NSString stringWithFormat: @"%@", [self getTimerDurationString]];
+        return [NSString stringWithFormat: @"%@",
+                [AMStringUtils getTimerDurationString:[self getTimerDuration]]];
     }
     return @"";
 }
@@ -202,12 +206,6 @@
 
 - (NSTimeInterval)getTimerDuration {
     return _timeDuration;
-}
-
-- (NSString *)getTimerDurationString {
-    return [NSString stringWithFormat:@"%02u:%02.0f",
-            (int)(_timeDuration/60),
-            fmod(_timeDuration, 60)];
 }
 
 - (NSInteger)stepTypeToInteger:(StepType)stepType {

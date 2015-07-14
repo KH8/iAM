@@ -163,7 +163,7 @@
 
 - (void)handleStepBackwardCompatibilityVers1d0:(CDStep *)step{
     if(step.stepTimeDuration == nil) {
-        step.stepTimeDuration = @1;
+        step.stepTimeDuration = @30;
     }
 }
 

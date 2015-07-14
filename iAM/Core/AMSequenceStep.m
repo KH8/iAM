@@ -47,7 +47,7 @@
         _name = @"NEW STEP";
         _stepType = INFINITE_LOOP;
         _numberOfLoops = 1;
-        _timeDuration = 1;
+        _timeDuration = 30;
         _stepDelegates = [NSHashTable weakObjectsHashTable];
         _lastIncrementationDate = [NSDate date];
         _firstIncrementationDate = [NSDate date];

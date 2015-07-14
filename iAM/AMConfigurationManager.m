@@ -34,7 +34,7 @@
                                                  inManagedObjectContext:context];
     step.stepName = @"NEW STEP";
     step.stepNumberOfLoops = @1;
-    step.stepTimeDuration = @1;
+    step.stepTimeDuration = @30;
     step.stepType = @3;
     step.stepTempo = @140;
     step.stepId = @0;

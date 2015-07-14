@@ -41,22 +41,22 @@
 
 - (void)initDictionaries {
     _tintColors = @{@"ORANGE" : [UIColor orangeColor],
-            @"YELLOW" : [UIColor yellowColor],
-            @"GREEN" : [UIColor greenColor],
-            @"CYAN" : [UIColor cyanColor],
-            @"BLUE" : [UIColor blueColor],
-            @"PURPLE" : [UIColor purpleColor],
-            @"MAGENTA" : [UIColor magentaColor],
-            @"RED" : [UIColor redColor],
-            @"BROWN" : [UIColor brownColor],
-            @"WHITE" : [UIColor whiteColor],
-            @"GRAY" : [UIColor grayColor],
-            @"BLACK" : [UIColor blackColor],
+            @"YELLOW" : [UIColor colorWithRed:0.94f green:0.77f blue:0.06f alpha:1.0f],
+            @"GREEN" : [UIColor colorWithRed:0.30f green:0.75f blue:0.34f alpha:1.0f],
+            @"CYAN" : [UIColor colorWithRed:0.0f green:0.71f blue:0.71f alpha:1.0f],
+            @"BLUE" : [UIColor colorWithRed:0.16f green:0.50f blue:0.72f alpha:1.0f],
+            @"PURPLE" : [UIColor colorWithRed:0.56f green:0.27f blue:0.68f alpha:1.0f],
+            @"MAGENTA" : [UIColor colorWithRed:0.61f green:0.35f blue:0.71f alpha:1.0f],
+            @"RED" : [UIColor colorWithRed:0.75f green:0.22f blue:0.17f alpha:1.0f],
+            @"BROWN" : [UIColor colorWithRed:0.27f green:0.21f blue:0.18f alpha:1.0f],
+            @"WHITE" : [UIColor colorWithRed:0.92f green:0.92f blue:0.92f alpha:1.0f],
+            @"GRAY" : [UIColor colorWithRed:0.58f green:0.65f blue:0.65f alpha:1.0f],
+            @"BLACK" : [UIColor colorWithRed:0.02f green:0.02f blue:0.02f alpha:1.0f],
     };
     _tintColorsArray = [_tintColors allKeys];
     _colorThemes = @{@"DARK" : [UIColor blackColor],
             @"LIGHT" : [UIColor whiteColor],
-            @"GRAPHITE" : [UIColor colorWithRed:0.15f green:0.15f blue:0.15f alpha:1.0f],
+            @"GRAPHITE" : [UIColor colorWithRed:0.06f green:0.06f blue:0.06f alpha:1.0f],
     };
     _colorThemesArray = [_colorThemes allKeys];
 }

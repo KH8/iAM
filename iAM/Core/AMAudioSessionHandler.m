@@ -61,7 +61,7 @@
     [_dummyPlayer setNumberOfLoops:0];
     [_dummyPlayer play];
     [NSThread sleepForTimeInterval:0.1];
-    [_dummyPlayer stop];
+    [_dummyPlayer pause];
 }
 
 - (void)deinitAudioSession {
@@ -94,7 +94,7 @@
 }
 
 - (void)stopPlayback {
-    [_dummyPlayer stop];
+    [_dummyPlayer pause];
     [self updateSession];
 }
 

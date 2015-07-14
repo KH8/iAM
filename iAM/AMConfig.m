@@ -79,7 +79,7 @@ static bool isSoundChangeAllowed = YES;
                                       version,
                                       @"is limited to",
                                       maxSequenceCount,
-                                      @"sequence",
+                                      @"sequences",
                                       @"Consider upgrade to the regular version."];
 }
 

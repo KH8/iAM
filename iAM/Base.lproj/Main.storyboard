@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vKD-mF-dDR">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vKD-mF-dDR">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
@@ -1443,10 +1443,10 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BbJ-hY-ri1">
-                                        <rect key="frame" x="100" y="265" width="400" height="70"/>
+                                        <rect key="frame" x="75" y="265" width="450" height="70"/>
                                         <subviews>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dRX-II-KmZ">
-                                                <rect key="frame" x="0.0" y="0.0" width="400" height="70"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="450" height="70"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <string key="text">&lt;text to be replaced&gt;
 </string>
@@ -1462,7 +1462,7 @@
                                             <constraint firstAttribute="trailing" secondItem="dRX-II-KmZ" secondAttribute="trailing" id="Lh0-yq-5kI"/>
                                             <constraint firstAttribute="centerX" secondItem="dRX-II-KmZ" secondAttribute="centerX" id="RjL-wb-AW2"/>
                                             <constraint firstItem="dRX-II-KmZ" firstAttribute="top" secondItem="BbJ-hY-ri1" secondAttribute="top" id="VNw-lj-rxv"/>
-                                            <constraint firstAttribute="width" constant="400" id="bxo-Ur-3l5"/>
+                                            <constraint firstAttribute="width" constant="450" id="bxo-Ur-3l5"/>
                                             <constraint firstAttribute="height" constant="70" id="eK5-eg-szf"/>
                                             <constraint firstAttribute="centerY" secondItem="dRX-II-KmZ" secondAttribute="centerY" id="kZL-Tv-Isd"/>
                                         </constraints>

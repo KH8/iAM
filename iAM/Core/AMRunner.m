@@ -52,12 +52,24 @@ const float INTERVAL_OFFSET = 0.002F;
     float offset = 0.0f;
 
     while (true) {
-        [_target performSelectorOnMainThread:_selector withObject:nil waitUntilDone:NO];
-        float interval = _actualInterval.floatValue - offset - INTERVAL_OFFSET;
+        _tickDateMarker = [NSDate date];
+        
+        [_target performSelectorOnMainThread:_selector withObject:nil waitUntilDone:YES];
+        
+        [self updateActualInterval];
+        
+        float performanceDuration = -1.0f * [_tickDateMarker timeIntervalSinceNow];
+        float interval = _actualInterval.floatValue - performanceDuration - offset - INTERVAL_OFFSET;
         [NSThread sleepForTimeInterval:interval];
+        
         float realInterval = -1.0f * [_tickDateMarker timeIntervalSinceNow];
         offset = realInterval > _actualInterval.floatValue ? realInterval - _actualInterval.floatValue : 0;
-        _tickDateMarker = [NSDate date];
+    }
+}
+
+- (void)updateActualInterval {
+    if (![_interval isEqualToNumber:_actualInterval]) {
+        _actualInterval = [[NSNumber alloc] initWithFloat:_interval.floatValue];
     }
 }
 
@@ -67,10 +79,6 @@ const float INTERVAL_OFFSET = 0.002F;
     }
     else {
         _interval = intervalTime;
-    }
-
-    if (![_interval isEqualToNumber:_actualInterval]) {
-        _actualInterval = [[NSNumber alloc] initWithFloat:_interval.floatValue];
     }
 }
 

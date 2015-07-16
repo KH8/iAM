@@ -21,7 +21,7 @@
 @property(nonatomic) NSNumber *volumeFactor;
 @property(nonatomic) NSNumber *panFactor;
 
-@property NSDate *date;
+//@property NSDate *date;
 
 @end
 
@@ -34,7 +34,7 @@
     if (self) {
         _dummy = [[NSNumber alloc] initWithInt:-1];
         _index = 0;
-        _players = [[NSMutableArray alloc] initWithObjects:_dummy, _dummy, _dummy, nil];
+        _players = [[NSMutableArray alloc] initWithObjects:_dummy, _dummy, _dummy, _dummy, nil];
         _fileName = aFileName;
         _fileKey = aFileKey;
         _fileType = aFileType;
@@ -67,9 +67,9 @@
     [self initAudioPlayer];
     [_audioPlayer play];
     [self incrementIndex];
-    float interval = -1.0f * [_date timeIntervalSinceNow];
+    /*float interval = -1.0f * [_date timeIntervalSinceNow];
     NSLog([NSString stringWithFormat:@"%.05f", 60.0f / interval]);
-    _date = [NSDate date];
+    _date = [NSDate date];*/
 }
 
 - (void)stopSound {
@@ -87,7 +87,7 @@
              withKey:(NSString *)newKey {
     _fileName = newName;
     _fileKey = newKey;
-    _players = [[NSMutableArray alloc] initWithObjects:_dummy, _dummy, _dummy, nil];
+    _players = [[NSMutableArray alloc] initWithObjects:_dummy, _dummy, _dummy, _dummy, nil];
 }
 
 - (NSString *)getSoundName {

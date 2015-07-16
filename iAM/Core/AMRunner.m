@@ -7,6 +7,7 @@
 //
 
 #import "AMRunner.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface AMRunner ()
 
@@ -15,9 +16,7 @@
 
 @property NSNumber *interval;
 @property NSNumber *actualInterval;
-@property NSDate *tickDateMarker;
-
-@property NSThread *thread;
+@property CADisplayLink *syncTimer;
 
 @end
 
@@ -44,32 +43,21 @@ const float INTERVAL_OFFSET = 0.002F;
 }
 
 - (void)initRunner {
-    [NSThread detachNewThreadSelector:@selector(runBackground) toTarget:self withObject:nil];
+    _syncTimer = [CADisplayLink displayLinkWithTarget:self selector:@selector(syncFired:)];
+    [self updateActualInterval];
+    [_syncTimer addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
 }
 
-- (void)runBackground {
-    _tickDateMarker = [NSDate date];
-    float offset = 0.0f;
-
-    while (true) {
-        _tickDateMarker = [NSDate date];
-        
-        [_target performSelectorOnMainThread:_selector withObject:nil waitUntilDone:YES];
-        
-        [self updateActualInterval];
-        
-        float performanceDuration = -1.0f * [_tickDateMarker timeIntervalSinceNow];
-        float interval = _actualInterval.floatValue - performanceDuration - offset - INTERVAL_OFFSET;
-        [NSThread sleepForTimeInterval:interval];
-        
-        float realInterval = -1.0f * [_tickDateMarker timeIntervalSinceNow];
-        offset = realInterval > _actualInterval.floatValue ? realInterval - _actualInterval.floatValue : 0;
-    }
+-(void)syncFired:(CADisplayLink *)displayLink
+{
+    [_target performSelectorOnMainThread:_selector withObject:nil waitUntilDone:NO];
+    [self updateActualInterval];
 }
 
 - (void)updateActualInterval {
     if (![_interval isEqualToNumber:_actualInterval]) {
         _actualInterval = [[NSNumber alloc] initWithFloat:_interval.floatValue];
+        _syncTimer.frameInterval = _actualInterval.floatValue * 60.0f;
     }
 }
 

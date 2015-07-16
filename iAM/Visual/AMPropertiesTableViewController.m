@@ -58,6 +58,7 @@
     [self loadMainObjects];
     [self loadTrackConfigurations];
     [self loadColors];
+    [self loadButtons];
 }
 
 - (void)viewDidAppear:(BOOL)animated {

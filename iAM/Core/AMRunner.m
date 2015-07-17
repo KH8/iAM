@@ -8,7 +8,6 @@
 
 #import "AMRunner.h"
 #import <QuartzCore/QuartzCore.h>
-#import <CoreFoundation/CoreFoundation.h>
 
 @interface AMRunner ()
 
@@ -44,15 +43,17 @@ const float INTERVAL_OFFSET = 0.002F;
 }
 
 - (void)initRunner {
-    _syncTimer = [CADisplayLink displayLinkWithTarget:self selector:@selector(syncFired:)];
+    _syncTimer = [CADisplayLink displayLinkWithTarget:self
+                                             selector:@selector(syncFired:)];
     [self updateActualInterval];
-    [_syncTimer addToRunLoop:[NSRunLoop mainRunLoop] forMode:NSRunLoopCommonModes];
-    [_syncTimer addToRunLoop:[NSRunLoop mainRunLoop] forMode:NSDefaultRunLoopMode];
+    [_syncTimer addToRunLoop:[NSRunLoop currentRunLoop]
+                     forMode:NSDefaultRunLoopMode];
 }
 
 -(void)syncFired:(CADisplayLink *)displayLink
 {
-    [_target performSelectorOnMainThread:_selector withObject:nil waitUntilDone:NO];
+    [_target performSelectorOnMainThread:_selector
+                              withObject:nil waitUntilDone:NO];
     [self updateActualInterval];
 }
 

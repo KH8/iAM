@@ -23,6 +23,8 @@
 
 const float INIT_INTERVAL = 1.0F;
 const float SHORTEST_INTERVAL = 0.05F;
+const float SHORTEST_LOOP_INTERVAL = 0.00005F;
+const float DIVISOR = 2.0F;
 
 @implementation AMRunner
 
@@ -61,7 +63,7 @@ const float SHORTEST_INTERVAL = 0.05F;
         if(realInterval >= _actualInterval.floatValue) {
             tick = YES;
         }
-        float interval = MAX(0.00005f, ( _actualInterval.floatValue - realInterval ) / 10.0f);
+        float interval = MAX(SHORTEST_LOOP_INTERVAL, ( _actualInterval.floatValue - realInterval ) / DIVISOR);
         [NSThread sleepForTimeInterval:interval];
     }
 }

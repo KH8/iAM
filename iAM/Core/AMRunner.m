@@ -61,7 +61,8 @@ const float SHORTEST_INTERVAL = 0.05F;
         if(realInterval >= _actualInterval.floatValue) {
             tick = YES;
         }
-        [NSThread sleepForTimeInterval:0.00005f];
+        float interval = MAX(0.00005f, ( _actualInterval.floatValue - realInterval ) / 10.0f);
+        [NSThread sleepForTimeInterval:interval];
     }
 }
 

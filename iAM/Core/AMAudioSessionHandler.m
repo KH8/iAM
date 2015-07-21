@@ -64,7 +64,13 @@
     [_dummyPlayer pause];
 }
 
+- (void)deinitPlay {
+    [_dummyPlayer stop];
+    _dummyPlayer = nil;
+}
+
 - (void)deinitAudioSession {
+    [self deinitPlay];
     [NSThread sleepForTimeInterval:0.2];
     [[AVAudioSession sharedInstance] setActive:NO error:nil];
     [[UIApplication sharedApplication] endReceivingRemoteControlEvents];

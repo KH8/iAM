@@ -7,14 +7,14 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>6E0A1AA2-40C5-44D2-9653-A2CCB28D937E</string>
 	<key>IDESourceControlProjectName</key>
-	<string>iAM</string>
+	<string>project</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>13517A3DE5D92825D4A15CF63F54E7E8D93ADBF8</key>
 		<string>https://github.com/KH8/iAM.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>iAM.xcodeproj</string>
+	<string>iAM.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>13517A3DE5D92825D4A15CF63F54E7E8D93ADBF8</key>

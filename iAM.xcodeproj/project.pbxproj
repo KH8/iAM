@@ -1091,7 +1091,7 @@
 		A45F0D3C1A5C6515008673FC /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0630;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = miscApps;
 				TargetAttributes = {
 					A45F0D431A5C6515008673FC = {
@@ -1617,6 +1617,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -1681,6 +1682,7 @@
 				INFOPLIST_FILE = iAM/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "KrzysztofReczek.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "iAM/iAM-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -1695,6 +1697,7 @@
 				INFOPLIST_FILE = iAM/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "KrzysztofReczek.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "iAM/iAM-Bridging-Header.h";
 			};
@@ -1714,6 +1717,7 @@
 				);
 				INFOPLIST_FILE = iAMTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "H8.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iAM.app/iAM";
 			};
@@ -1729,6 +1733,7 @@
 				);
 				INFOPLIST_FILE = iAMTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "H8.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iAM.app/iAM";
 			};
@@ -1744,6 +1749,7 @@
 				INFOPLIST_FILE = "$(SRCROOT)/tickGrid/tickGrid.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "KrzysztofReczek.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = tickGrid;
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "iAM/iAM-Bridging-Header.h";
@@ -1762,6 +1768,7 @@
 				INFOPLIST_FILE = "$(SRCROOT)/tickGrid/tickGrid.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "KrzysztofReczek.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = tickGrid;
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "iAM/iAM-Bridging-Header.h";
@@ -1778,6 +1785,7 @@
 				INFOPLIST_FILE = "$(SRCROOT)/tickGrid Lite/tickGrid Lite.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "KrzysztofReczek.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "tickGrid Lite";
 				SWIFT_OBJC_BRIDGING_HEADER = "iAM/iAM-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -1794,6 +1802,7 @@
 				INFOPLIST_FILE = "$(SRCROOT)/tickGrid Lite/tickGrid Lite.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "KrzysztofReczek.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "tickGrid Lite";
 				SWIFT_OBJC_BRIDGING_HEADER = "iAM/iAM-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = 1;

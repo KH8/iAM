@@ -687,9 +687,6 @@
                                                         <constraint firstAttribute="width" constant="30" id="ttp-x0-KJA"/>
                                                     </constraints>
                                                     <state key="normal" title="Button" image="details.png"/>
-                                                    <connections>
-                                                        <segue destination="2uX-Xj-1FL" kind="show" identifier="sw_track1" id="xli-Zn-GUb"/>
-                                                    </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LOW COWBELL" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HPE-yE-lCq">
                                                     <rect key="frame" x="461" y="15" width="88.5" height="14.5"/>
@@ -792,9 +789,6 @@
                                                         <constraint firstAttribute="width" constant="30" id="aKG-5d-xVL"/>
                                                     </constraints>
                                                     <state key="normal" title="Button" image="details.png"/>
-                                                    <connections>
-                                                        <segue destination="2uX-Xj-1FL" kind="show" identifier="sw_track2" id="d6J-DJ-p0t"/>
-                                                    </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LOW STICK" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9d1-ZO-uUa">
                                                     <rect key="frame" x="484" y="15" width="65.5" height="14.5"/>
@@ -904,9 +898,6 @@
                                                         <constraint firstAttribute="width" constant="30" id="btG-Tu-T2A"/>
                                                     </constraints>
                                                     <state key="normal" title="Button" image="details.png"/>
-                                                    <connections>
-                                                        <segue destination="2uX-Xj-1FL" kind="show" identifier="sw_track3" id="1YK-mp-xRk"/>
-                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <animations/>
@@ -996,11 +987,14 @@
                         <outlet property="track3VolumeSlider" destination="qIA-BK-Pl2" id="z0o-dJ-Gbh"/>
                         <segue destination="hEN-7r-qKy" kind="presentation" identifier="sw_confirm" modalPresentationStyle="overFullScreen" modalTransitionStyle="coverVertical" id="vFl-po-kvb"/>
                         <segue destination="5t2-d4-3oA" kind="presentation" identifier="sw_sounds_popup" modalPresentationStyle="overFullScreen" modalTransitionStyle="coverVertical" id="A2U-uw-7qt"/>
+                        <segue destination="eWl-lW-ww6" kind="presentation" identifier="sw_track1" animates="NO" id="EYl-pD-QAs"/>
+                        <segue destination="eWl-lW-ww6" kind="presentation" identifier="sw_track2" animates="NO" id="dlL-xg-cQo"/>
+                        <segue destination="eWl-lW-ww6" kind="presentation" identifier="sw_track3" animates="NO" id="7RN-Pj-8rW"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bUw-3K-QeL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-883" y="2619"/>
+            <point key="canvasLocation" x="-883" y="2653"/>
         </scene>
         <!--Menu View Controller-->
         <scene sceneID="N5x-HU-r0s">
@@ -1565,7 +1559,7 @@
                     </connections>
                 </panGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-883" y="3569"/>
+            <point key="canvasLocation" x="-883" y="3633"/>
         </scene>
         <!--Popup View Controller-->
         <scene sceneID="VVj-28-hvs">
@@ -1826,7 +1820,7 @@
             <objects>
                 <tableViewController id="cRX-SY-RYs" customClass="AMSoundsTableViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" allowsSelectionDuringEditing="YES" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="0u5-R6-fK5">
-                        <rect key="frame" x="0.0" y="64" width="600" height="936"/>
+                        <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <animations/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -1867,32 +1861,41 @@
                             <outlet property="delegate" destination="cRX-SY-RYs" id="oQx-hp-QK7"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="ogZ-AN-Y9I"/>
+                    <navigationItem key="navigationItem" id="x19-1u-eUb">
+                        <barButtonItem key="leftBarButtonItem" title="BACK" id="C3h-kb-7K5">
+                            <connections>
+                                <action selector="dismiss:" destination="cRX-SY-RYs" id="BMf-pu-HxP"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+                    <connections>
+                        <outlet property="doneButton" destination="C3h-kb-7K5" id="cs7-GI-6Zh"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3mU-vN-Tqr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1386" y="2619"/>
+            <point key="canvasLocation" x="574" y="2453"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="7EL-jg-2z7">
+        <scene sceneID="zPF-ja-c5U">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="2uX-Xj-1FL" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="eWl-lW-ww6" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" id="N4f-lz-0up"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Bdf-uc-LuR">
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="ljI-st-Lhe">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <animations/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="cRX-SY-RYs" kind="relationship" relationship="rootViewController" id="vup-Y1-Icj"/>
+                        <segue destination="cRX-SY-RYs" kind="relationship" relationship="rootViewController" id="BTt-ao-RVK"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="iSz-N7-QKd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="f3h-e8-OpT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-72" y="2632"/>
+            <point key="canvasLocation" x="-163" y="2453"/>
         </scene>
     </scenes>
     <resources>
@@ -1906,10 +1909,10 @@
         <image name="settings_r.png" width="120" height="120"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="zkT-HV-92U"/>
         <segue reference="TIP-R1-KcY"/>
-        <segue reference="1YK-mp-xRk"/>
-        <segue reference="A2U-uw-7qt"/>
+        <segue reference="eFA-hQ-eRV"/>
+        <segue reference="HdI-RE-NKN"/>
+        <segue reference="dlL-xg-cQo"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
 </document>

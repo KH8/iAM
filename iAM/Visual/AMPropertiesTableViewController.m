@@ -76,8 +76,9 @@
                                                                    targer:self.revealViewController
                                                                  selector:@selector(revealToggle:)
                                                                      size:26];
+    UIBarButtonItem *dummy = [[UIBarButtonItem alloc] init];
     [AMRevealViewUtils initRevealController:revealController
-                            withRightButton:nil
+                            withRightButton:dummy
                               andLeftButton:_navigationBarItem.leftBarButtonItem];
 }
 
@@ -171,6 +172,13 @@
     if ([[segue identifier] isEqualToString:@"sw_track3"]) {
         [rootController assignPlayer:_arrayOfPlayers[2]];
     }
+    
+    CATransition *transition = [CATransition animation];
+    transition.duration = 0.3;
+    transition.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+    transition.type = kCATransitionPush;
+    transition.subtype = kCATransitionFromRight;
+    [self.view.window.layer addAnimation:transition forKey:nil];
 }
 
 - (IBAction)changeTintColor:(id)sender {

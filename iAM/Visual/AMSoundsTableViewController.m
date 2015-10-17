@@ -14,6 +14,8 @@
 
 @interface AMSoundsTableViewController ()
 
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *doneButton;
+
 @property AMMutableArray *arrayOfSounds;
 @property AMPlayer *amPlayer;
 @property NSIndexPath *indexSelected;
@@ -41,7 +43,8 @@
 - (void)initColors {
     UIColor *backgrounColor = [AMAppearanceManager getGlobalColorTheme];
     [self.view setBackgroundColor:backgrounColor];
-}
+    [self.navigationController.navigationBar setBarTintColor:backgrounColor];
+    [_doneButton setTintColor: [AMAppearanceManager getGlobalTintColor]];}
 
 - (void)initDictionaryOfSounds {
     _arrayOfSounds = [[AMMutableArray alloc] initWithMaxCount:26];
@@ -139,5 +142,14 @@ titleForFooterInSection:(NSInteger)section {
     return @"Select one sound that will be applied to the track.";
 }
 
+- (IBAction)dismiss:(id)sender {
+    CATransition *transition = [CATransition animation];
+    transition.duration = 0.3;
+    transition.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+    transition.type = kCATransitionPush;
+    transition.subtype = kCATransitionFromLeft;
+    [self.navigationController.view.window.layer addAnimation:transition forKey:nil];
+    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+}
 
 @end

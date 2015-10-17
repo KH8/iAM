@@ -9,7 +9,7 @@
 #import "AMConfig.h"
 
 static NSString *appName = @"iAM LTD";
-static NSString *version = @"v1.0.0";
+static NSString *version = @"v1.0.1";
 
 static int maxBarCount = 16;
 static int maxStepCount = 32;
